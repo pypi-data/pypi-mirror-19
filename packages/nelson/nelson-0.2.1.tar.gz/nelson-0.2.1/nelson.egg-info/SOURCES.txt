@@ -1,0 +1,17 @@
+CHANGES.txt
+MANIFEST.in
+README.rst
+setup.py
+nelson/__init__.py
+nelson/abstract.py
+nelson/developer.py
+nelson/gtomscs.py
+nelson/sessionbuilder.py
+nelson/udacity.py
+nelson/uploadcallbacks.py
+nelson.egg-info/PKG-INFO
+nelson.egg-info/SOURCES.txt
+nelson.egg-info/dependency_links.txt
+nelson.egg-info/entry_points.txt
+nelson.egg-info/requires.txt
+nelson.egg-info/top_level.txt
