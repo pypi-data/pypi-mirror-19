@@ -1,0 +1,25 @@
+Metadata-Version: 1.1
+Name: zimupy
+Version: 0.0.2
+Summary: zimupy: ZiMuZu SDK for Python
+Home-page: https://github.com/lazygunner/zimupy
+Author: lazygunner
+Author-email: gymgunner@gmail.com
+License: UNKNOWN
+Description: # zimupy
+        ZiMuZu Non-official Python SDK
+        
+Keywords: ZiMuZu,zimuzu,SDK
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: Implementation :: PyPy
