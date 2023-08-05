@@ -1,0 +1,13 @@
+Metadata-Version: 2.0
+Name: kira
+Version: 1.0.0
+Summary: A Python MAL API
+Home-page: https://github.com/datlofdev/Kira
+Author: Jackson Ca. Rakena
+Author-email: jackson.rakena2@gmail.com
+License: MIT
+Requires-Dist: requests
+
+Kira: A Python API for the MyAnimeList API
+
+
