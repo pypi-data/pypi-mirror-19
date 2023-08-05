@@ -1,0 +1,18 @@
+*** Settings ***
+Library           pandas
+Library           Collections
+
+*** Variables ***
+${csvfile}        C:\\Python27\\Lib\\site-packages\\CodeLibWrapper\\RobotFrameworkSample\\SampleData\\pandas_csv.csv
+
+*** Test Cases ***
+Pandas_ShowVersion
+    ${pandas_version}    Show Versions
+    log    ${pandas_version}
+
+Pandas_DataSource_ReadCSV
+    @{csv}    Read Csv    ${csvfile}    encoding='gbk'
+    ${newvalue}    Set Variable    ${csv}[u'商品编号']
+    Comment    log many    ${newvalue}
+    Comment    log    ${newvalue[0]}
+    log    ${csv[1][1]}
