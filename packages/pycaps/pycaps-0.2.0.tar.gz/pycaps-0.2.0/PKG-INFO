@@ -1,0 +1,34 @@
+Metadata-Version: 1.1
+Name: pycaps
+Version: 0.2.0
+Summary: Linux capabilities for python.
+Home-page: https://github.com/joeblackwaslike/pycaps
+Author: Joe Black
+Author-email: joeblack949@gmail.com
+License: Apache 2.0
+Download-URL: https://github.com/joeblackwaslike/pycaps/tarball/0.2.0
+Description: # PyCaps
+        
+        Linux capabilities for python.
+        
+        Example:
+            >>> import pycaps
+            >>> caps = pycaps.get_caps()
+            
+            >>> if caps['setgid']: print('setgid enabled')
+            >>> if caps['setgid'] is pycaps.ENABLED: print('setgid enabled')
+        
+        Requirements:
+        * Linux
+        * libcap2
+        
+Keywords: linux,capabilities,libcap2
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: System :: Systems Administration
