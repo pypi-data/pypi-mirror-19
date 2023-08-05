@@ -1,0 +1,19 @@
+Metadata-Version: 2.0
+Name: jpydict
+Version: 1.0.0
+Summary: Japanese-English dictionary, interface for JMdict
+Home-page: https://github.com/benoitryder/jpydict
+Author: Benoît Ryder
+Author-email: benoit@ryder.fr
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: X11 Applications :: GTK
+Requires-Dist: appdirs
+
+UNKNOWN
+
+
