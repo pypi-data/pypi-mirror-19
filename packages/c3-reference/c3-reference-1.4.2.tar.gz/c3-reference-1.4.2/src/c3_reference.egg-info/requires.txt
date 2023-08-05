@@ -1,0 +1,4 @@
+pycryptodome==3.4.3
+
+[test]
+tox
