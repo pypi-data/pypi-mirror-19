@@ -1,0 +1,9 @@
+
+RPWin 0.2
+by José Carlos Díaz Ramos
+
+PyRP is a Python application that implements the ARPO family of methods based on the Recursive Performance.
+The method has been developed in M. Brozos-Vázquez, M. C. Campo-Cabana, J. C. Díaz-Ramos, J. González-Díaz: Ranking participants in a tournament by means of rating functions, J. Math. Econom. 44 (2008), 1246-1256.
+
+RPWin is a GUI application that runs PyRP. It has been developed using Python 3.4 and Tkinter 8.6.
+Output as xlsx is also supported via the external openpyxl 2.3.2 package.
