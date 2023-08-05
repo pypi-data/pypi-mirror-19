@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: pyDots
+Version: 1.1.16366
+Summary: Dot-access to Python dicts like Javascript
+Home-page: https://github.com/klahnakoski/pyDots
+Author: Kyle Lahnakoski
+Author-email: kyle@lahnakoski.com
+License: MPL 2.0
+Description: Consistent dicts, lists and Nones
+        =================================
+        
+        This library is solves Python's lack of consistency (lack of closure)
+        under the dot (``.``) and slice ``[::]`` operators. The most significant
+        differences involve dealing with ``None``, missing property names, and
+        missing items.
+        
+        `Full
+        documentation <https://github.com/klahnakoski/pyDots/tree/master/docs>`__
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
