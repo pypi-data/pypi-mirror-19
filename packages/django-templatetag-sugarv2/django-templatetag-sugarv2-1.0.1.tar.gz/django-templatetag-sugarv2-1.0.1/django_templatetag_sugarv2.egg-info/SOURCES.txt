@@ -1,0 +1,12 @@
+README.rst
+setup.cfg
+setup.py
+django_templatetag_sugarv2.egg-info/PKG-INFO
+django_templatetag_sugarv2.egg-info/SOURCES.txt
+django_templatetag_sugarv2.egg-info/dependency_links.txt
+django_templatetag_sugarv2.egg-info/top_level.txt
+templatetag_sugar/__init__.py
+templatetag_sugar/models.py
+templatetag_sugar/node.py
+templatetag_sugar/parser.py
+templatetag_sugar/register.py
