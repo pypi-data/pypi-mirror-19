@@ -1,0 +1,15 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.py
+smycli/__init__.py
+smycli/errors.py
+smycli/forward.py
+smycli/main.py
+smycli/utils.py
+smycli.egg-info/PKG-INFO
+smycli.egg-info/SOURCES.txt
+smycli.egg-info/dependency_links.txt
+smycli.egg-info/entry_points.txt
+smycli.egg-info/requires.txt
+smycli.egg-info/top_level.txt
