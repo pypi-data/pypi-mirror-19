@@ -1,0 +1,8 @@
+ncephes
+numpy>=1.9
+
+[numba]
+numba>=0.28
+
+[scipy]
+scipy>=0.17.1
