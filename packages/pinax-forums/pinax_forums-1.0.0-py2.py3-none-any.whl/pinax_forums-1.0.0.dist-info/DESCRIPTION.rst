@@ -1,0 +1,45 @@
+
+============
+Pinax Forums
+============
+.. image:: http://slack.pinaxproject.com/badge.svg
+   :target: http://slack.pinaxproject.com/
+
+.. image:: https://img.shields.io/travis/pinax/pinax-forums.svg
+    :target: https://travis-ci.org/pinax/pinax-forums
+
+.. image:: https://img.shields.io/coveralls/pinax/pinax-forums.svg
+    :target: https://coveralls.io/r/pinax/pinax-forums
+
+.. image:: https://img.shields.io/pypi/dm/pinax-forums.svg
+    :target:  https://pypi.python.org/pypi/pinax-forums/
+
+.. image:: https://img.shields.io/pypi/v/pinax-forums.svg
+    :target:  https://pypi.python.org/pypi/pinax-forums/
+
+.. image:: https://img.shields.io/badge/license-MIT-blue.svg
+    :target:  https://pypi.python.org/pypi/pinax-forums/
+
+
+Pinax
+------
+
+Pinax is an open-source platform built on the Django Web Framework. It is an
+ecosystem of reusable Django apps, themes, and starter project templates.
+This collection can be found at http://pinaxproject.com.
+
+This app was developed as part of the Pinax ecosystem but is just a Django app
+and can be used independently of other Pinax apps.
+
+
+pinax-forums
+-------------
+
+``pinax-forums`` is an extensible forums app for Django and Pinax. It is
+focused on core forum functionality and hence is expected to be combined with
+other Pinax apps for broader features.
+
+See ``pinax-project-forums`` for a full Django project incorporating numerous
+apps with the goal of providing an out of the box forums solution.
+
+
