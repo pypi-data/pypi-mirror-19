@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: universal-notifications
+Version: 0.4.0
+Summary: High-level framework for notifications
+Home-page: https://github.com/ArabellaTech/universal_notifications
+Author: Pawel Krzyzaniak
+Author-email: pawelk@arabel.la
+License: MIT
+Description: # universal_notifications
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Internet :: WWW/HTTP
