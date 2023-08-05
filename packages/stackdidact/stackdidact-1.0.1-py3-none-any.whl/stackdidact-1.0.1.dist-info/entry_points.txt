@@ -1,0 +1,3 @@
+[console_scripts]
+stackdidact = stackdidact.cli:main_cli
+
