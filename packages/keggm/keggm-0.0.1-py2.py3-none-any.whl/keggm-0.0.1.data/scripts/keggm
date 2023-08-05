@@ -1,0 +1,113 @@
+#!python
+###############################################################################
+#                                                                             #
+#    This program is free software: you can redistribute it and/or modify     #
+#    it under the terms of the GNU General Public License as published by     #
+#    the Free Software Foundation, either version 3 of the License, or        #
+#    (at your option) any later version.                                      #
+#                                                                             #
+#    This program is distributed in the hope that it will be useful,          #
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of           #
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the            #
+#    GNU General Public License for more details.                             #
+#                                                                             #
+#    You should have received a copy of the GNU General Public License        #
+#    along with this program. If not, see <http://www.gnu.org/licenses/>.     #
+#                                                                             #
+###############################################################################
+#                                                                              #
+# keggM - a suite of kegg related tools for easier analysis of genomes        #
+#                                                                              #
+###############################################################################
+
+__author__ = "Alexander Baker"
+__copyright__ = "Copyright 2016"
+__credits__ = ["Alexander Baker"]
+__license__ = "GPL3"
+__maintainer__ = "Alexander Baker"
+__email__ = "alexander.baker at uqconnect.edu.au"
+__status__ = "Development"
+
+import argparse
+import sys
+import os
+
+main_dir=os.path.join(os.path.dirname(os.path.realpath(__file__)),'..')
+
+db_dir=os.path.join(main_dir,"Databases")
+
+sys.path = [main_dir]+sys.path
+
+from keggm import main
+
+def parse_args():
+    parser=argparse.ArgumentParser()
+    subparsers = parser.add_subparsers(help='''Please select a workflow:
+	enrichm			-		extract modules which have significantly more genes than expected in a genome based on a specified background genome.
+	completem		-		Calculate the completeness of every module across all genomes in the KO_file and return the KOs contributing to that completeness.
+	keggscrape		-		**Unimplemented** Scrape all current information from kegg to make new local databases.
+	plots			-		**Unimplemented** Make visualisations of complementarity and completeness across genomes.
+	testsuite		-		**Unimplemented** Run a  tes suite for all commands to check if the install worked and there are no bugs.''',dest='subparser_name')
+	
+    parser.add_argument("-c","--cpus",help="**UNIMPLEMENTED** - Break each of the pair of comparisons onto a subprocess")
+    parser.add_argument("-v","--verbose",help="**UNIMPLEMENTED** - Decide whether to have more descriptive output of current steps.")
+    enrichm_parser=subparsers.add_parser('enrichm',description="A simple tool for looking for enrichment of KO hits to kegg modules\
+    between groups of genomes.")
+    enrichm_parser.add_argument('KO_file',help="A file KO counts with KO as row and source as column or genome\tKO1;KO2;.... pairs")
+    enrichm_parser.add_argument('-gf','--groupings_file',help="A file containing the genomes that should be grouped with a specific name")
+    enrichm_parser.add_argument('-cf','--comparisons_file',help="A file containing the comparisons between groups to be made")
+    enrichm_parser.add_argument('threshold',help="The threshold to control for in false discovery rate of familywise error rate",type=float)
+    enrichm_parser.add_argument('--database_dir',help="The directory containing the local kegg databases.",default=db_dir)
+    enrichm_parser.add_argument('output_dir',help="The directory to write output information.")
+    enrichm_parser.add_argument('-b','--bin_file',help="A file containing a taxonomic pairing with some genomes")
+    enrichm_parser.add_argument('-m','--mult_test_correction',default='fdr_bh',help='The form of mutiple test correction to use. Uses the statsmodel module and consequently has all of its options. ')
+    enrichm_parser.add_argument('--exclude',help='A list of kegg items to exclude from the analysis.')
+    enrichm_parser.add_argument('--extra',help='A file of extra kegg_item: KO pairs defined by the user.')
+    enrichm_parser.add_argument('--extra_defs',help='A file of extra kegg_item\tKEGG definition pairs defined by the user.')
+    enrichm_parser.add_argument('--remove_overlap',help='Whether to remove overlap when comparing groups',default=False)
+    enrichm_parser.add_argument('--make_mo_comps',help='Whether to remove overlap when comparing groups',default=True)
+    enrichm_parser.add_argument('--totals_file',help='A file with total gene counts for calculating proportions and do fisher\'s exact test')
+    
+    completem_parser=subparsers.add_parser('completem',description="A small library of tools for evaluting kegg booleans offline.")
+    
+    completem_parser.add_argument('KO_file',help="A file KO counts with KO as row and source as column or genome\tKO1;KO2;.... pairs")
+    completem_parser.add_argument('--database_dir',help="The directory containing the local kegg databases.",default=db_dir)
+    completem_parser.add_argument('output_dir',help="The directory to write output information.")
+    completem_parser.add_argument('-b','--bin_file',help="A file containing a taxonomic pairing with some genomes")
+    completem_parser.add_argument('--exclude',help='A list of kegg items to exclude from the analysis.')
+    completem_parser.add_argument('--extra',help='A file of extra kegg_item: KO pairs defined by the user.')
+    completem_parser.add_argument('--extra_defs',help='A file of extra kegg_item\tKEGG definition pairs defined by the user.')
+    completem_parser.add_argument('--extract_core',help='Extract only modules with at least one KO hit in all genomes',default=False)
+    
+    keggscrape_parser=subparsers.add_parser('keggscrape',description="**IN DEVELOPMENT** A utility to create local databases from kegg.")
+  
+    keggscrape_parser.add_argument('database_dir',help="The directory containing the local kegg databases.",default=db_dir)
+    keggscrape_parser.add_argument('output_dir',help="The directory to write output information.")
+    
+    plots_parser=subparsers.add_parser('plots',description="**IN DEVELOPMENT** Heatmaps and module complementation diagrams made from kegg modules")
+    
+    plots_parser.add_argument('KO_file',help="A file KO counts with KO as row and source as column or genome\tKO1;KO2;.... pairs")
+    plots_parser.add_argument('inclusion_file',help="")
+    plots_parser.add_argument('database_dir',help="The directory containing the local kegg databases.",default=db_dir)
+    plots_parser.add_argument('output_dir',help="The directory to write output information.")
+    plots_parser.add_argument('module_file',help="The modules to make plots from")
+    plots_parser.add_argument('-b','--bin_file',help="A file containing a taxonomic pairing with some genomes")
+    plots_parser.add_argument('--exclude',help='A list of kegg items to exclude from the analysis.')
+    plots_parser.add_argument('--extra',help='A file of extra kegg_item: KO pairs defined by the user.')
+    plots_parser.add_argument('--extra_defs',help='A file of extra kegg_item\tKEGG definition pairs defined by the user.')
+    
+    test_parser=subparsers.add_parser('testsuite',description="**IN DEVELOPMENT** Test suite to check if the install worked.")
+    test_parser.add_argument('database_dir',help="The directory containing the local kegg databases.",default=db_dir)
+    test_parser.add_argument('output_dir',help="The directory to write output information.")
+    
+    args=parser.parse_args()
+    
+    return args
+
+if __name__ == '__main__':
+    
+    args=parse_args()
+	
+	#print args.
+    
+    main(args)

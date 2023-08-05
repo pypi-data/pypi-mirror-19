@@ -1,0 +1,18 @@
+Metadata-Version: 2.0
+Name: keggm
+Version: 0.0.1
+Summary: A tool for doing enrichment tests of functional groupings of genes across genomes and lineages.
+Home-page: http://github.com/AlexRBaker/
+Author: Alexander Robert Baker
+Author-email: alexander.baker@uqconnect.edu.au
+License: GNU GPL3+
+Keywords: kegg
+Platform: any
+Requires-Dist: numpy (>=1.0.1)
+Requires-Dist: pandas (>=0.17.1)
+Requires-Dist: scipy (>=0.16.1)
+Requires-Dist: seaborn (>=0.7.1)
+
+UNKNOWN
+
+
