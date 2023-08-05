@@ -1,0 +1,12 @@
+MANIFEST.in
+setup.cfg
+setup.py
+p55py/__init__.py
+p55py/canvas.py
+p55py/legacy.py
+p55py/sketch.py
+p55py.egg-info/PKG-INFO
+p55py.egg-info/SOURCES.txt
+p55py.egg-info/dependency_links.txt
+p55py.egg-info/requires.txt
+p55py.egg-info/top_level.txt
