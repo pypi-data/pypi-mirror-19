@@ -1,0 +1,14 @@
+*** Settings ***
+Library           ../CodeLibWrapper.py
+
+*** Keywords ***
+KW_XML_ValidateXSD
+    [Arguments]    ${xmlfilepath}    ${xsdfilepath}
+    [Documentation]    通过XML Schema文件校验XML的内容是否符合Schema的定义
+    ${Result}    Xml Schema Validate    ${xmlfilepath}    ${xsdfilepath}
+    [Return]    ${Result}
+
+KW_XML_XML2Obj
+    [Arguments]    ${xmlContent}
+    ${return_Obj}    xml_convert_xml_to_object    ${xmlContent}
+    [Return]    ${return_Obj}

@@ -1,0 +1,77 @@
+*** Settings ***
+Library           ../CodeLibWrapper.py
+Library           Collections
+Library           RequestsLibrary
+
+*** Keywords ***
+KW_API_ReadWebService_Ownership
+    [Arguments]    ${url}
+    ${dict}    Create Dictionary    accept=application/xml
+    Create Session    OwnershipAccess    http://ownership.morningstar.com
+    Comment    ${addr}    Get Request    OwnershipAccess    ownershipdata/api/GetData.aspx?function=GetOwnershipData&cusip=000360206&ownertype=MutualFund    ${dict}
+    ${addr}    Get Request    OwnershipAccess    ${url}    ${dict}
+    Should Be Equal As Strings    ${addr.status_code}    200
+    Log    ${addr.content}
+    Log    ${addr.url}
+    [Return]    ${addr.content}
+
+KW_API_ReadWebService_EXOI
+    [Arguments]    ${username}    ${password}    ${url}
+    ${APIReaderResult}    Api Readwebservice Exoi    ${username}    ${password}    ${url}
+    Comment    Log    ${APIReaderResult.displayurl}
+    Comment    Log    ${APIReaderResult.displaystatuscode}
+    Comment    Log    ${APIReaderResult.displaycontent}
+    Comment    Log    ${APIReaderResult.convert2json}
+    [Return]    ${APIReaderResult}
+
+KW_API_ReadWebservice_DataAPI_Get
+    [Arguments]    ${endpoint}    ${productId}    ${userId}    ${params}
+    ${header}    Create Dictionary    X-API-ProductId=${productId}    X-API-UserId=${userId}
+    ${uri_params}    Create Dictionary    view=${params}
+    Create Session    httpbin    ${endpoint}
+    ${resp}    Get Request    httpbin    /dataapi/v2/columnSets/${columnSetId}    headers=&{header}    params=${uri_params}
+    [Return]    ${resp}
+
+KW_API_ReadWebservice_DataAPI_Post
+    [Arguments]    ${endpoint}    ${productId}    ${userId}    ${params}
+    &{header}    Create Dictionary    X-API-ProductId=${productId}    X-API-UserId=${userId}
+    ${uri_params}    Create Dictionary    view=${params}
+    Create Session    httpbin    ${endpoint}
+    ${resp}    Get Request    httpbin    /dataapi/v2/columnSets/${columnSetId}    headers=&{header}    params=${uri_params}
+    [Return]    ${resp}
+
+KW_API_ReadWebService_Common
+    [Arguments]    ${Host}    ${URL}
+    ${dict}    Create Dictionary    accept=application/xml
+    Create Session    CommonAPI    ${Host}
+    Comment    ${addr}    Get Request    CommonAPI    ${URL}    ${dict}
+    ${addr}    Get Request    CommonAPI    ${URL}    ${dict}
+    Should Be Equal As Strings    ${addr.status_code}    200
+    Comment    Log    ${addr.content}
+    Comment    Log    ${addr.url}
+    [Return]    ${addr.content}
+
+KW_API_ReadWebService_EquityAPI
+    [Arguments]    ${Host}    ${URL}    ${Token}
+    ${dict}    Create Dictionary    accept=application/xml
+    Create Session    EquityAPI    ${Host}
+    Comment    ${addr}    Get Request    EquityAPI    ${URL}    ${dict}
+    ${addr}    Get Request    EquityAPI    ${URL}&Token=${Token}    ${dict}
+    Should Be Equal As Strings    ${addr.status_code}    200
+    Comment    Log    ${addr.content}
+    Comment    Log    ${addr.url}
+    [Return]    ${addr.content}
+
+KW_API_ReadWebService_GID
+    [Arguments]    ${url}    ${encrypt_mail}    ${encrypt_password}
+    ${APIReaderResult}    Api Readwebservice Gid    ${url}    ${encrypt_mail}    ${encrypt_password}
+    Should Be Equal As Integers    ${APIReaderResult.status_code }    200
+    comment    log    ${APIReaderResult.content}
+    [Return]    ${APIReaderResult.content}
+
+KW_API_BuildURL_GID
+    [Arguments]    ${Input}    ${output}
+    [Documentation]    Build GID access URL by input and output condition.
+    ${result}    Api Build Gid Url    ${Input}     ${output}
+    Comment    Log    ${result}
+    [Return]    ${result}
