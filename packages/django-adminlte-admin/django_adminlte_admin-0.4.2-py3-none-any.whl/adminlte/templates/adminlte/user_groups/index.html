@@ -1,0 +1,32 @@
+{% extends 'adminlte/lib/base.html' %}
+
+{% block content %}
+    <form>
+    <div class="box">
+        {% include 'adminlte/lib/_list_search_form.html' %}
+
+        <div class="box-body">
+            <table class="table table-bordered">
+                <tr>
+                    <th>#</th>
+                    <th>username</th>
+                    <th>email</th>
+                </tr>
+                {% for item in pager.items %}
+                    <tr data-id="{{ item.id }}">
+                        <td>
+                            <a href="{% url 'adminlte.user.group.edit' pk=item.id %}">{{ forloop.counter }}</a>
+                        </td>
+                        <td>{{ item.username }}</td>
+                        <td>{{ item.email }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer clearfix">
+            {% include 'adminlte/lib/_pagination.html' %}
+        </div>
+    </div>
+    </form>
+{% endblock %}
