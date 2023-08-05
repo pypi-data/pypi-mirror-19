@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: u2parser
+Version: 1.2.7
+Summary: A parser for Unified2 logs (Snort).
+Home-page: https://github.com/di3g0bs0n/u2parser
+Author: Diego Fernandez
+Author-email: di3g0bs0n@gmail.com
+License: GPLv3
+Description: A unified2 log parser which reads a file, and returns all records.
+Keywords: snort unified2 parser
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Utilities
