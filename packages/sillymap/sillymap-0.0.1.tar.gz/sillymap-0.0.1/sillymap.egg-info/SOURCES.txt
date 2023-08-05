@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+license.txt
+setup.py
+bin/sillymap
+sillymap/__init__.py
+sillymap.egg-info/PKG-INFO
+sillymap.egg-info/SOURCES.txt
+sillymap.egg-info/dependency_links.txt
+sillymap.egg-info/not-zip-safe
+sillymap.egg-info/top_level.txt
