@@ -1,0 +1,11 @@
+__version__ = "0.4.14"
+__git_commiter_name__ = "Guy Rozendorn"
+__git_commiter_email__ = "guy@rzn.co.il"
+__git_branch__ = u'develop'
+__git_remote_tracking_branch__ = u'origin/develop'
+__git_remote_url__ = u'git@git.infinidat.com:host-opensource/infi.storagemodel.git'
+__git_head_hash__ = 'f2aae3bc70632c77dd34a8a658f52bc92ef65d7b'
+__git_head_subject__ = u'Finished Release v0.4.14'
+__git_head_message__ = u'* develop:\n  STORAGEMODEL-381 fixing typo in previous commit\n  HPT-2004 refactoring ConnectivityFactoryImpl.get_iscsi_hctl_mappings to use caching for get_sessions'
+__git_dirty_diff__ = u''
+__git_commit_date__ = '2016-12-21 15:46:07'
