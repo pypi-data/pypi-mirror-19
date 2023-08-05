@@ -1,0 +1,432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>matminer.models package &#8212; matminer 0.0.7 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">matminer 0.0.7 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="matminer-models-package">
+<h1>matminer.models package<a class="headerlink" href="#matminer-models-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="matminer-models-mechanical-properties-module">
+<h2>matminer.models.mechanical_properties module<a class="headerlink" href="#matminer-models-mechanical-properties-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-matminer.models.sound_velocity">
+<span id="matminer-models-sound-velocity-module"></span><h2>matminer.models.sound_velocity module<a class="headerlink" href="#module-matminer.models.sound_velocity" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="matminer.models.sound_velocity.SoundVelocityModel">
+<em class="property">class </em><code class="descclassname">matminer.models.sound_velocity.</code><code class="descname">SoundVelocityModel</code><a class="headerlink" href="#matminer.models.sound_velocity.SoundVelocityModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is an example model</p>
+<dl class="method">
+<dt id="matminer.models.sound_velocity.SoundVelocityModel.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#matminer.models.sound_velocity.SoundVelocityModel.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matminer.models.sound_velocity.SoundVelocityModel.citation">
+<code class="descname">citation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#matminer.models.sound_velocity.SoundVelocityModel.citation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matminer.models.sound_velocity.SoundVelocityModel.compute">
+<code class="descname">compute</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#matminer.models.sound_velocity.SoundVelocityModel.compute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="matminer.models.sound_velocity.effective_cubic_elasticconstant">
+<code class="descclassname">matminer.models.sound_velocity.</code><code class="descname">effective_cubic_elasticconstant</code><span class="sig-paren">(</span><em>direction</em>, <em>mode</em>, <em>C_11=None</em>, <em>C_12=None</em>, <em>C_44=None</em><span class="sig-paren">)</span><a class="headerlink" href="#matminer.models.sound_velocity.effective_cubic_elasticconstant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate effective elastic constant (C_eff) for a cubic material.</p>
+<dl class="docutils">
+<dt>References:</dt>
+<dd><a class="reference external" href="http://unlcms.unl.edu/cas/physics/tsymbal/teaching/SSP-927/Section%2004_Elastic_Properties.pdf">http://unlcms.unl.edu/cas/physics/tsymbal/teaching/SSP-927/Section%2004_Elastic_Properties.pdf</a></dd>
+<dt>Args:</dt>
+<dd>direction: (str) direction of sound velocity. Choose from Choose from &#8220;100&#8221;, &#8220;110&#8221;, and &#8220;111&#8221;.
+mode: (str) wave mode. Choose from &#8220;longitudinal&#8221;, &#8220;transverse1&#8221;, and &#8220;transverse2&#8221;.
+C_11: elastic constant C_xxxx (N/m^2)
+C_12: elastic constant C_xxyy (N/m^2)
+C_44: elastic constant C_yzyz (N/m^2)</dd>
+</dl>
+<p>Returns: (float) effective elastic constant (C_eff) for a cubic material (N/m^2).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matminer.models.sound_velocity.sound_velocity">
+<code class="descclassname">matminer.models.sound_velocity.</code><code class="descname">sound_velocity</code><span class="sig-paren">(</span><em>C_eff</em>, <em>rho</em><span class="sig-paren">)</span><a class="headerlink" href="#matminer.models.sound_velocity.sound_velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate sound velocity (v) in a material from elastic constant.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>C_eff: (float) effective elastic constant (N/m^2)
+rho: (float) material density (kg/m^3)</dd>
+</dl>
+<p>Returns: (float) velocity of sound (m/s) in the material</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-matminer.models.thermal_conductivity">
+<span id="matminer-models-thermal-conductivity-module"></span><h2>matminer.models.thermal_conductivity module<a class="headerlink" href="#module-matminer.models.thermal_conductivity" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="matminer.models.thermal_conductivity.CahillSimpleModel">
+<em class="property">class </em><code class="descclassname">matminer.models.thermal_conductivity.</code><code class="descname">CahillSimpleModel</code><span class="sig-paren">(</span><em>*values</em>, <em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#matminer.models.thermal_conductivity.CahillSimpleModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate Cahill thermal conductivity.</p>
+<dl class="docutils">
+<dt>References:</dt>
+<dd><ul class="first simple">
+<li>DOI: 10.1016/j.jallcom.2014.09.022 (Title: &#8220;Electronic structure, elastic anisotropy,</li>
+</ul>
+<p class="last">thermal conductivity and optical properties of calcium apatite Ca5(PO4)3X (X = F, Cl or Br)&#8221;)
+- DOI: 10.1016/j.commatsci.2015.07.029 (Title: &#8220;Electronic structure, mechanical properties and
+anisotropy of thermal conductivity of Y-Si-O-N quaternary crystals&#8221;)
+- DOI: 10.1002/adma.201400515 (Title: &#8220;High Thermoelectric Performance in Non-Toxic Earth-Abundant
+Copper Sulfide&#8221;)</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="matminer.models.thermal_conductivity.CahillSimpleModel.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*values</em>, <em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#matminer.models.thermal_conductivity.CahillSimpleModel.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Args:</dt>
+<dd>n: (int) number of atoms in unit cell
+V: (float) unit cell volume (in SI units, i.e. m^(3))
+v_l: (float) longitudinal sound velocity (in SI units, i.e. m/s)
+v_t1: (float) transverse sound velocity in direction 1 (in SI units, i.e. m/s)
+v_t2: (float) transverse sound velocity in direction 2 (in SI units, i.e. m/s)</dd>
+</dl>
+<p>Returns: None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matminer.models.thermal_conductivity.CahillSimpleModel.calculate">
+<code class="descname">calculate</code><span class="sig-paren">(</span><em>*values</em>, <em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#matminer.models.thermal_conductivity.CahillSimpleModel.calculate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns: (float) Cahill thermal conductivity (in SI units, i.e. joule/(m*s*kelvin))</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="matminer.models.thermal_conductivity.cahill_integrand">
+<code class="descclassname">matminer.models.thermal_conductivity.</code><code class="descname">cahill_integrand</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#matminer.models.thermal_conductivity.cahill_integrand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Integrand function to calculate Cahill thermal conductivity.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>x: (hbar * omega)/(k * T)   # hbar: reduced Planck&#8217;s constant, omega = phonon frequency</dd>
+</dl>
+<p>Returns: (float) integral value</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matminer.models.thermal_conductivity.cahill_integrand_model">
+<code class="descclassname">matminer.models.thermal_conductivity.</code><code class="descname">cahill_integrand_model</code><span class="sig-paren">(</span><em>n</em>, <em>V</em>, <em>cahill_integrand_sum</em><span class="sig-paren">)</span><a class="headerlink" href="#matminer.models.thermal_conductivity.cahill_integrand_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate Cahill thermal conductivity using the intergrand model.</p>
+<dl class="docutils">
+<dt>References:</dt>
+<dd><ul class="first simple">
+<li>DOI: 10.1002/adfm.201600718 (Title: &#8220;Minimum Thermal Conductivity in Weak Topological Insulators with</li>
+</ul>
+<p class="last">Bismuth-Based Stack Structure&#8221;)
+- DOI: 10.1038/nature13184 (Title: &#8220;Ultralow thermal conductivity and high thermoelectric figure of merit in
+SnSe crystals&#8221;) (full formula)</p>
+</dd>
+<dt>Args:</dt>
+<dd>n: (int) number of atoms in primitive cell
+V: (float) unit cell volume (in SI units, i.e. m^(3))
+cahill_integrand_sum: (float) <em>sum</em> of the term calculate using the above function &#8220;cahill_integrand_summation&#8221;</dd>
+</dl>
+<p>Returns: (float) Cahill thermal conductivity (in SI units, i.e. W(mK)^(-1))</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matminer.models.thermal_conductivity.cahill_integrand_summation">
+<code class="descclassname">matminer.models.thermal_conductivity.</code><code class="descname">cahill_integrand_summation</code><span class="sig-paren">(</span><em>v_i</em>, <em>T</em>, <em>theta</em><span class="sig-paren">)</span><a class="headerlink" href="#matminer.models.thermal_conductivity.cahill_integrand_summation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the summation term for the Cahill thermal conductivity integrand model.
+Use this function repeatedly to calculate the total sum over all acoustic modes.</p>
+<dl class="docutils">
+<dt>References:</dt>
+<dd><ul class="first simple">
+<li>DOI: 10.1002/adfm.201600718 (Title: &#8220;Minimum Thermal Conductivity in Weak Topological Insulators with</li>
+</ul>
+<p class="last">Bismuth-Based Stack Structure&#8221;)
+- DOI: 10.1038/nature13184 (Title: &#8220;Ultralow thermal conductivity and high thermoelectric figure of merit in
+SnSe crystals&#8221;) (full formula)</p>
+</dd>
+<dt>Args:</dt>
+<dd>v_i: (float) sound velocity for the acoustic mode i (in SI units, i.e. m(s)^(-1))
+T: (float) absolute temperature (in K)
+theta: (float) Debye temperature (in K)</dd>
+</dl>
+<p>Returns: (float) summation term for only <em>one</em> acoustic mode i</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matminer.models.thermal_conductivity.callaway_integrand">
+<code class="descclassname">matminer.models.thermal_conductivity.</code><code class="descname">callaway_integrand</code><span class="sig-paren">(</span><em>x</em>, <em>t_ph</em><span class="sig-paren">)</span><a class="headerlink" href="#matminer.models.thermal_conductivity.callaway_integrand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Integrand function to calculate Callaway thermal conductivity.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>x: (hbar * omega)/(k * T)   # hbar: reduced Planck&#8217;s constant, omega = phonon frequency
+t_ph: (float) phonon relaxation time (in SI units, s^(-1))</dd>
+</dl>
+<p>Returns: (float) integral value</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matminer.models.thermal_conductivity.callaway_model">
+<code class="descclassname">matminer.models.thermal_conductivity.</code><code class="descname">callaway_model</code><span class="sig-paren">(</span><em>v_m</em>, <em>T</em>, <em>theta</em>, <em>t_ph</em><span class="sig-paren">)</span><a class="headerlink" href="#matminer.models.thermal_conductivity.callaway_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate Callaway thermal conductivity
+(In some circumstances, a second term may be required as seen in
+<a class="reference external" href="http://link.springer.com/chapter/10.1007%2F0-387-25100-6_2#page-1">http://link.springer.com/chapter/10.1007%2F0-387-25100-6_2#page-1</a>)</p>
+<dl class="docutils">
+<dt>References:</dt>
+<dd><ul class="first simple">
+<li>DOI: 10.1002/adfm.201600718 (Title: &#8220;Minimum Thermal Conductivity in Weak Topological Insulators with</li>
+</ul>
+<p>Bismuth-Based Stack Structure&#8221;)
+- DOI: 10.1063/1.4906225 (Title: &#8220;Critical analysis of lattice thermal conductivity of half-Heusler alloys
+using variations of Callaway model&#8221;)
+- DOI: 10.1103/PhysRev.134.A1058 (Title: &#8220;Thermal Conductivity of Silicon and Germanium from 3 K to the Melting</p>
+<blockquote class="last">
+<div>Point&#8221;)</div></blockquote>
+</dd>
+<dt>Args:</dt>
+<dd>v_m: (float) speed of sound in the material (in SI units, i.e. m(s)^(-1))
+T: (float) absolute temperature (in K)
+theta: (float) Debye temperature (in K)
+t_ph: (float) phonon relaxation time (in SI units, s^(-1))</dd>
+</dl>
+<p>Returns: (float) Callaway thermal conductivity (in SI units, i.e. W(mK)^(-1))</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matminer.models.thermal_conductivity.clarke_model">
+<code class="descclassname">matminer.models.thermal_conductivity.</code><code class="descname">clarke_model</code><span class="sig-paren">(</span><em>n</em>, <em>E</em>, <em>m</em>, <em>V</em><span class="sig-paren">)</span><a class="headerlink" href="#matminer.models.thermal_conductivity.clarke_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate Clarke thermal conductivity.</p>
+<dl class="docutils">
+<dt>References:</dt>
+<dd><ul class="first simple">
+<li>DOI: 10.1016/j.jallcom.2014.09.022 (Title: &#8220;Electronic structure, elastic anisotropy,</li>
+</ul>
+<p class="last">thermal conductivity and optical properties of calcium apatite Ca5(PO4)3X (X = F, Cl or Br)&#8221;)
+- DOI: 10.1016/j.commatsci.2015.07.029 (Title: &#8220;Electronic structure, mechanical properties and
+anisotropy of thermal conductivity of Y-Si-O-N quaternary crystals&#8221;)</p>
+</dd>
+<dt>Args:</dt>
+<dd>n: (int) number of atoms in primitive cell
+E: (float) Young&#8217;s modules (in SI units, i.e. Kgm(s)^(-2))
+m: (float) total mass per unit cell (in SI units, i.e. Kg)
+V: (float) unit cell volume (in SI units, i.e. m^(3))</dd>
+</dl>
+<p>Returns: (float) Clarke thermal conductivity (in SI units, i.e. W(mK)^(-1))</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matminer.models.thermal_conductivity.debye_model">
+<code class="descclassname">matminer.models.thermal_conductivity.</code><code class="descname">debye_model</code><span class="sig-paren">(</span><em>M</em>, <em>E</em>, <em>m</em>, <em>V</em><span class="sig-paren">)</span><a class="headerlink" href="#matminer.models.thermal_conductivity.debye_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate Debye thermal conductivity.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>M: (float) molecular mass
+E: (float) Young&#8217;s modules (in SI units, i.e. Kgm(s)^(-2))
+m: (float) total mass (in SI units, i.e. Kg)
+V: (float) unit cell volume (in SI units, i.e. m^(3))</dd>
+</dl>
+<p>Returns: (float) Debye thermal conductivity (in SI units, i.e. W(mK)^(-1))</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matminer.models.thermal_conductivity.keyes_model">
+<code class="descclassname">matminer.models.thermal_conductivity.</code><code class="descname">keyes_model</code><span class="sig-paren">(</span><em>gamma</em>, <em>e_m</em>, <em>T_m</em>, <em>m</em>, <em>V</em>, <em>T</em>, <em>A</em><span class="sig-paren">)</span><a class="headerlink" href="#matminer.models.thermal_conductivity.keyes_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate Keyes thermal conductivity</p>
+<dl class="docutils">
+<dt>References:</dt>
+<dd><ul class="first simple">
+<li>DOI: 10.1103/PhysRev.115.564 (Title: &#8220;High-Temperature Thermal Conductivity of Insulating Crystals:</li>
+</ul>
+<p class="last">Relationship to the Melting Point&#8221;)</p>
+</dd>
+<dt>Args:</dt>
+<dd>gamma: (float) Gruneisen parameter
+e_m: (float) amplitude of atomic vibrations as fraction of lattice constant at which melting takes place
+T_m: (float) melting temperature (K)
+m: (float) total mass (in SI units, i.e. Kg)
+V: (float) unit cell volume (in SI units, i.e. m^(3))
+T: (float) absolute temperature (in K)
+A: (float) average atomic weight</dd>
+</dl>
+<p>Returns: (float) Keyes thermal conductivity (in SI units, i.e. W(mK)^(-1))</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matminer.models.thermal_conductivity.slack_integrand">
+<code class="descclassname">matminer.models.thermal_conductivity.</code><code class="descname">slack_integrand</code><span class="sig-paren">(</span><em>x</em>, <em>t_c</em><span class="sig-paren">)</span><a class="headerlink" href="#matminer.models.thermal_conductivity.slack_integrand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Integrand function to calculate Callaway thermal conductivity.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>x: (hbar * omega)/(k * T)   # hbar: reduced Planck&#8217;s constant, omega = phonon frequency
+t_c: (float) phonon relaxation time (in SI units, s^(-1))</dd>
+</dl>
+<p>Returns: (float) integral value</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matminer.models.thermal_conductivity.slack_integrand_model">
+<code class="descclassname">matminer.models.thermal_conductivity.</code><code class="descname">slack_integrand_model</code><span class="sig-paren">(</span><em>v_m</em>, <em>T</em>, <em>theta</em>, <em>t_c</em><span class="sig-paren">)</span><a class="headerlink" href="#matminer.models.thermal_conductivity.slack_integrand_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate Slack thermal conductivity using the integral model.
+(In high temperature regions, those higher than that of the Debye temperature of the material, the Callaway
+model is insufficient at predicting the lattice thermal conductivity. This shortfall must be addressed as many
+thermoelectric materials are designed to be used in conditions beyond the Debye temperature of the alloys and
+accurate predictions are required. At high temperatures, a modification suggested by Glassbrenner and Slack is
+made to model thermal conductivity as shown here.)</p>
+<dl class="docutils">
+<dt>References:</dt>
+<dd><ul class="first simple">
+<li>DOI: 10.1103/PhysRev.134.A1058 (Title: &#8220;Thermal Conductivity of Silicon and Germanium from 3 K to the Melting</li>
+</ul>
+<blockquote>
+<div>Point&#8221;)</div></blockquote>
+<ul class="simple">
+<li>DOI: 10.1063/1.4906225 (Title: &#8220;Critical analysis of lattice thermal conductivity of half-Heusler alloys</li>
+</ul>
+<p class="last">using variations of Callaway model&#8221;)</p>
+</dd>
+<dt>Args:</dt>
+<dd><p class="first">v_m: (float) speed of sound in the material (in SI units, i.e. m(s)^(-1))
+T: (float) absolute temperature (in K)
+theta: (float) Debye temperature (in K)
+t_c: (float) combined phonon relaxation time that includes higher-order processes (in SI units, s^(-1))</p>
+<blockquote class="last">
+<div>(see Ref:- DOI: 10.1103/PhysRev.134.A1058)</div></blockquote>
+</dd>
+</dl>
+<p>Returns: (float) Slack thermal conductivity (in SI units, i.e. W(mK)^(-1))</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matminer.models.thermal_conductivity.slack_simple_model">
+<code class="descclassname">matminer.models.thermal_conductivity.</code><code class="descname">slack_simple_model</code><span class="sig-paren">(</span><em>M</em>, <em>theta</em>, <em>v_a</em>, <em>gamma</em>, <em>n</em>, <em>T</em><span class="sig-paren">)</span><a class="headerlink" href="#matminer.models.thermal_conductivity.slack_simple_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the simple Slack thermal conductivity</p>
+<dl class="docutils">
+<dt>References</dt>
+<dd><ul class="first simple">
+<li>DOI: 10.1007/0-387-25100-6_2 (Title: &#8220;High Lattice Thermal Conductivity Solids&#8221;)</li>
+<li>DOI: 10.1002/adfm.201600718 (Title: &#8220;Minimum Thermal Conductivity in Weak Topological Insulators with</li>
+</ul>
+<p class="last">Bismuth-Based Stack Structure&#8221;)</p>
+</dd>
+<dt>Args:</dt>
+<dd>M: (float) average atomic mass
+theta: (float) Debye temperature (K)
+v_a: (float) (v_a)**3 is the volume per atom (Angstroms)
+gamma: (float) Gruneisen parameter
+n: (int) number of atoms in primitive cell
+T: (float) absolute temperature (K)</dd>
+</dl>
+<p>Returns: (float) Slack thermal conductivity (in SI units, i.e. W(mK)^(-1))</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-matminer.models">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-matminer.models" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">matminer.models package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#matminer-models-mechanical-properties-module">matminer.models.mechanical_properties module</a></li>
+<li><a class="reference internal" href="#module-matminer.models.sound_velocity">matminer.models.sound_velocity module</a></li>
+<li><a class="reference internal" href="#module-matminer.models.thermal_conductivity">matminer.models.thermal_conductivity module</a></li>
+<li><a class="reference internal" href="#module-matminer.models">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/matminer.models.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">matminer 0.0.7 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, Saurabh Bajaj, Anubhav Jain.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.
+    </div>
+  </body>
+</html>
