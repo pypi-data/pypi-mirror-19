@@ -1,0 +1,76 @@
+p
+{
+    margin: 0 auto;
+    width:85%;	
+}
+.header
+{
+  text-align: center;
+  font-family: 'Avenir Light';
+  margin-bottom: 20px;
+}
+.img {
+    margin: 0 auto;
+}
+.row h2
+{
+    font-family: "Didot";
+    text-align:center;
+}
+.vertical_line {
+    height: 150px;
+    width: 1px;
+    background: #000;
+}
+.quoteFont{
+  font-family: 'Unna', serif;
+}
+.quoteBox{
+  width: auto;
+  text-align: center;
+}
+.textbox2{
+  width: auto;
+  height: auto;
+  text-indent: 50px;
+}
+.textbox1{
+  width: auto;
+  height: auto;
+  text-indent: 50px;
+}
+.AdditionalTextbox{
+  width: auto;
+  height: auto;
+  text-indent: 25px;
+}
+.card-group{
+  padding: 0px;
+  margin-bottom: 0px;
+  background-color: #121111;
+  border-color: #121111;
+  border-collapse: collapse;
+}
+.card{
+  border-radius: 0px;
+  padding: 0px;
+  margin-bottom: 0px;
+  border: 0px;
+  background-color: #121111;
+  border-collapse: collapse;
+  border-color: #121111;
+}
+.Instaimg{
+  padding: 0px;
+  border-radius: 0px;
+  border-collapse: collapse;
+  border-bottom: 0px;
+  background-color: #121111;
+  height: auto;
+  width: 200px;
+}
+.copyRight{
+  color: white;
+  text-align: center;
+  font-family: "Lato Light","Avenir Light";
+}
