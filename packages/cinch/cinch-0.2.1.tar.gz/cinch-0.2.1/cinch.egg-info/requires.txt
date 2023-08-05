@@ -1,0 +1,5 @@
+ansible>=2.1
+plumbum>=1.6.0
+
+[lint]
+flake8
