@@ -1,0 +1,47 @@
+Metadata-Version: 2.0
+Name: micropayment-core
+Version: 0.4.4
+Summary: Micropayment core utils for counterparty assets.
+Home-page: http://storj.io
+Author: Fabian Barkhau
+Author-email: f483@storj.io
+License: MIT
+Keywords: storj,counterparty,micropayment,core
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: ecdsa (>=0.13)
+Requires-Dist: pycoin (==0.70)
+
+###############################
+Counterparty Micropayment Utils
+###############################
+
+|BuildLink|_ |CoverageLink|_ |LicenseLink|_ |IssuesLink|_
+
+
+.. |BuildLink| image:: https://travis-ci.org/StorjRND/micropayment-core.svg
+.. _BuildLink: https://travis-ci.org/StorjRND/micropayment-core
+
+.. |CoverageLink| image:: https://coveralls.io/repos/StorjRND/micropayment-core/badge.svg
+.. _CoverageLink: https://coveralls.io/r/StorjRND/micropayment-core
+
+.. |LicenseLink| image:: https://img.shields.io/badge/license-MIT-blue.svg
+.. _LicenseLink: https://raw.githubusercontent.com/F483/micropayment-core/master/LICENSE
+
+.. |IssuesLink| image:: https://img.shields.io/github/issues/F483/micropayment-core.svg
+.. _IssuesLink: https://github.com/F483/micropayment-core/issues
+
+
+Micropayment core utils for counterparty assets.
+
+
