@@ -1,0 +1,55 @@
+Metadata-Version: 2.0
+Name: mebo
+Version: 0.1.0.dev1
+Summary: Simple python interface to control the mebo toy robot
+Home-page: https://github.com/crlane/python-mebo
+Author: Cameron Lane
+Author-email: crlane@adamanteus.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Education
+Classifier: Topic :: Scientific/Engineering :: Human Machine Interfaces
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: requests
+
+# python-mebo
+
+This is a library to control the [Mebo robot](http://meborobot.com/) with Python. I'm releasing it, but it's still very much a work in progress.
+
+## Installation
+
+`pip install mebo`
+
+## Usage
+
+Some basic usage is below. The API will change and no documentation exists, but it works for getting started.
+
+```
+>>> from mebo.mebo import Mebo
+>>> m = Mebo(ip='192.168.1.100') # replace with IP of your mebo. You can probably get it from your router
+>>> m.move('n', velocity=255, duration=1000)
+>>> m.claw.open(dur=1000)
+```
+
+## Development
+
+### Todo
+
+- [X] Connect and control robot functions
+- [ ] Discover the IP of mebo automatically?
+- [ ] Cleaner API (better subclasses, kwargs for component methods, no metaprogramming)
+- [ ] Documentation
+- [ ] Tests
+- [ ] Video capture
+- [ ] Audio capture
+- [ ] Audio playback
+
+
+
