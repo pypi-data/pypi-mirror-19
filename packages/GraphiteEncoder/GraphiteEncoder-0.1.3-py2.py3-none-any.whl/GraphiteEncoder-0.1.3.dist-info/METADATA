@@ -1,0 +1,38 @@
+Metadata-Version: 2.0
+Name: GraphiteEncoder
+Version: 0.1.3
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: Yun Xu
+Author-email: yunx@zillowgroup.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: System :: Software Distribution
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+
+GraphiteEncoder
+===========
+.. image:: https://travis-ci.org/yunstanford/GraphiteEncoder.svg?branch=master
+    :alt: build status
+    :target: https://travis-ci.org/yunstanford/GraphiteEncoder
+
+Graphite encoder for valid Graphite metric name, designed for python 2.
+
+
+----
+Dev
+----
+
+Run unit tests.
+
+.. code::
+
+    python -m pytest ./graphite_encoder/tests.py
+
+
