@@ -1,0 +1,45 @@
+Metadata-Version: 1.1
+Name: relevancer
+Version: 0.1.0a1
+Summary: Relevancer aims at identifying relevant content in social media streams. Text mining is the main approach.
+Home-page: https://bitbucket.org/hurrial/relevancerml
+Author: Ali Hürriyetoğlu
+Author-email: ali.hurriyetoglu@gmail.com
+License: GPL
+Description: ## Motivation
+        
+        Relevancer aims at identifying relevant content in social media streams. Text mining is the main approach.
+        
+        ## Contributors
+        
+        Ali Hürriyetoglu ([@hurrial](https://twitter.com/hurrial)), Mustafa Erkan Başar ([@me_basar](https://twitter.com/me_basar)), Nelleke Oostdijk, Antal van den Bosch ([@antalvdb](https://twitter.com/antalvdb)), Aslıhan Arslan ([@miniminiibirkus](https://twitter.com/miniminiibirkus)), Uğur Özcan ([@uozcan12](https://twitter.com/uozcan12)), Jurjen Wagemaker ([@jurjenwagemaker](https://twitter.com/jurjenwagemaker)), Ghiath Ghanem, and Ron Bortman.
+        
+        ## Publications
+        
+        Hürriyetoglu, A., Gudehus C., Oostdijk, N. H. J., & van den Bosch, A. P. J. (2016a). Relevancer: Finding and Labeling Relevant Information in Tweet Collections. In International Conference on Social Informatics (pp. 1-15). Springer International Publishing. LINK: http://link.springer.com/chapter/10.1007/978-3-319-47874-6_15
+        
+        Hürriyetoglu, A., Wagemaker J., Oostdijk, N. H. J., & van den Bosch, A. P. J. (2016b). Analysing the Role of Key Term Inflections in Knowledge Discovery on Twitter. In Proceedings of the 2st International Workshop on Knowledge Discovery on the WEB. Cagliari, Italy, September 8-10, 2016.
+        
+        ## Demo
+        
+        http://relevancer.science.ru.nl/
+        
+        ## License
+        
+        Licensed under GPLv3 (See http://www.gnu.org/licenses/gpl-3.0.html)
+        
+        
+        ## Acknowledgements
+        This project was supported by Floodtags ([@FloodTags](https://twitter.com/FloodTags)) and the Dutch national programme COMMIT ([@COMMIT_nl](https://twitter.com/COMMIT_nl) as part of the Infiniti project, Work Package ADNEXT ([@Adnext_Commit](https://twitter.com/Adnext_Commit)).
+        
+Keywords: machine-learning text-mining clustering k-means
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Text Processing :: Linguistic
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
