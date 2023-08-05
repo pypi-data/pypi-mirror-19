@@ -1,0 +1,17 @@
+AUTHORS
+INSTALL
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+celery_testutils/__init__.py
+celery_testutils/config.py
+celery_testutils/testcase.py
+celery_testutils/tests.py
+celery_testutils/worker.py
+celery_testutils.egg-info/PKG-INFO
+celery_testutils.egg-info/SOURCES.txt
+celery_testutils.egg-info/dependency_links.txt
+celery_testutils.egg-info/not-zip-safe
+celery_testutils.egg-info/requires.txt
+celery_testutils.egg-info/top_level.txt
