@@ -1,0 +1,46 @@
+Metadata-Version: 1.1
+Name: easyshell
+Version: 0.300
+Summary: Library for creating recursive shells.
+Home-page: https://github.com/qzmfranklin/easyshell
+Author: Zhongming Qu
+Author-email: qzmfranklin@gmail.com
+License: ['GPL3']
+Description: =========
+        easyshell
+        =========
+        
+        Library for creating recursive shells.
+        
+        
+        Installation
+        ============
+        
+        From pip3::
+        
+            $ pip3 install -U easyshell
+        
+        From source::
+        
+            $ ./setup.py -U install
+        
+        Example Shell
+        =============
+        
+        To experience this kind of shells, please try out the example shell that comes
+        with the source code::
+        
+            $ python3 -m easyshell
+        
+        Demo
+        ====
+        
+        This is a gif from a very early version:
+        
+        .. image:: https://raw.githubusercontent.com/qzmfranklin/easyshell/qzmfranklin-gif/tty.gif
+        
+Keywords: shell
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
