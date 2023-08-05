@@ -1,0 +1,125 @@
+Metadata-Version: 1.1
+Name: collective.contact.mailaction
+Version: 1.1
+Summary: An add-on to send mails to contacts of collective.contacts.*
+Home-page: https://pypi.python.org/pypi/collective.contact.mailaction
+Author: Webmeisterei GmbH
+Author-email: office@webmeisterei.com
+License: GPL version 2
+Description: =============================
+        collective.contact.mailaction
+        =============================
+        
+        Adds a "Send mail to" action to collective.contact.facetednav which allows you
+        to send a mail to the selected contacts by using a template for the mail.
+        
+        Translations
+        ------------
+        
+        This product has been translated into
+        
+        - German
+        - Italian
+        - French
+        - Slovenian
+        
+        
+        Installation
+        ------------
+        
+        Install collective.contact.mailaction by adding it to your buildout::
+        
+            [buildout]
+        
+            ...
+        
+            eggs =
+                collective.contact.mailaction
+        
+        
+        and then running ``bin/buildout``
+        
+        
+        Contribute
+        ----------
+        
+        - Issue Tracker: https://github.com/collective/collective.contact.mailaction/issues
+        - Source Code: https://github.com/collective/collective.contact.mailaction
+        
+        
+        
+        License
+        -------
+        
+        The project is licensed under the GPLv2.
+        
+        Contributors
+        ============
+        
+        - Rene Jochum, Webmeisterei GmbH
+        - Harald Frießnegger, Webmeisterei GmbH
+        Changelog
+        =========
+        
+        
+        1.1 (2016-12-17)
+        ----------------
+        
+        - Add translations for de, it, fr and sl
+          [fRiSi]
+        
+        - Skip contacts w/o email-address and list them in a warning message [fRiSi]
+        
+        
+        1.0 (2016-09-21)
+        ----------------
+        
+        - Add the Name of the sender to the Reply-To field.
+          [pcdummy]
+        
+        - Parse the input text field as restructured text.
+          [pcdummy]
+        
+        - Use html2text to transfer the html email to text.
+          [pcdummy]
+        
+        - Use only the lastname as sender name if no firstname has been given.
+          [pcdummy]
+        
+        - Make the textfield 20 rows high.
+          [pcdummy]
+        
+        - No need checking for contaclists in mailaction.
+          [pcdummy]
+        
+        - Stonagehtml removed (got troubles with a html template).
+          [pcdummy]
+        
+        - Make the recipient overwriteable over an adapter.
+          [pcdummy]
+        
+        - Correct label the label for the 'send' button.
+          [pcdummy]
+        
+        - Depend on 'collective.contact.facetednav:default'.
+          [pcdummy]
+        
+        - Add german translations.
+          [pcdummy]
+        
+        - Added the mail action based upon contactlist.
+          [pcdummy]
+        
+        - Initial mrbob template.
+          [pcdummy]
+        
+        
+Keywords: Python Plone
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Plone
+Classifier: Framework :: Plone :: 4.3
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
