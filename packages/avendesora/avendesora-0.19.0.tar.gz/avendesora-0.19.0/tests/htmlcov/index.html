@@ -1,0 +1,239 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Coverage report</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.debounce.min.js"></script>
+    <script type="text/javascript" src="jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="jquery.hotkeys.js"></script>
+    <script type="text/javascript" src="coverage_html.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(coverage.index_ready);
+    </script>
+</head>
+<body class="indexfile">
+
+<div id="header">
+    <div class="content">
+        <h1>Coverage report:
+            <span class="pc_cov">44%</span>
+        </h1>
+
+        <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
+
+        <form id="filter_container">
+            <input id="filter" type="text" value="" placeholder="filter..." />
+        </form>
+    </div>
+</div>
+
+<div class="help_panel">
+    <img id="panel_icon" src="keybd_open.png" alt="Hide keyboard shortcuts" />
+    <p class="legend">Hot-keys on this page</p>
+    <div>
+    <p class="keyhelp">
+        <span class="key">n</span>
+        <span class="key">s</span>
+        <span class="key">m</span>
+        <span class="key">x</span>
+        
+        <span class="key">c</span> &nbsp; change column sorting
+    </p>
+    </div>
+</div>
+
+<div id="index">
+    <table class="index">
+        <thead>
+            
+            <tr class="tablehead" title="Click to sort">
+                <th class="name left headerSortDown shortkey_n">Module</th>
+                <th class="shortkey_s">statements</th>
+                <th class="shortkey_m">missing</th>
+                <th class="shortkey_x">excluded</th>
+                
+                <th class="right shortkey_c">coverage</th>
+            </tr>
+        </thead>
+        
+        <tfoot>
+            <tr class="total">
+                <td class="name left">Total</td>
+                <td>1647</td>
+                <td>925</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="722 1647">44%</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            
+            <tr class="file">
+                <td class="name left"><a href="_home_ken__local_lib_python3_6_site-packages_avendesora___init___py.html">/home/ken/.local/lib/python3.6/site-packages/avendesora/__init__.py</a></td>
+                <td>13</td>
+                <td>2</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="11 13">85%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="_home_ken__local_lib_python3_6_site-packages_avendesora_account_py.html">/home/ken/.local/lib/python3.6/site-packages/avendesora/account.py</a></td>
+                <td>337</td>
+                <td>191</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="146 337">43%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="_home_ken__local_lib_python3_6_site-packages_avendesora_browsers_py.html">/home/ken/.local/lib/python3.6/site-packages/avendesora/browsers.py</a></td>
+                <td>27</td>
+                <td>19</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="8 27">30%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="_home_ken__local_lib_python3_6_site-packages_avendesora_charsets_py.html">/home/ken/.local/lib/python3.6/site-packages/avendesora/charsets.py</a></td>
+                <td>16</td>
+                <td>2</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="14 16">88%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="_home_ken__local_lib_python3_6_site-packages_avendesora_collection_py.html">/home/ken/.local/lib/python3.6/site-packages/avendesora/collection.py</a></td>
+                <td>27</td>
+                <td>11</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="16 27">59%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="_home_ken__local_lib_python3_6_site-packages_avendesora_config_py.html">/home/ken/.local/lib/python3.6/site-packages/avendesora/config.py</a></td>
+                <td>76</td>
+                <td>15</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="61 76">80%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="_home_ken__local_lib_python3_6_site-packages_avendesora_dialog_py.html">/home/ken/.local/lib/python3.6/site-packages/avendesora/dialog.py</a></td>
+                <td>79</td>
+                <td>61</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="18 79">23%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="_home_ken__local_lib_python3_6_site-packages_avendesora_dictionary_py.html">/home/ken/.local/lib/python3.6/site-packages/avendesora/dictionary.py</a></td>
+                <td>18</td>
+                <td>3</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="15 18">83%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="_home_ken__local_lib_python3_6_site-packages_avendesora_generator_py.html">/home/ken/.local/lib/python3.6/site-packages/avendesora/generator.py</a></td>
+                <td>116</td>
+                <td>74</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="42 116">36%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="_home_ken__local_lib_python3_6_site-packages_avendesora_gpg_py.html">/home/ken/.local/lib/python3.6/site-packages/avendesora/gpg.py</a></td>
+                <td>145</td>
+                <td>77</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="68 145">47%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="_home_ken__local_lib_python3_6_site-packages_avendesora_obscure_py.html">/home/ken/.local/lib/python3.6/site-packages/avendesora/obscure.py</a></td>
+                <td>175</td>
+                <td>105</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="70 175">40%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="_home_ken__local_lib_python3_6_site-packages_avendesora_preferences_py.html">/home/ken/.local/lib/python3.6/site-packages/avendesora/preferences.py</a></td>
+                <td>14</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="14 14">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="_home_ken__local_lib_python3_6_site-packages_avendesora_recognize_py.html">/home/ken/.local/lib/python3.6/site-packages/avendesora/recognize.py</a></td>
+                <td>210</td>
+                <td>154</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="56 210">27%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="_home_ken__local_lib_python3_6_site-packages_avendesora_secrets_py.html">/home/ken/.local/lib/python3.6/site-packages/avendesora/secrets.py</a></td>
+                <td>257</td>
+                <td>120</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="137 257">53%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="_home_ken__local_lib_python3_6_site-packages_avendesora_title_py.html">/home/ken/.local/lib/python3.6/site-packages/avendesora/title.py</a></td>
+                <td>56</td>
+                <td>36</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="20 56">36%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="_home_ken__local_lib_python3_6_site-packages_avendesora_utilities_py.html">/home/ken/.local/lib/python3.6/site-packages/avendesora/utilities.py</a></td>
+                <td>81</td>
+                <td>55</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="26 81">32%</td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+    <p id="no_rows">
+        No items found using the specified filter.
+    </p>
+</div>
+
+<div id="footer">
+    <div class="content">
+        <p>
+            <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.2</a>,
+            created at 2016-12-18 22:26
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
