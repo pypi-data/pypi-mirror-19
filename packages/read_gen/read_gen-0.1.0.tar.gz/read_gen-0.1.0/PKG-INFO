@@ -1,0 +1,185 @@
+Metadata-Version: 1.0
+Name: read_gen
+Version: 0.1.0
+Summary: Produce error-prone reads from a generated sequence
+Home-page: http://bitbucket.org/bilalakil/read-gen
+Author: Bilal Akil
+Author-email: mail@bilalakil.me
+License: MIT
+Description: read-gen
+        ========
+        
+        Version: 0.1.0.
+        
+        A Python script which generates a random sequence of DNA of length `sl`,
+        and outputs `n` randomly positioned reads of length `l`,
+        where approximately `e` percent of them are generated with errors.
+        
+        _Note: Primarily developed and tested with Python3._
+        
+        ```
+        usage: read_gen.py [-h] [-ne NUCLEOTIDE_ERROR_RATE]
+                           [--with-indels | --no-with-indels]
+                           [--read-length-variation READ_LENGTH_VARIATION]
+                           [--alphabet ALPHABET] [--note NOTE]
+                           [--with-original | --no-with-original]
+                           [--output-sequence | --no-output-sequence]
+                           [--fastafy | --no-fastafy]
+                           l n sl e
+        
+        Python script: "naively" produce error-prone short reads from a generated
+        sequence
+        
+        positional arguments:
+          l                     length of generated reads
+          n                     number of reads to be generated
+          sl                    length of generated sequence that reads come from
+          e                     erroneous read rate (i.e. 0.02)
+        
+        optional arguments:
+          -h, --help            show this help message and exit
+          -ne NUCLEOTIDE_ERROR_RATE, --nucleotide-error-rate NUCLEOTIDE_ERROR_RATE
+                                erroneous nucleotide rate (within erroneous reads -
+                                default: 0.02)
+          --with-indels         generate not only substitution errors, but also
+                                insertion and deletion errors (default)
+          --no-with-indels
+          --read-length-variation READ_LENGTH_VARIATION
+                                magnitude of read length variation as a percantage
+                                (where 0 is not variant at all - default: 0.1)
+          --alphabet ALPHABET   set of characters used (without weighing) in
+                                generating the sequence and errors (default: 'AGCT')
+          --note NOTE           note to append after read IDs (if `--fastafy`ing - no
+                                default)
+          --with-original       include the original, error free read in generated
+                                read's notes (default)
+          --no-with-original
+          --output-sequence     output the full generated sequence in one line before
+                                outputting reads
+          --no-output-sequence  (default)
+          --fastafy             set that reads should have a FASTA ID line prepended
+                                (default)
+          --no-fastafy
+        ```
+        
+        ## How many and what errors are produced?
+        
+        The `e` positional argument is used to determine whether a read should have errors generated within it.
+        A 25% error rate (as in the below examples) means that approximately 1 in every 4 reads will contain errors.
+        A more realistic figure would be 1-2%.
+        
+        Once a read is determined to be erroneous the nucleotide error rate kicks in.
+        A 2% error rate (as in the below examples) means that
+        approximately 1 in every 50 nucleotide positions will be fudged.
+        As it is randomised, it may in fact not end up being fudged at all..
+        
+        An error can be either a substitution, insertion or deletion
+        (unless indels are disabled via `--no-with-indels`),
+        for instance:
+        
+            AGCT
+            # Some errors that can occur at "G"'s position:
+            ATCT  # Substitute "G" with "T".
+            AGTCT # Insert "T" after "G".
+            ACT   # Delete "G".
+        
+        ## It's "naive"
+        
+        The generator doesn't attempt to emulate the real properties of DNA sequences and their errors.
+        The characters used from the alphabet, the location of reads in the sequence and the errors within those reads
+        are all uniformly randomly selected.
+        
+        In reality certain regions within the sequence would have higher or lower coverage,
+        and thus have more reads output which overlap in those areas,
+        and the errors within them may not be so "purely" random and nicely distributed.
+        
+        ## Usage and examples
+        
+            $ ./read_gen.py 80 10 80 0.25 --output-sequence --no-fastafy --read-length-variation=0
+            CGGGGGACGTCAAGCTAGCGGGGCAGCAGCGGTTCTGAGAGGTCGGGGTGGTTGAGGAGCAGAAATGACTCTTGCCCGGA # `--output-sequence`.
+            CGGGGGACGTCAAGCTAGCGGGGCAGCAGCGGTTCTGAGAGGTCGGGGTGGTTGAGGAGCAGAAATGACTCTTGCCCGGA
+            CGGGGGACGTCAAGCTAGCGGGGCAGCAGCGGTTCTGAGAGGTCGGGGTGGTTGAGGAGCAGAAATGACTCTTGCCCGGA
+            CGGGGGACGTCAAGCTAGCGGGGCAGCAGCGGTTCTGAGAGGTCGGGGTGGTTGAGGAGCAGAAATGACTCTTGCCCGGA
+            CGGGGGACGTCAAGCTGCGGGGCAGCAGCGGTTCTGAGAAGGTCGGGGTGGTTGAGGAGCAGAAATGACTCTTGCCCGGA # 1 insertion and 1 deletion.
+            CGGGGGACGTCAAGCTAGCGGGGCAGCAGCGGTTCTGAGAGGTCGGGGTGGTTGAGGAGCAGAAATGACTCTTGCCCGGA
+            CGGGGGACGTCAAGCTAGCGGGGCAGCAGCGGTTCTGAGAGGTCGGGGTGGTTGAGGAGCAGAAATGACTCTTGCCCGGA
+            CGGGGGACGTCAAGCTAGCGGAGCAGCAGCGGTTCTGAGAGGTCGGGGTGGTTGCGGAGCAGAGATGACTCTTGCCCGGA # 3 substitutions.
+            CGGGGGACGTCAAGCTAGCGGGGCAGCAGCGGTTCTGAGAGGTCGGGGTGGTTGAGGAGCAGAAATGACTCTTGCCCGGA
+            CGGGGGACGTCAAGCTAGCGGGGCAGCAGCGGTTCTGAGAGGTCGGGGTGGTTGAGGAGCAGAAATGACTCTTGCCCGGA
+            CGGGGGACGTCAAGCTAGCGGGGCAGCAGCGGTTCTGAGAGGTCGGGGTGGTTGAGGAGCAGAAATGACTCTTGCCCGGA
+        
+        You'd probably run it with more useful parameters -
+        these examples just need to effectively demonstrate the script's functionality.
+        
+        In Python you can also access the full sequence and iterate through the output:
+        
+            >>> from read_gen import ReadGen
+            >>> 
+            >>> # This time we'll not disable `fastafy`.
+            ... 
+            >>> gen = ReadGen(80, 5, 80, 0.25, with_original=False, note='25% erroneous reads')
+            >>> gen.seq
+            'AAGTCGTGGCAACCTGACGGTTGGAGTCATGGACGTACCCGCCTTTTCCGTTATGGATAAGACCGATAAACTAATCGTGA'
+            >>> 
+            >>> for read in gen:
+            ...     print(read)
+            ...     print('--')
+            ... 
+            >read_gen.py-1 25% erroneous reads
+            GTCGTGGCAACCTGACGGTTGGAGTCATGGACGTACCCGCCTTTTCCGTTATGGATAAGACCGATAAACTAATCGTG
+            --
+            >read_gen.py-2 25% erroneous reads
+            AAGTCGTGGCAACCTGACGGTTAGAGTCAGGACGTACCCGCCTTTTCCGTTATGGATAAGACCGATAAACTAATCGTGA
+            --
+            >read_gen.py-3 25% erroneous reads
+            AAGTCGTGGCAACCTGACGGTTGGAGTCATGGACGTACCCGCCTTTTCCGTTATGGATAAGACCGATAAACTAATCGTGA
+            --
+            >read_gen.py-4 25% erroneous reads
+            AAGTCGTGGCAACCTGACGGTTGGAGTCATGGACGTACCCGCCTTTTCCGTTATGGATAAGACCGATAAACTAATCGTGA
+            --
+            >read_gen.py-5 25% erroneous reads
+            GTGGCAACCTGACGGTTGGAGTCATGGACGTACCCGCCTTTTCCGTTATGGATAAGACCGATAAACTAATCG
+            --
+            >>> 
+            >>> # Although the sequence remains the same,
+            ... # iterating through the generator again will produce different reads
+            ... # and continue the ID counter:
+            ... 
+            >>> for read in gen:
+            ...     print(read)
+            ...     print('--')
+            ... 
+            >read_gen.py-6 25% erroneous reads
+            AAGTCGTGGCAACCTGACGGTTGGAGTCATGGACGTACCCGCCTTTTCCGTTATGGATAAGACCGATAAACTAATCGTGA
+            --
+            >read_gen.py-7 25% erroneous reads
+            GTGGCAACCTGACGGTTGGAGTCATGGACGTACCCGCCTTTTCCGTTATGGATAAGACCGATAAACTAATCGTGA
+            --
+            >read_gen.py-8 25% erroneous reads
+            AAGTCGTGGCAACCTGACGGTTGGAGTCATGGACGTACCCGCCTTTTCCGTTATGGATAAGACCGATAAACTAATCGTG
+            --
+            >read_gen.py-9 25% erroneous reads
+            AAGTCGTGGCAACCTGACGGTTGGAGTCATGGACGTACCCGCCTTTTCCGTTATGGATAAGACCGATAAACTAATCGTGA
+            --
+            >read_gen.py-10 25% erroneous reads
+            AAGTCGTGGCAACCTGACGGTTGGAGTCATGGACGTACCCGCCTTTTCCGTTATGGATAAGACCGATAAACTAATCGTGA
+            --
+        
+        This allows you to easily do whatever you like with the output,
+        like stream it into [Apache Kafka](https://kafka.apache.org)!
+        
+        Parameters for construction are the same as those for the command line,
+        except that `output_sequence` is excluded:
+        
+            class ReadGen:
+                def __init__(self, l, n, sl, e,
+                    nucleotide_error_rate=0.02, with_indels=True, read_length_variation=0.1, alphabet='AGCT',
+                    with_original=True, note=None, fastafy=True
+                ):
+                    ...
+        
+        ---
+        
+        **Happy DNAing!**
+        
+Platform: any
