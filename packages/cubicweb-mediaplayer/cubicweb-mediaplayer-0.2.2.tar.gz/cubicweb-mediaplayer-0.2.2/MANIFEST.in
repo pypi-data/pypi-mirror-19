@@ -1,0 +1,6 @@
+include *.py
+include */*.py
+recursive-include data *.jpg *.gif *.png *.ico *.css *.js
+recursive-include i18n *.po
+recursive-include wdoc *
+recursive-include views *.py *.html
