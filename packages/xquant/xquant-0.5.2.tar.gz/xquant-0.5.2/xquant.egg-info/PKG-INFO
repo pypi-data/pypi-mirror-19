@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: xquant
+Version: 0.5.2
+Summary: Quantitative Backtest Engine
+Home-page: https://github.com/X0Leon/XQuant
+Author: Leon Zhang
+Author-email: pku09zl@gmail.com
+License: MIT
+Description: Event-driven backtest frame for Chinese equity/futures market.
+Keywords: python finance quant
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
