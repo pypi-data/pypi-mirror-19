@@ -1,0 +1,12 @@
+[cglims.subcommands.1]
+config = cglims.cli.commands:config
+export = cglims.export:export
+fillin = cglims.cli.commands:fillin
+get = cglims.cli.commands:get
+panels = cglims.cli.commands:panels
+pedigree = cglims.cli.commands:pedigree
+update = cglims.cli.commands:update
+
+[console_scripts]
+cglims = cglims.cli:root
+
