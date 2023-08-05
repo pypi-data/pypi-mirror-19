@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- Main container -->
+<br>
+<div class="container-fluid container-pf-nav-pf-vertical container-pf-nav-pf-vertical-with-secondary">
+  <div class="row text-center">
+	  <img src=static/logo/jino.png>
+  </div>
+
+<br>
+  <div class="container">
+  <div class="alert alert-success">
+    <strong>Connected to: </strong>{{ config['JENKINS'] }}
+  </div>
+  </div>
+
+  <script type=text/javascript>
+    $(function() {
+		<!--   $('a#get_output').bind('click', function() { -->
+		$('button#add_bug').bind('click', function()
+        $.getJSON('/get_console_output', {
+          job_name: $(this).attr('job_name'),
+          build_number: $(this).attr('build_number')
+        }, function(data) {
+		  $("#output_div").show();
+          $("#output").text(data.output);
+        });
+        return false;
+      });
+    });
+
+
+    $(function() {
+      $('button#add_bug').bind('click', function() {
+        $.getJSON('/add_bug', {
+          job_name: $(this).attr('job_name'),
+          build_number: $(this).attr('build_number')
+        }, function(data) {
+		  $("#output_div").show();
+          $("#output").text(data.output);
+        });
+        return false;
+      });
+    });
+
+  </script>
+
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-10 col-md-offset-1">
+      <h2><strong>Neutron</strong></h2>
+
+      <table class="list table table-striped table-bordered table-condensed"
+			 data-toggle="table"
+	         data-show-export="true">
+    <thead>
+        <tr>
+            <th>Job Name</th>
+            <th>Build number</th>
+            <th>Build time</th>
+            <th>Result</th>
+            <th>Bugs</th>
+            <th>Sub Jobs</th>
+        </tr>
+    </thead>
+    <tbody>
+		{% for job in jobs %}
+        <tr>
+			<td class="col-md-2">{{ job.name }}</td>
+			<td class="col-md-1">{{ job.build_number }}</td>
+			<td class="col-md-1">{{ job.build_time|default('-') }}</td>
+			<td class="col-md-1"><a id="get_output" job_name="{{ job.name }}" build_number="{{ job.build }}" class="btn {{ job.button_status }} btn-large" href=#>{{ job.status }}</a></td>
+			<td class="col-md-1"><button id="add_bug" job_name="{{ job.name }}" type="button" class="btn btn-danger">+</button></td>
+            <td class="col-md-1">
+				<button type="button" class="btn btn-info" data-toggle="collapse" data-target=".coll{{ job.id }}">Show</button>
+            </td>
+        </tr>
+					{% for sub_job in job.sub_jobs %}                               
+					<tr class="collapse out budgets coll{{ job.id }}">
+						<td class="bg-info hiddenRow">{{ sub_job.name }}</td>
+						<td class="bg-info hiddenRow">{{ sub_job.build_number }}</td>
+						<td class="bg-info hiddenRow">{{ sub_job.build_duration }}</td>
+						<td class="bg-info hiddenRow"><a class="btn {{ sub_job.button_status }} btn-large" href="result/{{ sub_job.name }}">{{ sub_job.status }}</a></td>
+        </tr>
+			        {% endfor %}	  
+		{% endfor %}
+    </tbody>
+    </table>
+
+	  <div style="display:none;" id="output_div" class="container">
+		  <h2>Output</h2>
+		  <div class="alert alert-info">
+			  <pre id="output"></pre>
+		  </div>
+	  </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

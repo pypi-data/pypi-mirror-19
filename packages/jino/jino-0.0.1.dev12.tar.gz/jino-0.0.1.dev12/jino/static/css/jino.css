@@ -1,0 +1,135 @@
+/* Push pre a href anchors further down so their destination is not hidden by the top navigation bar */
+pre a:before {
+  display: block;
+  content: " ";
+  margin-top: -64px;
+  height: 64px;
+  visibility: hidden;
+}
+/* Colors for highlighted line */
+.hll {
+    background-color: #39a5dc;
+    color: white;
+}
+
+/* Wrap pre tags so they don't print endlessly horizontally */
+pre {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    text-align: left;
+}
+
+/* Status styling */
+.status-label {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 90%;
+    font-family: monospace;
+    display: inline-block;
+    width: 8em;
+}
+
+.FAILURE{
+        -moz-box-shadow:inset 0px 1px 0px 0px #cf866c;
+        -webkit-box-shadow:inset 0px 1px 0px 0px #cf866c;
+        box-shadow:inset 0px 1px 0px 0px #cf866c;
+        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d0451b), color-stop(1, #bc3315));
+        background:-moz-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+        background:-webkit-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+        background:-o-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+        background:-ms-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+        background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d0451b', endColorstr='#bc3315',GradientType=0);
+        background-color:#d0451b;
+        -moz-border-radius:3px;
+        -webkit-border-radius:3px;
+        border-radius:3px;
+        border:1px solid #942911;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:13px;
+        padding:6px 24px;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #854629;
+}
+
+.skipped, .ignored {
+    background-color: #808080;
+}
+
+.SUCCESS{
+        -moz-box-shadow:inset 0px 1px 0px 0px #9acc85;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #9acc85;
+	box-shadow:inset 0px 1px 0px 0px #9acc85;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #74ad5a), color-stop(1, #68a54b));
+	background:-moz-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+	background:-webkit-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+	background:-o-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+	background:-ms-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+	background:linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#74ad5a', endColorstr='#68a54b',GradientType=0);
+	background-color:#74ad5a;
+	border:1px solid #3b6e22;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:6px 12px;
+	text-decoration:none;    
+}
+
+/* Breadcrumb styling */
+ol.breadcrumb {
+    font-size: 125%;
+    font-family: monospace;
+}
+
+.breadcrumb > li + li:before {
+    content: ">> ";
+    padding: 0 2px;
+}
+
+/* Table styling */
+.table th {
+    font-size: 120%;
+}
+
+td a {
+    width:100%;;
+    font-weight: bold;
+}
+
+.summary table, .summary th, .summary td {
+    text-align: center;
+}
+
+.stats table, .stats th, .stats td {
+    text-align: center;
+}
+
+.plays table, .plays th, .plays td {
+    text-align: center;
+}
+
+.tasks table, .tasks th, .tasks td {
+    text-align: center;
+}
+
+.results table, .results th, .results td {
+    text-align: center;
+}
+
+.list table, .list th, .list td {
+    text-align: center;
+}
+
+.facts table, .facts th, .facts td {
+    text-align: center;
+}

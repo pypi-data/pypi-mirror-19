@@ -1,0 +1,81 @@
+<!-- Top navbar -->
+<nav class="navbar navbar-pf-vertical">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand"><strong>Jino</strong> - Jenkins Dashboard</a>
+  </div>
+  <nav class="collapse navbar-collapse">
+    <ul class="nav navbar-nav navbar-right navbar-iconic">
+      <li class="dropdown">
+        <a class="dropdown-toggle nav-item-iconic" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <span title="Help" class="fa pficon-help"></span>
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="https://github.com/bregman-arie/jino/">Source code</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</nav>
+
+<!-- Left navbar -->
+<div class="nav-pf-vertical nav-pf-vertical-with-sub-menus nav-pf-persistent-secondary">
+  <ul class="list-group">
+    <li class="list-group-item active">
+      <a href="{{ url_for('home') }}">
+        <span class="pficon pficon-home"></span>
+        <span class="list-group-item-value">Home</span>
+      </a>
+    </li>
+    <li class="list-group-item">
+	  <a href="{{ url_for('provision') }}">
+        <span class="pficon fa-clock-o"></span>
+        <span class="list-group-item-value">Provision setup</span>
+      </a>
+    </li>
+    <li class="list-group-item">
+      <a>
+        <span class="pficon pficon-image"></span>
+        <span class="list-group-item-value">Add component</span>
+      </a>
+    </li>
+    <li class="list-group-item secondary-nav-item-pf" data-target="#job-secondary">
+      <a href="#">
+        <span class="pficon pficon-history"></span>
+        <span class="list-group-item-value">Last builds</span>
+      </a>
+      <div id="job-secondary" class="nav-pf-secondary-nav">
+        <div class="nav-item-pf-header">
+          <a class="secondary-collapse-toggle-pf" href="#" data-toggle="collapse-secondary-nav"></a>
+          <span>Last jobs</span>
+        </div>
+        {% for job in jobs %}
+		<h5>"hi"</h5>
+        <ul class="list-group">
+          <li class="list-group-item">
+			<a>
+              <span class="list-group-item-value">"asdas"</span>
+            </a>
+            <div class="badge-container-pf">
+              <div class="badge">
+                <span class="pficon pficon-server"></span>
+                <span>"999999999"</span>
+              </div>
+              <div class="badge">
+                <span class="fa fa-check"></span>
+                <span>"9999999999999"</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+        {% endfor %}
+      </div>
+    </li>
+  </ul>
+</div>
