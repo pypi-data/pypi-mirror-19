@@ -1,0 +1,11 @@
+MANIFEST.in
+setup.py
+djabberd/__init__.py
+djabberd/handlers.py
+djabberd/urls.py
+djabberd/views.py
+djabberd.egg-info/PKG-INFO
+djabberd.egg-info/SOURCES.txt
+djabberd.egg-info/dependency_links.txt
+djabberd.egg-info/requires.txt
+djabberd.egg-info/top_level.txt
