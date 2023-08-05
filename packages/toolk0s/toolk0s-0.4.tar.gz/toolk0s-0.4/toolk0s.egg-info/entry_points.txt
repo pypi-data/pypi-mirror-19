@@ -1,0 +1,9 @@
+
+      # -*- Entry points: -*-
+      [console_scripts]
+      toolbox-convert-model = toolbox.model:convert
+      toolbox-serve = toolbox.factory:main
+
+      [paste.app_factory]
+      toolbox = toolbox.factory:paste_factory
+      
