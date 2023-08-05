@@ -1,0 +1,2 @@
+class NotSupportAppTypeException(Exception):
+    pass

@@ -1,0 +1,4 @@
+include requirements.txt
+include src/flask_app_generator/templates/requirements.txt
+include src/flask_app_generator/templates/.gitignore
+recursive-include src/flask_app_generator *.html *.py *.j2
