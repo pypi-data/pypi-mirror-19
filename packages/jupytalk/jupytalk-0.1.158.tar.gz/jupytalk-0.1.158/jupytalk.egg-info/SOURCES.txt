@@ -1,0 +1,11 @@
+README.rst
+setup.py
+jupytalk.egg-info/PKG-INFO
+jupytalk.egg-info/SOURCES.txt
+jupytalk.egg-info/dependency_links.txt
+jupytalk.egg-info/requires.txt
+jupytalk.egg-info/top_level.txt
+src/jupytalk/__init__.py
+src/jupytalk/talk_examples/__init__.py
+src/jupytalk/talk_examples/pydata2016.py
+src/jupytalk/talk_examples/treant_wrapper.py
