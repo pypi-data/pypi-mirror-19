@@ -1,0 +1,21 @@
+Metadata-Version: 2.0
+Name: libgraph
+Version: 0.0.1
+Summary: A toolchain for declaratively specifying transformations between schemas and instances of schemas to help track dependencies across schemas.
+Home-page: https://github.com/panyam/libgraph
+Author: Sri Panyam
+Author-email: sri.panyam@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires: typelib
+Requires: Jinja2
+Requires: readline
+Requires: avro
+Requires: thriftpy
+
+UNKNOWN
+
+
