@@ -1,0 +1,11 @@
+include LICENSE
+include README.rst
+include MANIFEST
+include NOTICE
+
+recursive-include flask_xadmin/static *
+recursive-include flask_xadmin/templates *
+recursive-include flask_xadmin/examples *
+recursive-include flask_xadmin/translations *
+recursive-include flask_xadmin/tests *
+recursive-exclude flask_xadmin *.pyc
