@@ -1,0 +1,4 @@
+#!/usr/bin/python
+from emv.command.client import EMVClient
+
+EMVClient().run()
