@@ -1,0 +1,9 @@
+MANIFEST.in
+setup.py
+PyCapture.egg-info/PKG-INFO
+PyCapture.egg-info/SOURCES.txt
+PyCapture.egg-info/dependency_links.txt
+PyCapture.egg-info/requires.txt
+PyCapture.egg-info/top_level.txt
+pycapture/__init__.py
+pycapture/version.py
