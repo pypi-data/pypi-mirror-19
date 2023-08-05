@@ -1,0 +1,21 @@
+Metadata-Version: 2.0
+Name: nose2pytest
+Version: 1.0.8
+Summary: Convert nose.tools.assert_ calls found in your Nose test modules into raw asserts for pytest
+Home-page: https://github.com/schollii/nose2pytest
+Author: Oliver Schoenborn
+Author-email: oliver.schoenborn@gmail.com
+License: BSD-3
+Keywords: nose to pytest conversion
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Testing
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+
+UNKNOWN
+
+
