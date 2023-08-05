@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: kira
+Version: 2.0.0
+Summary: A Python MAL API
+Home-page: https://github.com/datlofdev/Kira
+Author: Jackson Ca. Rakena
+Author-email: jackson.rakena2@gmail.com
+License: MIT
+Description: Kira: A Python API for the MyAnimeList API
+        ==========================================
+        
+        A project made in Python to connect to the MyAnimeList API and grab anime informatione easily.
+        
+Keywords: development myanimelist mal
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development:: Utilities
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
