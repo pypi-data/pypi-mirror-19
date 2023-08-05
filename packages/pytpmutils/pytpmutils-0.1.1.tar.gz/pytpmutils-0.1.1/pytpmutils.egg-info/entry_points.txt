@@ -1,0 +1,4 @@
+[console_scripts]
+tpm-rndgen = tpmutils.rnd:main
+tpm-rsagen = tpmutils.rsa:main
+
