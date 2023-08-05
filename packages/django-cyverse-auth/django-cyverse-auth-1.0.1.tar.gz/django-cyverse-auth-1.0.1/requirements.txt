@@ -1,0 +1,11 @@
+caslib.py==2.2.2
+oauth2client
+djangorestframework
+jwt.py
+python-ldap
+requests
+threepio
+
+# For developers -- Uncomment
+# twine
+# wheel
