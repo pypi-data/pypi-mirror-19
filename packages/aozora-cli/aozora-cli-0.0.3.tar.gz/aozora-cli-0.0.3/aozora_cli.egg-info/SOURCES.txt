@@ -1,0 +1,17 @@
+setup.py
+aozora_cli.egg-info/PKG-INFO
+aozora_cli.egg-info/SOURCES.txt
+aozora_cli.egg-info/dependency_links.txt
+aozora_cli.egg-info/requires.txt
+aozora_cli.egg-info/top_level.txt
+aozoracli/__init__.py
+aozoracli/books.py
+aozoracli/cli.py
+aozoracli/client.py
+aozoracli/content.py
+aozoracli/persons.py
+aozoracli/util.py
+aozoracli/version.py
+aozoracli/output/__init__.py
+aozoracli/output/txt.py
+bin/aozora
