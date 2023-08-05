@@ -1,0 +1,112 @@
+Installing:
+----------
+
+I.   General Notes
+II.  UNIX
+III. MS-Windows
+
+I. General Notes:
+-----------------
+
+If your platform comes without OpenGL or Forms support, or you just get
+into troubles using the default setup script, it is possible to disable 
+Forms and OpenGl support from the pyFltk build. The following command 
+line switches are provided for this:
+
+--disable-gl		: will disable OpenGL support
+--disable-forms		: will disable Forms support
+
+In general, however, setup.py will take the proper settings from your Fltk 
+installation, to be used for the compilation of pyFltk.
+
+II. UNIX:
+---------
+
+We've only tested it under Linux so far.
+
+1.  Unpack the archive into a directory of your choice:
+   
+     gunzip pyfltkxxxx.tar.gz    
+     tar xf pyfltkxxxx.tar 
+
+2.  To build the python wrappers:
+ 
+     cd pyfltkxxx
+     python setup.py build
+     python setup.py install   
+
+     This will build the wrapper and install it to the Python directores.
+
+     You should then be able to swith to fltk/test/ and run the demos 
+     by typing:  python demos.py
+
+	
+Note: This assumes that you properly built and installed fltk.
+   
+
+
+
+III. MS-Windows:
+----------------
+
+
+MS-Visual C++ under Windows Console:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+As since Python2.4, Windows compilation has changed to MSVC7.0, 
+I do not support this anymore!
+
+
+MinGW
+~~~~~
+
+* Important Note:
+* 
+* Unfortunately, Python is linked against msvcr71, whereas MinGW links 
+* against msvcrt. This will cause a number of memory problems, often 
+* crashing the application upon termination. If you can live with this, 
+* alas! If not, you have to force MinGW to link against msvcr71. This can 
+* be done as follows:
+* a) Locate the file "specs", this should be in directory 
+*    MinGW\lib\gcc\mingw32\3.4.2  
+* b) Change all occurences of -lmsvcrt to -lmsvcr71
+*
+* End Important Note
+
+1.  Unpack the archive into a directory of your choice:
+   
+     gunzip pyfltkxxxx.tar.gz    
+     tar xf pyfltkxxxx.tar  
+
+2.  Build the proper libpython24a.lib. See http://pyfltk.sourceforge.net 
+    for directions.
+
+3.  Set the environment variable FLTK_HOME to the place where you
+    installed FLTK. This is only necessary if you get problems with
+    your default installation of fltk or if you want to override 
+    the default installation.
+
+4.  To build the python wrappers:
+ 
+     Open a MSYS command window
+     cd pyfltkxxx
+     python setup.py build -cmingw32 install
+
+     This will build the wrapper and install it to the Python directores.
+
+     You should then be able to switch to test/ and run the demos 
+     by typing:  python demos.py
+
+
+
+III. Other Platforms:
+---------------------
+
+Proceed according to the above outline.
+I would be glad about any feedback if you succeeded with building
+pyFltk on any other platform.
+
+
+Andreas Held
+pyfltk.sourceforge.net
+a.held@computer.org

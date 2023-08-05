@@ -1,0 +1,21 @@
+TODO/BUGS:
+
+	Fl:
+		o wrapping of Fl.add_fd is missing, is it really needed?
+
+	General:
+		o Fl_Window icon(const void *ic) needs mapping - tbv
+		o test Fl_Browser::text(1,"") - tbv
+		o fl_draw: remap function ptrs - tbv
+
+	flconvert:
+		o flconvert: fix recursion error when adding image to menuitem
+		o flconvert: can't indent source code in 'extra code' for a widget
+		o fix flconvert so that it handles value() - see dial test 
+
+	Python:
+		o map Fl_Wrapper get_mouse params as output - tbv
+
+
+	Perl:
+		o not supported anymore
