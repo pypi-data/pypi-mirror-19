@@ -1,0 +1,37 @@
+This program is a rather simple-minded game of contract rubber bridge.
+To learn about bridge, get a good book, or google "contract bridge" or
+"bridge game". Scoring is a bit confusing, though; we follow standard
+rubber bridge scoring, as described at
+http://http://www.acbl.org/learn_page/how-to-play-bridge/how-to-keep-score/rubber-bridge/.
+We do score for honors.
+
+The program should run on any platform with a Python 3 interpreter. To
+install it, you should type (at a command prompt, from this directory)
+"python setup.py install"; unless, that is, "python" on your system
+refers to the old version (Python 2), in which case you need to type
+"python3 setup.py install". It features two GUI front ends, a
+primitive one based on Tk (which you almost certainly have on your
+machine if you have Python) and a slicker one based on Fltk. It
+automatically tries to use Fltk, but falls back on Tk if it can't find
+it.  While Fltk claims to be cross-platform, I know of no way to
+download it or its Python bindings as a binary for Windows, so to get
+the Fltk front end working under Windows you will likely have to
+compile both yourself. As I don't run Windows on my machine, I don't
+know how doable this is.
+
+One difference between this program and similar bridge-playing
+programs is that this one remembers the state of the score. That is,
+with 90 on, the program is aware that 1♥ is game, and will only raise
+to 2♥ if interested in slam. Also, it's trying to win, so if
+vulnerable then it will go for slam only if game would still leave it
+behind on points. On the other hand, it doesn't use any fancy
+conventions.  Majors are four-card and two-bids (all of them, even
+2♣), are weak.
+
+It's called PyWhist because the name PyBridge was already taken.
+(Whist is the ancestor of bridge.)
+
+If you want to help make PyWhist better, you can send bug
+reports/patches/ideas/etc to warshall@99main.com.
+
+Have fun!
