@@ -1,0 +1,3 @@
+[console_scripts]
+dynamodb_stream_parser = dynamodb_stream_parser:main
+
