@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: importer-lib
+Version: 0.2.0
+Summary: Importer is a library to do dynamic importing of modules in python Edit
+Home-page: https://github.com/heynemann/importer
+Author: Bernardo Heynemann
+Author-email: heynemann@gmail.com
+License: MIT
+Description: 
+        Importer is a library to do dynamic importing of modules in python Edit
+        
+Keywords: importer dynamic loading modules
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Operating System :: OS Independent

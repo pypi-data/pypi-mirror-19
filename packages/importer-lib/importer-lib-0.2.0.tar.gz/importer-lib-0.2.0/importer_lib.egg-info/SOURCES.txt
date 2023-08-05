@@ -1,0 +1,11 @@
+MANIFEST.in
+setup.py
+importer/__init__.py
+importer/core.py
+importer/version.py
+importer_lib.egg-info/PKG-INFO
+importer_lib.egg-info/SOURCES.txt
+importer_lib.egg-info/dependency_links.txt
+importer_lib.egg-info/entry_points.txt
+importer_lib.egg-info/requires.txt
+importer_lib.egg-info/top_level.txt
