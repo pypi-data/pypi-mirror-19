@@ -1,0 +1,26 @@
+Metadata-Version: 2.0
+Name: csmpe
+Version: 0.1.4
+Summary: CSM Plugin Engine
+Home-page: https://github.com/csmserver/csmpe
+Author: Klaudiusz Staniek
+Author-email: klstanie@cisco.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: stevedore
+Requires-Dist: pkginfo
+Requires-Dist: click
+Requires-Dist: condoor (>=0.1.5)
+Requires-Dist: sphinx
+Requires-Dist: sphinx-rtd-theme
+
+UNKNOWN
+
+
