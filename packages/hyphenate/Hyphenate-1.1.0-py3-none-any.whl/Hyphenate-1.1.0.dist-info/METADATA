@@ -1,0 +1,36 @@
+Metadata-Version: 2.0
+Name: Hyphenate
+Version: 1.1.0
+Summary: Determine hyphenation breaks in English words
+Home-page: https://github.com/jfinkels/hyphenate
+Author: Jeffrey Finkelstein
+Author-email: jeffrey.finkelstein@gmail.com
+License: Public Domain
+Download-URL: https://pypi.python.org/pypi/hyphenate
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: Public Domain
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Text Processing
+
+Hyphenate, using Frank Liang's algorithm.
+
+This module provides a single function to hyphenate words. The
+``hyphenate_word`` function takes a string (the word to hyphenate), and
+returns a list of parts that can be separated by hyphens. For example::
+
+    >>> from hyphenate import hyphenate_word
+    >>> hyphenate_word('hyphenation')
+    ['hy', 'phen', 'ation']
+    >>> hyphenate_word('supercalifragilistic')
+    ['su', 'per', 'cal', 'ifrag', 'ilis', 'tic']
+    >>> hyphenate_word('project')
+    ['project']
+
+This code, originally written by Ned Batchelder in July 2007, is in the
+public domain.
+
+
+
