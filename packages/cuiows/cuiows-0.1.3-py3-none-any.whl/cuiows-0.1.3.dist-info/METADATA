@@ -1,0 +1,15 @@
+Metadata-Version: 2.0
+Name: cuiows
+Version: 0.1.3
+Summary: A curio websocket library
+Home-page: https://github.com/SunDwarf/curio_websocket
+Author: Isaac Dickinson
+Author-email: sun@veriny.tf
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: curio (>=0.4.0)
+Requires-Dist: wsproto (>=0.9.0)
+
+UNKNOWN
+
+
