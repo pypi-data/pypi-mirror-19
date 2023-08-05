@@ -1,0 +1,15 @@
+Metadata-Version: 2.0
+Name: sumologic-sdk
+Version: 0.1.6
+Summary: Sumo Logic Python SDK
+Home-page: https://github.com/SumoLogic/sumologic-python-sdk
+Author: Yoway Buorn, Melchi Salins
+Author-email: it@sumologic.com, melchisalins@icloud.com
+License: PSF
+Keywords: sumologic python sdk rest api log management analytics logreduce splunk security siem collector forwarder
+Platform: UNKNOWN
+Requires-Dist: requests (>=2.2.1)
+
+UNKNOWN
+
+
