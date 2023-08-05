@@ -1,0 +1,20 @@
+Metadata-Version: 2.0
+Name: csirtg-dnsdb
+Version: 0.0.0a3
+Summary: DNSDB Client
+Home-page: https://github.com/csirtgadgets/dnsdb-py
+Author: Wes Young
+Author-email: wes@csirtgadgets.org
+License: MPL2
+Keywords: security
+Platform: UNKNOWN
+Classifier: Topic :: System :: Networking
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Requires-Dist: pytest (>=2.8.0)
+Requires-Dist: requests (>=2.6.0)
+Requires-Dist: ujson (>=1.35)
+
+Software Development Kit for DNSDB
+
+
