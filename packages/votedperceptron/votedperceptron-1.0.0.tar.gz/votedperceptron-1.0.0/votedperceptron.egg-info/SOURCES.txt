@@ -1,0 +1,12 @@
+LICENSE.txt
+MANIFEST.in
+README.rst
+setup.py
+votedperceptron/__init__.py
+votedperceptron/multiclassclassifier.py
+votedperceptron/votedperceptron.py
+votedperceptron.egg-info/PKG-INFO
+votedperceptron.egg-info/SOURCES.txt
+votedperceptron.egg-info/dependency_links.txt
+votedperceptron.egg-info/requires.txt
+votedperceptron.egg-info/top_level.txt
