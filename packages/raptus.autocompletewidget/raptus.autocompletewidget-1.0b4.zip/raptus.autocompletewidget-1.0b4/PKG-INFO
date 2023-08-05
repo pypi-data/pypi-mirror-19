@@ -1,0 +1,54 @@
+Metadata-Version: 1.1
+Name: raptus.autocompletewidget
+Version: 1.0b4
+Summary: archetypes autocomplete widget
+Home-page: https://github.com/Raptus/raptus.autocompletewidget
+Author: Raptus AG
+Author-email: dev@raptus.com
+License: GPL
+Description: Introduction
+        ============
+        
+        raptus.autocompletewidget provides an archetypes autocomplete widget based on
+        the jQuery Autocomplete plugin.
+        
+        Changelog
+        =========
+        
+        1.0b4 (2016-12-19)
+        ------------------
+        
+        - If vocabulary_factory implements z3c.formwidget.query.interfaces.IQuerySource
+          try to search in it
+          [ale-rt]
+        - fix remove all element in multiselection
+          [mamico]
+        
+        
+        1.0b3 (2015-06-12)
+        ------------------
+        
+        * Adds 'Content-Type' header in the return of views.
+          [idgserpro]
+        
+        
+        1.0b2 (2010-12-06)
+        ------------------
+        
+        * Made it possible to work with named vocabulary factories
+        * Fixed some unicode issues
+        
+        1.0b1 (2010-10-20)
+        ------------------
+        
+        * Plone 4 compatibility
+        
+        0.1 - (2009-10-30)
+        ------------------
+        
+        * First public release
+        
+Keywords: plone archetypes widget autocomplete
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
