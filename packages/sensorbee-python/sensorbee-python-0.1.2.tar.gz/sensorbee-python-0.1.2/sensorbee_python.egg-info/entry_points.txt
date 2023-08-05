@@ -1,0 +1,4 @@
+[console_scripts]
+sbpeek = sensorbee.cli:sbpeek
+sbstat = sensorbee.cli:sbstat
+
