@@ -1,0 +1,39 @@
+Metadata-Version: 1.1
+Name: mprint-assistant
+Version: 0.3
+Summary: Easy printing to U of M printers
+Home-page: https://github.com/samharad/mprint-assistant
+Author: Sam Adams
+Author-email: sam.h.adams@gmail.com
+License: MIT
+Description: ===== 
+        MPrint Assistant
+        ===== 
+        Intro
+        -------- 
+        MPrint Assistant gives command line users a simple, fast way to print documents to University of Michigan printers. Unlike the browser MPrint interface, MPrint Assistant allows multiple documents to be simultaneously selected and sent to a printer.
+        
+        Features include:
+        
+        - Batch printing
+        - Building search by name, acronym
+        - Tab completion for buildings, document paths
+        - Flags that allow for fast usage
+        
+        Installation
+        --------
+        Install using pip:
+        
+            pip install mprint-assistant
+            
+        A runnable script called ``mprint`` will be placed in your path (/usr/local/bin/mprint).
+        
+        
+Keywords: Michigan print mprint
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Other Audience
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Printing
