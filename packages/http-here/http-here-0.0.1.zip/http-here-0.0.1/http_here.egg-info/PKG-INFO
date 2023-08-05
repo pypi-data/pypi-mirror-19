@@ -1,0 +1,60 @@
+Metadata-Version: 1.1
+Name: http-here
+Version: 0.0.1
+Summary: Simple Python HTTP server short for SimpleHTTPServer.
+Home-page: https://github.com/hustcc
+Author: hustcc
+Author-email: i@hust.cc
+License: MIT
+Description: # http-here
+        
+        > A Simple Python HTTP server. Just short for **SimpleHTTPServer**.
+        
+        
+        [![Latest Stable Version](https://img.shields.io/pypi/v/http-here.svg)](https://pypi.python.org/pypi/http-here) [![Build Status](https://travis-ci.org/hustcc/http-here.svg?branch=master)](https://travis-ci.org/hustcc/http-here) 
+        
+        
+        ## 1. Install
+        
+        > **pip install http-here**
+        
+        Then get a cli command named `http-here`.
+        
+        
+        ## 2. Usage
+        
+        CLI command **http-here**，How to use it：
+        
+        > **http-here [port]**
+        
+        Or `hint --help` to get documents.
+        
+        ```shell
+        $ http-here --help
+        Usage: http-here [OPTIONS] [PORT]
+        
+        Options:
+          --host TEXT  The binding host of server.
+          --help       Show this message and exit.
+        ```
+        
+        
+        # LICENSE
+        
+        MIT @[hustcc](https://github.com/hustcc).
+Keywords: server,http,httpserver,simple,SimpleHTTPServer
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: Chinese (Simplified)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.5
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Utilities
