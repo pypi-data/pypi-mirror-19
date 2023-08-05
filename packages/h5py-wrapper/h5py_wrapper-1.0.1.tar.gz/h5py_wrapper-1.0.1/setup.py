@@ -1,0 +1,26 @@
+# encoding: utf8
+from setuptools import setup
+
+setup(
+    name='h5py_wrapper',
+    version='1.0.1',
+    author='Maximilian Schmidt, Jakob Jordan',
+    author_email='max.schmidt@fz-juelich.de',
+    description=('A wrapper to conveniently store nested Python dictionaries in hdf5 files.'),
+    license='GPL2',
+    keywords='hdf5 h5py',
+    url='https://github.com/INM-6/h5py_wrapper',
+    packages=['h5py_wrapper', 'tests'],
+    scripts=['convert_h5file'],
+    setup_requires=['pytest-runner'],
+    tests_require=['pytest'],
+    long_description=open('README.rst').read(),
+    classifiers=[
+        'Development Status :: 4 - Beta',
+        'License :: OSI Approved :: GNU General Public License v2 (GPLv2)',
+        'Natural Language :: English',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python :: 2.7',
+        'Topic :: Utilities',
+    ],
+)
