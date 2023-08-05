@@ -1,0 +1,21 @@
+CHANGES
+=======
+
+* Update setup.cfg
+
+0.1
+---
+
+* add badges and examples to readme
+* publish development version on pypi
+* add netsud systemd service unit
+* add wsgi.py interface and uwsgi configuration
+* add app.py module with Flask controller
+* add core interface and related tests
+* introduce validation.py module
+* add configurator.py
+* add data.py for config and state handling
+* add .travis.yml for test automation
+* add coverage support
+* add plugins.py and testing
+* initial commit

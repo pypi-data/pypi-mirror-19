@@ -1,0 +1,15 @@
+[Unit]
+Description=netsu Network Manager service
+
+[Service]
+Type=simple
+PIDFile=/var/run/netsu.pid
+EnvironmentFile=/etc/netsu/conf.env
+ExecStart=/usr/sbin/uwsgi --ini /etc/netsu/uwsgi.ini
+ExecStartPost=/usr/bin/netsu-ctl set running-config --copy-from-table persistent-config
+ExecReload=/usr/bin/netsu-ctl set running-config --copy-from-table running-config
+ExecStop=/usr/bin/netsu-ctl set running-config '{}'
+ExecStop=/usr/sbin/uwsgi --stop /var/run/netsu.pid
+
+[Install]
+WantedBy=multi-user.target
