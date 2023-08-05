@@ -1,0 +1,14 @@
+Metadata-Version: 1.1
+Name: PyAstroChem
+Version: 1.0
+Summary: A python package for astrochemistry.
+Home-page: UNKNOWN
+Author: Andrew Lehmann
+Author-email: andrew.lehmann.35@gmail.com
+License: UNKNOWN
+Description: Astrochemistry module including functions for heating, cooling, RADEX, time-dependent ode solving, and reaction rate tools.
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Scientific/Engineering :: Astronomy
