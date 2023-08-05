@@ -1,0 +1,4 @@
+[console_scripts]
+fetch_seq = menace.bin.fetchSeq:main
+menace = menace.__main__:main
+
