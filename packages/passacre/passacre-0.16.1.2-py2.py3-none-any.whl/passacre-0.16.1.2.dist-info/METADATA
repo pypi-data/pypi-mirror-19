@@ -1,0 +1,31 @@
+Metadata-Version: 2.0
+Name: passacre
+Version: 0.16.1.2
+Summary: better repeatable password generation
+Home-page: https://github.com/habnabit/passacre
+Author: Aaron Gallagher
+Author-email: _@habnab.it
+License: ISC
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Security
+Requires-Dist: passacre-backend (==0.16.1.2)
+Requires-Dist: passacre-nobackend (==0.16.1.2)
+
+========
+passacre
+========
+
+A `passacre`_ metapackage,
+which depends on the same version of `passacre-backend`_ and `passacre-nobackend`_.
+Otherwise it's hard to publish the two separately.
+
+.. _passacre: https://github.com/habnabit/passacre
+.. _passacre-backend: https://pypi.python.org/pypi/passacre-backend
+.. _passacre-nobackend: https://pypi.python.org/pypi/passacre-nobackend
+
+
