@@ -1,0 +1,15 @@
+LICENSE.TXT
+MANIFEST.in
+README.md
+README.rst
+setup.cfg
+setup.py
+crowd/__init__.py
+crowd/backends.py
+crowd/middleware.py
+crowd/models.py
+django_crowd_sso.egg-info/PKG-INFO
+django_crowd_sso.egg-info/SOURCES.txt
+django_crowd_sso.egg-info/dependency_links.txt
+django_crowd_sso.egg-info/requires.txt
+django_crowd_sso.egg-info/top_level.txt
