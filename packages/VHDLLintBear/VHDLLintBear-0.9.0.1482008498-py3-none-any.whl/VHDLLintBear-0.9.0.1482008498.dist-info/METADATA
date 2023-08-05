@@ -1,0 +1,44 @@
+Metadata-Version: 2.0
+Name: VHDLLintBear
+Version: 0.9.0.1482008498
+Summary: 'VHDLLintBear' bear for coala (http://coala.rtfd.org/)
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: AGPL-3.0
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Software Development :: Quality Assurance
+Classifier: Topic :: Text Processing :: Linguistic
+
+
+Check VHDL code for common codestyle problems.
+
+Rules include:
+
+ * Signals, variables, ports, types, subtypes, etc. must be lowercase.
+ * Constants and generics must be uppercase.
+ * Entities, architectures and packages must be "mixedcase" (may be 100%
+   uppercase, but not 100% lowercase).
+ * Ports must be suffixed using _i, _o or _io denoting its kind.
+ * Labels must be placed in a separated line. Exception: component
+   instantiation.
+ * End statements must be documented indicating what are finishing.
+ * Buffer ports are forbidden.
+ * VHDL constructions of the "entity xxxx is" and similars must be in one
+   line. You can't put "entity xxxxx" in one line and "is" in another.
+ * No more than one VHDL construction is allowed in one line of code.
+
+See <http://fpgalibre.sourceforge.net/ingles.html#tp46> for more
+information.
+
+
