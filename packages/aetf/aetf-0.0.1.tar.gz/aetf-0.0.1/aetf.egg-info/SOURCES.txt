@@ -1,0 +1,12 @@
+MANIFEST.in
+README.rst
+setup.py
+aetf/__init__.py
+aetf/ae.py
+aetf.egg-info/PKG-INFO
+aetf.egg-info/SOURCES.txt
+aetf.egg-info/dependency_links.txt
+aetf.egg-info/not-zip-safe
+aetf.egg-info/requires.txt
+aetf.egg-info/top_level.txt
+bin/aetf
