@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: django-admin-large-initial-data
+Version: 0.0.1
+Summary: Allow to make redirects with large session data to django ModelAdmin add view
+Home-page: https://github.com/PetrDlouhy/django-admin-large-initial-data
+Author: Petr Dlouhý
+Author-email: petr.dlouhy@email.cz
+License: GPL
+Download-URL: https://github.com/PetrDlouhy/django-admin-large-initial-data
+Description: UNKNOWN
+Keywords: django admin initial_data
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
