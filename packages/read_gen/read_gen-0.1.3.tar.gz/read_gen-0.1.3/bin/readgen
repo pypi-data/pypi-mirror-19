@@ -1,0 +1,54 @@
+#!/usr/bin/env python
+
+import argparse
+import read_gen
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description = 'Python script: ' + read_gen.__description__)
+
+    parser.add_argument('l', help='length of generated reads', type=int)
+    parser.add_argument('n', help='number of reads to be generated', type=int)
+    parser.add_argument('sl', help='length of generated sequence that reads come from', type=int)
+    parser.add_argument('e', help='erroneous read rate (i.e. 0.02)', type=float)
+
+    parser.add_argument('-ne', '--nucleotide-error-rate', help='erroneous nucleotide rate (within erroneous reads - default: 0.02)', type=float, default=0.03)
+
+    with_indels_parser = parser.add_mutually_exclusive_group()
+    with_indels_parser.add_argument('--with-indels', help='generate not only substitution errors, but also insertion and deletion errors (default)', dest='with_indels', action='store_true')
+    with_indels_parser.add_argument('--no-with-indels', dest='with_indels', action='store_false')
+    parser.set_defaults(with_indels=True)
+
+    parser.add_argument('--read-length-variation', help='magnitude of read length variation as a percantage (where 0 is not variant at all - default: 0.1)', type=float, default=0.1)
+    parser.add_argument('--alphabet', help='set of characters used (without weighing) in generating the sequence and errors (default: \'AGCT\')', type=str, default='AGCT')
+    parser.add_argument('--note', help='note to append after read IDs (if `--fastafy`ing - no default)', type=str, default=None)
+
+    with_original_parser = parser.add_mutually_exclusive_group()
+    with_original_parser.add_argument('--with-original', help='include the original, error free read in generated read\'s notes (default)', dest='with_original', action='store_true')
+    with_original_parser.add_argument('--no-with-original', dest='with_original', action='store_false')
+    parser.set_defaults(with_original=True)
+
+    output_sequence_parser = parser.add_mutually_exclusive_group()
+    output_sequence_parser.add_argument('--output-sequence', help='output the full generated sequence in one line before outputting reads', dest='output_sequence', action='store_true')
+    output_sequence_parser.add_argument('--no-output-sequence', help='(default)', dest='output_sequence', action='store_false')
+    parser.set_defaults(output_sequence=False)
+
+    fastafy_parser = parser.add_mutually_exclusive_group()
+    fastafy_parser.add_argument('--fastafy', help='set that reads should have a FASTA ID line prepended (default)', dest='fastafy', action='store_true')
+    fastafy_parser.add_argument('--no-fastafy', dest='fastafy', action='store_false')
+    parser.set_defaults(fastafy=True)
+
+    args = parser.parse_args()
+
+    gen = read_gen.ReadGen(
+        args.l, args.n, args.sl, args.e,
+        nucleotide_error_rate=args.nucleotide_error_rate,
+        with_indels=args.with_indels,
+        read_length_variation=args.read_length_variation,
+        alphabet=args.alphabet,
+        with_original=args.with_original,
+        note=args.note,
+        fastafy=args.fastafy
+    )
+
+    if args.output_sequence: print(gen.seq)
+    for read in gen: print(read)
