@@ -1,0 +1,11 @@
+MANIFEST.in
+requirements.txt
+setup.py
+VintBear.egg-info/PKG-INFO
+VintBear.egg-info/SOURCES.txt
+VintBear.egg-info/dependency_links.txt
+VintBear.egg-info/entry_points.txt
+VintBear.egg-info/requires.txt
+VintBear.egg-info/top_level.txt
+coalaVintBear/VintBear.py
+coalaVintBear/__init__.py
