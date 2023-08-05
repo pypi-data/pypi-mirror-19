@@ -1,0 +1,19 @@
+Metadata-Version: 2.0
+Name: pyfin
+Version: 1.0.0a0
+Summary: Financial toolkit for Quant of China market
+Home-page: https://github.com/X0Leon/pyfin
+Author: X0Leon
+Author-email: pku09zl@gmail.com
+License: MIT
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scikit-learn
+Requires-Dist: scipy
+Requires-Dist: tabulate
+Requires-Dist: tushare
+
+# pyfin
+
+
