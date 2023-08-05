@@ -1,0 +1,17 @@
+MANIFEST.in
+README.rst
+setup.py
+plugs_filter/__init__.py
+plugs_filter/decorators.py
+plugs_filter/filters.py
+plugs_filter/filtersets.py
+plugs_filter/runtests.py
+plugs_filter/utils.py
+plugs_filter.egg-info/PKG-INFO
+plugs_filter.egg-info/SOURCES.txt
+plugs_filter.egg-info/dependency_links.txt
+plugs_filter.egg-info/requires.txt
+plugs_filter.egg-info/top_level.txt
+plugs_filter/tests/__init__.py
+plugs_filter/tests/test_decorators.py
+plugs_filter/tests/test_settings.py
