@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+bjp_make/__init__.py
+bjp_make/dir_mod.py
+bjp_make/get_externals.py
+bjp_make/run_program.py
+bjp_make.egg-info/PKG-INFO
+bjp_make.egg-info/SOURCES.txt
+bjp_make.egg-info/dependency_links.txt
+bjp_make.egg-info/top_level.txt
+bjp_make.egg-info/zip-safe
