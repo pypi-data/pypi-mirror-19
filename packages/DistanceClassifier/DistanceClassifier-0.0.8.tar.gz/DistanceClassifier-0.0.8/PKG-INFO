@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: DistanceClassifier
+Version: 0.0.8
+Summary: Distance Classifier
+Home-page: https://github.com/lacava/DistanceClassifier
+Author: William La Cava
+Author-email: lacava@upenn.edu
+License: GNU/GPLv3
+Download-URL: https://github.com/lacava/DistanceClassifier/releases/tag/0.0.8
+Description: 
+        A simple distance-based classification algorithm.
+        
+        Contact:
+        ===
+        e-mail: lacava@upenn.edu
+        
+        This project is hosted at https://github.com/lacava/DistanceClassifier
+        
+Keywords: data science,machine learning,classification
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
