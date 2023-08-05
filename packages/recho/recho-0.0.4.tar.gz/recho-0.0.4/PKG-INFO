@@ -1,0 +1,28 @@
+Metadata-Version: 1.1
+Name: recho
+Version: 0.0.4
+Summary: Post the latest Reddit comments from a specific User to a specific Slack channel
+Home-page: https://github.com/DankCity/recho
+Author: Levi Noecker
+Author-email: levi [at] dank [dot] city
+License: MIT
+Description: Reddit Echo
+        ===========
+        1
+        
+Keywords: reddit,slack,bot,slack bot,dankbot,recho
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Communications :: Chat
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
