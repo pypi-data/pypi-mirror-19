@@ -1,0 +1,31 @@
+Metadata-Version: 2.0
+Name: structify
+Version: 0.1.0
+Summary: Simplify binary structures in Python
+Home-page: https://github.com/atul-bhouraskar/structify
+Author: Atul Bhouraskar
+Author-email: atul@atulb.me
+License: MIT
+Keywords: structify development
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Provides-Extra: dev
+Requires-Dist: check-manifest; extra == 'dev'
+Provides-Extra: test
+Requires-Dist: coverage; extra == 'test'
+
+Use structs in Python (almost) like C
+======================================
+
+If your project requires extensive read/write of binary data then structify is
+for you.
+
