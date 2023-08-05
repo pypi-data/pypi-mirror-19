@@ -1,0 +1,10 @@
+setup.py
+src/PyCodebase.egg-info/PKG-INFO
+src/PyCodebase.egg-info/SOURCES.txt
+src/PyCodebase.egg-info/dependency_links.txt
+src/PyCodebase.egg-info/requires.txt
+src/PyCodebase.egg-info/top_level.txt
+src/codebase/__init__.py
+src/codebase/client.py
+src/codebase/rsrc.py
+src/codebase/utils.py
