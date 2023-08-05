@@ -1,0 +1,16 @@
+MANIFEST.in
+setup.cfg
+setup.py
+versioneer.py
+csirtg_dnsdb/__init__.py
+csirtg_dnsdb/_version.py
+csirtg_dnsdb/client.py
+csirtg_dnsdb/exceptions.py
+csirtg_dnsdb.egg-info/PKG-INFO
+csirtg_dnsdb.egg-info/SOURCES.txt
+csirtg_dnsdb.egg-info/dependency_links.txt
+csirtg_dnsdb.egg-info/entry_points.txt
+csirtg_dnsdb.egg-info/requires.txt
+csirtg_dnsdb.egg-info/top_level.txt
+test/__init__.py
+test/test_client.py
