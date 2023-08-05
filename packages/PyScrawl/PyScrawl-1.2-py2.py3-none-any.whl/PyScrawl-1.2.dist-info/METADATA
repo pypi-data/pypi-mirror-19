@@ -1,0 +1,28 @@
+Metadata-Version: 2.0
+Name: PyScrawl
+Version: 1.2
+Summary: API client for using scrawl.nl.
+Home-page: https://bitbucket.org/creeerio/pyscrawl
+Author: Nils
+Author-email: nils@creeer.io
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: requests
+
+PyScrawl
+========
+
+API client for using scrawl.nl.
+
+`readthedocs.org <http://pyscrawl.readthedocs.io/en/latest/>`_
+
+Example
+-------
+
+
+
