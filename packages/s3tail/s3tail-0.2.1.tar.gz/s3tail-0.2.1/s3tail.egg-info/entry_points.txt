@@ -1,0 +1,3 @@
+[console_scripts]
+s3tail = s3tail.cli:main
+
