@@ -1,0 +1,11 @@
+LICENSE.txt
+MANIFEST.in
+setup.cfg
+setup.py
+threading_futures/__init__.py
+threading_futures/errors.py
+threading_futures/futures.py
+threading_futures.egg-info/PKG-INFO
+threading_futures.egg-info/SOURCES.txt
+threading_futures.egg-info/dependency_links.txt
+threading_futures.egg-info/top_level.txt
