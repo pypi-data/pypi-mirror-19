@@ -1,0 +1,17 @@
+django_objectdump-0.5.2.dist-info/DESCRIPTION.rst,sha256=iZ2FcJfmlCQuWQJO7TfOxARP6IvlSnx1djcR6hmHrPU,2951
+django_objectdump-0.5.2.dist-info/METADATA,sha256=DQE8hxPrM5CtHjMf1hf55choe-VjAL2KkSnFadqWhCc,3333
+django_objectdump-0.5.2.dist-info/RECORD,,
+django_objectdump-0.5.2.dist-info/WHEEL,sha256=bee59qcPjkyXfMaxNWjl2CGotqfumWx9pC1hlVLr2mM,92
+django_objectdump-0.5.2.dist-info/metadata.json,sha256=K77xjC5ZZdBDchULpBuyUy_4JIusCyELKRZaXeAFtpg,554
+django_objectdump-0.5.2.dist-info/pbr.json,sha256=SNaaKxmhNxmbte86scxxXc7lAbhjDZDdKwblRONcBj0,47
+django_objectdump-0.5.2.dist-info/top_level.txt,sha256=aGkDKZT0u5YmcWa2kcgyxLJiUgoeSkTOJVpuYb0S0Ng,11
+objectdump/__init__.py,sha256=9wEblV8jJZYjJMquDCHD6A-YDzuBphZ8azpugj1jC-g,752
+objectdump/diagram.py,sha256=yurkGLCT2mDPZ_a7D6lCuXHPVX3KUNQy95OYfTeFWqU,657
+objectdump/models.py,sha256=LuAE10kqv5EPD0fiq4F7sdM_QiMazSufcEoMXCLNcCw,3446
+objectdump/serializer.py,sha256=Daky_IuIKJg-52EkDCV7UrbzRpaXvhV4BWR0tXz0TcM,5262
+objectdump/settings.py,sha256=BJtDE7Hu-yOcWGGilM2on0CpsMirIJDRfa7-pqQeb48,270
+objectdump/tests.py,sha256=BiZ7Hebbi1CrWlxtYk4gbhbJiwoTkEgfnSp9NqwXZ4s,11736
+objectdump/topological_sort.py,sha256=hRzNM4YuAgan6SpJ6HWeU_xtlcoDqaOTTXU0dsTPFIk,3523
+objectdump/management/__init__.py,sha256=FZk9hm7vBsK8G16pNugputbrrEciYqJc_XRAhTCcojI,46
+objectdump/management/commands/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+objectdump/management/commands/object_dump.py,sha256=9xYIFjvXu-xMPZ7Id4l-Xg6GvjP5wdFY784Cb7JlYxo,17844
