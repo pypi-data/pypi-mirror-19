@@ -1,0 +1,16 @@
+README.rst
+setup.py
+sherlock/__init__.py
+sherlock/errors.py
+sherlock/types.py
+sherlock.py.egg-info/PKG-INFO
+sherlock.py.egg-info/SOURCES.txt
+sherlock.py.egg-info/dependency_links.txt
+sherlock.py.egg-info/entry_points.txt
+sherlock.py.egg-info/requires.txt
+sherlock.py.egg-info/top_level.txt
+sherlock/codelib/__init__.py
+sherlock/codelib/generator.py
+sherlock/codelib/analyzer/__init__.py
+sherlock/codelib/analyzer/function.py
+sherlock/codelib/analyzer/variable.py
