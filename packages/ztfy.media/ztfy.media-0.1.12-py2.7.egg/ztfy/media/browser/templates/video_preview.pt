@@ -1,0 +1,21 @@
+<div class="centered flowplayer" i18n:domain="ztfy.media"
+	 tal:define="formats python:['video/webm','video/mp4','video/x-flv'];
+				 size view/size;
+				 width python:size[0];
+				 height python:size[1];"
+	 data-ztfy-plugin="$.ZTFY_media.initPlayer"
+	 data-ztfy-flowplayer-events='{"ready": "$.ZTFY_media.initPlayerDialog"}'
+	 tal:attributes="style string:width: ${width}px;; height: ${height}px;;">
+	<video
+		tal:define="href context/__parent__/@@absolute_url;"
+		tal:attributes="poster string:${href}/++display++${width}x${height}.png">
+		<tal:loop repeat="format formats">
+			<source tal:define="conversion python:view.conversions.getConversion(format);
+								conv_url conversion/@@absolute_url"
+					tal:condition="conversion"
+					tal:attributes="type python:'video/flash' if format=='video/x-flv' else format;
+									src python:conv_url.replace('+','%2B');
+									media python:'all and (max-width: {0}px)'.format(width);" />
+		</tal:loop>
+	</video>
+</div>
