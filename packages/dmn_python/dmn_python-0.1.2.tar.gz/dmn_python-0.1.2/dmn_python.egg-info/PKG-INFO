@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: dmn-python
+Version: 0.1.2
+Summary: Python library enabling importing and exporting a DMN model (as an XML file) and visualizating it.
+Home-page: https://github.com/jan-klos/dmn_python
+Author: Jan Klos
+Author-email: janklos@protonmail.com
+License: GNU GENERAL PUBLIC LICENSE
+Download-URL: https://github.com/jan-klos/dmn_python/releases/download/v0.1.0/dmn_python_0.1.0.zip
+Description: Python library enabling importing and exporting a DMN model (as an XML file) and visualizating it.
+        
+        Project structure
+        
+        definitions - classes composing DMN model
+        examples - examples of DMN models
+        img - elements representation images needed for diagram visualisation
+        tests
+        DMNExport.py - class used to export DMN model as an XML file
+        DMNImport.py - class used to import DMN model from an XML file
+        DMNVisualisation.py - class providing functions to display diagrams and decision tables
+Keywords: dmn,xml
+Platform: UNKNOWN
