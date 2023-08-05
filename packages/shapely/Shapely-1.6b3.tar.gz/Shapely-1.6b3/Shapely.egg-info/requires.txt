@@ -1,0 +1,14 @@
+
+[all]
+numpy
+pytest
+pytest-cov
+packaging
+
+[test]
+pytest
+pytest-cov
+packaging
+
+[vectorized]
+numpy
