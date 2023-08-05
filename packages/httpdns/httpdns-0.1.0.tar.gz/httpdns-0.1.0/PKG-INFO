@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: httpdns
+Version: 0.1.0
+Summary: Get host's IP by D+ of DNSPod.
+Home-page: http://github.com/codeif/httpdns
+Author: codeif
+Author-email: me@codeif.com
+License: MIT
+Description: httpdns
+        =======
+        
+        Get host's IP by `D+ of DNSPod <https://www.dnspod.cn/httpdns/guide>`_
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
