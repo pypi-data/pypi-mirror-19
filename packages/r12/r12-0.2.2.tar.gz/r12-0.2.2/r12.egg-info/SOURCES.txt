@@ -1,0 +1,16 @@
+MANIFEST.in
+setup.cfg
+setup.py
+r12/__init__.py
+r12/arm.py
+r12/mock.py
+r12/r12-shell
+r12/shell.py
+r12.egg-info/PKG-INFO
+r12.egg-info/SOURCES.txt
+r12.egg-info/dependency_links.txt
+r12.egg-info/not-zip-safe
+r12.egg-info/requires.txt
+r12.egg-info/top_level.txt
+r12/help/roboforth.txt
+r12/help/shell.txt
