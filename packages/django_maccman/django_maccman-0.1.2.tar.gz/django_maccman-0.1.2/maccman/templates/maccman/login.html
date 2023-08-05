@@ -1,0 +1,23 @@
+{% extends 'maccman/base.html' %}
+{% load bootstrap3 %}
+
+{% block content %}
+
+<div class="row text-center">
+  <h1>{% block title %}Login{% endblock %}</h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-offset-4 col-sm-4">
+    <form action="{% url 'maccman:login' %}" method="post" class="form">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      {% buttons %}
+      <button type="submit" class="btn btn-primary btn-block">{% bootstrap_icon "ok-sign" %} Submit</button>
+      {% endbuttons %}
+      <input type="hidden" name="next" value="{{ next }}" />
+    </form>
+  </div>
+</div>
+
+{% endblock %}

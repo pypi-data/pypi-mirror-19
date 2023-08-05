@@ -1,0 +1,39 @@
+{% extends 'maccman/base.html' %}
+
+{% block content %}
+
+<div class="row text-center">
+  <h1>{% block title %}Your mailboxes{% endblock %}</h1>
+</div>
+
+<div class="row">
+  <div class="col-md-offset-2 col-md-8">
+    {% if mailboxes|length %}
+    {% regroup mailboxes by domain as mailbox_list %}
+    <div class="panel-group" id="mailboxes">
+      {% for mailbox in mailbox_list %}
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a class="accoridion-toggle" data-toggle="collapse" data-parent="#mailboxes" href="#collapse{{ forloop.counter }}">
+              {{ mailbox.grouper }}<span class="badge">{{ mailbox.list|length }}</span>
+            </a>
+          </h4>
+        </div>
+        <div id="collapse{{ forloop.counter }}" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul class="list-group">
+              {% for element in mailbox.list %}
+              <li class='list-group-item'>{{ element.account }}@{{ element.domain.name }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'maccman/base.html' %}
+
+{% block content %}
+<div class='row text-center'>
+  <h1>{% block title %}Home{% endblock %}</h1>
+</div>
+<div class='row'>
+  <div class='col-lg-offset-2 col-lg-8'>
+    Welcome to MAccMan{% if user.is_authenticated %}, {{ user.username }}{% endif %}.
+  </div>
+</div>
+{% endblock %}

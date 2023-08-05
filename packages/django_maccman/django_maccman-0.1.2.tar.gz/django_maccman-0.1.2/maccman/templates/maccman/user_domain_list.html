@@ -1,0 +1,47 @@
+{% extends 'maccman/base.html' %}
+
+{% block content %}
+
+<div class="row text-center">
+  <h1>{% block title %}Your domains{% endblock %}</h1>
+</div>
+
+<div class="row">
+  <div class="col-lg-offset-4 col-lg-4">
+    <div class="panel panel-info">
+      <div class="panel-heading text-center">
+        <h3 class="panel-title">Accessible</h3>
+      </div>
+      <ul class="list-group">
+        {% if allowed_domains|length %}
+        {% for domain in allowed_domains %}
+        <li class='list-group-item'>{{ domain.name }}</li>
+        {% endfor %}
+        {% else %}
+        <li class='list-group-item'>No accessible domains</li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-offset-4 col-lg-4">
+    <div class="panel panel-info">
+      <div class="panel-heading text-center">
+        <h3 class="panel-title">Owned</h3>
+      </div>
+      <ul class="list-group">
+        {% if owned_domains|length %}
+        {% for domain in owned_domains %}
+        <li class='list-group-item'>{{ domain.name }}</li>
+        {% endfor %}
+        {% else %}
+        <li class='list-group-item'>No owned domains</li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
