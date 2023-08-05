@@ -1,0 +1,21 @@
+recursive-exclude *.pyc
+recursive-exclude *.dropbox.attr
+
+recursive-exclude Onyx/onyx/plugins *
+include Onyx/onyx/plugins/__init__.py
+
+recursive-include Onyx/onyx/config *
+recursive-exclude Onyx/onyx/data *
+include Onyx/onyx/data/.gitkeep
+exclude Onyx/onyx/flask_config.py
+recursive-include Onyx/onyx/api *
+recursive-include Onyx/onyx/core *
+recursive-include Onyx/onyx/translations *
+recursive-include Onyx/onyx/templates *
+recursive-include Onyx/static/js *
+recursive-include Onyx/static/css *
+recursive-include Onyx/static/fonts *
+recursive-include Onyx/static/img *
+
+
+
