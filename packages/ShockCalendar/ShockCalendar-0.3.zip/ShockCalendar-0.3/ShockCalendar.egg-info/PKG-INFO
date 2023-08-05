@@ -1,0 +1,12 @@
+Metadata-Version: 1.0
+Name: ShockCalendar
+Version: 0.3
+Summary: Un widget calendario para usar en Tkinter
+Home-page: http://foro.el-hacker.com/miembros/sokoleonardo/
+Author: adrian_leonardo_05 at hotmail.com.ar
+Author-email: adrian_leonardo_05@hotmail.com.ar
+License: MIT
+Description: Un módulo con un objeto calendario widget dibujado con canvas que permite al usuario seleccionar cualquier fechas e introducir fechas de eventoscon información.
+        Muy facil de usar y incluye ejemplos.
+Keywords: Tkinter,widget,calendar,date,time,canvas,GUI
+Platform: UNKNOWN
