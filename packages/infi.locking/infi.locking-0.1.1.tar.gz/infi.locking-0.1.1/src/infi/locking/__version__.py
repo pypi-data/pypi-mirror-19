@@ -1,0 +1,11 @@
+__version__ = "0.1.1"
+__git_commiter_name__ = "amirr"
+__git_commiter_email__ = "amirr@infinidat.com"
+__git_branch__ = u'develop'
+__git_remote_tracking_branch__ = u'origin/develop'
+__git_remote_url__ = u'git@git.infinidat.com:host-opensource/infi.locking.git'
+__git_head_hash__ = '0da432157b96b802e3131730e13343ae21ad76df'
+__git_head_subject__ = u'Finished release v0.1.'
+__git_head_message__ = u''
+__git_dirty_diff__ = u''
+__git_commit_date__ = '2015-09-03 11:08:08'
