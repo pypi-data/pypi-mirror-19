@@ -1,0 +1,13 @@
+setup.cfg
+setup.py
+cloudshare/__init__.py
+cloudshare/authentication_parameter_provider.py
+cloudshare/hmacer.py
+cloudshare/http.py
+cloudshare/ioc.py
+cloudshare/requester.py
+cloudshare/token_generator.py
+cloudshare.egg-info/PKG-INFO
+cloudshare.egg-info/SOURCES.txt
+cloudshare.egg-info/dependency_links.txt
+cloudshare.egg-info/top_level.txt
