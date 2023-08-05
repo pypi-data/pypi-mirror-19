@@ -1,0 +1,27 @@
+Metadata-Version: 2.0
+Name: liteocr
+Version: 0.2
+Summary: Light-weight OCR engine.
+Home-page: http://github.com/LinxiFan/LiteOCR
+Author: Linxi (Jim) Fan
+Author-email: jimfan@cs.stanford.edu
+License: GPLv3
+Keywords: OCR image recognition wrapper Tesseract
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Scientific/Engineering :: Image Recognition
+Classifier: Topic :: Utilities
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: numpy
+Requires-Dist: pillow
+Requires-Dist: tesserocr
+
+OCR engine
+==========
+
+This library relies on `Tesseract <https://github.com/tesseract-ocr>`__
+and provides a clean API for parsing hierarchical page segmentation and
+recognition results.
+
+
