@@ -1,0 +1,6 @@
+cffi
+
+[tests]
+pep8
+pylint
+pytest
