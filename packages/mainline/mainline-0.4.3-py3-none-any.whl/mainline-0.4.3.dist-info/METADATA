@@ -1,0 +1,17 @@
+Metadata-Version: 2.0
+Name: mainline
+Version: 0.4.3
+Summary: Simple yet powerful python dependency injection for py2/py3k
+Home-page: http://github.com/akatrevorjay/mainline
+Author: Trevor Joynson
+Author-email: github@skywww.net
+License: GPL
+Download-URL: http://github.com/akatrevorjay/mainline/tarball/0.4.3
+Keywords: dependency,injection,ioc
+Platform: UNKNOWN
+Requires-Dist: six
+Requires-Dist: wrapt
+
+UNKNOWN
+
+
