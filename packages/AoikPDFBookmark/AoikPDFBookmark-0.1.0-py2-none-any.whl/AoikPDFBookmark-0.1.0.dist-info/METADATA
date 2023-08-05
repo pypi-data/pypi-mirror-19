@@ -1,0 +1,24 @@
+Metadata-Version: 2.0
+Name: AoikPDFBookmark
+Version: 0.1.0
+Summary: Create PDF bookmarks by tweaking criteria.
+Home-page: https://github.com/AoiKuiyuyou/AoikPDFBookmark
+Author: Aoi.Kuiyuyou
+Author-email: aoi.kuiyuyou@google.com
+License: MIT
+Keywords: pdf bookmark
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: PyPDF2
+Requires-Dist: pdfminer
+
+`Documentation on Github
+<https://github.com/AoiKuiyuyou/AoikPDFBookmark>`_
+
