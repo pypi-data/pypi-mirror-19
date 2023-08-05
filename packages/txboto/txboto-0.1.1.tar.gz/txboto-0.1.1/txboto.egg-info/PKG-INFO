@@ -1,0 +1,46 @@
+Metadata-Version: 1.1
+Name: txboto
+Version: 0.1.1
+Summary: AWS implementation for Twisted, based on Boto
+Home-page: https://www.github.com/silveregg/txboto
+Author: Michael Franke
+Author-email: michael@silveregg.co.jp
+License: BSD-3
+Description: TxBoto
+        ======
+        
+        TxBoto is a Python implementation of the AWS (Amazon Web Services) API for
+        Twisted. Its API is based on the Boto lib. Currently it implements:
+        
+        - DynamoDB
+        - DynamoDB2
+        - Kinesis
+        
+        more will be coming soon
+        
+        
+        Installation
+        ------------
+        
+        :: 
+            
+            pip install txboto
+        
+        Examples
+        --------
+        
+        Coming soon
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
