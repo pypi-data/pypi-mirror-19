@@ -1,0 +1,13 @@
+setup.py
+ImageSource.egg-info/PKG-INFO
+ImageSource.egg-info/SOURCES.txt
+ImageSource.egg-info/dependency_links.txt
+ImageSource.egg-info/requires.txt
+ImageSource.egg-info/top_level.txt
+imagesource/__init__.py
+imagesource/base.py
+imagesource/files.py
+imagesource/static.py
+imagesource/synchronized.py
+imagesource/timedvideo.py
+imagesource/video.py
