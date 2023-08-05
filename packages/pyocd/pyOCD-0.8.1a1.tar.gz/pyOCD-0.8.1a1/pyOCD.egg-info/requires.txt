@@ -1,0 +1,9 @@
+intelhex
+six
+enum34
+future
+websocket-client
+pywinusb>=0.4.0
+
+[dissassembler]
+capstone
