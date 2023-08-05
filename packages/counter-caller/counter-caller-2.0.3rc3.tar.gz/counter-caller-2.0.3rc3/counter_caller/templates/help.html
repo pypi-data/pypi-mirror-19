@@ -1,0 +1,39 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<p><strong>Ways to trigger the viewer:</strong></p>
+
+<ul>
+  <li>Touch the corresponding button on the control panel</li>
+  <li>Press the appropriate keyboard shortcut (hover on the button to view this)</li>
+  <li>Make a post request to <tt>/triggers/&lt;id&gt;</tt>
+</ul>
+
+<p><strong>Currently defined triggers:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Keyboard Shortcut</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for trigger in triggers %}
+      <tr>
+        <td>{{ trigger['id'] }}</td>
+        <td>{{ trigger['label'] }}</td>
+        <td>{{ trigger['shortcut'] }}</td>
+    {% endfor %}
+  </tbody>
+</table>
+
+<p><strong>Other messages:</strong></p>
+
+<p>Making a post request to <tt>/actions/refresh</tt> will cause displays to attempt a browser refresh.</p>
+
+<p>Making a post request to <tt>/actions/clear</tt> will cause displays to empty their queues as soon aside
+  grammatically possible.</p>
+
+{% endblock %}

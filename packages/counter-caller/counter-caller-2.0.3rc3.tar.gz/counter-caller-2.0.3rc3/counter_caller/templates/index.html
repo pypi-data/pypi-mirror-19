@@ -1,0 +1,29 @@
+{% extends "_base.html" %}
+{% block id %}index{% endblock %}
+
+<script src="{{ url_for('bower.static', filename='socket.io-client/socket.io.js') }}"></script>
+<script src="{{ url_for('bower.static', filename='jquery/dist/jquery.js') }}"></script>
+
+{% block content %}
+  <ul id="buttons" v-cloak>
+    <li v-for="trigger in triggers">
+      <button title="Shortcut: [[ trigger.shortcut ]]" data-trigger-id="[[ trigger.id ]]">[[ trigger.label ]]</button>
+    </li>
+  </ul>
+
+  <p class="links">
+    <a href="/display" target="_blank">Open Viewer</a>
+    &middot;
+    <a href="" data-post="/actions/clear">Clear Queue</a>
+    &middot;
+    <a href="" data-post="/actions/refresh">Refresh Viewer</a>
+    &middot;
+    <a href="/help" target="_blank">Help</a>
+  </p>
+{% endblock %}
+
+{% block javascript %}
+<script>
+requirejs(['main/index']);
+</script>
+{% endblock %}

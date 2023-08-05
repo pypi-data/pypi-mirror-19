@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('bower.static', filename='font-awesome/css/font-awesome.css') }}">
+  <link rel="stylesheet" href="/static/stylesheets/main.css">
+  <link rel="stylesheet" href="/static/theme.css">
+
+  <script>window.ASSET_BASE_URL = "{{ config['BOWER_URL_PREFIX'] }}";</script>
+  <script data-main="/static/javascript/application.js" src="{{ url_for('bower.static', filename='requirejs/require.js' )}}"></script>
+</head>
+
+<body id="{% block id %}default{% endblock %}">
+  <section id="disconnected">
+    <span class="fa-stack fa-lg fa-5x">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-exclamation fa-stack-1x fa-inverse"></i>
+    </span>
+  </section>
+
+  {% block content %}{% endblock %}
+  {% block javascript %}{% endblock %}
+</body>
+</html>
