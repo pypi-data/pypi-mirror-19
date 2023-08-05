@@ -1,0 +1,15 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.py
+fb-to-redshift/__init__.py
+fb-to-redshift/fb.py
+fb-to-redshift/fb_get_token.py
+fb-to-redshift/fb_to_redshift.py
+fb-to-redshift/fb_tools.py
+fb-to-redshift/fb_video_time_series.py
+fb-to-redshift/redshift.py
+fb_to_redshift.egg-info/PKG-INFO
+fb_to_redshift.egg-info/SOURCES.txt
+fb_to_redshift.egg-info/dependency_links.txt
+fb_to_redshift.egg-info/top_level.txt
