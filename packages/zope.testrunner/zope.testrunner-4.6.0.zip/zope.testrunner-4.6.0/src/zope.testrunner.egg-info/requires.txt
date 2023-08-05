@@ -1,0 +1,11 @@
+setuptools
+six
+zope.exceptions
+zope.interface
+
+[subunit]
+zope.testing
+python-subunit
+
+[test]
+zope.testing
