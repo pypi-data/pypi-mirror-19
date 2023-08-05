@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>APK Workloads &#8212; Workload Automation 2.6.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.6.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Contributing Code" href="contributing.html" />
+    <link rel="prev" title="revent" href="revent.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="contributing.html" title="Contributing Code"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="revent.html" title="revent"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Workload Automation 2.6.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="apk-workloads">
+<span id="apk-workload-settings"></span><h1>APK Workloads<a class="headerlink" href="#apk-workloads" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="apk-resolution">
+<h2>APK resolution<a class="headerlink" href="#apk-resolution" title="Permalink to this headline">¶</a></h2>
+<p>WA has various resource getters that can be configured to locate APK files but for most people APK files
+should be kept in the <code class="docutils literal"><span class="pre">$WA_HOME/dependencies/SOME_WORKLOAD/</span></code> directory. (by default
+<code class="docutils literal"><span class="pre">~/.workload_automation/dependencies/SOME_WORKLOAD/</span></code>). The <code class="docutils literal"><span class="pre">WA_HOME</span></code> enviroment variable can be used
+to chnage the location of this folder. The APK files need to be put into the corresponding directories
+for the workload they belong to. The name of the file can be anything but as explained below may need
+to contain certain peices of information.</p>
+<p>All ApkWorkloads have parameters that affect the way in which APK files are resolved, <code class="docutils literal"><span class="pre">exact_abi</span></code>,
+<code class="docutils literal"><span class="pre">force_install</span></code> and <code class="docutils literal"><span class="pre">check_apk</span></code>. Their exact behaviours are outlined below.</p>
+<dl class="confval">
+<dt id="confval-exact_abi">
+<code class="descname">exact_abi</code><a class="headerlink" href="#confval-exact_abi" title="Permalink to this definition">¶</a></dt>
+<dd><p>If this setting is enabled WA&#8217;s resource resolvers will look for the devices ABI with any native
+code present in the apk. By default this setting is disabled since most apks will work across all
+devices. You may wish to enable this feature when working with devices that support multiple ABI&#8217;s (like
+64-bit devices that can run 32-bit APK files) and are specifically trying to test one or the other.</p>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-force_install">
+<code class="descname">force_install</code><a class="headerlink" href="#confval-force_install" title="Permalink to this definition">¶</a></dt>
+<dd><p>If this setting is enabled WA will <em>always</em> use the APK file on the host, and re-install it on every
+iteration. If there is no APK on the host that is a suitable version and/or ABI for the workload WA
+will error when <code class="docutils literal"><span class="pre">force_install</span></code> is enabled.</p>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-check_apk">
+<code class="descname">check_apk</code><a class="headerlink" href="#confval-check_apk" title="Permalink to this definition">¶</a></dt>
+<dd><p>This parameter is used to specify a preference over host or target versions of the app. When set to
+<code class="docutils literal"><span class="pre">True</span></code> WA will prefer the host side version of the APK. It will check if the host has the APK and
+if the host APK meets the version requirements of the workload. If does and the target already has
+same version nothing will be done, other wise it will overwrite the targets app with the host version.
+If the hosts is missing the APK or it does not meet version requirements WA will fall back to the app
+on the target if it has the app and it is of a suitable version. When this parameter is set to
+<code class="docutils literal"><span class="pre">false</span></code> WA will prefer to use the version already on the target if it meets the workloads version
+requirements. If it does not it will fall back to search the host for the correct version. In both modes
+if neither the host nor target have a suitable version, WA will error and not run the workload.</p>
+</dd></dl>
+
+<p>Some workloads will also feature the follow parameters which will alter the way their APK files are resolved.</p>
+<dl class="confval">
+<dt id="confval-version">
+<code class="descname">version</code><a class="headerlink" href="#confval-version" title="Permalink to this definition">¶</a></dt>
+<dd><p>This parameter is used to specify which version of uiautomation for the workload is used. In some workloads
+e.g. <code class="docutils literal"><span class="pre">geekbench</span></code> multiple versions with drastically different UI&#8217;s are supported. When a workload uses a
+version it is required for the APK file to contain the uiautomation version in the file name. In the case
+of antutu the file names could be: <code class="docutils literal"><span class="pre">geekbench_2.apk</span></code> or <code class="docutils literal"><span class="pre">geekbench_3.apk</span></code>.</p>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-variant_name">
+<code class="descname">variant_name</code><a class="headerlink" href="#confval-variant_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Some workloads use variants of APK files, this is usually the case with web browser APK files, these work
+in exactly the same way as the version,  the variant of the apk</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">APK Workloads</a><ul>
+<li><a class="reference internal" href="#apk-resolution">APK resolution</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="revent.html"
+                        title="previous chapter">revent</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="contributing.html"
+                        title="next chapter">Contributing Code</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/apk_workloads.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="contributing.html" title="Contributing Code"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="revent.html" title="revent"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Workload Automation 2.6.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, ARM Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

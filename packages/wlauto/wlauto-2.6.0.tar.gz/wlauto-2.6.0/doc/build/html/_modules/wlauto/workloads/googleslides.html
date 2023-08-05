@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>wlauto.workloads.googleslides &#8212; Workload Automation 2.6.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.6.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for wlauto.workloads.googleslides</h1><div class="highlight"><pre>
+<span></span><span class="c1">#    Copyright 2014-2016 ARM Limited</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">wlauto</span> <span class="k">import</span> <span class="n">AndroidUxPerfWorkload</span><span class="p">,</span> <span class="n">Parameter</span>
+<span class="kn">from</span> <span class="nn">wlauto.exceptions</span> <span class="k">import</span> <span class="n">ValidationError</span>
+
+
+<div class="viewcode-block" id="GoogleSlides"><a class="viewcode-back" href="../../../api/wlauto.workloads.googleslides.html#wlauto.workloads.googleslides.GoogleSlides">[docs]</a><span class="k">class</span> <span class="nc">GoogleSlides</span><span class="p">(</span><span class="n">AndroidUxPerfWorkload</span><span class="p">):</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;googleslides&#39;</span>
+    <span class="n">package</span> <span class="o">=</span> <span class="s1">&#39;com.google.android.apps.docs.editors.slides&#39;</span>
+    <span class="n">min_apk_version</span> <span class="o">=</span> <span class="s1">&#39;1.6.312.08&#39;</span>
+    <span class="n">activity</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="n">view</span> <span class="o">=</span> <span class="p">[</span><span class="n">package</span> <span class="o">+</span> <span class="s1">&#39;/com.google.android.apps.docs.quickoffice.filepicker.FilePickerActivity&#39;</span><span class="p">,</span>
+            <span class="n">package</span> <span class="o">+</span> <span class="s1">&#39;/com.google.android.apps.docs.editors.shared.filepicker.FilePickerActivity&#39;</span><span class="p">,</span>
+            <span class="n">package</span> <span class="o">+</span> <span class="s1">&#39;/com.google.android.apps.docs.quickoffice.filepicker.LocalSaveAsActivity&#39;</span><span class="p">,</span>
+            <span class="n">package</span> <span class="o">+</span> <span class="s1">&#39;/com.qo.android.quickpoint.Quickpoint&#39;</span><span class="p">,</span>
+            <span class="n">package</span> <span class="o">+</span> <span class="s1">&#39;/com.google.android.apps.docs.app.DocsPreferencesActivity&#39;</span><span class="p">,</span>
+            <span class="n">package</span> <span class="o">+</span> <span class="s1">&#39;/com.google.android.apps.docs.app.DocListActivity&#39;</span><span class="p">,</span>
+            <span class="n">package</span> <span class="o">+</span> <span class="s1">&#39;/com.google.android.apps.docs.welcome.warmwelcome.TrackingWelcomeActivity&#39;</span><span class="p">,</span>
+            <span class="n">package</span> <span class="o">+</span> <span class="s1">&#39;/com.google.android.apps.docs.app.NewMainProxyActivity&#39;</span><span class="p">]</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">    A workload to perform standard productivity tasks with Google Slides. The workload carries</span>
+<span class="s1">    out various tasks, such as creating a new presentation, adding text, images, and shapes,</span>
+<span class="s1">    as well as basic editing and playing a slideshow.</span>
+<span class="s1">    This workload should be able to run without a network connection.</span>
+
+<span class="s1">    There are two main scenarios:</span>
+<span class="s1">      1. create test: a presentation is created in-app and some editing done on it,</span>
+<span class="s1">      2. load test: a pre-existing PowerPoint file is copied onto the device for testing.</span>
+
+<span class="s1">    --- create ---</span>
+<span class="s1">    Create a new file in the application and perform basic editing on it. This test also</span>
+<span class="s1">    requires an image file specified by the param ``test_image`` to be copied onto the device.</span>
+
+<span class="s1">    Test description:</span>
+
+<span class="s1">    1. Start the app and skip the welcome screen. Dismiss the work offline banner if present.</span>
+<span class="s1">    2. Go to the app settings page and enables PowerPoint compatibility mode. This allows</span>
+<span class="s1">       PowerPoint files to be created inside Google Slides.</span>
+<span class="s1">    3. Create a new PowerPoint presentation in the app (PPT compatibility mode) with a title</span>
+<span class="s1">       slide and save it to device storage.</span>
+<span class="s1">    4. Insert another slide and to it insert the pushed image by picking it from the gallery.</span>
+<span class="s1">    5. Insert a final slide and add a shape to it. Resize and drag the shape to modify it.</span>
+<span class="s1">    6. Finally, navigate back to the documents list.</span>
+
+<span class="s1">    --- load ---</span>
+<span class="s1">    Copy a PowerPoint presentation onto the device to test slide navigation. The PowerPoint</span>
+<span class="s1">    file to be copied is given by ``test_file``.</span>
+
+<span class="s1">    Test description:</span>
+
+<span class="s1">    1. From the documents list (following the create test), open the specified PowerPoint</span>
+<span class="s1">       by navigating into device storage and wait for it to be loaded.</span>
+<span class="s1">    2. A navigation test is performed while the file is in editing mode (i.e. not slideshow).</span>
+<span class="s1">       swiping forward to the next slide until ``slide_count`` swipes are performed.</span>
+<span class="s1">    3. While still in editing mode, the same action is done in the reverse direction back to</span>
+<span class="s1">       the first slide.</span>
+<span class="s1">    4. Enter presentation mode by selecting to play the slideshow.</span>
+<span class="s1">    5. Swipe forward to play the slideshow, for a maximum number of ``slide_count`` swipes.</span>
+<span class="s1">    6. Finally, repeat the previous step in the reverse direction while still in presentation</span>
+<span class="s1">       mode, navigating back to the first slide.</span>
+
+<span class="s1">    NOTE: There are known issues with the reliability of this workload on some targets.</span>
+<span class="s1">    It MAY NOT ALWAYS WORK on your device. If you do run into problems, it might help to</span>
+<span class="s1">    set ``do_text_entry`` parameter to ``False``.</span>
+<span class="s1">    &#39;&#39;&#39;</span>
+
+    <span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;test_image&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;uxperf_1600x1200.jpg&#39;</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">                  An image to be copied onto the device that will be embedded in the</span>
+<span class="s1">                  PowerPoint file as part of the test.</span>
+<span class="s1">                  &#39;&#39;&#39;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;test_file&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;uxperf_test_doc.pptx&#39;</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">                  If specified, the workload will copy the PowerPoint file to be used for</span>
+<span class="s1">                  testing onto the device. Otherwise, a file will be created inside the app.</span>
+<span class="s1">                  &#39;&#39;&#39;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;slide_count&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">                  Number of slides in aforementioned local file. Determines number of</span>
+<span class="s1">                  swipe actions when playing slide show.</span>
+<span class="s1">                  &#39;&#39;&#39;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;do_text_entry&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">bool</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">                  If set to ``True``, will attempt to enter text in the first slide as part</span>
+<span class="s1">                  of the test. Currently seems to be problematic on some devices, most</span>
+<span class="s1">                  notably Samsung devices.</span>
+<span class="s1">                  &#39;&#39;&#39;</span><span class="p">)</span>
+    <span class="p">]</span>
+
+    <span class="c1"># Created file will be saved with this name</span>
+    <span class="n">new_doc_name</span> <span class="o">=</span> <span class="s2">&quot;WORKLOAD AUTOMATION&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">GoogleSlides</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">run_timeout</span> <span class="o">=</span> <span class="mi">600</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">deployable_assets</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">test_image</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">test_file</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clean_assets</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">GoogleSlides</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uiauto_params</span><span class="p">[</span><span class="s1">&#39;workdir_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">working_directory</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uiauto_params</span><span class="p">[</span><span class="s1">&#39;test_file&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">test_file</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;0space0&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uiauto_params</span><span class="p">[</span><span class="s1">&#39;slide_count&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">slide_count</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uiauto_params</span><span class="p">[</span><span class="s1">&#39;do_text_entry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_text_entry</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uiauto_params</span><span class="p">[</span><span class="s1">&#39;new_doc_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_doc_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;0space0&#39;</span><span class="p">)</span>
+        <span class="c1"># Only accept certain image formats</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">test_image</span><span class="o">.</span><span class="n">lower</span><span class="p">())[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;.jpeg&#39;</span><span class="p">,</span> <span class="s1">&#39;.png&#39;</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="n">ValidationError</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> must be a JPEG or PNG file&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">test_image</span><span class="p">))</span>
+        <span class="c1"># Only accept certain presentation formats</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">test_file</span><span class="o">.</span><span class="n">lower</span><span class="p">())[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;.pptx&#39;</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="n">ValidationError</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> must be a PPTX file&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">test_file</span><span class="p">))</span>
+
+<div class="viewcode-block" id="GoogleSlides.teardown"><a class="viewcode-back" href="../../../api/wlauto.workloads.googleslides.html#wlauto.workloads.googleslides.GoogleSlides.teardown">[docs]</a>    <span class="k">def</span> <span class="nf">teardown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">GoogleSlides</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">teardown</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+        <span class="c1"># Remove the newly created file</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">delete_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">working_directory</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_doc_name</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">broadcast_media_mounted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">working_directory</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, ARM Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

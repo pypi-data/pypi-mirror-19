@@ -1,0 +1,888 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>wlauto.common.android.workload &#8212; Workload Automation 2.6.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '2.6.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for wlauto.common.android.workload</h1><div class="highlight"><pre>
+<span></span><span class="c1">#    Copyright 2013-2015 ARM Limited</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">ceil</span>
+
+<span class="kn">from</span> <span class="nn">distutils.version</span> <span class="k">import</span> <span class="n">LooseVersion</span>
+
+<span class="kn">from</span> <span class="nn">wlauto.core.extension</span> <span class="k">import</span> <span class="n">Parameter</span><span class="p">,</span> <span class="n">ExtensionMeta</span><span class="p">,</span> <span class="n">ListCollection</span>
+<span class="kn">from</span> <span class="nn">wlauto.core.workload</span> <span class="k">import</span> <span class="n">Workload</span>
+<span class="kn">from</span> <span class="nn">wlauto.core.resource</span> <span class="k">import</span> <span class="n">NO_ONE</span>
+<span class="kn">from</span> <span class="nn">wlauto.common.android.resources</span> <span class="k">import</span> <span class="n">ApkFile</span><span class="p">,</span> <span class="n">ReventFile</span>
+<span class="kn">from</span> <span class="nn">wlauto.common.resources</span> <span class="k">import</span> <span class="n">ExtensionAsset</span><span class="p">,</span> <span class="n">Executable</span><span class="p">,</span> <span class="n">File</span>
+<span class="kn">from</span> <span class="nn">wlauto.exceptions</span> <span class="k">import</span> <span class="n">WorkloadError</span><span class="p">,</span> <span class="n">ResourceError</span><span class="p">,</span> <span class="n">DeviceError</span>
+<span class="kn">from</span> <span class="nn">wlauto.utils.android</span> <span class="k">import</span> <span class="n">ApkInfo</span><span class="p">,</span> <span class="n">ANDROID_NORMAL_PERMISSIONS</span><span class="p">,</span> <span class="n">UNSUPPORTED_PACKAGES</span>
+<span class="kn">from</span> <span class="nn">wlauto.utils.types</span> <span class="k">import</span> <span class="n">boolean</span>
+<span class="kn">from</span> <span class="nn">wlauto.utils.revent</span> <span class="k">import</span> <span class="n">ReventRecording</span>
+<span class="kn">import</span> <span class="nn">wlauto.utils.statedetect</span> <span class="k">as</span> <span class="nn">state_detector</span>
+<span class="kn">import</span> <span class="nn">wlauto.common.android.resources</span>
+
+
+<span class="n">DELAY</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># Due to the way `super` works you have to call it at every level but WA executes some</span>
+<span class="c1"># methods conditionally and so has to call them directly via the class, this breaks super</span>
+<span class="c1"># and causes it to run things mutiple times ect. As a work around for this untill workloads</span>
+<span class="c1"># are reworked everything that subclasses workload calls parent methods explicitly</span>
+
+
+<div class="viewcode-block" id="UiAutomatorWorkload"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.UiAutomatorWorkload">[docs]</a><span class="k">class</span> <span class="nc">UiAutomatorWorkload</span><span class="p">(</span><span class="n">Workload</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base class for all workloads that rely on a UI Automator JAR file.</span>
+
+<span class="sd">    This class should be subclassed by workloads that rely on android UiAutomator</span>
+<span class="sd">    to work. This class handles transferring the UI Automator JAR file to the device</span>
+<span class="sd">    and invoking it to run the workload. By default, it will look for the JAR file in</span>
+<span class="sd">    the same directory as the .py file for the workload (this can be changed by overriding</span>
+<span class="sd">    the ``uiauto_file`` property in the subclassing workload).</span>
+
+<span class="sd">    To inintiate UI Automation, the fully-qualified name of the Java class and the</span>
+<span class="sd">    corresponding method name are needed. By default, the package part of the class name</span>
+<span class="sd">    is derived from the class file, and class and method names are ``UiAutomation``</span>
+<span class="sd">    and ``runUiAutomaton`` respectively. If you have generated the boilder plate for the</span>
+<span class="sd">    UiAutomatior code using ``create_workloads`` utility, then everything should be named</span>
+<span class="sd">    correctly. If you&#39;re creating the Java project manually, you need to make sure the names</span>
+<span class="sd">    match what is expected, or you could override ``uiauto_package``, ``uiauto_class`` and</span>
+<span class="sd">    ``uiauto_method`` class attributes with the value that match your Java code.</span>
+
+<span class="sd">    You can also pass parameters to the JAR file. To do this add the parameters to</span>
+<span class="sd">    ``self.uiauto_params`` dict inside your class&#39;s ``__init__`` or ``setup`` methods.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">supported_platforms</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;android&#39;</span><span class="p">]</span>
+
+    <span class="n">uiauto_package</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="n">uiauto_class</span> <span class="o">=</span> <span class="s1">&#39;UiAutomation&#39;</span>
+    <span class="n">uiauto_method</span> <span class="o">=</span> <span class="s1">&#39;runUiAutomation&#39;</span>
+
+    <span class="c1"># Can be overidden by subclasses to adjust to run time of specific</span>
+    <span class="c1"># benchmarks.</span>
+    <span class="n">run_timeout</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="mi">60</span>  <span class="c1"># seconds</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">_call_super</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>  <span class="c1"># pylint: disable=W0613</span>
+        <span class="k">if</span> <span class="n">_call_super</span><span class="p">:</span>
+            <span class="n">Workload</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uiauto_file</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device_uiauto_file</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">command</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uiauto_params</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="UiAutomatorWorkload.init_resources"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.UiAutomatorWorkload.init_resources">[docs]</a>    <span class="k">def</span> <span class="nf">init_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uiauto_file</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">resolver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">wlauto</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">android</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">JarFile</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">uiauto_file</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ResourceError</span><span class="p">(</span><span class="s1">&#39;No UI automation JAR file found for workload </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device_uiauto_file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">working_directory</span><span class="p">,</span>
+                                                        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uiauto_file</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">uiauto_package</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">uiauto_package</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uiauto_file</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="UiAutomatorWorkload.setup"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.UiAutomatorWorkload.setup">[docs]</a>    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="n">Workload</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+        <span class="n">method_string</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.</span><span class="si">{}</span><span class="s1">#</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uiauto_package</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">uiauto_class</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">uiauto_method</span><span class="p">)</span>
+        <span class="n">params_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">uiauto_params</span>
+        <span class="n">params_dict</span><span class="p">[</span><span class="s1">&#39;workdir&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">working_directory</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">uiauto_params</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+            <span class="n">params</span> <span class="o">+=</span> <span class="s1">&#39; -e </span><span class="si">{}</span><span class="s1"> &quot;</span><span class="si">{}</span><span class="s1">&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">command</span> <span class="o">=</span> <span class="s1">&#39;uiautomator runtest </span><span class="si">{}{}</span><span class="s1"> -c </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device_uiauto_file</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">method_string</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">push_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uiauto_file</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">device_uiauto_file</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">killall</span><span class="p">(</span><span class="s1">&#39;uiautomator&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="UiAutomatorWorkload.run"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.UiAutomatorWorkload.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">run_timeout</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;FAILURE&#39;</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">WorkloadError</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">DELAY</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="UiAutomatorWorkload.update_result"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.UiAutomatorWorkload.update_result">[docs]</a>    <span class="k">def</span> <span class="nf">update_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="UiAutomatorWorkload.teardown"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.UiAutomatorWorkload.teardown">[docs]</a>    <span class="k">def</span> <span class="nf">teardown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">delete_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device_uiauto_file</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">uiauto_file</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">WorkloadError</span><span class="p">(</span><span class="s1">&#39;No UI automation JAR file found for workload </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">uiauto_package</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">WorkloadError</span><span class="p">(</span><span class="s1">&#39;No UI automation package specified for workload </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="ApkWorkload"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.ApkWorkload">[docs]</a><span class="k">class</span> <span class="nc">ApkWorkload</span><span class="p">(</span><span class="n">Workload</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A workload based on an APK file.</span>
+
+<span class="sd">    Defines the following attributes:</span>
+
+<span class="sd">    :package: The package name of the app. This is usually a Java-style name of the form</span>
+<span class="sd">              ``com.companyname.appname``.</span>
+<span class="sd">    :activity: This is the initial activity of the app. This will be used to launch the</span>
+<span class="sd">               app during the setup.  Many applications do not specify a launch activity so</span>
+<span class="sd">               this may be left blank if necessary.</span>
+<span class="sd">    :view: The class of the main view pane of the app. This needs to be defined in order</span>
+<span class="sd">           to collect SurfaceFlinger-derived statistics (such as FPS) for the app, but</span>
+<span class="sd">           may otherwise be left as ``None``.</span>
+<span class="sd">    :launch_main: If ``False``, the default activity will not be launched (during setup),</span>
+<span class="sd">                  allowing workloads to start the app with an intent of their choice in</span>
+<span class="sd">                  the run step. This is useful for apps without a launchable default/main</span>
+<span class="sd">                  activity or those where it cannot be launched without intent data (which</span>
+<span class="sd">                  is provided at the run phase).</span>
+<span class="sd">    :install_timeout: Timeout for the installation of the APK. This may vary wildly based on</span>
+<span class="sd">                      the size and nature of a specific APK, and so should be defined on</span>
+<span class="sd">                      per-workload basis.</span>
+
+<span class="sd">                      .. note:: To a lesser extent, this will also vary based on the the</span>
+<span class="sd">                                device and the nature of adb connection (USB vs Ethernet),</span>
+<span class="sd">                                so, as with all timeouts, so leeway must be included in</span>
+<span class="sd">                                the specified value.</span>
+
+<span class="sd">    :min_apk_version: The minimum supported apk version for this workload. May be ``None``.</span>
+<span class="sd">    :max_apk_version: The maximum supported apk version for this workload. May be ``None``.</span>
+
+<span class="sd">    .. note:: Both package and activity for a workload may be obtained from the APK using</span>
+<span class="sd">              the ``aapt`` tool that comes with the ADT  (Android Developemnt Tools) bundle.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">package</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">activity</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">view</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">min_apk_version</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">max_apk_version</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">supported_platforms</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;android&#39;</span><span class="p">]</span>
+    <span class="n">launch_main</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;install_timeout&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Timeout for the installation of the apk.&#39;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;check_apk&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">boolean</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">                  When set to True the APK file on the host will be prefered if</span>
+<span class="s1">                  it is a valid version and ABI, if not it will fall back to the</span>
+<span class="s1">                  version on the targer. When set to False the target version is</span>
+<span class="s1">                  prefered.</span>
+<span class="s1">                  &#39;&#39;&#39;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;force_install&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">boolean</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">                  Always re-install the APK, even if matching version is found already installed</span>
+<span class="s1">                  on the device. Runs ``adb install -r`` to ensure existing APK is replaced. When</span>
+<span class="s1">                  this is set, check_apk is ignored.</span>
+<span class="s1">                  &#39;&#39;&#39;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;uninstall_apk&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">boolean</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s1">&#39;If ``True``, will uninstall workload</span><span class="se">\&#39;</span><span class="s1">s APK as part of teardown.&#39;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;exact_abi&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">bool</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">                  If ``True``, workload will check that the APK matches the target</span>
+<span class="s1">                  device ABI, otherwise any APK found will be used.</span>
+<span class="s1">                  &#39;&#39;&#39;</span><span class="p">),</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">_call_super</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">_call_super</span><span class="p">:</span>
+            <span class="n">Workload</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">apk_file</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">apk_version</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logcat_log</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exact_apk_version</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exact_abi</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;exact_abi&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ApkWorkload.setup"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.ApkWorkload.setup">[docs]</a>    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>  <span class="c1"># pylint: disable=too-many-branches</span>
+        <span class="n">Workload</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+
+        <span class="c1"># Get target version</span>
+        <span class="n">target_version</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">get_installed_package_version</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">package</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">target_version</span><span class="p">:</span>
+            <span class="n">target_version</span> <span class="o">=</span> <span class="n">LooseVersion</span><span class="p">(</span><span class="n">target_version</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Found version &#39;</span><span class="si">{}</span><span class="s2">&#39; on target device&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_version</span><span class="p">))</span>
+
+        <span class="c1"># Get host version</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">apk_file</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">resolver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ApkFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">abi</span><span class="p">),</span>
+                                             <span class="n">version</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;version&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                                             <span class="n">variant_name</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;variant_name&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                                             <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="c1"># Get target abi</span>
+        <span class="n">target_abi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">get_installed_package_abi</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">package</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">target_abi</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Found apk with primary abi &#39;</span><span class="si">{}</span><span class="s2">&#39; on target device&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_abi</span><span class="p">))</span>
+
+        <span class="c1"># Get host version, primary abi is first, and then try to find supported.</span>
+        <span class="k">for</span> <span class="n">abi</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">supported_abi</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">apk_file</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">resolver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ApkFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">abi</span><span class="p">),</span>
+                                                 <span class="n">version</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;version&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                                                 <span class="n">variant_name</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;variant_name&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                                                 <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+            <span class="c1"># Stop if apk found, or if exact_abi is set only look for primary abi.</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">apk_file</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">exact_abi</span><span class="p">:</span>
+                <span class="k">break</span>
+
+        <span class="n">host_version</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">apk_file</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">host_version</span> <span class="o">=</span> <span class="n">ApkInfo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">apk_file</span><span class="p">)</span><span class="o">.</span><span class="n">version_name</span>
+            <span class="k">if</span> <span class="n">host_version</span><span class="p">:</span>
+                <span class="n">host_version</span> <span class="o">=</span> <span class="n">LooseVersion</span><span class="p">(</span><span class="n">host_version</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Found version &#39;</span><span class="si">{}</span><span class="s2">&#39; on host&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">host_version</span><span class="p">))</span>
+
+        <span class="c1"># Error if apk was not found anywhere</span>
+        <span class="k">if</span> <span class="n">target_version</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">host_version</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Could not find APK for &#39;</span><span class="si">{}</span><span class="s2">&#39; on the host or target device&quot;</span>
+            <span class="k">raise</span> <span class="n">ResourceError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">exact_apk_version</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">exact_apk_version</span> <span class="o">!=</span> <span class="n">target_version</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">exact_apk_version</span> <span class="o">!=</span> <span class="n">host_version</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;APK version &#39;</span><span class="si">{}</span><span class="s2">&#39; not found on the host &#39;</span><span class="si">{}</span><span class="s2">&#39; or target &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span>
+                <span class="k">raise</span> <span class="n">ResourceError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">exact_apk_version</span><span class="p">,</span> <span class="n">host_version</span><span class="p">,</span> <span class="n">target_version</span><span class="p">))</span>
+
+        <span class="c1"># Error if exact_abi and suitable apk not found on host and incorrect version on device</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">exact_abi</span> <span class="ow">and</span> <span class="n">host_version</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">target_abi</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">abi</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;APK abi &#39;</span><span class="si">{}</span><span class="s2">&#39; not found on the host and target is &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span>
+                <span class="k">raise</span> <span class="n">ResourceError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">abi</span><span class="p">,</span> <span class="n">target_abi</span><span class="p">))</span>
+
+        <span class="c1"># Ensure the apk is setup on the device</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">force_install</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">force_install_apk</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">host_version</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_apk</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">prefer_host_apk</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">host_version</span><span class="p">,</span> <span class="n">target_version</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">prefer_target_apk</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">host_version</span><span class="p">,</span> <span class="n">target_version</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">apk_version</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">get_installed_package_version</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">package</span><span class="p">)</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">add_classifiers</span><span class="p">(</span><span class="n">apk_version</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">apk_version</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">launch_main</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">launch_package</span><span class="p">()</span>  <span class="c1"># launch default activity without intent data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;am kill-all&#39;</span><span class="p">)</span>  <span class="c1"># kill all *background* activities</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">clear_logcat</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ApkWorkload.force_install_apk"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.ApkWorkload.force_install_apk">[docs]</a>    <span class="k">def</span> <span class="nf">force_install_apk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">host_version</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">host_version</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ResourceError</span><span class="p">(</span><span class="s2">&quot;force_install is &#39;True&#39; but could not find APK on the host&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">validate_version</span><span class="p">(</span><span class="n">host_version</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">ResourceError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;force_install is &#39;True&#39; but the host version is invalid:</span><span class="se">\n\t</span><span class="si">{}</span><span class="s2">&quot;</span>
+            <span class="k">raise</span> <span class="n">ResourceError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">install_apk</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ApkWorkload.prefer_host_apk"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.ApkWorkload.prefer_host_apk">[docs]</a>    <span class="k">def</span> <span class="nf">prefer_host_apk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">host_version</span><span class="p">,</span> <span class="n">target_version</span><span class="p">):</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;check_apk is &#39;True&#39; &quot;</span>
+        <span class="k">if</span> <span class="n">host_version</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">validate_version</span><span class="p">(</span><span class="n">target_version</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">ResourceError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">+=</span> <span class="s2">&quot;but the APK was not found on the host and the target version is invalid:</span><span class="se">\n\t</span><span class="si">{}</span><span class="s2">&quot;</span>
+                <span class="k">raise</span> <span class="n">ResourceError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">+=</span> <span class="s2">&quot;but the APK was not found on the host, using target version&quot;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="k">return</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">validate_version</span><span class="p">(</span><span class="n">host_version</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">ResourceError</span> <span class="k">as</span> <span class="n">e1</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">+=</span> <span class="s2">&quot;but the host APK version is invalid:</span><span class="se">\n\t</span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="k">if</span> <span class="n">target_version</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">+=</span> <span class="s2">&quot;The target does not have the app either&quot;</span>
+                <span class="k">raise</span> <span class="n">ResourceError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e1</span><span class="p">)))</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">validate_version</span><span class="p">(</span><span class="n">target_version</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">ResourceError</span> <span class="k">as</span> <span class="n">e2</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">+=</span> <span class="s2">&quot;The target version is also invalid:</span><span class="se">\n\t</span><span class="si">{}</span><span class="s2">&quot;</span>
+                <span class="k">raise</span> <span class="n">ResourceError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e1</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">e2</span><span class="p">)))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">+=</span> <span class="s2">&quot;using the target version instead&quot;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e1</span><span class="p">)))</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># Host version is valid</span>
+            <span class="k">if</span> <span class="n">target_version</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">target_version</span> <span class="o">==</span> <span class="n">host_version</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">+=</span> <span class="s2">&quot; and a matching version is alread on the device, doing nothing&quot;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="k">return</span>
+            <span class="n">msg</span> <span class="o">+=</span> <span class="s2">&quot; and the host version is not on the target, installing APK&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">install_apk</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ApkWorkload.prefer_target_apk"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.ApkWorkload.prefer_target_apk">[docs]</a>    <span class="k">def</span> <span class="nf">prefer_target_apk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">host_version</span><span class="p">,</span> <span class="n">target_version</span><span class="p">):</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;check_apk is &#39;False&#39; &quot;</span>
+        <span class="k">if</span> <span class="n">target_version</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">validate_version</span><span class="p">(</span><span class="n">host_version</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">ResourceError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">+=</span> <span class="s2">&quot;but the app was not found on the target and the host version is invalid:</span><span class="se">\n\t</span><span class="si">{}</span><span class="s2">&quot;</span>
+                <span class="k">raise</span> <span class="n">ResourceError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">+=</span> <span class="s2">&quot;and the app was not found on the target, using host version&quot;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">install_apk</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+                <span class="k">return</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">validate_version</span><span class="p">(</span><span class="n">target_version</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">ResourceError</span> <span class="k">as</span> <span class="n">e1</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">+=</span> <span class="s2">&quot;but the target app version is invalid:</span><span class="se">\n\t</span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="k">if</span> <span class="n">host_version</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">+=</span> <span class="s2">&quot;The host does not have the APK either&quot;</span>
+                <span class="k">raise</span> <span class="n">ResourceError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e1</span><span class="p">)))</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">validate_version</span><span class="p">(</span><span class="n">host_version</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">ResourceError</span> <span class="k">as</span> <span class="n">e2</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">+=</span> <span class="s2">&quot;The host version is also invalid:</span><span class="se">\n\t</span><span class="si">{}</span><span class="s2">&quot;</span>
+                <span class="k">raise</span> <span class="n">ResourceError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e1</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">e2</span><span class="p">)))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">+=</span> <span class="s2">&quot;Using the host APK instead&quot;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e1</span><span class="p">)))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">install_apk</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">+=</span> <span class="s2">&quot;and a valid version of the app is already on the target, using target app&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ApkWorkload.validate_version"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.ApkWorkload.validate_version">[docs]</a>    <span class="k">def</span> <span class="nf">validate_version</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">version</span><span class="p">):</span>
+        <span class="n">min_apk_version</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;min_apk_version&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">max_apk_version</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;max_apk_version&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">min_apk_version</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">max_apk_version</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">version</span> <span class="o">&lt;</span> <span class="n">LooseVersion</span><span class="p">(</span><span class="n">min_apk_version</span><span class="p">)</span> <span class="ow">or</span> \
+                    <span class="n">version</span> <span class="o">&gt;</span> <span class="n">LooseVersion</span><span class="p">(</span><span class="n">max_apk_version</span><span class="p">):</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;version &#39;</span><span class="si">{}</span><span class="s2">&#39; not supported. &quot;</span> \
+                      <span class="s2">&quot;Minimum version required: &#39;</span><span class="si">{}</span><span class="s2">&#39;, Maximum version known to work: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span>
+                <span class="k">raise</span> <span class="n">ResourceError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">version</span><span class="p">,</span> <span class="n">min_apk_version</span><span class="p">,</span> <span class="n">max_apk_version</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">min_apk_version</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">version</span> <span class="o">&lt;</span> <span class="n">LooseVersion</span><span class="p">(</span><span class="n">min_apk_version</span><span class="p">):</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;version &#39;</span><span class="si">{}</span><span class="s2">&#39; not supported. &quot;</span> \
+                      <span class="s2">&quot;Minimum version required: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span>
+                <span class="k">raise</span> <span class="n">ResourceError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">version</span><span class="p">,</span> <span class="n">min_apk_version</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">max_apk_version</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">version</span> <span class="o">&gt;</span> <span class="n">LooseVersion</span><span class="p">(</span><span class="n">max_apk_version</span><span class="p">):</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;version &#39;</span><span class="si">{}</span><span class="s2">&#39; not supported. &quot;</span> \
+                      <span class="s2">&quot;Maximum version known to work: &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span>
+                <span class="k">raise</span> <span class="n">ResourceError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">version</span><span class="p">,</span> <span class="n">max_apk_version</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="ApkWorkload.launch_package"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.ApkWorkload.launch_package">[docs]</a>    <span class="k">def</span> <span class="nf">launch_package</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="p">:</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;am start -W </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">package</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;am start -W -n </span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">package</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="p">))</span>
+        <span class="k">if</span> <span class="s1">&#39;Error:&#39;</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;am force-stop </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">package</span><span class="p">))</span>  <span class="c1"># this will dismiss any erro dialogs</span>
+            <span class="k">raise</span> <span class="n">WorkloadError</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">output</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ApkWorkload.reset"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.ApkWorkload.reset">[docs]</a>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>  <span class="c1"># pylint: disable=W0613</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;am force-stop </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">package</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;pm clear </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">package</span><span class="p">))</span>
+
+        <span class="c1"># As of android API level 23, apps can request permissions at runtime,</span>
+        <span class="c1"># this will grant all of them so requests do not pop up when running the app</span>
+        <span class="c1"># This can also be done less &quot;manually&quot; during adb install using the -g flag</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">get_sdk_version</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">23</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_grant_requested_permissions</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ApkWorkload.install_apk"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.ApkWorkload.install_apk">[docs]</a>    <span class="k">def</span> <span class="nf">install_apk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="n">success</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">replace</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">uninstall</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">package</span><span class="p">)</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">install_apk</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">apk_file</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">install_timeout</span><span class="p">,</span>
+                                         <span class="n">replace</span><span class="o">=</span><span class="n">replace</span><span class="p">,</span> <span class="n">allow_downgrade</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;Failure&#39;</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;ALREADY_EXISTS&#39;</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Using already installed APK (did not unistall properly?)&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">WorkloadError</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+            <span class="n">success</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">do_post_install</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">success</span></div>
+
+    <span class="k">def</span> <span class="nf">_grant_requested_permissions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">dumpsys_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">command</span><span class="o">=</span><span class="s2">&quot;dumpsys package </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">package</span><span class="p">))</span>
+        <span class="n">permissions</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">dumpsys_output</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">&quot;requested permissions:&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="k">break</span>
+
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">&quot;android.permission.&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="n">permissions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+            <span class="c1"># Matching either of these means the end of requested permissions section</span>
+            <span class="k">elif</span> <span class="s2">&quot;install permissions:&quot;</span> <span class="ow">in</span> <span class="n">line</span> <span class="ow">or</span> <span class="s2">&quot;runtime permissions:&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="k">break</span>
+
+        <span class="k">for</span> <span class="n">permission</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">permissions</span><span class="p">):</span>
+            <span class="c1"># &quot;Normal&quot; Permisions are automatically granted and cannot be changed</span>
+            <span class="n">permission_name</span> <span class="o">=</span> <span class="n">permission</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">permission_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ANDROID_NORMAL_PERMISSIONS</span><span class="p">:</span>
+                <span class="c1"># On some API 23+ devices, this may fail with a SecurityException</span>
+                <span class="c1"># on previously granted permissions. In that case, just skip as it</span>
+                <span class="c1"># is not fatal to the workload execution</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;pm grant </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">package</span><span class="p">,</span> <span class="n">permission</span><span class="p">))</span>
+                <span class="k">except</span> <span class="n">DeviceError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="s2">&quot;changeable permission&quot;</span> <span class="ow">in</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span> <span class="ow">or</span> <span class="s2">&quot;Unknown permission&quot;</span> <span class="ow">in</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">e</span>
+
+<div class="viewcode-block" id="ApkWorkload.do_post_install"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.ApkWorkload.do_post_install">[docs]</a>    <span class="k">def</span> <span class="nf">do_post_install</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; May be overwritten by derived classes.&quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="ApkWorkload.run"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.ApkWorkload.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="ApkWorkload.update_result"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.ApkWorkload.update_result">[docs]</a>    <span class="k">def</span> <span class="nf">update_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logcat_log</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">output_directory</span><span class="p">,</span> <span class="s1">&#39;logcat.log&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">dump_logcat</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">logcat_log</span><span class="p">)</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">add_iteration_artifact</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;logcat&#39;</span><span class="p">,</span>
+                                       <span class="n">path</span><span class="o">=</span><span class="s1">&#39;logcat.log&#39;</span><span class="p">,</span>
+                                       <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span>
+                                       <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Logact dump for the run.&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ApkWorkload.teardown"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.ApkWorkload.teardown">[docs]</a>    <span class="k">def</span> <span class="nf">teardown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;am force-stop </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">package</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">uninstall_apk</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">uninstall</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">package</span><span class="p">)</span></div></div>
+
+
+<span class="n">AndroidBenchmark</span> <span class="o">=</span> <span class="n">ApkWorkload</span>  <span class="c1"># backward compatibility</span>
+
+
+<div class="viewcode-block" id="ReventWorkload"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.ReventWorkload">[docs]</a><span class="k">class</span> <span class="nc">ReventWorkload</span><span class="p">(</span><span class="n">Workload</span><span class="p">):</span>
+    <span class="c1"># pylint: disable=attribute-defined-outside-init</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">_call_super</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">_call_super</span><span class="p">:</span>
+            <span class="n">Workload</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">devpath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on_device_revent_binary</span> <span class="o">=</span> <span class="n">devpath</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">binaries_directory</span><span class="p">,</span> <span class="s1">&#39;revent&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setup_timeout</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;setup_timeout&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">run_timeout</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;run_timeout&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">revent_setup_file</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">revent_run_file</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on_device_setup_revent</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on_device_run_revent</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">statedefs_dir</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_states</span><span class="p">:</span>
+            <span class="n">state_detector</span><span class="o">.</span><span class="n">check_match_state_dependencies</span><span class="p">()</span>
+
+<div class="viewcode-block" id="ReventWorkload.setup"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.ReventWorkload.setup">[docs]</a>    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">revent_setup_file</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">resolver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ReventFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;setup&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">revent_run_file</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">resolver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ReventFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;run&#39;</span><span class="p">))</span>
+        <span class="n">devpath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on_device_setup_revent</span> <span class="o">=</span> <span class="n">devpath</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">working_directory</span><span class="p">,</span>
+                                                   <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">revent_setup_file</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on_device_run_revent</span> <span class="o">=</span> <span class="n">devpath</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">working_directory</span><span class="p">,</span>
+                                                 <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">revent_run_file</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_revent_files</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+        <span class="n">default_setup_timeout</span> <span class="o">=</span> <span class="n">ceil</span><span class="p">(</span><span class="n">ReventRecording</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">revent_setup_file</span><span class="p">)</span><span class="o">.</span><span class="n">duration</span><span class="p">)</span> <span class="o">+</span> <span class="mi">30</span>
+        <span class="n">default_run_timeout</span> <span class="o">=</span> <span class="n">ceil</span><span class="p">(</span><span class="n">ReventRecording</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">revent_run_file</span><span class="p">)</span><span class="o">.</span><span class="n">duration</span><span class="p">)</span> <span class="o">+</span> <span class="mi">30</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setup_timeout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">setup_timeout</span> <span class="ow">or</span> <span class="n">default_setup_timeout</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">run_timeout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">run_timeout</span> <span class="ow">or</span> <span class="n">default_run_timeout</span>
+
+        <span class="n">Workload</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">killall</span><span class="p">(</span><span class="s1">&#39;revent&#39;</span><span class="p">)</span>
+        <span class="n">command</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> replay </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_device_revent_binary</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_device_setup_revent</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">setup_timeout</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ReventWorkload.run"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.ReventWorkload.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="n">command</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> replay </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_device_revent_binary</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_device_run_revent</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Replaying </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_device_run_revent</span><span class="p">)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">run_timeout</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Replay completed.&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ReventWorkload.update_result"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.ReventWorkload.update_result">[docs]</a>    <span class="k">def</span> <span class="nf">update_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="ReventWorkload.teardown"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.ReventWorkload.teardown">[docs]</a>    <span class="k">def</span> <span class="nf">teardown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">killall</span><span class="p">(</span><span class="s1">&#39;revent&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">delete_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_device_setup_revent</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">delete_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_device_run_revent</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_check_revent_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="c1"># check the revent binary</span>
+        <span class="n">revent_binary</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">resolver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">Executable</span><span class="p">(</span><span class="n">NO_ONE</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">abi</span><span class="p">,</span> <span class="s1">&#39;revent&#39;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">revent_binary</span><span class="p">):</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> does not exist. &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">revent_binary</span><span class="p">)</span>
+            <span class="n">message</span> <span class="o">+=</span> <span class="s1">&#39;Please build revent for your system and place it in that location&#39;</span>
+            <span class="k">raise</span> <span class="n">WorkloadError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">revent_setup_file</span><span class="p">:</span>
+            <span class="c1"># pylint: disable=too-few-format-args</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">.setup.revent file does not exist, Please provide one for your device, </span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">WorkloadError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">revent_run_file</span><span class="p">:</span>
+            <span class="c1"># pylint: disable=too-few-format-args</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">.run.revent file does not exist, Please provide one for your device, </span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">WorkloadError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">on_device_revent_binary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">install_executable</span><span class="p">(</span><span class="n">revent_binary</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">push_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">revent_run_file</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_device_run_revent</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">push_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">revent_setup_file</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_device_setup_revent</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_check_statedetection_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">statedefs_dir</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">resolver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">File</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;state_definitions&#39;</span><span class="p">))</span>
+        <span class="k">except</span> <span class="n">ResourceError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;State definitions directory not found. Disabling state detection.&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">check_states</span> <span class="o">=</span> <span class="kc">False</span>
+
+<div class="viewcode-block" id="ReventWorkload.check_state"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.ReventWorkload.check_state">[docs]</a>    <span class="k">def</span> <span class="nf">check_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">phase</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Checking workload state...&quot;</span><span class="p">)</span>
+            <span class="n">screenshotPath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">output_directory</span><span class="p">,</span> <span class="s2">&quot;screen.png&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">capture_screen</span><span class="p">(</span><span class="n">screenshotPath</span><span class="p">)</span>
+            <span class="n">stateCheck</span> <span class="o">=</span> <span class="n">state_detector</span><span class="o">.</span><span class="n">verify_state</span><span class="p">(</span><span class="n">screenshotPath</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">statedefs_dir</span><span class="p">,</span> <span class="n">phase</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">stateCheck</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">WorkloadError</span><span class="p">(</span><span class="s2">&quot;Unexpected state after setup&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">state_detector</span><span class="o">.</span><span class="n">StateDefinitionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;State definitions or template files missing or invalid (</span><span class="si">{}</span><span class="s2">). Skipping state detection.&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">))</span></div></div>
+
+
+<div class="viewcode-block" id="AndroidUiAutoBenchmark"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.AndroidUiAutoBenchmark">[docs]</a><span class="k">class</span> <span class="nc">AndroidUiAutoBenchmark</span><span class="p">(</span><span class="n">UiAutomatorWorkload</span><span class="p">,</span> <span class="n">AndroidBenchmark</span><span class="p">):</span>
+
+    <span class="n">supported_platforms</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;android&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">UiAutomatorWorkload</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">AndroidBenchmark</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">_call_super</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="n">UiAutomatorWorkload</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+        <span class="n">AndroidBenchmark</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_unsupported_packages</span><span class="p">()</span>
+
+<div class="viewcode-block" id="AndroidUiAutoBenchmark.init_resources"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.AndroidUiAutoBenchmark.init_resources">[docs]</a>    <span class="k">def</span> <span class="nf">init_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="n">UiAutomatorWorkload</span><span class="o">.</span><span class="n">init_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+        <span class="n">AndroidBenchmark</span><span class="o">.</span><span class="n">init_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AndroidUiAutoBenchmark.setup"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.AndroidUiAutoBenchmark.setup">[docs]</a>    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="n">UiAutomatorWorkload</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+        <span class="n">AndroidBenchmark</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AndroidUiAutoBenchmark.update_result"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.AndroidUiAutoBenchmark.update_result">[docs]</a>    <span class="k">def</span> <span class="nf">update_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="n">UiAutomatorWorkload</span><span class="o">.</span><span class="n">update_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+        <span class="n">AndroidBenchmark</span><span class="o">.</span><span class="n">update_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AndroidUiAutoBenchmark.teardown"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.AndroidUiAutoBenchmark.teardown">[docs]</a>    <span class="k">def</span> <span class="nf">teardown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="n">UiAutomatorWorkload</span><span class="o">.</span><span class="n">teardown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+        <span class="n">AndroidBenchmark</span><span class="o">.</span><span class="n">teardown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_check_unsupported_packages</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check for any unsupported package versions and raise an</span>
+<span class="sd">        exception if detected.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">package</span> <span class="ow">in</span> <span class="n">UNSUPPORTED_PACKAGES</span><span class="p">:</span>
+            <span class="n">version</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">get_installed_package_version</span><span class="p">(</span><span class="n">package</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">version</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="k">if</span> <span class="s1">&#39;-&#39;</span> <span class="ow">in</span> <span class="n">version</span><span class="p">:</span>
+                <span class="n">version</span> <span class="o">=</span> <span class="n">version</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># ignore abi version</span>
+
+            <span class="k">if</span> <span class="n">version</span> <span class="ow">in</span> <span class="n">UNSUPPORTED_PACKAGES</span><span class="p">[</span><span class="n">package</span><span class="p">]:</span>
+                <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;This workload does not support version &quot;</span><span class="si">{}</span><span class="s1">&quot; of package &quot;</span><span class="si">{}</span><span class="s1">&quot;&#39;</span>
+                <span class="k">raise</span> <span class="n">WorkloadError</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">version</span><span class="p">,</span> <span class="n">package</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="AndroidUxPerfWorkloadMeta"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.AndroidUxPerfWorkloadMeta">[docs]</a><span class="k">class</span> <span class="nc">AndroidUxPerfWorkloadMeta</span><span class="p">(</span><span class="n">ExtensionMeta</span><span class="p">):</span>
+    <span class="n">to_propagate</span> <span class="o">=</span> <span class="n">ExtensionMeta</span><span class="o">.</span><span class="n">to_propagate</span> <span class="o">+</span> <span class="p">[(</span><span class="s1">&#39;deployable_assets&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">ListCollection</span><span class="p">)]</span></div>
+
+
+<div class="viewcode-block" id="AndroidUxPerfWorkload"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.AndroidUxPerfWorkload">[docs]</a><span class="k">class</span> <span class="nc">AndroidUxPerfWorkload</span><span class="p">(</span><span class="n">AndroidUiAutoBenchmark</span><span class="p">):</span>
+    <span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">AndroidUxPerfWorkloadMeta</span>
+
+    <span class="n">deployable_assets</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;markers_enabled&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">bool</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                  If ``True``, UX_PERF action markers will be emitted to logcat during</span>
+<span class="s2">                  the test run.</span>
+<span class="s2">                  &quot;&quot;&quot;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;clean_assets&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">bool</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                  If ``True`` pushed assets will be deleted at the end of each iteration</span>
+<span class="s2">                  &quot;&quot;&quot;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;force_push_assets&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">bool</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                  If ``True`` always push assets on each iteration, even if the</span>
+<span class="s2">                  assets already exists in the device path</span>
+<span class="s2">                  &quot;&quot;&quot;</span><span class="p">),</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">_path_on_device</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fpath</span><span class="p">,</span> <span class="n">dirname</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">dirname</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">dirname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">working_directory</span>
+        <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dirname</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span>
+
+<div class="viewcode-block" id="AndroidUxPerfWorkload.push_assets"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.AndroidUxPerfWorkload.push_assets">[docs]</a>    <span class="k">def</span> <span class="nf">push_assets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">deployable_assets</span><span class="p">:</span>
+            <span class="n">fpath</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">resolver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">File</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span>
+            <span class="n">device_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_path_on_device</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">force_push_assets</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">file_exists</span><span class="p">(</span><span class="n">device_path</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">push_file</span><span class="p">(</span><span class="n">fpath</span><span class="p">,</span> <span class="n">device_path</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">broadcast_media_mounted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">working_directory</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AndroidUxPerfWorkload.delete_assets"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.AndroidUxPerfWorkload.delete_assets">[docs]</a>    <span class="k">def</span> <span class="nf">delete_assets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">deployable_assets</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">delete_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_path_on_device</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">broadcast_media_mounted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">working_directory</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">AndroidUxPerfWorkload</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="c1"># Turn class attribute into instance attribute</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">deployable_assets</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">deployable_assets</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">AndroidUxPerfWorkload</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uiauto_params</span><span class="p">[</span><span class="s1">&#39;package&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">package</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uiauto_params</span><span class="p">[</span><span class="s1">&#39;markers_enabled&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">markers_enabled</span>
+
+<div class="viewcode-block" id="AndroidUxPerfWorkload.setup"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.AndroidUxPerfWorkload.setup">[docs]</a>    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">AndroidUxPerfWorkload</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">push_assets</span><span class="p">(</span><span class="n">context</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AndroidUxPerfWorkload.teardown"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.AndroidUxPerfWorkload.teardown">[docs]</a>    <span class="k">def</span> <span class="nf">teardown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">AndroidUxPerfWorkload</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">teardown</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">clean_assets</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">delete_assets</span><span class="p">()</span></div></div>
+
+
+<div class="viewcode-block" id="GameWorkload"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.GameWorkload">[docs]</a><span class="k">class</span> <span class="nc">GameWorkload</span><span class="p">(</span><span class="n">ApkWorkload</span><span class="p">,</span> <span class="n">ReventWorkload</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    GameWorkload is the base class for all the workload that use revent files to</span>
+<span class="sd">    run.</span>
+
+<span class="sd">    For more in depth details on how to record revent files, please see</span>
+<span class="sd">    :ref:`revent_files_creation`. To subclass this class, please refer to</span>
+<span class="sd">    :ref:`GameWorkload`.</span>
+
+<span class="sd">    Additionally, this class defines the following attributes:</span>
+
+<span class="sd">    :asset_file: A tarball containing additional assets for the workload. These are the assets</span>
+<span class="sd">                 that are not part of the APK but would need to be downloaded by the workload</span>
+<span class="sd">                 (usually, on first run of the app). Since the presence of a network connection</span>
+<span class="sd">                 cannot be assumed on some devices, this provides an alternative means of obtaining</span>
+<span class="sd">                 the assets.</span>
+<span class="sd">    :saved_state_file: A tarball containing the saved state for a workload. This tarball gets</span>
+<span class="sd">                       deployed in the same way as the asset file. The only difference being that</span>
+<span class="sd">                       it is usually much slower and re-deploying the tarball should alone be</span>
+<span class="sd">                       enough to reset the workload to a known state (without having to reinstall</span>
+<span class="sd">                       the app or re-deploy the other assets).</span>
+<span class="sd">    :loading_time: Time it takes for the workload to load after the initial activity has been</span>
+<span class="sd">                   started.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># May be optionally overwritten by subclasses</span>
+    <span class="n">asset_file</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">saved_state_file</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">view</span> <span class="o">=</span> <span class="s1">&#39;SurfaceView&#39;</span>
+    <span class="n">loading_time</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">supported_platforms</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;android&#39;</span><span class="p">]</span>
+
+    <span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;install_timeout&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">override</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;check_states&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">bool</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">global_alias</span><span class="o">=</span><span class="s1">&#39;check_game_states&#39;</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;Use visual state detection to verify the state of the workload</span>
+<span class="s2">                  after setup and run&quot;&quot;&quot;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;assets_push_timeout&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Timeout used during deployment of the assets package (if there is one).&#39;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;clear_data_on_reset&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">bool</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                  If set to ``False``, this will prevent WA from clearing package</span>
+<span class="s2">                  data for this workload prior to running it.</span>
+<span class="s2">                  &quot;&quot;&quot;</span><span class="p">),</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>  <span class="c1"># pylint: disable=W0613</span>
+        <span class="n">ApkWorkload</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">ReventWorkload</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">_call_super</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logcat_process</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">module_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__module__</span><span class="p">]</span><span class="o">.</span><span class="n">__file__</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">revent_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">module_dir</span><span class="p">,</span> <span class="s1">&#39;revent_files&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="GameWorkload.init_resources"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.GameWorkload.init_resources">[docs]</a>    <span class="k">def</span> <span class="nf">init_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="n">ApkWorkload</span><span class="o">.</span><span class="n">init_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+        <span class="n">ReventWorkload</span><span class="o">.</span><span class="n">init_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_states</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_check_statedetection_files</span><span class="p">(</span><span class="n">context</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="GameWorkload.setup"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.GameWorkload.setup">[docs]</a>    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="n">ApkWorkload</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Waiting for the game to load...&#39;</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">loading_time</span><span class="p">)</span>
+        <span class="n">ReventWorkload</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+
+        <span class="c1"># state detection check if it&#39;s enabled in the config</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_states</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">check_state</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="s2">&quot;setup_complete&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="GameWorkload.do_post_install"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.GameWorkload.do_post_install">[docs]</a>    <span class="k">def</span> <span class="nf">do_post_install</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="n">ApkWorkload</span><span class="o">.</span><span class="n">do_post_install</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_deploy_assets</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">assets_push_timeout</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="GameWorkload.reset"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.GameWorkload.reset">[docs]</a>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="c1"># If saved state exists, restore it; if not, do full</span>
+        <span class="c1"># uninstall/install cycle.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;am force-stop </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">package</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">saved_state_file</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_deploy_resource_tarball</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">saved_state_file</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">clear_data_on_reset</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;pm clear </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">package</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_deploy_assets</span><span class="p">(</span><span class="n">context</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="GameWorkload.run"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.GameWorkload.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="n">ReventWorkload</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="GameWorkload.teardown"><a class="viewcode-back" href="../../../../api/wlauto.common.android.html#wlauto.common.android.workload.GameWorkload.teardown">[docs]</a>    <span class="k">def</span> <span class="nf">teardown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="c1"># state detection check if it&#39;s enabled in the config</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_states</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">check_state</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="s2">&quot;run_complete&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">saved_state_file</span><span class="p">:</span>
+            <span class="n">ApkWorkload</span><span class="o">.</span><span class="n">teardown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;am force-stop </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">package</span><span class="p">))</span>
+        <span class="n">ReventWorkload</span><span class="o">.</span><span class="n">teardown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_deploy_assets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">asset_file</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_deploy_resource_tarball</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">asset_file</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">saved_state_file</span><span class="p">:</span>  <span class="c1"># must be deployed *after* asset tarball!</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_deploy_resource_tarball</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">saved_state_file</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_deploy_resource_tarball</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">resource_file</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">):</span>
+        <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;data&#39;</span>
+        <span class="k">if</span> <span class="s1">&#39;:&#39;</span> <span class="ow">in</span> <span class="n">resource_file</span><span class="p">:</span>
+            <span class="n">kind</span><span class="p">,</span> <span class="n">resource_file</span> <span class="o">=</span> <span class="n">resource_file</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">ondevice_cache</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">resource_cache</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">resource_file</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">file_exists</span><span class="p">(</span><span class="n">ondevice_cache</span><span class="p">):</span>
+            <span class="n">asset_tarball</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">resolver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ExtensionAsset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource_file</span><span class="p">))</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">asset_tarball</span><span class="p">:</span>
+                <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;Could not find resource </span><span class="si">{}</span><span class="s1"> for workload </span><span class="si">{}</span><span class="s1">.&#39;</span>
+                <span class="k">raise</span> <span class="n">WorkloadError</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resource_file</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+            <span class="c1"># adb push will create intermediate directories if they don&#39;t</span>
+            <span class="c1"># exist.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">push_file</span><span class="p">(</span><span class="n">asset_tarball</span><span class="p">,</span> <span class="n">ondevice_cache</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+
+        <span class="n">device_asset_directory</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">external_storage_directory</span><span class="p">,</span> <span class="s1">&#39;Android&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="p">)</span>
+        <span class="n">deploy_command</span> <span class="o">=</span> <span class="s1">&#39;cd </span><span class="si">{}</span><span class="s1"> &amp;&amp; </span><span class="si">{}</span><span class="s1"> tar -xzf </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">device_asset_directory</span><span class="p">,</span>
+                                                          <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">busybox</span><span class="p">,</span>
+                                                          <span class="n">ondevice_cache</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">deploy_command</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span> <span class="n">as_root</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, ARM Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

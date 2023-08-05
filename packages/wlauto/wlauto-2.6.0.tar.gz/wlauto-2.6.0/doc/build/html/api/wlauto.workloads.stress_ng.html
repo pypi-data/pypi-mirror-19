@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>wlauto.workloads.stress_ng package &#8212; Workload Automation 2.6.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.6.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="wlauto.workloads.sysbench package" href="wlauto.workloads.sysbench.html" />
+    <link rel="prev" title="wlauto.workloads.stream package" href="wlauto.workloads.stream.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="wlauto.workloads.sysbench.html" title="wlauto.workloads.sysbench package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="wlauto.workloads.stream.html" title="wlauto.workloads.stream package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >wlauto</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="wlauto.html" >wlauto package</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="wlauto.workloads.html" accesskey="U">wlauto.workloads package</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="wlauto-workloads-stress-ng-package">
+<h1>wlauto.workloads.stress_ng package<a class="headerlink" href="#wlauto-workloads-stress-ng-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-wlauto.workloads.stress_ng">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-wlauto.workloads.stress_ng" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="wlauto.workloads.stress_ng.StressNg">
+<em class="property">class </em><code class="descclassname">wlauto.workloads.stress_ng.</code><code class="descname">StressNg</code><span class="sig-paren">(</span><em>device</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/workloads/stress_ng.html#StressNg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.workloads.stress_ng.StressNg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="wlauto.core.html#wlauto.core.workload.Workload" title="wlauto.core.workload.Workload"><code class="xref py py-class docutils literal"><span class="pre">wlauto.core.workload.Workload</span></code></a></p>
+<dl class="attribute">
+<dt id="wlauto.workloads.stress_ng.StressNg.aliases">
+<code class="descname">aliases</code><em class="property"> = AC([])</em><a class="headerlink" href="#wlauto.workloads.stress_ng.StressNg.aliases" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.workloads.stress_ng.StressNg.artifacts">
+<code class="descname">artifacts</code><em class="property"> = AC([])</em><a class="headerlink" href="#wlauto.workloads.stress_ng.StressNg.artifacts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.workloads.stress_ng.StressNg.core_modules">
+<code class="descname">core_modules</code><em class="property"> = []</em><a class="headerlink" href="#wlauto.workloads.stress_ng.StressNg.core_modules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.workloads.stress_ng.StressNg.description">
+<code class="descname">description</code><em class="property"> = '\n    stress-ng will stress test a computer system in various selectable ways. It\n    was designed to exercise various physical subsystems of a computer as well\n    as the various operating system kernel interfaces.\n\n    stress-ng can also measure test throughput rates; this can be useful to\n    observe performance changes across different operating system releases or\n    types of hardware. However, it has never been intended to be used as a\n    precise benchmark test suite, so do NOT use it in this manner.\n\n    The official website for stress-ng is at:\n        http://kernel.ubuntu.com/~cking/stress-ng/\n\n    Source code are available from:\n        http://kernel.ubuntu.com/git/cking/stress-ng.git/\n    '</em><a class="headerlink" href="#wlauto.workloads.stress_ng.StressNg.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.workloads.stress_ng.StressNg.finalize">
+<code class="descname">finalize</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.workloads.stress_ng.StressNg.finalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.workloads.stress_ng.StressNg.initialize">
+<code class="descname">initialize</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.workloads.stress_ng.StressNg.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.workloads.stress_ng.StressNg.name">
+<code class="descname">name</code><em class="property"> = 'stress_ng'</em><a class="headerlink" href="#wlauto.workloads.stress_ng.StressNg.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.workloads.stress_ng.StressNg.parameters">
+<code class="descname">parameters</code><em class="property"> = AC([&quot;Param({'kind': &lt;type 'list'&gt;, 'mandatory': None, 'name': 'modules', 'constraint': None, 'default': None, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;type 'str'&gt;, 'mandatory': None, 'name': 'stressor', 'constraint': None, 'default': 'cpu', 'allowed_values': ['cpu', 'io', 'fork', 'switch', 'vm', 'pipe', 'yield', 'hdd', 'cache', 'sock', 'fallocate', 'flock', 'affinity', 'timer', 'dentry', 'urandom', 'sem', 'open', 'sigq', 'poll'], 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;function integer&gt;, 'mandatory': None, 'name': 'threads', 'constraint': None, 'default': 0, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;function integer&gt;, 'mandatory': None, 'name': 'duration', 'constraint': None, 'default': 60, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;])</em><a class="headerlink" href="#wlauto.workloads.stress_ng.StressNg.parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.workloads.stress_ng.StressNg.run">
+<code class="descname">run</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/workloads/stress_ng.html#StressNg.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.workloads.stress_ng.StressNg.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.workloads.stress_ng.StressNg.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/workloads/stress_ng.html#StressNg.setup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.workloads.stress_ng.StressNg.setup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.workloads.stress_ng.StressNg.update_result">
+<code class="descname">update_result</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/workloads/stress_ng.html#StressNg.update_result"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.workloads.stress_ng.StressNg.update_result" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.workloads.stress_ng.StressNg.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.workloads.stress_ng.StressNg.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">wlauto.workloads.stress_ng package</a><ul>
+<li><a class="reference internal" href="#module-wlauto.workloads.stress_ng">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="wlauto.workloads.stream.html"
+                        title="previous chapter">wlauto.workloads.stream package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="wlauto.workloads.sysbench.html"
+                        title="next chapter">wlauto.workloads.sysbench package</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/wlauto.workloads.stress_ng.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="wlauto.workloads.sysbench.html" title="wlauto.workloads.sysbench package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="wlauto.workloads.stream.html" title="wlauto.workloads.stream package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >wlauto</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="wlauto.html" >wlauto package</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="wlauto.workloads.html" >wlauto.workloads package</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, ARM Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

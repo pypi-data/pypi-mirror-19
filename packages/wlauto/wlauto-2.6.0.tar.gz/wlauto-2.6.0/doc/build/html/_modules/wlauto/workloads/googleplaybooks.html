@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>wlauto.workloads.googleplaybooks &#8212; Workload Automation 2.6.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.6.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for wlauto.workloads.googleplaybooks</h1><div class="highlight"><pre>
+<span></span><span class="c1">#    Copyright 2014-2016 ARM Limited</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">from</span> <span class="nn">wlauto</span> <span class="k">import</span> <span class="n">AndroidUxPerfWorkload</span><span class="p">,</span> <span class="n">Parameter</span>
+
+
+<div class="viewcode-block" id="Googleplaybooks"><a class="viewcode-back" href="../../../api/wlauto.workloads.googleplaybooks.html#wlauto.workloads.googleplaybooks.Googleplaybooks">[docs]</a><span class="k">class</span> <span class="nc">Googleplaybooks</span><span class="p">(</span><span class="n">AndroidUxPerfWorkload</span><span class="p">):</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;googleplaybooks&#39;</span>
+    <span class="n">package</span> <span class="o">=</span> <span class="s1">&#39;com.google.android.apps.books&#39;</span>
+    <span class="n">min_apk_version</span> <span class="o">=</span> <span class="s1">&#39;3.9.37&#39;</span>
+    <span class="n">activity</span> <span class="o">=</span> <span class="s1">&#39;com.google.android.apps.books.app.BooksActivity&#39;</span>
+    <span class="n">view</span> <span class="o">=</span> <span class="p">[</span><span class="n">package</span> <span class="o">+</span> <span class="s1">&#39;/com.google.android.apps.books.app.HomeActivity&#39;</span><span class="p">,</span>
+            <span class="n">package</span> <span class="o">+</span> <span class="s1">&#39;/com.android.vending/com.google.android.finsky.activities.MainActivity&#39;</span><span class="p">,</span>
+            <span class="n">package</span> <span class="o">+</span> <span class="s1">&#39;/com.google.android.apps.books.app.ReadingActivity&#39;</span><span class="p">,</span>
+            <span class="n">package</span> <span class="o">+</span> <span class="s1">&#39;/com.google.android.apps.books.app.TableOfContentsActivityLight&#39;</span><span class="p">]</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">    A workload to perform standard productivity tasks with googleplaybooks.</span>
+<span class="s1">    This workload performs various tasks, such as searching for a book title</span>
+<span class="s1">    online, browsing through a book, adding and removing notes, word searching,</span>
+<span class="s1">    and querying information about the book.</span>
+
+<span class="s1">    Test description:</span>
+<span class="s1">    1. Open Google Play Books application</span>
+<span class="s1">    2. Dismisses sync operation (if applicable)</span>
+<span class="s1">    3. Searches for a book title</span>
+<span class="s1">    4. Adds books to library if not already present</span>
+<span class="s1">    5. Opens &#39;My Library&#39; contents</span>
+<span class="s1">    6. Opens selected book</span>
+<span class="s1">    7. Gestures are performed to swipe between pages and pinch zoom in and out of a page</span>
+<span class="s1">    8. Selects a specified chapter based on page number from the navigation view</span>
+<span class="s1">    9. Selects a word in the centre of screen and adds a test note to the page</span>
+<span class="s1">    10. Removes the test note from the page (clean up)</span>
+<span class="s1">    11. Searches for the number of occurrences of a common word throughout the book</span>
+<span class="s1">    12. Switches page styles from &#39;Day&#39; to &#39;Night&#39; to &#39;Sepia&#39; and back to &#39;Day&#39;</span>
+<span class="s1">    13. Uses the &#39;About this book&#39; facility on the currently selected book</span>
+
+<span class="s1">    NOTE: This workload requires a network connection (ideally, wifi) to run,</span>
+<span class="s1">          a Google account to be setup on the device, and payment details for the account.</span>
+<span class="s1">          Free books require payment details to have been setup otherwise it fails.</span>
+<span class="s1">          Tip: Install the &#39;Google Opinion Rewards&#39; app to bypass the need to enter valid</span>
+<span class="s1">          card/bank detail.</span>
+<span class="s1">    &#39;&#39;&#39;</span>
+
+    <span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;search_book_title&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;Nikola Tesla: Imagination and the Man That Invented the 20th Century&#39;</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                  The book title to search for within Google Play Books archive.</span>
+<span class="s2">                  The book must either be already in the account&#39;s library, or free to purchase.</span>
+<span class="s2">                  &quot;&quot;&quot;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;library_book_title&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;Nikola Tesla&#39;</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                  The book title to search for within My Library.</span>
+<span class="s2">                  The Library name can differ (usually shorter) to the Store name.</span>
+<span class="s2">                  If left blank, the ``search_book_title`` will be used.</span>
+<span class="s2">                  &quot;&quot;&quot;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;select_chapter_page_number&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                  The Page Number to search for within a selected book&#39;s Chapter list.</span>
+<span class="s2">                  Note: Accepts integers only.</span>
+<span class="s2">                  &quot;&quot;&quot;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;search_word&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;the&#39;</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                  The word to search for within a selected book.</span>
+<span class="s2">                  Note: Accepts single words only.</span>
+<span class="s2">                  &quot;&quot;&quot;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;account&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">mandatory</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                  If you are running this workload on a device which has more than one</span>
+<span class="s2">                  Google account setup, then this parameter is used to select which account</span>
+<span class="s2">                  to select when prompted.</span>
+<span class="s2">                  The account requires the book to have already been purchased or payment details</span>
+<span class="s2">                  already associated with the account.</span>
+<span class="s2">                  If omitted, the first account in the list will be selected if prompted.</span>
+<span class="s2">                  &quot;&quot;&quot;</span><span class="p">),</span>
+    <span class="p">]</span>
+
+    <span class="c1"># This workload relies on the internet so check that there is a working</span>
+    <span class="c1"># internet connection</span>
+    <span class="n">requires_network</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Googleplaybooks</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uiauto_params</span><span class="p">[</span><span class="s1">&#39;search_book_title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_book_title</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;0space0&#39;</span><span class="p">)</span>
+        <span class="c1"># If library_book_title is blank, set it to the same as search_book_title</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">library_book_title</span><span class="p">:</span>  <span class="c1"># pylint: disable=access-member-before-definition</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">library_book_title</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_book_title</span>  <span class="c1"># pylint: disable=attribute-defined-outside-init</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uiauto_params</span><span class="p">[</span><span class="s1">&#39;library_book_title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">library_book_title</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;0space0&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uiauto_params</span><span class="p">[</span><span class="s1">&#39;chapter_page_number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">select_chapter_page_number</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uiauto_params</span><span class="p">[</span><span class="s1">&#39;search_word&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_word</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uiauto_params</span><span class="p">[</span><span class="s1">&#39;account&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">account</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, ARM Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

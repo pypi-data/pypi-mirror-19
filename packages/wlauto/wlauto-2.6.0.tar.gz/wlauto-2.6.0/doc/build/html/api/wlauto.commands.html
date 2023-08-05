@@ -1,0 +1,660 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>wlauto.commands package &#8212; Workload Automation 2.6.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.6.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="wlauto.common package" href="wlauto.common.html" />
+    <link rel="prev" title="wlauto package" href="wlauto.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="wlauto.common.html" title="wlauto.common package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="wlauto.html" title="wlauto package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >wlauto</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="wlauto.html" accesskey="U">wlauto package</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="wlauto-commands-package">
+<h1>wlauto.commands package<a class="headerlink" href="#wlauto-commands-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-wlauto.commands.create">
+<span id="wlauto-commands-create-module"></span><h2>wlauto.commands.create module<a class="headerlink" href="#module-wlauto.commands.create" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="wlauto.commands.create.create_workload">
+<code class="descclassname">wlauto.commands.create.</code><code class="descname">create_workload</code><span class="sig-paren">(</span><em>name</em>, <em>kind='basic'</em>, <em>where='local'</em>, <em>check_name=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/create.html#create_workload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.create.create_workload" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-wlauto.commands.get_assets">
+<span id="wlauto-commands-get-assets-module"></span><h2>wlauto.commands.get_assets module<a class="headerlink" href="#module-wlauto.commands.get_assets" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="wlauto.commands.get_assets.GetAssetsCommand">
+<em class="property">class </em><code class="descclassname">wlauto.commands.get_assets.</code><code class="descname">GetAssetsCommand</code><span class="sig-paren">(</span><em>subparsers</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/get_assets.html#GetAssetsCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.get_assets.GetAssetsCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="wlauto.core.html#wlauto.core.command.Command" title="wlauto.core.command.Command"><code class="xref py py-class docutils literal"><span class="pre">wlauto.core.command.Command</span></code></a></p>
+<dl class="attribute">
+<dt id="wlauto.commands.get_assets.GetAssetsCommand.aliases">
+<code class="descname">aliases</code><em class="property"> = AC([])</em><a class="headerlink" href="#wlauto.commands.get_assets.GetAssetsCommand.aliases" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.get_assets.GetAssetsCommand.artifacts">
+<code class="descname">artifacts</code><em class="property"> = AC([])</em><a class="headerlink" href="#wlauto.commands.get_assets.GetAssetsCommand.artifacts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.get_assets.GetAssetsCommand.assets_url">
+<code class="descname">assets_url</code><em class="property"> = 'https://github.com/ARM-software/workload-automation-assets/raw/master/dependencies'</em><a class="headerlink" href="#wlauto.commands.get_assets.GetAssetsCommand.assets_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.get_assets.GetAssetsCommand.core_modules">
+<code class="descname">core_modules</code><em class="property"> = []</em><a class="headerlink" href="#wlauto.commands.get_assets.GetAssetsCommand.core_modules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.get_assets.GetAssetsCommand.description">
+<code class="descname">description</code><em class="property"> = '\n    This command downloads external extension dependencies used by Workload Automation.\n    Works by first downloading a directory index of the assets, then iterating through\n    it to get assets for the specified extensions.\n    '</em><a class="headerlink" href="#wlauto.commands.get_assets.GetAssetsCommand.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.get_assets.GetAssetsCommand.execute">
+<code class="descname">execute</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/get_assets.html#GetAssetsCommand.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.get_assets.GetAssetsCommand.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.get_assets.GetAssetsCommand.exit_with_error">
+<code class="descname">exit_with_error</code><span class="sig-paren">(</span><em>message</em>, <em>code=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/get_assets.html#GetAssetsCommand.exit_with_error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.get_assets.GetAssetsCommand.exit_with_error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.get_assets.GetAssetsCommand.finalize">
+<code class="descname">finalize</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.commands.get_assets.GetAssetsCommand.finalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.get_assets.GetAssetsCommand.initialize">
+<code class="descname">initialize</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.commands.get_assets.GetAssetsCommand.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.get_assets.GetAssetsCommand.name">
+<code class="descname">name</code><em class="property"> = 'get-assets'</em><a class="headerlink" href="#wlauto.commands.get_assets.GetAssetsCommand.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.get_assets.GetAssetsCommand.parameters">
+<code class="descname">parameters</code><em class="property"> = AC([&quot;Param({'kind': &lt;type 'list'&gt;, 'mandatory': None, 'name': 'modules', 'constraint': None, 'default': None, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;])</em><a class="headerlink" href="#wlauto.commands.get_assets.GetAssetsCommand.parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.get_assets.GetAssetsCommand.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.commands.get_assets.GetAssetsCommand.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="wlauto.commands.get_assets.NamedExtension">
+<em class="property">class </em><code class="descclassname">wlauto.commands.get_assets.</code><code class="descname">NamedExtension</code><span class="sig-paren">(</span><em>name</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/get_assets.html#NamedExtension"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.get_assets.NamedExtension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="wlauto.core.html#wlauto.core.extension.Extension" title="wlauto.core.extension.Extension"><code class="xref py py-class docutils literal"><span class="pre">wlauto.core.extension.Extension</span></code></a></p>
+<dl class="attribute">
+<dt id="wlauto.commands.get_assets.NamedExtension.aliases">
+<code class="descname">aliases</code><em class="property"> = AC([])</em><a class="headerlink" href="#wlauto.commands.get_assets.NamedExtension.aliases" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.get_assets.NamedExtension.artifacts">
+<code class="descname">artifacts</code><em class="property"> = AC([])</em><a class="headerlink" href="#wlauto.commands.get_assets.NamedExtension.artifacts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.get_assets.NamedExtension.core_modules">
+<code class="descname">core_modules</code><em class="property"> = []</em><a class="headerlink" href="#wlauto.commands.get_assets.NamedExtension.core_modules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.get_assets.NamedExtension.finalize">
+<code class="descname">finalize</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.commands.get_assets.NamedExtension.finalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.get_assets.NamedExtension.initialize">
+<code class="descname">initialize</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.commands.get_assets.NamedExtension.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.get_assets.NamedExtension.parameters">
+<code class="descname">parameters</code><em class="property"> = AC([&quot;Param({'kind': &lt;type 'list'&gt;, 'mandatory': None, 'name': 'modules', 'constraint': None, 'default': None, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;])</em><a class="headerlink" href="#wlauto.commands.get_assets.NamedExtension.parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.get_assets.NamedExtension.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.commands.get_assets.NamedExtension.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="wlauto.commands.get_assets.not_empty">
+<code class="descclassname">wlauto.commands.get_assets.</code><code class="descname">not_empty</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/get_assets.html#not_empty"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.get_assets.not_empty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-wlauto.commands.list">
+<span id="wlauto-commands-list-module"></span><h2>wlauto.commands.list module<a class="headerlink" href="#module-wlauto.commands.list" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="wlauto.commands.list.ListCommand">
+<em class="property">class </em><code class="descclassname">wlauto.commands.list.</code><code class="descname">ListCommand</code><span class="sig-paren">(</span><em>subparsers</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/list.html#ListCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.list.ListCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="wlauto.core.html#wlauto.core.command.Command" title="wlauto.core.command.Command"><code class="xref py py-class docutils literal"><span class="pre">wlauto.core.command.Command</span></code></a></p>
+<dl class="attribute">
+<dt id="wlauto.commands.list.ListCommand.aliases">
+<code class="descname">aliases</code><em class="property"> = AC([])</em><a class="headerlink" href="#wlauto.commands.list.ListCommand.aliases" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.list.ListCommand.artifacts">
+<code class="descname">artifacts</code><em class="property"> = AC([])</em><a class="headerlink" href="#wlauto.commands.list.ListCommand.artifacts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.list.ListCommand.core_modules">
+<code class="descname">core_modules</code><em class="property"> = []</em><a class="headerlink" href="#wlauto.commands.list.ListCommand.core_modules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.list.ListCommand.description">
+<code class="descname">description</code><em class="property"> = 'List available WA extensions with a short description of each.'</em><a class="headerlink" href="#wlauto.commands.list.ListCommand.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.list.ListCommand.execute">
+<code class="descname">execute</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/list.html#ListCommand.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.list.ListCommand.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.list.ListCommand.finalize">
+<code class="descname">finalize</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.commands.list.ListCommand.finalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.list.ListCommand.initialize">
+<code class="descname">initialize</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.commands.list.ListCommand.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.list.ListCommand.name">
+<code class="descname">name</code><em class="property"> = 'list'</em><a class="headerlink" href="#wlauto.commands.list.ListCommand.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.list.ListCommand.parameters">
+<code class="descname">parameters</code><em class="property"> = AC([&quot;Param({'kind': &lt;type 'list'&gt;, 'mandatory': None, 'name': 'modules', 'constraint': None, 'default': None, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;])</em><a class="headerlink" href="#wlauto.commands.list.ListCommand.parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.list.ListCommand.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.commands.list.ListCommand.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="wlauto.commands.list.check_platform">
+<code class="descclassname">wlauto.commands.list.</code><code class="descname">check_platform</code><span class="sig-paren">(</span><em>extension</em>, <em>platform</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/list.html#check_platform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.list.check_platform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-wlauto.commands.record">
+<span id="wlauto-commands-record-module"></span><h2>wlauto.commands.record module<a class="headerlink" href="#module-wlauto.commands.record" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="wlauto.commands.record.LightContext">
+<em class="property">class </em><code class="descclassname">wlauto.commands.record.</code><code class="descname">LightContext</code><span class="sig-paren">(</span><em>config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/record.html#LightContext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.record.LightContext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="wlauto.commands.record.RecordCommand">
+<em class="property">class </em><code class="descclassname">wlauto.commands.record.</code><code class="descname">RecordCommand</code><span class="sig-paren">(</span><em>subparsers</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/record.html#RecordCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.record.RecordCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#wlauto.commands.record.ReventCommand" title="wlauto.commands.record.ReventCommand"><code class="xref py py-class docutils literal"><span class="pre">wlauto.commands.record.ReventCommand</span></code></a></p>
+<dl class="attribute">
+<dt id="wlauto.commands.record.RecordCommand.aliases">
+<code class="descname">aliases</code><em class="property"> = AC([])</em><a class="headerlink" href="#wlauto.commands.record.RecordCommand.aliases" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.record.RecordCommand.artifacts">
+<code class="descname">artifacts</code><em class="property"> = AC([])</em><a class="headerlink" href="#wlauto.commands.record.RecordCommand.artifacts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.record.RecordCommand.core_modules">
+<code class="descname">core_modules</code><em class="property"> = []</em><a class="headerlink" href="#wlauto.commands.record.RecordCommand.core_modules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.record.RecordCommand.description">
+<code class="descname">description</code><em class="property"> = &quot;Performs a revent recording\n\n    This command helps making revent recordings. It will automatically\n    deploy revent and even has the option of automatically opening apps.\n\n    Revent allows you to record raw inputs such as screen swipes or button presses.\n    This can be useful for recording inputs for workloads such as games that don't\n    have XML UI layouts that can be used with UIAutomator. As a drawback from this,\n    revent recordings are specific to the device type they were recorded on.\n\n    WA uses two parts to the names of revent recordings in the format,\n    {device_name}.{suffix}.revent.\n\n     - device_name can either be specified manually with the ``-d`` argument or\n       it can be automatically determined. On Android device it will be obtained\n       from ``build.prop``, on Linux devices it is obtained from ``/proc/device-tree/model``.\n     - suffix is used by WA to determine which part of the app execution the\n       recording is for, currently these are either ``setup`` or ``run``. This\n       should be specified with the ``-s`` argument.\n\n\n    **gamepad recording**\n\n    revent supports an alternative recording mode, where it will record events\n    from a single gamepad device. In this mode, revent will store the\n    description of this device as a part of the recording. When replaying such\n    a recording, revent will first create a virtual gamepad using the\n    description, and will replay the events into it, so a physical controller\n    does not need to be connected on replay. Unlike standard revent recordings,\n    recordings generated in this mode should be (to an extent) portable across\n    different devices.\n\n    note:\n\n      - The device on which a recording is being made in gamepad mode, must have\n        exactly one gamepad connected to it.\n      - The device on which a gamepad recording is being replayed must have\n        /dev/uinput enabled in the kernel (this interface is necessary to create\n        virtual gamepad).\n\n    &quot;</em><a class="headerlink" href="#wlauto.commands.record.RecordCommand.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.record.RecordCommand.finalize">
+<code class="descname">finalize</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.commands.record.RecordCommand.finalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.record.RecordCommand.initialize">
+<code class="descname">initialize</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.commands.record.RecordCommand.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.record.RecordCommand.name">
+<code class="descname">name</code><em class="property"> = 'record'</em><a class="headerlink" href="#wlauto.commands.record.RecordCommand.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.record.RecordCommand.parameters">
+<code class="descname">parameters</code><em class="property"> = AC([&quot;Param({'kind': &lt;type 'list'&gt;, 'mandatory': None, 'name': 'modules', 'constraint': None, 'default': None, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;])</em><a class="headerlink" href="#wlauto.commands.record.RecordCommand.parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.record.RecordCommand.run">
+<code class="descname">run</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/record.html#RecordCommand.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.record.RecordCommand.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.record.RecordCommand.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.commands.record.RecordCommand.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="wlauto.commands.record.ReplayCommand">
+<em class="property">class </em><code class="descclassname">wlauto.commands.record.</code><code class="descname">ReplayCommand</code><span class="sig-paren">(</span><em>subparsers</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/record.html#ReplayCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.record.ReplayCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#wlauto.commands.record.ReventCommand" title="wlauto.commands.record.ReventCommand"><code class="xref py py-class docutils literal"><span class="pre">wlauto.commands.record.ReventCommand</span></code></a></p>
+<dl class="attribute">
+<dt id="wlauto.commands.record.ReplayCommand.aliases">
+<code class="descname">aliases</code><em class="property"> = AC([])</em><a class="headerlink" href="#wlauto.commands.record.ReplayCommand.aliases" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.record.ReplayCommand.artifacts">
+<code class="descname">artifacts</code><em class="property"> = AC([])</em><a class="headerlink" href="#wlauto.commands.record.ReplayCommand.artifacts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.record.ReplayCommand.core_modules">
+<code class="descname">core_modules</code><em class="property"> = []</em><a class="headerlink" href="#wlauto.commands.record.ReplayCommand.core_modules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.record.ReplayCommand.description">
+<code class="descname">description</code><em class="property"> = 'Replay a revent recording\n\n    Revent allows you to record raw inputs such as screen swipes or button presses.\n    See ``wa show record`` to see how to make an revent recording.\n    '</em><a class="headerlink" href="#wlauto.commands.record.ReplayCommand.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.record.ReplayCommand.finalize">
+<code class="descname">finalize</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.commands.record.ReplayCommand.finalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.record.ReplayCommand.initialize">
+<code class="descname">initialize</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.commands.record.ReplayCommand.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.record.ReplayCommand.name">
+<code class="descname">name</code><em class="property"> = 'replay'</em><a class="headerlink" href="#wlauto.commands.record.ReplayCommand.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.record.ReplayCommand.parameters">
+<code class="descname">parameters</code><em class="property"> = AC([&quot;Param({'kind': &lt;type 'list'&gt;, 'mandatory': None, 'name': 'modules', 'constraint': None, 'default': None, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;])</em><a class="headerlink" href="#wlauto.commands.record.ReplayCommand.parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.record.ReplayCommand.run">
+<code class="descname">run</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/record.html#ReplayCommand.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.record.ReplayCommand.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.record.ReplayCommand.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.commands.record.ReplayCommand.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="wlauto.commands.record.ReventCommand">
+<em class="property">class </em><code class="descclassname">wlauto.commands.record.</code><code class="descname">ReventCommand</code><span class="sig-paren">(</span><em>subparsers</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/record.html#ReventCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.record.ReventCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="wlauto.core.html#wlauto.core.command.Command" title="wlauto.core.command.Command"><code class="xref py py-class docutils literal"><span class="pre">wlauto.core.command.Command</span></code></a></p>
+<dl class="attribute">
+<dt id="wlauto.commands.record.ReventCommand.aliases">
+<code class="descname">aliases</code><em class="property"> = AC([])</em><a class="headerlink" href="#wlauto.commands.record.ReventCommand.aliases" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.record.ReventCommand.artifacts">
+<code class="descname">artifacts</code><em class="property"> = AC([])</em><a class="headerlink" href="#wlauto.commands.record.ReventCommand.artifacts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.record.ReventCommand.core_modules">
+<code class="descname">core_modules</code><em class="property"> = []</em><a class="headerlink" href="#wlauto.commands.record.ReventCommand.core_modules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.record.ReventCommand.execute">
+<code class="descname">execute</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/record.html#ReventCommand.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.record.ReventCommand.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.record.ReventCommand.finalize">
+<code class="descname">finalize</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.commands.record.ReventCommand.finalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.record.ReventCommand.initialize">
+<code class="descname">initialize</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.commands.record.ReventCommand.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.record.ReventCommand.parameters">
+<code class="descname">parameters</code><em class="property"> = AC([&quot;Param({'kind': &lt;type 'list'&gt;, 'mandatory': None, 'name': 'modules', 'constraint': None, 'default': None, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;])</em><a class="headerlink" href="#wlauto.commands.record.ReventCommand.parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.record.ReventCommand.run">
+<code class="descname">run</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/record.html#ReventCommand.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.record.ReventCommand.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.record.ReventCommand.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.commands.record.ReventCommand.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.record.ReventCommand.validate_args">
+<code class="descname">validate_args</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/record.html#ReventCommand.validate_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.record.ReventCommand.validate_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-wlauto.commands.run">
+<span id="wlauto-commands-run-module"></span><h2>wlauto.commands.run module<a class="headerlink" href="#module-wlauto.commands.run" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="wlauto.commands.run.RunCommand">
+<em class="property">class </em><code class="descclassname">wlauto.commands.run.</code><code class="descname">RunCommand</code><span class="sig-paren">(</span><em>subparsers</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/run.html#RunCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.run.RunCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="wlauto.core.html#wlauto.core.command.Command" title="wlauto.core.command.Command"><code class="xref py py-class docutils literal"><span class="pre">wlauto.core.command.Command</span></code></a></p>
+<dl class="attribute">
+<dt id="wlauto.commands.run.RunCommand.aliases">
+<code class="descname">aliases</code><em class="property"> = AC([])</em><a class="headerlink" href="#wlauto.commands.run.RunCommand.aliases" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.run.RunCommand.artifacts">
+<code class="descname">artifacts</code><em class="property"> = AC([])</em><a class="headerlink" href="#wlauto.commands.run.RunCommand.artifacts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.run.RunCommand.core_modules">
+<code class="descname">core_modules</code><em class="property"> = []</em><a class="headerlink" href="#wlauto.commands.run.RunCommand.core_modules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.run.RunCommand.description">
+<code class="descname">description</code><em class="property"> = 'Execute automated workloads on a remote device and process the resulting output.'</em><a class="headerlink" href="#wlauto.commands.run.RunCommand.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.run.RunCommand.execute">
+<code class="descname">execute</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/run.html#RunCommand.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.run.RunCommand.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.run.RunCommand.finalize">
+<code class="descname">finalize</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.commands.run.RunCommand.finalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.run.RunCommand.initialize">
+<code class="descname">initialize</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.commands.run.RunCommand.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.run.RunCommand.name">
+<code class="descname">name</code><em class="property"> = 'run'</em><a class="headerlink" href="#wlauto.commands.run.RunCommand.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.run.RunCommand.parameters">
+<code class="descname">parameters</code><em class="property"> = AC([&quot;Param({'kind': &lt;type 'list'&gt;, 'mandatory': None, 'name': 'modules', 'constraint': None, 'default': None, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;])</em><a class="headerlink" href="#wlauto.commands.run.RunCommand.parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.run.RunCommand.set_up_output_directory">
+<code class="descname">set_up_output_directory</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/run.html#RunCommand.set_up_output_directory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.run.RunCommand.set_up_output_directory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.run.RunCommand.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.commands.run.RunCommand.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-wlauto.commands.show">
+<span id="wlauto-commands-show-module"></span><h2>wlauto.commands.show module<a class="headerlink" href="#module-wlauto.commands.show" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="wlauto.commands.show.ShowCommand">
+<em class="property">class </em><code class="descclassname">wlauto.commands.show.</code><code class="descname">ShowCommand</code><span class="sig-paren">(</span><em>subparsers</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/show.html#ShowCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.show.ShowCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="wlauto.core.html#wlauto.core.command.Command" title="wlauto.core.command.Command"><code class="xref py py-class docutils literal"><span class="pre">wlauto.core.command.Command</span></code></a></p>
+<dl class="attribute">
+<dt id="wlauto.commands.show.ShowCommand.aliases">
+<code class="descname">aliases</code><em class="property"> = AC([])</em><a class="headerlink" href="#wlauto.commands.show.ShowCommand.aliases" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.show.ShowCommand.artifacts">
+<code class="descname">artifacts</code><em class="property"> = AC([])</em><a class="headerlink" href="#wlauto.commands.show.ShowCommand.artifacts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.show.ShowCommand.core_modules">
+<code class="descname">core_modules</code><em class="property"> = []</em><a class="headerlink" href="#wlauto.commands.show.ShowCommand.core_modules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.show.ShowCommand.description">
+<code class="descname">description</code><em class="property"> = '\n    Display documentation for the specified extension (workload, instrument, etc.).\n    '</em><a class="headerlink" href="#wlauto.commands.show.ShowCommand.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.show.ShowCommand.execute">
+<code class="descname">execute</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/show.html#ShowCommand.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.show.ShowCommand.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.show.ShowCommand.finalize">
+<code class="descname">finalize</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.commands.show.ShowCommand.finalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.show.ShowCommand.initialize">
+<code class="descname">initialize</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.commands.show.ShowCommand.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.show.ShowCommand.name">
+<code class="descname">name</code><em class="property"> = 'show'</em><a class="headerlink" href="#wlauto.commands.show.ShowCommand.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.commands.show.ShowCommand.parameters">
+<code class="descname">parameters</code><em class="property"> = AC([&quot;Param({'kind': &lt;type 'list'&gt;, 'mandatory': None, 'name': 'modules', 'constraint': None, 'default': None, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;])</em><a class="headerlink" href="#wlauto.commands.show.ShowCommand.parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.commands.show.ShowCommand.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.commands.show.ShowCommand.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="wlauto.commands.show.format_extension">
+<code class="descclassname">wlauto.commands.show.</code><code class="descname">format_extension</code><span class="sig-paren">(</span><em>extension</em>, <em>out</em>, <em>width</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/show.html#format_extension"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.show.format_extension" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="wlauto.commands.show.format_extension_description">
+<code class="descclassname">wlauto.commands.show.</code><code class="descname">format_extension_description</code><span class="sig-paren">(</span><em>extension</em>, <em>out</em>, <em>width</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/show.html#format_extension_description"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.show.format_extension_description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="wlauto.commands.show.format_extension_name">
+<code class="descclassname">wlauto.commands.show.</code><code class="descname">format_extension_name</code><span class="sig-paren">(</span><em>extension</em>, <em>out</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/show.html#format_extension_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.show.format_extension_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="wlauto.commands.show.format_extension_parameters">
+<code class="descclassname">wlauto.commands.show.</code><code class="descname">format_extension_parameters</code><span class="sig-paren">(</span><em>extension</em>, <em>out</em>, <em>width</em>, <em>shift=4</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/show.html#format_extension_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.show.format_extension_parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="wlauto.commands.show.format_extension_summary">
+<code class="descclassname">wlauto.commands.show.</code><code class="descname">format_extension_summary</code><span class="sig-paren">(</span><em>extension</em>, <em>out</em>, <em>width</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/show.html#format_extension_summary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.show.format_extension_summary" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="wlauto.commands.show.format_supported_platforms">
+<code class="descclassname">wlauto.commands.show.</code><code class="descname">format_supported_platforms</code><span class="sig-paren">(</span><em>extension</em>, <em>out</em>, <em>width</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/commands/show.html#format_supported_platforms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.commands.show.format_supported_platforms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-wlauto.commands">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-wlauto.commands" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">wlauto.commands package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-wlauto.commands.create">wlauto.commands.create module</a></li>
+<li><a class="reference internal" href="#module-wlauto.commands.get_assets">wlauto.commands.get_assets module</a></li>
+<li><a class="reference internal" href="#module-wlauto.commands.list">wlauto.commands.list module</a></li>
+<li><a class="reference internal" href="#module-wlauto.commands.record">wlauto.commands.record module</a></li>
+<li><a class="reference internal" href="#module-wlauto.commands.run">wlauto.commands.run module</a></li>
+<li><a class="reference internal" href="#module-wlauto.commands.show">wlauto.commands.show module</a></li>
+<li><a class="reference internal" href="#module-wlauto.commands">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="wlauto.html"
+                        title="previous chapter">wlauto package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="wlauto.common.html"
+                        title="next chapter">wlauto.common package</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/wlauto.commands.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="wlauto.common.html" title="wlauto.common package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="wlauto.html" title="wlauto package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >wlauto</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="wlauto.html" >wlauto package</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, ARM Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

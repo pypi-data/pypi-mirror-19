@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>wlauto.workloads.youtube package &#8212; Workload Automation 2.6.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.6.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="wlauto.workloads.videostreaming package" href="wlauto.workloads.videostreaming.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="wlauto.workloads.videostreaming.html" title="wlauto.workloads.videostreaming package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >wlauto</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="wlauto.html" >wlauto package</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="wlauto.workloads.html" accesskey="U">wlauto.workloads package</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="wlauto-workloads-youtube-package">
+<h1>wlauto.workloads.youtube package<a class="headerlink" href="#wlauto-workloads-youtube-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-wlauto.workloads.youtube">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-wlauto.workloads.youtube" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="wlauto.workloads.youtube.Youtube">
+<em class="property">class </em><code class="descclassname">wlauto.workloads.youtube.</code><code class="descname">Youtube</code><span class="sig-paren">(</span><em>device</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/workloads/youtube.html#Youtube"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.workloads.youtube.Youtube" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="wlauto.common.android.html#wlauto.common.android.workload.AndroidUxPerfWorkload" title="wlauto.common.android.workload.AndroidUxPerfWorkload"><code class="xref py py-class docutils literal"><span class="pre">wlauto.common.android.workload.AndroidUxPerfWorkload</span></code></a></p>
+<dl class="attribute">
+<dt id="wlauto.workloads.youtube.Youtube.activity">
+<code class="descname">activity</code><em class="property"> = ''</em><a class="headerlink" href="#wlauto.workloads.youtube.Youtube.activity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.workloads.youtube.Youtube.aliases">
+<code class="descname">aliases</code><em class="property"> = AC([])</em><a class="headerlink" href="#wlauto.workloads.youtube.Youtube.aliases" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.workloads.youtube.Youtube.artifacts">
+<code class="descname">artifacts</code><em class="property"> = AC([])</em><a class="headerlink" href="#wlauto.workloads.youtube.Youtube.artifacts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.workloads.youtube.Youtube.core_modules">
+<code class="descname">core_modules</code><em class="property"> = []</em><a class="headerlink" href="#wlauto.workloads.youtube.Youtube.core_modules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.workloads.youtube.Youtube.deployable_assets">
+<code class="descname">deployable_assets</code><em class="property"> = []</em><a class="headerlink" href="#wlauto.workloads.youtube.Youtube.deployable_assets" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.workloads.youtube.Youtube.description">
+<code class="descname">description</code><em class="property"> = &quot;\n    A workload to perform standard productivity tasks within YouTube.\n\n    The workload plays a video from the app, determined by the ``video_source`` parameter.\n    While the video is playing, a some common actions are done such as video seeking, pausing\n    playback and navigating the comments section.\n\n    Test description:\n    The ``video_source`` parameter determines where the video to be played will be found\n    in the app. Possible values are ``search``, ``home``, ``my_videos``, and ``trending``.\n\n    -A. search - Goes to the search view, does a search for the given term, and plays the\n        first video in the results. The parameter ``search_term`` must also be provided\n        in the agenda for this to work. This is the default mode.\n    -B. home - Scrolls down once on the app's home page to avoid ads (if present, would be\n        first video), then select and plays the video that appears at the top of the list.\n    -C. my_videos - Goes to the 'My Videos' section of the user's account page and plays a\n        video from there. The user must have at least one uploaded video for this to work.\n    -D. trending - Goes to the 'Trending Videos' section of the app, and plays the first\n        video in the trending videos list.\n\n    For the selected video source, the following test steps are performed:\n\n    1.  Navigate to the general app settings page to disable autoplay. This improves test\n        stability and predictability by preventing screen transition to load a new video\n        while in the middle of the test.\n    2.  Select the video from the source specified above, and dismiss any potential embedded\n        advert that may pop-up before the actual video.\n    3.  Let the video play for a few seconds, pause it, then resume.\n    4.  Expand the info card that shows video metadata, then collapse it again.\n    5.  Scroll down to the end of related videos and comments under the info card, and then\n        back up to the start. A maximum of 5 swipe actions is performed in either direction.\n    &quot;</em><a class="headerlink" href="#wlauto.workloads.youtube.Youtube.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.workloads.youtube.Youtube.finalize">
+<code class="descname">finalize</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.workloads.youtube.Youtube.finalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.workloads.youtube.Youtube.initialize">
+<code class="descname">initialize</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.workloads.youtube.Youtube.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.workloads.youtube.Youtube.min_apk_version">
+<code class="descname">min_apk_version</code><em class="property"> = '11.19.56'</em><a class="headerlink" href="#wlauto.workloads.youtube.Youtube.min_apk_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.workloads.youtube.Youtube.name">
+<code class="descname">name</code><em class="property"> = 'youtube'</em><a class="headerlink" href="#wlauto.workloads.youtube.Youtube.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.workloads.youtube.Youtube.package">
+<code class="descname">package</code><em class="property"> = 'com.google.android.youtube'</em><a class="headerlink" href="#wlauto.workloads.youtube.Youtube.package" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.workloads.youtube.Youtube.parameters">
+<code class="descname">parameters</code><em class="property"> = AC([&quot;Param({'kind': &lt;type 'list'&gt;, 'mandatory': None, 'name': 'modules', 'constraint': None, 'default': None, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;function integer&gt;, 'mandatory': None, 'name': 'install_timeout', 'constraint': None, 'default': 300, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;function boolean&gt;, 'mandatory': None, 'name': 'check_apk', 'constraint': None, 'default': True, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;function boolean&gt;, 'mandatory': None, 'name': 'force_install', 'constraint': None, 'default': False, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;function boolean&gt;, 'mandatory': None, 'name': 'uninstall_apk', 'constraint': None, 'default': False, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;function boolean&gt;, 'mandatory': None, 'name': 'exact_abi', 'constraint': None, 'default': False, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;function boolean&gt;, 'mandatory': None, 'name': 'markers_enabled', 'constraint': None, 'default': False, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;function boolean&gt;, 'mandatory': None, 'name': 'clean_assets', 'constraint': None, 'default': False, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;function boolean&gt;, 'mandatory': None, 'name': 'force_push_assets', 'constraint': None, 'default': False, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;type 'str'&gt;, 'mandatory': None, 'name': 'video_source', 'constraint': None, 'default': 'search', 'allowed_values': ['home', 'my_videos', 'search', 'trending'], 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;type 'str'&gt;, 'mandatory': None, 'name': 'search_term', 'constraint': None, 'default': 'Big Buck Bunny 60fps 4K - Official Blender Foundation Short Film', 'allowed_values': None, 'global_alias': None, 'override': False})&quot;])</em><a class="headerlink" href="#wlauto.workloads.youtube.Youtube.parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.workloads.youtube.Youtube.requires_network">
+<code class="descname">requires_network</code><em class="property"> = True</em><a class="headerlink" href="#wlauto.workloads.youtube.Youtube.requires_network" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.workloads.youtube.Youtube.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.workloads.youtube.Youtube.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.workloads.youtube.Youtube.view">
+<code class="descname">view</code><em class="property"> = ['com.google.android.youtube/com.google.android.apps.youtube.app.WatchWhileActivity', 'com.google.android.youtube/com.google.android.apps.youtube.app.honeycomb.SettingsActivity']</em><a class="headerlink" href="#wlauto.workloads.youtube.Youtube.view" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">wlauto.workloads.youtube package</a><ul>
+<li><a class="reference internal" href="#module-wlauto.workloads.youtube">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="wlauto.workloads.videostreaming.html"
+                        title="previous chapter">wlauto.workloads.videostreaming package</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/wlauto.workloads.youtube.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="wlauto.workloads.videostreaming.html" title="wlauto.workloads.videostreaming package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >wlauto</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="wlauto.html" >wlauto package</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="wlauto.workloads.html" >wlauto.workloads package</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, ARM Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>wlauto.utils.statedetect &#8212; Workload Automation 2.6.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.6.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for wlauto.utils.statedetect</h1><div class="highlight"><pre>
+<span></span><span class="c1">#    Copyright 2013-2016 ARM Limited</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1">#</span>
+<span class="c1"># pylint: disable=no-member</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">State detection functionality for revent workloads. Uses OpenCV to analyse screenshots from the device.</span>
+<span class="sd">Requires a &#39;statedetection&#39; directory in the workload directory that includes the state definition yaml file,</span>
+<span class="sd">and the &#39;templates&#39; folder with PNGs of all templates mentioned in the yaml file.</span>
+
+<span class="sd">Requires the following Python libraries:</span>
+<span class="sd">numpy, pyyaml (yaml), imutils and opencv-python</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">yaml</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">np</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">cv2</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">cv2</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">imutils</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">imutils</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="kn">from</span> <span class="nn">wlauto.exceptions</span> <span class="k">import</span> <span class="n">HostError</span>
+
+
+<div class="viewcode-block" id="StateDefinitionError"><a class="viewcode-back" href="../../../api/wlauto.utils.html#wlauto.utils.statedetect.StateDefinitionError">[docs]</a><span class="k">class</span> <span class="nc">StateDefinitionError</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="auto_canny"><a class="viewcode-back" href="../../../api/wlauto.utils.html#wlauto.utils.statedetect.auto_canny">[docs]</a><span class="k">def</span> <span class="nf">auto_canny</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.33</span><span class="p">):</span>
+    <span class="c1"># compute the median of the single channel pixel intensities</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+
+    <span class="c1"># apply automatic Canny edge detection using the computed median</span>
+    <span class="n">lower</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">sigma</span><span class="p">)</span> <span class="o">*</span> <span class="n">v</span><span class="p">))</span>
+    <span class="n">upper</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">sigma</span><span class="p">)</span> <span class="o">*</span> <span class="n">v</span><span class="p">))</span>
+    <span class="n">edged</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">Canny</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">)</span>
+
+    <span class="c1"># return the edged image</span>
+    <span class="k">return</span> <span class="n">edged</span></div>
+
+
+<div class="viewcode-block" id="check_match_state_dependencies"><a class="viewcode-back" href="../../../api/wlauto.utils.html#wlauto.utils.statedetect.check_match_state_dependencies">[docs]</a><span class="k">def</span> <span class="nf">check_match_state_dependencies</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">np</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">cv2</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">imutils</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HostError</span><span class="p">(</span><span class="s2">&quot;State detection requires numpy, opencv (cv2) and imutils.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="match_state"><a class="viewcode-back" href="../../../api/wlauto.utils.html#wlauto.utils.statedetect.match_state">[docs]</a><span class="k">def</span> <span class="nf">match_state</span><span class="p">(</span><span class="n">screenshot_file</span><span class="p">,</span> <span class="n">defpath</span><span class="p">,</span> <span class="n">state_definitions</span><span class="p">):</span>  <span class="c1"># pylint: disable=too-many-locals</span>
+    <span class="c1"># check dependencies</span>
+    <span class="n">check_match_state_dependencies</span><span class="p">()</span>
+
+    <span class="c1"># check if file exists, then load screenshot into opencv and create edge map</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">screenshot_file</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">StateDefinitionError</span><span class="p">(</span><span class="s2">&quot;Screenshot file not found&quot;</span><span class="p">)</span>
+    <span class="n">img_rgb</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">screenshot_file</span><span class="p">)</span>
+    <span class="n">img_gray</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img_rgb</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span>
+    <span class="n">img_edge</span> <span class="o">=</span> <span class="n">auto_canny</span><span class="p">(</span><span class="n">img_gray</span><span class="p">)</span>
+
+    <span class="c1"># make a list of all templates defined in the state definitions</span>
+    <span class="n">template_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">state_definitions</span><span class="p">[</span><span class="s2">&quot;workload_states&quot;</span><span class="p">]:</span>
+        <span class="n">template_list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;templates&quot;</span><span class="p">])</span>
+
+    <span class="c1"># check all template PNGs exist</span>
+    <span class="k">for</span> <span class="n">template_png</span> <span class="ow">in</span> <span class="n">template_list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">defpath</span><span class="p">,</span> <span class="s1">&#39;templates&#39;</span><span class="p">,</span> <span class="n">template_png</span> <span class="o">+</span> <span class="s1">&#39;.png&#39;</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="n">StateDefinitionError</span><span class="p">(</span><span class="s2">&quot;Missing template PNG file: &quot;</span> <span class="o">+</span> <span class="n">template_png</span> <span class="o">+</span> <span class="s2">&quot;.png&quot;</span><span class="p">)</span>
+
+    <span class="c1"># try to match each PNG</span>
+    <span class="n">matched_templates</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">template_png</span> <span class="ow">in</span> <span class="n">template_list</span><span class="p">:</span>
+        <span class="n">template</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">defpath</span><span class="p">,</span> <span class="s1">&#39;templates&#39;</span><span class="p">,</span> <span class="n">template_png</span> <span class="o">+</span> <span class="s1">&#39;.png&#39;</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">template_edge</span> <span class="o">=</span> <span class="n">auto_canny</span><span class="p">(</span><span class="n">template</span><span class="p">)</span>
+        <span class="n">template_height</span><span class="p">,</span> <span class="n">template_width</span> <span class="o">=</span> <span class="n">template_edge</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+
+        <span class="c1"># loop over the scales of the image</span>
+        <span class="k">for</span> <span class="n">scale</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mi">61</span><span class="p">):</span>
+            <span class="n">resized</span> <span class="o">=</span> <span class="n">imutils</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">img_edge</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">img_edge</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">scale</span><span class="p">))</span>
+
+            <span class="c1"># skip if the resized image is smaller than the template</span>
+            <span class="k">if</span> <span class="n">resized</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">template_height</span> <span class="ow">or</span> <span class="n">resized</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">template_width</span><span class="p">:</span>
+                <span class="k">break</span>
+
+            <span class="n">res</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">matchTemplate</span><span class="p">(</span><span class="n">resized</span><span class="p">,</span> <span class="n">template_edge</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">TM_CCOEFF_NORMED</span><span class="p">)</span>
+            <span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.4</span>
+            <span class="n">loc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">res</span> <span class="o">&gt;=</span> <span class="n">threshold</span><span class="p">)</span>
+            <span class="n">zipped</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">loc</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">zipped</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">matched_templates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">template_png</span><span class="p">)</span>
+                <span class="k">break</span>
+
+    <span class="c1"># determine the state according to the matched templates</span>
+    <span class="n">matched_state</span> <span class="o">=</span> <span class="s2">&quot;none&quot;</span>
+    <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">state_definitions</span><span class="p">[</span><span class="s2">&quot;workload_states&quot;</span><span class="p">]:</span>
+        <span class="c1"># look in the matched templates list for each template of this state</span>
+        <span class="n">match_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">template</span> <span class="ow">in</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;templates&quot;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">template</span> <span class="ow">in</span> <span class="n">matched_templates</span><span class="p">:</span>
+                <span class="n">match_count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">match_count</span> <span class="o">&gt;=</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;matches&quot;</span><span class="p">]:</span>
+            <span class="c1"># we have a match</span>
+            <span class="n">matched_state</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;state_name&quot;</span><span class="p">]</span>
+            <span class="k">break</span>
+
+    <span class="k">return</span> <span class="n">matched_state</span></div>
+
+
+<div class="viewcode-block" id="verify_state"><a class="viewcode-back" href="../../../api/wlauto.utils.html#wlauto.utils.statedetect.verify_state">[docs]</a><span class="k">def</span> <span class="nf">verify_state</span><span class="p">(</span><span class="n">screenshot_file</span><span class="p">,</span> <span class="n">state_defs_path</span><span class="p">,</span> <span class="n">workload_phase</span><span class="p">):</span>
+    <span class="c1"># load and parse state definition file</span>
+    <span class="n">statedefs_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">state_defs_path</span><span class="p">,</span> <span class="s1">&#39;definition.yaml&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">statedefs_file</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">StateDefinitionError</span><span class="p">(</span><span class="s2">&quot;Missing state definitions yaml file: &quot;</span> <span class="o">+</span> <span class="n">statedefs_file</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">statedefs_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+        <span class="n">state_definitions</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fh</span><span class="p">)</span>
+
+    <span class="c1"># run a match on the screenshot</span>
+    <span class="n">matched_state</span> <span class="o">=</span> <span class="n">match_state</span><span class="p">(</span><span class="n">screenshot_file</span><span class="p">,</span> <span class="n">state_defs_path</span><span class="p">,</span> <span class="n">state_definitions</span><span class="p">)</span>
+
+    <span class="c1"># find what the expected state is for the given workload phase</span>
+    <span class="n">expected_state</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">phase</span> <span class="ow">in</span> <span class="n">state_definitions</span><span class="p">[</span><span class="s2">&quot;workload_phases&quot;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">phase</span><span class="p">[</span><span class="s2">&quot;phase_name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">workload_phase</span><span class="p">:</span>
+            <span class="n">expected_state</span> <span class="o">=</span> <span class="n">phase</span><span class="p">[</span><span class="s2">&quot;expected_state&quot;</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">expected_state</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">StateDefinitionError</span><span class="p">(</span><span class="s2">&quot;Phase not defined&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">expected_state</span> <span class="o">==</span> <span class="n">matched_state</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, ARM Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

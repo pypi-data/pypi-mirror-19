@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>wlauto.instrumentation.systrace package &#8212; Workload Automation 2.6.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.6.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="wlauto.instrumentation.trace_cmd package" href="wlauto.instrumentation.trace_cmd.html" />
+    <link rel="prev" title="wlauto.instrumentation.streamline package" href="wlauto.instrumentation.streamline.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="wlauto.instrumentation.trace_cmd.html" title="wlauto.instrumentation.trace_cmd package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="wlauto.instrumentation.streamline.html" title="wlauto.instrumentation.streamline package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >wlauto</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="wlauto.html" >wlauto package</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="wlauto.instrumentation.html" accesskey="U">wlauto.instrumentation package</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="wlauto-instrumentation-systrace-package">
+<h1>wlauto.instrumentation.systrace package<a class="headerlink" href="#wlauto-instrumentation-systrace-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-wlauto.instrumentation.systrace">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-wlauto.instrumentation.systrace" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="wlauto.instrumentation.systrace.systrace">
+<em class="property">class </em><code class="descclassname">wlauto.instrumentation.systrace.</code><code class="descname">systrace</code><span class="sig-paren">(</span><em>device</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/instrumentation/systrace.html#systrace"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.instrumentation.systrace.systrace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="wlauto.core.html#wlauto.core.instrumentation.Instrument" title="wlauto.core.instrumentation.Instrument"><code class="xref py py-class docutils literal"><span class="pre">wlauto.core.instrumentation.Instrument</span></code></a></p>
+<dl class="attribute">
+<dt id="wlauto.instrumentation.systrace.systrace.aliases">
+<code class="descname">aliases</code><em class="property"> = AC([])</em><a class="headerlink" href="#wlauto.instrumentation.systrace.systrace.aliases" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.instrumentation.systrace.systrace.artifacts">
+<code class="descname">artifacts</code><em class="property"> = AC([])</em><a class="headerlink" href="#wlauto.instrumentation.systrace.systrace.artifacts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.instrumentation.systrace.systrace.core_modules">
+<code class="descname">core_modules</code><em class="property"> = []</em><a class="headerlink" href="#wlauto.instrumentation.systrace.systrace.core_modules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.instrumentation.systrace.systrace.description">
+<code class="descname">description</code><em class="property"> = &quot;\n      This instrument uses systrace.py from the android SDK to dump atrace\n      output.\n\n      Note: This is unlikely to work on devices that have an android build built\n            before 15-May-2015. Before this date there was a bug with running\n            atrace asynchronously.\n\n      From developer.android.com:\n      The Systrace tool helps analyze the performance of your application by\n      capturing and displaying execution times of your applications processes\n      and other Android system processes. The tool combines data from the\n      Android kernel such as the CPU scheduler, disk activity, and application\n      threads to generate an HTML report that shows an overall picture of an\n      Android device's system processes for a given period of time.\n    &quot;</em><a class="headerlink" href="#wlauto.instrumentation.systrace.systrace.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.instrumentation.systrace.systrace.finalize">
+<code class="descname">finalize</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.instrumentation.systrace.systrace.finalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.instrumentation.systrace.systrace.initialize">
+<code class="descname">initialize</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.instrumentation.systrace.systrace.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.instrumentation.systrace.systrace.name">
+<code class="descname">name</code><em class="property"> = 'systrace'</em><a class="headerlink" href="#wlauto.instrumentation.systrace.systrace.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.instrumentation.systrace.systrace.parameters">
+<code class="descname">parameters</code><em class="property"> = AC([&quot;Param({'kind': &lt;type 'list'&gt;, 'mandatory': None, 'name': 'modules', 'constraint': None, 'default': None, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;function integer&gt;, 'mandatory': None, 'name': 'buffer_size', 'constraint': None, 'default': 1024, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;function boolean&gt;, 'mandatory': None, 'name': 'use_circular_buffer', 'constraint': None, 'default': False, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;function list_of_strs&gt;, 'mandatory': None, 'name': 'kernel_functions', 'constraint': None, 'default': None, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;function list_of_strs&gt;, 'mandatory': None, 'name': 'categories', 'constraint': None, 'default': ['freq', 'sched'], 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;function list_of_strs&gt;, 'mandatory': None, 'name': 'app_names', 'constraint': None, 'default': None, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;function boolean&gt;, 'mandatory': None, 'name': 'ignore_signals', 'constraint': None, 'default': False, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;function boolean&gt;, 'mandatory': None, 'name': 'compress_trace', 'constraint': None, 'default': True, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;])</em><a class="headerlink" href="#wlauto.instrumentation.systrace.systrace.parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.instrumentation.systrace.systrace.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/instrumentation/systrace.html#systrace.setup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.instrumentation.systrace.systrace.setup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.instrumentation.systrace.systrace.start">
+<code class="descname">start</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/instrumentation/systrace.html#systrace.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.instrumentation.systrace.systrace.start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.instrumentation.systrace.systrace.stop">
+<code class="descname">stop</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/instrumentation/systrace.html#systrace.stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.instrumentation.systrace.systrace.stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.instrumentation.systrace.systrace.update_result">
+<code class="descname">update_result</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/instrumentation/systrace.html#systrace.update_result"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.instrumentation.systrace.systrace.update_result" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.instrumentation.systrace.systrace.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.instrumentation.systrace.systrace.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">wlauto.instrumentation.systrace package</a><ul>
+<li><a class="reference internal" href="#module-wlauto.instrumentation.systrace">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="wlauto.instrumentation.streamline.html"
+                        title="previous chapter">wlauto.instrumentation.streamline package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="wlauto.instrumentation.trace_cmd.html"
+                        title="next chapter">wlauto.instrumentation.trace_cmd package</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/wlauto.instrumentation.systrace.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="wlauto.instrumentation.trace_cmd.html" title="wlauto.instrumentation.trace_cmd package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="wlauto.instrumentation.streamline.html" title="wlauto.instrumentation.streamline package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >wlauto</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="wlauto.html" >wlauto package</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="wlauto.instrumentation.html" >wlauto.instrumentation package</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, ARM Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

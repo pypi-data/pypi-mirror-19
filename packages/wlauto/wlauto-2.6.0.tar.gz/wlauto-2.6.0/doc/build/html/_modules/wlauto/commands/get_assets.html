@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>wlauto.commands.get_assets &#8212; Workload Automation 2.6.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.6.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for wlauto.commands.get_assets</h1><div class="highlight"><pre>
+<span></span><span class="c1">#    Copyright 2014-2015 ARM Limited</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+
+<span class="kn">from</span> <span class="nn">requests</span> <span class="k">import</span> <span class="ne">ConnectionError</span><span class="p">,</span> <span class="n">RequestException</span>
+
+<span class="kn">from</span> <span class="nn">wlauto</span> <span class="k">import</span> <span class="n">File</span><span class="p">,</span> <span class="n">ExtensionLoader</span><span class="p">,</span> <span class="n">Command</span><span class="p">,</span> <span class="n">settings</span>
+<span class="kn">from</span> <span class="nn">wlauto.core.extension</span> <span class="k">import</span> <span class="n">Extension</span>
+
+
+<span class="n">REMOTE_ASSETS_URL</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/ARM-software/workload-automation-assets/raw/master/dependencies&#39;</span>
+
+
+<div class="viewcode-block" id="GetAssetsCommand"><a class="viewcode-back" href="../../../api/wlauto.commands.html#wlauto.commands.get_assets.GetAssetsCommand">[docs]</a><span class="k">class</span> <span class="nc">GetAssetsCommand</span><span class="p">(</span><span class="n">Command</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;get-assets&#39;</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">    This command downloads external extension dependencies used by Workload Automation.</span>
+<span class="s1">    Works by first downloading a directory index of the assets, then iterating through</span>
+<span class="s1">    it to get assets for the specified extensions.</span>
+<span class="s1">    &#39;&#39;&#39;</span>
+
+    <span class="c1"># Uses config setting if available otherwise defaults to ARM-software repo</span>
+    <span class="c1"># Can be overriden with the --url argument</span>
+    <span class="n">assets_url</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">remote_assets_url</span> <span class="ow">or</span> <span class="n">REMOTE_ASSETS_URL</span>
+
+    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-f&#39;</span><span class="p">,</span> <span class="s1">&#39;--force&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                                 <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Always fetch the assets, even if matching versions exist in local cache.&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--url&#39;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;URL&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">not_empty</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">assets_url</span><span class="p">,</span>
+                                 <span class="n">help</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;The location from which to download the files. If not provided,</span>
+<span class="s1">                                 config setting ``remote_assets_url`` will be used if available, else</span>
+<span class="s1">                                 uses the default REMOTE_ASSETS_URL parameter in the script.&#39;&#39;&#39;</span><span class="p">)</span>
+        <span class="n">group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">add_mutually_exclusive_group</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">group</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-a&#39;</span><span class="p">,</span> <span class="s1">&#39;--all&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                           <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Download assets for all extensions found in the index. Cannot be used with -e.&#39;</span><span class="p">)</span>
+        <span class="n">group</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-e&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;exts&#39;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;EXT&#39;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">not_empty</span><span class="p">,</span>
+                           <span class="n">help</span><span class="o">=</span><span class="s1">&#39;One or more extensions whose assets to download. Cannot be used with --all.&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="GetAssetsCommand.execute"><a class="viewcode-back" href="../../../api/wlauto.commands.html#wlauto.commands.get_assets.GetAssetsCommand.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Program arguments: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="n">args</span><span class="p">)))</span>
+        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">force</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Force-download of assets requested&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">url</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;URL not provided, falling back to default setting in config&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Downloading external assets from </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">url</span><span class="p">))</span>
+
+        <span class="c1"># Get file index of assets</span>
+        <span class="n">ext_loader</span> <span class="o">=</span> <span class="n">ExtensionLoader</span><span class="p">(</span><span class="n">packages</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">extension_packages</span><span class="p">,</span> <span class="n">paths</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">extension_paths</span><span class="p">)</span>
+        <span class="n">getter</span> <span class="o">=</span> <span class="n">ext_loader</span><span class="o">.</span><span class="n">get_resource_getter</span><span class="p">(</span><span class="s1">&#39;http_assets&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="n">always_fetch</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">force</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">getter</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">getter</span><span class="o">.</span><span class="n">fetch_index</span><span class="p">()</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">ConnectionError</span><span class="p">,</span> <span class="n">RequestException</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">exit_with_error</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="n">all_assets</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">getter</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+            <span class="n">all_assets</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">asset</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">asset</span> <span class="ow">in</span> <span class="n">v</span><span class="p">]</span>
+
+        <span class="c1"># Here we get a list of all extensions present in the current WA installation,</span>
+        <span class="c1"># and cross-check that against the list of extensions whose assets are requested.</span>
+        <span class="c1"># The aim is to avoid downloading assets for extensions that do not exist, since</span>
+        <span class="c1"># WA extensions and asset index can be updated independently and go out of sync.</span>
+        <span class="n">all_extensions</span> <span class="o">=</span> <span class="p">[</span><span class="n">ext</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">ext</span> <span class="ow">in</span> <span class="n">ext_loader</span><span class="o">.</span><span class="n">list_extensions</span><span class="p">()]</span>
+        <span class="n">assets_to_get</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">all_assets</span><span class="p">)</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">all_extensions</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">exts</span><span class="p">:</span>
+            <span class="n">assets_to_get</span> <span class="o">=</span> <span class="n">assets_to_get</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">exts</span><span class="p">)</span>
+        <span class="c1"># Check list is not empty</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">assets_to_get</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">all</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">exit_with_error</span><span class="p">(</span><span class="s1">&#39;Could not find extensions: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">all_assets</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span>
+            <span class="k">else</span><span class="p">:</span>  <span class="c1"># args.exts</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">exit_with_error</span><span class="p">(</span><span class="s1">&#39;Asset index has no entries for: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">exts</span><span class="p">)))</span>
+
+        <span class="c1"># Check out of sync extensions i.e. do not exist in both WA and assets index</span>
+        <span class="n">missing</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">all_assets</span><span class="p">)</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">all_extensions</span><span class="p">)</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">exts</span> <span class="ow">or</span> <span class="p">[])</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">all_assets</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">missing</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Not getting assets for missing extensions: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">missing</span><span class="p">)))</span>
+
+        <span class="c1"># Ideally the extension loader would be used to instantiate, but it does full</span>
+        <span class="c1"># validation of the extension, like checking connected devices or supported</span>
+        <span class="c1"># platform(s). This info might be unavailable and is not required to download</span>
+        <span class="c1"># assets, since they are classified by extension name alone. So instead we use</span>
+        <span class="c1"># a simple subclass of ``Extension`` providing a valid ``name`` attribute.</span>
+        <span class="k">for</span> <span class="n">ext_name</span> <span class="ow">in</span> <span class="n">assets_to_get</span><span class="p">:</span>
+            <span class="n">owner</span> <span class="o">=</span> <span class="n">_instantiate</span><span class="p">(</span><span class="n">NamedExtension</span><span class="p">,</span> <span class="n">ext_name</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Getting assets for: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ext_name</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">asset</span> <span class="ow">in</span> <span class="n">all_assets</span><span class="p">[</span><span class="n">ext_name</span><span class="p">]:</span>
+                <span class="n">getter</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">File</span><span class="p">(</span><span class="n">owner</span><span class="p">,</span> <span class="n">asset</span><span class="p">))</span>  <span class="c1"># Download the files</span></div>
+
+<div class="viewcode-block" id="GetAssetsCommand.exit_with_error"><a class="viewcode-back" href="../../../api/wlauto.commands.html#wlauto.commands.get_assets.GetAssetsCommand.exit_with_error">[docs]</a>    <span class="k">def</span> <span class="nf">exit_with_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">code</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="NamedExtension"><a class="viewcode-back" href="../../../api/wlauto.commands.html#wlauto.commands.get_assets.NamedExtension">[docs]</a><span class="k">class</span> <span class="nc">NamedExtension</span><span class="p">(</span><span class="n">Extension</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">NamedExtension</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span></div>
+
+
+<div class="viewcode-block" id="not_empty"><a class="viewcode-back" href="../../../api/wlauto.commands.html#wlauto.commands.get_assets.not_empty">[docs]</a><span class="k">def</span> <span class="nf">not_empty</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">val</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">val</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentTypeError</span><span class="p">(</span><span class="s1">&#39;Extension name cannot be blank&#39;</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">_instantiate</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">cls</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, ARM Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

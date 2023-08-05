@@ -1,0 +1,20 @@
+/data/marc/Work/workload-automation/wlauto/workloads/skype/uiauto/bin/classes.dex : \
+/data/marc/Work/workload-automation/wlauto/workloads/skype/uiauto/bin/classes/com/arm/wlauto/uiauto/UxPerfUiAutomation$ActionLogger.class \
+/data/marc/Work/workload-automation/wlauto/workloads/skype/uiauto/bin/classes/com/arm/wlauto/uiauto/UxPerfUiAutomation$GestureTestParams.class \
+/data/marc/Work/workload-automation/wlauto/workloads/skype/uiauto/bin/classes/com/arm/wlauto/uiauto/BaseUiAutomation$Direction.class \
+/data/marc/Work/workload-automation/wlauto/workloads/skype/uiauto/bin/classes/com/arm/wlauto/uiauto/BaseUiAutomation$ActionLogger.class \
+/data/marc/Work/workload-automation/wlauto/workloads/skype/uiauto/bin/classes/com/arm/wlauto/uiauto/UxPerfUiAutomation.class \
+/data/marc/Work/workload-automation/wlauto/workloads/skype/uiauto/bin/classes/com/arm/wlauto/uiauto/UxPerfUiAutomation$UxPerfLogger.class \
+/data/marc/Work/workload-automation/wlauto/workloads/skype/uiauto/bin/classes/com/arm/wlauto/uiauto/UxPerfUiAutomation$GestureType.class \
+/data/marc/Work/workload-automation/wlauto/workloads/skype/uiauto/bin/classes/com/arm/wlauto/uiauto/BaseUiAutomation.class \
+/data/marc/Work/workload-automation/wlauto/workloads/skype/uiauto/bin/classes/com/arm/wlauto/uiauto/BaseUiAutomation$ScreenOrientation.class \
+/data/marc/Work/workload-automation/wlauto/workloads/skype/uiauto/bin/classes/com/arm/wlauto/uiauto/UxPerfUiAutomation$Timer.class \
+/data/marc/Work/workload-automation/wlauto/workloads/skype/uiauto/bin/classes/com/arm/wlauto/uiauto/BaseUiAutomation$1.class \
+/data/marc/Work/workload-automation/wlauto/workloads/skype/uiauto/bin/classes/com/arm/wlauto/uiauto/UxPerfUiAutomation$Direction.class \
+/data/marc/Work/workload-automation/wlauto/workloads/skype/uiauto/bin/classes/com/arm/wlauto/uiauto/UxPerfUiAutomation$1.class \
+/data/marc/Work/workload-automation/wlauto/workloads/skype/uiauto/bin/classes/com/arm/wlauto/uiauto/BaseUiAutomation$PinchType.class \
+/data/marc/Work/workload-automation/wlauto/workloads/skype/uiauto/bin/classes/com/arm/wlauto/uiauto/BaseUiAutomation$FindByCriteria.class \
+/data/marc/Work/workload-automation/wlauto/workloads/skype/uiauto/bin/classes/com/arm/wlauto/uiauto/UxPerfUiAutomation$SurfaceLogger.class \
+/data/marc/Work/workload-automation/wlauto/workloads/skype/uiauto/bin/classes/com/arm/wlauto/uiauto/UxPerfUiAutomation$PinchType.class \
+/data/marc/Work/workload-automation/wlauto/workloads/skype/uiauto/bin/classes/com/arm/wlauto/uiauto/skype/UiAutomation.class \
+/data/marc/Work/workload-automation/wlauto/workloads/skype/uiauto/bin/classes/com/arm/wlauto/uiauto/skype/UiAutomation$1.class \

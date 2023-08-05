@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>wlauto.result_processors.cpustate &#8212; Workload Automation 2.6.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.6.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for wlauto.result_processors.cpustate</h1><div class="highlight"><pre>
+<span></span><span class="c1">#    Copyright 2015 ARM Limited</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">OrderedDict</span>
+
+<span class="kn">from</span> <span class="nn">wlauto</span> <span class="k">import</span> <span class="n">ResultProcessor</span><span class="p">,</span> <span class="n">Parameter</span>
+<span class="kn">from</span> <span class="nn">wlauto.core</span> <span class="k">import</span> <span class="n">signal</span>
+<span class="kn">from</span> <span class="nn">wlauto.exceptions</span> <span class="k">import</span> <span class="n">ConfigError</span><span class="p">,</span> <span class="n">DeviceError</span>
+<span class="kn">from</span> <span class="nn">wlauto.instrumentation</span> <span class="k">import</span> <span class="n">instrument_is_installed</span>
+<span class="kn">from</span> <span class="nn">wlauto.utils.power</span> <span class="k">import</span> <span class="n">report_power_stats</span>
+<span class="kn">from</span> <span class="nn">wlauto.utils.misc</span> <span class="k">import</span> <span class="n">unique</span>
+
+
+<div class="viewcode-block" id="CpuStatesProcessor"><a class="viewcode-back" href="../../../api/wlauto.result_processors.html#wlauto.result_processors.cpustate.CpuStatesProcessor">[docs]</a><span class="k">class</span> <span class="nc">CpuStatesProcessor</span><span class="p">(</span><span class="n">ResultProcessor</span><span class="p">):</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;cpustates&#39;</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">    Process power ftrace to produce CPU state and parallelism stats.</span>
+
+<span class="s1">    Parses trace-cmd output to extract power events and uses those to generate</span>
+<span class="s1">    statistics about parallelism and frequency/idle core residency.</span>
+
+<span class="s1">    .. note:: trace-cmd instrument must be enabled and configured to collect</span>
+<span class="s1">              at least ``power:cpu_idle`` and ``power:cpu_frequency`` events.</span>
+<span class="s1">              Reporting should also be enabled (it is by default) as</span>
+<span class="s1">              ``cpustate`` parses the text version of the trace.</span>
+<span class="s1">              Finally, the device should have ``cpuidle`` module installed.</span>
+
+<span class="s1">    This generates two reports for the run:</span>
+
+<span class="s1">    *parallel.csv*</span>
+
+<span class="s1">    Shows what percentage of time was spent with N cores active (for N</span>
+<span class="s1">    from 0 to the total number of cores), for a cluster or for a system as</span>
+<span class="s1">    a whole. It contain the following columns:</span>
+
+<span class="s1">        :workload: The workload label</span>
+<span class="s1">        :iteration: iteration that was run</span>
+<span class="s1">        :cluster: The cluster for which statics are reported. The value of</span>
+<span class="s1">                  ``&quot;all&quot;`` indicates that this row reports statistics for</span>
+<span class="s1">                  the whole system.</span>
+<span class="s1">        :number_of_cores: number of cores active. ``0`` indicates the cluster</span>
+<span class="s1">                          was idle.</span>
+<span class="s1">        :total_time: Total time spent in this state during workload execution</span>
+<span class="s1">        :%time: Percentage of total workload execution time spent in this state</span>
+<span class="s1">        :</span><span class="si">%r</span><span class="s1">unning_time: Percentage of the time the cluster was active (i.e.</span>
+<span class="s1">                        ignoring time the cluster was idling) spent in this</span>
+<span class="s1">                        state.</span>
+
+<span class="s1">    *cpustate.csv*</span>
+
+<span class="s1">    Shows percentage of the time a core spent in a particular power state. The first</span>
+<span class="s1">    column names the state is followed by a column for each core. Power states include</span>
+<span class="s1">    available DVFS frequencies (for heterogeneous systems, this is the union of</span>
+<span class="s1">    frequencies supported by different core types) and idle states. Some shallow</span>
+<span class="s1">    states (e.g. ARM WFI) will consume different amount of power depending on the</span>
+<span class="s1">    current OPP. For such states, there will be an entry for each opp. ``&quot;unknown&quot;``</span>
+<span class="s1">    indicates the percentage of time for which a state could not be established from the</span>
+<span class="s1">    trace. This is usually due to core state being unknown at the beginning of the trace,</span>
+<span class="s1">    but may also be caused by dropped events in the middle of the trace.</span>
+
+<span class="s1">    &#39;&#39;&#39;</span>
+
+    <span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;first_cluster_state&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                  The first idle state which is common to a cluster.</span>
+<span class="s2">                  &quot;&quot;&quot;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;first_system_state&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                  The first idle state which is common to all cores.</span>
+<span class="s2">                  &quot;&quot;&quot;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;write_iteration_reports&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">bool</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                  By default, this instrument will generate reports for the entire run</span>
+<span class="s2">                  in the overall output directory. Enabling this option will, in addition,</span>
+<span class="s2">                  create reports in each iteration&#39;s output directory. The formats of these</span>
+<span class="s2">                  reports will be similar to the overall report, except they won&#39;t mention</span>
+<span class="s2">                  the workload name or iteration number (as that is implied by their location).</span>
+<span class="s2">                  &quot;&quot;&quot;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;use_ratios&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">bool</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                  By default proportional values will be reported as percentages, if this</span>
+<span class="s2">                  flag is enabled, they will be reported as ratios instead.</span>
+<span class="s2">                  &quot;&quot;&quot;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;create_timeline&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">bool</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                  Create a CSV with the timeline of core power states over the course of the run</span>
+<span class="s2">                  as well as the usual stats reports.</span>
+<span class="s2">                  &quot;&quot;&quot;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;create_utilization_timeline&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">bool</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                  Create a CSV with the timeline of cpu(s) utilisation over the course of the run</span>
+<span class="s2">                  as well as the usual stats reports.</span>
+<span class="s2">                  The values generated are floating point numbers, normalised based on the maximum</span>
+<span class="s2">                  frequency of the cluster.</span>
+<span class="s2">                  &quot;&quot;&quot;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;start_marker_handling&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;try&quot;</span><span class="p">,</span>
+                  <span class="n">allowed_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="s1">&#39;try&#39;</span><span class="p">,</span> <span class="s1">&#39;error&#39;</span><span class="p">],</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+
+<span class="s2">                  The trace-cmd instrument inserts a marker into the trace to indicate the beginning</span>
+<span class="s2">                  of workload execution. In some cases, this marker may be missing in the final</span>
+<span class="s2">                  output (e.g. due to trace buffer overrun). This parameter specifies how a missing</span>
+<span class="s2">                  start marker will be handled:</span>
+
+<span class="s2">                  :`ignore`: The start marker will be ignored. All events in the trace will be used.</span>
+<span class="s2">                  :`error`: An error will be raised if the start marker is not found in the trace.</span>
+<span class="s2">                  :`try`: If the start marker is not found, all events in the trace will be used.</span>
+<span class="s2">                  &quot;&quot;&quot;</span><span class="p">)</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">instrument_is_installed</span><span class="p">(</span><span class="s1">&#39;trace-cmd&#39;</span><span class="p">):</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">            </span><span class="si">{}</span><span class="s1"> requires &quot;trace-cmd&quot; instrument to be installed and the collection of at</span>
+<span class="s1">            least &quot;power:cpu_frequency&quot; and &quot;power:cpu_idle&quot; events to be enabled during worklad</span>
+<span class="s1">            execution.</span>
+<span class="s1">            &#39;&#39;&#39;</span>
+            <span class="k">raise</span> <span class="n">ConfigError</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=attribute-defined-outside-init</span>
+        <span class="n">device</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">device</span>
+        <span class="k">for</span> <span class="n">modname</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;cpuidle&#39;</span><span class="p">,</span> <span class="s1">&#39;cpufreq&#39;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">device</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="n">modname</span><span class="p">):</span>
+                <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;Device does not appear to have </span><span class="si">{}</span><span class="s1"> capability; is the right module installed?&#39;</span>
+                <span class="k">raise</span> <span class="n">ConfigError</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">modname</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">device</span><span class="o">.</span><span class="n">core_names</span><span class="p">:</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> requires&quot;core_names&quot; and &quot;core_clusters&quot; to be specified for the device.&#39;</span>
+            <span class="k">raise</span> <span class="n">ConfigError</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">core_names</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">core_names</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">core_clusters</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">core_clusters</span>
+        <span class="n">idle_states</span> <span class="o">=</span> <span class="p">{</span><span class="n">s</span><span class="o">.</span><span class="n">id</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">desc</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">device</span><span class="o">.</span><span class="n">get_cpuidle_states</span><span class="p">()}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idle_state_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">idle_states</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">idle_states</span><span class="o">.</span><span class="n">keys</span><span class="p">())]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_idle_states</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">idle_state_names</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iteration_reports</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_freq_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># priority -19: just higher than the slow_start of instrumentation</span>
+        <span class="n">signal</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">set_initial_state</span><span class="p">,</span> <span class="n">signal</span><span class="o">.</span><span class="n">BEFORE_WORKLOAD_EXECUTION</span><span class="p">,</span> <span class="n">priority</span><span class="o">=-</span><span class="mi">19</span><span class="p">)</span>
+
+<div class="viewcode-block" id="CpuStatesProcessor.set_initial_state"><a class="viewcode-back" href="../../../api/wlauto.result_processors.html#wlauto.result_processors.cpustate.CpuStatesProcessor.set_initial_state">[docs]</a>    <span class="k">def</span> <span class="nf">set_initial_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="c1"># TODO: this does not play well with hotplug but leaving as-is, as this will be changed with</span>
+        <span class="c1"># the devilib port anyway.</span>
+        <span class="c1"># Write initial frequencies into the trace.</span>
+        <span class="c1"># NOTE: this assumes per-cluster DVFS, that is valid for devices that</span>
+        <span class="c1"># currently exist. This will need to be updated for per-CPU DFS.</span>
+        <span class="c1"># pylint: disable=attribute-defined-outside-init</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Writing initial frequencies into trace...&#39;</span><span class="p">)</span>
+        <span class="n">device</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">device</span>
+        <span class="n">cluster_freqs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">cluster_max_freqs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_freq_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">unique</span><span class="p">(</span><span class="n">device</span><span class="o">.</span><span class="n">core_clusters</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">cluster_freqs</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">get_cluster_cur_frequency</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+                <span class="n">cluster_max_freqs</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">get_cluster_max_frequency</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="n">cluster_freqs</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="n">cluster_max_freqs</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">device</span><span class="o">.</span><span class="n">core_clusters</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">max_freq_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cluster_max_freqs</span><span class="p">[</span><span class="n">c</span><span class="p">])</span>
+            <span class="n">entry</span> <span class="o">=</span> <span class="s1">&#39;CPU </span><span class="si">{}</span><span class="s1"> FREQUENCY: </span><span class="si">{}</span><span class="s1"> kHZ&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">cluster_freqs</span><span class="p">[</span><span class="n">c</span><span class="p">])</span>
+            <span class="n">device</span><span class="o">.</span><span class="n">set_sysfile_value</span><span class="p">(</span><span class="s1">&#39;/sys/kernel/debug/tracing/trace_marker&#39;</span><span class="p">,</span>
+                                     <span class="n">entry</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="c1"># Nudge each cpu to force idle state transitions in the trace</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Nudging all cores awake...&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">device</span><span class="o">.</span><span class="n">core_names</span><span class="p">)):</span>
+            <span class="n">command</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">busybox</span> <span class="o">+</span> <span class="s1">&#39; taskset 0x</span><span class="si">{:x}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">device</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">command</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="p">,</span> <span class="s1">&#39;ls&#39;</span><span class="p">))</span>
+            <span class="k">except</span> <span class="n">DeviceError</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Failed to nudge CPU </span><span class="si">%s</span><span class="s2">, has it been hot plugged out?&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CpuStatesProcessor.process_iteration_result"><a class="viewcode-back" href="../../../api/wlauto.result_processors.html#wlauto.result_processors.cpustate.CpuStatesProcessor.process_iteration_result">[docs]</a>    <span class="k">def</span> <span class="nf">process_iteration_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="n">trace</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">get_artifact</span><span class="p">(</span><span class="s1">&#39;txttrace&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">trace</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Text trace does not appear to have been generated; skipping this iteration.&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Generating power state reports from trace...&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_timeline</span><span class="p">:</span>
+            <span class="n">timeline_csv_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">output_directory</span><span class="p">,</span> <span class="s1">&#39;power_states.csv&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">timeline_csv_file</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_utilization_timeline</span><span class="p">:</span>
+            <span class="n">cpu_utilisation</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">output_directory</span><span class="p">,</span> <span class="s1">&#39;cpu_utilisation.csv&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cpu_utilisation</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="n">reports</span> <span class="o">=</span> <span class="n">report_power_stats</span><span class="p">(</span>  <span class="c1"># pylint: disable=unbalanced-tuple-unpacking</span>
+            <span class="n">trace_file</span><span class="o">=</span><span class="n">trace</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
+            <span class="n">idle_state_names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">idle_state_names</span><span class="p">,</span>
+            <span class="n">core_names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">core_names</span><span class="p">,</span>
+            <span class="n">core_clusters</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">core_clusters</span><span class="p">,</span>
+            <span class="n">num_idle_states</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">num_idle_states</span><span class="p">,</span>
+            <span class="n">first_cluster_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">first_cluster_state</span><span class="p">,</span>
+            <span class="n">first_system_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">first_system_state</span><span class="p">,</span>
+            <span class="n">use_ratios</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_ratios</span><span class="p">,</span>
+            <span class="n">timeline_csv_file</span><span class="o">=</span><span class="n">timeline_csv_file</span><span class="p">,</span>
+            <span class="n">cpu_utilisation</span><span class="o">=</span><span class="n">cpu_utilisation</span><span class="p">,</span>
+            <span class="n">max_freq_list</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_freq_list</span><span class="p">,</span>
+            <span class="n">start_marker_handling</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">start_marker_handling</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">parallel_report</span> <span class="o">=</span> <span class="n">reports</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">powerstate_report</span> <span class="o">=</span> <span class="n">reports</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">parallel_report</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;No power state reports generated; are power &#39;</span>
+                                <span class="s1">&#39;events enabled in the trace?&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Reports generated.&#39;</span><span class="p">)</span>
+
+        <span class="n">iteration_id</span> <span class="o">=</span> <span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">context</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="n">context</span><span class="o">.</span><span class="n">current_iteration</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iteration_reports</span><span class="p">[</span><span class="n">iteration_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">parallel_report</span><span class="p">,</span> <span class="n">powerstate_report</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">write_iteration_reports</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Writing iteration reports&#39;</span><span class="p">)</span>
+            <span class="n">parallel_report</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">output_directory</span><span class="p">,</span> <span class="s1">&#39;parallel.csv&#39;</span><span class="p">))</span>
+            <span class="n">powerstate_report</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">output_directory</span><span class="p">,</span> <span class="s1">&#39;cpustates.csv&#39;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="CpuStatesProcessor.process_run_result"><a class="viewcode-back" href="../../../api/wlauto.result_processors.html#wlauto.result_processors.cpustate.CpuStatesProcessor.process_run_result">[docs]</a>    <span class="k">def</span> <span class="nf">process_run_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>  <span class="c1"># pylint: disable=too-many-locals</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">iteration_reports</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;No power state reports generated.&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="n">parallel_rows</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">powerstate_rows</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">iteration_id</span><span class="p">,</span> <span class="n">reports</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iteration_reports</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+            <span class="n">spec_id</span><span class="p">,</span> <span class="n">workload</span><span class="p">,</span> <span class="n">iteration</span> <span class="o">=</span> <span class="n">iteration_id</span>
+            <span class="n">parallel_report</span><span class="p">,</span> <span class="n">powerstate_report</span> <span class="o">=</span> <span class="n">reports</span>
+            <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">parallel_report</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+                <span class="n">parallel_rows</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">spec_id</span><span class="p">,</span> <span class="n">workload</span><span class="p">,</span> <span class="n">iteration</span><span class="p">]</span> <span class="o">+</span> <span class="n">record</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">powerstate_report</span><span class="o">.</span><span class="n">state_stats</span><span class="p">):</span>
+                <span class="n">stats</span> <span class="o">=</span> <span class="n">powerstate_report</span><span class="o">.</span><span class="n">state_stats</span><span class="p">[</span><span class="n">state</span><span class="p">]</span>
+                <span class="n">powerstate_rows</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">spec_id</span><span class="p">,</span> <span class="n">workload</span><span class="p">,</span> <span class="n">iteration</span><span class="p">,</span> <span class="n">state</span><span class="p">]</span> <span class="o">+</span>
+                                       <span class="p">[</span><span class="s1">&#39;</span><span class="si">{:.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">s</span> <span class="k">if</span> <span class="n">s</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+                                           <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">stats</span><span class="p">])</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">output_directory</span><span class="p">,</span> <span class="s1">&#39;parallel.csv&#39;</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">wfh</span><span class="p">:</span>
+            <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">wfh</span><span class="p">)</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;workload&#39;</span><span class="p">,</span> <span class="s1">&#39;iteration&#39;</span><span class="p">,</span> <span class="s1">&#39;cluster&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;number_of_cores&#39;</span><span class="p">,</span> <span class="s1">&#39;total_time&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;%time&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%r</span><span class="s1">unning_time&#39;</span><span class="p">])</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">parallel_rows</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">output_directory</span><span class="p">,</span> <span class="s1">&#39;cpustate.csv&#39;</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">wfh</span><span class="p">:</span>
+            <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">wfh</span><span class="p">)</span>
+            <span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;workload&#39;</span><span class="p">,</span> <span class="s1">&#39;iteration&#39;</span><span class="p">,</span> <span class="s1">&#39;state&#39;</span><span class="p">]</span>
+            <span class="n">headers</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> CPU</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+                        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">powerstate_report</span><span class="o">.</span><span class="n">core_names</span><span class="p">)]</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">headers</span><span class="p">)</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">powerstate_rows</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, ARM Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

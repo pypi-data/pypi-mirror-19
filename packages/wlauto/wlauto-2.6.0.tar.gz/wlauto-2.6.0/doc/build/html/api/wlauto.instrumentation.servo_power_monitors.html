@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>wlauto.instrumentation.servo_power_monitors package &#8212; Workload Automation 2.6.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.6.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="wlauto.instrumentation.streamline package" href="wlauto.instrumentation.streamline.html" />
+    <link rel="prev" title="wlauto.instrumentation.screenon package" href="wlauto.instrumentation.screenon.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="wlauto.instrumentation.streamline.html" title="wlauto.instrumentation.streamline package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="wlauto.instrumentation.screenon.html" title="wlauto.instrumentation.screenon package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >wlauto</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="wlauto.html" >wlauto package</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="wlauto.instrumentation.html" accesskey="U">wlauto.instrumentation package</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="wlauto-instrumentation-servo-power-monitors-package">
+<h1>wlauto.instrumentation.servo_power_monitors package<a class="headerlink" href="#wlauto-instrumentation-servo-power-monitors-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-wlauto.instrumentation.servo_power_monitors">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-wlauto.instrumentation.servo_power_monitors" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="wlauto.instrumentation.servo_power_monitors.PowerPoller">
+<em class="property">class </em><code class="descclassname">wlauto.instrumentation.servo_power_monitors.</code><code class="descname">PowerPoller</code><span class="sig-paren">(</span><em>host</em>, <em>port</em>, <em>channels</em>, <em>sampling_rate</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/instrumentation/servo_power_monitors.html#PowerPoller"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.instrumentation.servo_power_monitors.PowerPoller" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">threading.Thread</span></code></p>
+<dl class="method">
+<dt id="wlauto.instrumentation.servo_power_monitors.PowerPoller.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/instrumentation/servo_power_monitors.html#PowerPoller.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.instrumentation.servo_power_monitors.PowerPoller.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.instrumentation.servo_power_monitors.PowerPoller.stop">
+<code class="descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/instrumentation/servo_power_monitors.html#PowerPoller.stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.instrumentation.servo_power_monitors.PowerPoller.stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor">
+<em class="property">class </em><code class="descclassname">wlauto.instrumentation.servo_power_monitors.</code><code class="descname">ServoPowerMonitor</code><span class="sig-paren">(</span><em>device</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/instrumentation/servo_power_monitors.html#ServoPowerMonitor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="wlauto.core.html#wlauto.core.instrumentation.Instrument" title="wlauto.core.instrumentation.Instrument"><code class="xref py py-class docutils literal"><span class="pre">wlauto.core.instrumentation.Instrument</span></code></a></p>
+<dl class="attribute">
+<dt id="wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.aliases">
+<code class="descname">aliases</code><em class="property"> = AC([])</em><a class="headerlink" href="#wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.aliases" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.artifacts">
+<code class="descname">artifacts</code><em class="property"> = AC([])</em><a class="headerlink" href="#wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.artifacts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.core_modules">
+<code class="descname">core_modules</code><em class="property"> = []</em><a class="headerlink" href="#wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.core_modules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.description">
+<code class="descname">description</code><em class="property"> = &quot;\n    Collects power traces using the Chromium OS Servo Board.\n\n    Servo is a debug board used for Chromium OS test and development. Among other uses, it allows\n    access to the built in power monitors (if present) of a Chrome OS device. More information on\n    Servo board can be found in the link bellow:\n\n    https://www.chromium.org/chromium-os/servo\n\n    In order to use this instrument you need to be a sudoer and you need a chroot environment. More\n    information on the chroot environment can be found on the link bellow:\n\n    https://www.chromium.org/chromium-os/developer-guide\n\n    If you wish to run servod on a remote machine you will need to allow it to accept external connections\n    using the `--host` command line option, like so:\n    `sudo servod -b some_board -c some_board.xml --host=''`\n\n    &quot;</em><a class="headerlink" href="#wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.finalize">
+<code class="descname">finalize</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.finalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.initialize">
+<code class="descname">initialize</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.name">
+<code class="descname">name</code><em class="property"> = 'servo_power'</em><a class="headerlink" href="#wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.parameters">
+<code class="descname">parameters</code><em class="property"> = AC([&quot;Param({'kind': &lt;type 'list'&gt;, 'mandatory': None, 'name': 'modules', 'constraint': None, 'default': None, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;function list_of_strs&gt;, 'mandatory': None, 'name': 'power_domains', 'constraint': None, 'default': [], 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;function list_of_strs&gt;, 'mandatory': None, 'name': 'labels', 'constraint': None, 'default': [], 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;type 'str'&gt;, 'mandatory': None, 'name': 'chroot_path', 'constraint': None, 'default': None, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;function integer&gt;, 'mandatory': None, 'name': 'sampling_rate', 'constraint': None, 'default': 10, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;type 'str'&gt;, 'mandatory': True, 'name': 'board_name', 'constraint': None, 'default': None, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;function boolean&gt;, 'mandatory': None, 'name': 'autostart', 'constraint': None, 'default': True, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;type 'str'&gt;, 'mandatory': None, 'name': 'host', 'constraint': None, 'default': 'localhost', 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;function integer&gt;, 'mandatory': None, 'name': 'port', 'constraint': None, 'default': 9999, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;type 'str'&gt;, 'mandatory': None, 'name': 'vid', 'constraint': None, 'default': None, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;, &quot;Param({'kind': &lt;type 'str'&gt;, 'mandatory': None, 'name': 'pid', 'constraint': None, 'default': None, 'allowed_values': None, 'global_alias': None, 'override': False})&quot;])</em><a class="headerlink" href="#wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.servod_delay_between_tries">
+<code class="descname">servod_delay_between_tries</code><em class="property"> = 0.1</em><a class="headerlink" href="#wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.servod_delay_between_tries" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.servod_max_tries">
+<code class="descname">servod_max_tries</code><em class="property"> = 100</em><a class="headerlink" href="#wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.servod_max_tries" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/instrumentation/servo_power_monitors.html#ServoPowerMonitor.setup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.setup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.start">
+<code class="descname">start</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/instrumentation/servo_power_monitors.html#ServoPowerMonitor.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.stop">
+<code class="descname">stop</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/instrumentation/servo_power_monitors.html#ServoPowerMonitor.stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.teardown">
+<code class="descname">teardown</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/wlauto/instrumentation/servo_power_monitors.html#ServoPowerMonitor.teardown"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.teardown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#wlauto.instrumentation.servo_power_monitors.ServoPowerMonitor.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">wlauto.instrumentation.servo_power_monitors package</a><ul>
+<li><a class="reference internal" href="#module-wlauto.instrumentation.servo_power_monitors">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="wlauto.instrumentation.screenon.html"
+                        title="previous chapter">wlauto.instrumentation.screenon package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="wlauto.instrumentation.streamline.html"
+                        title="next chapter">wlauto.instrumentation.streamline package</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/wlauto.instrumentation.servo_power_monitors.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="wlauto.instrumentation.streamline.html" title="wlauto.instrumentation.streamline package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="wlauto.instrumentation.screenon.html" title="wlauto.instrumentation.screenon package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >wlauto</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="wlauto.html" >wlauto package</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="wlauto.instrumentation.html" >wlauto.instrumentation package</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, ARM Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

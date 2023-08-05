@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>wlauto.result_processors.uxperf &#8212; Workload Automation 2.6.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.6.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for wlauto.result_processors.uxperf</h1><div class="highlight"><pre>
+<span></span><span class="c1">#    Copyright 2016 ARM Limited</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">distutils.version</span> <span class="k">import</span> <span class="n">LooseVersion</span>
+<span class="kn">from</span> <span class="nn">wlauto</span> <span class="k">import</span> <span class="n">ResultProcessor</span><span class="p">,</span> <span class="n">Parameter</span>
+<span class="kn">from</span> <span class="nn">wlauto.instrumentation</span> <span class="k">import</span> <span class="n">instrument_is_enabled</span>
+<span class="kn">from</span> <span class="nn">wlauto.instrumentation.fps</span> <span class="k">import</span> <span class="n">VSYNC_INTERVAL</span>
+<span class="kn">from</span> <span class="nn">wlauto.exceptions</span> <span class="k">import</span> <span class="n">ResultProcessorError</span><span class="p">,</span> <span class="n">ConfigError</span>
+<span class="kn">from</span> <span class="nn">wlauto.utils.fps</span> <span class="k">import</span> <span class="n">FpsProcessor</span><span class="p">,</span> <span class="n">SurfaceFlingerFrame</span><span class="p">,</span> <span class="n">GfxInfoFrame</span>
+<span class="kn">from</span> <span class="nn">wlauto.utils.types</span> <span class="k">import</span> <span class="n">numeric</span><span class="p">,</span> <span class="n">boolean</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">pd</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<div class="viewcode-block" id="UxPerfResultProcessor"><a class="viewcode-back" href="../../../api/wlauto.result_processors.html#wlauto.result_processors.uxperf.UxPerfResultProcessor">[docs]</a><span class="k">class</span> <span class="nc">UxPerfResultProcessor</span><span class="p">(</span><span class="n">ResultProcessor</span><span class="p">):</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;uxperf&#39;</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">    Parse logcat for UX_PERF markers to produce performance metrics for</span>
+<span class="s1">    workload actions using specified instrumentation.</span>
+
+<span class="s1">    An action represents a series of UI interactions to capture.</span>
+
+<span class="s1">    NOTE: The UX_PERF markers are turned off by default and must be enabled in</span>
+<span class="s1">    a agenda file by setting ``markers_enabled`` for the workload to ``True``.</span>
+<span class="s1">    &#39;&#39;&#39;</span>
+
+    <span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;add_timings&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">boolean</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">                  If set to ``True``, add per-action timings to result metrics.&#39;</span>
+<span class="s1">                  &#39;&#39;&#39;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;add_frames&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">boolean</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">                  If set to ``True``, add per-action frame statistics to result</span>
+<span class="s1">                  metrics. i.e. fps, frame_count, jank and not_at_vsync.</span>
+
+<span class="s1">                  NOTE: This option requires the fps instrument to be enabled.</span>
+<span class="s1">                  &#39;&#39;&#39;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;drop_threshold&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">numeric</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">                  Data points below this FPS will be dropped as they do not</span>
+<span class="s1">                  constitute &quot;real&quot; gameplay. The assumption being that while</span>
+<span class="s1">                  actually running, the FPS in the game will not drop below X</span>
+<span class="s1">                  frames per second, except on loading screens, menus, etc,</span>
+<span class="s1">                  which should not contribute to FPS calculation.</span>
+<span class="s1">                  &#39;&#39;&#39;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;generate_csv&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">boolean</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">                  If set to ``True``, this will produce temporal per-action fps</span>
+<span class="s1">                  data in the results directory, in a file named &lt;action&gt;_fps.csv.</span>
+
+<span class="s1">                  Note: per-action fps data will appear as discrete step-like</span>
+<span class="s1">                  values in order to produce a more meainingfull representation,</span>
+<span class="s1">                  a rolling mean can be applied.</span>
+<span class="s1">                  &#39;&#39;&#39;</span><span class="p">),</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">pd</span> <span class="ow">or</span> <span class="n">LooseVersion</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">LooseVersion</span><span class="p">(</span><span class="s1">&#39;0.13.1&#39;</span><span class="p">):</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;uxperf result processor requires pandas Python package &#39;</span>
+                       <span class="s1">&#39;(version 0.13.1 or higher) to be installed.</span><span class="se">\n</span><span class="s1">&#39;</span>
+                       <span class="s1">&#39;You can install it with pip, e.g. &quot;sudo pip install pandas&quot;&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ResultProcessorError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_frames</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">instrument_is_enabled</span><span class="p">(</span><span class="s1">&#39;fps&#39;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">ConfigError</span><span class="p">(</span><span class="s1">&#39;fps instrument must be enabled in order to add frames.&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="UxPerfResultProcessor.export_iteration_result"><a class="viewcode-back" href="../../../api/wlauto.result_processors.html#wlauto.result_processors.uxperf.UxPerfResultProcessor.export_iteration_result">[docs]</a>    <span class="k">def</span> <span class="nf">export_iteration_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="n">parser</span> <span class="o">=</span> <span class="n">UxPerfParser</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+
+        <span class="n">logfile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">output_directory</span><span class="p">,</span> <span class="s1">&#39;logcat.log&#39;</span><span class="p">)</span>
+        <span class="n">framelog</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">output_directory</span><span class="p">,</span> <span class="s1">&#39;frames.csv&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Parsing logcat.log for UX_PERF markers&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">logfile</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_timings</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Adding per-action timings&#39;</span><span class="p">)</span>
+            <span class="n">parser</span><span class="o">.</span><span class="n">add_action_timings</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_frames</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Adding per-action frame metrics&#39;</span><span class="p">)</span>
+            <span class="n">parser</span><span class="o">.</span><span class="n">add_action_frames</span><span class="p">(</span><span class="n">framelog</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">drop_threshold</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_csv</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="UxPerfParser"><a class="viewcode-back" href="../../../api/wlauto.result_processors.html#wlauto.result_processors.uxperf.UxPerfParser">[docs]</a><span class="k">class</span> <span class="nc">UxPerfParser</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Parses logcat messages for UX Performance markers.</span>
+
+<span class="sd">    UX Performance markers are output from logcat under a debug priority. The</span>
+<span class="sd">    logcat tag for the marker messages is UX_PERF. The messages associated with</span>
+<span class="sd">    this tag consist of a name for the action to be recorded and a timestamp.</span>
+<span class="sd">    These fields are delimited by a single space. e.g.</span>
+
+<span class="sd">    &lt;TAG&gt;   : &lt;MESSAGE&gt;</span>
+<span class="sd">    UX_PERF : gestures_swipe_left_start 861975087367</span>
+<span class="sd">    ...</span>
+<span class="sd">    ...</span>
+<span class="sd">    UX_PERF : gestures_swipe_left_end 862132085804</span>
+
+<span class="sd">    Timestamps are produced using the running Java Virtual Machine&#39;s</span>
+<span class="sd">    high-resolution time source, in nanoseconds.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context</span> <span class="o">=</span> <span class="n">context</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">actions</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;UxPerfParser&#39;</span><span class="p">)</span>
+        <span class="c1"># regex for matching logcat message format:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">regex</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">r&#39;UX_PERF.*?:\s*(?P&lt;message&gt;.*\d+$)&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="UxPerfParser.parse"><a class="viewcode-back" href="../../../api/wlauto.result_processors.html#wlauto.result_processors.uxperf.UxPerfParser.parse">[docs]</a>    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Opens log file and parses UX_PERF markers.</span>
+
+<span class="sd">        Actions delimited by markers are captured in a dictionary with</span>
+<span class="sd">        actions mapped to timestamps.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">loglines</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_gen_action_timestamps</span><span class="p">(</span><span class="n">loglines</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="UxPerfParser.add_action_frames"><a class="viewcode-back" href="../../../api/wlauto.result_processors.html#wlauto.result_processors.uxperf.UxPerfParser.add_action_frames">[docs]</a>    <span class="k">def</span> <span class="nf">add_action_frames</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frames</span><span class="p">,</span> <span class="n">drop_threshold</span><span class="p">,</span> <span class="n">generate_csv</span><span class="p">):</span>  <span class="c1"># pylint: disable=too-many-locals</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Uses FpsProcessor to parse frame.csv extracting fps, frame count, jank</span>
+<span class="sd">        and vsync metrics on a per action basis. Adds results to metrics.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">refresh_period</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_refresh_peroid</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">action</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">actions</span><span class="p">:</span>
+            <span class="c1"># default values</span>
+            <span class="n">fps</span><span class="p">,</span> <span class="n">frame_count</span><span class="p">,</span> <span class="n">janks</span><span class="p">,</span> <span class="n">not_at_vsync</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;nan&#39;</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+            <span class="n">p90</span><span class="p">,</span> <span class="n">p95</span><span class="p">,</span> <span class="n">p99</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;nan&#39;</span><span class="p">)]</span> <span class="o">*</span> <span class="mi">3</span>
+            <span class="n">metrics</span> <span class="o">=</span> <span class="p">(</span><span class="n">fps</span><span class="p">,</span> <span class="n">frame_count</span><span class="p">,</span> <span class="n">janks</span><span class="p">,</span> <span class="n">not_at_vsync</span><span class="p">)</span>
+
+            <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_sub_df</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">actions</span><span class="p">[</span><span class="n">action</span><span class="p">],</span> <span class="n">frames</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>  <span class="c1"># pylint: disable=maybe-no-member</span>
+                <span class="n">fp</span> <span class="o">=</span> <span class="n">FpsProcessor</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">action</span><span class="p">)</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">per_frame_fps</span><span class="p">,</span> <span class="n">metrics</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">refresh_period</span><span class="p">,</span> <span class="n">drop_threshold</span><span class="p">)</span>
+                    <span class="n">fps</span><span class="p">,</span> <span class="n">frame_count</span><span class="p">,</span> <span class="n">janks</span><span class="p">,</span> <span class="n">not_at_vsync</span> <span class="o">=</span> <span class="n">metrics</span>
+
+                    <span class="k">if</span> <span class="n">generate_csv</span><span class="p">:</span>
+                        <span class="n">name</span> <span class="o">=</span> <span class="n">action</span> <span class="o">+</span> <span class="s1">&#39;_fps&#39;</span>
+                        <span class="n">filename</span> <span class="o">=</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span>
+                        <span class="n">fps_outfile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">output_directory</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+                        <span class="n">per_frame_fps</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">fps_outfile</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">add_artifact</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+
+                    <span class="n">p90</span><span class="p">,</span> <span class="n">p95</span><span class="p">,</span> <span class="n">p99</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">percentiles</span><span class="p">()</span>
+                <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Non-matched timestamps in dumpsys output: action=</span><span class="si">{}</span><span class="s1">&#39;</span>
+                                        <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">action</span><span class="p">))</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">add_metric</span><span class="p">(</span><span class="n">action</span> <span class="o">+</span> <span class="s1">&#39;_FPS&#39;</span><span class="p">,</span> <span class="n">fps</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">add_metric</span><span class="p">(</span><span class="n">action</span> <span class="o">+</span> <span class="s1">&#39;_frame_count&#39;</span><span class="p">,</span> <span class="n">frame_count</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">add_metric</span><span class="p">(</span><span class="n">action</span> <span class="o">+</span> <span class="s1">&#39;_janks&#39;</span><span class="p">,</span> <span class="n">janks</span><span class="p">,</span> <span class="n">lower_is_better</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">add_metric</span><span class="p">(</span><span class="n">action</span> <span class="o">+</span> <span class="s1">&#39;_not_at_vsync&#39;</span><span class="p">,</span> <span class="n">not_at_vsync</span><span class="p">,</span> <span class="n">lower_is_better</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">add_metric</span><span class="p">(</span><span class="n">action</span> <span class="o">+</span> <span class="s1">&#39;_frame_time_90percentile&#39;</span><span class="p">,</span> <span class="n">p90</span><span class="p">,</span> <span class="s1">&#39;ms&#39;</span><span class="p">,</span> <span class="n">lower_is_better</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">add_metric</span><span class="p">(</span><span class="n">action</span> <span class="o">+</span> <span class="s1">&#39;_frame_time_95percentile&#39;</span><span class="p">,</span> <span class="n">p95</span><span class="p">,</span> <span class="s1">&#39;ms&#39;</span><span class="p">,</span> <span class="n">lower_is_better</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">add_metric</span><span class="p">(</span><span class="n">action</span> <span class="o">+</span> <span class="s1">&#39;_frame_time_99percentile&#39;</span><span class="p">,</span> <span class="n">p99</span><span class="p">,</span> <span class="s1">&#39;ms&#39;</span><span class="p">,</span> <span class="n">lower_is_better</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="UxPerfParser.add_action_timings"><a class="viewcode-back" href="../../../api/wlauto.result_processors.html#wlauto.result_processors.uxperf.UxPerfParser.add_action_timings">[docs]</a>    <span class="k">def</span> <span class="nf">add_action_timings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Add simple action timings in millisecond resolution to metrics</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">action</span><span class="p">,</span> <span class="n">timestamps</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+            <span class="c1"># nanosecond precision, but not necessarily nanosecond resolution</span>
+            <span class="c1"># truncate to guarantee millisecond precision</span>
+            <span class="n">ts_ms</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">ts</span><span class="p">[:</span><span class="o">-</span><span class="mi">6</span><span class="p">])</span> <span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">timestamps</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ts_ms</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">start</span><span class="p">,</span> <span class="n">finish</span> <span class="o">=</span> <span class="n">ts_ms</span>
+                <span class="n">duration</span> <span class="o">=</span> <span class="n">finish</span> <span class="o">-</span> <span class="n">start</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">result</span>
+
+                <span class="n">result</span><span class="o">.</span><span class="n">add_metric</span><span class="p">(</span><span class="n">action</span> <span class="o">+</span> <span class="s2">&quot;_start&quot;</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;ms&#39;</span><span class="p">)</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">add_metric</span><span class="p">(</span><span class="n">action</span> <span class="o">+</span> <span class="s2">&quot;_finish&quot;</span><span class="p">,</span> <span class="n">finish</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;ms&#39;</span><span class="p">)</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">add_metric</span><span class="p">(</span><span class="n">action</span> <span class="o">+</span> <span class="s2">&quot;_duration&quot;</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;ms&#39;</span><span class="p">,</span> <span class="n">lower_is_better</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Expected two timestamps. Received </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ts_ms</span><span class="p">))</span></div>
+
+    <span class="k">def</span> <span class="nf">_gen_action_timestamps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Parses lines and matches against logcat tag.</span>
+<span class="sd">        Groups timestamps by action name.</span>
+<span class="sd">        Creates a dictionary of lists with actions mapped to timestamps.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+            <span class="n">match</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">regex</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+                <span class="n">message</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">)</span>
+                <span class="n">action_with_suffix</span><span class="p">,</span> <span class="n">timestamp</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="n">action</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">action_with_suffix</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">actions</span><span class="p">[</span><span class="n">action</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_parse_refresh_peroid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Reads the first line of the raw dumpsys output for the refresh period.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">raw_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">output_directory</span><span class="p">,</span> <span class="s1">&#39;surfaceflinger.raw&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">raw_path</span><span class="p">):</span>
+            <span class="n">raw_lines</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read</span><span class="p">(</span><span class="n">raw_path</span><span class="p">)</span>
+            <span class="n">refresh_period</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">raw_lines</span><span class="o">.</span><span class="n">next</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">refresh_period</span> <span class="o">=</span> <span class="n">VSYNC_INTERVAL</span>
+
+        <span class="k">return</span> <span class="n">refresh_period</span>
+
+    <span class="k">def</span> <span class="nf">_create_sub_df</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">frames</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Creates a data frame containing fps metrics for a captured action.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">action</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">action</span><span class="p">)</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span>
+            <span class="c1"># SurfaceFlinger Algorithm</span>
+            <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">==</span> <span class="nb">list</span><span class="p">(</span><span class="n">SurfaceFlingerFrame</span><span class="o">.</span><span class="n">_fields</span><span class="p">):</span>  <span class="c1"># pylint: disable=maybe-no-member</span>
+                <span class="n">field</span> <span class="o">=</span> <span class="s1">&#39;actual_present_time&#39;</span>
+            <span class="c1"># GfxInfo Algorithm</span>
+            <span class="k">elif</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">==</span> <span class="nb">list</span><span class="p">(</span><span class="n">GfxInfoFrame</span><span class="o">.</span><span class="n">_fields</span><span class="p">):</span>  <span class="c1"># pylint: disable=maybe-no-member</span>
+                <span class="n">field</span> <span class="o">=</span> <span class="s1">&#39;FrameCompleted&#39;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">field</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;frames.csv not in a recognised format. Cannot parse.&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">field</span><span class="p">:</span>
+                <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">df</span><span class="p">[</span><span class="n">field</span><span class="p">]]</span>
+                <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Discarding action. Expected 2 timestamps, got </span><span class="si">{}</span><span class="s1">!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">action</span><span class="p">)))</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">df</span>
+
+    <span class="k">def</span> <span class="nf">_read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Opens a file a yields the lines with whitespace stripped.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">log</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">rfh</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">rfh</span><span class="p">:</span>
+                    <span class="k">yield</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Could not open </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">log</span><span class="p">))</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, ARM Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

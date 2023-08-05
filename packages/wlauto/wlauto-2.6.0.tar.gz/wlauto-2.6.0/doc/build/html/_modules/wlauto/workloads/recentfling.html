@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>wlauto.workloads.recentfling &#8212; Workload Automation 2.6.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.6.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for wlauto.workloads.recentfling</h1><div class="highlight"><pre>
+<span></span><span class="c1">#    Copyright 2013-2015 ARM Limited</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="c1">#pylint: disable=E1101,W0201</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">defaultdict</span>
+
+<span class="kn">from</span> <span class="nn">wlauto</span> <span class="k">import</span> <span class="n">Workload</span><span class="p">,</span> <span class="n">Parameter</span><span class="p">,</span> <span class="n">File</span>
+<span class="kn">from</span> <span class="nn">wlauto.utils.types</span> <span class="k">import</span> <span class="n">caseless_string</span>
+<span class="kn">from</span> <span class="nn">wlauto.exceptions</span> <span class="k">import</span> <span class="n">WorkloadError</span><span class="p">,</span> <span class="n">DeviceError</span>
+
+
+<div class="viewcode-block" id="Recentfling"><a class="viewcode-back" href="../../../api/wlauto.workloads.recentfling.html#wlauto.workloads.recentfling.Recentfling">[docs]</a><span class="k">class</span> <span class="nc">Recentfling</span><span class="p">(</span><span class="n">Workload</span><span class="p">):</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;recentfling&#39;</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    Tests UI jank on android devices.</span>
+
+<span class="s2">    For this workload to work, ``recentfling.sh`` and ``defs.sh`` must be placed</span>
+<span class="s2">    in ``~/.workload_automation/dependencies/recentfling/``. These can be found</span>
+<span class="s2">    in the `AOSP Git repository &lt;https://android.googlesource.com/platform/system/extras/+/master/tests/workloads&gt;`_.</span>
+
+<span class="s2">    To change the apps that are opened at the start of the workload you will need</span>
+<span class="s2">    to modify the ``defs.sh`` file. You will need to add your app to ``dfltAppList``</span>
+<span class="s2">    and then add a variable called ``</span><span class="si">{app_name}</span><span class="s2">Activity`` with the name of the</span>
+<span class="s2">    activity to launch (where ``</span><span class="si">{add_name}</span><span class="s2">`` is the name you put into ``dfltAppList``).</span>
+
+<span class="s2">    You can get a list of activities available on your device by running</span>
+<span class="s2">    ``adb shell pm list packages -f``</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+    <span class="n">supported_platforms</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;android&#39;</span><span class="p">]</span>
+
+    <span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;loops&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The number of test iterations.&quot;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;start_apps&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">bool</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                  If set to ``False``,no apps will be started before flinging</span>
+<span class="s2">                  through the recent apps list (in which the assumption is</span>
+<span class="s2">                  there are already recently started apps in the list.</span>
+<span class="s2">                  &quot;&quot;&quot;</span><span class="p">),</span>
+    <span class="p">]</span>
+
+<div class="viewcode-block" id="Recentfling.initialise"><a class="viewcode-back" href="../../../api/wlauto.workloads.recentfling.html#wlauto.workloads.recentfling.Recentfling.initialise">[docs]</a>    <span class="k">def</span> <span class="nf">initialise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>  <span class="c1"># pylint: disable=no-self-use</span>
+        <span class="k">if</span> <span class="n">context</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">get_sdk_version</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">23</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">WorkloadError</span><span class="p">(</span><span class="s2">&quot;This workload relies on ``dumpsys gfxinfo`` </span><span class="se">\</span>
+<span class="s2">                                 only present in Android M and onwards&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Recentfling.setup"><a class="viewcode-back" href="../../../api/wlauto.workloads.recentfling.html#wlauto.workloads.recentfling.Recentfling.setup">[docs]</a>    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">defs_host</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">resolver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">File</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;defs.sh&quot;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">defs_target</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">defs_host</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">recentfling_host</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">resolver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">File</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;recentfling.sh&quot;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">recentfling_target</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">recentfling_host</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_kill_recentfling</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">ensure_screen_is_on</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Recentfling.run"><a class="viewcode-back" href="../../../api/wlauto.workloads.recentfling.html#wlauto.workloads.recentfling.Recentfling.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="s1">&#39;-i </span><span class="si">{}</span><span class="s1"> &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">loops</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_apps</span><span class="p">:</span>
+            <span class="n">args</span> <span class="o">+=</span> <span class="s1">&#39;-N &#39;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;echo $$&gt;</span><span class="si">{dir}</span><span class="s2">/pidfile; cd </span><span class="si">{bindir}</span><span class="s2">; exec ./recentfling.sh </span><span class="si">{args}</span><span class="s2">; rm </span><span class="si">{dir}</span><span class="s2">/pidfile&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmd</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">working_directory</span><span class="p">,</span> <span class="n">bindir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">binaries_directory</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_kill_recentfling</span><span class="p">()</span>
+            <span class="k">raise</span></div>
+
+<div class="viewcode-block" id="Recentfling.update_result"><a class="viewcode-back" href="../../../api/wlauto.workloads.recentfling.html#wlauto.workloads.recentfling.Recentfling.update_result">[docs]</a>    <span class="k">def</span> <span class="nf">update_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="n">group_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;90th Percentile&quot;</span><span class="p">,</span> <span class="s2">&quot;95th Percentile&quot;</span><span class="p">,</span> <span class="s2">&quot;99th Percentile&quot;</span><span class="p">,</span> <span class="s2">&quot;Jank&quot;</span><span class="p">,</span> <span class="s2">&quot;Jank%&quot;</span><span class="p">]</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;Frames: \d+ latency: (?P&lt;pct90&gt;\d+)/(?P&lt;pct95&gt;\d+)/(?P&lt;pct99&gt;\d+) Janks: (?P&lt;jank&gt;\d+)\((?P&lt;jank_pct&gt;\d+)%\)&quot;</span><span class="p">)</span>
+            <span class="n">match</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;AVE: &quot;</span><span class="p">):</span>
+                    <span class="n">group_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Average &quot;</span> <span class="o">+</span> <span class="n">g</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">group_names</span><span class="p">]</span>
+                    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">group_names</span><span class="p">,</span> <span class="n">match</span><span class="o">.</span><span class="n">groups</span><span class="p">()):</span>
+                    <span class="n">context</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">add_metric</span><span class="p">(</span><span class="n">metric</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                              <span class="n">metric</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                              <span class="kc">None</span><span class="p">,</span>
+                                              <span class="n">classifiers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;loop&quot;</span><span class="p">:</span> <span class="n">count</span> <span class="ow">or</span> <span class="s2">&quot;Average&quot;</span><span class="p">})</span></div>
+
+<div class="viewcode-block" id="Recentfling.teardown"><a class="viewcode-back" href="../../../api/wlauto.workloads.recentfling.html#wlauto.workloads.recentfling.Recentfling.teardown">[docs]</a>    <span class="k">def</span> <span class="nf">teardown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">uninstall_executable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">recentfling_target</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">uninstall_executable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">defs_target</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_kill_recentfling</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">command</span> <span class="o">=</span> <span class="s1">&#39;cat </span><span class="si">{}</span><span class="s1">/pidfile&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">working_directory</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">pid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">pid</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">kill</span><span class="p">(</span><span class="n">pid</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">signal</span><span class="o">=</span><span class="s1">&#39;SIGKILL&#39;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">DeviceError</span><span class="p">:</span>
+            <span class="k">pass</span>  <span class="c1"># may have already been deleted</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, ARM Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

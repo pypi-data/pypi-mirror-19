@@ -1,0 +1,373 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Commands &#8212; Workload Automation 2.6.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.6.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Agenda" href="agenda.html" />
+    <link rel="prev" title="Setting Up A Device" href="device_setup.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="agenda.html" title="Agenda"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="device_setup.html" title="Setting Up A Device"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Workload Automation 2.6.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="commands">
+<h1>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h1>
+<p>Installing the wlauto package will add <code class="docutils literal"><span class="pre">wa</span></code> command to your system,
+which you can run from anywhere. This has a number of sub-commands, which can
+be viewed by executing</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>wa -h
+</pre></div>
+</div>
+<p>Individual sub-commands are discussed in detail below.</p>
+<div class="section" id="run">
+<h2>run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h2>
+<p>The most common sub-command you will use is <code class="docutils literal"><span class="pre">run</span></code>. This will run specified
+workload(s) and process resulting output. This takes a single mandatory
+argument that specifies what you want WA to run. This could be either a
+workload name, or a path  to an &#8220;agenda&#8221; file that allows to specify multiple
+workloads as well as a lot additional configuration (see <a class="reference internal" href="agenda.html#agenda"><span class="std std-ref">Agenda</span></a>
+section for details). Executing</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>wa run -h
+</pre></div>
+</div>
+<p>Will display help for this subcommand that will look something like this:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>usage: run [-d DIR] [-f] AGENDA
+
+Execute automated workloads on a remote device and process the resulting
+output.
+
+positional arguments:
+  AGENDA                Agenda for this workload automation run. This defines
+                        which workloads will be executed, how many times, with
+                        which tunables, etc. See /usr/local/lib/python2.7
+                        /dist-packages/wlauto/agenda-example.csv for an
+                        example of how this file should be structured.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c CONFIG, --config CONFIG
+                        specify an additional config.py
+  -v, --verbose         The scripts will produce verbose output.
+  --version             Output the version of Workload Automation and exit.
+  --debug               Enable debug mode. Note: this implies --verbose.
+  -d DIR, --output-directory DIR
+                        Specify a directory where the output will be
+                        generated. If the directory already exists, the script
+                        will abort unless -f option (see below) is used,in
+                        which case the contents of the directory will be
+                        overwritten. If this option is not specified, then
+                        wa_output will be used instead.
+  -f, --force           Overwrite output directory if it exists. By default,
+                        the script will abort in this situation to prevent
+                        accidental data loss.
+  -i ID, --id ID        Specify a workload spec ID from an agenda to run. If
+                        this is specified, only that particular spec will be
+                        run, and other workloads in the agenda will be
+                        ignored. This option may be used to specify multiple
+                        IDs.
+</pre></div>
+</div>
+<div class="section" id="output-directory">
+<h3>Output Directory<a class="headerlink" href="#output-directory" title="Permalink to this headline">¶</a></h3>
+<p>The exact contents on the output directory will depend on configuration options
+used, instrumentation and output processors enabled, etc. Typically, the output
+directory will contain a results file at the top level that lists all
+measurements that were collected (currently, csv and json formats are
+supported), along with a subdirectory for each iteration executed with output
+for that specific iteration.</p>
+<p>At the top level, there will also be a run.log file containing the complete log
+output for the execution. The contents of this file is equivalent to what you
+would get in the console when using &#8211;verbose option.</p>
+<p>Finally, there will be a __meta subdirectory. This will contain a copy of the
+agenda file used to run the workloads along with any other device-specific
+configuration files used during execution.</p>
+</div>
+</div>
+<div class="section" id="create">
+<h2>create<a class="headerlink" href="#create" title="Permalink to this headline">¶</a></h2>
+<p>This can be used to create various WA-related objects, currently workloads, packages and agendas.
+The full set of options for this command are:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>usage: wa create [-h] [-c CONFIG] [-v] [--debug] [--version]
+                 {workload,package,agenda} ...
+
+positional arguments:
+  {workload,package,agenda}
+    workload            Create a new workload. By default, a basic workload
+                        template will be used but you can use options to
+                        specify a different template.
+    package             Create a new empty Python package for WA extensions.
+                        On installation, this package will &quot;advertise&quot; itself
+                        to WA so that Extensions with in it will be loaded by
+                        WA when it runs.
+    agenda              Create an agenda whit the specified extensions
+                        enabled. And parameters set to their default values.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c CONFIG, --config CONFIG
+                        specify an additional config.py
+  -v, --verbose         The scripts will produce verbose output.
+  --debug               Enable debug mode. Note: this implies --verbose.
+  --version             show program&#39;s version number and exit
+</pre></div>
+</div>
+<p>Use &#8220;wa create &lt;object&gt; -h&#8221; to see all the object-specific arguments. For example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>wa create agenda -h
+</pre></div>
+</div>
+<p>will display the relevant options that can be used to create an agenda.</p>
+</div>
+<div class="section" id="get-assets">
+<h2>get-assets<a class="headerlink" href="#get-assets" title="Permalink to this headline">¶</a></h2>
+<p>This command can download external extension dependencies used by Workload Automation.
+It can be used to download assets for all available extensions or those specificity listed.
+The full set of options for this command are:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>usage: wa get-assets [-h] [-c CONFIG] [-v] [--debug] [--version] [-f]
+                     [--url URL] (-a | -e EXT [EXT ...])
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c CONFIG, --config CONFIG
+                        specify an additional config.py
+  -v, --verbose         The scripts will produce verbose output.
+  --debug               Enable debug mode. Note: this implies --verbose.
+  --version             show program&#39;s version number and exit
+  -f, --force           Always fetch the assets, even if matching versions
+                        exist in local cache.
+  --url URL             The location from which to download the files. If not
+                        provided, config setting ``remote_assets_url`` will be
+                        used if available, else uses the default
+                        REMOTE_ASSETS_URL parameter in the script.
+  -a, --all             Download assets for all extensions found in the index.
+                        Cannot be used with -e.
+  -e EXT [EXT ...]      One or more extensions whose assets to download.
+                        Cannot be used with --all.
+</pre></div>
+</div>
+</div>
+<div class="section" id="list">
+<h2>list<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h2>
+<p>This lists all extensions of a particular type. For example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>wa list workloads
+</pre></div>
+</div>
+<p>will list all workloads currently included in WA. The list will consist of
+extension names and short descriptions of the functionality they offer.</p>
+</div>
+<div class="section" id="show">
+<h2>show<a class="headerlink" href="#show" title="Permalink to this headline">¶</a></h2>
+<p>This will show detailed information about an extension, including more in-depth
+description and any parameters/configuration that are available.  For example
+executing:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>wa show andebench
+</pre></div>
+</div>
+<p>will produce something like:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>andebench
+
+AndEBench is an industry standard Android benchmark provided by The Embedded Microprocessor Benchmark Consortium
+(EEMBC).
+
+parameters:
+
+number_of_threads
+Number of threads that will be spawned by AndEBench.
+        type: int
+
+single_threaded
+If ``true``, AndEBench will run with a single thread. Note: this must not be specified if ``number_of_threads``
+has been specified.
+        type: bool
+
+http://www.eembc.org/andebench/about.php
+
+From the website:
+
+- Initial focus on CPU and Dalvik interpreter performance
+- Internal algorithms concentrate on integer operations
+- Compares the difference between native and Java performance
+- Implements flexible multicore performance analysis
+- Results displayed in Iterations per second
+- Detailed log file for comprehensive engineering analysis
+</pre></div>
+</div>
+</div>
+<div class="section" id="record">
+<span id="record-command"></span><h2>record<a class="headerlink" href="#record" title="Permalink to this headline">¶</a></h2>
+<p>This command simplifies the process of recording an revent file. It
+will automatically deploy revent and even has the option of automatically
+opening apps. WA uses two parts to the names of revent recordings in the
+format, {device_name}.{suffix}.revent. - device_name can either be specified
+manually with the <code class="docutils literal"><span class="pre">-d</span></code> argument or it can be automatically determined. On
+Android device it will be obtained from <code class="docutils literal"><span class="pre">build.prop</span></code>, on Linux devices it is
+obtained from <code class="docutils literal"><span class="pre">/proc/device-tree/model</span></code>. - suffix is used by WA to determine
+which part of the app execution the recording is for, currently these are
+either <code class="docutils literal"><span class="pre">setup</span></code> or <code class="docutils literal"><span class="pre">run</span></code>. This should be specified with the <code class="docutils literal"><span class="pre">-s</span></code>
+argument. The full set of options for this command are:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>usage: wa record [-h] [-c CONFIG] [-v] [--debug] [--version] [-d DEVICE]
+             [-s SUFFIX] [-o OUTPUT] [-p PACKAGE] [-g] [-C]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c CONFIG, --config CONFIG
+                        specify an additional config.py
+  -v, --verbose         The scripts will produce verbose output.
+  --debug               Enable debug mode. Note: this implies --verbose.
+  --version             show program&#39;s version number and exit
+  -d DEVICE, --device DEVICE
+                        The name of the device
+  -s SUFFIX, --suffix SUFFIX
+                        The suffix of the revent file, e.g. ``setup``
+  -o OUTPUT, --output OUTPUT
+                        Directory to save the recording in
+  -p PACKAGE, --package PACKAGE
+                        Package to launch before recording
+  -g, --gamepad         Record from a gamepad rather than all devices.
+  -C, --clear           Clear app cache before launching it
+</pre></div>
+</div>
+</div>
+<div class="section" id="replay">
+<span id="replay-command"></span><h2>replay<a class="headerlink" href="#replay" title="Permalink to this headline">¶</a></h2>
+<p>Along side <code class="docutils literal"><span class="pre">record</span></code> wa also has a command to playback recorded revent files.
+It behaves very similar to the <code class="docutils literal"><span class="pre">record</span></code> command taking many of the same options:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>usage: wa replay [-h] [-c CONFIG] [-v] [--debug] [--version] [-p PACKAGE] [-C]
+             revent
+
+positional arguments:
+  revent                The name of the file to replay
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c CONFIG, --config CONFIG
+                        specify an additional config.py
+  -v, --verbose         The scripts will produce verbose output.
+  --debug               Enable debug mode. Note: this implies --verbose.
+  --version             show program&#39;s version number and exit
+  -p PACKAGE, --package PACKAGE
+                        Package to launch before recording
+  -C, --clear           Clear app cache before launching it
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Commands</a><ul>
+<li><a class="reference internal" href="#run">run</a><ul>
+<li><a class="reference internal" href="#output-directory">Output Directory</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#create">create</a></li>
+<li><a class="reference internal" href="#get-assets">get-assets</a></li>
+<li><a class="reference internal" href="#list">list</a></li>
+<li><a class="reference internal" href="#show">show</a></li>
+<li><a class="reference internal" href="#record">record</a></li>
+<li><a class="reference internal" href="#replay">replay</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="device_setup.html"
+                        title="previous chapter">Setting Up A Device</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="agenda.html"
+                        title="next chapter">Agenda</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/invocation.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="agenda.html" title="Agenda"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="device_setup.html" title="Setting Up A Device"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Workload Automation 2.6.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, ARM Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

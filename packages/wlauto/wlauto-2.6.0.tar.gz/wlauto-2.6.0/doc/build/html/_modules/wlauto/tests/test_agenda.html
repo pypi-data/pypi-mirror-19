@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>wlauto.tests.test_agenda &#8212; Workload Automation 2.6.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.6.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for wlauto.tests.test_agenda</h1><div class="highlight"><pre>
+<span></span><span class="c1">#    Copyright 2013-2015 ARM Limited</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1">#</span>
+
+
+<span class="c1"># pylint: disable=E0611</span>
+<span class="c1"># pylint: disable=R0201</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">StringIO</span> <span class="k">import</span> <span class="n">StringIO</span>
+<span class="kn">from</span> <span class="nn">unittest</span> <span class="k">import</span> <span class="n">TestCase</span>
+
+<span class="kn">from</span> <span class="nn">nose.tools</span> <span class="k">import</span> <span class="n">assert_equal</span><span class="p">,</span> <span class="n">assert_in</span><span class="p">,</span> <span class="n">raises</span>
+
+<span class="kn">from</span> <span class="nn">wlauto.core.agenda</span> <span class="k">import</span> <span class="n">Agenda</span>
+<span class="kn">from</span> <span class="nn">wlauto.exceptions</span> <span class="k">import</span> <span class="n">ConfigError</span>
+
+
+<span class="n">YAML_TEST_FILE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;test-agenda.yaml&#39;</span><span class="p">)</span>
+
+<span class="n">invalid_agenda_text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">workloads:</span>
+<span class="s2">    - id: 1</span>
+<span class="s2">      workload_parameters:</span>
+<span class="s2">          test: 1</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">invalid_agenda</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">(</span><span class="n">invalid_agenda_text</span><span class="p">)</span>
+<span class="n">invalid_agenda</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;invalid1&#39;</span>
+
+<span class="n">duplicate_agenda_text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">global:</span>
+<span class="s2">    iterations: 1</span>
+<span class="s2">workloads:</span>
+<span class="s2">    - id: 1</span>
+<span class="s2">      workload_name: antutu</span>
+<span class="s2">      workload_parameters:</span>
+<span class="s2">          test: 1</span>
+<span class="s2">    - id: 1</span>
+<span class="s2">      workload_name: andebench</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">duplicate_agenda</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">(</span><span class="n">duplicate_agenda_text</span><span class="p">)</span>
+<span class="n">duplicate_agenda</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;invalid2&#39;</span>
+
+<span class="n">short_agenda_text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">workloads: [antutu, linpack, andebench]</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">short_agenda</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">(</span><span class="n">short_agenda_text</span><span class="p">)</span>
+<span class="n">short_agenda</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;short&#39;</span>
+
+<span class="n">default_ids_agenda_text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">workloads:</span>
+<span class="s2">    - antutu</span>
+<span class="s2">    - id: 1</span>
+<span class="s2">      name: linpack</span>
+<span class="s2">    - id: test</span>
+<span class="s2">      name: andebench</span>
+<span class="s2">      params:</span>
+<span class="s2">          number_of_threads: 1</span>
+<span class="s2">    - vellamo</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">default_ids_agenda</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">(</span><span class="n">default_ids_agenda_text</span><span class="p">)</span>
+<span class="n">default_ids_agenda</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;default_ids&#39;</span>
+
+<span class="n">sectioned_agenda_text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">sections:</span>
+<span class="s2">    - id: sec1</span>
+<span class="s2">      runtime_params:</span>
+<span class="s2">        dp: one</span>
+<span class="s2">      workloads:</span>
+<span class="s2">        - antutu</span>
+<span class="s2">        - andebench</span>
+<span class="s2">        - name: linpack</span>
+<span class="s2">          runtime_params:</span>
+<span class="s2">            dp: two</span>
+<span class="s2">    - id: sec2</span>
+<span class="s2">      runtime_params:</span>
+<span class="s2">        dp: three</span>
+<span class="s2">      workloads:</span>
+<span class="s2">        - antutu</span>
+<span class="s2">workloads:</span>
+<span class="s2">    - nenamark</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">sectioned_agenda</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">(</span><span class="n">sectioned_agenda_text</span><span class="p">)</span>
+<span class="n">sectioned_agenda</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;sectioned&#39;</span>
+
+<span class="n">dup_sectioned_agenda_text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">sections:</span>
+<span class="s2">    - id: sec1</span>
+<span class="s2">      workloads:</span>
+<span class="s2">        - antutu</span>
+<span class="s2">    - id: sec1</span>
+<span class="s2">      workloads:</span>
+<span class="s2">        - andebench</span>
+<span class="s2">workloads:</span>
+<span class="s2">    - nenamark</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">dup_sectioned_agenda</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">(</span><span class="n">dup_sectioned_agenda_text</span><span class="p">)</span>
+<span class="n">dup_sectioned_agenda</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;dup-sectioned&#39;</span>
+
+<span class="n">caps_agenda_text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">config:</span>
+<span class="s2">    device: TC2</span>
+<span class="s2">global:</span>
+<span class="s2">    runtime_parameters:</span>
+<span class="s2">        sysfile_values:</span>
+<span class="s2">            /sys/test/MyFile: 1</span>
+<span class="s2">            /sys/test/other file: 2</span>
+<span class="s2">workloads:</span>
+<span class="s2">    - id: 1</span>
+<span class="s2">      name: linpack</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">caps_agenda</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">(</span><span class="n">caps_agenda_text</span><span class="p">)</span>
+<span class="n">caps_agenda</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;caps&#39;</span>
+
+<span class="n">bad_syntax_agenda_text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">config:</span>
+<span class="s2">    # tab on the following line</span>
+<span class="s2">	reboot_policy: never</span>
+<span class="s2">workloads:</span>
+<span class="s2">    - antutu</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">bad_syntax_agenda</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">(</span><span class="n">bad_syntax_agenda_text</span><span class="p">)</span>
+<span class="n">bad_syntax_agenda</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;bad_syntax&#39;</span>
+
+<span class="n">section_ids_test_text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">config:</span>
+<span class="s2">    device: TC2</span>
+<span class="s2">    reboot_policy: never</span>
+<span class="s2">workloads:</span>
+<span class="s2">    - name: bbench</span>
+<span class="s2">      id: bbench</span>
+<span class="s2">    - name: audio</span>
+<span class="s2">sections:</span>
+<span class="s2">    - id: foo</span>
+<span class="s2">    - id: bar</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">section_ids_agenda</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">(</span><span class="n">section_ids_test_text</span><span class="p">)</span>
+<span class="n">section_ids_agenda</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;section_ids&#39;</span>
+
+
+<div class="viewcode-block" id="AgendaTest"><a class="viewcode-back" href="../../../api/wlauto.tests.html#wlauto.tests.test_agenda.AgendaTest">[docs]</a><span class="k">class</span> <span class="nc">AgendaTest</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+
+<div class="viewcode-block" id="AgendaTest.test_yaml_load"><a class="viewcode-back" href="../../../api/wlauto.tests.html#wlauto.tests.test_agenda.AgendaTest.test_yaml_load">[docs]</a>    <span class="k">def</span> <span class="nf">test_yaml_load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">agenda</span> <span class="o">=</span> <span class="n">Agenda</span><span class="p">(</span><span class="n">YAML_TEST_FILE</span><span class="p">)</span>
+        <span class="n">assert_equal</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">agenda</span><span class="o">.</span><span class="n">workloads</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AgendaTest.test_duplicate_id"><a class="viewcode-back" href="../../../api/wlauto.tests.html#wlauto.tests.test_agenda.AgendaTest.test_duplicate_id">[docs]</a>    <span class="k">def</span> <span class="nf">test_duplicate_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">Agenda</span><span class="p">(</span><span class="n">duplicate_agenda</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">ConfigError</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">assert_in</span><span class="p">(</span><span class="s1">&#39;duplicate&#39;</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>  <span class="c1"># pylint: disable=E1101</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;ConfigError was not raised for an agenda with duplicate ids.&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AgendaTest.test_yaml_missing_field"><a class="viewcode-back" href="../../../api/wlauto.tests.html#wlauto.tests.test_agenda.AgendaTest.test_yaml_missing_field">[docs]</a>    <span class="k">def</span> <span class="nf">test_yaml_missing_field</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">Agenda</span><span class="p">(</span><span class="n">invalid_agenda_text</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">ConfigError</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">assert_in</span><span class="p">(</span><span class="s1">&#39;workload name&#39;</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;ConfigError was not raised for an invalid agenda.&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AgendaTest.test_defaults"><a class="viewcode-back" href="../../../api/wlauto.tests.html#wlauto.tests.test_agenda.AgendaTest.test_defaults">[docs]</a>    <span class="k">def</span> <span class="nf">test_defaults</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">agenda</span> <span class="o">=</span> <span class="n">Agenda</span><span class="p">(</span><span class="n">short_agenda</span><span class="p">)</span>
+        <span class="n">assert_equal</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">agenda</span><span class="o">.</span><span class="n">workloads</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">assert_equal</span><span class="p">(</span><span class="n">agenda</span><span class="o">.</span><span class="n">workloads</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">workload_name</span><span class="p">,</span> <span class="s1">&#39;antutu&#39;</span><span class="p">)</span>
+        <span class="n">assert_equal</span><span class="p">(</span><span class="n">agenda</span><span class="o">.</span><span class="n">workloads</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AgendaTest.test_default_id_assignment"><a class="viewcode-back" href="../../../api/wlauto.tests.html#wlauto.tests.test_agenda.AgendaTest.test_default_id_assignment">[docs]</a>    <span class="k">def</span> <span class="nf">test_default_id_assignment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">agenda</span> <span class="o">=</span> <span class="n">Agenda</span><span class="p">(</span><span class="n">default_ids_agenda</span><span class="p">)</span>
+        <span class="n">assert_equal</span><span class="p">(</span><span class="n">agenda</span><span class="o">.</span><span class="n">workloads</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">)</span>
+        <span class="n">assert_equal</span><span class="p">(</span><span class="n">agenda</span><span class="o">.</span><span class="n">workloads</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AgendaTest.test_sections"><a class="viewcode-back" href="../../../api/wlauto.tests.html#wlauto.tests.test_agenda.AgendaTest.test_sections">[docs]</a>    <span class="k">def</span> <span class="nf">test_sections</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">agenda</span> <span class="o">=</span> <span class="n">Agenda</span><span class="p">(</span><span class="n">sectioned_agenda</span><span class="p">)</span>
+        <span class="n">assert_equal</span><span class="p">(</span><span class="n">agenda</span><span class="o">.</span><span class="n">sections</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">workloads</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">workload_name</span><span class="p">,</span> <span class="s1">&#39;antutu&#39;</span><span class="p">)</span>
+        <span class="n">assert_equal</span><span class="p">(</span><span class="n">agenda</span><span class="o">.</span><span class="n">sections</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">runtime_parameters</span><span class="p">[</span><span class="s1">&#39;dp&#39;</span><span class="p">],</span> <span class="s1">&#39;three&#39;</span><span class="p">)</span></div>
+
+    <span class="nd">@raises</span><span class="p">(</span><span class="n">ConfigError</span><span class="p">)</span>
+<div class="viewcode-block" id="AgendaTest.test_dup_sections"><a class="viewcode-back" href="../../../api/wlauto.tests.html#wlauto.tests.test_agenda.AgendaTest.test_dup_sections">[docs]</a>    <span class="k">def</span> <span class="nf">test_dup_sections</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Agenda</span><span class="p">(</span><span class="n">dup_sectioned_agenda</span><span class="p">)</span></div>
+
+    <span class="nd">@raises</span><span class="p">(</span><span class="n">ConfigError</span><span class="p">)</span>
+<div class="viewcode-block" id="AgendaTest.test_bad_syntax"><a class="viewcode-back" href="../../../api/wlauto.tests.html#wlauto.tests.test_agenda.AgendaTest.test_bad_syntax">[docs]</a>    <span class="k">def</span> <span class="nf">test_bad_syntax</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Agenda</span><span class="p">(</span><span class="n">bad_syntax_agenda</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, ARM Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

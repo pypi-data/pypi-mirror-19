@@ -1,0 +1,442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>wlauto.workloads.spec2000 &#8212; Workload Automation 2.6.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.6.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for wlauto.workloads.spec2000</h1><div class="highlight"><pre>
+<span></span><span class="c1">#    Copyright 2014-2015 ARM Limited</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1">#</span>
+
+
+<span class="c1">#pylint: disable=E1101,W0201</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">import</span> <span class="nn">tarfile</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">defaultdict</span>
+
+<span class="kn">from</span> <span class="nn">wlauto</span> <span class="k">import</span> <span class="n">Workload</span><span class="p">,</span> <span class="n">Parameter</span><span class="p">,</span> <span class="n">Alias</span>
+<span class="kn">from</span> <span class="nn">wlauto.exceptions</span> <span class="k">import</span> <span class="n">ConfigError</span><span class="p">,</span> <span class="n">WorkloadError</span>
+<span class="kn">from</span> <span class="nn">wlauto.common.resources</span> <span class="k">import</span> <span class="n">ExtensionAsset</span>
+<span class="kn">from</span> <span class="nn">wlauto.utils.misc</span> <span class="k">import</span> <span class="n">get_cpu_mask</span>
+<span class="kn">from</span> <span class="nn">wlauto.utils.types</span> <span class="k">import</span> <span class="n">boolean</span><span class="p">,</span> <span class="n">list_or_string</span>
+
+
+<div class="viewcode-block" id="Spec2000"><a class="viewcode-back" href="../../../api/wlauto.workloads.spec2000.html#wlauto.workloads.spec2000.Spec2000">[docs]</a><span class="k">class</span> <span class="nc">Spec2000</span><span class="p">(</span><span class="n">Workload</span><span class="p">):</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;spec2000&#39;</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    SPEC2000 benchmarks measuring processor, memory and compiler.</span>
+
+<span class="s2">    http://www.spec.org/cpu2000/</span>
+
+<span class="s2">    From the web site:</span>
+
+<span class="s2">    SPEC CPU2000 is the next-generation industry-standardized CPU-intensive benchmark suite. SPEC</span>
+<span class="s2">    designed CPU2000 to provide a comparative measure of compute intensive performance across the</span>
+<span class="s2">    widest practical range of hardware. The implementation resulted in source code benchmarks</span>
+<span class="s2">    developed from real user applications. These benchmarks measure the performance of the</span>
+<span class="s2">    processor, memory and compiler on the tested system.</span>
+
+<span class="s2">    .. note:: At the moment, this workload relies on pre-built SPEC binaries (included in an</span>
+<span class="s2">              asset bundle). These binaries *must* be built according to rules outlined here::</span>
+
+<span class="s2">                  http://www.spec.org/cpu2000/docs/runrules.html#toc_2.0</span>
+
+<span class="s2">              in order for the results to be valid SPEC2000 results.</span>
+
+<span class="s2">    .. note:: This workload does not attempt to generate results in an admissible SPEC format. No</span>
+<span class="s2">              metadata is provided (though some, but not all, of the required metdata is collected</span>
+<span class="s2">              by WA elsewhere). It is upto the user to post-process results to generated</span>
+<span class="s2">              SPEC-admissible results file, if that is their intention.</span>
+
+<span class="s2">    *base vs peak*</span>
+
+<span class="s2">    SPEC2000 defines two build/test configuration: base and peak. Base is supposed to use basic</span>
+<span class="s2">    configuration (e.g. default compiler flags) with no tuning, and peak is specifically optimized for</span>
+<span class="s2">    a system. Since this workload uses externally-built binaries, there is no way for WA to be sure</span>
+<span class="s2">    what configuration is used -- the user is expected to keep track of that. Be aware that</span>
+<span class="s2">    base/peak also come with specific requirements for the way workloads are run (e.g. how many instances</span>
+<span class="s2">    on multi-core systems)::</span>
+
+<span class="s2">        http://www.spec.org/cpu2000/docs/runrules.html#toc_3</span>
+
+<span class="s2">    These are not enforced by WA, so it is again up to the user to ensure that correct workload</span>
+<span class="s2">    parameters are specfied inthe agenda, if they intend to collect &quot;official&quot; SPEC results. (Those</span>
+<span class="s2">    interested in collecting official SPEC results should also note that setting runtime parameters</span>
+<span class="s2">    would violate SPEC runs rules that state that no configuration must be done to the platform</span>
+<span class="s2">    after boot).</span>
+
+<span class="s2">    *bundle structure*</span>
+
+<span class="s2">    This workload expects the actual benchmark binaries to be provided in a tarball &quot;bundle&quot; that has</span>
+<span class="s2">    a very specific structure. At the top level of the tarball, there should be two directories: &quot;fp&quot;</span>
+<span class="s2">    and &quot;int&quot; -- for each of the SPEC2000 categories. Under those, there is a sub-directory per benchmark.</span>
+<span class="s2">    Each benchmark sub-directory contains three sub-sub-directorie:</span>
+
+<span class="s2">    - &quot;cpus&quot; contains a subdirectory for each supported cpu (e.g. a15) with a single executable binary</span>
+<span class="s2">      for that cpu, in addition to a &quot;generic&quot; subdirectory that has not been optimized for a specific</span>
+<span class="s2">      cpu and should run on any ARM system.</span>
+<span class="s2">    - &quot;data&quot; contains all additional files (input, configuration, etc) that  the benchmark executable</span>
+<span class="s2">      relies on.</span>
+<span class="s2">    - &quot;scripts&quot; contains one or more one-liner shell scripts that invoke the benchmark binary with</span>
+<span class="s2">      appropriate command line parameters. The name of the script must be in the format</span>
+<span class="s2">      &lt;benchmark name&gt;[.&lt;variant name&gt;].sh, i.e. name of benchmark, optionally followed by variant</span>
+<span class="s2">      name, followed by &quot;.sh&quot; extension. If there is more than one script, then all of them must</span>
+<span class="s2">      have  a variant; if there is only one script the it should not contain a variant.</span>
+
+<span class="s2">    A typical bundle may look like this::</span>
+
+<span class="s2">        |- fp</span>
+<span class="s2">        |  |-- ammp</span>
+<span class="s2">        |  |   |-- cpus</span>
+<span class="s2">        |  |   |   |-- generic</span>
+<span class="s2">        |  |   |   |   |-- ammp</span>
+<span class="s2">        |  |   |   |-- a15</span>
+<span class="s2">        |  |   |   |   |-- ammp</span>
+<span class="s2">        |  |   |   |-- a7</span>
+<span class="s2">        |  |   |   |   |-- ammp</span>
+<span class="s2">        |  |   |-- data</span>
+<span class="s2">        |  |   |   |-- ammp.in</span>
+<span class="s2">        |  |   |-- scripts</span>
+<span class="s2">        |  |   |   |-- ammp.sh</span>
+<span class="s2">        |  |-- applu</span>
+<span class="s2">        .  .   .</span>
+<span class="s2">        .  .   .</span>
+<span class="s2">        .  .   .</span>
+<span class="s2">        |- int</span>
+<span class="s2">        .</span>
+
+<span class="s2">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># TODO: This is a bit of a hack. Need to re-think summary metric indication</span>
+    <span class="c1">#      (also more than just summary/non-summary classification?)</span>
+    <span class="k">class</span> <span class="nc">_SPECSummaryMetrics</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">item</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;_real&#39;</span><span class="p">)</span>
+
+    <span class="n">asset_file</span> <span class="o">=</span> <span class="s1">&#39;spec2000-assets.tar.gz&#39;</span>
+
+    <span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">Alias</span><span class="p">(</span><span class="s1">&#39;spec2k&#39;</span><span class="p">),</span>
+    <span class="p">]</span>
+
+    <span class="n">summary_metrics</span> <span class="o">=</span> <span class="n">_SPECSummaryMetrics</span><span class="p">()</span>
+
+    <span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;benchmarks&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">list_or_string</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Specifies the SPEC benchmarks to run.&#39;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;mode&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">allowed_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;speed&#39;</span><span class="p">,</span> <span class="s1">&#39;rate&#39;</span><span class="p">],</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;speed&#39;</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s1">&#39;SPEC benchmarks can report either speed to execute or throughput/rate. &#39;</span>
+                              <span class="s1">&#39;In the latter case, several &quot;threads&quot; will be spawned.&#39;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;number_of_threads&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Specify the number of &quot;threads&quot; to be used in </span><span class="se">\&#39;</span><span class="s1">rate</span><span class="se">\&#39;</span><span class="s1"> mode. (Note: &#39;</span>
+                              <span class="s1">&#39;on big.LITTLE systems this is the number of threads, for *each cluster*). &#39;</span><span class="p">),</span>
+
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;force_extract_assets&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">boolean</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s1">&#39;if set to ``True``, will extract assets from the bundle, even if they are &#39;</span>
+                              <span class="s1">&#39;already extracted. Note: this option implies ``force_push_assets``.&#39;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;force_push_assets&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">boolean</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s1">&#39;If set to ``True``, assets will be pushed to device even if they</span><span class="se">\&#39;</span><span class="s1">re already &#39;</span>
+                              <span class="s1">&#39;present.&#39;</span><span class="p">),</span>
+        <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;timeout&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">20</span> <span class="o">*</span> <span class="mi">60</span><span class="p">,</span>
+                  <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Timeout, in seconds, for the execution of single spec test.&#39;</span><span class="p">),</span>
+    <span class="p">]</span>
+
+    <span class="n">speed_run_template</span> <span class="o">=</span> <span class="s1">&#39;cd </span><span class="si">{datadir}</span><span class="s1">; time (</span><span class="si">{launch_command}</span><span class="s1">)&#39;</span>
+    <span class="n">rate_run_template</span> <span class="o">=</span> <span class="s1">&#39;cd </span><span class="si">{datadir}</span><span class="s1">; time (</span><span class="si">{loop}</span><span class="s1">; wait)&#39;</span>
+    <span class="n">loop_template</span> <span class="o">=</span> <span class="s1">&#39;for i in $(</span><span class="si">{busybox}</span><span class="s1"> seq 1 </span><span class="si">{threads}</span><span class="s1">); do </span><span class="si">{launch_command}</span><span class="s1"> 1&gt;/dev/null 2&gt;&amp;1 &amp; done&#39;</span>
+    <span class="n">launch_template</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{busybox}</span><span class="s1"> taskset </span><span class="si">{cpumask}</span><span class="s1"> </span><span class="si">{command}</span><span class="s1"> 1&gt;/dev/null 2&gt;&amp;1&#39;</span>
+
+    <span class="n">timing_regex</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">r&#39;(?P&lt;minutes&gt;\d+)m(?P&lt;seconds&gt;[\d.]+)s\s+(?P&lt;category&gt;\w+)&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Spec2000.init_resources"><a class="viewcode-back" href="../../../api/wlauto.workloads.spec2000.html#wlauto.workloads.spec2000.Spec2000.init_resources">[docs]</a>    <span class="k">def</span> <span class="nf">init_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_load_spec_benchmarks</span><span class="p">(</span><span class="n">context</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Spec2000.setup"><a class="viewcode-back" href="../../../api/wlauto.workloads.spec2000.html#wlauto.workloads.spec2000.Spec2000.setup">[docs]</a>    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="n">cpus</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">core_names</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">cpus</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">WorkloadError</span><span class="p">(</span><span class="s1">&#39;Device has not specified CPU cores configuration.&#39;</span><span class="p">)</span>
+        <span class="n">cpumap</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">cpu</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cpus</span><span class="p">):</span>
+            <span class="n">cpumap</span><span class="p">[</span><span class="n">cpu</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">benchspec</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">benchmarks</span><span class="p">:</span>
+            <span class="n">commandspecs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_verify_and_deploy_benchmark</span><span class="p">(</span><span class="n">benchspec</span><span class="p">,</span> <span class="n">cpumap</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_build_command</span><span class="p">(</span><span class="n">benchspec</span><span class="p">,</span> <span class="n">commandspecs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Spec2000.run"><a class="viewcode-back" href="../../../api/wlauto.workloads.spec2000.html#wlauto.workloads.spec2000.Spec2000.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">command</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">commands</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">timings</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Spec2000.update_result"><a class="viewcode-back" href="../../../api/wlauto.workloads.spec2000.html#wlauto.workloads.spec2000.Spec2000.update_result">[docs]</a>    <span class="k">def</span> <span class="nf">update_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">benchmark</span><span class="p">,</span> <span class="n">output</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">timings</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+            <span class="n">matches</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">timing_regex</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+            <span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">:</span>
+                <span class="n">category</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+                <span class="n">mins</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;minutes&#39;</span><span class="p">))</span>
+                <span class="n">secs</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;seconds&#39;</span><span class="p">))</span>
+                <span class="n">total</span> <span class="o">=</span> <span class="n">secs</span> <span class="o">+</span> <span class="mi">60</span> <span class="o">*</span> <span class="n">mins</span>
+                <span class="n">context</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">add_metric</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">benchmark</span><span class="p">,</span> <span class="n">category</span><span class="p">]),</span>
+                                          <span class="n">total</span><span class="p">,</span> <span class="s1">&#39;seconds&#39;</span><span class="p">,</span>
+                                          <span class="n">lower_is_better</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Could not get timings for </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">benchmark</span><span class="p">))</span></div>
+
+    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">force_extract_assets</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">force_push_assets</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">benchmarks</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># pylint: disable=access-member-before-definition</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">benchmarks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">benchname</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">benchmarks</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">benchname</span> <span class="o">==</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">benchmarks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loaded_benchmarks</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+                <span class="k">break</span>
+            <span class="k">if</span> <span class="n">benchname</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">loaded_benchmarks</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">ConfigError</span><span class="p">(</span><span class="s1">&#39;Unknown SPEC benchmark: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">benchname</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;speed&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">number_of_threads</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">ConfigError</span><span class="p">(</span><span class="s1">&#39;number_of_threads cannot be specified in speed mode.&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Unexpected SPEC2000 mode: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="p">))</span>  <span class="c1"># Should never get here</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">commands</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timings</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="nf">_load_spec_benchmarks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loaded_benchmarks</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">categories</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">force_extract_assets</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dependencies_directory</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">bundle</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">resolver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ExtensionAsset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">asset_file</span><span class="p">))</span>
+            <span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">bundle</span><span class="p">,</span> <span class="s1">&#39;r:gz&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">tf</span><span class="p">:</span>
+                <span class="n">tf</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dependencies_directory</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dependencies_directory</span><span class="p">):</span>
+            <span class="n">entrypath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dependencies_directory</span><span class="p">,</span> <span class="n">entry</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">entrypath</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">bench</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">entrypath</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">categories</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+                    <span class="n">benchpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">entrypath</span><span class="p">,</span> <span class="n">bench</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_load_benchmark</span><span class="p">(</span><span class="n">benchpath</span><span class="p">,</span> <span class="n">entry</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_load_benchmark</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">category</span><span class="p">):</span>
+        <span class="n">datafiles</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">cpus</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">)):</span>
+            <span class="n">datafiles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">df</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">cpu</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;cpus&#39;</span><span class="p">)):</span>
+            <span class="n">cpus</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cpu</span><span class="p">)</span>
+        <span class="n">commandsdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;commands&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">command</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">commandsdir</span><span class="p">):</span>
+            <span class="n">bench</span> <span class="o">=</span> <span class="n">SpecBenchmark</span><span class="p">()</span>
+            <span class="n">bench</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">command</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">bench</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span>
+            <span class="n">bench</span><span class="o">.</span><span class="n">category</span> <span class="o">=</span> <span class="n">category</span>
+            <span class="n">bench</span><span class="o">.</span><span class="n">datafiles</span> <span class="o">=</span> <span class="n">datafiles</span>
+            <span class="n">bench</span><span class="o">.</span><span class="n">cpus</span> <span class="o">=</span> <span class="n">cpus</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">commandsdir</span><span class="p">,</span> <span class="n">command</span><span class="p">))</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+                <span class="n">bench</span><span class="o">.</span><span class="n">command_template</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">Template</span><span class="p">(</span><span class="n">fh</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">loaded_benchmarks</span><span class="p">[</span><span class="n">bench</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">bench</span>
+
+    <span class="k">def</span> <span class="nf">_verify_and_deploy_benchmark</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">benchspec</span><span class="p">,</span> <span class="n">cpumap</span><span class="p">):</span>  <span class="c1"># pylint: disable=R0914</span>
+        <span class="sd">&quot;&quot;&quot;Verifies that the supplied benchmark spec is valid and deploys the required assets</span>
+<span class="sd">        to the device (if necessary). Returns a list of command specs (one for each CPU cluster)</span>
+<span class="sd">        that can then be used to construct the final command.&quot;&quot;&quot;</span>
+        <span class="n">bench</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loaded_benchmarks</span><span class="p">[</span><span class="n">benchspec</span><span class="p">]</span>
+        <span class="n">basename</span> <span class="o">=</span> <span class="n">benchspec</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">datadir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">working_directory</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">basename</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">force_push_assets</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">file_exists</span><span class="p">(</span><span class="n">datadir</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;mkdir -p </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">datadir</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">datafile</span> <span class="ow">in</span> <span class="n">bench</span><span class="o">.</span><span class="n">datafiles</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">push_file</span><span class="p">(</span><span class="n">datafile</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">datadir</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">datafile</span><span class="p">)))</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;speed&#39;</span><span class="p">:</span>
+            <span class="n">cpus</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_fastest_cpu</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cpus</span> <span class="o">=</span> <span class="n">cpumap</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+        <span class="n">cmdspecs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">cpu</span> <span class="ow">in</span> <span class="n">cpus</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">host_bin_file</span> <span class="o">=</span> <span class="n">bench</span><span class="o">.</span><span class="n">get_binary</span><span class="p">(</span><span class="n">cpu</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">msg</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span>
+                    <span class="n">msg</span> <span class="o">+=</span> <span class="s1">&#39; Attempting to use generic binary instead.&#39;</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                    <span class="n">host_bin_file</span> <span class="o">=</span> <span class="n">bench</span><span class="o">.</span><span class="n">get_binary</span><span class="p">(</span><span class="s1">&#39;generic&#39;</span><span class="p">)</span>
+                    <span class="n">cpu</span> <span class="o">=</span> <span class="s1">&#39;generic&#39;</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">ConfigError</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>  <span class="c1"># re-raising as user error</span>
+            <span class="n">binname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">host_bin_file</span><span class="p">)</span>
+            <span class="n">binary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="n">host_bin_file</span><span class="p">,</span> <span class="n">with_name</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">binname</span><span class="p">,</span> <span class="n">cpu</span><span class="p">]))</span>
+            <span class="n">commandspec</span> <span class="o">=</span> <span class="n">CommandSpec</span><span class="p">()</span>
+            <span class="n">commandspec</span><span class="o">.</span><span class="n">command</span> <span class="o">=</span> <span class="n">bench</span><span class="o">.</span><span class="n">command_template</span><span class="o">.</span><span class="n">substitute</span><span class="p">({</span><span class="s1">&#39;binary&#39;</span><span class="p">:</span> <span class="n">binary</span><span class="p">})</span>
+            <span class="n">commandspec</span><span class="o">.</span><span class="n">datadir</span> <span class="o">=</span> <span class="n">datadir</span>
+            <span class="n">commandspec</span><span class="o">.</span><span class="n">cpumask</span> <span class="o">=</span> <span class="n">get_cpu_mask</span><span class="p">(</span><span class="n">cpumap</span><span class="p">[</span><span class="n">cpu</span><span class="p">])</span>
+            <span class="n">cmdspecs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">commandspec</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">cmdspecs</span>
+
+    <span class="k">def</span> <span class="nf">_build_command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">commandspecs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;speed&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">commandspecs</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="s1">&#39;Must be exactly one command spec specified in speed mode.&#39;</span><span class="p">)</span>
+            <span class="n">spec</span> <span class="o">=</span> <span class="n">commandspecs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">launch_command</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">launch_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">busybox</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">busybox</span><span class="p">,</span>
+                                                         <span class="n">command</span><span class="o">=</span><span class="n">spec</span><span class="o">.</span><span class="n">command</span><span class="p">,</span> <span class="n">cpumask</span><span class="o">=</span><span class="n">spec</span><span class="o">.</span><span class="n">cpumask</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">commands</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">speed_run_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">datadir</span><span class="o">=</span><span class="n">spec</span><span class="o">.</span><span class="n">datadir</span><span class="p">,</span>
+                                                                       <span class="n">launch_command</span><span class="o">=</span><span class="n">launch_command</span><span class="p">)))</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;rate&#39;</span><span class="p">:</span>
+            <span class="n">loops</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">spec</span> <span class="ow">in</span> <span class="n">commandspecs</span><span class="p">:</span>
+                <span class="n">launch_command</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">launch_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">busybox</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">busybox</span><span class="p">,</span>
+                                                             <span class="n">command</span><span class="o">=</span><span class="n">spec</span><span class="o">.</span><span class="n">command</span><span class="p">,</span> <span class="n">cpumask</span><span class="o">=</span><span class="n">spec</span><span class="o">.</span><span class="n">cpumask</span><span class="p">)</span>
+                <span class="n">loops</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">loop_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">busybox</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">busybox</span><span class="p">,</span>
+                                                       <span class="n">launch_command</span><span class="o">=</span><span class="n">launch_command</span><span class="p">,</span> <span class="n">threads</span><span class="o">=</span><span class="n">spec</span><span class="o">.</span><span class="n">threads</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">commands</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate_run_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">datadir</span><span class="o">=</span><span class="n">spec</span><span class="o">.</span><span class="n">datadir</span><span class="p">,</span>
+                                                                          <span class="n">loop</span><span class="o">=</span><span class="s1">&#39;; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">loops</span><span class="p">))))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Unexpected SPEC2000 mode: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="p">))</span>  <span class="c1"># Should never get here</span>
+
+    <span class="k">def</span> <span class="nf">_get_fastest_cpu</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">cpu_types</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">core_names</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cpu_types</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cpu_types</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="n">fastest_cpu</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">fastest_freq</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">cpu_type</span> <span class="ow">in</span> <span class="n">cpu_types</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">get_core_online_cpu</span><span class="p">(</span><span class="n">cpu_type</span><span class="p">)</span>
+                <span class="n">freq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">get_cpu_max_frequency</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">freq</span> <span class="o">&gt;</span> <span class="n">fastest_freq</span><span class="p">:</span>
+                    <span class="n">fastest_freq</span> <span class="o">=</span> <span class="n">freq</span>
+                    <span class="n">fastest_cpu</span> <span class="o">=</span> <span class="n">cpu_type</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">pass</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">fastest_cpu</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">WorkloadError</span><span class="p">(</span><span class="s1">&#39;No active CPUs found on device. Something is very wrong...&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">fastest_cpu</span></div>
+
+
+<div class="viewcode-block" id="SpecBenchmark"><a class="viewcode-back" href="../../../api/wlauto.workloads.spec2000.html#wlauto.workloads.spec2000.SpecBenchmark">[docs]</a><span class="k">class</span> <span class="nc">SpecBenchmark</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">category</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">command_template</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cpus</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">datafiles</span> <span class="o">=</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="SpecBenchmark.get_binary"><a class="viewcode-back" href="../../../api/wlauto.workloads.spec2000.html#wlauto.workloads.spec2000.SpecBenchmark.get_binary">[docs]</a>    <span class="k">def</span> <span class="nf">get_binary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cpu</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">cpu</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpus</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;CPU </span><span class="si">{}</span><span class="s1"> is not supported by </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cpu</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+        <span class="n">binpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;cpus&#39;</span><span class="p">,</span> <span class="n">cpu</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">binpath</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;CPU </span><span class="si">{}</span><span class="s1"> is not supported by </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cpu</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">binpath</span></div></div>
+
+
+<div class="viewcode-block" id="CommandSpec"><a class="viewcode-back" href="../../../api/wlauto.workloads.spec2000.html#wlauto.workloads.spec2000.CommandSpec">[docs]</a><span class="k">class</span> <span class="nc">CommandSpec</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cpumask</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">datadir</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">command</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">threads</span> <span class="o">=</span> <span class="kc">None</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Workload Automation 2.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, ARM Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>
