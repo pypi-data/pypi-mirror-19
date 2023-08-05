@@ -1,0 +1,14 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+django_rest_secureview/__init__.py
+django_rest_secureview/blueprints.py
+django_rest_secureview/decorators.py
+django_rest_secureview.egg-info/PKG-INFO
+django_rest_secureview.egg-info/SOURCES.txt
+django_rest_secureview.egg-info/dependency_links.txt
+django_rest_secureview.egg-info/requires.txt
+django_rest_secureview.egg-info/top_level.txt
