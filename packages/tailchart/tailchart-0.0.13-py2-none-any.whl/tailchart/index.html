@@ -1,0 +1,98 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <title>Index</title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/highcharts/5.0.6/css/highcharts.css" ></link>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/highcharts/5.0.6/highcharts.js"></script>
+</head>
+<body>
+    <div id="container" style="width:100%; height:400px;"></div>
+
+    <script type="text/javascript">
+
+Highcharts.setOptions({global: { useUTC: false } });
+var chart;
+var scatter;
+function requestData(ts) {
+    ts = ts || 0;
+    $.ajax({
+        url: '/get?ts=' + ts,
+        success: function(obj) {
+            for (var i in obj.data) {
+                if (scatter) {
+                    chart.series[0].addPoint(obj.data[i], true)
+                } else {
+                    for (var si in chart.series) {
+                        var series = chart.series[si];
+                        var shift = series.data.length > 100;
+                        chart.series[si].addPoint([obj.ts - obj.data.length + i, obj.data[i][si]], true, shift);
+                    }
+                }
+            }
+
+            // call it again after one second
+            setTimeout(function() {requestData(obj.ts);}, 500);
+        },
+        cache: false
+    });
+}
+
+function initConfig() {
+    $.ajax({
+        url: '/init',
+        success: function(obj) {
+            var xname = "x";
+            var yname = "y";
+            if (obj.mode == "scatter") {
+                scatter = true;
+                xname = obj.series[0];
+                yname = obj.series[1];
+            }
+
+            chart = new Highcharts.Chart({
+                chart: {
+                    renderTo: 'container',
+                    defaultSeriesType: 'spline',
+                    type: obj.mode,
+                    events: {
+                        load: function() {requestData(0);}
+                    }
+                },
+                title: {
+                    text: ''
+                },
+                xAxis: {
+                    tickPixelInterval: 150,
+                    maxZoom: 20 * 1000,
+                    title: {
+                        text: xname,
+                    }
+
+                },
+                yAxis: {
+                    minPadding: 0.2,
+                    maxPadding: 0.2,
+                    title: {
+                        text: yname,
+                    }
+                },
+            });
+            if (!scatter) {
+                for (var i in obj.series) { chart.addSeries({name: obj.series[i], data: []}); }
+            } else {
+                chart.addSeries({name: "scatter"});
+            }
+        }
+    });
+}
+
+
+$(document).ready(function(){
+    initConfig();
+});
+
+    </script>
+</body>
+</html>
