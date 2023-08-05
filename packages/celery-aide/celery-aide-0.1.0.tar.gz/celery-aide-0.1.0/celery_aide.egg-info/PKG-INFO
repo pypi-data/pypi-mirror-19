@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: celery-aide
+Version: 0.1.0
+Summary: An app which automatically keeps track of celery tasks run in separate apps and allows for task retries and monitoring through Django.
+Home-page: http://www.github.com/chris7/celery-aide
+Author: Chris Mitchell
+Author-email: chris.mit7@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
