@@ -1,0 +1,343 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. Examining the data &mdash; csvkit 1.0.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="csvkit 1.0.0 documentation" href="../index.html"/>
+        <link rel="up" title="Tutorial" href="../tutorial.html"/>
+        <link rel="next" title="3. Power tools" href="3_power_tools.html"/>
+        <link rel="prev" title="1. Getting started" href="1_getting_started.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> csvkit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Tutorial</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1_getting_started.html">1. Getting started</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">2. Examining the data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#csvstat-statistics-without-code">2.1. csvstat: statistics without code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csvgrep-find-the-data-you-need">2.2. csvgrep: find the data you need</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csvsort-order-matters">2.3. csvsort: order matters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summing-up">2.4. Summing up</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_power_tools.html">3. Power tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_going_elsewhere.html">4. Going elsewhere with your data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tricks.html">Tips and Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to csvkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Release process</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">csvkit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../tutorial.html">Tutorial</a> &raquo;</li>
+      
+    <li>2. Examining the data</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/tutorial/2_examining_the_data.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="examining-the-data">
+<h1>2. Examining the data<a class="headerlink" href="#examining-the-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="csvstat-statistics-without-code">
+<h2>2.1. csvstat: statistics without code<a class="headerlink" href="#csvstat-statistics-without-code" title="Permalink to this headline">¶</a></h2>
+<p>In the previous section we saw how we could use <code class="xref doc docutils literal"><span class="pre">csvlook</span></code> and <code class="xref doc docutils literal"><span class="pre">csvcut</span></code> to view slices of our data. This is a good tool for exploring a dataset, but in practice we usually need to get the broadest possible view before we can start diving into specifics.</p>
+<p><a class="reference internal" href="../scripts/csvstat.html"><em>csvstat</em></a> is designed to give us just such a broad understanding of our data. Inspired by the <code class="docutils literal"><span class="pre">summary()</span></code> function from the computational statistics programming language <a class="reference external" href="http://www.r-project.org/">&#8220;R&#8221;</a>, <code class="docutils literal"><span class="pre">csvstat</span></code> will generate summary statistics for all the data in a CSV file.</p>
+<p>Let&#8217;s examine summary statistics for a few columns from our dataset. As we learned in the last section, we can use <code class="docutils literal"><span class="pre">csvcut</span></code> and a pipe to pick out the columns we want:</p>
+<div class="highlight-bash"><div class="highlight"><pre>csvcut -c county,acquisition_cost,ship_date data.csv <span class="p">|</span> csvstat
+</pre></div>
+</div>
+<div class="highlight-none"><div class="highlight"><pre>1. county
+  Text
+  Nulls: False
+  Unique values: 35
+  Max length: 10
+  5 most frequent values:
+      DOUGLAS:      760
+      DAKOTA:       42
+      CASS: 37
+      HALL: 23
+      LANCASTER:    18
+2. acquisition_cost
+  Number
+  Nulls: False
+  Min: 0.0
+  Max: 412000.0
+  Sum: 5430787.55
+  Mean: 5242.072924710424710424710425
+  Median: 6000.0
+  Standard Deviation: 13368.07836799839045093904423
+  Unique values: 75
+  5 most frequent values:
+      6800.0:       304
+      10747.0:      195
+      6000.0:       105
+      499.0:        98
+      0.0:  81
+3. ship_date
+  Date
+  Nulls: False
+  Min: 2006-03-07
+  Max: 2014-01-30
+  Unique values: 84
+  5 most frequent values:
+      2013-04-25:   495
+      2013-04-26:   160
+      2008-05-20:   28
+      2012-04-16:   26
+      2006-11-17:   20
+
+Row count: 1036
+</pre></div>
+</div>
+<p><code class="xref doc docutils literal"><span class="pre">csvstat</span></code> infers the type of data in each column and then performs basic statistics on it. The particular statistics computed depend on the type of the column (numbers, text, dates, etc).</p>
+<p>In this example the first column, <code class="docutils literal"><span class="pre">county</span></code> was identified as type <code class="docutils literal"><span class="pre">Text</span></code>. We see that there are <code class="docutils literal"><span class="pre">35</span></code> counties represented in the dataset and that <code class="docutils literal"><span class="pre">DOUGLAS</span></code> is far and away the most frequently occurring. A quick Google search shows that there are <code class="docutils literal"><span class="pre">93</span></code> counties in Nebraska, so we know that either not every county received equipment or that the data is incomplete. We can also find out that Douglas county contains Omaha, the state&#8217;s largest city by far.</p>
+<p>The <code class="docutils literal"><span class="pre">acquisition_cost</span></code> column is type <code class="docutils literal"><span class="pre">Number</span></code>. We see that the largest individual cost was <code class="docutils literal"><span class="pre">412000.0</span></code>. (Probably dollars, but let&#8217;s not presume.) Total acquisition costs were <code class="docutils literal"><span class="pre">5430787.55</span></code>.</p>
+<p>Lastly, the <code class="docutils literal"><span class="pre">ship_date</span></code> column (type <code class="docutils literal"><span class="pre">Date</span></code>) shows us that the earliest data is from <code class="docutils literal"><span class="pre">2006</span></code> and the latest from <code class="docutils literal"><span class="pre">2014</span></code>. We may also note that an unusually large amount of equipment was shipped in April, 2013.</p>
+<p>As a journalist, this quick glance at the data gave me a tremendous amount of information about the dataset. Although we have to be careful about assuming to much from this quick glance (always double-check the numbers mean what you think they mean!) it can be an invaluable way to familiarize yourself with a new dataset.</p>
+</div>
+<div class="section" id="csvgrep-find-the-data-you-need">
+<h2>2.2. csvgrep: find the data you need<a class="headerlink" href="#csvgrep-find-the-data-you-need" title="Permalink to this headline">¶</a></h2>
+<p>After reviewing the summary statistics you might wonder what equipment was received by a particular county. To get a simple answer to the question we can use <a class="reference internal" href="../scripts/csvgrep.html"><em>csvgrep</em></a> to search for the state&#8217;s name amongst the rows. Let&#8217;s also use <code class="docutils literal"><span class="pre">csvcut</span></code> to just look at the columns we care about and <code class="docutils literal"><span class="pre">csvlook</span></code> to format the output:</p>
+<div class="highlight-bash"><div class="highlight"><pre>csvcut -c county,item_name,total_cost data.csv <span class="p">|</span> csvgrep -c county -m LANCASTER <span class="p">|</span> csvlook
+</pre></div>
+</div>
+<div class="highlight-none"><div class="highlight"><pre>| county    | item_name                      | total_cost |
+| --------- | ------------------------------ | ---------- |
+| LANCASTER | RIFLE,5.56 MILLIMETER          |        120 |
+| LANCASTER | RIFLE,5.56 MILLIMETER          |        120 |
+| LANCASTER | RIFLE,5.56 MILLIMETER          |        120 |
+| LANCASTER | RIFLE,5.56 MILLIMETER          |        120 |
+| LANCASTER | RIFLE,5.56 MILLIMETER          |        120 |
+| LANCASTER | RIFLE,5.56 MILLIMETER          |        120 |
+| LANCASTER | RIFLE,5.56 MILLIMETER          |        120 |
+| LANCASTER | RIFLE,5.56 MILLIMETER          |        120 |
+| LANCASTER | RIFLE,5.56 MILLIMETER          |        120 |
+| LANCASTER | RIFLE,5.56 MILLIMETER          |        120 |
+| LANCASTER | LIGHT ARMORED VEHICLE          |          0 |
+| LANCASTER | LIGHT ARMORED VEHICLE          |          0 |
+| LANCASTER | LIGHT ARMORED VEHICLE          |          0 |
+| LANCASTER | MINE RESISTANT VEHICLE         |    412,000 |
+| LANCASTER | IMAGE INTENSIFIER,NIGHT VISION |      6,800 |
+| LANCASTER | IMAGE INTENSIFIER,NIGHT VISION |      6,800 |
+| LANCASTER | IMAGE INTENSIFIER,NIGHT VISION |      6,800 |
+| LANCASTER | IMAGE INTENSIFIER,NIGHT VISION |      6,800 |
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">LANCASTER</span></code> county contains Lincoln, Nebraska, the capital of the state and its second-largest city. The <code class="docutils literal"><span class="pre">-m</span></code> flag means &#8220;match&#8221; and will find text anywhere in a given column&#8211;in this case the <code class="docutils literal"><span class="pre">county</span></code> column. For those who need a more powerful search you can also use <code class="docutils literal"><span class="pre">-r</span></code> to search for a regular expression.</p>
+</div>
+<div class="section" id="csvsort-order-matters">
+<h2>2.3. csvsort: order matters<a class="headerlink" href="#csvsort-order-matters" title="Permalink to this headline">¶</a></h2>
+<p>Now let&#8217;s use <a class="reference internal" href="../scripts/csvsort.html"><em>csvsort</em></a> to sort the rows by the <code class="docutils literal"><span class="pre">total_cost</span></code> column, in reverse (descending) order:</p>
+<div class="highlight-bash"><div class="highlight"><pre>csvcut -c county,item_name,total_cost data.csv <span class="p">|</span> csvgrep -c county -m LANCASTER <span class="p">|</span> csvsort -c total_cost -r <span class="p">|</span> csvlook
+</pre></div>
+</div>
+<div class="highlight-none"><div class="highlight"><pre>| county    | item_name                      | total_cost |
+| --------- | ------------------------------ | ---------- |
+| LANCASTER | MINE RESISTANT VEHICLE         |    412,000 |
+| LANCASTER | IMAGE INTENSIFIER,NIGHT VISION |      6,800 |
+| LANCASTER | IMAGE INTENSIFIER,NIGHT VISION |      6,800 |
+| LANCASTER | IMAGE INTENSIFIER,NIGHT VISION |      6,800 |
+| LANCASTER | IMAGE INTENSIFIER,NIGHT VISION |      6,800 |
+| LANCASTER | RIFLE,5.56 MILLIMETER          |        120 |
+| LANCASTER | RIFLE,5.56 MILLIMETER          |        120 |
+| LANCASTER | RIFLE,5.56 MILLIMETER          |        120 |
+| LANCASTER | RIFLE,5.56 MILLIMETER          |        120 |
+| LANCASTER | RIFLE,5.56 MILLIMETER          |        120 |
+| LANCASTER | RIFLE,5.56 MILLIMETER          |        120 |
+| LANCASTER | RIFLE,5.56 MILLIMETER          |        120 |
+| LANCASTER | RIFLE,5.56 MILLIMETER          |        120 |
+| LANCASTER | RIFLE,5.56 MILLIMETER          |        120 |
+| LANCASTER | RIFLE,5.56 MILLIMETER          |        120 |
+| LANCASTER | LIGHT ARMORED VEHICLE          |          0 |
+| LANCASTER | LIGHT ARMORED VEHICLE          |          0 |
+| LANCASTER | LIGHT ARMORED VEHICLE          |          0 |
+</pre></div>
+</div>
+<p>Two interesting things should jump out about this sorted data: that <code class="docutils literal"><span class="pre">LANCASTER</span></code> county got a very expensive <code class="docutils literal"><span class="pre">MINE</span> <span class="pre">RESISTANT</span> <span class="pre">VEHICLE</span></code> and that it also go three other <code class="docutils literal"><span class="pre">LIGHT</span> <span class="pre">ARMORED</span> <span class="pre">VEHICLE</span></code>.</p>
+<p>What commands would you use to figure out if other counties also received large numbers of vehicles?</p>
+</div>
+<div class="section" id="summing-up">
+<h2>2.4. Summing up<a class="headerlink" href="#summing-up" title="Permalink to this headline">¶</a></h2>
+<p>At this point you should be able to use csvkit to investigate the basic properties of a dataset. If you understand this section, you should be ready to move onto <a class="reference internal" href="3_power_tools.html"><em>Power tools</em></a>.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="3_power_tools.html" class="btn btn-neutral float-right" title="3. Power tools" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="1_getting_started.html" class="btn btn-neutral" title="1. Getting started" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Christopher Groskopf.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

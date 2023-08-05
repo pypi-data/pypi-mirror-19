@@ -1,0 +1,306 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>in2csv &mdash; csvkit 1.0.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="csvkit 1.0.0 documentation" href="../index.html"/>
+        <link rel="up" title="Reference" href="../cli.html"/>
+        <link rel="next" title="sql2csv" href="sql2csv.html"/>
+        <link rel="prev" title="Reference" href="../cli.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> csvkit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../cli.html">Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../cli.html#input">Input</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="">in2csv</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sql2csv.html">sql2csv</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cli.html#processing">Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli.html#output-and-analysis">Output and Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli.html#common-arguments">Common arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tricks.html">Tips and Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to csvkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Release process</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">csvkit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../cli.html">Reference</a> &raquo;</li>
+      
+    <li>in2csv</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/scripts/in2csv.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="in2csv">
+<h1>in2csv<a class="headerlink" href="#in2csv" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Converts various tabular data formats into CSV.</p>
+<p>Converting fixed width requires that you provide a schema file with the &#8220;-s&#8221; option. The schema file should have the following format:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">column</span><span class="p">,</span><span class="n">start</span><span class="p">,</span><span class="n">length</span>
+<span class="n">name</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span>
+<span class="n">birthday</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">10</span>
+<span class="n">age</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">3</span>
+</pre></div>
+</div>
+<p>The header line is required though the columns may be in any order:</p>
+<div class="highlight-python"><div class="highlight"><pre>usage: in2csv [-h] [-d DELIMITER] [-t] [-q QUOTECHAR] [-u {0,1,2,3}] [-b]
+              [-p ESCAPECHAR] [-z MAXFIELDSIZE] [-e ENCODING] [-S] [-H] [-v]
+              [-l] [--zero] [-f FILETYPE] [-s SCHEMA] [-k KEY] [-y SNIFFLIMIT]
+              [--sheet SHEET] [--no-inference]
+              [FILE]
+
+Convert common, but less awesome, tabular data formats to CSV.
+
+positional arguments:
+  FILE                  The file to operate on. If omitted, will accept input
+                        on STDIN.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -f FILETYPE, --format FILETYPE
+                        The format of the input file. If not specified will be
+                        inferred from the file type. Supported formats: csv,
+                        fixed, geojson, json, ndjson, xls, xlsx.
+  -s SCHEMA, --schema SCHEMA
+                        Specifies a CSV-formatted schema file for converting
+                        fixed-width files. See documentation for details.
+  -k KEY, --key KEY     Specifies a top-level key to use look within for a
+                        list of objects to be converted when processing JSON.
+  -y SNIFFLIMIT, --snifflimit SNIFFLIMIT
+                        Limit CSV dialect sniffing to the specified number of
+                        bytes. Specify &quot;0&quot; to disable sniffing entirely.
+  --sheet SHEET         The name of the XLSX sheet to operate on.
+  --no-inference        Disable type inference when parsing the input.
+</pre></div>
+</div>
+<p>See also: <a class="reference internal" href="../common_arguments.html"><em>Arguments common to all tools</em></a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The &#8220;ndjson&#8221; format refers to &#8220;newline delimited JSON&#8221;, as used by many streaming APIs.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If an XLS looks identical to an XLSX when viewed in Excel, they may not be identical as CSV. For example, XLSX has an integer type, but XLS doesn&#8217;t. Numbers that look like integers from an XLS will have decimals in CSV, but those from an XLSX won&#8217;t.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To convert from HTML, consider <a class="reference external" href="https://messytables.readthedocs.io/">messytables</a>.</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Convert the 2000 census geo headers file from fixed-width to CSV and from latin-1 encoding to utf8:</p>
+<div class="highlight-python"><div class="highlight"><pre>in2csv -e iso-8859-1 -f fixed -s examples/realdata/census_2000/census2000_geo_schema.csv examples/realdata/census_2000/usgeo_excerpt.upl
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>A library of fixed-width schemas is maintained in the <code class="docutils literal"><span class="pre">ffs</span></code> project:</p>
+<p class="last"><a class="reference external" href="https://github.com/wireservice/ffs">https://github.com/wireservice/ffs</a></p>
+</div>
+<p>Convert an Excel .xls file:</p>
+<div class="highlight-python"><div class="highlight"><pre>in2csv examples/test.xls
+</pre></div>
+</div>
+<p>Standardize the formatting of a CSV file (quoting, line endings, etc.):</p>
+<div class="highlight-python"><div class="highlight"><pre>in2csv examples/realdata/FY09_EDU_Recipients_by_State.csv
+</pre></div>
+</div>
+<p>Fetch csvkit&#8217;s open issues from the GitHub API, convert the JSON response into a CSV and write it to a file:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl https://api.github.com/repos/wireservice/csvkit/issues?state=open | in2csv -f json -v
+</pre></div>
+</div>
+<p>Convert a DBase DBF file to an equivalent CSV:</p>
+<div class="highlight-python"><div class="highlight"><pre>in2csv examples/testdbf.dbf
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sql2csv.html" class="btn btn-neutral float-right" title="sql2csv" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../cli.html" class="btn btn-neutral" title="Reference" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Christopher Groskopf.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,278 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>csvjoin &mdash; csvkit 1.0.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="csvkit 1.0.0 documentation" href="../index.html"/>
+        <link rel="up" title="Reference" href="../cli.html"/>
+        <link rel="next" title="csvsort" href="csvsort.html"/>
+        <link rel="prev" title="csvgrep" href="csvgrep.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> csvkit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../cli.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../cli.html#input">Input</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../cli.html#processing">Processing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="csvclean.html">csvclean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcut.html">csvcut</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvgrep.html">csvgrep</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">csvjoin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvsort.html">csvsort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvstack.html">csvstack</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cli.html#output-and-analysis">Output and Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli.html#common-arguments">Common arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tricks.html">Tips and Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to csvkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Release process</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">csvkit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../cli.html">Reference</a> &raquo;</li>
+      
+    <li>csvjoin</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/scripts/csvjoin.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="csvjoin">
+<h1>csvjoin<a class="headerlink" href="#csvjoin" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Merges two or more CSV tables together using a method analogous to SQL JOIN operation. By default it performs an inner join, but full outer, left outer, and right outer are also available via flags. Key columns are specified with the -c flag (either a single column which exists in all tables, or a comma-separated list of columns with one corresponding to each). If the columns flag is not provided then the tables will be merged &#8220;sequentially&#8221;, that is they will be merged in row order with no filtering:</p>
+<div class="highlight-python"><div class="highlight"><pre>usage: csvjoin [-h] [-d DELIMITER] [-t] [-q QUOTECHAR] [-u {0,1,2,3}] [-b]
+               [-p ESCAPECHAR] [-z MAXFIELDSIZE] [-e ENCODING] [-S] [-v] [-l]
+               [--zero] [-c COLUMNS] [--outer] [--left] [--right]
+               [FILE [FILE ...]]
+
+Execute a SQL-like join to merge CSV files on a specified column or columns.
+
+positional arguments:
+  FILE                  The CSV files to operate on. If only one is specified,
+                        it will be copied to STDOUT.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c COLUMNS, --columns COLUMNS
+                        The column name(s) on which to join. Should be either
+                        one name (or index) or a comma-separated list with one
+                        name (or index) for each file, in the same order that
+                        the files were specified. May also be left
+                        unspecified, in which case the two files will be
+                        joined sequentially without performing any matching.
+  --outer               Perform a full outer join, rather than the default
+                        inner join.
+  --left                Perform a left outer join, rather than the default
+                        inner join. If more than two files are provided this
+                        will be executed as a sequence of left outer joins,
+                        starting at the left.
+  --right               Perform a right outer join, rather than the default
+                        inner join. If more than two files are provided this
+                        will be executed as a sequence of right outer joins,
+                        starting at the right.
+
+Note that the join operation requires reading all files into memory. Don&#39;t try
+this on very large files.
+</pre></div>
+</div>
+<p>See also: <a class="reference internal" href="../common_arguments.html"><em>Arguments common to all tools</em></a>.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre>csvjoin -c 1 examples/join_a.csv examples/join_b.csv
+</pre></div>
+</div>
+<p>This command says you have two files to outer join, file1.csv and file2.csv. The key column in file1.csv is ColumnKey, the key column in file2.csv is Column Key.</p>
+<p>Add two empty columns to the right of a CSV:</p>
+<div class="highlight-python"><div class="highlight"><pre>echo &quot;,&quot; | csvjoin examples/dummy.csv -
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="csvsort.html" class="btn btn-neutral float-right" title="csvsort" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="csvgrep.html" class="btn btn-neutral" title="csvgrep" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Christopher Groskopf.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
