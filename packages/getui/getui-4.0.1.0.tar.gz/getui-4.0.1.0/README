@@ -1,0 +1,23 @@
+引用包时要在前面加上getui
+
+    import getui.xxx
+
+比如官方示例的代码
+
+    ...
+
+    from igetui.igt_message import IGtAppMessage
+    from igetui.template.igt_link_template import LinkTemplate
+    from igt_push import IGeTui
+
+    ...
+
+会变成
+
+    ...
+
+    from getui.igetui.igt_message import IGtAppMessage
+    from getui.igetui.template.igt_link_template import LinkTemplate
+    from getui.igt_push import IGeTui
+
+    ...
