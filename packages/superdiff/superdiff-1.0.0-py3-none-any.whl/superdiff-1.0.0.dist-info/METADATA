@@ -1,0 +1,14 @@
+Metadata-Version: 2.0
+Name: superdiff
+Version: 1.0.0
+Summary: A library for performing flexible diff checks.
+Home-page: https://github.com/james-perretta/superdiff
+Author: James Perretta
+Author-email: jameslp@umich.edu
+License: GNU Lesser General Public License v3
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.5
+
+This library currently requires Python 3.5+. Documentation can be found at http://superdiff.readthedocs.io/en/latest/
+
+
