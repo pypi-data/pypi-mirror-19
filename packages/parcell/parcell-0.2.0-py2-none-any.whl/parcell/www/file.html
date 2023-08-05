@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Parcell - File</title>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" type="text/css" href="lib/jk-js/lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css">
+  <script src="lib/jk-js/lib/d3/d3.min.js" charset="utf-8"></script>
+  <script src="lib/jk-js/jkjs/cell.js" charset="utf-8"></script>
+  <script src="lib/jk-js/jkjs/util.js" charset="utf-8"></script>
+  <script src="js/worker.js" charset="utf-8"></script>
+  <script src="js/list.js" charset="utf-8"></script>
+  <script src="js/net.js" charset="utf-8"></script>
+  <style>
+  .link {
+    cursor: pointer;
+  }
+
+  .link:hover {
+    color: #a1a1a1;
+  }
+  </style>
+</head>
+<body onload="start()">
+<div class="container">
+  <div class="row" style="margin-top: 5px">
+    <div class="col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title" style="clear: both;">
+            File <span id="filename"></span>
+            <span id="back" style="float: right;" class="link">
+              &#x2190;
+            </span>
+          </h3>
+        </div>
+        <div id="content"></div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <span id="status"></span>
+    </div>
+  </div>
+</div>
+<script>
+function getRange(s) {
+  var res = s.match(/L(\d+)((--|,|\.\.|:)(\d+))?/);
+  if(!res) return [ -1, -1 ];
+  var from = +res[1];
+  if(Number.isNaN(from)) {
+    return [ -1, -1 ]
+  }
+  var to = +res[4];
+  if(Number.isNaN(to)) {
+    to = from;
+  }
+  return [ from, to ];
+}
+
+function start() {
+  var urlArgs = jkjs.util.getQueryStrings();
+  var mainDiv = d3.select("#main");
+
+  var _fmt = d3.format(".3g");
+  var fmt = function(v) {
+    if(Math.floor(v) === v) {
+      return "" + v;
+    }
+    return _fmt(v);
+  };
+
+  var net = new Net(d3.select("#status"));
+  var work = new quick_server.Worker();
+  work.status(function(req) {
+    net.otherReq(req);
+  });
+  var project = net.getProject(urlArgs);
+  var server = urlArgs["server"];
+  var job = urlArgs["job"];
+  var file = urlArgs["file"];
+
+  d3.select("#back").on("click", function() {
+    var url = net.url("index.html", {
+      "project": project,
+      "server": server,
+      "job": job + "@" + server,
+      "dir": file.includes("/") ? file.replace(/\/[^/]*$/, "") : ".",
+    });
+    window.location = url;
+  });
+
+  var images = [ ".png", ".jpg", ".jpeg", ];
+  function get_file() {
+    var f = file;
+    d3.select("#filename").text(f);
+    var args = {
+      "project": project,
+      "server": server,
+      "job": job,
+      "file": f,
+    };
+    var sel = d3.select("#content").style({
+      "overflow-x": "auto",
+      "width": "100%",
+    });
+    sel.selectAll("*").remove();
+
+    function updateHighlight() {
+      var selRange = getRange(window.location.hash);
+      sel.selectAll("tr").style({
+        "background-color": function(ix) {
+          return ix >= selRange[0] && ix <= selRange[1] ? "#f8eec7" : "white";
+        },
+      });
+    } // updateHighlight
+
+    if(images.some(function(img) {
+      return f.endsWith(img);
+    })) {
+      var imgUrl = net.url("file/", args);
+      sel.append("a").attr({
+        "href": imgUrl,
+      }).append("img").attr({
+        "src": imgUrl,
+      }).style({
+        "width": "100%",
+      });
+    } else {
+      net.getPlain("file", "file/", args, function(text) {
+        var lines = text.split("\n");
+        var ixs = lines.map(function(l, ix) {
+          return ix;
+        });
+        var tsel = sel.select("table");
+        if(tsel.empty()) {
+          tsel = sel.append("table");
+        }
+        var lsel = tsel.selectAll("tr").data(ixs, function(ix) {
+          return ix;
+        });
+        lsel.exit().remove();
+        var lselE = lsel.enter().append("tr");
+        lselE.append("td").classed("lineno", true).style({
+          "cursor": "pointer",
+          "user-select": "none",
+        });
+        lselE.append("td").classed("line", true);
+
+        lsel.order().style({
+          "display": "block",
+          "font-family": 'Consolas, "Liberation Mono", Menlo, Courier, monospace',
+          "white-space": "pre",
+          "word-wrap": "normal",
+          "margin-left": 5 + "px",
+          "margin-right": 5 + "px",
+          "margin-top": function(ix) {
+            return ix ? 0 : 5 + "px";
+          },
+          "margin-bottom": function(ix) {
+            return ix < ixs.length - 1 ? 0 : 5 + "px";
+          },
+        });
+        lsel.selectAll(".lineno").text(function(ix) {
+          return ix + ": ";
+        }).attr({
+          "id": function(ix) {
+            return "L"+ix;
+          },
+        }).on("click", function(ix) {
+          window.location.hash = "L"+ix;
+          updateHighlight();
+        });
+        lsel.selectAll(".line").text(function(ix) {
+          return lines[ix];
+        });
+        updateHighlight();
+      });
+    }
+  } // get_file
+
+  function get_job_status() {
+    work.post("job_status", "status/", {
+      "project": project,
+      "server": server,
+      "job": job,
+    }, function(data) {
+      get_file();
+      var status = data["status"];
+      if(status !== "done" && status !== "error") {
+        setTimeout(get_job_status, 1000);
+      }
+    });
+  } // get_job_status
+
+  get_job_status();
+} // start
+</script>
+
+</body>
+</html>
