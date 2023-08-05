@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: nakadi-end2end
+Version: 0.9.7
+Summary: Measuring time for nakadi end-to-end processing
+Home-page: https://github.com/zalando-incubator/nakadi-end2end
+Author: Dmitry Sorokin
+Author-email: dmitriy.sorokin@zalando.de
+License: Apache License 2.0
+Description: UNKNOWN
+Keywords: measuring message processing time
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: Implementation :: CPython
