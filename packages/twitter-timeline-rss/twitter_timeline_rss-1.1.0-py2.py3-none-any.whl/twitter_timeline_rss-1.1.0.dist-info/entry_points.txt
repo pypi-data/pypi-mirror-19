@@ -1,0 +1,3 @@
+[console_scripts]
+twitter_timeline_rss = twitter_timeline_rss.cli:main
+
