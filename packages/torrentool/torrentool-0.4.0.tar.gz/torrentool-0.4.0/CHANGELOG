@@ -1,0 +1,33 @@
+torrentool changelog
+====================
+
+
+v0.4.0
+------
++ Added Torrent.get_magnet().
++ Added Torrent.webseeds (BEP-19).
++ Added Torrent.httpseeds (BEP-17).
++ CLI: Added `torrent info` command.
++ CLI: Windows compatibility improved (see #6)
+* Bencode.read_string() now accepts binary data.
+
+
+v0.3.0
+------
++ Added CLI: torrent create (including open trackers and cachers support).
++ Added Torrent `name` attr and string representation.
+* IMPORTANT: Fixed dictionaries bencoding (i.e. wrong .info_hash).
+* Fixed filename encoding on Py2.
+
+
+v0.2.0
+------
++ Implemented Torrent.create_from()
++ Implemented Torrent.private getter/setter
+* Fixed encoding error for non-ascii strings.
+- Removed encoding params from encode methods.
+
+
+v0.1.0
+------
++ Basic functionality.
