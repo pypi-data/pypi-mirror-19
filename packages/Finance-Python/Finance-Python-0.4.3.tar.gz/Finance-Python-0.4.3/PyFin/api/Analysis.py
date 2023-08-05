@@ -1,0 +1,155 @@
+# -*- coding: utf-8 -*-
+u"""
+Created on 2015-9-23
+
+@author: cheng.li
+"""
+
+
+import functools
+from PyFin.Analysis.TechnicalAnalysis import SecurityMovingAverage
+from PyFin.Analysis.TechnicalAnalysis import SecurityMovingMax
+from PyFin.Analysis.TechnicalAnalysis import SecurityMovingMinimum
+from PyFin.Analysis.TechnicalAnalysis import SecurityMovingSum
+from PyFin.Analysis.TechnicalAnalysis import SecurityMovingVariance
+from PyFin.Analysis.TechnicalAnalysis import SecurityMovingCountedPositive
+from PyFin.Analysis.TechnicalAnalysis import SecurityMovingPositiveAverage
+from PyFin.Analysis.TechnicalAnalysis import SecurityMovingRSI
+from PyFin.Analysis.TechnicalAnalysis import SecurityMovingHistoricalWindow
+from PyFin.Analysis.TechnicalAnalysis import SecuritySignValueHolder
+from PyFin.Analysis.TechnicalAnalysis import SecurityXAverageValueHolder
+from PyFin.Analysis.TechnicalAnalysis import SecurityMACDValueHolder
+from PyFin.Analysis.TechnicalAnalysis import SecuritySqrtValueHolder
+from PyFin.Analysis.TechnicalAnalysis import SecurityDiffValueHolder
+from PyFin.Analysis.TechnicalAnalysis import SecuritySimpleReturnValueHolder
+from PyFin.Analysis.TechnicalAnalysis import SecurityLogReturnValueHolder
+from PyFin.Analysis.TechnicalAnalysis import SecurityExpValueHolder
+from PyFin.Analysis.TechnicalAnalysis import SecurityLogValueHolder
+from PyFin.Analysis.TechnicalAnalysis import SecurityPowValueHolder
+from PyFin.Analysis.TechnicalAnalysis import SecurityAbsValueHolder
+from PyFin.Analysis.TechnicalAnalysis import SecurityAcosValueHolder
+from PyFin.Analysis.TechnicalAnalysis import SecurityAcoshValueHolder
+from PyFin.Analysis.TechnicalAnalysis import SecurityAsinValueHolder
+from PyFin.Analysis.TechnicalAnalysis import SecurityAsinhValueHolder
+from PyFin.Analysis.SecurityValueHolders import SecurityShiftedValueHolder
+from PyFin.Analysis.SecurityValueHolders import SecurityLatestValueHolder
+
+
+from PyFin.Analysis.SecurityValueHolders import RankedSecurityValueHolder
+
+
+def CSRank(dependency):
+    return RankedSecurityValueHolder(dependency)
+
+
+def SIGN(dependency='x'):
+    return SecuritySignValueHolder(dependency)
+
+
+def EMA(window, dependency='x'):
+    return SecurityXAverageValueHolder(window, dependency)
+
+
+def MACD(short, long, dependency='x'):
+    return SecurityMACDValueHolder(short, long, dependency)
+
+
+def RSI(window, dependency='x'):
+    return SecurityMovingRSI(window, dependency)
+
+
+def MA(window, dependency='x'):
+    return SecurityMovingAverage(window, dependency)
+
+
+def MAX(window, dependency='x'):
+    return SecurityMovingMax(window, dependency)
+
+
+def MIN(window, dependency='x'):
+    return SecurityMovingMinimum(window, dependency)
+
+
+def SUM(window, dependency='x'):
+    return SecurityMovingSum(window, dependency)
+
+
+def VARIANCE(window, dependency='x'):
+    return SecurityMovingVariance(window, dependency)
+
+
+def NPOSITIVE(window, dependency='x'):
+    return SecurityMovingCountedPositive(window, dependency)
+
+
+def MAPOSITIVE(window, dependency='x'):
+    return SecurityMovingPositiveAverage(window, dependency)
+
+
+def HIST(window, dependency='x'):
+    return SecurityMovingHistoricalWindow(window, dependency)
+
+
+def LAST(dependency='x'):
+    return SecurityLatestValueHolder(dependency)
+
+
+def SQRT(dependency='x'):
+    return SecuritySqrtValueHolder(dependency)
+
+
+def DIFF(dependency='x'):
+    return SecurityDiffValueHolder(dependency)
+
+
+def RETURNSimple(dependency='x'):
+    return SecuritySimpleReturnValueHolder(dependency)
+
+
+def RETURNLog(dependency='x'):
+    return SecurityLogReturnValueHolder(dependency)
+
+
+def EXP(dependency):
+    return SecurityExpValueHolder(dependency)
+
+
+def LOG(dependency):
+    return SecurityLogValueHolder(dependency)
+
+
+def POW(dependency):
+    return SecurityPowValueHolder(dependency)
+
+
+def ABS(dependency):
+    return SecurityAbsValueHolder(dependency)
+
+
+def ACOS(dependency):
+    return SecurityAcosValueHolder(dependency)
+
+
+def ACOSH(dependency):
+    return SecurityAcoshValueHolder(dependency)
+
+
+def ASIN(dependency):
+    return SecurityAsinValueHolder(dependency)
+
+
+def ASINH(dependency):
+    return SecurityAsinhValueHolder(dependency)
+
+
+def SHIFT(dependency, n):
+    return SecurityShiftedValueHolder(dependency, n)
+
+
+HIGH = functools.partial(LAST, 'high')
+LOW = functools.partial(LAST, 'low')
+OPEN = functools.partial(LAST, 'open')
+CLOSE = functools.partial(LAST, 'close')
+
+
+
