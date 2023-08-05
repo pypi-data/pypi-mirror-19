@@ -1,0 +1,30 @@
+Metadata-Version: 1.0
+Name: onetoonemap
+Version: 1.0.0
+Summary: 1:1 mapping collection type
+Home-page: https://github.com/cseelye/onetoonemap
+Author: Carl Seelye
+Author-email: cseelye@gmail.com
+License: MIT
+Description: ===========
+        onetoonemap
+        ===========
+        
+        This is a python module that implements a 1:1 mapping type - similar to a ``dict``, but as well as looking up values by keys (``m[k] -> v``), you can look up keys by values (``m[v] -> k``). 
+        
+        Given ``m = OneToOneMap()``, the following constraints are always true:
+        
+        .. code:: python
+        
+            m.get(key) == value
+            m.get(value) == key
+        
+            m.keys() == set(m.keys())
+            m.values() == set(m.values())
+            set(m.keys()) & set(m.values()) == set()
+            set.(m.keys()).isdisjoint(set(m.values())) == True
+        
+        
+        
+Keywords: 1:1 map dict
+Platform: UNKNOWN
