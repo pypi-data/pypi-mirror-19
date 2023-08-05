@@ -1,0 +1,146 @@
+Metadata-Version: 2.0
+Name: generic-utils
+Version: 0.20.0
+Summary: A set of generic utility classes and helper functions for Python development.
+Home-page: https://github.com/kevinseelbach/generic_utils
+Author: Kevin Seelbach
+Author-email: kevin.seelbach@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Utilities
+Requires-Dist: future
+Requires-Dist: setuptools
+Requires-Dist: six
+Provides-Extra: cassandra
+Requires-Dist: cassandra-driver; extra == 'cassandra'
+Provides-Extra: celery_test
+Requires-Dist: celery (>=3.1.20); extra == 'celery_test'
+Requires-Dist: celery-testutils; extra == 'celery_test'
+Requires-Dist: celery[threads]; extra == 'celery_test'
+Requires-Dist: redis; extra == 'celery_test'
+Provides-Extra: elasticsearch
+Requires-Dist: elasticsearch; extra == 'elasticsearch'
+Provides-Extra: html
+Requires-Dist: beautifulsoup4 (>=4.3.2); extra == 'html'
+Requires-Dist: lxml; extra == 'html'
+Requires-Dist: requests; extra == 'html'
+Provides-Extra: statsd
+Requires-Dist: statsd; extra == 'statsd'
+Provides-Extra: test_utils
+Requires-Dist: ddt; extra == 'test_utils'
+Requires-Dist: freezegun; extra == 'test_utils'
+Requires-Dist: mock; extra == 'test_utils'
+
+========
+Overview
+========
+
+.. start-badges
+
+.. list-table::
+    :stub-columns: 1
+
+    * - package
+      - |version|
+
+
+.. |version| image:: https://img.shields.io/pypi/v/generic_utils.svg?style=flat
+    :alt: PyPI Package latest release
+    :target: https://pypi.python.org/pypi/generic_utils
+
+.. end-badges
+
+A set of generic utility classes and helper functions for Python  development.
+
+generic_utils is a set of generic Python utilities which currently target
+Python 2.7.X environments with no other required dependencies.  The code
+targets both general production code as well as test utilities to facilitate
+easier test generation, management and complexity.
+
+This library is not currently intended to be generally useful to the community at
+large as there is work to be done to provide greater Python support as well as
+general documentation and upkeep, but has been used successfully in production
+environments within the prescribed environments.
+
+
+
+Installation
+============
+
+::
+
+    pip install generic_utils
+
+
+Development
+===========
+
+
+Install requirements into a local virtualenv::
+
+    virtualenv env
+    env/bin/pip install -e ".[html,cassandra,celery_test,test_utils]"
+
+
+This project requires available cassandra and redis hosts in order to run the full test-suite.
+
+Redis Setup::
+
+    docker run -d --name test-redis -p 6379:6379 -v /path/to/storage/redis:/data redis
+
+Connect to the container::
+
+    $ docker exec -i -t test-redis /bin/bash
+    $ root@7a3377df67f0:/data# redis-cli
+    127.0.0.1:6379> SET __THIS_IS_A_TEST_INSTANCE__ True
+    OK
+    127.0.0.1:6379> exit
+
+Cassandra Setup::
+
+    $ docker run --name test-cassandra -d -p 9042:9042 -p 7000:7000 -v /path/to/storage/cassandra:/var/lib/cassandra cassandra:3.0
+
+Connect to the container::
+
+    $ docker exec -i -t test-cassandra /bin/bash
+
+Open cqlsh and create the python_utils_test keyspace::
+
+    $ cqlsh
+    > CREATE KEYSPACE python_utils_test WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1} AND DURABLE_WRITES = true;
+
+
+Configure Cassandra cluster in `tests/local_settings.py` (not in version-control). Replace the values with appropriate
+values for your environment::
+
+    CQLENGINE = {
+        "TEST_CLUSTER": {
+            ConfigKey.CONTACT_POINTS: get_config_value("TEST_CASSANDRA_CONTACT_POINTS", default=["localhost"]),
+            ConfigKey.KEYSPACE: get_config_value("TEST_CASSANDRA_KEYSPACE", "python_utils_test"),
+            ConfigKey.PORT: get_config_value("TEST_CASSANDRA_PORT", default=9042),
+            ConfigKey.USERNAME: get_config_value("TEST_CASSANDRA_USERNAME", default=""),
+            ConfigKey.PASSWORD: get_config_value("TEST_CASSANDRA_PASSWORD", default=""),
+            ConfigKey.DEFAULT_TIMEOUT: EXPLICTLY_NOT_10_SECONDS_TIMEOUT
+        }
+    }
+
+Run the test suite::
+
+    nosetests tests
+
+Or, using tox::
+
+    tox
+
+
+
