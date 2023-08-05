@@ -1,0 +1,30 @@
+Metadata-Version: 2.0
+Name: ufo-extractor
+Version: 0.2.0.dev2
+Summary: Tools for extracting data from font binaries into UFO objects.
+Home-page: https://github.com/typesupply/extractor
+Author: Tal Leming
+Author-email: tal@typesupply.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Environment :: Other Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python
+Classifier: Topic :: Multimedia :: Graphics :: Editors :: Vector-Based
+Classifier: Topic :: Multimedia :: Graphics :: Graphics Conversion
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Processing :: Fonts
+Requires-Dist: fonttools (>=3.3.1)
+Requires-Dist: ufoLib (>=2.0.0)
+
+UNKNOWN
+
+
