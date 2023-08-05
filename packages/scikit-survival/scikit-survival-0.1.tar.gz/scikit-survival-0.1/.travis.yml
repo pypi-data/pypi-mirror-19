@@ -1,0 +1,29 @@
+sudo: required
+language: python
+python:
+  - "3.4"
+  - "3.5"
+env:
+  - NUMPY_VERSION=1.11
+
+cache:
+  directories:
+    - $HOME/miniconda3 # miniconda cache
+
+# Setup miniconda
+before_install:
+  - export PATH=$HOME/miniconda3/bin:$PATH
+  - ci/before_install_travis.sh
+
+# command to install dependencies
+install:
+  - conda install -n sksurv-test -c sebp --file requirements.txt
+  - source activate sksurv-test
+  - python setup.py install
+  - rm -fr sksurv
+
+# command to run tests
+script: nosetests -w tests --with-coverage --cover-package=sksurv --cover-tests
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
