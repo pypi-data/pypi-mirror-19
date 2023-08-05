@@ -1,0 +1,4 @@
+[console_scripts]
+authserver = c3reference.authserver:main
+listener = c3reference.listener:main
+
