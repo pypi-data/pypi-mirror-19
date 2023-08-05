@@ -1,0 +1,30 @@
+Metadata-Version: 2.0
+Name: passacre-backend
+Version: 0.16.1.0
+Summary: better repeatable password generation
+Home-page: https://github.com/habnabit/passacre
+Author: Aaron Gallagher
+Author-email: _@habnab.it
+License: ISC
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Security
+
+================
+passacre-backend
+================
+
+The backend that does all the work for `passacre`_.
+This is a native binary containing no python code.
+It's a lot of `Rust`_,
+which currently is difficult to compile.
+
+
+.. _passacre: https://github.com/habnabit/passacre
+.. _Rust: https://www.rust-lang.org/
+
+
