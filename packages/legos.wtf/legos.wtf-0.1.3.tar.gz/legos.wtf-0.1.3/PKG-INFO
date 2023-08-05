@@ -1,0 +1,85 @@
+Metadata-Version: 1.1
+Name: legos.wtf
+Version: 0.1.3
+Summary: Wikipedia Top Finder plugin for Legobot
+Home-page: https://github.com/bbriggs/legos.wtf
+Author: Brenton Briggs II
+Author-email: briggs.brenton@gmail.com
+License: GPLv3
+Description: Wikipedia Top Finder
+        ====================
+        
+        |Travis| |PyPI| |PyPI|
+        
+        |PyPI| |PyPI| |PyPI|
+        
+        Ever wish you could do an "I'm feeling lucky" search on Wikipedia right
+        from chat? Want to be able to pull up a wikipedia link right there in
+        the group and settle the debate once and for all? This module will
+        search the English langauge Wikipedia for the query you provide and
+        return the URL for the top matching page.
+        
+        Usage
+        -----
+        
+        This lego listens for ``!wtf`` at the beginning of a message and
+        processes everything after it as a query.
+        
+        Example: ``!wtf python`` will return
+        https://en.wikipedia.org/wiki/Python
+        
+        Installation
+        ------------
+        
+        ``pip3 install legos.wtf``
+        
+        This is a Lego designed for use with
+        `Legobot <https://github.com/bbriggs/Legobot>`__, so you'll get Legobot
+        along with this. To deploy it, import the package and add it to the
+        active legos like so:
+        
+        .. code:: python
+        
+            # This is the legobot stuff
+            from Legobot import Lego
+            # This is your lego
+            from legos.wtf import WikipediaTopFinder
+        
+            # Legobot stuff here
+            lock = threading.Lock()
+            baseplate = Lego.start(None, lock)
+            baseplate_proxy = baseplate.proxy()
+        
+            # Add your lego
+            baseplate_proxy.add_child(WikipediaTopFinder)
+        
+        Tweaking
+        --------
+        
+        While you can use this one as-is, you could also add a localized version
+        to your Legobot deployment by grabbing `wtf.py <legos/wtf.py>`__ and
+        deploying is as a local module. `Example of a Legobot instance with
+        local modules <https://github.com/voxpupuli/thevoxfox/>`__
+        
+        Contributing
+        ------------
+        
+        As always, pull requests are welcome.
+        
+        .. |Travis| image:: https://img.shields.io/travis/bbriggs/legos.wtf.svg
+           :target: 
+        .. |PyPI| image:: https://img.shields.io/pypi/pyversions/legos.wtf.svg
+           :target: 
+        .. |PyPI| image:: https://img.shields.io/pypi/v/legos.wtf.svg
+           :target: 
+        .. |PyPI| image:: https://img.shields.io/pypi/wheel/legos.wtf.svg
+           :target: 
+        .. |PyPI| image:: https://img.shields.io/pypi/l/legos.wtf.svg
+           :target: 
+        .. |PyPI| image:: https://img.shields.io/pypi/status/legos.wtf.svg
+           :target: 
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python :: 3
