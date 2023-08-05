@@ -1,0 +1,17 @@
+Metadata-Version: 2.0
+Name: dynamic-ip-aws-route53
+Version: 0.0.1
+Summary: Command line tool to update a dynamic IP to Route53
+Home-page: https://github.com/stuartornum/dynamic-ip-aws-route53
+Author: Stuart Munro
+Author-email: UNKNOWN
+License: MIT
+Platform: Posix; MacOS X
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Internet
+Requires-Dist: boto3 (==1.4.3)
+
+UNKNOWN
+
+
