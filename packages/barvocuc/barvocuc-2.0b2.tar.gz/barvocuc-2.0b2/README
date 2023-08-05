@@ -1,0 +1,18 @@
+Barvocuc
+========
+
+Software for Color Image Analysis
+
+
+Installation
+------------
+
+Barvocuc requires Python 3.5 or greater to work.
+
+In a Python virtual environment:
+
+    python3 -m pip install barvocuc
+
+
+To install into an isolated environment, such as Python virtualenv or Anaconda
+

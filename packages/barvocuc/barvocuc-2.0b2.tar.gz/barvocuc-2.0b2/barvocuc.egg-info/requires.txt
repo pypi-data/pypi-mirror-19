@@ -1,0 +1,13 @@
+Pillow
+Numpy
+Scipy
+Click
+
+[gui]
+PyQT5
+
+[oldconf]
+PyYAML
+
+[test]
+pytest
