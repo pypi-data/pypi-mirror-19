@@ -1,0 +1,19 @@
+
+
+A Fast Document Database in Pure Python.
+----------------------------------------
+
+Use case: You want to prototype an idea wihtout a heavyweight database install. If the idea works out though, you don't want
+to rewrite all of your data access code.
+
+EssentialDB helps solve that problem by being (nearly) api compatible with MongoDB. That way when your idea starts to grow,
+you can switch to MongoDB to scale.
+
+* Syntax and semantics are very similar to MongoDB, lowering the barrier of entry.
+* Fairly complex query support.
+* Its in pure python.
+* Its very fast.
+
+`Project On GitHub <https://github.com/shane-mason/essentialdb>`_ |
+`Full Docs @ ReadTheDocs <http://essentialdb.readthedocs.io/en/latest/>`_ |
+`Distribution On Pypi <https://pypi.python.org/pypi/essentialdb>`_
