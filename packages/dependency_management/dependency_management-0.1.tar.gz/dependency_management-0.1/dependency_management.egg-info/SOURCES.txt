@@ -1,0 +1,16 @@
+setup.cfg
+setup.py
+dependency_management.egg-info/PKG-INFO
+dependency_management.egg-info/SOURCES.txt
+dependency_management.egg-info/dependency_links.txt
+dependency_management.egg-info/requires.txt
+dependency_management.egg-info/top_level.txt
+requirements/DistributionRequirement.py
+requirements/GemRequirement.py
+requirements/GoRequirement.py
+requirements/JuliaRequirement.py
+requirements/NpmRequirement.py
+requirements/PackageRequirement.py
+requirements/PipRequirement.py
+requirements/RscriptRequirement.py
+requirements/__init__.py
