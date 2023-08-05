@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: newsboard
+Version: 0.0.1
+Summary: Gather many feeds in one
+Home-page: https://github.com/ZuluPro/newsboard
+Author: Anthony Monthe (ZuluPro)
+Author-email: anthony.monthe@gmail.com
+License: BSD
+Description: Newsboard
+        =========
+        
+        Reusable Django app inspired from [Sam et Max's multiboard](https://github.com/sametmax/multiboards). It aims to gather serveral type of feed in one app: RSS, Facebook, Sitemap or else.
+        
+Keywords: web,django,opengraph,web-rich-object,facebook,rss,sitemap
+Platform: UNKNOWN
+Classifier: Framework :: Django
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
