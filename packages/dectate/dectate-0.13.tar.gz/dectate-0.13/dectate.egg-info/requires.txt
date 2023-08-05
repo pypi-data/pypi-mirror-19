@@ -1,0 +1,14 @@
+setuptools
+
+[coverage]
+pytest-cov
+
+[docs]
+sphinx
+
+[pep8]
+flake8
+
+[test]
+pytest >= 2.9.0
+pytest-remove-stale-bytecode
