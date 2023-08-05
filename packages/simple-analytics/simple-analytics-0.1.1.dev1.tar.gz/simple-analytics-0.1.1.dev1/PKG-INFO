@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: simple-analytics
+Version: 0.1.1.dev1
+Summary: A simple python interface for Google's Analytics Reports API(v3).
+Home-page: https://github.com/euirim/simple-analytics
+Author: Euirim Choi
+Author-email: euirim@gmail.com
+License: MIT
+Description: UNKNOWN
+Keywords: simplea google analytics api
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
