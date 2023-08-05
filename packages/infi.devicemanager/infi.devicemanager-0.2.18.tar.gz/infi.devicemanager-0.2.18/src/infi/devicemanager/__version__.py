@@ -1,0 +1,11 @@
+__version__ = "0.2.18"
+__git_commiter_name__ = "Guy Rozendorn"
+__git_commiter_email__ = "guy@rzn.co.il"
+__git_branch__ = u'develop'
+__git_remote_tracking_branch__ = u'origin/develop'
+__git_remote_url__ = u'git@git.infinidat.com:host-opensource/infi.devicemanager.git'
+__git_head_hash__ = '914386dd3bd52af5a958214cd80fc74f176c7d06'
+__git_head_subject__ = u'Finished Release v0.2.18'
+__git_head_message__ = u'* develop:\n  HPT-1936 fixing case sensitivity'
+__git_dirty_diff__ = u''
+__git_commit_date__ = '2016-12-21 19:02:57'
