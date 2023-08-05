@@ -1,0 +1,14 @@
+Metadata-Version: 2.0
+Name: metakernel
+Version: 0.16.3
+Summary: Metakernel for Jupyter
+Home-page: https://github.com/Calysto/metakernel
+Author: Steven Silvester
+Author-email: steven.silvester@ieee.org
+License: UNKNOWN
+Requires-Dist: IPython (>=3.0)
+Requires-Dist: pexpect (>=4.2)
+
+A Jupyter/IPython kernel template which includes core magic functions (including help, command and file path completion, parallel and distributed processing, downloads, and much more).
+
+
