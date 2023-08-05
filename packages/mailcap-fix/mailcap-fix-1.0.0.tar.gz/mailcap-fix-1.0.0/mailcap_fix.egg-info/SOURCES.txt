@@ -1,0 +1,12 @@
+MANIFEST.in
+README.rst
+UNLICENSE
+setup.cfg
+setup.py
+mailcap_fix/__init__.py
+mailcap_fix/mailcap_fix.py
+mailcap_fix/mailcap_original.py
+mailcap_fix.egg-info/PKG-INFO
+mailcap_fix.egg-info/SOURCES.txt
+mailcap_fix.egg-info/dependency_links.txt
+mailcap_fix.egg-info/top_level.txt
