@@ -1,0 +1,17 @@
+Metadata-Version: 2.0
+Name: hyposchema
+Version: 0.2.3
+Summary: Generate Hypothesis generators from a json schema definition
+Home-page: https://github.com/mlakewood/hypo_schema
+Author: Mark Lakewood
+Author-email: underplank@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/mlakewood/hypo_schema/tarball/0.1
+Keywords: testing,hypothesis,json_schema,generative
+Platform: UNKNOWN
+Requires-Dist: hypothesis
+Requires-Dist: jsonschema
+
+UNKNOWN
+
+
