@@ -1,0 +1,23 @@
+Metadata-Version: 2.0
+Name: svmloader
+Version: 0.4
+Summary: a very fast parser for sparse matrix at libsvm format
+Home-page: https://github.com/yoch/svmloader
+Author: J. Melka
+Author-email: UNKNOWN
+License: GPL3
+Keywords: libsvm,sparse matrix,csr
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Cython
+Classifier: Topic :: Scientific/Engineering
+Requires-Dist: numpy
+Requires-Dist: scipy
+
+UNKNOWN
+
+
