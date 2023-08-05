@@ -1,0 +1,14 @@
+[console_scripts]
+contemplate = contemplate.__main__:main
+tpl = contemplate.__main__:main
+
+[contemplate_engine_v1]
+format = contemplate.engine.format:FormatEngine
+
+[contemplate_parser_v1]
+env = contemplate.parser.env:EnvParser
+json = contemplate.parser.json:JSONParser
+
+[contemplate_source_v1]
+file = contemplate.source.file:FileSource
+
