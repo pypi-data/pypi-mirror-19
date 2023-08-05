@@ -1,0 +1,3 @@
+include versioneer.py
+include GameOfThrones/_version.py
+recursive-include GameOfThrones/data *
