@@ -1,0 +1,24 @@
+CHANGES
+=======
+
+0.1.1
+-----
+
+* Add documentation for --call and an exmaple of searching everything
+* Add --call for searching for calls (of functions or new classes etc.)
+* Add an option to show some stats at the end of the search
+* Add a note about platform support
+* Fix some formatting issues in the code examples
+* Add output to the docs examples
+* Ignore under indentation warnings
+* Add help messages to the CLI
+* Handle individual files as an input and fix some logging output
+* Fix formatting in the README
+* Add hacking flake8 extensions
+* Remove extra encrypted values in the Travis config
+
+0.1.0
+-----
+
+* Further POC and initial documentation
+* Initial POC
