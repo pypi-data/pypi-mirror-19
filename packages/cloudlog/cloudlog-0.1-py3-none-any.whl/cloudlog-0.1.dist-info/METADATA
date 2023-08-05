@@ -1,0 +1,16 @@
+Metadata-Version: 2.0
+Name: cloudlog
+Version: 0.1
+Summary: A simple logger that duplicates console logs to a file, Dropbox and Telegram.
+Home-page: http://github.com/navoshta/cloudlog
+Author: Alex Staravoitau
+Author-email: alex.staravoitau@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: dropbox
+Requires-Dist: matplotlib
+Requires-Dist: twx.botapi
+
+UNKNOWN
+
+
