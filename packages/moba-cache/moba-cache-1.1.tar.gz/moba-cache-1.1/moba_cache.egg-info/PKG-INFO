@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: moba-cache
+Version: 1.1
+Summary: mobacache is a pythonic interface for creating a cache over redis. It provides simple decorators that can be added to any function to cache its return values. 
+Home-page: https://github.com/redrush85/mobacache
+Author: Alexander Kuts
+Author-email: redrush85@gmail.com
+License: MIT
+Download-URL: https://github.com/redrush85/mobacache
+Description: UNKNOWN
+Keywords: redis,cache,decorator
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
