@@ -1,0 +1,81 @@
+Metadata-Version: 1.1
+Name: file_read_backwards
+Version: 1.1.0
+Summary: Memory efficient way of reading files line-by-line from the end of file
+Home-page: https://github.com/robin81/file_read_backwards
+Author: Robin Robin
+Author-email: robin81@gmail.com
+License: MIT license
+Description: ===============================
+        file_read_backwards
+        ===============================
+        
+        
+        .. image:: https://img.shields.io/pypi/v/file_read_backwards.svg
+                :target: https://pypi.python.org/pypi/file_read_backwards
+        
+        .. image:: https://img.shields.io/travis/robin81/file_read_backwards.svg
+                :target: https://travis-ci.org/robin81/file_read_backwards
+        
+        .. image:: https://readthedocs.org/projects/file-read-backwards/badge/?version=latest
+                :target: https://file-read-backwards.readthedocs.io/en/latest/?badge=latest
+                :alt: Documentation Status
+        
+        .. image:: https://pyup.io/repos/github/robin81/file_read_backwards/shield.svg
+             :target: https://pyup.io/repos/github/robin81/file_read_backwards/
+             :alt: Updates
+        
+        
+        Memory efficient way of reading files line-by-line from the end of file
+        
+        
+        * Free software: MIT license
+        * Documentation: https://file-read-backwards.readthedocs.io.
+        
+        
+        Features
+        --------
+        
+        This package is for reading file backward line by line as unicode in a memory efficient manner. Think of it as a `tac` command for Python.
+        
+        It currently supports ascii and utf-8 encodings. Other encodings have not been tested.
+        
+        It supports "\\r", "\\r\\n", and "\\n" as new lines.
+        
+        Please see :doc:`usage` for examples.
+        
+        Credits
+        ---------
+        
+        This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+        
+        
+        =======
+        History
+        =======
+        
+        1.0.0 (2016-12-18)
+        ------------------
+        
+        * First release on PyPI.
+        
+        1.1.0 (2016-12-31)
+        ------------------
+        
+        * Added support for "latin-1".
+        * Marked the package "Production/Stable".
+Keywords: file_read_backwards
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
