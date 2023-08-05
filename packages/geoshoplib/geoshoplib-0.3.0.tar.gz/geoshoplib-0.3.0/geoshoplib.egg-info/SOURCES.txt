@@ -1,0 +1,15 @@
+CHANGES.rst
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+geoshoplib/__init__.py
+geoshoplib.egg-info/PKG-INFO
+geoshoplib.egg-info/SOURCES.txt
+geoshoplib.egg-info/dependency_links.txt
+geoshoplib.egg-info/not-zip-safe
+geoshoplib.egg-info/requires.txt
+geoshoplib.egg-info/top_level.txt
+geoshoplib/lib/__init__.py
+geoshoplib/lib/soap/__init__.py
+geoshoplib/lib/soap/services.py
