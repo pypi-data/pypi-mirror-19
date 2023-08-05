@@ -1,0 +1,4 @@
+[console_scripts]
+commit-msg = ahook.hooks.commit_msg:main
+pre-push = ahook.hooks.pre_push:main
+
