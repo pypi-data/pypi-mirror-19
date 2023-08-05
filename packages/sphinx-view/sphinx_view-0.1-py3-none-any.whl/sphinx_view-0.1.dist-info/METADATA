@@ -1,0 +1,28 @@
+Metadata-Version: 2.0
+Name: sphinx-view
+Version: 0.1
+Summary: blah
+Home-page: UNKNOWN
+Author: Tucker Beck
+Author-email: tucker.beck@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Documentation
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: Flask
+Requires-Dist: inflection
+Requires-Dist: sphinx
+Requires-Dist: livereload
+Provides-Extra: dev
+Requires-Dist: flake8; extra == 'dev'
+Requires-Dist: pytest; extra == 'dev'
+Requires-Dist: pytest-catchlog; extra == 'dev'
+Requires-Dist: pytest-flask; extra == 'dev'
+
+UNKNOWN
+
+

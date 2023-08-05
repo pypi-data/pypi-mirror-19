@@ -1,0 +1,54 @@
+#!python
+
+import tempfile
+
+from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
+from sview import create_server, build
+import os
+
+if __name__ == '__main__':
+    parser = ArgumentParser(
+        formatter_class=ArgumentDefaultsHelpFormatter,
+        description='Provides a live view of sphinx or restructuredtext docs',
+        )
+    parser.add_argument(
+        '-p',
+        '--port',
+        type=int,
+        default=5656,
+        help='Set the flask webserver port',
+        )
+    parser.add_argument(
+        '-P',
+        '--package',
+        action='store_true',
+        help='Generate documentation for a python package',
+        )
+    parser.add_argument(
+        '-d',
+        '--package-docs',
+        default='docs',
+        help='Set the subfolder of package where the docs to build are found',
+        )
+    parser.add_argument(
+        'target',
+        nargs=1,
+        help='The target to view',
+    )
+    args = parser.parse_args()
+
+    target = args.target.pop()
+
+    with tempfile.TemporaryDirectory() as working_dir:
+        server = create_server(
+            TARGET=target,
+            WORKING_DIR=working_dir,
+            SERVER_PORT=args.port,
+            PACKAGE=args.package,
+            PACKAGE_DOCS=args.package_docs,
+        )
+        server.serve(
+            port=args.port,
+            host='localhost',
+            open_url_delay=0.5,
+        )
