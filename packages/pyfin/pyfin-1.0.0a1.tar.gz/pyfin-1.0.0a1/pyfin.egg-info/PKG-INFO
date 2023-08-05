@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: pyfin
+Version: 1.0.0a1
+Summary: Financial toolkit for Quant
+Home-page: https://github.com/X0Leon/pyfin
+Author: Leon Zhang
+Author-email: pku09zl@gmail.com
+License: MIT
+Description: Financial toolkit for Quantitative investment of Chinese market built on pandas
+Keywords: python finance quant toolkit
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
