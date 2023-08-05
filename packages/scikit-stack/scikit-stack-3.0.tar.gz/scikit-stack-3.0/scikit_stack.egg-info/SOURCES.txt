@@ -1,0 +1,13 @@
+setup.cfg
+setup.py
+scikit_stack.egg-info/PKG-INFO
+scikit_stack.egg-info/SOURCES.txt
+scikit_stack.egg-info/dependency_links.txt
+scikit_stack.egg-info/not-zip-safe
+scikit_stack.egg-info/requires.txt
+scikit_stack.egg-info/top_level.txt
+skstack/__init__.py
+skstack/common_objects.py
+skstack/data_operations.py
+skstack/file_tools.py
+skstack/stacker.py
