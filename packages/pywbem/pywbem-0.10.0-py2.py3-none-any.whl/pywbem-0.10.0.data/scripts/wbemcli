@@ -1,0 +1,6 @@
+#!/home/maiera/virtualenvs/test_test4/bin/python
+
+import sys
+import wbemcli
+
+sys.exit(wbemcli._main())
