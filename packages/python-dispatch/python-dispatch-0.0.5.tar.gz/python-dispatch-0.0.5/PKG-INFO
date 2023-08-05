@@ -1,0 +1,56 @@
+Metadata-Version: 1.1
+Name: python-dispatch
+Version: 0.0.5
+Summary: Lightweight Event Handling
+Home-page: https://github.com/nocarryr/python-dispatch
+Author: Matthew Reid
+Author-email: matt@nomadic-recording.com
+License: MIT
+Description: python-dispatch
+        ===============
+        
+        Lightweight event handling for Python
+        
+        `|Build
+        Status| <https://travis-ci.org/nocarryr/python-dispatch>`_`|Coverage
+        Status| <https://coveralls.io/github/nocarryr/python-dispatch?branch=master>`_
+        
+        Description
+        -----------
+        
+        This is an implementation of the "Observer Pattern" with inspiration
+        from the `Kivy <kivy.org>`_ framework. Many of the features though are
+        intentionally stripped down and more generalized. The goal is to have a
+        simple drop-in library with no dependencies that stays out of the
+        programmer's way.
+        
+        Installation
+        ------------
+        
+        ::
+        
+            pip install python-dispatch
+        
+        Usage
+        -----
+        
+        `Read the Docs <https://nocarryr.github.io/python-dispatch>`_
+        
+        .. |Build
+        Status| image:: https://travis-ci.org/nocarryr/python-dispatch.svg?branch=master
+        .. |Coverage
+        Status| image:: https://coveralls.io/repos/github/nocarryr/python-dispatch/badge.svg?branch=master
+        
+Keywords: event properties dispatch
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
