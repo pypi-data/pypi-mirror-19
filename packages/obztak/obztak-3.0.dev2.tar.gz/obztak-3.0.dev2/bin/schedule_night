@@ -1,0 +1,70 @@
+#!/usr/bin/env python
+"""
+Executable for simulating the survey.
+"""
+import os
+import ephem
+import logging
+
+from maglites.scheduler import Scheduler
+from maglites.utils.parser import Parser, DatetimeAction
+from maglites.utils.ortho import nite2utc, utc2nite, datestring
+
+def main():
+    parser = Scheduler.parser()
+    parser.add_argument('-n','--nite',type=int,
+                        help='The *local* nite to schedule')
+    parser.remove_argument('--utc-end')
+    args = parser.parse_args()
+    
+    if args.utc_start and args.nite:
+        msg = "Can't specify '--utc-start' and '--nite'"
+        raise Exception(msg)
+
+    if args.utc_start:
+        date = ephem.Date(args.utc_start)
+    elif args.nite:
+        date = nite2utc(str(args.nite))
+    else:
+        date = ephem.now()
+
+    nite = utc2nite(date)
+
+    nitestr ='%d%02d%02d'%nite.tuple()[:3]
+        
+    logging.info("Scheduling nite: %s"%(nitestr))
+    logging.info("Start Time (UTC): %s"%(date))
+
+    scheduler = Scheduler(args.fields,args.windows,args.complete)  
+    chunks = scheduler.schedule_nite(date,chunk=args.chunk,plot=args.plot,mode=args.mode)
+    
+    if not args.outfile:
+        outdir  = nitestr
+        outfile = os.path.join(outdir,nitestr+'.json')
+    else:
+        outdir  = os.path.dirname(args.outfile)
+        outfile = args.outfile
+
+    if not os.path.exists(outdir): os.makedirs(outdir)
+    base,ext = os.path.splitext(outfile)
+    for i,chunk in enumerate(chunks):
+        if len(chunks) > 1:
+            timestamp = True
+            if timestamp and not args.outfile:
+                # For files with timestamp label
+                datestr = chunk['DATE'][0]
+                dirname = os.path.dirname(base)
+                basename = datestr.split(' ')[0].replace('/','')
+                base = os.path.join(dirname,basename)
+                idx = '_'+datestr.split(' ')[1][:8]
+            else:
+                # For files with chunk label
+                idx = '_%02d'%(i+1)
+            outfile = base+idx+ext
+
+        chunk.write(outfile)
+        if args.write_protect:
+            os.chmod(outfile,0444)
+
+if __name__ == "__main__":
+    main()

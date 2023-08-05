@@ -1,0 +1,58 @@
+#!/usr/bin/env python
+"""
+Executable for simulating the survey.
+"""
+from maglites.scheduler import Scheduler
+from maglites.field import FieldArray
+from maglites.utils.parser import DatetimeAction
+import maglites.utils.ortho as ortho
+
+############################################################
+
+def main():
+    parser = Scheduler.parser()
+    parser.description = __doc__
+    parser.add_argument('--nightly',action='store_true',
+                        help='Plot only at the end of the night')
+    parser.add_argument('--nonstop',action='store_true',
+                        help='Run entire survey without stops')
+    #parser.add_argument('--utc-start',action=DatetimeAction,
+    #                    help="start time for observation.")
+    #parser.add_argument('--utc-end',action=DatetimeAction,
+    #                    help="end time for observation.")
+
+    args = parser.parse_args()
+    scheduler = Scheduler(args.fields,args.windows,args.complete)
+
+    if args.utc_start and args.utc_end:
+        windows = [[args.utc_start,args.utc_end]]
+    else:
+        windows = scheduler.observation_windows
+
+    scheduled = FieldArray()
+    for i,(start,end) in enumerate(windows):
+        print start,end
+
+        if args.nightly: 
+            scheduler.schedule_nite(start,plot=False)
+            field_select = scheduler.scheduled_fields[-1]
+            ortho.plotFields(field_select,scheduler.target_fields,scheduler.completed_fields)
+        else:
+            scheduler.run(tstart=start,tstop=end,plot=args.plot)
+        scheduled = scheduled + scheduler.scheduled_fields
+
+        if not args.nonstop:
+            if (raw_input(' ...continue ([y]/n)').lower()=='n'): break
+
+    if not args.nonstop:
+        raw_input(' ...finish...')
+
+    if args.outfile: 
+        scheduled.write(args.outfile)
+        
+    return scheduler
+
+############################################################
+
+if __name__ == "__main__":
+    main()

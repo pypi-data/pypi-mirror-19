@@ -1,0 +1,112 @@
+#!/usr/bin/env python
+"""
+Plot a night summary.
+"""
+import argparse
+import pylab as plt
+
+import ephem
+import numpy as np
+
+from maglites.field import FieldArray
+import maglites.utils.ortho
+from maglites.utils.ortho import makePlot, get_nite, nite2utc, utc2nite
+from maglites.utils.parser import Parser, DatetimeAction
+from maglites.utils import Database
+
+if __name__ == "__main__":
+    parser = Parser(description=__doc__)
+    parser.add_argument('-n','--nite',type=int,
+                        help='The *local* nite to plot')
+    parser.add_argument('-i',dest='inspect',action='store_true',
+                        help='interactive plot window')
+    args = parser.parse_args()
+
+    if args.nite:
+        date = nite2utc(args.nite)
+    else:
+        # Yesterday...
+        date = ephem.Date(ephem.now() - 8*ephem.hour)
+    nite = utc2nite(date)
+    nitestr ='%d%02d%02d'%nite.tuple()[:3]
+
+    print "Plotting nightsum for: %s"%nitestr
+
+    #if args.nite:
+    #    now = nite2utc(args.nite) if args.nite else ephem.now()
+    #nite = "%d%02d%d"%get_nite(now).tuple()[:3]
+    #date = "%d/%02d/%02d"%now.tuple()[:3]
+    #time = "%d/%02d/%02d"%date.tuple()[:3] + ' 00:00:00'
+
+    fields = FieldArray.load_database()
+    #new = np.char.startswith(fields['DATE'],date)
+    new = (np.array(map(utc2nite,fields['DATE'])) == nite)
+    new_fields = fields[new]
+    old_fields = fields[~new]
+
+    kwargs = dict(edgecolor='none', s=50, vmin=0, vmax=4)
+    fig,basemap = makePlot(date=nitestr,name='nightsum',moon=False,airmass=False,center=(0,-90))
+    plt.title('Coverage (%s)'%nitestr)
+    kwargs['cmap'] = 'gray_r'
+    proj = maglites.utils.ortho.safeProj(basemap, old_fields['RA'], old_fields['DEC'])
+    basemap.scatter(*proj, c=old_fields['TILING'],**kwargs)
+
+    kwargs['cmap'] = 'summer_r'
+    proj = maglites.utils.ortho.safeProj(basemap, new_fields['RA'], new_fields['DEC'])
+    basemap.scatter(*proj, c=new_fields['TILING'],  **kwargs)
+    colorbar = plt.colorbar()
+    colorbar.set_label('Tiling')
+
+    plt.plot(np.nan, np.nan,'o',color='green',mec='green',label='Observed tonight')
+    plt.plot(np.nan, np.nan,'o',color='0.7',mec='0.7',label='Observed previously')
+    plt.legend(fontsize=10,loc='lower left',scatterpoints=1)
+    plt.savefig('nightsum_coverage_%s.png'%nitestr,bbox_inches='tight')
+
+    db = Database()
+    db.connect()
+
+    query = """
+select id, qc_fwhm as psf, qc_teff as teff from exposure 
+where exptime = 90 and delivered = True and propid = '2016A-0366' 
+and qc_teff is not NULL and qc_fwhm is not NULL
+and to_timestamp(utc_beg) %s '%s'
+"""
+
+    new = db.query2recarray(query%('>',date))
+    old = db.query2recarray(query%('<',date))
+
+    nbins = 35
+    kwargs = dict(normed=True)
+    step_kwargs = dict(kwargs,histtype='step',lw=3.5)
+    fill_kwargs = dict(kwargs,histtype='stepfilled',lw=1.0,alpha=0.7)
+
+    plt.figure()
+    step_kwargs['bins'] = np.linspace(0.5,2.5,nbins)
+    fill_kwargs['bins'] = np.linspace(0.5,2.5,nbins)
+    plt.hist(new['psf'],color='green',zorder=10, label='Observed tonight', **fill_kwargs)
+    plt.hist(new['psf'],color='green',zorder=10, **step_kwargs)
+    plt.hist(old['psf'],color='0.5', label='Observed previously', **fill_kwargs)
+    plt.hist(old['psf'],color='0.5', **step_kwargs)
+    plt.axvline(1.20,ls='--',lw=2,color='gray')
+    plt.legend()
+    plt.title('Seeing (%s)'%nitestr)
+    plt.xlabel('FWHM (arcsec)')
+    plt.ylabel('Normalized Number of Exposures')
+    plt.savefig('nightsum_psf_%s.png'%nitestr,bbox_inches='tight')
+
+    plt.figure()
+    step_kwargs['bins'] = np.linspace(0,1.5,nbins)
+    fill_kwargs['bins'] = np.linspace(0,1.5,nbins)
+    plt.hist(new['teff'],color='green',zorder=10,label='Observed tonight', **fill_kwargs)
+    plt.hist(new['teff'],color='green',zorder=10, **step_kwargs)
+    plt.hist(old['teff'],color='0.5',label='Observed previously', **fill_kwargs)
+    plt.hist(old['teff'],color='0.5', **step_kwargs)
+    plt.axvline(0.25,ls='--',lw=2,color='gray')
+    plt.legend()
+    plt.title('Effective Depth (%s)'%nitestr)
+    plt.xlabel('Teff')
+    plt.ylabel('Normalized Number of Exposures')
+    plt.savefig('nightsum_teff_%s.png'%nitestr,bbox_inches='tight')
+
+    if args.inspect:
+        raw_input(' ...finish...')

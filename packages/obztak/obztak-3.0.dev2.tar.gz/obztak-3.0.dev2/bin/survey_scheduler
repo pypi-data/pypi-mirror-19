@@ -1,0 +1,8 @@
+#!/usr/bin/env python
+"""
+Executable for simulating the survey.
+"""
+from maglites.scheduler import Scheduler
+
+if __name__ == "__main__":
+    scheduler = Scheduler.main()

@@ -1,0 +1,48 @@
+#!/usr/bin/env python
+"""
+Plot json files.
+"""
+import argparse
+import pylab as plt
+import os
+
+from maglites.field import FieldArray
+from maglites.utils.ortho import plotFields, movieFields
+from maglites.utils.parser import Parser
+if __name__ == "__main__":
+    parser = Parser(description=__doc__)
+    parser.add_argument('infiles',nargs='+',
+                        help='Input files')
+    parser.add_argument('-i',dest='inspect',action='store_true',
+                        help='interactive plot window')
+    parser.add_argument('-k','--chunk',action='store_true',
+                        help='plot chunks of exposures file-by-file.')
+    parser.add_argument('-a','--all',action='store_true',
+                        help='plot all exposures at once.')
+    parser.add_argument('-o','--outfile',
+                        help='output file to save')
+    args = parser.parse_args()
+
+    fields = FieldArray()
+    for filename in args.infiles:
+        fields = fields + FieldArray.read(filename)
+        if args.chunk:
+            plotFields(fields[-1],target_fields=fields,completed_fields=fields)
+            raw_input('...continue...')
+
+    ext = os.path.splitext(args.outfile)[-1] if args.outfile else None
+            
+    if args.chunk:
+        pass
+    elif args.all:
+        plotFields(fields[-1],target_fields=fields,completed_fields=fields)
+    elif ext in ['.gif']:
+        movieFields(args.outfile,fields,target_fields=fields)
+    else:
+        plotFields(fields,target_fields=fields)
+
+    if args.outfile and ext not in ['.gif']:
+        plt.savefig(args.outfile,bbox_inches='tight')    
+
+    if args.inspect:
+        raw_input(' ...finish...')
