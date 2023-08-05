@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+setup.py
+distelli/__init__.py
+distelli/distelli.py
+distelli.egg-info/PKG-INFO
+distelli.egg-info/SOURCES.txt
+distelli.egg-info/dependency_links.txt
+distelli.egg-info/not-zip-safe
+distelli.egg-info/requires.txt
+distelli.egg-info/top_level.txt
