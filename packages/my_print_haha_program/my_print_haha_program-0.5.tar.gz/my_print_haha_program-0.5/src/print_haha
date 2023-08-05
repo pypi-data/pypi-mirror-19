@@ -1,0 +1,8 @@
+#!/usr/bin/env python
+
+f = open ('./data/data_file' , 'r')
+
+for line in f:
+    print line
+
+print 'hahaha'
