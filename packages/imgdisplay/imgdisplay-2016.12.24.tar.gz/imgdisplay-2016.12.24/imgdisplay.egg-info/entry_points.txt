@@ -1,0 +1,3 @@
+[console_scripts]
+imgdisplay = imgdisplay.imgdisplay:start_server
+
