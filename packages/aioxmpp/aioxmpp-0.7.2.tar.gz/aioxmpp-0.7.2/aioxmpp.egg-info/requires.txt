@@ -1,0 +1,11 @@
+aiosasl>=0.2
+aioopenssl>=0.1
+babel~=2.3
+dnspython3~=1.14
+lxml~=3.6
+multidict~=2.0
+orderedset>=1.2
+pyOpenSSL>=15.0
+pyasn1
+pyasn1_modules
+tzlocal~=1.2
