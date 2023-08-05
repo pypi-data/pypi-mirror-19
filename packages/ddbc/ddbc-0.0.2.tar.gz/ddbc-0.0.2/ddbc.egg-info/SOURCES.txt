@@ -1,0 +1,13 @@
+MANIFEST.in
+README.txt
+requirements.txt
+setup.cfg
+setup.py
+ddbc/__init__.py
+ddbc/cache.py
+ddbc/utils.py
+ddbc.egg-info/PKG-INFO
+ddbc.egg-info/SOURCES.txt
+ddbc.egg-info/dependency_links.txt
+ddbc.egg-info/requires.txt
+ddbc.egg-info/top_level.txt
