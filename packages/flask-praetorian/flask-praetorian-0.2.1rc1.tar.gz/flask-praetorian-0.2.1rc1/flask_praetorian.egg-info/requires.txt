@@ -1,0 +1,13 @@
+flask-jwt
+passlib
+bcrypt
+py-buzz
+
+[dev]
+flake8
+flask-sqlalchemy
+freezegun
+pytest
+pytest-capturelog
+pytest-flask
+sphinx
