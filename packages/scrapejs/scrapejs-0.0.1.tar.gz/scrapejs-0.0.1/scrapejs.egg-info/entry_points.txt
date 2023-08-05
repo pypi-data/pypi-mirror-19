@@ -1,0 +1,4 @@
+[console_scripts]
+pyrun = pyscrape.__init__:http
+pyscrape = pyscrape.__init__:cli
+
