@@ -1,0 +1,17 @@
+HISTORY.rst
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+winston/__init__.py
+winston/cli.py
+winston/stats.py
+winston/utils.py
+winston.egg-info/PKG-INFO
+winston.egg-info/SOURCES.txt
+winston.egg-info/dependency_links.txt
+winston.egg-info/entry_points.txt
+winston.egg-info/not-zip-safe
+winston.egg-info/requires.txt
+winston.egg-info/top_level.txt

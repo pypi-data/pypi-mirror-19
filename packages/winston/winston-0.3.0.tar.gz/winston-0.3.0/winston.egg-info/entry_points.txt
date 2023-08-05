@@ -1,0 +1,3 @@
+[console_scripts]
+winston = winston.cli:main
+
