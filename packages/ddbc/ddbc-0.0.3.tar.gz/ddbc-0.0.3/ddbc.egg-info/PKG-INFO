@@ -1,0 +1,146 @@
+Metadata-Version: 1.1
+Name: ddbc
+Version: 0.0.3
+Summary: Amazon DynamoDB as a cache store.
+Home-page: https://github.com/marcy-terui/ddbc
+Author: Masashi Terui
+Author-email: marcy9114+pypi@gmail.com
+License: MIT License
+Description: ddbc
+        ====
+        
+        |Version| |Build Status| |Coverage|
+        
+        Description
+        ===========
+        
+        Amazon DynamoDB as a cache store.
+        
+        Requirements
+        ============
+        
+        -  Python2.7
+        -  pip
+        
+        Installation
+        ============
+        
+        PyPI
+        ----
+        
+        .. code:: sh
+        
+            pip install ddbc
+        
+        Setup
+        =====
+        
+        -  Create IAM Role or User
+        
+        Policy example:
+        
+        .. code:: json
+        
+            {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Action": [
+                          "dynamodb:CreateTable",
+                          "dynamodb:DeleteItem",
+                          "dynamodb:GetItem",
+                          "dynamodb:PutItem"
+                        ],
+                        "Resource": "arn:aws:dynamodb:<region>:<account-id>:table/<cache-table>"
+                    }
+                ]
+            }
+        
+        -  Create the DynamoDB table for cache
+        
+        Script Example:
+        
+        .. code:: python
+        
+            #!/usr/bin/env python
+        
+            import ddbc.utils
+        
+            ddbc.utils.create_table(
+                table_name='cache_table',
+                region='us-east-1', # optional
+                read_units=10,      # default: 5
+                write_units=10      # default: 5
+            )
+        
+        Usage
+        =====
+        
+        .. code:: python
+        
+            import ddbc.cache
+            import time
+        
+            cache = ddbc.cache.Client(
+                table_name='cache_table',
+                region='us-east-1', # optional
+                default_ttl=100,    # default: -1 (Infinity)
+                report_error=True   # default: False
+            )
+            cache['foo'] = 'bar'
+            print(cache['foo']) # => 'bar'
+        
+            time.sleep(100)
+            print(cache['foo']) # => None
+        
+            cache.set('foo', 'bar', 1000)
+            time.sleep(100)
+            print(cache['foo']) # => 'bar'
+        
+            del cache['foo']
+            print(cache.get('foo', 'buz')) # => 'buz'
+        
+        Development
+        -----------
+        
+        -  Source hosted at `GitHub <https://github.com/marcy-terui/ddbc>`__
+        -  Report issues/questions/feature requests on `GitHub
+           Issues <https://github.com/marcy-terui/ddbc/issues>`__
+        
+        Pull requests are very welcome! Make sure your patches are well tested.
+        Ideally create a topic branch for every separate change you make. For
+        example:
+        
+        1. Fork the repo
+        2. Create your feature branch (``git checkout -b my-new-feature``)
+        3. Commit your changes (``git commit -am 'Added some feature'``)
+        4. Push to the branch (``git push origin my-new-feature``)
+        5. Create new Pull Request
+        
+        Authors
+        -------
+        
+        Created and maintained by `Masashi
+        Terui <https://github.com/marcy-terui>`__ (marcy9114@gmail.com)
+        
+        License
+        -------
+        
+        MIT License (see
+        `LICENSE <https://github.com/marcy-terui/ddbc/blob/master/LICENSE>`__)
+        
+        .. |Version| image:: https://img.shields.io/pypi/v/ddbc.svg
+           :target: https://pypi.python.org/pypi/ddbc
+        .. |Build Status| image:: https://img.shields.io/travis/marcy-terui/ddbc/master.svg
+           :target: http://travis-ci.org/marcy-terui/ddbc
+        .. |Coverage| image:: https://img.shields.io/coveralls/marcy-terui/ddbc.svg
+           :target: https://coveralls.io/github/marcy-terui/ddbc
+        
+Keywords: aws dynamodb cache lambda
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
