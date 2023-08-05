@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: nailbox
+Version: 0.0.0
+Summary: Using nailgun reads YAML description and populate a system
+Home-page: https://github.com/SatelliteQE/nailbox
+Author: Bruno Rocha
+Author-email: rochacbruno@gmail.com
+License: GPLv3
+Description: Reads definition from YAML file to populate the system using nailgun
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
