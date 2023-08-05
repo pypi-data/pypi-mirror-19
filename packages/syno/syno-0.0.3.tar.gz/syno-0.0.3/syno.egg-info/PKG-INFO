@@ -1,0 +1,13 @@
+Metadata-Version: 1.1
+Name: syno
+Version: 0.0.3
+Summary: Synology API wrapper with aiohttp/asyncio
+Home-page: http://github.com/bobuk/syno
+Author: Grigory Bakunov
+Author-email: thebobuk@ya.ru
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires: aiohttp
+Requires: asyncio
+Requires: async_timeout

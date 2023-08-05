@@ -1,0 +1,13 @@
+setup.py
+syno/__init__.py
+syno/api.py
+syno/pp.py
+syno/quickconnect.py
+syno.egg-info/PKG-INFO
+syno.egg-info/SOURCES.txt
+syno.egg-info/dependency_links.txt
+syno.egg-info/top_level.txt
+syno/async/__init__.py
+syno/async/api.py
+syno/async/quickconnect.py
+syno/async/utils.py
