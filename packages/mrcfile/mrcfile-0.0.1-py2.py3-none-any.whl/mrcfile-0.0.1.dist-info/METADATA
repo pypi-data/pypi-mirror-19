@@ -1,0 +1,44 @@
+Metadata-Version: 2.0
+Name: mrcfile
+Version: 0.0.1
+Summary: MRC file I/O library
+Home-page: https://github.com/ccpem/mrcfile
+Author: Colin Palmer
+Author-email: colin.palmer@stfc.ac.uk
+License: BSD
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: numpy (>=1.11.0)
+
+mrcfile
+-------
+
+|build-status| |pypi-version| |python-versions|
+
+A pure Python implementation of the `MRC2014 file format`__, which exposes the
+file's header and data as numpy arrays.
+
+__ MRC2014_
+
+.. |build-status| image:: https://travis-ci.org/ccpem/mrcfile.svg?branch=master
+    :target: https://travis-ci.org/ccpem/mrcfile
+    :alt: Build Status
+
+.. |pypi-version| image:: https://img.shields.io/pypi/v/mrcfile.svg
+    :target: https://pypi.python.org/pypi/mrcfile
+
+.. |python-versions| image:: https://img.shields.io/pypi/pyversions/mrcfile.svg
+    :target: https://pypi.python.org/pypi/mrcfile
+
+.. _MRC2014: http://www.ccpem.ac.uk/mrc_format/mrc2014.php
+
