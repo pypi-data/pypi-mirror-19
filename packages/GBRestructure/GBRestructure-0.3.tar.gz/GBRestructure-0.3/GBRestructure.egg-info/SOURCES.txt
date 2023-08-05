@@ -1,0 +1,13 @@
+setup.py
+GBRestructure.egg-info/PKG-INFO
+GBRestructure.egg-info/SOURCES.txt
+GBRestructure.egg-info/dependency_links.txt
+GBRestructure.egg-info/entry_points.txt
+GBRestructure.egg-info/not-zip-safe
+GBRestructure.egg-info/requires.txt
+GBRestructure.egg-info/top_level.txt
+restructure/__init__.py
+restructure/branchoperator.py
+restructure/commandexecutor.py
+restructure/gb.py
+restructure/printer.py
