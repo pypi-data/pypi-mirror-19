@@ -1,0 +1,19 @@
+slumber >= 0.6.2
+six
+pyOpenSSL
+ndg-httpsclient
+pyasn1
+
+[develop]
+bumpversion
+isort
+readme_renderer
+setuptools >= 24.2.1wheel
+
+[tests]
+coverage
+httpretty >= 0.8.0
+mock
+nose
+pycodestyle >= 2.1.0
+pylint
