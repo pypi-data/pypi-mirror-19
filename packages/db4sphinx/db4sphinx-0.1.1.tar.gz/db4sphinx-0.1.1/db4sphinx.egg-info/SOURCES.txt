@@ -1,0 +1,15 @@
+LICENSE.txt
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+db4sphinx/__init__.py
+db4sphinx/dbparser.py
+db4sphinx/ext.py
+db4sphinx/scripts.py
+db4sphinx.egg-info/PKG-INFO
+db4sphinx.egg-info/SOURCES.txt
+db4sphinx.egg-info/dependency_links.txt
+db4sphinx.egg-info/entry_points.txt
+db4sphinx.egg-info/requires.txt
+db4sphinx.egg-info/top_level.txt

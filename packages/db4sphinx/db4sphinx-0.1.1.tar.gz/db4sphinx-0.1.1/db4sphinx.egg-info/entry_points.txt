@@ -1,0 +1,6 @@
+[console_scripts]
+python-db2html = db4sphinx.scripts:db2html
+python-db2odt = db4sphinx.scripts:db2odt
+python-db2pseudoxml = db4sphinx.scripts:db2pseudoxml
+python-db2xml = db4sphinx.scripts:db2xml
+
