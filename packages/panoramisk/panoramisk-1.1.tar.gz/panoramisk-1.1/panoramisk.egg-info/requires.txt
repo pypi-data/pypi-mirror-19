@@ -1,0 +1,6 @@
+
+[test]
+pytest
+pytest-asyncio
+coverage
+coveralls
