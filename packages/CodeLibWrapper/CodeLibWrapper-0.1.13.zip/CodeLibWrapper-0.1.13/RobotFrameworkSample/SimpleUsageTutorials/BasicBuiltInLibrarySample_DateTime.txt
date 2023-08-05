@@ -1,0 +1,30 @@
+*** Settings ***
+Library           DateTime
+
+*** Test Cases ***
+Datetime
+    Comment    DateTime转换
+    ${date} =    Convert Date    28.05.2014 12:05    date_format=%d.%m.%Y %H:%M
+    Should Be Equal    ${date}    2014-05-28 12:05:00.000
+    ${date} =    Convert Date    ${date}    result_format=%d.%m.%Y
+    Should Be Equal    ${date}    28.05.2014
+    Comment    取得即时时间
+    ${date1} =    Get Current Date
+    Log    ${date1}
+    ${date2} =    Get Current Date    UTC
+    Log    ${date2}
+    comment    一定要加上result_format=datetime
+    ${datetime} =    Convert Date    ${date1}    result_format=datetime
+    Log    ${datetime.year}
+    Log    ${datetime.month}
+    Log    ${datetime.day}
+    Log    ${datetime.hour}
+    Log    ${datetime.minute}
+    Log    ${datetime.second}
+    Log    ${datetime.microsecond}
+    ${Time1}    Get Time    year month day hour min sec
+    log    ${Time1}
+    ${Time2}    Get Time
+    log    ${Time2}
+    ${timeWithmilliseconds}    Evaluate    int(round(time.time() * 1000))    time
+    log     ${timeWithmilliseconds}
