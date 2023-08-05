@@ -1,0 +1,7 @@
+include mdeditor/templates/*.html
+include mdeditor/static/*.css
+include mdeditor/static/*.js
+include mdeditor/static/lib/css/*.css
+include mdeditor/static/lib/css/themes/default/assets/fonts/*.*
+include mdeditor/static/lib/js/*.js
+include mdeditor/static/lib/fonts
