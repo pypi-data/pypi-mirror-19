@@ -1,0 +1,2 @@
+Basic bot for Slack
+-------------------
