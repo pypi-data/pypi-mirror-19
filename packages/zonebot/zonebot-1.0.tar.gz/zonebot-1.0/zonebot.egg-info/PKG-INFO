@@ -1,0 +1,32 @@
+Metadata-Version: 1.1
+Name: zonebot
+Version: 1.0
+Summary: A Slack bot to interact with ZoneMinder
+Home-page: https://github.com/rjclark/zoneminder-slack-bot
+Author: Robert Clark
+Author-email: clark@exiter.com
+License: Apache
+Description: This is a Slack Bot that monitors one or more Slack channels for commands and
+        interacts with a ZoneMinder system to report events and obtain information.
+        
+        The primary use for this bot is to allow access to some parts of a ZoneMinder
+        system that is behind a firewall, without having to expose the actual system to
+        the Internet. Making a ZoneMinder system available to the Internet has several
+        requirements (static IP, secure system) that may not be feasible for all users.
+        
+        By providing a bot that can interact with both ZoneMinder and Slack, remote access to
+        and notification from ZoneMinder is possible, without needing a static IP and using
+        the security provided by the Slack environment.
+Keywords: slack,zoneminder
+Platform: any
+Classifier: Programming Language :: Python
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Communications :: Chat
