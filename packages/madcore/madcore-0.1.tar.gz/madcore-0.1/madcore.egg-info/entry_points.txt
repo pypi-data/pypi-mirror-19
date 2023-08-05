@@ -1,0 +1,7 @@
+[console_scripts]
+madcore = madcore.madcore:main
+
+[madcore]
+core followme = madcore.core:CoreFollowme
+stack describe = madcore.stack:StackDescribe
+
