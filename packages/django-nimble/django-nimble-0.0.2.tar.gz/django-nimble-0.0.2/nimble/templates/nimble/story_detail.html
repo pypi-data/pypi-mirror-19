@@ -1,0 +1,15 @@
+{% extends "nimble/base.html" %}
+{% load bootstrap3 %}
+
+{% block title %}{{ object.name }}{% endblock %}
+
+{% block content %}
+    <h2>{{ object.typename }} {{ object.name }} <span style="font-size: 0.7em;"><a name="API" href="{{ object.api_url }}">{% bootstrap_icon "console" %}</a></span></h2>
+    <form action="{% url view.reverse_url ident=object.ident pk=object.id %}" method="post" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            {% include "nimble/includes/save.html" %}
+        {% endbuttons %}
+    </form>
+{% endblock %}
