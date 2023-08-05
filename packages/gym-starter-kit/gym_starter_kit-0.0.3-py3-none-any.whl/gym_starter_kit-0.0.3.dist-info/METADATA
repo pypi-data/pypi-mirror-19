@@ -1,0 +1,20 @@
+Metadata-Version: 2.0
+Name: gym-starter-kit
+Version: 0.0.3
+Summary: Gym Starter Kit: A running environment for developing OpenAI Gym agents.
+Home-page: https://github.com/marevol/gym-starter-kit
+Author: Shinsuke Sugaya
+Author-email: shinsuke@yahoo.co.jp
+License: Apache Software License
+Download-URL: https://github.com/marevol/gym-starter-kit/tarball/0.0.3
+Keywords: machine learning
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Dist: gym (>=0.7.0)
+
+UNKNOWN
+
+
