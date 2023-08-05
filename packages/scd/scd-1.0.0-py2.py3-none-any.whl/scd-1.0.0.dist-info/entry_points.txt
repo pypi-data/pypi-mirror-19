@@ -1,0 +1,9 @@
+[console_scripts]
+scd = scd.main:main
+
+[scd.version]
+git_pep440 = scd.version:GitPEP440
+git_semver = scd.version:GitSemVer
+pep440 = scd.version:PEP440
+semver = scd.version:SemVer
+
