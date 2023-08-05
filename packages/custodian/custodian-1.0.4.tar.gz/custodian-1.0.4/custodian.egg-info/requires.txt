@@ -1,0 +1,6 @@
+monty>=0.9.0
+six
+pyyaml>=3.12
+
+[vasp, nwchem, qchem]
+pymatgen>=3.3.1
