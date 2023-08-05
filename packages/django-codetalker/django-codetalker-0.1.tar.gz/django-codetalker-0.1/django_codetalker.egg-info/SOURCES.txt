@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.py
+codetalker/__init__.py
+codetalker/apps.py
+codetalker/parser.py
+codetalker/settings.py
+codetalker/templatetags/codetalker.py
+django_codetalker.egg-info/PKG-INFO
+django_codetalker.egg-info/SOURCES.txt
+django_codetalker.egg-info/dependency_links.txt
+django_codetalker.egg-info/top_level.txt
