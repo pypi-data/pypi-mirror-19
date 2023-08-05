@@ -1,0 +1,12 @@
+.idea
+.coverage
+*.pyc
+tmp/
+nbproject/
+docs/build/
+dump.rdb
+sfchat/static/CACHE/
+sfchat/static/js/build/
+sfchat/static/bower_components/
+sfchat/static/admin/
+sfchat/db/*.sqlite3
