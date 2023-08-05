@@ -1,0 +1,11 @@
+__version__ = "0.11.4.post3"
+__git_commiter_name__ = "Itai Shirav"
+__git_commiter_email__ = "itais@infinidat.com"
+__git_branch__ = u'develop'
+__git_remote_tracking_branch__ = u'origin/develop'
+__git_remote_url__ = u'git@git.infinidat.com:host-opensource/infi.django_rest_utils.git'
+__git_head_hash__ = 'c7c73eca954dc1afdac62397c81a8247f313e5a3'
+__git_head_subject__ = u'Update python version'
+__git_head_message__ = u''
+__git_dirty_diff__ = u''
+__git_commit_date__ = '2017-01-03 16:05:42'
