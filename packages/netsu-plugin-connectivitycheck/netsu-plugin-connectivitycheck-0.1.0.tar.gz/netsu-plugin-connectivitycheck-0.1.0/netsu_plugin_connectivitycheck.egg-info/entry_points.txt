@@ -1,0 +1,6 @@
+[netsu.plugins.definitions_updates]
+500_connectivitycheck = netsu_plugin_connectivitycheck.definitions:update
+
+[netsu.plugins.setup_steps]
+950_connectivitycheck_ping = netsu_plugin_connectivitycheck.setup:check_ping
+

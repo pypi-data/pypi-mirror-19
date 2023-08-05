@@ -1,0 +1,17 @@
+language: python
+python:
+  - '3.5'
+install:
+  - sudo apt-get install -qq iputils-ping
+  - pip install --upgrade tox setuptools coveralls
+script:
+  - python -m tox
+after_success:
+  - coveralls
+deploy:
+  provider: pypi
+  user: netsu
+  password:
+    secure: W6boMtfvjEQKBVQSyDozDZ7JrMPe6Lzui/BauctRLO2ZsiK3Vu/9QQslSethM6g1S0JCICA5k9c8ePn+m6GL73/SSXDIvRCF9MefLasUzEAqVnml3hIgt6bdhFp6D68xd9guZwdU3CLWGAKQmwgaO0jgTM/wc+kzIIn9o9CcnmrveJCH5xsB7oEU1qsMI1+PdadPiGArZZ7ffiY6dhUl/E8mRq+JDmNfNjcNUbk/ghZEmEfiiUkbYCt6Yb3+RDXJF7jnFeaXElWeVwA6elB6AQ0xztSzFZpKdD47ekNOwtUYRZx96lar1PWNeHDs0x8ypmzhSQH2P+Jvvcnyd45fQbT1togp7UUkso/mvAY7NNoysd769q6A5cP2poxbXxTnHSiUQ41pai9HKPNYf3nXfi5jJ+ze7GJBLznkTGgSGhNDHKcrdsViqGFSATQrM5PM3urckDKjuam0Rwg/cXR12VwcFSjYvz7Xo4SB7Ri2MW89OP2XIuUoyygBnWCh4n5oFlcVNvi6yqJMRDKb9C3mGz+OxIww7D1CEnbZfk6exFqwjfyN35pwgFs5U2WPaoEL9iDRAp+bO+DRk2ceez3Qig3Z2ai8Ui1P5Sliap0u1SxdUF1/qL79F924sedpiXfKkbtPzY1MVq2jlowMq/TebX3PzTFJi8PyR+h87yjkRfw=
+  on:
+    repo: netsu-project/netsu-plugin-connectivitycheck

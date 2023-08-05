@@ -1,0 +1,12 @@
+CHANGES
+=======
+
+0.1
+---
+
+* add travis and coveralls badges to README
+* add ping connectivity check
+* add .travis.yml for test automation
+* add ping-check definitions
+* add pbr setup
+* initial commit
