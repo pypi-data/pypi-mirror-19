@@ -1,0 +1,23 @@
+Metadata-Version: 2.0
+Name: rutabaga
+Version: 0.0.1
+Summary: Jinja2 Wrapper for CLI Rendering Tools
+Home-page: https://github.com/dillonhicks/rutabaga
+Author: Dillon Hicks
+Author-email: dillon@dillonhicks.io
+License: Apache License Version 2.0
+Platform: any
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: jinja2
+Requires-Dist: pathlib2
+
+Render templates with jinja2
+
+
