@@ -1,0 +1,11 @@
+__version__ = "0.2.16"
+__git_commiter_name__ = "Guy Rozendorn"
+__git_commiter_email__ = "guy@rzn.co.il"
+__git_branch__ = u'develop'
+__git_remote_tracking_branch__ = u'origin/develop'
+__git_remote_url__ = u'git@git.infinidat.com:host-opensource/infi.parted.git'
+__git_head_hash__ = '6681b7e894584264b30ce7480d98637d6ba0882b'
+__git_head_subject__ = u'Finished Release v0.2.16'
+__git_head_message__ = u'* develop: (22 commits)\n  HPT-2002\n  HPT-1977 passing extended options to mkfs\n  HPT-1940\n  HPT-1940\n  HPT-1940\n  HPT-1940\n  HPT-1940\n  HPT-1940\n  HPT-1940 retry running blkid\n  HPT-1916 resolving parted errors on Ubuntu 14.04 (partitions not found) and adding logging\n  HPT-1888\n  TRIVIAL forcing part. table update on ubuntnu 16.04\n  fixing prefix for rh7/centos7/orcale7\n  TRIVIAL fixing multipath prefixes\n  HPT-1810 pkartx returns the wrong partition name for mpath devices on rh6, reverting\n  HPT-1810 fixing NameError\n  TRIVIAL using kpartx for partition discovery\n  HPT-1810 reverting commit\n  TRIVIAL more general solution for multipath prefixes\n  HPT-1810: Adding support for Ubuntu 16.04\n  ...'
+__git_dirty_diff__ = u''
+__git_commit_date__ = '2016-12-21 11:19:18'
