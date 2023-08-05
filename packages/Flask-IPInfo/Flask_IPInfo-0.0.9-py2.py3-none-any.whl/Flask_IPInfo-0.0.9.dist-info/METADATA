@@ -1,0 +1,58 @@
+Metadata-Version: 2.0
+Name: Flask-IPInfo
+Version: 0.0.9
+Summary: Get IP, ISP, Location, OS from flask request
+Home-page: http://github.com/borisliu/flask-ipinfo/
+Author: borisliu
+Author-email: boris_cn@263.net
+License: MIT
+Keywords: flask ip address browser
+Platform: all
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: Flask
+
+Flask-IPInfo
+======
+
+This library get some useful information from flask's request object.Such as 
+IP Address, ISP, Location, Web Browser, Operating System, etc.
+
+Example
+-------
+
+::
+
+    from flask import Flask
+    from flask_ipinfo import IPInfop
+
+    app = Flask(__name__)
+    ipinfo = IPInfo()
+
+    @app.route("/")
+    def hello():
+        return "Your IP Address is :" + ipinfo.ipaddress
+
+    if __name__ == "__main__":
+        app.run()
+
+
+
+Supports
+--------
+Tested on Python 3.5
+
+
+* Project:  https://github.com/borisliu/flask-ipinfo
+
+
