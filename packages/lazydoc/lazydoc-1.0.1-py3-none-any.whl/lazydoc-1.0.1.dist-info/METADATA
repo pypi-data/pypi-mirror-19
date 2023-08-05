@@ -1,0 +1,53 @@
+Metadata-Version: 2.0
+Name: lazydoc
+Version: 1.0.1
+Summary: UNKNOWN
+Home-page: http://github.com/chappers/lazydoc
+Author: Chapman Siu
+Author-email: chpmn.siu@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Plugins
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Documentation
+Classifier: Topic :: Documentation :: Sphinx
+Classifier: Topic :: Text Processing
+Classifier: Topic :: Utilities
+Classifier: Framework :: Sphinx
+
+lazydoc
+=======
+
+Sometimes when you program in multiple languages, the last thing you're going to worry about is configurations. 
+LazyDoc is your world to automatic documentation using Sphinx by guessing all the parameters. It works best with `d2tol`
+
+Usage
+=====
+
+Installing using
+
+```
+python setup.py install
+```
+
+Usage is via the commandline `lazydoc`:
+
+```
+usage: lazydoc [-h] [-g] [-d]
+
+Generate documentation - the lazy way
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -g, --gen, --generate
+                        generate sphinx doc directories
+  -d, --doc, --document
+                        based on sphinx config, generate all documentation
+```
+
+
+
