@@ -1,0 +1,14 @@
+keyring
+path.py>=6.2
+jaraco.text
+more_itertools
+jaraco.logging
+jaraco.ui
+PyGithub>=1.25.2
+six
+jaraco.itertools
+jaraco.functools
+requests
+
+[:sys_platform=="win32"]
+jaraco.windows>=2.7
