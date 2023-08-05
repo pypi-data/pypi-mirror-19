@@ -1,0 +1,28 @@
+*** Settings ***
+Library           XML
+Library           Collections
+
+*** Variables ***
+${xmlfilepath}    C:\\Python27\\Lib\\site-packages\\CodeLibWrapper\\RobotFrameworkSample\\SampleData\\2014-11-30.xml
+${bigxmlfile}     C:\\Python27\\Lib\\site-packages\\CodeLibWrapper\\RobotFrameworkSample\\SampleData\\bigfile.xml
+
+*** Test Cases ***
+XML_Case1
+    ${xmldoc}    Parse Xml    ${xmlfilepath}
+    ${SurveyData_root_attrib}    Get Element Attribute    ${xmldoc}    _MasterPortfolioId
+    Should Not Be Empty    ${SurveyData_root_attrib}
+    ${AustralianSurvey_ele}    Get Element    ${xmldoc}    AustralianSurvey
+    ${attributes}    Get Element Attributes    ${AustralianSurvey_ele}
+    Dictionary Should Contain Key    ${attributes}    EffectiveDate
+    ${Attrib_EffectiveDate}    Get Element Attribute    ${AustralianSurvey_ele}    EffectiveDate
+    Should Not Be Empty    ${Attrib_EffectiveDate}
+    Log    ${Attrib_EffectiveDate}
+    @{AssetAllocation_ele}    Get Elements    ${AustralianSurvey_ele}    AssetAllocation/BreakdownValue
+    ${AssetAllocation_BreakdownValue_count}    Get Element Count    ${AustralianSurvey_ele}    AssetAllocation/BreakdownValue
+    Log    ${AssetAllocation_BreakdownValue_count}
+    ${specificValue}    Get Element Text    ${AustralianSurvey_ele}    AssetAllocation/BreakdownValue[@Type='48']
+    Should Be Equal    ${specificValue}    7.38
+    ${value}    Get Element Text    ${xmldoc}    APRAAustralianSurvey/OtherAllocation/AllocationDetail[2]/SecurityExternalName
+    Should Be Equal    ${value}    UUT - Equity
+    ${AssetAllocation_BreakdownValue_list}    Get Child Elements    ${xmldoc}    AustralianSurvey/AssetAllocation
+    Length Should Be    ${AssetAllocation_BreakdownValue_list}    8
