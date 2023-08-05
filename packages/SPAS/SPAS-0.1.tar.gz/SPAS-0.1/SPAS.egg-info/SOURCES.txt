@@ -1,0 +1,14 @@
+CHANGELOG.rst
+MANIFEST.in
+README.rst
+setup.py
+SPAS.egg-info/PKG-INFO
+SPAS.egg-info/SOURCES.txt
+SPAS.egg-info/dependency_links.txt
+SPAS.egg-info/entry_points.txt
+SPAS.egg-info/not-zip-safe
+SPAS.egg-info/top_level.txt
+spas/__init__.py
+spas/__main__.py
+spas/cli.py
+spas/server.py
