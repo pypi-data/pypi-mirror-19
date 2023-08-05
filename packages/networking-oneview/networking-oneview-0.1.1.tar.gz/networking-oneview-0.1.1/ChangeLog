@@ -1,0 +1,205 @@
+CHANGES
+=======
+
+0.1.1
+-----
+
+* Update synchronization.py
+* Update README.rst
+* Fix setup.cfg
+* Update README.rst
+* Fix setup.cfg
+* Update README.rst
+* Update README.rst
+* Update mech_oneview.py
+* Update README.rst
+* Delete install-driver.sh
+* with new readme and new names
+* fixing pep8
+* add crash on invalid uplinset mapping
+* with new readme
+* with pep 8 ok and new name of the conf
+* with new name of conf
+* with new name of conf
+* adding check LGI constraint
+* adding check LGI constraint
+* with oslo-config-generator
+* Fix import
+* Fix pep8
+* FIx pep8
+* Migrations working with 'neutron-db-manage upgrade heads'
+* Fix others pep8 problems
+* Fix2 the pep8 in mech_oneview.py
+* Fix the pep8 in mech_oneview.py
+* method check_unique_uplinkset_constraint created
+* Fix imports
+* port binding done
+* adding port bind
+* Adjust the scripts with correct paths
+* Correction 4 of the pep8
+* Correction 3 of the pep8
+* Correction 2 of the pep8
+* Correction of the pep8
+* Fix code with new network name
+* bind port
+* fix neutron network name
+* retirando prints
+* adding check_server_hardware_availability
+* adding check_server_hardware_availability
+* adding check_server_hardware_availability
+* Correction in README file
+* Changing files to upload to PyPi
+* Update ml2_conf.ini
+* Update ml2_conf.ini
+* Update mech_oneview.py
+* Update mech_oneview.py
+* adding ml2_conf.ini sample
+* Adding a default value to TLS
+* Update neutron_oneview_client.py
+* Update database_manager.py
+* Update common.py
+* Update mech_oneview.py
+* Changing network name
+* putting tls
+* passing pep-8
+* fix
+* Update README.rst
+* Passing in tests
+* Update mech_oneview.py
+* fixing last test
+* Fixing DB in Synchronization
+* fixing method call
+* just one more test to merge
+* Update mech_oneview.py
+* TODO remove ports after removed mapping
+* Update neutron_oneview_client.py
+* Update Synchronization
+* Update README.rst
+* Update README.rst
+* Inserindo arquivo Authors
+* Arrumando pep8 do doc/source/conf.py
+* Estrutura gerada pelo cookiecutter
+* fixing pep8
+* Add new methods
+* Update README.rst
+* Update README.rst
+* Update README.rst
+* Update README.rst
+* Update README.rst
+* Update README.rst
+* Update README.rst
+* Update README.rst
+* Update README.rst
+* Starting Synchronization
+* Update README.rst
+* Update README.rst
+* Add new file
+* Update README.rst
+* Update README.rst
+* enabling again the sync
+* tls
+* Passing in tests
+* Passing tests
+* delete port working
+* Update README.rst
+* Fixing code
+* Delete resources_sync.py
+* Update test_port.py
+* Update .gitlab-ci.yml
+* Update .gitlab-ci.yml
+* Update .gitlab-ci.yml
+* Update .gitlab-ci.yml
+* Update README.rst
+* Add requirements.txt file
+* rename get_manegement_neutron_network for get_management_neutron_network
+* merge
+* fixing code
+* Update mech_oneview.py
+* Update mech_oneview.py
+* Update mech_oneview.py
+* Fixing CI - 2
+* CI fixing
+* test ci
+* Update common.py
+* CI files to test
+* To merge
+* Fixing port creation
+* saving work progress
+* Deploy funcionou com rede flat
+*  adding test power on/off on machines that will perform operations
+* Adding powerstate at flat-net-mapped sync_ports
+* finishing sync_port for flat_net_mappings
+* fixing uplink init
+* Test deploy in blade
+* deleting debug
+* init finished for networks
+* Changing oneview network name to reflect neutron network id
+* checking whether a network was deleted on neutron and not deleted in oneview and database, then delete both
+* Update oneview_network_db.py
+* Update README.rst
+* Fixing Init
+* Fixing Update Errors
+* Update README.rst
+* Update README.rst
+* Update README.rst
+* Update README.rst
+* Update README.rst
+* Update README.rst
+* Update README.rst
+* Update README.rst
+* Update README.rst
+* Update README.rst
+* Update README.rst
+* Update README.rst
+* Update README.rst
+* Flat net mapping working in init
+* flat-net  no init-sync
+* merge
+* flat net mapping init worked
+* power on/off, working
+* fix flat
+* Fix Creating Flat Network
+* Removing comments
+* Port Update
+* Port Create and Delete
+* updated Network to use hpOneView
+* flat_net_mapping-create-network and delete working
+* flat_net_mapping-create-network working
+* Using hpOneView on Network Create
+* Remove comments
+* adding connections
+* Update README.rst
+* Missing connections
+* Update README.rst
+* Update README.rst
+* Init sync working for Network
+* Add new file
+* Add new uplinkset mapping to Network
+* Merge
+* Start Change uplinksets
+* Start Change uplinksets
+* Network and Port working
+* network mapping working
+* WIP
+* FIx timer
+* Add sync
+* Starting daemon
+* Fix db and add install script
+* Add Network and Port
+* Add new directory /unit/db
+* Add new directory /unit/ml2
+* Add new directory unit
+* Add new directory tests
+* Add new directory drivers
+* Add new directory ml2
+* Add new directory
+* Add new directory
+* Add new directory
+* Delete init
+* Delete init
+* Delete init
+* Delete init
+* Delete init
+* Created repository structure
+* Creating initial repository
+* Creation of the directors structure
