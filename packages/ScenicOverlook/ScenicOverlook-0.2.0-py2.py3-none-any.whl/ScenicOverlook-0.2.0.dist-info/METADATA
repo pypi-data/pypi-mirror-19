@@ -1,0 +1,55 @@
+Metadata-Version: 2.0
+Name: ScenicOverlook
+Version: 0.2.0
+Summary: A library for incremental, in-memory map-reduces
+Home-page: https://github.com/pschanely/ScenicOverlook
+Author: Phillip Schanely
+Author-email: pschanely+vE7F@gmail.com
+License: BSD (3 clause)
+Keywords: algorithms datastructures
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+
+===============
+Scenic Overlook
+===============
+
+The Scenic Overlook library contains datastructures for incremental
+map-reduces.
+
+These datastructures are implemented as trees, and store at each
+node, intermediate values of the reduce. This means that when you
+slice or combine structures, the new output of the map-reduce can
+be efficiently computed. (by reusing old outputs from unchanged
+parts of the tree)
+
+Typical usage looks like this::
+
+    #!/usr/bin/env python
+
+    from scenicoverlook import MapReduceLogic, ViewableList
+
+    mr = MapReduceLogic(reducer=lambda x, y: x + ' ' + y, initializer='')
+    l = ViewableList(['the', 'quick', 'brown', 'fox'])
+    print l.map_reduce(mr)                              # 'the quick brown fox'
+    print (l[:2] + ['stealthy'] + l[2:]).map_reduce(mr) # 'the quick stealthy brown fox'
+
+
+See the pydocs for more examples:
+
+https://github.com/pschanely/ScenicOverlook/blob/master/scenicoverlook/__init__.py
+
+
+
