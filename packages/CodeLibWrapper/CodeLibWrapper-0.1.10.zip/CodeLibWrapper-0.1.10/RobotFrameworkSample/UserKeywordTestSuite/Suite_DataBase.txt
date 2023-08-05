@@ -1,0 +1,22 @@
+*** Settings ***
+Resource          ../../UserKeywords/UserKeywords_Database.txt
+
+*** Variables ***
+${dsn}            dsn='Nettzza'    # You should setup dsn and account information and configuration in ODBC.
+${selectscript}    SELECT PERFORMANCEID , EFFECTIVEDATE , TABLENAME , RECORDACTION , RECORDLOGDATE , FILENAME \ FROM MSNZDEV.ABACHU.ADT_PERFORMANCE LIMIT 10;
+${DATABASE_IP}    DP-DB-PROD
+${DATABASE_USER}    DMClient
+${DATABASE_PASSWORD}    h(4Xo(T5rbB0
+${QueryScript}    SELECT A.InvestmentId, A.InvestmentType, B.DocumentId, B.DocumentType, B.LanguageId, B.DocumentEffectiveDate, C.Identifier FROM FilingInvestmentLink A LEFT JOIN Filing B ON A.DocumentId = B.DocumentId LEFT JOIN GlobalInvestmentIdentifier C ON A.InvestmentId = C.InvestmentId WHERE [Status] <> 3 AND InternalOnly <> 1 AND A.InvestmentId = 'F00000VBK0' ORDER BY B.DocumentEffectiveDate DESC, B.DocumentId DESC
+${DATABASE_Name}    DoclibData
+${DATABASE_PORT}    1433
+
+*** Test Cases ***
+Database_Test_ODBC_Nettzza
+    @{queryresultset}=    KW_Database_ODBC_Select1    ${dsn}    ${selectscript}
+    Log Many    @{queryresultset}
+
+Database_Test_SQLServer_SelectDataSet
+    @{resultset}    KW_Database_SQLServer_SelectDataSet    ${DATABASE_Name}    ${DATABASE_USER}    ${DATABASE_PASSWORD}    ${DATABASE_IP}    ${DATABASE_PORT}
+    ...    ${QueryScript}
+    Logmany    @{resultset}
