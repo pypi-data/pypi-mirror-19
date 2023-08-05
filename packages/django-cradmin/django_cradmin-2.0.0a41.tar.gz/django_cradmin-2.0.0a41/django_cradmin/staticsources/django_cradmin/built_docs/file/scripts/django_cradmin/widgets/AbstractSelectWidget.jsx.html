@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">scripts/django_cradmin/widgets/AbstractSelectWidget.jsx | django_cradmin API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">django_cradmin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/DateTimePicker.js~DateTimePicker.html">DateTimePicker</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/django_cradmin_all.js~DjangoCradminAll.html">DjangoCradminAll</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">django_cradmin/components</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminDateSelectorDay.jsx~CradminDateSelectorDay.html">CradminDateSelectorDay</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminDateSelectorHiddenIsoDate.jsx~CradminDateSelectorHiddenIsoDate.html">CradminDateSelectorHiddenIsoDate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminDateSelectorMonth.jsx~CradminDateSelectorMonth.html">CradminDateSelectorMonth</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminDateSelectorYear.jsx~CradminDateSelectorYear.html">CradminDateSelectorYear</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminFilterCheckbox.jsx~CradminFilterCheckbox.html">CradminFilterCheckbox</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminHiddenInputList.jsx~CradminHiddenInputList.html">CradminHiddenInputList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminHtmlList.jsx~CradminHtmlList.html">CradminHtmlList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminLoadMoreButton.jsx~CradminLoadMoreButton.html">CradminLoadMoreButton</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminSearchInput.jsx~CradminSearchInput.html">CradminSearchInput</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminSelectableList.jsx~CradminSelectableList.html">CradminSelectableList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminSelectableListItem.jsx~CradminSelectableListItem.html">CradminSelectableListItem</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminSelectedList.jsx~CradminSelectedList.html">CradminSelectedList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminSelectedListItem.jsx~CradminSelectedListItem.html">CradminSelectedListItem</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">django_cradmin/utilities</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/utilities/Calendar.js~CalendarCoordinator.html">CalendarCoordinator</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/utilities/Calendar.js~MonthlyCalendarCoordinator.html">MonthlyCalendarCoordinator</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/utilities/DomUtilities.js~DomUtilities.html">DomUtilities</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/utilities/ElementCreator.js~ElementCreator.html">ElementCreator</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">django_cradmin/widgets</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/AbstractDataListWidget.js~AbstractDataListWidget.html">AbstractDataListWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/AbstractSelectWidget.jsx~AbstractSelectWidget.html">AbstractSelectWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/ApiDataListWidget.js~ApiDataListWidget.html">ApiDataListWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/AutoSubmitFormAfterCountdownWidget.js~AutoSubmitFormAfterCountdownWidget.html">AutoSubmitFormAfterCountdownWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/DataListDisplayByStateWidget.js~DataListDisplayByStateWidget.html">DataListDisplayByStateWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/DateSelectorDayWidget.jsx~DateSelectorDayWidget.html">DateSelectorDayWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/DateSelectorHiddenIsoDateWidget.jsx~DateSelectorHiddenIsoDateWidget.html">DateSelectorHiddenIsoDateWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/DateSelectorMonthWidget.jsx~DateSelectorMonthWidget.html">DateSelectorMonthWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/DateSelectorYearWidget.jsx~DateSelectorYearWidget.html">DateSelectorYearWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/FilterCheckboxWidget.jsx~FilterCheckboxFilter.html">FilterCheckboxFilter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/HiddenInputListWidget.js~HiddenInputListWidget.html">HiddenInputListWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/HidePopupOnClickWidget.js~HidePopupOnClickWidget.html">HidePopupOnClickWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/HtmlListWidget.jsx~HtmlListWidget.html">HtmlListWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/LoadMoreButtonWidget.jsx~LoadMoreButtonWidget.html">LoadMoreButtonWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/MenuToggleWidget.js~MenuToggleWidget.html">MenuToggleWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/PopUpWidget.js~PopUpWidget.html">PopUpWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/PrintOnClickWidget.js~PrintOnClickWidget.html">PrintOnClickWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/SearchInputWidget.jsx~SearchInputWidget.html">SearchInputWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/SelectableListWidget.jsx~SelectableListWidget.html">SelectableListWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/SelectedListWidget.js~SelectedListWidget.html">SelectedListWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/ShowPopupOnClickWidget.js~ShowPopupOnClickWidget.html">ShowPopupOnClickWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/SignalRouterWidget.js~SignalRouterWidget.html">SignalRouterWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/StaticDataListWidget.js~StaticDataListWidget.html">StaticDataListWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/TabButtonWidget.js~TabButtonWidget.html">TabButtonWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/TabPanelWidget.js~TabPanelWidget.html">TabPanelWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/ToggleableMenuWidget.js~ToggleableMenuWidget.html">ToggleableMenuWidget</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">scripts/django_cradmin/widgets/AbstractSelectWidget.jsx</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &quot;react&quot;;
+import ReactDOM from &quot;react-dom&quot;;
+import AbstractWidget from &quot;ievv_jsbase/widget/AbstractWidget&quot;;
+import HttpDjangoJsonRequest from &apos;ievv_jsbase/http/HttpDjangoJsonRequest&apos;;
+
+
+export default class AbstractSelectWidget extends AbstractWidget {
+  constructor(element, widgetInstanceId) {
+    super(element, widgetInstanceId);
+    this.logger = new window.ievv_jsbase_core.LoggerSingleton().getLogger(
+      &apos;django_cradmin.widgets.AbstractSelectWidget&apos;);
+    this.onSelectResultSignal = this.onSelectResultSignal.bind(this);
+    this.onSearchRequestedSignal = this.onSearchRequestedSignal.bind(this);
+
+    this._uniquePrefix = `django_cradmin.Select.${this.widgetInstanceId}`;
+    this._searchRequestedSignalName = `${this._uniquePrefix}.SearchRequested`;
+    this._searchCompletedSignalName = `${this._uniquePrefix}.SearchCompleted`;
+    this._selectResultSignalName = `${this._uniquePrefix}.SelectResult`;
+
+    this.initialValue = this._getInitialValue();
+    this.selectedValue = this.initialValue;
+    this.logger.debug(`initialValue: &quot;${this.initialValue}&quot;`);
+    this._initializeSignalHandlers();
+    if(this.initialValue != null) {
+      this._loadPreviewForInitialValue();
+    } else {
+      this._updateUiForEmptyValue();
+    }
+  }
+
+  getDefaultConfig() {
+    return {
+      valueAttribute: &apos;id&apos;,
+      fetchEmptySearchOnLoad: false,
+      toggleElementsOnValueChange: {
+        loading: [],
+        hasValue: [],
+        noValue: []
+      },
+      updateInnerHtmlWithResult: {},
+      clientsideSearch: {},
+      searchApi: {
+        url: null,
+        staticData: {}
+      },
+      componentProps: {
+        search: {},
+        resultList: {},
+        result: {}
+      }
+    }
+  }
+
+  _getInitialValue() {
+    let initialValue = null;
+    if(this.config.valueTargetInputId) {
+      initialValue = document.getElementById(this.config.valueTargetInputId).value;
+    } else if (this.config.initialValue) {
+      initialValue = this.config.initialValue;
+    }
+    if(initialValue == undefined || initialValue == &apos;&apos;) {
+      initialValue = null;
+    }
+    return initialValue;
+  }
+
+  _initializeSignalHandlers() {
+    new window.ievv_jsbase_core.SignalHandlerSingleton().addReceiver(
+      this._searchRequestedSignalName,
+      &apos;django_cradmin.widgets.AbstractSelectWidget&apos;,
+      this.onSearchRequestedSignal
+    );
+    new window.ievv_jsbase_core.SignalHandlerSingleton().addReceiver(
+      this._selectResultSignalName,
+      &apos;django_cradmin.widgets.AbstractSelectWidget&apos;,
+      this.onSelectResultSignal
+    );
+  }
+
+  destroy() {
+    this.element.removeEventListener(&apos;click&apos;, this._onClick);
+    new window.ievv_jsbase_core.SignalHandlerSingleton().removeReceiver(
+      this._searchRequestedSignalName,
+      &apos;django_cradmin.widgets.AbstractSelectWidget&apos;
+    );
+    new window.ievv_jsbase_core.SignalHandlerSingleton().removeReceiver(
+      this._selectResultSignalName,
+      &apos;django_cradmin.widgets.AbstractSelectWidget&apos;
+    );
+    if(this._reactWrapperElement) {
+      ReactDOM.unmountComponentAtNode(this._reactWrapperElement);
+      this._reactWrapperElement.remove();
+    }
+  }
+
+  _setValueTargetValue(value) {
+    if(this.config.valueTargetInputId) {
+      document.getElementById(this.config.valueTargetInputId).value = value;
+    }
+  }
+
+  _hideElementById(domId) {
+    const element = document.getElementById(domId);
+    if(element) {
+      element.setAttribute(&apos;style&apos;, &apos;display: none&apos;);
+    }
+  }
+
+  _showElementById(domId) {
+    const element = document.getElementById(domId);
+    if(element) {
+      element.setAttribute(&apos;style&apos;, &apos;display: block&apos;);
+    }
+  }
+
+  _hideElementsById(domIdArray) {
+    for(let domId of domIdArray) {
+      this._hideElementById(domId);
+    }
+  }
+
+  _showElementsById(domIdArray) {
+    for(let domId of domIdArray) {
+      this._showElementById(domId);
+    }
+  }
+
+  _updatePreviews(resultObject) {
+    for(let attribute of Object.keys(this.config.updateInnerHtmlWithResult)) {
+      let domIds = this.config.updateInnerHtmlWithResult[attribute];
+      let value = resultObject[attribute];
+      if(value != undefined &amp;&amp; value != null) {
+        for(let domId of domIds) {
+          const element = document.getElementById(domId);
+          if(element) {
+            element.innerHTML = value;
+          }
+        }
+      }
+    }
+  }
+
+  _getValueFromResultObject(resultObject) {
+    return resultObject[this.config.valueAttribute];
+  }
+
+  _setLoading() {
+    this._hideElementsById(this.config.toggleElementsOnValueChange.hasValue);
+    this._hideElementsById(this.config.toggleElementsOnValueChange.noValue);
+    this._showElementsById(this.config.toggleElementsOnValueChange.loading);
+  }
+
+  _updateUiForEmptyValue() {
+    this.selectedValue = null;
+    this._hideElementsById(this.config.toggleElementsOnValueChange.hasValue);
+    this._hideElementsById(this.config.toggleElementsOnValueChange.loading);
+    this._showElementsById(this.config.toggleElementsOnValueChange.noValue);
+    this._setValueTargetValue(&apos;&apos;);
+  }
+
+  _updateUiFromResultObject(resultObject) {
+    let value = this._getValueFromResultObject(resultObject);
+    this.selectedValue = value;
+    this._hideElementsById(this.config.toggleElementsOnValueChange.noValue);
+    this._hideElementsById(this.config.toggleElementsOnValueChange.loading);
+    this._showElementsById(this.config.toggleElementsOnValueChange.hasValue);
+    this._setValueTargetValue(value);
+    this._updatePreviews(resultObject);
+  }
+
+  onSelectResultSignal(receivedSignalInfo) {
+    this.logger.debug(receivedSignalInfo.toString());
+    let resultObject = receivedSignalInfo.data;
+    if(resultObject == null) {
+      this._updateUiForEmptyValue();
+    } else {
+      this._updateUiFromResultObject(resultObject);
+    }
+  }
+
+  _useServerSideSearch() {
+    return this.config.searchApi.url != undefined &amp;&amp; this.config.searchApi.url != null;
+  }
+
+  onSearchRequestedSignal(receivedSignalInfo) {
+    this.logger.debug(receivedSignalInfo.toString());
+    const searchString = receivedSignalInfo.data;
+    this.requestSearchResults(searchString)
+      .then((results) =&gt; {
+        this.sendSearchCompletedSignal(results);
+      })
+      .catch((error) =&gt; {
+        throw error;
+      });
+  }
+
+  sendSearchCompletedSignal(results) {
+    this.logger.debug(&apos;Search complete. Result:&apos;, results);
+    new window.ievv_jsbase_core.SignalHandlerSingleton().send(
+      this._searchCompletedSignalName,
+      results
+    );
+  }
+
+  _isClientSideSearchMatch(searchString, resultObject) {
+    for(let attribute of this.config.clientsideSearch.searchAttributes) {
+      if(resultObject[attribute] != undefined &amp;&amp; resultObject[attribute] != null) {
+        if(resultObject[attribute].toLowerCase().indexOf(searchString) != -1) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  _requestClientSideSearchResults(searchString) {
+    return new Promise((resolve, reject) =&gt; {
+      const resultObjectArray = [];
+      searchString = searchString.toLowerCase();
+      for (let resultObject of this.config.clientsideSearch.data) {
+        if (this._isClientSideSearchMatch(searchString, resultObject)) {
+          resultObjectArray.push(resultObject);
+        }
+      }
+      resolve({
+        count: resultObjectArray.size,
+        results: resultObjectArray
+      });
+    });
+  }
+
+  _requestServerSideSearchResults(searchString) {
+    return new Promise((resolve, reject) =&gt; {
+      const request = new HttpDjangoJsonRequest(this.config.searchApi.url);
+      for (let attribute of Object.keys(this.config.searchApi.staticData)) {
+        request.urlParser.queryString.set(
+          attribute, this.config.searchApi.staticData[attribute]);
+      }
+      request.urlParser.queryString.set(&apos;search&apos;, searchString);
+      request.get()
+        .then((response) =&gt; {
+          resolve(response.bodydata);
+        })
+        .catch((error) =&gt; {
+          reject(error);
+        });
+    });
+  }
+
+  requestSearchResults(searchString=&apos;&apos;) {
+    if(this._useServerSideSearch()) {
+      return this._requestServerSideSearchResults(searchString);
+    } else {
+      return this._requestClientSideSearchResults(searchString);
+    }
+  }
+
+  _requestSingleResultServerSide(value) {
+    return new Promise((resolve, reject) =&gt; {
+      let url = this.config.searchApi.url;
+      if(!this.config.searchApi.url.endsWith(&apos;/&apos;)) {
+        url = `${url}/`;
+      }
+      url = `${url}${value}`;
+      const request = new HttpDjangoJsonRequest(url);
+      request.get()
+        .then((response) =&gt; {
+          resolve(response.bodydata);
+        })
+        .catch((error) =&gt; {
+          reject(error);
+        });
+    });
+  }
+
+  _requestSingleResultClientSide(value) {
+    return new Promise((resolve, reject) =&gt; {
+      for(let resultObject of this.config.clientsideSearch.data) {
+        if(this._getValueFromResultObject(resultObject) == value) {
+          resolve(resultObject);
+        }
+      }
+      reject(new Error(
+        `config.clientsideSearch.data does not contain an ` +
+        `object with ${this.config.valueAttribute} = &quot;${value}&quot;`
+      ));
+    });
+  }
+
+  _requestSingleResult(value) {
+    if(this._useServerSideSearch()) {
+      return this._requestSingleResultServerSide(value);
+    } else {
+      return this._requestSingleResultClientSide(value);
+    }
+  }
+
+  _loadPreviewForInitialValue() {
+    this._setLoading();
+    this._requestSingleResult(this.initialValue)
+      .then((resultObject) =&gt; {
+        this.logger.debug(`Loaded data for initialValue (&quot;${this.initialValue}&quot;):`, resultObject);
+        this._updateUiFromResultObject(resultObject);
+      })
+      .catch((error) =&gt; {
+        this.logger.error(
+          `Failed to load data for initialValue: &quot;${this.initialValue}&quot;. ` +
+          `Error details: ${error.toString()}`);
+      });
+  }
+
+  addReactWrapperElementToDocument(reactWrapperElement) {
+    this.element.parentNode.insertBefore(reactWrapperElement, this.element.nextSibling);
+  }
+
+  initializeReactComponent() {
+    this._reactWrapperElement = document.createElement(&apos;div&apos;);
+    this.addReactWrapperElementToDocument(this._reactWrapperElement);
+    const reactElement = this.makeReactElement();
+    ReactDOM.render(
+      reactElement,
+      this._reactWrapperElement
+    );
+    if(this.config.fetchEmptySearchOnLoad) {
+    this.requestSearchResults()
+      .then((results) =&gt; {
+        this.sendSearchCompletedSignal(results);
+      })
+      .catch((error) =&gt; {
+        throw error;
+      });
+    }
+  }
+
+  makeReactComponentProps() {
+    return {
+      closeCallback: this._onClose,
+      selectResultSignalName: this._selectResultSignalName,
+      searchCompletedSignalName: this._searchCompletedSignalName,
+      searchRequestedSignalName: this._searchRequestedSignalName,
+      valueAttribute: this.config.valueAttribute,
+      searchComponentProps: this.config.componentProps.search,
+      resultListComponentProps: this.config.componentProps.resultList,
+      resultComponentProps: this.config.componentProps.result,
+      selectedValue: this.selectedValue
+    }
+  }
+
+  makeReactElement() {
+    throw new Error(&apos;You must override makeReactElement()&apos;);
+  }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.8)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
