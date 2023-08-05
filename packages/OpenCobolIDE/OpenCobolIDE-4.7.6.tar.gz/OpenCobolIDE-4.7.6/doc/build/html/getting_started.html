@@ -1,0 +1,394 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting started &mdash; OpenCobolIDE 4.7.6.dev1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/silex-icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="OpenCobolIDE 4.7.6.dev1 documentation" href="index.html"/>
+        <link rel="next" title="Application preferences" href="settings.html"/>
+        <link rel="prev" title="Download &amp; Install" href="download.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> OpenCobolIDE
+          
+
+          
+            
+            <img src="_static/silex-icon.ico" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="whats_new.html">What&#8217;s New?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download &amp; Install</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-new-file">Create a new file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#open-a-file">Open a file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-main-window">The main window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compile-a-file">Compile a file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-a-compiled-program">Run a compiled program</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Application preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tipsandtricks.html">Tips and tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">OpenCobolIDE</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Getting started</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/getting_started.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All the screenshots were taken on Gnome 3 desktop.
+You will have different looks and feels on other operating systems or
+desktop environments.</p>
+</div>
+<p>OpenCobolIDE is <strong>simple and lightweight</strong> IDE. It works on a single
+file basis (i.e. it has no concept of project): <em>you create/open a file,
+compile it then run it.</em></p>
+<img alt="_images/Home.png" class="align-center" src="_images/Home.png" />
+<p>This is the first window you will see when running OpenCobolIDE, called the
+<em>home page</em>. From there you can create new files or open existing one.
+You can also access the application menu by right clicking on any empty area.</p>
+<div class="section" id="create-a-new-file">
+<h2>Create a new file<a class="headerlink" href="#create-a-new-file" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>click on <em>New</em></li>
+<li>the following dialog should appear:</li>
+</ul>
+<img alt="_images/NewFile.png" class="align-center" src="_images/NewFile.png" />
+<ul>
+<li><p class="first">fill up the following information:</p>
+<blockquote>
+<div><ul>
+<li><dl class="first docutils">
+<dt>Type:</dt>
+<dd><p class="first">Specify the type of file to create. Depending on your choice the
+default code template that is created will changed. Note that you
+can changed the file type later on after creating the file.</p>
+<p>You can choose from:</p>
+<blockquote class="last">
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>program:</dt>
+<dd>A <em>program</em> is an <strong>executable</strong>.
+When compiled, it produces an <strong>.exe</strong> on Windows and an
+<strong>executable binary file</strong> on GNU/Linux and Mac OSX.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>module:</dt>
+<dd>A <em>module</em> or <em>subprogram</em> is a <strong>library</strong>, a list of
+procedures that can be shared among other modules/programs.
+When compiled, it produces a dynamically linked library
+(<strong>.dll</strong>) on Windows and a shared object (<strong>.so</strong>) on
+GNU/Linux and Mac OSX.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>empty:</dt>
+<dd>create an empty file.</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Name:</dt>
+<dd><p class="first last">file name without extension (you can choose the extension in the
+drop down list)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Directory:</dt>
+<dd><p class="first last">directory where the file will be created.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The source code of a module must be located in the same directory
+as the calling program&#8217;s source code to work properly.</p>
+</div>
+</div>
+<div class="section" id="open-a-file">
+<h2>Open a file<a class="headerlink" href="#open-a-file" title="Permalink to this headline">¶</a></h2>
+<p>Simply click on <em>Open</em> or choose a file in the recent files list.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The recent files list have a context menu that let you remove a file
+or clear the entire list.</p>
+</div>
+</div>
+<div class="section" id="the-main-window">
+<h2>The main window<a class="headerlink" href="#the-main-window" title="Permalink to this headline">¶</a></h2>
+<p>Here is the main window of OpenCobolIDE:</p>
+<img alt="_images/MainWindowWithNumbers.png" class="align-center" src="_images/MainWindowWithNumbers.png" />
+<p>It is made up of 5 distinct parts:</p>
+<ol class="arabic">
+<li><p class="first">menu and toolbar zone:</p>
+<blockquote>
+<div><p>The menu contains all the actions that can be performed in the application.
+Note that the menu is hidden when you switch to the minimal perspective.
+In that case, you can show it by right clicking next to the last editor
+tab (in the empty area).</p>
+</div></blockquote>
+</li>
+<li><p class="first">code editors tab widget:</p>
+<blockquote>
+<div><p>This is where you type your code.</p>
+</div></blockquote>
+</li>
+<li><p class="first">the <strong>Navigation</strong> panel (movable and closable):</p>
+<blockquote>
+<div><p>This panel shows the document structure. It is fully synced with the code
+folding panel (inside the current editor).</p>
+</div></blockquote>
+</li>
+<li><p class="first">the <strong>Log</strong> panel (movable and closable):</p>
+<blockquote>
+<div><p>This panel shows the list of errors found in your program and you program
+output.</p>
+<p>It is made up of the following tabs:</p>
+<ul>
+<li><p class="first">Issues: the list of issues</p>
+</li>
+<li><p class="first">Output: the program output (when you run it).</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The output console is interactive and accepts stdin but does
+not support COBOL <code class="docutils literal"><span class="pre">SCREEN</span> <span class="pre">SECTION</span></code>.
+If you&#8217;re using the screen section, you should run your
+program in an external terminal <em>(Preferences-&gt;Build And
+Run)</em></p>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">the status bar:</p>
+<blockquote>
+<div><p>The status bar shows menu/actions description on the left and current editor
+information on the right (free/fixed format, cursor position,
+file encoding).</p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="compile-a-file">
+<h2>Compile a file<a class="headerlink" href="#compile-a-file" title="Permalink to this headline">¶</a></h2>
+<p>To compile a file, press <strong>F8</strong> or press the compile button.</p>
+<p>This will compile the current file as well as its dependencies.</p>
+<p>You can double click on an entry in the issues table to quickly go to the
+problematic line in the editor (if the file hasn&#8217;t been open,
+OpenCobolIDE will gently open it for you).</p>
+<p>To change the program type you must press the down arrow next to the compile
+button. Doing this will reveal a drop down menu where you can choose the program
+type:</p>
+</div>
+<div class="section" id="run-a-compiled-program">
+<h2>Run a compiled program<a class="headerlink" href="#run-a-compiled-program" title="Permalink to this headline">¶</a></h2>
+<p>Press <strong>F5</strong> or click the run button (inside the editor) to run the file.</p>
+<p>The program will run in the <em>Output</em> window which is interactive (support for
+stdin has been tested and works with the <strong>ACCEPT</strong> keyword).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It will recompile the file and all its dependencies before running
+the compiled program.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="settings.html" class="btn btn-neutral float-right" title="Application preferences" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="download.html" class="btn btn-neutral" title="Download &amp; Install" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013-2016, Colin Duquesnoy.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'4.7.6.dev1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

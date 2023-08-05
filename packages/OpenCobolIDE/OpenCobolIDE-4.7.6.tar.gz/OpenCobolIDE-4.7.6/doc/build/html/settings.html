@@ -1,0 +1,492 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Application preferences &mdash; OpenCobolIDE 4.7.6.dev1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/silex-icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="OpenCobolIDE 4.7.6.dev1 documentation" href="index.html"/>
+        <link rel="next" title="Advanced topics" href="advanced.html"/>
+        <link rel="prev" title="Getting started" href="getting_started.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> OpenCobolIDE
+          
+
+          
+            
+            <img src="_static/silex-icon.ico" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="whats_new.html">What&#8217;s New?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download &amp; Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Application preferences</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#editor-settings">Editor settings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#view-options">View options:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#margins">Margins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comments-symbol">Comments symbol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#indentation-otions">Indentation otions:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code-completion-options">Code completion options:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#eol-options">EOL  options:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#style-settings">Style settings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#application-style-options">Application style options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#editor-font-options">Editor font options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#editor-color-scheme">Editor color scheme</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#compiler-settings">Compiler settings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#compiler-path">Compiler path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#output-directory">Output directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#associated-extensions">Associated extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#standard">Standard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#free-format">Free format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compiler-flags">Compiler flags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#copybook-paths">Copybook paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#library-paths">Library paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#libraries">Libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vcvarsall-path">VCVARSALL path:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#run-settings">Run settings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#external-terminal">External terminal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#environment">Environment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sql-cobol-settings">SQL Cobol settings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dbpre-configuration">DBPRE Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#db-connection-parameters">DB Connection Parameters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tipsandtricks.html">Tips and tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">OpenCobolIDE</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Application preferences</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/settings.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="application-preferences">
+<h1>Application preferences<a class="headerlink" href="#application-preferences" title="Permalink to this headline">¶</a></h1>
+<p>This page describes the preferences settings that are available for you to
+customise your experience with the IDE.</p>
+<p>To open the preferences dialog, go to Edit-&gt;Preferences (<code class="docutils literal"><span class="pre">F2</span></code> on Windows and Linux and <code class="docutils literal"><span class="pre">CMD+,</span></code> on OS X).</p>
+<div class="section" id="editor-settings">
+<h2>Editor settings<a class="headerlink" href="#editor-settings" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/editor-settings.png" class="align-center" src="_images/editor-settings.png" />
+<p>This tab let you change the cobol source code editor settings.</p>
+<div class="section" id="view-options">
+<h3>View options:<a class="headerlink" href="#view-options" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Display line numbers</strong>: show/hide the line numbers panel on the left of the editor</li>
+<li><strong>Highlight current line</strong>: enable/disable highlighting of the current line</li>
+<li><strong>Highlight whitespaces</strong>: show/hide visual whitespaces</li>
+<li><dl class="first docutils">
+<dt><strong>Show errors</strong>: enable/disable cobol linter (errors appears as red lines in the editor and as icons on the left of</dt>
+<dd>the editor).</dd>
+</dl>
+</li>
+<li><strong>Show cursor position in bytes</strong>: show cursor in position in bytes (take encoding into account) if enabled, otherwise show the column number.</li>
+</ul>
+</div>
+<div class="section" id="margins">
+<h3>Margins<a class="headerlink" href="#margins" title="Permalink to this headline">¶</a></h3>
+<p>You can configure up to 4 different margins. You can choose the column where the
+margin should appear and its color. Use 0 to hide a margin.</p>
+</div>
+<div class="section" id="comments-symbol">
+<h3>Comments symbol<a class="headerlink" href="#comments-symbol" title="Permalink to this headline">¶</a></h3>
+<p>Choose the comment symbol you want to use for the comment/uncomment action (Ctrl+/).</p>
+<p>Default is <a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">*</span></a>&gt; `` which should work with both fixed format and free format.</p>
+<p>If you&#8217;re using fixed format, you can set it to <code class="docutils literal"><span class="pre">*</span></code>.</p>
+</div>
+<div class="section" id="indentation-otions">
+<h3>Indentation otions:<a class="headerlink" href="#indentation-otions" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Width</strong>: the number of spaces for a tabulation</li>
+<li><strong>Automatic indentation</strong>: enable/disable automatic <em>smart</em> indentation. The editor will move the cursor to the
+correct indentation level when you press ENTER (e.g. it will indent automatically after an if statement and so on.</li>
+<li><strong>Intelligent backspace</strong>: If enabled, backspace will de-indent (eat at most <code class="docutils literal"><span class="pre">Width</span></code> spaces).</li>
+</ul>
+</div>
+<div class="section" id="code-completion-options">
+<h3>Code completion options:<a class="headerlink" href="#code-completion-options" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Filter mode</strong>: choose how code completions should be filtered. You can choose between Prefix or subsequence. Subsequence might lead to better results but is much slower.</li>
+<li><strong>Trigger length</strong>: specify the amount of characters needed to automatically trigger a code completion request.
+A value of 1 make the code completion trigger automatically as soon as you type.</li>
+<li><strong>Proposed keywords</strong>: let you choose a convention for the cobol keywords: lower-case or UPPER-CASE keywords</li>
+</ul>
+</div>
+<div class="section" id="eol-options">
+<h3>EOL  options:<a class="headerlink" href="#eol-options" title="Permalink to this headline">¶</a></h3>
+<p>This group let you change how line endings are handled by the editor.</p>
+<ul class="simple">
+<li>Preferred EOL: Specify you preferred EOL, this EOL will be used for creating/saving files</li>
+<li>Auto-detect EOL: If checked, the editor will try to auto detect and keep the original line ending. If false, the
+preferred EOL will be used instead of the original line ending when you save a file.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="style-settings">
+<h2>Style settings<a class="headerlink" href="#style-settings" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/style-settings.png" class="align-center" src="_images/style-settings.png" />
+<p>This tab let you change the appearance of the cobol editor and the interface.</p>
+<div class="section" id="application-style-options">
+<h3>Application style options<a class="headerlink" href="#application-style-options" title="Permalink to this headline">¶</a></h3>
+<p>This group of settings let you change the appearance of the interface. You can either choose to use
+the <strong>Native</strong> theme (the app will look similar to the native apps of your system) or use a <strong>Dark</strong> stylesheet.</p>
+<p>On GNU/Linux, you can also choose a custom <strong>icon theme</strong>.</p>
+</div>
+<div class="section" id="editor-font-options">
+<h3>Editor font options<a class="headerlink" href="#editor-font-options" title="Permalink to this headline">¶</a></h3>
+<p>This group of settings let you change the code editor font settings (font name and default size).</p>
+</div>
+<div class="section" id="editor-color-scheme">
+<h3>Editor color scheme<a class="headerlink" href="#editor-color-scheme" title="Permalink to this headline">¶</a></h3>
+<p>This let you choose a color scheme for the source code editor and the run output window.</p>
+<p>OpenCobolIDE uses the pygments library for its color schemes definition. You can easily add some
+custom color schemes by installing python plugin (this won&#8217;t work with a frozen application on Windows and OS X).</p>
+</div>
+</div>
+<div class="section" id="compiler-settings">
+<h2>Compiler settings<a class="headerlink" href="#compiler-settings" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/compiler-settings.png" class="align-center" src="_images/compiler-settings.png" />
+<p>This tab let you change the GnuCOBOL compiler settings.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Those settings are applied globally to every file you compile with the IDE. At the moment there is no way
+to set custom compiler settings per file.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">These settings don&#8217;t support environment variable expansion.</p>
+</div>
+<div class="section" id="compiler-path">
+<h3>Compiler path<a class="headerlink" href="#compiler-path" title="Permalink to this headline">¶</a></h3>
+<p>This option let you specify the full path to a working GnuCOBOL compiler. When you change this path you can
+check whether your compiler is working by clicking on the &#8220;Check compiler&#8221; button. The following dialog will then
+show up.</p>
+<p>Press &#8220;Check compilation&#8221; to check if the compiler is able to compile a simple hello world executable. If you don&#8217;t
+get &#8220;Compiler works&#8221;, read the compiler output carefully. If it is not working, you might need to adjust the
+environment variables.</p>
+<ul class="simple">
+<li>PATH: prefix paths to the PATH environment variable</li>
+<li>COB_CONFIG_DIR: Hmm, news says this was dropped, but it’ll effect where .conf dialect support files are found.</li>
+<li>COB_COPY_DIR: Path to COPY books.</li>
+<li>COB_INCLUDE_PATH</li>
+<li>COB_LIB_PATH</li>
+</ul>
+<p><strong>Auto-detect and compile submodules</strong> checkbox let you choose whether you&#8217;d like the IDE to
+compile submodules automatically (that way you just have to compile your main modules).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Each environment variables has an associated checkbox, it won&#8217;t be used unless the check box is checked.</p>
+</div>
+</div>
+<div class="section" id="output-directory">
+<h3>Output directory<a class="headerlink" href="#output-directory" title="Permalink to this headline">¶</a></h3>
+<p>This option let you chose where to put the binaries, by default binaries will be placed into a <em>bin</em> folder next
+to the source file. You can define another relative or absolute directory if you want.</p>
+</div>
+<div class="section" id="associated-extensions">
+<h3>Associated extensions<a class="headerlink" href="#associated-extensions" title="Permalink to this headline">¶</a></h3>
+<p>Associate custom extension with the GnuCOBOL compiler. Extensions should be dotted (.cbl) and lowercase. The uppercase
+version will be handled by the ide automatically.</p>
+</div>
+<div class="section" id="standard">
+<h3>Standard<a class="headerlink" href="#standard" title="Permalink to this headline">¶</a></h3>
+<p>This option let you choose the target COBOL standard.</p>
+</div>
+<div class="section" id="free-format">
+<h3>Free format<a class="headerlink" href="#free-format" title="Permalink to this headline">¶</a></h3>
+<p>Enable/Disable coding in free format.</p>
+</div>
+<div class="section" id="compiler-flags">
+<h3>Compiler flags<a class="headerlink" href="#compiler-flags" title="Permalink to this headline">¶</a></h3>
+<p>This let you change some common C compiler settings. Every checkbox has a tooltip that describes what the setting is
+used for.</p>
+<p>There is a line edit widget where you can add additional missing compiler flags (separate them with a blank space).</p>
+</div>
+<div class="section" id="copybook-paths">
+<h3>Copybook paths<a class="headerlink" href="#copybook-paths" title="Permalink to this headline">¶</a></h3>
+<p>This option let you add custom copybook paths, e.g. to locate a COBOL copybook you&#8217;re including in your program.</p>
+</div>
+<div class="section" id="library-paths">
+<h3>Library paths<a class="headerlink" href="#library-paths" title="Permalink to this headline">¶</a></h3>
+<p>This option let you add custom library paths, e.g. to locate a c library that you need to link with (such as
+mysqlclient). <em>-L flag</em></p>
+</div>
+<div class="section" id="libraries">
+<h3>Libraries<a class="headerlink" href="#libraries" title="Permalink to this headline">¶</a></h3>
+<p>This option let you specify the libraries you want to link with. Separate them with a blank space. <em>-l flag</em></p>
+</div>
+<div class="section" id="vcvarsall-path">
+<h3>VCVARSALL path:<a class="headerlink" href="#vcvarsall-path" title="Permalink to this headline">¶</a></h3>
+<p><em>This option is not visible on the above screenshot because it is available only on windows.</em></p>
+<p>This option let you specify the path to vcvarsall.bat which is needed if you are using a custom GnuCompiler built with
+Visual Studio. <code class="docutils literal"><span class="pre">vcvarsall.bat</span></code> can be found in the <code class="docutils literal"><span class="pre">VC</span></code> folder of your Visual C++ installation.</p>
+</div>
+</div>
+<div class="section" id="run-settings">
+<h2>Run settings<a class="headerlink" href="#run-settings" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/run-settings.png" class="align-center" src="_images/run-settings.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">These settings don&#8217;t support environment variable expansion.</p>
+</div>
+<div class="section" id="external-terminal">
+<h3>External terminal<a class="headerlink" href="#external-terminal" title="Permalink to this headline">¶</a></h3>
+<p>This tab let you change the way the IDE run executable programs.</p>
+<p>By default the program will run inside the IDE, in the program output window.
+This work nice for basic program but will fail as soon as you start using the <code class="docutils literal"><span class="pre">SCREEN-SECTION</span></code>,
+an error message about being unable to redirect output will appear in the program output.</p>
+<p>To run such a program you need to run it in an external console window.</p>
+<p>To enable running a program in an external terminal:</p>
+<ul>
+<li><p class="first">check <code class="docutils literal"><span class="pre">Run</span> <span class="pre">in</span> <span class="pre">external</span> <span class="pre">terminal</span></code></p>
+</li>
+<li><p class="first">specify the terminal program to use if necessary:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>On Windows</strong>, the IDE will automatically use <code class="docutils literal"><span class="pre">cmd.exe</span></code>.</li>
+<li><strong>On OS X</strong>, the IDE will automatically use <code class="docutils literal"><span class="pre">open</span></code>.</li>
+<li><strong>On linux</strong>, it depends on the distribution and the desktop environment you are using.
+The IDE will try to pick up one of those if available: <code class="docutils literal"><span class="pre">gnome-terminal</span></code>, <code class="docutils literal"><span class="pre">konsole</span></code> and <code class="docutils literal"><span class="pre">xfce-terminal</span></code>.
+If you are using another terminal, please indicate the command to use.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="environment">
+<h3>Environment<a class="headerlink" href="#environment" title="Permalink to this headline">¶</a></h3>
+<p>Here you can define some additional environment variables that you&#8217;d need to
+run your program.</p>
+<p>Quoting Simon Sobisch (the lead of the GnuCOBOL project):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Users</span> <span class="k">with</span> <span class="p">(</span><span class="n">recent</span><span class="p">)</span> <span class="n">GnuCOBOL</span> <span class="mf">2.</span><span class="n">x</span> <span class="n">can</span> <span class="nb">set</span> <span class="n">COB_RUNTIME_CONFIG</span> <span class="p">(</span>
+<span class="n">see</span> <span class="n">the</span> <span class="n">documentation</span> <span class="ow">or</span> <span class="n">conf</span><span class="o">/</span><span class="n">runtime</span><span class="o">.</span><span class="n">cfg</span><span class="p">)</span> <span class="n">to</span> <span class="n">have</span> <span class="nb">all</span> <span class="n">settings</span>
+<span class="n">they</span> <span class="n">need</span> <span class="ow">in</span> <span class="n">one</span> <span class="n">place</span> <span class="o">-</span> <span class="n">both</span> <span class="k">for</span> <span class="n">use</span> <span class="k">with</span> <span class="ow">and</span> <span class="n">without</span> <span class="n">OCIDE</span><span class="o">.</span>
+
+<span class="n">Use</span> <span class="n">multiple</span> <span class="n">configuration</span> <span class="n">files</span> <span class="p">(</span><span class="n">one</span> <span class="s2">&quot;master&quot;</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">others</span> <span class="n">only</span>
+<span class="n">setting</span> <span class="n">necessary</span> <span class="s2">&quot;special&quot;</span> <span class="n">flags</span> <span class="ow">and</span> <span class="n">include</span> <span class="n">master</span><span class="o">.</span><span class="n">cfg</span><span class="p">)</span> <span class="ow">and</span> <span class="n">you</span>
+<span class="n">have</span> <span class="n">a</span> <span class="n">different</span> <span class="nb">set</span> <span class="n">of</span> <span class="n">runtime</span> <span class="n">configurations</span> <span class="n">by</span> <span class="n">just</span> <span class="n">one</span> <span class="n">change</span> <span class="ow">in</span>
+<span class="n">OCIDE</span> <span class="p">:</span><span class="o">-</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="sql-cobol-settings">
+<h2>SQL Cobol settings<a class="headerlink" href="#sql-cobol-settings" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/sql-cobol-settings.png" class="align-center" src="_images/sql-cobol-settings.png" />
+<p>This tab let you configure <a class="reference external" href="http://sourceforge.net/projects/dbpre/">dbpre</a> integration to get mysql support with COBOL!</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This has been tested and validated on Linux only.</p>
+</div>
+<div class="section" id="dbpre-configuration">
+<h3>DBPRE Configuration<a class="headerlink" href="#dbpre-configuration" title="Permalink to this headline">¶</a></h3>
+<p>It&#8217;s up to you to install and setup dbpre. Once done, you can configure integration with the IDE.</p>
+<p>This group of settings let you specify where to find the various parts of the dbpre framework:</p>
+<ul class="simple">
+<li><strong>dbpre</strong>: location of the dbpre executable</li>
+<li><strong>cobmysqlapi</strong>: location of the cobmysqlapi object file.</li>
+<li><strong>Framework</strong>: path to the directory that contains the cobol copybooks that are needed to compile and run your sql cobol
+program</li>
+</ul>
+</div>
+<div class="section" id="db-connection-parameters">
+<h3>DB Connection Parameters<a class="headerlink" href="#db-connection-parameters" title="Permalink to this headline">¶</a></h3>
+<p>This group of settings let you specify the content of the .param file that will be generated after the
+compilation of your program succeeded. This file contains database connection settins. Read the dbpre documentation
+to get more info!</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="advanced.html" class="btn btn-neutral float-right" title="Advanced topics" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="getting_started.html" class="btn btn-neutral" title="Getting started" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013-2016, Colin Duquesnoy.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'4.7.6.dev1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

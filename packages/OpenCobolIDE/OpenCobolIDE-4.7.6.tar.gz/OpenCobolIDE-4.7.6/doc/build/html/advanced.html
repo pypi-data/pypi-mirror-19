@@ -1,0 +1,343 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Advanced topics &mdash; OpenCobolIDE 4.7.6.dev1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/silex-icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="OpenCobolIDE 4.7.6.dev1 documentation" href="index.html"/>
+        <link rel="next" title="Tips and tricks" href="tipsandtricks.html"/>
+        <link rel="prev" title="Application preferences" href="settings.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> OpenCobolIDE
+          
+
+          
+            
+            <img src="_static/silex-icon.ico" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="whats_new.html">What&#8217;s New?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download &amp; Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Application preferences</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Advanced topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setup-a-custom-compiler-on-windows">Setup a custom compiler on Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sql-cobol-guide">SQL COBOL Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#esqloc-on-windows">esqlOC (on Windows)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dbpre-on-gnu-linux">DBPRE (on GNU/Linux)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#developer-mode">Developer mode</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tipsandtricks.html">Tips and tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">OpenCobolIDE</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Advanced topics</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/advanced.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="advanced-topics">
+<h1>Advanced topics<a class="headerlink" href="#advanced-topics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="setup-a-custom-compiler-on-windows">
+<span id="windows-gnu-cobol"></span><h2>Setup a custom compiler on Windows<a class="headerlink" href="#setup-a-custom-compiler-on-windows" title="Permalink to this headline">¶</a></h2>
+<p>Starting from version 4.6.0, you have all the tools to setup a custom GnuCOBOL compiler on windows.</p>
+<p>The first step is to download or build the compiler and make sure it works from the command line.</p>
+<p>Then fire up OpenCobolIDE, open the preferences dialog and go to the compiler tab:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">specify the compiler path in  &#8220;Custom compiler path&#8221;. When you choose a new compiler, you will
+be presented with a dialog that let you check if the compiler works. If the test failed, then this
+might be because you need to adjust some environment variables</p>
+</li>
+<li><p class="first">adjust the environment variables (PATH and COBC_CONFIG_DIR are usually required, you might also need
+to adjust the include and copy path depending on the compiler you chose). You may disable variables
+that you don&#8217;t need by removing the check mark.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">when you&#8217;ve changed an environmnent variable, you can check if the compiler works by clicking on the
+<code class="docutils literal"><span class="pre">check</span> <span class="pre">compiler</span></code> button.</p>
+</div>
+</li>
+<li><p class="first">if the compiler is build with MSVC, you will also need to indicate the path of vcvarsall.bat of the
+compiler used to build GnuCOBOL. If using Visual Studio 2010, you can find this file in
+<code class="docutils literal"><span class="pre">c:\Program</span> <span class="pre">Files(x86)\Microsoft</span> <span class="pre">Visual</span> <span class="pre">Studio</span> <span class="pre">10.0\VC\vcvarsall.bat</span></code></p>
+</li>
+</ul>
+</div></blockquote>
+<p>Here is the setup I use for working with <a class="reference external" href="http://www.kiska.net/opencobol/2.0/index.html">GnuCOBOL 2.0 MSVC</a>:</p>
+<blockquote>
+<div><img alt="_images/custom_compiler_windows.png" class="align-center" src="_images/custom_compiler_windows.png" />
+</div></blockquote>
+</div>
+<div class="section" id="sql-cobol-guide">
+<span id="sql-guide"></span><h2>SQL COBOL Guide<a class="headerlink" href="#sql-cobol-guide" title="Permalink to this headline">¶</a></h2>
+<p>GnuCOBOL does not support SQL statements (such as EXEC SQL) natively but you may use a pre-compiler that
+will convert your sql statements to pure COBOL that can then be compiled with GnuCOBOL.</p>
+<p>OpenCobolIDE supports the following pre-compilers:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://sourceforge.net/projects/dbpre/">dbpre</a>  (<strong>UNIX</strong>)</li>
+<li><a class="reference external" href="http://sourceforge.net/p/open-cobol/discussion/contrib/thread/4057115f/">esqlOC</a> (<strong>WINDOWS</strong>)</li>
+</ul>
+<p>Read the below section to know how to setup OpenCobolIDE to work with one of these pre-compilers.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Pre-compilers are associated with one specific extension (<strong>.scb</strong> for dbpre and <strong>.sqb</strong> for esqlOC).
+Those tools will get used only if the file extension match the associated extension!
+E.g. pre-compilers will never get called on regular COBOL files (.cbl, .cob,...).</p>
+</div>
+<div class="section" id="esqloc-on-windows">
+<h3>esqlOC (on Windows)<a class="headerlink" href="#esqloc-on-windows" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">To work with esqlOC, you need to use GnuCOBOL built with Visual Studio.
+Read <a class="reference internal" href="#windows-gnu-cobol"><span class="std std-ref">Setup a custom compiler on Windows</span></a> to setup the correct compiler.</p>
+</div>
+<ol class="arabic simple">
+<li>Setup OpenCobolIDE to work with GnuCOBOL compiled with Visual Studio (make sure you can compile a simple
+HelloWorld)</li>
+<li>Download esqlOC and install it somewhere on your drive (prefer a path without spaces such as <code class="docutils literal"><span class="pre">c:\esqloc</span></code>).</li>
+<li>Open the OpenCobolIDE preferences and go to the <strong>SQL Cobol</strong> tab. There specify the installation directory
+of esqlOC.</li>
+<li>Open a <strong>.sqb</strong> file and compile it.</li>
+</ol>
+</div>
+<div class="section" id="dbpre-on-gnu-linux">
+<h3>DBPRE (on GNU/Linux)<a class="headerlink" href="#dbpre-on-gnu-linux" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Download dbpre and follow the instruction for compiling. You don&#8217;t need to install it system
+wide, just create a clean dbpre directory in your home folder where you you copy the following files:</p>
+<blockquote>
+<div><ul class="simple">
+<li>dbpre executable</li>
+<li>cobmysqlapi.o</li>
+<li>the copybooks: PGCTBBAT, PGCTBBATWS and SQLCA</li>
+</ul>
+</div></blockquote>
+<p>The dbpre directory should look like that:</p>
+<img alt="_images/dbpre_directory_content.png" class="align-center" src="_images/dbpre_directory_content.png" />
+</li>
+<li><p class="first">Run OpenCobolIDE and open the preferences dialog.</p>
+</li>
+<li><p class="first">Go to the SQL Cobol setting tab</p>
+</li>
+<li><p class="first">Specify the path to the dbpre executable, cobmysqlapi.o and the directory that contains the copybooks</p>
+</li>
+<li><p class="first">Setup the DB connection parameters to connect to your test db$</p>
+</li>
+<li><p class="first">Go to the compiler settings tab</p>
+</li>
+<li><p class="first">Add a new library path that points to: <cite>/usr/include/mysql</cite></p>
+</li>
+<li><p class="first">Add <cite>mysqlclient</cite> to the libraries.</p>
+</li>
+<li><p class="first">Open a <strong>.scb</strong> file, compile and enjoy!</p>
+</li>
+</ol>
+<p>Here are some screen-shots of a working configuration:</p>
+<p><strong>DBPRE configuration</strong>:</p>
+<blockquote>
+<div><img alt="_images/configured_dbpre.png" class="align-center" src="_images/configured_dbpre.png" />
+</div></blockquote>
+<p><strong>Compiler configuration</strong>:</p>
+<blockquote>
+<div><img alt="_images/configured_compiler_for_dbpre.png" class="align-center" src="_images/configured_compiler_for_dbpre.png" />
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="developer-mode">
+<h2>Developer mode<a class="headerlink" href="#developer-mode" title="Permalink to this headline">¶</a></h2>
+<p>By default, OpenCobolIDE embeds a series of third party libraries and modify python&#8217;s sys import path to always load the
+bundled libraries first. Those libraries are bundled inside the opencobolide python package (this path is internally
+used to set the <code class="docutils literal"><span class="pre">OCIDE_EXTLIBS_PATH</span></code> environment variable).</p>
+<p>This behaviour can be changed by setting the <code class="docutils literal"><span class="pre">OCIDE_DEV_MODE</span></code> environment variable to 1. If you do so, you&#8217;ll need to
+install the required third-parties yourself. This can be done easily by running the following command at the root
+of the OpenCobolIDE&#8217;s source directory:</p>
+<p><code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tipsandtricks.html" class="btn btn-neutral float-right" title="Tips and tricks" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="settings.html" class="btn btn-neutral" title="Application preferences" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013-2016, Colin Duquesnoy.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'4.7.6.dev1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
