@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: wagtailgeowidget
+Version: 1.1.0
+Summary: Google Maps widget for the GeoDjango PointField field in Wagtail
+Home-page: https://github.com/frojd/wagtail-geo-widget
+Author: Fröjd
+Author-email: martin@marteinn.se
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Framework :: Django
+Classifier: Topic :: Utilities
