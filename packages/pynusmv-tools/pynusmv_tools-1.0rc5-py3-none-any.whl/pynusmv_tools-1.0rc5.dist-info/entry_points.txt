@@ -1,0 +1,12 @@
+[console_scripts]
+arctl = tools.arctl.cmd.trace:main
+atl = tools.atl.check:main
+atlk_fo = tools.atlkFO.check:main
+atlk_po = tools.atlkPO.check:main
+ctl = tools.ctl.CTLcheck:main
+ctlk = tools.ctlk.cmd.cmd:main
+fairctl = tools.fairctl.FairCTLcheck:main
+smv2dot = tools.dotDump:main
+smv_cmp = tools.compare:main
+tlace = tools.tlace.tlace:main
+
