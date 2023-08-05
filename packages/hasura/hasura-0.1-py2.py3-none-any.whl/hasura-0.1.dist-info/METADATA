@@ -1,0 +1,18 @@
+Metadata-Version: 2.0
+Name: hasura
+Version: 0.1
+Summary: Hasura API client library for Python
+Home-page: https://github.com/shahidhk/hasura-python
+Author: Shahidh K Muhammed
+Author-email: shahidhkmuhammed@gmail.com
+License: MIT
+Keywords: hasura python sdk
+Platform: UNKNOWN
+Requires-Dist: requests
+
+# hasura-python
+Hasura API client library for python
+
+TODO: Documentation
+
+
