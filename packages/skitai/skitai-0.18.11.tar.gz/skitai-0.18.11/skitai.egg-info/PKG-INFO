@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: skitai
+Version: 0.18.11
+Summary: Skitai Library
+Home-page: https://gitlab.com/hansroh/skitai
+Author: Hans Roh
+Author-email: hansroh@gmail.com
+License: BSD
+Download-URL: https://pypi.python.org/pypi/skitai
+Description: UNKNOWN
+Platform: posix
+Platform: nt
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: HTTP Servers
+Classifier: Environment :: Console
+Classifier: Environment :: No Input/Output (Daemon)
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
