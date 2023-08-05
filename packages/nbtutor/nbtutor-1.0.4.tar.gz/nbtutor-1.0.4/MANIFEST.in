@@ -1,0 +1,26 @@
+graft docs
+graft examples
+graft nbtutor
+graft src
+graft tests
+graft tools
+
+include .babelrc
+include .coveragerc
+include .dockerignore
+include .esdoc
+include .jshintrc
+
+include usage.gif
+include appveyor.yml
+include environment.yml
+include package.json
+include readthedocs.yml
+include README.rst
+include LICENCE.rst
+
+recursive-include nbtutor *
+
+recursive-exclude examples/.ipynb_checkpoints *
+
+global-exclude *.py[cod] __pycache__ *.so *.dylib *.prof
