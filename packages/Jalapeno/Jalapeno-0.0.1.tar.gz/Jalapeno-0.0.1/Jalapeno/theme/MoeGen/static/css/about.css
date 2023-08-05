@@ -1,0 +1,33 @@
+  h5{
+    text-align: center;
+  }
+  .card-group{
+    padding: 0px;
+    margin-bottom: 0px;
+    background-color: #121111;
+    border-color: #121111;
+    border-collapse: collapse;
+  }
+  .card{
+    border-radius: 0px;
+    padding: 0px;
+    margin-bottom: 0px;
+    border: 0px;
+    background-color: #121111;
+    border-collapse: collapse;
+    border-color: #121111;
+  }
+  .Instaimg{
+    padding: 0px;
+    border-radius: 0px;
+    border-collapse: collapse;
+    border-bottom: 0px;
+    background-color: #121111;
+    height: auto;
+    width: 200px;
+  }
+  .copyRight{
+    color: white;
+    text-align: center;
+    font-family: "Lato Light","Avenir Light";
+  }
