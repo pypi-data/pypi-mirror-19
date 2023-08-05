@@ -1,0 +1,81 @@
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Description: # cfnbot
+        
+        Make managing CloudFormation stacks a little friendlier.
+        
+        __Still very much a work in progress__
+        
+        ### Usage
+        
+            $ cfnbot deploy [--debug] /path/to/specfile.yml [--stackset <name>]
+            $ cfnbot delete [--debug] /path/to/specfile.yml [--stackset <name>]
+        
+        ### Specfile Formats
+        See `example_specfile.yml` for more info.
+        
+        #### Single Stack
+        One top key only, which can't be "Default" or "Stacks". Must contain a TemplatePath.
+        
+            ---
+            SomeAppBucket:
+                TemplatePath: 'bucket.yml'
+                Parameters: [...]
+        
+        #### Multiple Stacks
+        One top key only, "Stacks", and its value must be a list. For example:
+        
+            ---
+            Stacks:
+                - SomeAppBucketRole:
+                    TemplatePath: cfn/iam_role.yml
+                    Parameters: [...]
+                - SomeAppBucket:
+                    TemplatePath: cfn/s3bucket_with_roles.yml
+                    StackName: SomeAppBucket
+                    Parameters: [...]
+        
+        #### Stack Sets
+        ALL THE THINGS. Need a Default in there somewhere, and it needs a Stacks list.
+        
+            ---
+            Dev:
+              StackNamePrefix: Dev
+              CredentialProfile: default
+              Stacks:
+                - SomeAppBucketLambdaRole
+                    TemplatePath: cfn/iam_role_dev.yml
+            Default:
+                Stacks:
+                    - SomeAppBucketRole:
+                        TemplatePath: cfn/iam_role.yml
+                        Parameters: [...]
+                    - SomeAppBucket:
+                        TemplatePath: cfn/s3bucket_with_roles.yml
+                        StackName: SomeAppBucket
+                        Parameters: [...]
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: System :: Distributed Computing
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
