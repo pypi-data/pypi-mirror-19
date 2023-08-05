@@ -1,0 +1,4 @@
+Cython>=0.25.0,<0.26
+wheel>0.25.0
+six
+pytest
