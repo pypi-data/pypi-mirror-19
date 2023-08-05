@@ -1,0 +1,129 @@
+*** Settings ***
+Documentation     Basic Q&A
+...               Q-1. How to change default output path in ROBOT Framework
+...               A-1. pybot -d outdir test.txt \ \ #All logs will be saved in outdir
+Variables         ../SampleData/VariableFileSample.py
+
+*** Test Cases ***
+Output
+    Log    Hello World
+    Log Many
+
+Comments
+    Comment    This is comment
+
+For
+    Comment    For Case1:
+    : FOR    ${n}    IN    a    b    c
+    \    Log    ${n}
+    \    Log    hello, ${n}
+    Log    outside loop1
+    Log    ==============
+    Comment    For Case 2:
+    @{list}    Set Variable    e    f    g
+    : FOR    ${n}    IN    @{list}
+    \    Log    ${n}
+    \    Log    hello, ${n}
+    Log    outside loop2
+    Log    ==============
+    Comment    For Case 3:
+    : FOR    ${n}    IN RANGE    0    10    3
+    \    Log    ${n}
+    \    Log    hello, ${n}
+    Log    outside loop3
+    Log    ==============
+    : FOR    ${n}    IN RANGE    10
+    \    Log    ${n}
+    \    Run Keyword If    ${n}==4    Exit For Loop
+    \    Log    hello, ${n}
+    Log    outside loop4
+    Log    ==============
+    : FOR    ${n}    IN RANGE    10
+    \    Log    ${n}
+    \    Run Keyword If    ${n}==5    Continue For Loop
+    \    Log    hello, ${n}
+    Log    outside loop5
+    Log    ==============
+    Import Library    String
+    @{ITEMS}    Create List    Star Trek    Star Wars    Perry Rhodan
+    : FOR    ${ELEMENT}    IN    @{ITEMS}
+    \    Log    ${ELEMENT}
+    \    ${ELEMENT}    Replace String    ${ELEMENT}    ${SPACE}    ${EMPTY}
+    \    Log    ${ELEMENT}
+    Log    outside loop6
+    Log    ==============
+    : FOR    ${INDEX}    IN RANGE    1    3
+    \    Log    ${INDEX}
+    \    ${RANDOM_STRING}=    Generate Random String    ${INDEX}
+    \    Log    ${RANDOM_STRING}
+    Log    outside loop7
+    Log    ==============
+    @{ITEMS}    Create List    Good Element 1    Break On Me    Good Element 2
+    : FOR    ${ELEMENT}    IN    @{ITEMS}
+    \    Log    ${ELEMENT}
+    \    Run Keyword If    '${ELEMENT}' == 'Break On Me'    Exit For Loop
+    \    Log    Do more actions here ...
+    Log    outside loop8
+    Log    ==============
+
+IF
+    Comment    判断条件—数字对比
+    ${var}    Set Variable    ${2}    #定义数字类型2
+    Run Keyword If    ${var}==0    Log    变量等于2
+    ...    ELSE IF    ${var}<0    Log    变量小于2    Else IF    0<${var}<1
+    ...    Log    变量大于0且小于1
+    ...    ELSE    Log    变量大于1
+    Comment    判断条件—字符对比
+    ${str}    Set Variable    yyyy    #定义一个字符变量
+    Run keyword if    '${str}'=='tttt'    Log    等于tttt
+    ...    ELSE IF    '${str}'=='tom'    Log    等于tom
+    ...    ELSE IF    '${str}'=='Jerry'    Log    等于Jerry
+    ...    ELSE    Log    ${str}
+
+Variables
+    ${datadir}    Set Variable    ${CURDIR}
+    Log    当前文件夹地址为：${datadir}
+
+System_Variable
+    [Documentation]    More detail information, please view http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#automatic-variables
+    log    The name of the current test case is: ${TEST NAME}
+    Log Many    @{TEST TAGS}
+    Log    ${TEST DOCUMENTATION}
+    Log    The TestSuite name is: ${SUITE NAME}
+    Log    OUTPUT DIR:${OUTPUT DIR}
+    Log    SUITE SOURCE:${SUITE SOURCE}
+    Log    LOG FILE:${LOG FILE}
+    Log    OUTPUT FILE:${OUTPUT FILE}
+    Log    REPORT FILE:${REPORT FILE}
+    Log    Execdir:${EXECDIR}
+    [Teardown]    Run Keywords    Log    ${TEST STATUS}
+    ...    AND    Log    Hello
+
+RunMoreThanOneKeywordInSetupOrTeardownSegment
+    [Documentation]    Starting from Robot Framework 2.7.6, keywords can also be run with arguments using upper case AND as a separator between keywords. The keywords are executed so that the first argument is the first keyword and proceeding arguments until the first AND are arguments to it. First argument after the first AND is the second keyword and proceeding arguments until the next AND are its arguments. And so on.
+    Log    WriteSomething
+    [Teardown]    Run Keywords    Log    ${TEST STATUS}
+    ...    AND    Log    This is the second command.    # http://stackoverflow.com/questions/31002942/setup-teardown-robot-framework-more-than-one-keyword
+
+Return a value from a keyword in setup segment
+    [Setup]    ${TestVariable}=aaaa
+    ${TestVariable1}    Set Test Variable    ${TestVariable}
+    log    ${TestVariable1}
+
+VariableFileSample
+    [Documentation]    http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#variable-files
+    ...
+    ...    Benjamin:
+    ...    Add import variable file in TestSuite interface.
+    ...    VariableFile sample as below(Demo.py):
+    ...
+    ...
+    ...    # ======
+    ...    VariableFileSample_1 = "This is variable_1 in VariableFileSample File "
+    ...    VariableFileSample_2 = "This is variable_2 in VariableFileSample file"
+    ${varFlag}    Set Variable    1
+    Log    ${VariableFileSample_1}
+    Log    ${VariableFileSample_2}
+    run keyword if    "${varFlag}" == "1"    Import Variables    C:\\Python27\\Lib\\site-packages\\CodeLibWrapper\\RobotFrameworkSample\\SampleData\\VariableFileSample2.py
+    Log    ${VariableFileSample_3}
+    Log    ${VariableFileSample_4}

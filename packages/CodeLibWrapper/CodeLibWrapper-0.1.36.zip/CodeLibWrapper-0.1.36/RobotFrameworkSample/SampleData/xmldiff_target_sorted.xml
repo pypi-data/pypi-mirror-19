@@ -1,0 +1,41 @@
+<StockExchangeSecurities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://equityapi.morningstar.com/">
+  <MessageInfo>
+    <MessageCode>200</MessageCode>
+    <MessageDetail>Request data successfully</MessageDetail>
+  </MessageInfo>
+  <StockExchangeSecurityEntityList>
+    <StockExchangeSecurityEntity attrib_a="A3" attrib_w="W1" attrib_z="Z2">
+      <CIK>51143</CIK>
+      <CUSIP>459200101</CUSIP>
+      <CompanyName>International Business Machines Corp3</CompanyName>
+      <ExchangeId>NYS</ExchangeId>
+      <ISIN>US4592001014</ISIN>
+      <InvestmentTypeId>EQ</InvestmentTypeId>
+      <SEDOL>2005973</SEDOL>
+      <StockStatus>Active</StockStatus>
+      <Symbol>IBM</Symbol>
+    </StockExchangeSecurityEntity>
+    <StockExchangeSecurityEntity attrib_a="A1" attrib_w="W1" attrib_z="Z1">
+      <CIK>51141</CIK>
+      <CUSIP>459200101</CUSIP>
+      <CompanyName>International Business Machines Corp1</CompanyName>
+      <ExchangeId>NYS</ExchangeId>
+      <ISIN>US4592001014</ISIN>
+      <InvestmentTypeId>EQ</InvestmentTypeId>
+      <SEDOL>2005973</SEDOL>
+      <StockStatus>Active</StockStatus>
+      <Symbol>IBM</Symbol>
+    </StockExchangeSecurityEntity>
+    <StockExchangeSecurityEntity attrib_a="A2" attrib_w="W1" attrib_z="Z2">
+      <CIK>51142</CIK>
+      <CUSIP>459200101</CUSIP>
+      <CompanyName>International Business Machines Corp2</CompanyName>
+      <ExchangeId>NYS</ExchangeId>
+      <ISIN>US4592001014</ISIN>
+      <InvestmentTypeId>EQ</InvestmentTypeId>
+      <SEDOL>2005973</SEDOL>
+      <StockStatus>Active</StockStatus>
+      <Symbol>IBM</Symbol>
+    </StockExchangeSecurityEntity>
+  </StockExchangeSecurityEntityList>
+</StockExchangeSecurities>
