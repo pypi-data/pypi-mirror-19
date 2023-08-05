@@ -1,0 +1,11 @@
+setup.py
+tfnets/__init__.py
+tfnets.egg-info/PKG-INFO
+tfnets.egg-info/SOURCES.txt
+tfnets.egg-info/dependency_links.txt
+tfnets.egg-info/not-zip-safe
+tfnets.egg-info/top_level.txt
+tfnets/vgg16/__init__.py
+tfnets/vgg16/layers.py
+tfnets/vgg16/model.py
+tfnets/vgg16/tools.py
