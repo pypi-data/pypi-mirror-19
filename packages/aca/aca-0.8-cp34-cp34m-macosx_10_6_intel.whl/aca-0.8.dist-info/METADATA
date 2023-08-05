@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: aca
+Version: 0.8
+Summary: Aho-Corasick automaton implementation in C++
+Home-page: https://github.com/tpetmanson/aca
+Author: Timo Petmanson @Funderbeam
+Author-email: tpetmanson@gmail.com
+License: GPLv3
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Text Processing
+Classifier: Topic :: Text Processing :: Linguistic
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: Cython (>=0.25.0,<0.26)
+Requires-Dist: wheel (>0.25.0)
+Requires-Dist: six
+Requires-Dist: pytest
+
+UNKNOWN
+
+
