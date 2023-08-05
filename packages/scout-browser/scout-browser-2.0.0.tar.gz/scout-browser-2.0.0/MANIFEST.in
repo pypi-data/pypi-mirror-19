@@ -1,0 +1,33 @@
+# http://docs.python.org/distutils/sourcedist.html#manifest-template
+# http://docs.python.org/distutils/sourcedist.html#specifying-the-files-to-distribute
+
+include  LICENSE
+
+# including
+# python source files, test/*.py will be automatically included
+recursive-include  *.py
+# templates
+recursive-include /templates *
+# static files
+recursive-include /static *
+recursive-include /resources/ensembl_transcripts_37.txt.gz
+recursive-include /resources/forweb_cleaned_exac_r03_march16_z_data_pLI.txt.gz
+recursive-include /resources/hgnc_complete_set.txt.gz
+
+# translations
+recursive-include /translations *
+# configs
+recursive-include /configs *.ini
+
+# tests
+# example data
+recursive-include /tests/fixtures/*.ped
+recursive-include /tests/fixtures/*.vcf
+recursive-include /tests/fixtures/*.ini
+recursive-include /tests/fixtures/*.xml
+recursive-include /tests/fixtures/gene_listst/gene_list_test.txt
+recursive-include /tests/fixtures/resources/ *
+
+# excluding
+recursive-exclude  *.pyc
+recursive-exclude tests *.pyc
