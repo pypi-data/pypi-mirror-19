@@ -1,0 +1,10 @@
+*** Settings ***
+Library           ../CodeLibWrapper.py
+Library           Selenium2Library
+
+*** Keywords ***
+KW_UI_OpenBrowser
+    [Arguments]    ${url}    ${browser}
+    [Documentation]    Benjamin: 2016/11/29 \ 仍然存在问题。由Python 返回的Open_Browser_Custom不能被后续的KeyWord发现和连接。
+    Open Browser Custom    ${url}    ${browser}
+    Maximize Browser Window

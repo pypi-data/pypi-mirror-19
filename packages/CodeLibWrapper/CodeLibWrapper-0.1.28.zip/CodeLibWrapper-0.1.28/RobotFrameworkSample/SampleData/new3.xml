@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StockExchangeSecurities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://equityapi.morningstar.com/">
+	<MessageInfo>
+		<MessageCode>200</MessageCode>
+		<MessageDetail>Request data successfully</MessageDetail>
+	</MessageInfo>
+	<StockExchangeSecurityEntityList>
+		<StockExchangeSecurityEntity>
+			<CompanyName>International Business Machines Corp</CompanyName>
+			<ExchangeId>NYS</ExchangeId>
+			<Symbol>IBM</Symbol>
+			<CUSIP>459200101</CUSIP>
+			<CIK>51143</CIK>
+			<ISIN>US4592001014</ISIN>
+			<SEDOL>2005973</SEDOL>
+			<InvestmentTypeId>EQ</InvestmentTypeId>
+			<StockStatus>Active</StockStatus>
+		</StockExchangeSecurityEntity>
+	</StockExchangeSecurityEntityList>
+</StockExchangeSecurities>
