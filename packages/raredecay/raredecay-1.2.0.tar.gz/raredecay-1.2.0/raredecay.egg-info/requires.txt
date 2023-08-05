@@ -1,0 +1,11 @@
+hep_ml
+rep >= 0.6.6
+scikit-learn >= 0.18
+nose_parameterized
+seaborn
+pytest
+pandas
+
+[root]
+root_numpy
+rootpy
