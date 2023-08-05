@@ -1,0 +1,13 @@
+setup.cfg
+setup.py
+project_sync.egg-info/PKG-INFO
+project_sync.egg-info/SOURCES.txt
+project_sync.egg-info/dependency_links.txt
+project_sync.egg-info/entry_points.txt
+project_sync.egg-info/not-zip-safe
+project_sync.egg-info/requires.txt
+project_sync.egg-info/top_level.txt
+psync/__init__.py
+psync/cli.py
+psync/psync.py
+psync/watcher.py
