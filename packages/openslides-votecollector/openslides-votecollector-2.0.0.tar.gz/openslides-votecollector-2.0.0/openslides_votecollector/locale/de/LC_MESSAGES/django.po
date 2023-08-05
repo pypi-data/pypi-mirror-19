@@ -1,0 +1,141 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-08 11:16+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Emanuel Schütze <emanuel.schuetze@intevation.de>, 2016\n"
+"Language-Team: German (https://www.transifex.com/openslides/teams/14270/de/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: api.py:12
+msgid "Unknown voting mode."
+msgstr "Unbekannter Voting-Modus."
+
+#: api.py:13
+msgid "Invalid keypad range."
+msgstr "Ungültiger Keypad-Bereich."
+
+#: api.py:14
+msgid "Invalid keypad list."
+msgstr "Ungültige Keypad-Liste."
+
+#: api.py:15
+msgid "No keypads authorized for voting."
+msgstr "Es sind keine Keypads zur Abstimmung zugelassen."
+
+#: api.py:16
+msgid "License not sufficient."
+msgstr "Lizenz nicht ausreichend."
+
+#: api.py:17
+msgid "No voting device connected."
+msgstr "Es ist kein Abstimmgerät verbunden."
+
+#: api.py:18
+msgid "Failed to set up voting device."
+msgstr "Fehler beim Einrichten des Abstimmgeräts."
+
+#: api.py:19
+msgid "Voting device not ready."
+msgstr "Abstimmgerät nicht betriebsbereit. "
+
+#: api.py:49
+msgid "Server not found."
+msgstr "Server nicht gefunden."
+
+#: api.py:63
+msgid "No keypads selected."
+msgstr "Keine Keypads ausgewählt."
+
+#: api.py:73 api.py:85 api.py:92 api.py:104 api.py:116 api.py:128
+msgid "No connection to VoteCollector."
+msgstr "Keine Verbindung zum VoteCollector."
+
+#: config_variables.py:34
+msgid "Please vote now!"
+msgstr "Bitte stimmen Sie jetzt ab!"
+
+#: models.py:109
+#, python-format
+msgid "Keypad of %s"
+msgstr "Keypad von %s"
+
+#: models.py:110
+#, python-format
+msgid "Keypad %d"
+msgstr "Keypad %d"
+
+#: views.py:131 views.py:151
+msgid "All votes are successfully anonymized."
+msgstr "Alle Stimmen wurden erfolgreich anonymisiert."
+
+#: views.py:180
+msgid "Unknown id."
+msgstr "Unbekannte ID."
+
+#: views.py:297
+msgid "Yes"
+msgstr "Ja"
+
+#: views.py:298
+msgid "No"
+msgstr "Nein"
+
+#: views.py:299 views.py:319
+msgid "Abstain"
+msgstr "Enthaltung"
+
+#: views.py:438
+msgid "Another voting is active."
+msgstr "Eine andere Abstimmung is aktiv."
+
+#: views.py:544 views.py:557 views.py:575 views.py:670 views.py:676
+msgid "Vote rejected"
+msgstr "Stimme abgelehnt"
+
+#: views.py:549 views.py:682 views.py:684
+msgid "Vote invalid"
+msgstr "Stimme ungültig"
+
+#: views.py:593 views.py:710
+msgid "Vote submitted"
+msgstr "Stimme abgegeben"
+
+#: views.py:718
+msgid "Keypad not registered"
+msgstr "Keypad nicht registriert"
+
+#: views.py:722
+msgid "User unknown"
+msgstr "Nutzer unbekannt"
+
+#: views.py:728
+msgid "No agenda item selected"
+msgstr "Kein Tagesordnungspunkt ausgewählt"
+
+#: views.py:739
+msgid "Added to        list of speakers"
+msgstr "Zur Redeliste   hinzugefügt"
+
+#: views.py:750
+msgid "Not exists on   list of speakers"
+msgstr "Auf Redeliste   nicht vorhanden"
+
+#: views.py:753
+msgid "Removed from    list of speakers"
+msgstr "Von Redeliste   entfernt"
+
+#: views.py:755
+msgid "Invalid entry"
+msgstr "Ungültiger Eintrag"
