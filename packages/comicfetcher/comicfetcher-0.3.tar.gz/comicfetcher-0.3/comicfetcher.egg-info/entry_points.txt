@@ -1,0 +1,3 @@
+[console_scripts]
+comicfetcher = comicfetcher.command_line:main
+
