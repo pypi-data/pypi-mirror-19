@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: pyworkflowmax
+Version: 0.1.2
+Summary: Python API for accessing the REST API of the WorkflowMax accounting tool.
+Home-page: https://github.com/ABASystems/pyworkflowmax
+Author: Jarek Głowacki
+Author-email: jarekwg@gmail.com
+License: BSD
+Description: UNKNOWN
+Keywords: workflowmax
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Office/Business
