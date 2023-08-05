@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.py
+stackdidact/__init__.py
+stackdidact/cli.py
+stackdidact/generator.py
+stackdidact/question.py
+stackdidact/settings.py
+stackdidact.egg-info/PKG-INFO
+stackdidact.egg-info/SOURCES.txt
+stackdidact.egg-info/dependency_links.txt
+stackdidact.egg-info/entry_points.txt
+stackdidact.egg-info/requires.txt
+stackdidact.egg-info/top_level.txt
