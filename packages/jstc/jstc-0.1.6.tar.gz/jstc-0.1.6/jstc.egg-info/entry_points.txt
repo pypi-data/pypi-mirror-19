@@ -1,0 +1,4 @@
+[jstc.engines.plugins]
+text/x-handlebars = jstc.engines.handlebars:HandlebarsEngine
+text/x-mustache = jstc.engines.mustache:MustacheEngine
+
