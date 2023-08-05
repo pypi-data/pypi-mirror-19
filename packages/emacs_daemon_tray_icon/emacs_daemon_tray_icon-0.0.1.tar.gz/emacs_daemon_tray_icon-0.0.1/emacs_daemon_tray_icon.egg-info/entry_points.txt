@@ -1,0 +1,3 @@
+[console_scripts]
+emacs_daemon_tray_icon = src.__init__:main
+
