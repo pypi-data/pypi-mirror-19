@@ -1,0 +1,19 @@
+Metadata-Version: 2.0
+Name: scrapejs
+Version: 0.0.1
+Summary: A lightweight Javascript-aware, headless web scraping library for Python
+Home-page: https://github.com/animeshkundu/pyscrape
+Author: Agix
+Author-email: anik.edu@gmail.com
+License: Apache 2.0
+Platform: UNKNOWN
+Requires-Dist: fake-useragent
+Requires-Dist: futures
+Requires-Dist: lxml
+Requires-Dist: tornado
+Requires-Dist: webkit-server (>=1.0)
+Requires-Dist: xvfbwrapper
+
+UNKNOWN
+
+
