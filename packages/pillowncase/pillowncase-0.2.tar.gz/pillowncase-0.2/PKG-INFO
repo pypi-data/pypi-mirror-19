@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: pillowncase
+Version: 0.2
+Summary: Store and retreive any file data in any image
+Home-page: https://github.com/ArchageXIII/pillowncase
+Author: Mark Edwards
+Author-email: mark.3dwards@gmail.com
+License: GNU GPL
+Download-URL: https://github.com/ArchageXIII/pillowncase/blob/master/dist/pillowncase-0.2.tar.gz
+Description:  
+                Takes and file type and breaks it into small chunks hiding it in the low end bits of the image
+                You can specify what chanels including alpha and how many bits you want to hide in each channel
+                
+Platform: windows
+Platform: linux
