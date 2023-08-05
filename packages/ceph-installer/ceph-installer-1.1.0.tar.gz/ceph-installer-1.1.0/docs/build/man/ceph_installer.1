@@ -1,0 +1,919 @@
+.\" Man page generated from reStructuredText.
+.
+.TH "CEPH_INSTALLER" "1" "May 09, 2016" "1.0.8" "ceph-installer"
+.SH NAME
+ceph_installer \- Ceph-Installer Documentation
+.
+.nr rst2man-indent-level 0
+.
+.de1 rstReportMargin
+\\$1 \\n[an-margin]
+level \\n[rst2man-indent-level]
+level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
+-
+\\n[rst2man-indent0]
+\\n[rst2man-indent1]
+\\n[rst2man-indent2]
+..
+.de1 INDENT
+.\" .rstReportMargin pre:
+. RS \\$1
+. nr rst2man-indent\\n[rst2man-indent-level] \\n[an-margin]
+. nr rst2man-indent-level +1
+.\" .rstReportMargin post:
+..
+.de UNINDENT
+. RE
+.\" indent \\n[an-margin]
+.\" old: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.nr rst2man-indent-level -1
+.\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.in \\n[rst2man-indent\\n[rst2man-indent-level]]u
+..
+.sp
+An HTTP API (previously known as the "mariner installer") to provision and
+control the deployment process of Ceph clusters.
+.SH RESTFUL HTTP API
+.sp
+The service allows you to install and configure ceph via a RestFul API that
+accepts and returns JSON responses along with meaningful error codes and
+messages.
+.sp
+Most if not all requests should use canonicalized URLs (they end with
+a trailing slash).
+.sp
+It follows these concepts:
+.INDENT 0.0
+.IP \(bu 2
+\fBGET\fP operations are read\-only operations. They will not trigger any
+behavior.
+.IP \(bu 2
+\fBPOST\fP requests will create resources or trigger a specific behavior, like
+installing operations on a given host.
+.UNINDENT
+.SH CONFIGURE OPERATIONS
+.sp
+The configuration step for any node type (rgw, mon, osd, etc...) is \fIrequired\fP
+to be per node. It is up to the caller to handle domain logic.
+.sp
+The ceph\-installer API does not implement \fIany\fP logic to determine the path to
+cluster creation. It instead provides a granular set of endpoints to allow the
+caller for the flexibility it needs.
+.SH INSTALL OPERATIONS
+.sp
+The install requests to the API \fIare allowed to pass a list of multiple hosts\fP\&.
+.sp
+This process is not sequential: all hosts are operated against at
+once and if a single host fails to install the entire task will report as
+a failure. This is expected Ansible behavior and this API adheres to that.
+.sp
+Callers should expect failures to halt as soon as a failure (or error) is met.
+.SH REQUIREMENTS AND DEPENDENCIES
+.sp
+This service is intended to be installed by a system package manager (like yum
+or apt) and ideally all requirements and dependencies should be taken care of.
+This is the list of the current services and system dependencies needed:
+.sp
+System requirements:
+.INDENT 0.0
+.IP \(bu 2
+Ansible
+.IP \(bu 2
+RabbitMQ
+.UNINDENT
+.sp
+Application requirements:
+.INDENT 0.0
+.IP \(bu 2
+celery
+.IP \(bu 2
+notario
+.IP \(bu 2
+gunicorn
+.IP \(bu 2
+pecan
+.IP \(bu 2
+pecan\-notario
+.IP \(bu 2
+sqlalchemy
+.UNINDENT
+.sp
+The default for the \fB/api/*/install\fP endpoints is to install the latest
+upstream stable version of ceph. If you\(aqd like to install the latest Red Hat
+Ceph Storage ensure that the node being provisioned is correctly entitled and
+that the \fBredhat_storage\fP option is set to \fBTrue\fP in the JSON body you send
+to the install endpoint.
+.sp
+The parent endpoint for any API interaction is \fB/api/\fP\&. The service provides
+a setup script as well that can be used to ensure a remote node can comply with
+certain requirements like: a deployment user, ssh keys, and sudo permissions.
+.sp
+The top level endpoints are:
+.INDENT 0.0
+.IP \(bu 2
+\fI\%setup\fP
+.IP \(bu 2
+\fI\%api\fP
+.UNINDENT
+.INDENT 0.0
+.TP
+.B GET /setup/
+Generates a BASH script to be downloaded as \fBsetup.sh\fP\&. This
+script should be executed with super user privileges on the remote node as it
+will perform the following actions:
+.INDENT 7.0
+.IP \(bu 2
+Ensure that Python 2 is present on the system
+.IP \(bu 2
+create an \fBceph\-installer\fP user
+.IP \(bu 2
+ensure that the \fBceph\-installer\fP user can use sudo without a password
+prompt
+.IP \(bu 2
+remove the \fBrequiretty\fP from \fB/etc/sudoers.d/ceph\-installer\fP, so that
+SSH connections allow non\-interactive sessions from using \fBsudo\fP
+.IP \(bu 2
+retrieve the SSH key that will be used for provisioning (see
+\fI\%GET /setup/key/\fP)
+.IP \(bu 2
+append the provisioning key onto
+\fB$HOME/ceph\-installer/.ssh/authorized_keys\fP
+.UNINDENT
+.INDENT 7.0
+.INDENT 3.5
+\fBResponse\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+HTTP/1.1 200 OK
+Content\-Disposition: attachment; filename=setup.sh
+Content\-Type: application/octet\-stream; charset=UTF\-8
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B statuscode 200
+no error
+.TP
+.B statuscode 500
+Server Error (see \fI\%Known Server Errors\fP)
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B GET /setup/agent/
+Generates a BASH script to be downloaded as \fBagent\-setup.sh\fP\&. Just like the
+\fI\%GET /setup/\fP endpoint but also installing and configuring the
+\fBrhscon\-agent\fP in the system. This script should also be executed with
+super user privileges on the remote node and it will perform the same actions
+as \fI\%GET /setup/\fP with the addition of the following:
+.INDENT 7.0
+.IP \(bu 2
+install the \fBrhscon\-agent\fP and configure the \fBsalt\-minion\fP to point
+back to the master server (uses the same host as where the
+\fBceph\-installer\fP service is running)
+.UNINDENT
+.INDENT 7.0
+.INDENT 3.5
+\fBResponse\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+HTTP/1.1 200 OK
+Content\-Disposition: attachment; filename=agent\-setup.sh
+Content\-Type: application/octet\-stream; charset=UTF\-8
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B statuscode 200
+no error
+.TP
+.B statuscode 500
+Server Error (see \fI\%Known Server Errors\fP)
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B GET /setup/key/
+This endpoint will serve the public SSH key \fIfrom the user that is running
+the service\fP assuming the location of: \fB$HOME/.ssh/id_rsa.pub\fP\&. If this
+file does not exist the service will proceed to create one \fIwhile processing
+the request\fP\&.
+.INDENT 7.0
+.INDENT 3.5
+\fBResponse\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+HTTP/1.1 200 OK
+Content\-Disposition: attachment; filename=id_rsa.pub
+Content\-Type: application/octet\-stream; charset=UTF\-8
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B statuscode 200
+no error
+.TP
+.B statuscode 500
+Server Error (see \fI\%Known Server Errors\fP)
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B GET /api/
+.INDENT 7.0
+.INDENT 3.5
+Will return the current status of the service.
+.UNINDENT
+.UNINDENT
+.sp
+\fBResponse\fP:
+.INDENT 7.0
+.INDENT 3.5
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+HTTP/1.1 200 OK
+Content\-Type: application/json
+
+{}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B statuscode 200
+All components of the system are operational
+.TP
+.B statuscode 500
+Server Error (see \fI\%Known Server Errors\fP)
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.SH TASKS
+.sp
+A task is created when an action on a remote node is triggered (for example to
+install packages on a monitor node).  They can be used to track the progress of
+the operation, like installing or configuring a remote node.
+.sp
+Tasks contain metadata for these calls. This metadata includes items like:
+start time, end time, success, stderr, stdout
+.sp
+You may consume the status of a task by polling the \fB/api/tasks/\fP endpoint.
+.SH POLLING
+.sp
+As soon as a call is performed and conditions are met for provisioning on
+a remote node a "task" is created. This means the information is not atomic, it
+is available as soon as the call proceeds to a remote node interaction and
+information gets updated as the task completes.
+.sp
+When a task is not done it will have a \fBnull\fP value for the \fBended\fP key,
+will default to \fB"succeeded": "false"\fP and it will have a \fBcompleted\fP key
+that will be \fBtrue\fP when the task has finished.  These tasks have an unique
+identifier.  The endpoints \fIwill always return a 200 when they are available\fP\&.
+.sp
+Polling is not subject to handle state with HTTP status codes (e.g. 304)
+.INDENT 0.0
+.TP
+.B GET /api/tasks/
+Returns a list of all available tasks.
+.INDENT 7.0
+.INDENT 3.5
+\fBResponse\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+HTTP/1.1 200 OK
+Content\-Type: application/json
+
+[
+    {"command": "command arguments flags sample",
+      "ended": "2016\-01\-27T15:03:23.438172",
+      "endpoint": "/api/rgw/configure",
+      "id": "2207bde6\-4346\-4a83\-984a\-40a5c00056c1",
+      "started": "2016\-01\-27T15:03:22.638173",
+      "stderr": "command stderr",
+      "stdout": "command stdout",
+      "succeeded": true,
+    }
+]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B statuscode 200
+Available tasks
+.TP
+.B statuscode 500
+Server Error (see \fI\%Known Server Errors\fP)
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B GET /api/tasks/(id)/
+Distinct task metadata
+.sp
+\fBResponse\fP:
+.INDENT 7.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+HTTP/1.1 200 OK
+Content\-Type: application/json
+
+{
+  "command": "command arguments flags sample",
+  "ended": "2016\-01\-27T15:03:23.438172",
+  "endpoint": "/api/rgw/configure",
+  "id": "2207bde6\-4346\-4a83\-984a\-40a5c00056c1",
+  "started": "2016\-01\-27T15:03:22.638173",
+  "stderr": "command stderr",
+  "stdout": "command stdout"
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 7.0
+.TP
+.B Status Codes
+.INDENT 7.0
+.IP \(bu 2
+\fI\%200 OK\fP \-\- Task metadata exists
+.IP \(bu 2
+\fI\%404 Not Found\fP \-\- Task does not exist
+.IP \(bu 2
+\fI\%500 Internal Server Error\fP \-\- Server Error (see \fI\%Known Server Errors\fP)
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B POST /api/agent/
+Start the installation process for ceph\-agent(s)
+.sp
+\fBResponse\fP:
+.INDENT 7.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+HTTP/1.1 200 OK
+Content\-Type: application/json
+
+{
+    "endpoint": "/api/agent/",
+    "succeeded": false,
+    "stdout": null,
+    "started": null,
+    "exit_code": null,
+    "ended": null,
+    "command": null,
+    "stderr": null,
+    "identifier": "47f60562\-a96b\-4ac6\-be07\-71726b595793",
+    "verbose": false,
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBRequest\fP:
+.INDENT 7.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+HTTP/1.1 200 OK
+Content\-Type: application/json
+
+
+{
+    "hosts": ["mon1.example.com", "mon2.example.com", "mon3.example.com"],
+    "master": "master.example.com"
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 7.0
+.TP
+.B Request JSON Object
+.INDENT 7.0
+.IP \(bu 2
+\fBhosts\fP (\fIarray\fP) \-\- (required) The hostnames to which to install and
+configure. For simplicity\(aqs sake, the agent host\(aqs
+salt\-minion will point at a salt master on the same host
+where ceph\-installer is running.
+.IP \(bu 2
+\fBmaster\fP (\fIstring\fP) \-\- (optional, default: \fBSERVER_NAME\fP) If not provided, it will look at the
+request and use \fBSERVER_NAME\fP\&.
+.IP \(bu 2
+\fBverbose\fP (\fIboolean\fP) \-\- (optional, default: \fBfalse\fP) Increase the verbosity when calling ansible.
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B POST /api/mon/install/
+Start the installation process for monitor(s). It is allowed to flag the
+need to install the \fBcalamari\-server\fP package which provides a restful API
+for a cluster.
+.sp
+\fBResponse\fP:
+.INDENT 7.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+HTTP/1.1 200 OK
+Content\-Type: application/json
+
+{
+    "endpoint": "/api/mon/install/",
+    "succeeded": false,
+    "stdout": null,
+    "started": null,
+    "exit_code": null,
+    "ended": null,
+    "command": null,
+    "stderr": null,
+    "identifier": "47f60562\-a96b\-4ac6\-be07\-71726b595793"
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBRequest\fP:
+.INDENT 7.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+HTTP/1.1 200 OK
+Content\-Type: application/json
+
+
+{
+    "calamari": false,
+    "hosts": ["mon1.example.com", "mon2.example.com", "mon3.example.com"],
+    "redhat_storage": false,
+    "redhat_use_cdn": true,
+    "verbose": false,
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 7.0
+.TP
+.B Request JSON Object
+.INDENT 7.0
+.IP \(bu 2
+\fBcalamari\fP (\fIboolean\fP) \-\- (optional, default: \fBfalse\fP) include installation
+of the \fBcalamari\-server\fP (a.k.a.
+\fBcalamari\-lite\fP)
+.IP \(bu 2
+\fBhosts\fP (\fIarray\fP) \-\- (required) The hostname to configure
+.IP \(bu 2
+\fBredhat_storage\fP (\fIboolean\fP) \-\- (optional, default: \fBfalse\fP) Use the
+downstream version of Red Hat Ceph Storage.
+.IP \(bu 2
+\fBredhat_use_cdn\fP (\fIboolean\fP) \-\- (optional, default: \fBtrue\fP) Use the Red Hat
+CDN and subscription\-manager to install Red
+Hat Ceph Storage. This assumes the node is
+already registered with subscription\-manager.
+If \fBfalse\fP, Red Hat Ceph Storage will be
+installed by using repos that must have
+already been created on the node.
+.IP \(bu 2
+\fBverbose\fP (\fIboolean\fP) \-\- (optional, default: \fBfalse\fP) Increase the
+verbosity when calling ansible.
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B POST /api/mon/configure/
+Configure monitor(s)
+.sp
+\fBRequest\fP:
+.INDENT 7.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+HTTP/1.1 200 OK
+Content\-Type: application/json
+
+{
+    "calamari": false,
+    "conf": {"global": {"auth supported": "cephx"}},
+    "host": "mon1.example.com",
+    "interface": "eth0",
+    "fsid": "deedcb4c\-a67a\-4997\-93a6\-92149ad2622a",
+    "monitor_secret": "AQA7P8dWAAAAABAAH/tbiZQn/40Z8pr959UmEA==",
+    "cluster_name": "my\-ceph\-cluster",
+    "cluster_network": "192.0.2.0/24",
+    "public_network": "198.51.100.0/24",
+    "monitors": [{"host": "mon0.host", "interface": "eth1"}],
+    "redhat_storage": false,
+    "verbose": false,
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 7.0
+.TP
+.B Request JSON Object
+.INDENT 7.0
+.IP \(bu 2
+\fBcalamari\fP (\fIboolean\fP) \-\- (optional) include configuration of the
+\fBcalamari\-server\fP (a.k.a.  \fBcalamari\-lite\fP).
+Defaults to \fBfalse\fP\&.
+.IP \(bu 2
+\fBconf\fP (\fIobject\fP) \-\- (optional) An object that maps ceph.conf sections (only
+global, mon, osd, rgw, mds allowed) to keys and values.
+Anything defined in this mapping will override existing
+settings.
+.IP \(bu 2
+\fBfsid\fP (\fIstring\fP) \-\- (required) The \fBfsid\fP for the cluster
+.IP \(bu 2
+\fBhost\fP (\fIstring\fP) \-\- (required) The hostname to configure
+.IP \(bu 2
+\fBinterface\fP (\fIstring\fP) \-\- (required if: \fBaddress\fP is not defined) The
+interface name for the IP used by the monitor.
+(e.g. "eth0") Either \fBinterface\fP or \fBaddress\fP
+must be provided.
+.IP \(bu 2
+\fBaddress\fP (\fIstring\fP) \-\- (required if: \fBinterface\fP is not defined) The IP
+address of the monitor.  Either \fBinterface\fP or
+\fBaddress\fP must be provided.
+.IP \(bu 2
+\fBmonitor_secret\fP (\fIstring\fP) \-\- (required) A key to use when creating the
+monitor keyrings.
+.IP \(bu 2
+\fBpublic_network\fP (\fIstring\fP) \-\- (required) The public network subnet for the
+cluster (in \fI\%CIDR\fP notation).
+.IP \(bu 2
+\fBcluster_network\fP (\fIstring\fP) \-\- (optional) If not provided, this will default
+to the \fBpublic_network\fP subnet (in \fI\%CIDR\fP
+notation).
+.IP \(bu 2
+\fBmonitors\fP (\fIarray\fP) \-\- (optional) This is only optional when no other
+monitors currently exist
+in the cluster. If you\(aqre configuring a mon for an
+existing cluster, provide a list of objects
+representing the monitor host and its \fBinterface\fP
+or \fBaddress\fP\&.
+.IP \(bu 2
+\fBredhat_storage\fP (\fIboolean\fP) \-\- (optional) Use the downstream version of
+Red Hat Ceph Storage.
+.IP \(bu 2
+\fBverbose\fP (\fIboolean\fP) \-\- (optional, default: \fBfalse\fP) Increase the
+verbosity when calling ansible.
+.IP \(bu 2
+\fBcluster_name\fP (\fIstring\fP) \-\- (optional, default: \fBceph\fP) Provide a custom
+name for the ceph cluster.
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B POST /api/osd/install/
+Start the installation process for OSD(s)
+.sp
+\fBResponse\fP:
+.INDENT 7.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+HTTP/1.1 200 OK
+Content\-Type: application/json
+
+{
+    "endpoint": "/api/osd/install/",
+    "succeeded": false,
+    "stdout": null,
+    "started": null,
+    "exit_code": null,
+    "ended": null,
+    "command": null,
+    "stderr": null,
+    "identifier": "47f60562\-a96b\-4ac6\-be07\-71726b595793"
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBRequest\fP:
+.INDENT 7.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+HTTP/1.1 200 OK
+Content\-Type: application/json
+
+{
+    "hosts": ["osd1.example.com", "osd2.example.com"],
+    "redhat_storage": false,
+    "redhat_use_cdn": true,
+    "verbose": false,
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 7.0
+.TP
+.B Request JSON Object
+.INDENT 7.0
+.IP \(bu 2
+\fBhosts\fP (\fIarray\fP) \-\- (required) The hostname to configure
+.IP \(bu 2
+\fBredhat_storage\fP (\fIboolean\fP) \-\- (optional, default: \fBfalse\fP) Use the
+downstream version of Red Hat Ceph Storage.
+.IP \(bu 2
+\fBredhat_use_cdn\fP (\fIboolean\fP) \-\- (optional, default: \fBtrue\fP) Use the Red Hat
+CDN and subscription\-manager to install Red
+Hat Ceph Storage. This assumes the node is
+already registered with subscription\-manager.
+If \fBfalse\fP, Red Hat Ceph Storage will be
+installed by using repos that must have
+already been created on the node.
+.IP \(bu 2
+\fBverbose\fP (\fIboolean\fP) \-\- (optional, default: \fBfalse\fP) Increase the
+verbosity when calling ansible.
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B POST /api/osd/configure/
+The only osd provisioning scenario that this API supports is where a raw
+device is used as a journal. No journal collocation or OSD directory is
+allowed.
+.sp
+\fBRequest\fP:
+.INDENT 7.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+HTTP/1.1 200 OK
+Content\-Type: application/json
+
+{
+    "conf": {"global": {"auth supported": "cephx"}},
+    "devices": {"/dev/sdb":"/dev/sdc"},
+    "fsid": "deedcb4c\-a67a\-4997\-93a6\-92149ad2622a",
+    "host": "osd1.example.com",
+    "journal_size": 0,
+    "cluster_name": "my\-ceph\-cluster",
+    "cluster_network": "192.0.2.0/24",
+    "public_network": "198.51.100.0/24",
+    "redhat_storage": false,
+    "monitors": [{"host": "mon0.host", "interface": "eth1"}, {"host": "mon1.host", "address": "10.0.0.1"}],
+    "verbose": false,
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 7.0
+.TP
+.B Request JSON Object
+.INDENT 7.0
+.IP \(bu 2
+\fBconf\fP (\fIobject\fP) \-\- (optional, default: \fBnull\fP) An object that maps
+ceph.conf sections (only global, mon, osd, rgw, mds
+allowed) to keys and values. Anything defined in this
+mapping will override existing settings.
+.IP \(bu 2
+\fBdevices\fP (\fIobject\fP) \-\- (required) A mapping of OSD device to Journal
+like device: {"device": "journal"}.
+.IP \(bu 2
+\fBfsid\fP (\fIstring\fP) \-\- (required) The \fBfsid\fP for the cluster
+.IP \(bu 2
+\fBhost\fP (\fIstring\fP) \-\- (required) The hostname to configure
+.IP \(bu 2
+\fBjournal_size\fP (\fIint\fP) \-\- (required) The size to use for the journal
+.IP \(bu 2
+\fBpublic_network\fP (\fIstring\fP) \-\- (required) The public network subnet for the
+cluster (in \fI\%CIDR\fP notation).
+.IP \(bu 2
+\fBcluster_network\fP (\fIstring\fP) \-\- (optional, default: \fBpublic_network\fP) The
+network subnet exposed to cluster clients (in
+\fI\%CIDR\fP notation).
+.IP \(bu 2
+\fBredhat_storage\fP (\fIboolean\fP) \-\- (optional, default: \fBfalse\fP) Use the
+downstream version of Red Hat Ceph Storage.
+.IP \(bu 2
+\fBmonitors\fP (\fIarray\fP) \-\- (required) The monitors for the cluster you want to
+add this OSD to.  Provide a list of objects
+representing the monitor host and its \fBinterface\fP
+or \fBaddress\fP\&.
+.IP \(bu 2
+\fBverbose\fP (\fIboolean\fP) \-\- (optional, default: \fBfalse\fP) Increase the
+verbosity when calling ansible.
+.IP \(bu 2
+\fBcluster_name\fP (\fIstring\fP) \-\- (optional, default: \fBceph\fP) Provide a custom
+name for the ceph cluster.
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.SH JOURNALS
+.sp
+Journals are defined as devices and are "mapped" in a JSON object. The object
+maps a device to a journal. Any one journal can be used for more than one
+device. For example, for a \fB/dev/sdx\fP journal device one can do:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+   ...
+   "devices": {"/dev/sdb": "/dev/sdx", "/dev/sdc": "/dev/sdx"}
+   ...
+
+That example would use the journal "/dev/sdx" for both "/dev/sdb" and
+"/dev/sdc"
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B GET /api/status/
+.INDENT 7.0
+.INDENT 3.5
+Get the system status for the service. Performs checks against different
+required systems and return an HTTP 500 error status code with a message.
+.sp
+\fBResponse\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+HTTP/1.1 500 Internal Server Error
+Content\-Type: application/json
+
+{"message": "RabbitMQ is not running or not reachable"}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.INDENT 7.0
+.TP
+.B Status Codes
+.INDENT 7.0
+.IP \(bu 2
+\fI\%500 Internal Server Error\fP \-\- Server Error (see \fI\%Known Server Errors\fP)
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.SH KNOWN SERVER ERRORS
+.sp
+These are possible server errors and failures that are handled by the
+application itself. Once handled the server will reply with a JSON body and
+a single \fBmessage\fP key.
+.sp
+No Celery worker running:
+.INDENT 0.0
+.INDENT 3.5
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+HTTP/1.1 500 Internal Server Error
+Content\-Type: application/json
+
+{"message": "No running Celery worker was found"}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.sp
+Missing Ansible:
+.INDENT 0.0
+.INDENT 3.5
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+HTTP/1.1 500 Internal Server Error
+Content\-Type: application/json
+
+{"message": "Could not find ansible in system paths"}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.sp
+RabbitMQ connection errors:
+.INDENT 0.0
+.INDENT 3.5
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+HTTP/1.1 500 Internal Server Error
+Content\-Type: application/json
+
+{"message": "Error connecting to RabbitMQ"}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.sp
+RabbitMQ is not running:
+.INDENT 0.0
+.INDENT 3.5
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+HTTP/1.1 500 Internal Server Error
+Content\-Type: application/json
+
+{"message": "RabbitMQ is not running or not reachable"}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.sp
+Database connectivity:
+.INDENT 0.0
+.INDENT 3.5
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+HTTP/1.1 500 Internal Server Error
+Content\-Type: application/json
+
+{"message": "Could not connect or retrieve information from the database"}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.SH AUTHOR
+Authors
+.SH COPYRIGHT
+2015-2016, Authors
+.\" Generated by docutils manpage writer.
+.
