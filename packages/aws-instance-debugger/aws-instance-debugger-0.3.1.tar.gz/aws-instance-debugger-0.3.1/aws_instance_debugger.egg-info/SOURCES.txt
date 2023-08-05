@@ -1,0 +1,13 @@
+MANIFEST.in
+README
+README.md
+requirements.txt
+setup.cfg
+setup.py
+aws_instance_debugger.egg-info/PKG-INFO
+aws_instance_debugger.egg-info/SOURCES.txt
+aws_instance_debugger.egg-info/dependency_links.txt
+aws_instance_debugger.egg-info/requires.txt
+aws_instance_debugger.egg-info/top_level.txt
+vivareal/__init__.py
+vivareal/aws_instance_debugger.py
