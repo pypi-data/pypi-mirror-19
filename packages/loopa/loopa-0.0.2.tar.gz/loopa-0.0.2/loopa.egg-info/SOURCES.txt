@@ -1,0 +1,12 @@
+LICENSE.txt
+MANIFEST.in
+setup.py
+loopa/__init__.py
+loopa/core.py
+loopa/exceptions.py
+loopa/utils.py
+loopa.egg-info/PKG-INFO
+loopa.egg-info/SOURCES.txt
+loopa.egg-info/dependency_links.txt
+loopa.egg-info/requires.txt
+loopa.egg-info/top_level.txt

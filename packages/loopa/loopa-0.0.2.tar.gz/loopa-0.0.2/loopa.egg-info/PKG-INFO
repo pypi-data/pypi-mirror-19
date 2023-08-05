@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: loopa
+Version: 0.0.2
+Summary: Arduino-esque event loop app framework.
+Home-page: https://github.com/Muterra/py_loopa
+Author: Muterra, Inc
+Author-email: badg@muterra.io
+License: LGPL
+Description: Loopa has various utilities for Python asynchronous event
+        loops, including a framework for creating Arduino-esque "run forever" apps with
+        them.
+Keywords: asyncio,event,loop
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)
+Classifier: Programming Language :: Python :: 3.5
