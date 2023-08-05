@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: leeopop.async_util
+Version: 0.0.1a1
+Summary: async utilities for various purposes.
+Home-page: https://github.com/leeopop/async_util
+Author: Keunhong Lee
+Author-email: dlrmsghd@gmail.com
+License: LGPLv3+
+Download-URL: https://github.com/leeopop/async_util
+Description: 
+        Simple but useful utilities for asyncio programmers.
+        
+Keywords: async utilities
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
