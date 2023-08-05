@@ -1,0 +1,11 @@
+Metadata-Version: 1.2
+Name: sqllogformatter
+Version: 2016.12.1
+Summary: A logging formatter for SQL statements 
+Home-page: https://github.com/cjrh/sqllogformatter
+License: UNKNOWN
+Author: Caleb Hattingh
+Author-email: caleb.hattingh@gmail.com
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: sqlparse
+Requires-Dist: termcolor
