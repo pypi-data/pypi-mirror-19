@@ -1,0 +1,3 @@
+[console_scripts]
+awsmc = awsmc.__main__:main
+

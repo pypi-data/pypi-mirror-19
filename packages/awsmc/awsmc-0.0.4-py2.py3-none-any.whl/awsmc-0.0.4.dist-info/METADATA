@@ -1,0 +1,27 @@
+Metadata-Version: 2.0
+Name: awsmc
+Version: 0.0.4
+Summary: Simple and cheap minecraft hosting on AWS
+Home-page: https://github.com/brenns10/awsmc
+Author: Stephen Brennan
+Author-email: stephen@brennan.io
+License: Revised BSD
+Keywords: AWS minecraft
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Development Status :: 4 - Beta
+Requires-Dist: paramiko
+Requires-Dist: requests
+Requires-Dist: screenutils
+Requires-Dist: boto3
+
+awsmc
+=====
+
+``awsmc`` is a project for creating and managing cost-effective Minecraft
+servers on Amazon Web Services. It will allow you to create a EC2 server with a
+single command, and it will automatically shut down the server whenever users
+aren't logged in.
+
+
