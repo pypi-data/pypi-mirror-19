@@ -1,0 +1,37 @@
+Metadata-Version: 1.1
+Name: snimar_pycsw
+Version: 2.1.0
+Summary: pycsw implementation for the SNIMar project
+Home-page: https://bitbucket.org/ipma/snimar_pycsw
+Author: Pedro Dias
+Author-email: pedro.dias@ipma.pt
+License: MIT
+Description: snimar_pycsw README
+        ===================
+        
+        snimar_pycsw is a fork of the original pycsw application. This piece of software was developed
+        with the requirements of the SNIMar project in mind and, as such, shall not be used outside the
+        local catalogue environment of the SNIMar network.
+        
+        Below is a copy of the original pycsw README.
+        ---------------------------------------------
+        
+        pycsw is an OGC CSW server implementation written in Python.
+        
+        pycsw fully implements the OpenGIS Catalogue Service Implementation Specification (Catalogue Service for the Web). Initial development started in 2010 (more formally announced in 2011). The project is certified OGC Compliant, and is an OGC Reference Implementation.  Since 2015, pycsw is an official OSGeo Project.
+        
+        pycsw allows for the publishing and discovery of geospatial metadata via numerous APIs (CSW 2/CSW 3, OpenSearch, OAI-PMH, SRU). Existing repositories of geospatial metadata can also be exposed, providing a standards-based metadata and catalogue component of spatial data infrastructures.
+        
+        pycsw is Open Source, released under an MIT license, and runs on all major platforms (Windows, Linux, Mac OS X).
+        
+        Please read the docs at http://pycsw.org/docs for more information.
+        
+Platform: all
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering :: GIS
