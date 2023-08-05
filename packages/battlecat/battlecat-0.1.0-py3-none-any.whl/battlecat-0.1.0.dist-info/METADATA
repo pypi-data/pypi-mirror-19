@@ -1,0 +1,89 @@
+Metadata-Version: 2.0
+Name: battlecat
+Version: 0.1.0
+Summary: Django-based double entry accounting based on Hordak
+Home-page: https://github.com/adamcharnock/battlecat
+Author: Adam Charnock
+Author-email: adam@adamcharnock.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: Django (>=1.8)
+Requires-Dist: celery (==4.0.2)
+Requires-Dist: dj-database-url
+Requires-Dist: dj-static
+Requires-Dist: django-adminlte2
+Requires-Dist: django-bootstrap3 (>=7)
+Requires-Dist: django-celery-beat (==1.0.1)
+Requires-Dist: django-celery-results (==1.0.1)
+Requires-Dist: django-choices (==1.4.4)
+Requires-Dist: django-extensions
+Requires-Dist: django-model-utils (>=2.6)
+Requires-Dist: django-redis (==4.6.0)
+Requires-Dist: gunicorn
+Requires-Dist: kombu (==4.0.2)
+Requires-Dist: path.py
+Requires-Dist: psycopg2
+Requires-Dist: redis (==2.10.5)
+Requires-Dist: requests (==2.12.4)
+Requires-Dist: requests-mock (==1.2.0)
+
+Battlecat
+=========
+
+.. image:: https://img.shields.io/pypi/v/battlecat.svg
+    :target: https://badge.fury.io/py/battlecat
+
+.. image:: https://img.shields.io/pypi/dm/battlecat.svg
+    :target: https://pypi.python.org/pypi/battlecat
+
+.. image:: https://img.shields.io/github/license/adamcharnock/battlecat.svg
+    :target: https://pypi.python.org/pypi/battlecat/
+
+.. image:: https://travis-ci.org/adamcharnock/battlecat.svg?branch=master
+    :target: https://travis-ci.org/adamcharnock/battlecat/
+
+.. image:: https://coveralls.io/repos/github/adamcharnock/battlecat/badge.svg?branch=master
+    :target: https://coveralls.io/github/adamcharnock/battlecat?branch=master
+
+Battlecat is a general purpose double entry accounting web application.
+Battlecat is based on `Hordak`_ and is currently a work in progress.
+
+Requirements
+------------
+
+ * Django >= 1.8
+ * Postgres >= 9.2
+ * Python 2.7, 3.4, 3.5
+ * Linux or macOS
+
+Documentation
+-------------
+
+Documentation TBA. However, see the `Hordak docs`_ to understand the core
+mechanics.
+
+Get involved
+------------
+
+Help is very welcome indeed. There isn't much here yet which makes it hard
+to know where to start. However, we should have something rough sketched out
+soon, at which point getting involved may be easier.
+
+Of course, feel free to get in touch if you want to help out anyway. The
+plan is to follow a path roughly similar to that of `Swiftwind`_, but
+more general purpose.
+
+Credits
+-------
+
+  * Initial development by `Adam Charnock`_
+
+Battlecat is packeged using `Seed`_.
+
+.. _Hordak: https://github.com/adamcharnock/django-hordak
+.. _Swiftwind: https://github.com/adamcharnock/swiftwind
+.. _Seed: https://github.com/adamcharnock/seed
+.. _Adam Charnock: https://adamcharnock.com
+.. _Hordak docs: http://django-hordak.readthedocs.io/
+
+
