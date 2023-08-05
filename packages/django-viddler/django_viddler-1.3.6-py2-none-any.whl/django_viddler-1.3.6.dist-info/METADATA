@@ -1,0 +1,17 @@
+Metadata-Version: 2.0
+Name: django-viddler
+Version: 1.3.6
+Summary: viddler
+Home-page: https://github.com/natgeoed/django-viddler
+Author: Corey Oordt
+Author-email: coreyoordt@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Framework :: Django
+Requires-Dist: django-dirtyfields (>=1.2.1)
+Requires-Dist: django-durationfield
+Requires-Dist: pyviddler
+
+UNKNOWN
+
+
