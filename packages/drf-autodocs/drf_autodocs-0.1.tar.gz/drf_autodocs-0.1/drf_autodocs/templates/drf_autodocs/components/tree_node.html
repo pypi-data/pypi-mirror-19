@@ -1,0 +1,41 @@
+{% load autodocs_filters %}
+
+<ul class="endpoints-list tree tree-list">
+{% for url_name, endpoint in endpoints_tree.items %}
+    <li class="tree-list-item">
+        {% if not endpoint|is_endpoint %}
+            <h4>{{ url_name }}</h4>
+                {% include 'drf_autodocs/components/tree_node.html' with endpoints_tree=endpoint %}
+        {% else %}
+            <ul class="collapsible"><li>
+            <div class="collapsible-header waves-effect main-color">
+                <i class="large material-icons">swap_horiz</i>
+                {{ endpoint.complete_path }}
+                <div class="right">
+                    {% for method in endpoint.methods %}
+                        <a class="waves-effect waves-light btn btn-method {{ method|lower }}">{{ method }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="collapsible-body">
+                <div class="card-content">
+                    <div class="card-title"><h4>Docstring:</h4></div>
+                    <div class="json-container purple darken-2">
+                        {{ endpoint.docstring|markdownify|keep_formatting }}
+                    </div>
+                </div>
+                <br/>
+                <h4>{% if endpoint.output_fields %}Request{% endif %} Fields:</h4>
+                {% include 'drf_autodocs/components/fields_list.html' with fields=endpoint.input_fields %}
+                <br/>
+                {% if endpoint.output_fields %}
+                    <h4>Response fields:</h4>
+
+                    {% include 'drf_autodocs/components/fields_list.html' with fields=endpoint.output_fields is_response_fields="True" %}
+                {% endif %}
+            </div>
+            </li></ul>
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>
