@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: django-mongo-coupons
+Version: 0.0.1.dev1
+Summary: Django-coupons with mongoengine
+Home-page: https://github.com/ShipraShalini/django_mongo_coupons.git
+Author: shiprashalini
+Author-email: code.shipra@gmail.com
+License: UNKNOWN
+Description: #django-mongo-coupons
+        
+        implementaion of django-coupons with mongoengine
+Keywords: django mongo coupons
+Platform: UNKNOWN
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
