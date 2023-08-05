@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: vectotools
+Version: 0.1
+Summary: Simple 2D vector library
+Home-page: UNKNOWN
+Author: Ddone
+Author-email: mynameisthenekit@gmail.com
+License: MIT
+Description: Description
+        ===========
+        
+        Simple 2-dimensional vectors library, can add, subtract, multiply, normalize vectors. 
+        Also can calculate angle between two vectors
+Keywords: simple vector algebra
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
