@@ -1,0 +1,89 @@
+control_characters:
+  0: 'ignore'
+  # ENQ, Ctrl-E
+  5: 'ignore'
+  7: 'ignore'
+  # BS, Ctrl-H
+  8: 'cub1'
+  # HT, Ctrl-I
+  9: 'ht'
+  # LF, Ctrl-J
+  10: 'ind'
+  # VT, Ctrl-K
+  11: 'ind'
+  # FF, Ctrl-L
+  12: 'ind'
+  # CR, Ctrl-M
+  13: 'cr'
+  # '14': 'ignore'
+  # '15': 'ignore'
+
+escape_sequences:
+  '\E7': 'sc'
+  '\E8': 'rc'
+
+  # rs1 consists of \x1bc\x1b]R. The second part is ignored so far.
+  '\Ec': 'rs1'
+
+  '\EH': 'ignore'
+  '\EM': 'ri'
+  '\E[4h': 'smir'
+  '\E[4l': 'rmir'
+
+  # There's no such sequence, however ls sends it
+  '\E[0m': 'noname'
+
+  '\E[1m': 'bold'
+  '\E[2m': 'dim'
+  '\E[4m': 'smul'
+  '\E[5m': 'blink'
+  '\E[7m': 'smso_rev'
+  '\E[10m': 'rmpch'
+  '\E[11m': 'smpch'
+  '\E[24m': 'rmul'
+  '\E[27m': 'rmso'
+  '\E[0;10m': 'sgr0'
+  '\E[39;49m': 'op'
+  '\E[A': 'kcuu1'
+  '\E[B': 'kcud1'
+
+  # cuf1
+  '\E[C': 'kcuf1'
+  '\E[D': 'kcub1'
+  '\E[G': 'kb2'
+  '\E[H': 'home'
+  '\E[J': 'ed'
+  '\E[K': 'el'
+  '\E[1K': 'el1'
+  '\E[L': 'il1'
+  '\E[M': 'dl1'
+  '\E[P': 'dch1'
+  '\E]R': 'ignore'
+
+  # Shell sequence to be run before the command output (Mac OS X-specific)
+  '\E]133;A': 'ignore'
+  # Shell sequence to be run after the prompt (Mac OS X-specific)
+  '\E]133;B': 'ignore'
+  # Shell sequence to be run before the command output (Mac OS X-specific)
+  '\E]133;C;': 'ignore'
+
+  # '\x1b[?25l': civis
+
+escape_sequences_re:
+  '\E[%d@': 'ich'
+  '\E[%dd': 'vpa'
+  '\E[%d;%dm': 'set_color_pair'
+  '\E[%dm': 'set_color'
+  '\E[%dB': 'cud'
+  '\E[%dC': 'cuf'
+  '\E[%dG': 'hpa'
+  '\E[%dL': 'il'
+  '\E[%dM': 'dl'
+  '\E[%dP': 'dch'
+  '\E[%dX': 'ech'
+  '\E[%d;%dr': 'csr'
+  '\E[%d;%dH': 'cup'
+
+  # Shell sequence to be run after the command output (Mac OS X-specific)
+  # %d is the command status, 0-255.
+  '\E]133;D;%d': 'ignore'
