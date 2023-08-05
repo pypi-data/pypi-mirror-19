@@ -1,0 +1,36 @@
+#!/usr/bin/python
+"""
+A very simple hg merge tool to merge .hgguestrepo files a bit smarter
+than default merge algorithm
+
+To use it, simply add to your .hgrc file:
+
+
+[merge-patterns]
+.hgguestrepo = grmerge
+
+[merge-tools]
+grmerge.executable = path/to/grmerge
+grmerge.args = $local $base $other -o $output
+
+"""
+
+from logilab_grutils import grmerge
+
+if __name__ == '__main__':
+    import sys
+    import optparse
+    p = optparse.OptionParser("A simple merge tool for .hgguestrepo files")
+    p.add_option('-o', '--output', dest='output', default=None,
+                 help='output filename; write to stdout if not set',)
+    opts, args = p.parse_args()
+    if len(args) != 3:
+        print sys.argv
+        p.error('3 arguments are required')
+
+    conflict, output = grmerge(args[0], args[1], args[2])
+    if opts.output is None:
+        print output
+    else:
+        open(opts.output, 'w').write(output)
+    sys.exit(conflict)

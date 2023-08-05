@@ -1,0 +1,21 @@
+exclude .hgignore
+recursive-exclude debian *
+
+include __pkginfo__.py
+
+include bin/grmerge
+include bin/gmmerge
+include bin/tagsmerge
+include bin/ingrsh.zsh
+include bin/ingrsh
+include bin/nicetests
+include bin/jobtest
+include bin/pygrep
+
+include hgext/jpl/*.py
+
+include elisp/*.el
+include elisp/startup
+
+include README
+include COPYING

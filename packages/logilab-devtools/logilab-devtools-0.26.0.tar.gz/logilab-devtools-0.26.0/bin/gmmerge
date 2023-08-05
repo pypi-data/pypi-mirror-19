@@ -1,0 +1,36 @@
+#!/usr/bin/python
+"""
+A very simple hg merge tool to merge .hggrmapping files a bit smarter
+than default merge algorithm
+
+To use it, simply add to your .hgrc file:
+
+
+[merge-patterns]
+.hggrmapping = gmmerge
+
+[merge-tools]
+gmmerge.executable = path/to/gmmerge
+gmmerge.args = $local $base $other -o $output
+
+"""
+from logilab_grutils import gmmerge
+
+if __name__ == '__main__':
+    import sys
+    import optparse
+    p = optparse.OptionParser("A simple merge tool for .hggrmapping files")
+    p.add_option('-o', '--output', dest='output', default=None,
+                 help='output filename; write to stdout if not set',)
+    opts, args = p.parse_args()
+    if len(args) != 3:
+        print sys.argv
+        p.error('3 arguments are required')
+
+    conflict, output = gmmerge(args[0], args[2])
+    print conflict, output, opts.output
+    if opts.output is None:
+        print output
+    else:
+        open(opts.output, 'w').write(output)
+    sys.exit(conflict)
