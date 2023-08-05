@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: py-mcpe-stats
+Version: 0.1.2
+Summary: a Python software that gets basic information about an MCPE server
+Home-page: https://github.com/w-gao/py-mcpe-stats
+Author: w-gao
+Author-email: w-gao@users.noreply.github.com
+License: MIT
+Description: a Python software that allows you to ping a Minecraft Pocket:Edition (MCPE) server for basic information.
+Keywords: MCPE minecraft mcpeserver raknet
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Networking
