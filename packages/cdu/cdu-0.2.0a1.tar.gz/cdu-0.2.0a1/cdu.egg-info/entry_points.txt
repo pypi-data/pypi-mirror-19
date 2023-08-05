@@ -1,0 +1,4 @@
+[console_scripts]
+cdu = cdu.main:main
+cdun = cdun.main:main
+
