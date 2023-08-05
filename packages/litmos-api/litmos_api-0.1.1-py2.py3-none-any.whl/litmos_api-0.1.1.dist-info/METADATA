@@ -1,0 +1,78 @@
+Metadata-Version: 2.0
+Name: litmos-api
+Version: 0.1.1
+Summary: Python package integrating with Litmos User and Teams API
+Home-page: https://github.com/charliequinn/python-litmos-api
+Author: Charlie Quinn
+Author-email: charlesquinn1984@gmail.com
+License: BSD
+Keywords: litmos,API
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Utilities
+Requires-Dist: inflect (==0.2.5)
+Requires-Dist: requests (==2.12.3)
+
+========
+Overview
+========
+
+
+
+Python package integrating with Litmos User and Teams API
+
+* Free software: BSD license
+
+Installation
+============
+
+::
+
+    pip install litmos-api
+
+Documentation
+=============
+
+https://python-litmos-api.readthedocs.io/
+
+Development
+===========
+
+To run the all tests run::
+
+    tox
+
+Note, to combine the coverage data from all the tox environments run:
+
+.. list-table::
+    :widths: 10 90
+    :stub-columns: 1
+
+    - - Windows
+      - ::
+
+            set PYTEST_ADDOPTS=--cov-append
+            tox
+
+    - - Other
+      - ::
+
+            PYTEST_ADDOPTS=--cov-append tox
+
+
+Changelog
+=========
+
+0.1.0 (2016-12-07)
+-----------------------------------------
+
+* First release on PyPI.
+
+
