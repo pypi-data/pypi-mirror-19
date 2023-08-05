@@ -1,0 +1,102 @@
+{% extends "genotype/base.html" %}
+{% from "genotype/utils.html" import sample_item %}
+
+{% block title %}
+    {{ super() }}
+    - Samples
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">Samples</div>
+
+            <div class="panel-body">
+                {{ search_form(req_args, plates) }}
+            </div>
+
+            <ul class="list-group">
+                {% for sample in samples.items %}
+                    {{ sample_item(sample) }}
+                {% else %}
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <li class="list-group-item">{{ message }}</li>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                {% endfor %}
+            </ul>
+
+            <div class="panel-footer">
+                {{ page_navigation(samples, req_args) }}
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
+
+{% macro search_form(req_args, plates) %}
+    <form action="{{ url_for('genotype.samples') }}" method="GET">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-8">
+                    <input type="search" name="query" class="form-control" placeholder="sample id" value="{{ req_args.query if req_args.query }}" autofocus>
+                </div>
+                <div class="col-xs-4">
+                    <button type="submit" class="btn btn-default form-control">Search</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="incomplete" {% if 'incomplete' in req_args %}checked{% endif %}> Incomplete
+                        </label>
+                        <label>
+                            <input type="checkbox" name="commented" {% if 'commented' in req_args %}checked{% endif %}>
+                            Commented
+                        </label>
+                        <label>
+                            <input type="checkbox" name="show_more" {% if 'show_more' in req_args %}checked{% endif %}>
+                            Show 100
+                        </label>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <select class="form-control" name="plate">
+                        <option value="">Select MAF plate</option>
+                        {% for plate in plates %}
+                            <option value="{{ plate.plate_id }}" {% if req_args.plate == plate.plate_id %}selected{% endif %}>
+                                {{ plate.plate_id }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endmacro %}
+
+{% macro page_navigation(samples, req_args) %}
+    <div class="row">
+        <div class="col-xs-4">
+            {% if samples.has_prev %}
+                <a href="{{ url_for('genotype.samples', page=samples.prev_num, **req_args) }}">Prev</a>
+            {% endif %}
+        </div>
+        <div class="col-xs-4 text-center">
+            Page {{ samples.page }} <small class="text-muted">({{ samples.total }} samples)</small>
+        </div>
+        <div class="col-xs-4 text-right">
+            {% if samples.has_next %}
+                <a href="{{ url_for('genotype.samples', page=samples.next_num, **req_args) }}">Next</a>
+            {% endif %}
+        </div>
+    </div>
+{% endmacro %}
