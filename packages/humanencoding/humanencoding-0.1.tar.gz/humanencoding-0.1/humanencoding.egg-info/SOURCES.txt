@@ -1,0 +1,13 @@
+README
+setup.cfg
+setup.py
+humanencoding/__init__.py
+humanencoding/encoder.py
+humanencoding/wordlist_v1.py
+humanencoding.egg-info/PKG-INFO
+humanencoding.egg-info/SOURCES.txt
+humanencoding.egg-info/dependency_links.txt
+humanencoding.egg-info/pbr.json
+humanencoding.egg-info/top_level.txt
+tests/__init__.py
+tests/test_encoder.py
