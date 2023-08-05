@@ -1,0 +1,20 @@
+Metadata-Version: 2.0
+Name: ddbc
+Version: 0.0.1
+Summary: Amazon DynamoDB as a cache store.
+Home-page: https://github.com/marcy-terui/ddbc
+Author: Masashi Terui
+Author-email: marcy9114+pypi@gmail.com
+License: MIT License
+Keywords: aws dynamodb cache lambda
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: boto3
+
+Amazon DynamoDB as a cache store.
+
+
