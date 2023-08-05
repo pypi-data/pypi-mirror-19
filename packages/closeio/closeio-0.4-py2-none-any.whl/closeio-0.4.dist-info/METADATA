@@ -1,0 +1,19 @@
+Metadata-Version: 2.0
+Name: closeio
+Version: 0.4
+Summary: Close.io Python Library
+Home-page: https://github.com/closeio/closeio-api/
+Author: Close.io Team
+Author-email: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Operating System :: OS Independent
+Requires-Dist: requests (>=2.11.1)
+Requires-Dist: grequests (>=0.3.0)
+
+Closeio Python library
+
+
