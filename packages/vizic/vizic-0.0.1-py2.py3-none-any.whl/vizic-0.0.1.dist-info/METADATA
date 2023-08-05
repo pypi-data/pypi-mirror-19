@@ -1,0 +1,31 @@
+Metadata-Version: 2.0
+Name: vizic
+Version: 0.0.1
+Summary: A Jupyter widget for visualizing astronomical catalogs
+Home-page: https://github.com/ywx649999311/vizic.git
+Author: Weixiang Yu
+Author-email: wyu16@illinois.edu
+License: UNKNOWN
+Keywords: ipython,jupyter,widgets,graphics
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: ipywidgets (>=5.1.5)
+Requires-Dist: motor (==1.0)
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: requests
+Requires-Dist: uuid
+
+A Jupyter widget for dynamic Leaflet maps
+
+
