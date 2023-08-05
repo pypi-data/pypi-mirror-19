@@ -1,0 +1,45 @@
+Metadata-Version: 1.1
+Name: xolib
+Version: 0.2.3
+Summary: Helper library for interfacing with xo-server.
+Home-page: https://github.com/vtsingaras/python-xolib
+Author: Vyronas Tsingaras
+Author-email: vyronas@vtsingaras.me
+License: LICENSE.txt
+Download-URL: https://github.com/vtsingaras/python-xolib/archive/v0.2.3.tar.gz
+Description: =====
+        XoLib
+        =====
+        
+        ^^^^^^^^
+        Overview
+        ^^^^^^^^
+        This is a simple helper Python 2 & 3 package to interface with the
+        JSON-RPC over WebSockets API of `XenOrchestra's <https://xen-orchestra.com/#!/>`_
+        `xo-server <https://github.com/vatesfr/xo-server>`_.
+        
+        ^^^^^
+        Usage
+        ^^^^^
+        
+        ::
+        
+          from xolib import xo, XoError, XoApiError, XoTimeoutError
+          from __future__ import print_function
+        
+          xo_instance = xo('ws://localhost', timeout=30)
+          try:
+            xo.session_signInWithPassword(email='lala', password='test')
+          except XoError:
+            print('Wrong password?')
+        
+          try:
+            xo.call('somemethod', somemethod_arg1=arg1, somemethod_arg2=arg2)
+          except XoTimeoutError:
+            print('xo-server did not respond within 30 seconds.')
+          except XoApiError:
+            print('Fix your arguments.')
+        
+        
+        
+Platform: UNKNOWN
