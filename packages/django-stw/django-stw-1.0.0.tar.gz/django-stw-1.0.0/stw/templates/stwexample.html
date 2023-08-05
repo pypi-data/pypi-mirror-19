@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>django-stw Examples</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <style>
+        body {
+            font-size: 16px;
+        }
+        
+        .body {
+            margin-top: 70px;
+        }
+        
+        .caption {
+            font-family: monospace;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    {% load shrinkthewebtags %}
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+                <a class="navbar-brand" href="#"><code>django-stw</code></a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="https://github.com/saschwarz/django-stw">GitHub</a></li>
+                    <li><a href="https://shrinktheweb.com/">shrinktheweb</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+    <div class="container">
+        <div class="body">
+            <div class="well">
+                <h1><a href="http://github.com/saschwarz/django-stw">django-stw</a></h1>
+                <h3>Django + Shrink The Web Examples</h3>
+            </div>
+            <p>Simple syntax. At the top of each template file load the templatetags:</p>
+            <pre>{% templatetag openblock %} load shrinkthewebtags {% templatetag closeblock %}</pre>
+            <p>At each place you'd like a screen shot insert the <code>stwimage</code> template tag with the two mandatory arguments: the url and the <code>alt</code> text:</p>
+            <pre>{% templatetag openblock %} stwimage "https://djangoproject.com/" "Django website" {% templatetag closeblock %}</pre>
+            <p>The following examples demonstrate adding additional <code>key=value</code> options. Some require purchasing and enabling additional features on the <a href="http://shrinktheweb.com" class="href">shrinktheweb.com</a> site.</p>
+            <div class="alert alert-info" role="alert">
+                <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Images may not be shown below if they have expired in the shrinktheweb cache. Wait a moment and refresh the page to see them.
+            </div>
+            <h3 class="title"><a id="stwimage-mcr">micro</a></h3>
+            <div class="entry">
+                <div class="caption">{% templatetag openblock %} stwimage "https://djangoproject.com/" "micro" stwsize=mcr {% templatetag closeblock %}</div>
+                <p class="thumbnail">{% stwimage "https://djangoproject.com/" "micro" stwsize=mcr %}</p>
+            </div>
+            <h3 class="title"><a id="stwimage-tny">tiny</a></h3>
+            <div class="entry">
+                <div class="caption">{% templatetag openblock %} stwimage "https://djangoproject.com/" "tiny" stwsize=tny {% templatetag closeblock %}</div>
+                <p class="thumbnail">{% stwimage "https://djangoproject.com/" "tiny" stwsize=tny %}</p>
+            </div>
+            <h3 class="title"><a id="stwimage-vsm">very small</a></h3>
+            <div class="entry">
+                <div class="caption">{% templatetag openblock %} stwimage "https://djangoproject.com/" "very small" stwsize=vsm {% templatetag closeblock %}</div>
+                <p class="thumbnail">{% stwimage "https://djangoproject.com/" "very small" stwsize=vsm %}</p>
+            </div>
+            <h3 class="title"><a id="stwimage-sm">small</a></h3>
+            <div class="entry">
+                <div class="caption">{% templatetag openblock %} stwimage "https://djangoproject.com/" "small" stwsize=sm {% templatetag closeblock %}</div>
+                <p class="thumbnail">{% stwimage "https://djangoproject.com/" "small" stwsize=sm %}</p>
+            </div>
+            <h3 class="title"><a id="stwimage-lg">large</a></h3>
+            <div class="entry">
+                <div class="caption">{% templatetag openblock %} stwimage "https://djangoproject.com/" "large" stwsize=lg {% templatetag closeblock %}</div>
+                <p class="thumbnail">{% stwimage "https://djangoproject.com/" "large" stwsize=lg %}</p>
+            </div>
+            <h3 class="title"><a id="stwimage-xlg">extra large</a></h3>
+            <div class="entry">
+                <div class="caption">{% templatetag openblock %} stwimage "https://djangoproject.com/" "extra large" stwsize=xlg {% templatetag closeblock %}</div>
+                <p class="thumbnail">{% stwimage "https://djangoproject.com/" "extra large" stwsize=xlg %}</p>
+            </div>
+            <h3 class="title"><a id="stwimage-inside">inside page</a></h3>
+            <div class="entry">
+                <div class="caption">{% templatetag openblock %} stwimage "https://djangoproject.com/community/" "inside page" stwsize=lg stwinside=1 {% templatetag closeblock %}</div>
+                <p class="thumbnail">{% stwimage "https://djangoproject.com/community/" "inside page" stwsize=lg stwinside=1 %}</p>
+            </div>
+            <h3 class="title"><a id="stwimage-full">full length</a></h3>
+            <div class="entry">
+                <div class="caption">{% templatetag openblock %} stwimage "https://djangoproject.com/" "full length" stwfull=1 {% templatetag closeblock %}</div>
+                <p class="thumbnail">{% stwimage "https://djangoproject.com/" "full length" stwfull=1 %}</p>
+            </div>
+            <h3 class="title"><a id="stwimage-full-width">full length 150px wide</a></h3>
+            <div class="entry">
+                <div class="caption">{% templatetag openblock %} stwimage "https://djangoproject.com/" "full length 150 wide" stwfull=1 stwxmax=150 {% templatetag closeblock %}</div>
+                <p class="thumbnail">{% stwimage "https://djangoproject.com/" "full length 150 wide" stwfull=1 stwxmax=150 %}</p>
+            </div>
+            <h3 class="title"><a id="stwimage-full-width-height">full length 150px wide 50px tall</a></h3>
+            <div class="entry">
+                <div class="caption">{% templatetag openblock %} stwimage "https://djangoproject.com/" "full length 150x50" stwfull=1 stwxmax=150 stwymax=50 {% templatetag closeblock %}</div>
+                <p class="thumbnail">{% stwimage "https://djangoproject.com/" "full length 150x50" stwfull=1 stwxmax=150 stwymax=50 %}</p>
+            </div>
+            <h3 class="title"><a id="stwimage-widescreen">widescreen 400px wide image</a></h3>
+            <div class="entry">
+                <div class="caption">{% templatetag openblock %} stwimage "https://djangoproject.com/" "widescreen" stwxmax=400 stwscreen=1440x900 {% templatetag closeblock %}</div>
+                <p class="thumbnail">{% stwimage "https://djangoproject.com/" "widescreen" stwxmax=400 stwscreen=1440x900 %}</p>
+            </div>
+            <h3 class="title"><a id="stwimage-smallscreen">smallscreen 400px wide image</a></h3>
+            <div class="entry">
+                <div class="caption">{% templatetag openblock %} stwimage "https://djangoproject.com/" "small screen" stwxmax=400 stwscreen=440 {% templatetag closeblock %}</div>
+                <p class="thumbnail">{% stwimage "https://djangoproject.com/" "widescreen" stwxmax=400 stwscreen=440 %}</p>
+            </div>
+        </div>
+    </div>
+    <!-- end .container -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+
+</html>
