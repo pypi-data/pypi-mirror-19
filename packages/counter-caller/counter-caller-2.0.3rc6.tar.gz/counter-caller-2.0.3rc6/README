@@ -1,0 +1,17 @@
+http://www.fromtexttospeech.com/
+British English/Emma
+
+# TODO
+
+* Handle invalid triggers correctly
+* Press Escape to reset the queue to empty
+
+
+## Installation
+
+### Fedora
+
+(it's likely that greenlet is in the repos, which would reduce the number of packages required to build it).
+
+dnf install python-pip python-devel make gcc redhat-rpm-config
+pip install counter-caller==2.0.3rc5

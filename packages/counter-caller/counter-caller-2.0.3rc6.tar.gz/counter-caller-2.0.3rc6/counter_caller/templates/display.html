@@ -1,0 +1,25 @@
+{% extends "_base.html" %}
+
+{% block id %}display{% endblock %}
+
+{% block content %}
+  <div id="screen" v-cloak>
+
+    <section id="idle" v-show="idle">
+      <h1>[[ please_wait ]]</h1>
+    </section>
+
+    <section id="info" v-else>
+      <h1>[[ current ]]</h1>
+
+      [[ recents | slice '-3' '-1' | reverse ]]
+    </section>
+
+  </div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+requirejs(['main/display']);
+</script>
+{% endblock %}
