@@ -1,0 +1,193 @@
+
+DBG = 1
+
+MQTT_CLIENT_ID="repubmqtt"
+MQTT_USERNAME="username"
+MQTT_PASSWORD="password"
+MQTT_SERVER="mqtt.example.com"
+MQTT_PORT=1883
+    
+TOPIC = "loftha/#"
+OUTPREFIX = "/outbox/"
+INPREFIX = "/inbox/"
+
+
+xlate = {
+  'motion': { 'off':  False,    'on': True },
+  'door':   { 'off':  'Closed', 'on': 'Open' },
+}
+
+
+kitchen_motion_devinfo = {
+  'deviceInfo': {
+    'name': 'kitchen_motion',
+    'endPoints': {
+      'motion': {
+        'title': 'Kitchen Motion',
+        'card-type': 'crouton-simple-button',
+        'icons': {
+          'icon': 'spinner',
+        },
+        'values': {
+            'value': False
+        }
+      }
+    },
+  },
+}
+
+
+
+kitchen_motion = {
+  'name': 'kitchen_motion',
+  'rules': [['filter','selector', 'publish'],
+ 		    ['getfilter','getselector', 'getpublish']],
+  'filter': {'topic': '(loftha.*)', 'event_type': ['state_changed'], \
+			'event_data.entity_id': 'binary_sensor.hbloft_kitchen_motion'},
+  'selector': {'state:motion:event_data.new_state.state': '.*',
+               'name:event_data.entity_id': 'binary_sensor.hbloft_(.*)' },
+  'publish': [
+    {'protocol': 'mqtt',
+     'copy_fields': [['value', 'state', 'motion']],
+     'topic': '/outbox/%(name)s/motion', 	#XXX
+     'data': { 'value': False }
+    },
+    {'protocol': 'mqtt',
+     'once': True,
+     'retain': True,
+     'copy_fields': [['deviceInfo.endPoints.motion.values.value', 'state', 'motion']],
+     'topic': '/outbox/kitchen_motion/deviceInfo',
+     'data': kitchen_motion_devinfo 
+    }
+  ],
+  'getfilter': {'topic': '/inbox/kitchen_motion/deviceInfo', 'rawvalue': 'get'},
+  'getselector': {'rawvalue': 'get'},
+  'getpublish': [
+    {'protocol': 'mqtt',
+     'once': True,
+     'retain': True,
+     'copy_fields': [],
+     'topic': '/outbox/kitchen_motion/deviceInfo',
+     'data': kitchen_motion_devinfo 
+    }
+  ],
+}
+
+device_tracker = {
+  'selector': {'who:event_data.entity_id': 'device_tracker.(.*)_.*', 
+	'event_data.new_state.attributes.friendly_name': '(.*)',
+	'event_data.new_state.attributes.gps_accuracy': '(.*)',
+	'event_data.new_state.attributes.latitude': '(.*)',
+	'event_data.new_state.attributes.longitude': '(.*)'}
+}
+
+
+# Crouton deviceInfo
+aew_devinfo = { 
+  'deviceInfo': {
+    'name': 'aew_desk',
+    'endPoints': {
+      'level': {
+        'values': {
+          'value': 0
+        },
+        'min': 0,
+        'max': 255,
+        'units': 'brightness',
+        'card-type': 'crouton-simple-slider', 
+        'title': 'AEW Desk' 
+      }
+    },
+    'description': 'AEW Desk Lamp',
+    'status': 'good'
+  }
+}
+
+aew_desk = {
+  'name': 'aew_desk',
+  'rules': [['filter','selector', 'publish'],
+ 		    ['offfilter','', 'offpublish'],
+ 		    ['infilter','inselector', 'inpublish'],
+ 		    ['offinfilter','', 'offinpublish']],
+
+  'filter': {'topic': '(loftha.*)', 'event_type': ['(state_changed)'], 
+			'event_data.entity_id': 'light.aew_desk_level_28_0'},
+  'selector': {
+	'lvl:event_data.new_state.attributes.brightness': '(.*)'
+  },
+  'publish': [
+    {'protocol': 'mqtt',
+     'copy_fields': [['value', 'lvl', 'int']],
+     'topic': '/outbox/aew_desk/level',
+     'data': { 'value': 0 }
+    },
+    {'protocol': 'mqtt',
+     'once': True,
+     'retain': True,
+     'copy_fields': [['deviceInfo.endPoints.level.values.value', 'lvl', 'int']],
+     'topic': '/outbox/aew_desk/deviceInfo',
+     'data': aew_devinfo 
+    }
+  ],
+# turn 'state=off' into brightness 0
+  'offfilter': {'topic': '(loftha.*)', 'event_type': ['(state_changed)'], 
+			'event_data.entity_id': 'light.aew_desk_level_28_0', \
+            'event_data.new_state.attributes.state': 'off'},
+  'offpublish': [
+    {'protocol': 'mqtt', 'topic': '/outbox/aew_desk/level', 'data': { 'value': 0 }}],
+
+# 
+  'infilter': {'topic': '/inbox/aew_desk/level' },
+  'inselector': {'value': '(.*)' } ,
+  'inpublish': [
+    {'protocol': 'restful', 
+     'copy_fields': [['brightness', 'value', 'int']],
+     'url': 'http://loftha:8123/api/services/light/turn_on',
+     'headers': {'Content-Type': 'application/json', 'x-ha-access': '1foot123'},
+     'data': {'entity_id': 'light.aew_desk_level_28_0', 'brightness': 1 }
+    }
+  ], 
+# 
+  'offinfilter': {'topic': '/inbox/aew_desk/level', 'value': '0' },
+  'offinpublish': [
+    {'protocol': 'restful', 
+     'copy_fields': [['brightness', 'value', 'int']],
+     'url': 'http://loftha:8123/api/services/light/turn_off',
+     'headers': {'Content-Type': 'application/json', 'x-ha-access': '1foot123'},
+     'data': {'entity_id': 'light.aew_desk_level_28_0' }
+    }
+  ] 
+}
+
+motion = {
+  'name': 'motion',
+  'rules': [['filter','selector', 'publish']],
+  'filter': {'topic': '(loftha.*)', 'event_data.entity_id': [
+	'binary_sensor.(.*)motion.*',
+    'binary_sensor.zwave_(.*)_motion', 
+#    'binary_sensor.zwave_southdoor',
+#    'binary_sensor.north_door_sensor_5_0',
+#    'binary_sensor.aeotec_dsb05_multisensor_sensor_25_0',
+#    'binary_sensor.aeotec_zw100_multisensor_6_sensor_23_0',
+    'sensor.aeotec_zw100_multisensor_6_burglar_23_10'
+  ]},
+
+  'selector': {
+    'event_data.new_state.attributes.friendly_name': '(.*) motion',
+	'event_data.new_state.state': '(.*)'
+  },
+  'publish':  {'protocol': 'log','logfile': '/home/andreas/log/motion.log', 'data': "%(ts)s %(friendly_name)s %(state)s " }
+}
+
+outside_temp = {
+  'name': 'outside_temp',
+  'rules': [['filter','selector', 'publish']],
+  'filter': {'topic': '(loftha.*)', 'event_data.entity_id': '(sensor.dark_sky_temperature)'},
+
+  'selector': { 'temperature:event_data.new_state.state': '(.*)'},
+  'publish':  {'protocol': 'log', 'data': "%(ts)s: temperature is %(temperature)s" }
+}
+
+
+
+RULES = [kitchen_motion, outside_temp, aew_desk, motion ]

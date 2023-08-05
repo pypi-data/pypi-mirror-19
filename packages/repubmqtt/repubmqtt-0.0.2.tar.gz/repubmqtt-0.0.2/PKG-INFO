@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: repubmqtt
+Version: 0.0.2
+Summary: RepubMQTT re-publishes MQTT messages to MQTT, RESTful or logfiles
+Home-page: https://git.wrede.ca/andreas/repubmqtt/wikis/home
+Author: Andreas Wrede
+Author-email: aew.repubmqtt@wrede.ca
+License: MIT
+Description: UNKNOWN
+Keywords: mqtt restful
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
