@@ -1,0 +1,31 @@
+Metadata-Version: 1.1
+Name: jmessage
+Version: 1.0.0
+Summary: JMessage's officially supported Python client library
+Home-page: https://github.com/jpush/jmessage-api-python-client
+Author: jpush
+Author-email: support@jpush.cn
+License: MIT License
+Description: JMessage API Python SDK
+        
+        简介
+        
+        这是 JMessage REST API 的 Python 封装开发包，是由极光推送官方提供的，一般支持最新的 API 功能。
+        对应的 REST API 文档：http://docs.jiguang.cn/server/rest_api_im/
+        
+        支持
+        
+        Python 2.7
+        
+        安装
+        
+        python setup.py install
+        
+        
+Keywords: JMessage,JMessage API,Android JMessage,iOS JMessage,JMessage,JMessage API,Android IM,iOS IM
+Platform: any
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
