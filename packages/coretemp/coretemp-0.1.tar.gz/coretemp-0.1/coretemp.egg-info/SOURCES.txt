@@ -1,0 +1,17 @@
+setup.cfg
+setup.py
+coretemp/__init__.py
+coretemp/coretemp.properties
+coretemp/coretemp_alert.py
+coretemp/coretemp_config.py
+coretemp/coretemp_constants.py
+coretemp/coretemp_daemon.py
+coretemp/coretemp_log.py
+coretemp/monitor.py
+coretemp/sensor_reading.py
+coretemp.egg-info/PKG-INFO
+coretemp.egg-info/SOURCES.txt
+coretemp.egg-info/dependency_links.txt
+coretemp.egg-info/entry_points.txt
+coretemp.egg-info/requires.txt
+coretemp.egg-info/top_level.txt
