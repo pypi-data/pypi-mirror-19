@@ -1,0 +1,30 @@
+Metadata-Version: 1.1
+Name: dbThrottle
+Version: 0.0.3
+Summary: Python Class to run code with consideration to DB load.
+Home-page: http://rbirm.us
+Author: Ryan Birmingham
+Author-email: birm@rbirm.us
+License: UNKNOWN
+Description: # dbThrottle
+        Python Class to run code with consideration to DB load.
+        
+        ## Why
+        Throttling code to work under the constraints of a server makes sense in certain situations, especially when replica lag comes into play. This project hopes to simplify acting on this consideration.
+        
+        ## What
+        A, still early, python module, which introduces a functional type to complete a task or continiously run an operation, taking database load and similar metrics into account.
+        The code will work with any metric you want to define, but we've included replia lag an open threads/connections as default metrics for mssql, mysql, postgresql, and oracle.
+        
+        ## Who
+        Ryan Birmingham, under GPL3
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Topic :: Database
+Classifier: Intended Audience :: Information Technology
+Classifier: Programming Language :: SQL
+Classifier: Programming Language :: PL/SQL
+Classifier: Programming Language :: Python :: 2.7
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
