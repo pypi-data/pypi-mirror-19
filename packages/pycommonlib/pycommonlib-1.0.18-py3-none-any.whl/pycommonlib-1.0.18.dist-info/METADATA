@@ -1,0 +1,15 @@
+Metadata-Version: 2.0
+Name: pycommonlib
+Version: 1.0.18
+Summary: pycommonlib
+Home-page: https://github.com/panweifeng/
+Author: Eric Pan
+Author-email: pan.weifeng@live.cn
+License: MIT
+Requires-Dist: django
+Requires-Dist: djangorestframework
+Requires-Dist: requests
+
+common libiary for python and django project
+
+
