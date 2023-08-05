@@ -1,0 +1,25 @@
+Metadata-Version: 2.0
+Name: pai-parser
+Version: 0.0.2
+Summary: Describe and parse shell-safe strings into a structured syntax.
+Home-page: https://github.com/ahawker/pai-parser
+Author: Andrew Hawker
+Author-email: andrew.r.hawker@gmail.com
+License: Apache 2.0
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+
+
+pai_parser
+~~~~~~~~~~
+
+Describe and parse shell-safe strings into a structured syntax.
+
+
