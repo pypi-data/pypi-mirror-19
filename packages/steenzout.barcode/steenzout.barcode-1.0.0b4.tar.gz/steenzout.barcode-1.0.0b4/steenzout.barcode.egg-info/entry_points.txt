@@ -1,0 +1,3 @@
+[console_scripts]
+py36-barcode = steenzout.barcode.cli:cli
+
