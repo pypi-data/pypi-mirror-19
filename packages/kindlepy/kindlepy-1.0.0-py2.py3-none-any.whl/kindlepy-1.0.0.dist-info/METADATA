@@ -1,0 +1,61 @@
+Metadata-Version: 2.0
+Name: kindlepy
+Version: 1.0.0
+Summary: CLI tool for mailing your documents to your kindle device.
+Home-page: https://github.com/cbdavide/KindlePy
+Author: David Castelblanco Benavides
+Author-email: cbdavides@gmail.com
+License: GPLv3
+Keywords: email documents kindle send ebooks
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.0
+Classifier: Programming Language :: Python :: 3.1
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Communications :: Email
+Classifier: Topic :: Communications :: File Sharing
+Requires-Dist: docopt
+Requires-Dist: validate-email
+
+=========
+KindlePy
+=========
+
+CLI to send files to your kindle email address, or any other email address.
+
+Config:
+--------
+Set the sender email:
+
+    kindlepy config --sender <email>
+
+Set the receiver email:
+
+    kindlepy config --receiver <email>
+
+**In case any of the mails are not configured, the script will ask for them.**
+
+Usage:
+-------
+Send files to the receiver direction:
+
+    kindlepy send <file>...
+
+
+Supported email services:
+--------------------------
+- Google (googlemail, gmail) - Requires to activate less secure apps.
+- Microsoft (hotmail, outlook)
+- Yahoo (yahoo)
+- AOL (aol)
+
+
