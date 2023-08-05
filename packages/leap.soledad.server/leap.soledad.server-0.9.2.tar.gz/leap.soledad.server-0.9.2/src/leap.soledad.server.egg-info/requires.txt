@@ -1,0 +1,7 @@
+configparser
+PyOpenSSL
+twisted>=12.3.0
+Beaker
+couchdb
+python-cjson
+leap.soledad.common>=0.9.0
