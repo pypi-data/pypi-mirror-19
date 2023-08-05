@@ -1,0 +1,21 @@
+Metadata-Version: 2.0
+Name: sqlalchemy-ceodbc
+Version: 0.1.0
+Summary: SQLAlchemy dialect for ceODBC
+Home-page: https://github.com/dirkjonker/sqlalchemy-ceodbc
+Author: Dirk Jonker
+Author-email: dirkjonker@gmail.com
+License: MIT
+Download-URL: https://github.com/dirkjonker/sqlalchemy-ceodbc/tarball/0.1.0
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Dist: sqlalchemy
+
+UNKNOWN
+
+

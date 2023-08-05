@@ -1,0 +1,3 @@
+[sqlalchemy.dialects]
+mssql.ceODBC = sqlalchemy_ceodbc.dialect:MSDialect_ceODBC
+
