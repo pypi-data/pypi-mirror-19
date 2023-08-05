@@ -1,0 +1,10 @@
+MANIFEST.in
+README.rst
+UNLICENSE.txt
+setup.py
+aiocall/__init__.py
+aiocall.egg-info/PKG-INFO
+aiocall.egg-info/SOURCES.txt
+aiocall.egg-info/dependency_links.txt
+aiocall.egg-info/not-zip-safe
+aiocall.egg-info/top_level.txt
