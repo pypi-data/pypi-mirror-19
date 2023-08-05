@@ -1,0 +1,495 @@
+swagger: '2.0'
+info:
+  title: vcontrol API
+  description: This contains the documentation and a functional vcontrol API testing sandbox.
+  version: v0.3.1
+host: mydomain
+schemes:
+  - http
+basePath: /v1
+produces:
+  - application/json
+paths:
+  /:
+    get:
+      summary: Index
+      description: >
+        This endpoint is just a quick way to ensure that the vcontrol API is
+        up and running properly.
+      produces:
+        - text/html
+      tags:
+        - Meta
+      responses:
+        '200':
+          description: Returns `vcontrol`
+  /version:
+    get:
+      summary: Version
+      description: >
+        This endpoint return the version of `vcontrol` that is currently running this API.
+      produces:
+        - text/html
+      tags:
+        - Meta
+      responses:
+        '200':
+          description: Returns a string of the version number
+  '/providers/add':
+    post:
+      summary: Add a new provider
+      description: >
+        This endpoint allows for a new provider such as openstack or vmware to be
+        added.  A vent machine runs on a provider.  Note that a provider can
+        only be added from `localhost` of the machine running `vcontrol`
+        unless the environment variable `VCONTROL_OPEN=true` is set on the
+        server.
+      tags:
+        - Providers
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Add a new provider
+          required: true
+          schema:
+            $ref: '#/definitions/AddProvider'
+      responses:
+        '200':
+          description: String of whether it was able to successfully add a new provider or not.
+  '/providers/heartbeat':
+    get:
+      summary: Heartbeat providers
+      description: >
+        This endpoint is just a quick way to ensure that providers are still
+        reachable.
+      tags:
+        - Providers
+      responses:
+        '200':
+          description: Returns a JSON string of providers and their status
+  '/providers/list':
+    get:
+      summary: List providers
+      description: >
+        This endpoint lists all of the providers that have been added.
+      tags:
+        - Providers
+      responses:
+        '200':
+          description: Returns a JSON string of provider names and types
+  '/providers/remove/{provider}':
+    get:
+      summary: Remove a provider
+      description: >
+        This endpoint allows for removing a provider such as openstack or
+        vmware.  A vent machine runs on a provider, this will not remove
+        existing vent machines on the specified provider.  Note that a provider
+        can only be removed from `localhost` of the machine running
+        `vcontrol` unless the environment variable `VCONTROL_OPEN=true`
+        is set on the server.
+      tags:
+        - Providers
+      produces:
+        - text/html
+      parameters:
+        - in: path
+          name: provider
+          description: Name of provider to remove
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: String of whether it was able to successfully remove the provider or not.
+  '/machines/create':
+    post:
+      summary: Create Machine
+      description: >
+        This endpoint is for creating a new machine of `vent` on a provider.
+      tags:
+        - Machines
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Create a new machine of vent
+          required: true
+          schema:
+            $ref: '#/definitions/CreateMachine'
+      responses:
+        '200':
+          description: String of whether it was able to successfully add a new machine or not.
+  '/machines/delete/{machine}':
+    get:
+      summary: Delete Machine
+      description: >
+        This endpoint is for delete an existing machine of `vent`.
+      tags:
+        - Machines
+      parameters:
+        - in: path
+          name: machine
+          description: name of machine to remove
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: String of whether it was able to successfully remove machine or not.
+  '/commands/deploy/{machine}':
+    post:
+      summary: Deploy a template to a machine
+      description: >
+        This endpoint is for uploading a template file to a machine.
+      tags:
+        - Commands
+      parameters:
+        - in: path
+          name: machine
+          description: name of machine to deploy template to
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: String of whether it was able to successfully deploy template to the machine or not
+  '/machines/unregister/{machine}':
+    get:
+      summary: Unregister a machine
+      description: >
+        This endpoint is for unregistering a machine from `vcontrol`.
+      tags:
+        - Machines
+      parameters:
+        - in: path
+          name: machine
+          description: name of machine to unregister
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: String of whether it was able to successfully unregister machine or not
+  '/commands/info/{machine}':
+    get:
+      summary: Get info of a machine
+      description: >
+        This endpoint is for getting info about a machine.
+      tags:
+        - Commands
+      parameters:
+        - in: path
+          name: machine
+          description: name of machine to get info for
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: Returns JSON string of info about the machine
+  '/commands/stats/{machine}':
+    get:
+      summary: Get stats of a machine
+      description: >
+        This endpoint is for getting stats about a machine.
+      tags:
+        - Commands
+      parameters:
+        - in: path
+          name: machine
+          description: name of machine to get stats for
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: Returns JSON string of stats about the machine
+  '/commands/logs/{machine}':
+    get:
+      summary: Get logs of a machine
+      description: >
+        This endpoint is for retrieving logs from a machine.
+      tags:
+        - Commands
+      parameters:
+        - in: path
+          name: machine
+          description: name of machine to get logs from
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: Returns JSON string of log stats from a machine
+  '/machines/heartbeat':
+    get:
+      summary: Heartbeat machines
+      description: >
+        This endpoint is just a quick way to ensure that providers are still
+        reachable.
+      tags:
+        - Machines
+      responses:
+        '200':
+          description: Returns a JSON string of providers and their status
+  '/machines/list':
+    get:
+      summary: List machines
+      description: >
+        This endpoint lists all of the machines that have been created or
+        registered.
+      tags:
+        - Machines
+      responses:
+        '200':
+          description: Returns a JSON string of machines
+  '/machines/register':
+    post:
+      summary: Register machine
+      description: >
+        This endpoint is for registering an existing `vent` machine into
+        `vcontrol`.
+      tags:
+        - Machines
+      responses:
+        '200':
+          description: String of whether it was able to successfully register the machine or not.
+  '/machines/boot/{machine}':
+    get:
+      summary: Boot a machine
+      description: >
+        This endpoint is for booting a shutdown machine.
+      tags:
+        - Machines
+      parameters:
+        - in: path
+          name: machine
+          description: name of machine to boot
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: String of whether it was able to successfully boot the machine or not.
+  '/machines/shutdown/{machine}':
+    get:
+      summary: Shutdown a machine
+      description: >
+        This endpoint is for shutting down a running machine.
+      tags:
+        - Machines
+      parameters:
+        - in: path
+          name: machine
+          description: name of machine to shutdown
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: String of whether it was able to successfully shutdown the machine or not.
+  '/machines/ssh/{machine}':
+    get:
+      summary: SSH into a machine
+      description: >
+        This endpoint is not implemented yet.
+        This endpoint is to SSH into a machine.
+      tags:
+        - Machines
+      parameters:
+        - in: path
+          name: machine
+          description: name of machine to SSH into
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: String of whether it was able to successfully reach the machine via SSH or not.
+  '/commands/build/{machine}':
+    get:
+      summary: Build images on a machine
+      description: >
+        This endpoint is building Docker images on a machine.
+      tags:
+        - Commands
+      parameters:
+        - in: path
+          name: machine
+          description: name of machine to build images on
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: String of whether it was able to successfully build images on the machine or not.
+  '/commands/generic/{machine}':
+    post:
+      summary: Run an arbitrary command on a machine
+      description: >
+        This endpoint is for running an arbitrary command on a machine and
+        getting the result back.
+      tags:
+        - Commands
+      parameters:
+        - in: path
+          name: machine
+          description: name of machine to execute the command on
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: Returns string result of the command
+  '/machines/reboot/{machine}':
+    get:
+      summary: Reboot a machine
+      description: >
+        This endpoint is for rebooting a running machine.
+      tags:
+        - Machines
+      parameters:
+        - in: path
+          name: machine
+          description: name of machine to reboot
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: String of whether it was able to successfully reboot the machine or not.
+  '/commands/start/{machine}/{category}':
+    get:
+      summary: Start a category of containers on a machine
+      description: >
+        This endpoint is for starting a specified category of containers on a
+        specific machine.
+      tags:
+        - Commands
+      parameters:
+        - in: path
+          name: machine
+          description: name of machine to start containers on
+          required: true
+          type: string
+          format: string
+        - in: path
+          name: category
+          description: name of category of containers to start
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: String of whether it was able to successfully start the containers on the machine or not.
+  '/commands/stop/{machine}/{category}':
+    get:
+      summary: Stop a category of containers on a machine
+      description: >
+        This endpoint is for stopping a specified category of containers on a
+        specific machine.
+      tags:
+        - Commands
+      parameters:
+        - in: path
+          name: machine
+          description: name of machine to stop containers on
+          required: true
+          type: string
+          format: string
+        - in: path
+          name: category
+          description: name of category of containers to stop
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: String of whether it was able to successfully stop the containers on the machine or not.
+definitions:
+  AddProvider:
+    type: object
+    required:
+      - name
+      - provider
+      - args
+      - ram
+      - cpu
+      - disk
+    properties:
+      name:
+        type: string
+        example: esxi1
+      provider:
+        type: string
+        example: openstack
+        description: >
+          Available providers include `aws`, `azure`, `digitalocean`, `exoscale`,
+          `google`, `openstack`, `rackspace`, `softlayer`, and `vmware`
+      args:
+        type: string
+        example: ''
+        description: Quoted additional arguments for the specified provider according to `docker-machine`
+      ram:
+        type: integer
+        format: int32
+        example: 80
+        description: Percentage of RAM usage on host until machines can no longer be created on this provider
+      cpu:
+        type: integer
+        format: int32
+        example: 80
+        description: Percentage of CPU usage on host until machines can no longer be created on this provider
+      disk:
+        type: integer
+        format: int32
+        example: 80
+        description: Percentage of Disk usage on host until machines can no longer be created on this provider
+  CreateMachine:
+    type: object
+    required:
+      - name
+      - provider
+    properties:
+      name:
+        type: string
+        example: vent1
+      provider:
+        type: string
+        example: esxi1
+        description: >
+          Provider to create machine on
+      group:
+        type: string
+        example: vent
+        description: >
+          Group this vent machine will belong to
+      labels:
+        type: string
+        example: foo=bar,key=val
+        description: >
+          Pairs of key/values used as labels to identify this vent machine
+      memory:
+        type: integer
+        format: int32
+        example: 4096
+        description: >
+          Specify how much RAM in MBs to allocate to the new machine, note this
+          only works for VMWare and OpenStack providers (default: 1024)
+      cpus:
+        type: integer
+        format: int32
+        example: 4
+        description: >
+          Specify how many CPUs to allocate to the new machine, note this only
+          works for VMWare and OpenStack providers (default: 1)
+      disk_size:
+        type: integer
+        format: int32
+        example: 20000
+        description: >
+          Specify how much disk space in MBs to allocate to the new machine,
+          note this only works for VMWare and OpenStack providers (default: 20000)
