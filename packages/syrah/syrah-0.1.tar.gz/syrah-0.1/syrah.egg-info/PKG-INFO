@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: syrah
+Version: 0.1
+Summary: extract trusted k-mers from raw sequencing data
+Home-page: https://github.com/dib-lab/syrah
+Author: C. Titus Brown
+Author-email: titus@idyll.org
+License: BSD 3-clause
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Environment :: MacOS X
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
