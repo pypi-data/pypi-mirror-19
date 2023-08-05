@@ -1,0 +1,20 @@
+Metadata-Version: 2.0
+Name: py-dummy
+Version: 0.1.0
+Summary: Yeah it was...REALLY stupid
+Home-page: UNKNOWN
+Author: Tucker Beck
+Author-email: tucker.beck@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Natural Language :: English
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Provides-Extra: dev
+Requires-Dist: flake8; extra == 'dev'
+Requires-Dist: pytest; extra == 'dev'
+Requires-Dist: pytest-capturelog; extra == 'dev'
+
+UNKNOWN
+
+
