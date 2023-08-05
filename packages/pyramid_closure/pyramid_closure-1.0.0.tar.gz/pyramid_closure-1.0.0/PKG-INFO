@@ -1,0 +1,50 @@
+Metadata-Version: 1.1
+Name: pyramid_closure
+Version: 1.0.0
+Summary: pyramid_closure
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: UNKNOWN
+Description: pyramid_closure
+        
+        Install:
+        
+        ```
+        $ git clone https://github.com/camptocamp/pyramid_closure.git
+        $ cd pyramid_closure
+        $ make install
+        ```
+        
+        Create a project:
+        
+        ```
+        $ cd ..
+        $ pyramid_closure/.build/venv/bin/pcreate -s pyramid_closure ProjectName
+        ```
+        
+        Install and build project:
+        
+        ```
+        $ cd ProjectName
+        $ make install
+        ```
+        
+        Start development server:
+        
+        ```
+        $ make serve
+        ```
+        
+        
+        0.0
+        ---
+        
+        -  Initial version
+        
+Keywords: web pyramid pylons closure
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Framework :: Pyramid
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Application
