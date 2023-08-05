@@ -1,0 +1,16 @@
+setup.cfg
+setup.py
+consecution/__init__.py
+consecution/nodes.py
+consecution/pipeline.py
+consecution/utils.py
+consecution.egg-info/PKG-INFO
+consecution.egg-info/SOURCES.txt
+consecution.egg-info/dependency_links.txt
+consecution.egg-info/requires.txt
+consecution.egg-info/top_level.txt
+consecution/tests/__init__.py
+consecution/tests/nodes_tests.py
+consecution/tests/pipeline_tests.py
+consecution/tests/testing_helpers.py
+consecution/tests/utils_tests.py
