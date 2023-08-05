@@ -1,0 +1,16 @@
+Metadata-Version: 2.0
+Name: falcon-raml
+Version: 0.1.0
+Summary: Parameter checker middleware using RAML for Falcon
+Home-page: https://github.com/johnlinp/falcon-raml
+Author: johnlinp
+Author-email: johnlinp@gmail.com
+License: New BSD License
+Platform: UNKNOWN
+Requires-Dist: falcon
+Requires-Dist: jsonschema
+Requires-Dist: ramlfications
+
+UNKNOWN
+
+
