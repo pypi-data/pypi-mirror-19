@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+setup.cfg
+setup.py
+simple_analytics.egg-info/PKG-INFO
+simple_analytics.egg-info/SOURCES.txt
+simple_analytics.egg-info/dependency_links.txt
+simple_analytics.egg-info/requires.txt
+simple_analytics.egg-info/top_level.txt
+simplea/__init__.py
+simplea/gatables.py
+simplea/utils.py
