@@ -1,0 +1,3 @@
+[console_scripts]
+s3workers = s3workers.cli:main
+
