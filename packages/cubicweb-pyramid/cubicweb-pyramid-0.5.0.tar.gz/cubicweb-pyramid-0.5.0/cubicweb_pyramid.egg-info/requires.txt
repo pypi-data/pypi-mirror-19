@@ -1,0 +1,4 @@
+cubicweb >= 3.19.3, < 3.24.0
+wsgicors >= 0.3
+waitress
+pyramid-cubicweb >= 0.2.0
