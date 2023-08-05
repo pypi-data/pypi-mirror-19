@@ -1,0 +1,52 @@
+[netsu.plugins.config_updates]
+500_bond = netsu_plugin_networkmanager.bond.config:update
+500_bridge = netsu_plugin_networkmanager.bridge.config:update
+500_ethernet = netsu_plugin_networkmanager.ethernet.config:update
+500_vlan = netsu_plugin_networkmanager.vlan.config:update
+
+[netsu.plugins.definitions_updates]
+500_config_bond = netsu_plugin_networkmanager.bond.config_definitions:update
+500_config_bridge = netsu_plugin_networkmanager.bridge.config_definitions:update
+500_config_ethernet = netsu_plugin_networkmanager.ethernet.config_definitions:update
+500_config_vlan = netsu_plugin_networkmanager.vlan.config_definitions:update
+500_state_bond = netsu_plugin_networkmanager.bond.state_definitions:update
+500_state_bridge = netsu_plugin_networkmanager.bridge.state_definitions:update
+500_state_ethernet = netsu_plugin_networkmanager.ethernet.state_definitions:update
+500_state_vlan = netsu_plugin_networkmanager.vlan.state_definitions:update
+
+[netsu.plugins.force_cleanup_steps]
+500_bond = netsu_plugin_networkmanager.bond.setup:force_cleanup
+500_bridge = netsu_plugin_networkmanager.bridge.setup:force_cleanup
+500_ethernet = netsu_plugin_networkmanager.ethernet.setup:force_cleanup
+500_vlan = netsu_plugin_networkmanager.vlan.setup:force_cleanup
+
+[netsu.plugins.setup_steps]
+300_nm_detach_bond = netsu_plugin_networkmanager.bond.setup:detach_from_master
+300_nm_detach_ethernet = netsu_plugin_networkmanager.ethernet.setup:detach_from_master
+300_nm_detach_vlan = netsu_plugin_networkmanager.vlan.setup:detach_from_master
+400_nm_remove_bond = netsu_plugin_networkmanager.bond.setup:remove
+400_nm_remove_bridge = netsu_plugin_networkmanager.bridge.setup:remove
+400_nm_remove_ethernet = netsu_plugin_networkmanager.ethernet.setup:remove
+400_nm_remove_vlan = netsu_plugin_networkmanager.vlan.setup:remove
+500_nm_add_bond = netsu_plugin_networkmanager.bond.setup:add
+500_nm_add_bridge = netsu_plugin_networkmanager.bridge.setup:add
+500_nm_add_ethernet = netsu_plugin_networkmanager.ethernet.setup:add
+500_nm_add_vlan = netsu_plugin_networkmanager.vlan.setup:add
+600_nm_attach_bond = netsu_plugin_networkmanager.bond.setup:attach_to_master
+600_nm_attach_ethernet = netsu_plugin_networkmanager.ethernet.setup:attach_to_master
+600_nm_attach_vlan = netsu_plugin_networkmanager.vlan.setup:attach_to_master
+700_nm_set_options_bond = netsu_plugin_networkmanager.bond.setup:set_options
+700_nm_set_options_bridge = netsu_plugin_networkmanager.bridge.setup:set_options
+700_nm_set_options_ethernet = netsu_plugin_networkmanager.ethernet.setup:set_options
+700_nm_set_options_vlan = netsu_plugin_networkmanager.vlan.setup:set_options
+800_nm_turn_up_bond = netsu_plugin_networkmanager.bond.setup:turn_up
+800_nm_turn_up_bridge = netsu_plugin_networkmanager.bridge.setup:turn_up
+800_nm_turn_up_ethernet = netsu_plugin_networkmanager.ethernet.setup:turn_up
+800_nm_turn_up_vlan = netsu_plugin_networkmanager.vlan.setup:turn_up
+
+[netsu.plugins.state_updates]
+500_bond = netsu_plugin_networkmanager.bond.state:update
+500_bridge = netsu_plugin_networkmanager.bridge.state:update
+500_ethernet = netsu_plugin_networkmanager.ethernet.state:update
+500_vlan = netsu_plugin_networkmanager.vlan.state:update
+

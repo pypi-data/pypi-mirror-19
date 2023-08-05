@@ -1,0 +1,16 @@
+language: python
+python:
+  - '3.5'
+install:
+  - pip install --upgrade tox setuptools coveralls
+script:
+  - python -m tox
+after_success:
+  - coveralls
+deploy:
+  provider: pypi
+  user: netsu
+  password:
+    secure: ReMsIy8g1UC+H4u8PqTwbQPaBK8Rl6WD8U3byd/z0vVDHc+QuaTKLGiwEIq+9v2mKsMT+KcVkysrtDadUkNQY7jhhMS6B+4xiSdBsbQdoVpua5EQ9bbjpScWpJ7/3O5s1jHwU4kFw3F2fDn1kCnqJGqpcKUs8xZXqK1vWla8Us7rdNPtg8p8CtQl0iid/zsWU1ZO3JfcRj75UyVzOecmimNZZOoyKnv7zuiphxoB9w/XJCfGzO9BWyMQ7IFOdJFYKU0TpxW39IJbAnMeqSa9HG6F8fTkcuosrFYYxaL9tuiZbItE8NhMrEUVDWWiMHp/QTvvoyWNYB8kY5ul4DzMFm87SVUBCJn7GkPIbjObY9rvgcV4OrZ/pYsAsO9Lz4sd2uIV/ZBu3aIJhbLXySHf7swQYuDZTXoz7UE0XaTi5yXE3KdEI7mSGs0jO3S/QsqTEx/1Kx/ek+q2ldK5p1lTKYwaniUp5/Jlqj21w/3JiiyvUGyYubYE/g3uR0dAnLmBtGTdJrwPDMPIhSTvG3d3pwNhBMGMHETnPSz+ecYubRpWT5H6pHIehs6HC6z87vXWwdyEdJluO30iHAt2Lp7fAOaN3gq8XNdeGR7TdQPMG7NMBYFjDNcVpyHPKZWCvDDAIRXG7Di1iGM4S5tQDtPABYSGBrYES+uWVHKa+TgRm00=
+  on:
+    repo: netsu-project/netsu-plugin-networkmanager

@@ -1,0 +1,12 @@
+CHANGES
+=======
+
+0.1.1
+-----
+
+* bridge, bond, vlan and ethernet support
+* automatically test and publish code on PyPI via Travis
+* run tests via tox
+* install NetworkManager.service requirement
+* add pbr setup
+* initial commit

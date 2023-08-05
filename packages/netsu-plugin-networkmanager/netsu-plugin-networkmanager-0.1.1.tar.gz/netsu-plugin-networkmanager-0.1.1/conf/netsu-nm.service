@@ -1,0 +1,12 @@
+[Unit]
+Description=netsu NetworkManager dependency
+Requires=NetworkManager.service
+After=NetworkManager.service
+Before=netsud.service
+
+[Service]
+ExecStart=/usr/bin/true
+RemainAfterExit=yes
+
+[Install]
+RequiredBy=netsud.service
