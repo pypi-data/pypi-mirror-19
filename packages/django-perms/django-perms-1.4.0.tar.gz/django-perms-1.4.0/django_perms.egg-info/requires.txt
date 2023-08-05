@@ -1,0 +1,7 @@
+six>=1.10.0
+
+[dev]
+coverage
+django>=1.8,<1.8.999
+flake8
+tox
