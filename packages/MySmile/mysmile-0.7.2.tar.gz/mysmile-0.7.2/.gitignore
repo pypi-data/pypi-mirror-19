@@ -1,0 +1,8 @@
+.idea
+*.pyc
+log/*
+mysmile/static/CACHE/**
+mysmile/static/vendor/**
+!mysmile/static/jscolor
+apps/**/migrations/**
+mysmile/db/mysmile.sqlite3

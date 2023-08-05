@@ -1,0 +1,26 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }} | {% trans 'MySmile site admin' %} {% endblock %}
+
+{% block branding %}
+<h1 id="site-name">
+    {% if user.is_authenticated %}
+        {% trans 'MySmile v'|add:MYSMILE_VERSION|add:' administration' %}
+    {% else %}
+        {% trans 'MySmile administration' %}
+    {% endif %}
+
+
+</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{% block footer %}
+    <div id="footer">
+        {% if LANGUAGES|length > 1 %}
+            {% include 'admin/change_language.html' %}
+        {% endif %}
+    </div>
+{% endblock %}
