@@ -1,0 +1,97 @@
+- {download_link: 'http://data.kartverket.no/download/system/files/grensedata/landsdekkende',
+  id: administrative-enheter-norge-utm-33-hele-landet, name: 'Administrative enheter
+    Norge, UTM 33, hele landet', url: 'http://data.kartverket.no/download/content/administrative-enheter-norge-utm-33-hele-landet'}
+- {download_link: 'http://data.kartverket.no/download/system/files/grensedata/landsdekkende',
+  id: administrative-enheter-norge-wgs-84-hele-landet-geojson, name: 'Administrative
+    enheter Norge, WGS 84, hele landet, geoJSON', url: 'http://data.kartverket.no/download/content/administrative-enheter-norge-wgs-84-hele-landet-geojson'}
+- {download_link: 'http://data.kartverket.no/download/system/files/grensedata/fylker',
+  id: administrative-fylker-utm-33-fylkesinndeling, name: 'Administrative fylker,
+    UTM 33, fylkesinndeling', url: 'http://data.kartverket.no/download/content/administrative-fylker-utm-33-fylkesinndeling'}
+- {download_link: 'http://data.kartverket.no/download/system/files/grensedata/fylker',
+  id: administrative-kommuner-utm-33-fylkesinndeling, name: 'Administrative kommuner,
+    UTM 33, fylkesinndeling', url: 'http://data.kartverket.no/download/content/administrative-kommuner-utm-33-fylkesinndeling'}
+- {download_link: 'http://data.kartverket.no/download/system/files/grensedata/landsdekkende',
+  id: digitale-postnummergrenser-utm33-shape-hele-landet, name: 'Digitale postnummergrenser,
+    UTM33, Shape, Hele landet', url: 'http://data.kartverket.no/download/content/digitale-postnummergrenser-utm33-shape-hele-landet'}
+- {download_link: 'http://data.kartverket.no/download/system/files/grensedata/landsdekkende',
+  id: digitale-postnummergrenser-utm33-sosi-hele-landet, name: 'Digitale postnummergrenser,
+    UTM33, SOSI, Hele landet', url: 'http://data.kartverket.no/download/content/digitale-postnummergrenser-utm33-sosi-hele-landet'}
+- {download_link: 'http://data.kartverket.no/download/system/files/sjodata/dybdedata',
+  id: dybdedata-utm33-shape-format, name: 'Dybdedata, UTM33, SHAPE format', url: 'http://data.kartverket.no/download/content/dybdedata-utm33-shape-format'}
+- {download_link: 'http://data.kartverket.no/download/system/files/sjodata/dybdedata',
+  id: dybdedata-utm33-sosi-format, name: 'Dybdedata, UTM33, SOSI format', url: 'http://data.kartverket.no/download/content/dybdedata-utm33-sosi-format'}
+- {download_link: 'http://data.kartverket.no/download/system/files/vegdata/elveg/landsdekkende',
+  id: elveg-adresser-utm-33-hele-landet, name: 'Elveg, Adresser, UTM 33, Hele landet',
+  url: 'http://data.kartverket.no/download/content/elveg-adresser-utm-33-hele-landet'}
+- {download_link: 'http://data.kartverket.no/download/system/files/vegdata/elveg/landsdekkende',
+  id: elveg-geometri-utm-33-hele-landet, name: 'Elveg, Geometri UTM 33, Hele landet',
+  url: 'http://data.kartverket.no/download/content/elveg-geometri-utm-33-hele-landet'}
+- {download_link: 'http://data.kartverket.no/download/system/files/geodesi/landsdekkende',
+  id: geodesidata-altimetri-wgs84-textdat-filer, name: 'Geodesidata, Altimetri, WGS84,
+    TEXT/DAT filer', url: 'http://data.kartverket.no/download/content/geodesidata-altimetri-wgs84-textdat-filer'}
+- {download_link: 'http://data.kartverket.no/download/system/files/geodesi/landsdekkende',
+  id: geodesidata-geoide-wgs84-textdat-filer, name: 'Geodesidata, Geoide, WGS84, TEXT/DAT
+    filer', url: 'http://data.kartverket.no/download/content/geodesidata-geoide-wgs84-textdat-filer'}
+- {download_link: 'http://data.kartverket.no/download/system/files/geodesi/landsdekkende',
+  id: geodesidata-hastighetsfelt-norge-itrf2008-textdat-filer, name: 'Geodesidata,
+    Hastighetsfelt for Norge, ITRF2008, TEXT/DAT filer', url: 'http://data.kartverket.no/download/content/geodesidata-hastighetsfelt-norge-itrf2008-textdat-filer'}
+- {download_link: 'http://data.kartverket.no/download/system/files/kartdata/n2000/landsdekkende',
+  id: n2000-kartdata-utm-33-hele-landet, name: 'N2000 Kartdata, UTM 33, hele landet',
+  url: 'http://data.kartverket.no/download/content/n2000-kartdata-utm-33-hele-landet'}
+- {download_link: 'http://data.kartverket.no/download/system/files/kartdata/n2000/landsdekkende',
+  id: n2000-kartdata-utm33-hele-landet-fgdb, name: 'N2000 Kartdata, UTM33, hele landet,
+    FGDB', url: 'http://data.kartverket.no/download/content/n2000-kartdata-utm33-hele-landet-fgdb'}
+- {download_link: 'http://data.kartverket.no/download/system/files/kartdata/n2000/landsdekkende',
+  id: n2000-kartdata-utm33-hele-landet-postgis, name: 'N2000 Kartdata, UTM33, hele
+    landet, PostGIS', url: 'http://data.kartverket.no/download/content/n2000-kartdata-utm33-hele-landet-postgis'}
+- {download_link: 'http://data.kartverket.no/download/system/files/kartdata/n50/kommuner',
+  id: n50-kartdata-utm-33-kommunevis-inndeling, name: 'N50 Kartdata, UTM 33, kommunevis
+    inndeling', url: 'http://data.kartverket.no/download/content/n50-kartdata-utm-33-kommunevis-inndeling'}
+- {download_link: 'http://data.kartverket.no/download/system/files/kartdata/n50/landsdekkende/',
+  id: n50-kartdata-utm33-hele-landet-fgdb, name: 'N50 Kartdata, UTM33, hele landet,
+    FGDB', url: 'http://data.kartverket.no/download/content/n50-kartdata-utm33-hele-landet-fgdb'}
+- {download_link: 'http://data.kartverket.no/download/system/files/kartdata/n50/landsdekkende/',
+  id: n50-kartdata-utm33-hele-landet-postgis, name: 'N50 Kartdata, UTM33, hele landet,
+    PostGIS', url: 'http://data.kartverket.no/download/content/n50-kartdata-utm33-hele-landet-postgis'}
+- {download_link: 'http://data.kartverket.no/download/system/files/kartdata/tfr',
+  id: nasjonal-database-tur-og-friluftsruter-postgis, name: 'Nasjonal database for
+    tur- og friluftsruter, PostGIS', url: 'http://data.kartverket.no/download/content/nasjonal-database-tur-og-friluftsruter-postgis'}
+- {download_link: 'http://data.kartverket.no/download/system/files/kartdata/tfr',
+  id: nasjonal-database-tur-og-friluftsruter-sosi, name: 'Nasjonal database for tur-
+    og friluftsruter, SOSI', url: 'http://data.kartverket.no/download/content/nasjonal-database-tur-og-friluftsruter-sosi'}
+- {download_link: 'http://data.kartverket.no/download/system/files/grensedata/landsdekkende',
+  id: norges-maritime-grenser-geografiske-koordinater, name: 'Norges maritime grenser,
+    Geografiske koordinater', url: 'http://data.kartverket.no/download/content/norges-maritime-grenser-geografiske-koordinater'}
+- {download_link: 'http://data.kartverket.no/download/system/files/matrikkeldata/adresser',
+  id: offisielle-adresser-utm33-csv, name: 'Offisielle adresser, UTM33, CSV', url: 'http://data.kartverket.no/download/content/offisielle-adresser-utm33-csv'}
+- {download_link: 'http://data.kartverket.no/download/system/files/matrikkeldata/adresser',
+  id: offisielle-adresser-utm33-sosi, name: 'Offisielle adresser, UTM33, SOSI ', url: 'http://data.kartverket.no/download/content/offisielle-adresser-utm33-sosi'}
+- {download_link: 'http://data.kartverket.no/download/system/files/sjodata/dybdekurver',
+  id: sj%C3%B8-dybdekurver-utm33-1000m-grid-s57, name: 'Sjø dybdekurver, UTM33, 1000m
+    grid, S57', url: 'http://data.kartverket.no/download/content/sj%C3%B8-dybdekurver-utm33-1000m-grid-s57'}
+- {download_link: 'http://data.kartverket.no/download/system/files/sjodata/dybdekurver',
+  id: sj%C3%B8-dybdekurver-utm33-1000m-grid-sosi, name: 'Sjø dybdekurver, UTM33, 1000m
+    grid, SOSI', url: 'http://data.kartverket.no/download/content/sj%C3%B8-dybdekurver-utm33-1000m-grid-sosi'}
+- {download_link: 'http://data.kartverket.no/download/system/files/sjodata/dybdekurver',
+  id: sj%C3%B8-dybdekurver-utm33-600m-grid-shape, name: 'Sjø dybdekurver, UTM33, 600m
+    grid, Shape', url: 'http://data.kartverket.no/download/content/sj%C3%B8-dybdekurver-utm33-600m-grid-shape'}
+- {download_link: 'http://data.kartverket.no/download/system/files/sjodata/terrengdata/25m',
+  id: sj%C3%B8-terrengmodell-25m-utm33, name: 'Sjø terrengmodell 25m, UTM33', url: 'http://data.kartverket.no/download/content/sj%C3%B8-terrengmodell-25m-utm33'}
+- {download_link: 'http://data.kartverket.no/download/system/files/sjodata/terrengdata/50m',
+  id: sj%C3%B8-terrengmodell-50m-utm33, name: 'Sjø terrengmodell 50m, UTM33', url: 'http://data.kartverket.no/download/content/sj%C3%B8-terrengmodell-50m-utm33'}
+- {download_link: 'http://data.kartverket.no/download/system/files/sjodata/terrengdata/5m',
+  id: sj%C3%B8-terrengmodell-5m-utm33, name: 'Sjø terrengmodell 5m, UTM33', url: 'http://data.kartverket.no/download/content/sj%C3%B8-terrengmodell-5m-utm33'}
+- {download_link: 'http://data.kartverket.no/download/system/files/grensedata/landsdekkende',
+  id: statistiske-enheter-grunnkretser-utm-33-hele-landet, name: 'Statistiske enheter
+    Grunnkretser, UTM 33, hele landet', url: 'http://data.kartverket.no/download/content/statistiske-enheter-grunnkretser-utm-33-hele-landet'}
+- {download_link: 'http://data.kartverket.no/download/system/files/stedsnavn/fylker',
+  id: stedsnavn-ssr-sosi-utm33, name: Stedsnavn SSR SOSI UTM33, url: 'http://data.kartverket.no/download/content/stedsnavn-ssr-sosi-utm33'}
+- {download_link: 'http://data.kartverket.no/download/system/files/stedsnavn/landsdekkende',
+  id: stedsnavn-ssr-wgs84-geojson, name: 'Stedsnavn SSR, WGS84, geoJSON', url: 'http://data.kartverket.no/download/content/stedsnavn-ssr-wgs84-geojson'}
+- {download_link: 'http://data.kartverket.no/download/system/files/grensedata/landsdekkende',
+  id: valgkretser-lokale-soner-kommunevis-hele-landet-sosi, name: 'Valgkretser, lokale
+    soner, kommunevis for hele landet, SOSI', url: 'http://data.kartverket.no/download/content/valgkretser-lokale-soner-kommunevis-hele-landet-sosi'}
+- {download_link: 'http://data.kartverket.no/download/system/files/vegdata/vbase/kommuner',
+  id: vbase-utm-33, name: 'Vbase, UTM 33', url: 'http://data.kartverket.no/download/content/vbase-utm-33'}
+- {download_link: 'http://data.kartverket.no/download/system/files/vegdata/vbase/fylker',
+  id: vbase-utm-33-fylkesinndeling, name: 'Vbase, UTM 33 fylkesinndeling', url: 'http://data.kartverket.no/download/content/vbase-utm-33-fylkesinndeling'}
