@@ -1,0 +1,13 @@
+setup.py
+src/wracker/__init__.py
+src/wracker/__main__.py
+src/wracker/entrypoints.py
+src/wracker/requirement_parser.py
+src/wracker/util.py
+src/wracker/which.py
+src/wracker.egg-info/PKG-INFO
+src/wracker.egg-info/SOURCES.txt
+src/wracker.egg-info/dependency_links.txt
+src/wracker.egg-info/entry_points.txt
+src/wracker.egg-info/top_level.txt
+src/wracker/pkg_resources/__init__.py
