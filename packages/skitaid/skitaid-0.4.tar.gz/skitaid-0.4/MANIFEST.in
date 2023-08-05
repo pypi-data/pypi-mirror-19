@@ -1,0 +1,4 @@
+include README.rst Dockerfile
+recursive-include skitaid/wsgi *.py *.html *.jpg
+recursive-include skitaid/etc *
+include skitaid/bin *.py
