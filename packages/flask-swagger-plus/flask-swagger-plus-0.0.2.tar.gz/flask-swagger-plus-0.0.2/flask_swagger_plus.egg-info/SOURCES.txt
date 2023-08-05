@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.py
+flask_swagger_plus/__init__.py
+flask_swagger_plus/errors.py
+flask_swagger_plus/forms.py
+flask_swagger_plus/schemas.py
+flask_swagger_plus/swagger.py
+flask_swagger_plus.egg-info/PKG-INFO
+flask_swagger_plus.egg-info/SOURCES.txt
+flask_swagger_plus.egg-info/dependency_links.txt
+flask_swagger_plus.egg-info/not-zip-safe
+flask_swagger_plus.egg-info/requires.txt
+flask_swagger_plus.egg-info/top_level.txt
