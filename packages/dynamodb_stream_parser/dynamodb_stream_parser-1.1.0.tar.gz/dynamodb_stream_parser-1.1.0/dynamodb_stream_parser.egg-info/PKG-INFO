@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: dynamodb-stream-parser
+Version: 1.1.0
+Summary: parses dynamodb json into JSON
+Home-page: https://github.com/rodcox89/dynamodb_stream_parser.git
+Author: Rodney Cox
+Author-email: rodcox89@gmail.com
+License: MIT
+Description: UNKNOWN
+Keywords: aws dynamodb stream
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
