@@ -1,0 +1,3 @@
+[console_scripts]
+betse = betse.cli.__main__:main
+
