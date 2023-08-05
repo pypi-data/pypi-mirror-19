@@ -1,0 +1,18 @@
+Metadata-Version: 2.0
+Name: relaxedjson
+Version: 1.0.1
+Summary: A relaxed JSON parser that accepts keys without double quotes.
+Home-page: http://github.com/simon-engledew/relaxedjson
+Author: Simon Engledew
+Author-email: simon.engledew@gmail.com
+License: MIT
+Keywords: relaxed json parser combinator parsec
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: BSD License
+Requires-Dist: parsec
+
+UNKNOWN
+
+
