@@ -1,0 +1,12 @@
+.gitignore
+README.md
+setup.py
+spivak.txt
+fancymath/__init__.py
+fancymath/sub.py
+fancymath/tables.py
+fancymath.egg-info/PKG-INFO
+fancymath.egg-info/SOURCES.txt
+fancymath.egg-info/dependency_links.txt
+fancymath.egg-info/entry_points.txt
+fancymath.egg-info/top_level.txt
