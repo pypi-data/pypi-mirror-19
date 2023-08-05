@@ -1,0 +1,25 @@
+Metadata-Version: 1.1
+Name: pyger
+Version: 0.2
+Summary: PyGER - Python Generic Extensible Router
+Home-page: https://github.com/sseg/pyger
+Author: Steven Seguin
+Author-email: steven.seguin+pyger@gmail.com
+License: BSD
+Description: 
+                PyGER is a library for building arbitrary routing trees.
+            
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet
