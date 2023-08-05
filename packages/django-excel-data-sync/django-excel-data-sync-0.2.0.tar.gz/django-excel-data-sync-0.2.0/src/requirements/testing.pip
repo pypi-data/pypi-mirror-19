@@ -1,0 +1,14 @@
+coverage==4.2
+codecov
+django-webtest
+django_coverage_plugin
+flake8>=2.1.0
+mock>=1.0.1
+pytest
+pytest-cov
+pytest-django
+pytest-echo
+pytest-pythonpath
+pytz
+tox>=1.7.0
+xlrd
