@@ -1,0 +1,12 @@
+graft dploy
+graft tests
+include .pylintrc
+include CHANGELOG.md
+include LICENSE.txt
+include MANIFEST.in
+include README.md
+include conftest.py
+include invoke.yaml
+include requirements.txt
+include tasks.py
+global-exclude __pycache__
