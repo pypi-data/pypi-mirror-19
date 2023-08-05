@@ -1,0 +1,4 @@
+[console_scripts]
+download_tickets = intercity_tickets:download_tickets
+send_reminders = intercity_tickets:send_reminders
+
