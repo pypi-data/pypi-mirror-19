@@ -1,0 +1,13 @@
+setup.py
+GitRestructure.egg-info/PKG-INFO
+GitRestructure.egg-info/SOURCES.txt
+GitRestructure.egg-info/dependency_links.txt
+GitRestructure.egg-info/entry_points.txt
+GitRestructure.egg-info/not-zip-safe
+GitRestructure.egg-info/requires.txt
+GitRestructure.egg-info/top_level.txt
+restructure/__init__.py
+restructure/branchoperator.py
+restructure/commandexecutor.py
+restructure/printer.py
+restructure/res.py
