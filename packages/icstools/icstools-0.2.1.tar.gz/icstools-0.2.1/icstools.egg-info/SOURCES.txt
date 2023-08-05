@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+setup.py
+icstools/__init__.py
+icstools/icscat.py
+icstools/icsgrep.py
+icstools/icsstat.py
+icstools/icsuniq.py
+icstools/utils.py
+icstools.egg-info/PKG-INFO
+icstools.egg-info/SOURCES.txt
+icstools.egg-info/dependency_links.txt
+icstools.egg-info/entry_points.txt
+icstools.egg-info/requires.txt
+icstools.egg-info/top_level.txt

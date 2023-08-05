@@ -1,0 +1,6 @@
+[console_scripts]
+icscat = icstools.icscat:main
+icsgrep = icstools.icsgrep:main
+icsstat = icstools.icsstat:main
+icsuniq = icstools.icsuniq:main
+
