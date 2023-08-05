@@ -1,0 +1,5 @@
+recursive-include counter_caller/static *.js
+recursive-include counter_caller/static *.css
+recursive-include counter_caller/static *.mp3
+recursive-include counter_caller/templates *
+recursive-include counter_caller/bower_components *
