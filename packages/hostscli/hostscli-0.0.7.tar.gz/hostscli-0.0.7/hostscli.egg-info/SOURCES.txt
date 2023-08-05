@@ -1,0 +1,12 @@
+setup.py
+hostscli/__init__.py
+hostscli/cli.py
+hostscli.egg-info/PKG-INFO
+hostscli.egg-info/SOURCES.txt
+hostscli.egg-info/dependency_links.txt
+hostscli.egg-info/entry_points.txt
+hostscli.egg-info/requires.txt
+hostscli.egg-info/top_level.txt
+hostscli/websites/__init__.py
+hostscli/websites/facebook.py
+hostscli/websites/youtube.py
