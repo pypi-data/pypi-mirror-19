@@ -1,0 +1,18 @@
+Metadata-Version: 2.0
+Name: blended
+Version: 2.9
+Summary: Static Site Generation Using Python
+Home-page: https://github.com/johnroper100/Blended
+Author: John Roper
+Author-email: johnroper100@gmail.com
+License: GPL3.0
+Platform: UNKNOWN
+Requires-Dist: Markdown
+Requires-Dist: click
+Requires-Dist: colorama
+Requires-Dist: textile
+Requires-Dist: watchdog
+
+UNKNOWN
+
+
