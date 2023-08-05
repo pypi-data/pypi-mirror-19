@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Environments>
+    <Environment Name="DEV">
+        <Parameter Name="Parameter_1">Parameter_1_DEV</Parameter>
+        <Parameter Name="Parameter_2">Parameter_2_DEV</Parameter>
+    </Environment>
+    <Environment Name="QA">
+        <Parameter Name="Parameter_1">Parameter_1_QA</Parameter>
+        <Parameter Name="Parameter_2">Parameter_2_QA</Parameter>
+    </Environment>
+    <Environment Name="STG">
+        <Parameter Name="Parameter_1">Parameter_1_STG</Parameter>
+        <Parameter Name="Parameter_2">Parameter_2_STG</Parameter>
+    </Environment>
+    <Environment Name="UAT">
+        <Parameter Name="Parameter_1">Parameter_1_UAT</Parameter>
+        <Parameter Name="Parameter_2">Parameter_2_UAT</Parameter>
+    </Environment>
+    <Environment Name="LIVE">
+        <Parameter Name="Parameter_1">Parameter_1_LIVE</Parameter>
+        <Parameter Name="Parameter_2">Parameter_2_LIVE</Parameter>
+    </Environment>
+</Environments>
