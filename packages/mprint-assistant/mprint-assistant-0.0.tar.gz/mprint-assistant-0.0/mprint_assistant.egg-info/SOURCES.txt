@@ -1,0 +1,17 @@
+README.rst
+setup.py
+mprint_assistant.egg-info/PKG-INFO
+mprint_assistant.egg-info/SOURCES.txt
+mprint_assistant.egg-info/dependency_links.txt
+mprint_assistant.egg-info/entry_points.txt
+mprint_assistant.egg-info/requires.txt
+mprint_assistant.egg-info/top_level.txt
+mprintassistant/__init__.py
+mprintassistant/__main__.py
+mprintassistant/colorizer.py
+mprintassistant/completer.py
+mprintassistant/document.py
+mprintassistant/mprintassistant.py
+mprintassistant/printsession.py
+mprintassistant/settings.py
+mprintassistant/utils.py
