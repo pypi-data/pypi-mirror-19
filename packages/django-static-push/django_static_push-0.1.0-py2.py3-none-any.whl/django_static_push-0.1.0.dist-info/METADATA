@@ -1,0 +1,91 @@
+Metadata-Version: 2.0
+Name: django-static-push
+Version: 0.1.0
+Summary: Django staticfiles extension for HTTP/2 push
+Home-page: https://github.com/fladi/django-static-push
+Author: Michael Fladischer
+Author-email: michael@openservices.at
+License: BSD
+Keywords: django,middleware,templatetag,static,assets,http/2,push
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Utilities
+Requires-Dist: Django (>=1.10)
+
+========
+Overview
+========
+
+
+
+Middleware and templatetag for Django to utilize HTTP/2 push for assets included in a Django template. The
+middleware injects a `Link` header in each response if there are files to be pushed to the client. All files in the
+template which are suitable for HTTP/2 push should be included with the ``staticpush`` templatetag instead of the
+vanilla ``static`` templatetag. The former simply augments the later and registers the resulting static URL with the
+middleware.
+
+This package currently supports Apache2 webservers with ``mod_http2`` enabled, as the actual HTTP/2 push is offloaded to the
+webserver.
+
+.. warning::
+
+    This is ALPHA code. Do not use in production! It only serves as a proof-of-concept for now.
+
+    Conditional HTTP/2 push is not supported yet. This means that your site will actually perform worse than
+    over HTTP/1.1 because each response will trigger a push of all incldued assets, irrespective of any cache on the
+    webbrowser.
+
+Installation
+============
+
+::
+
+    pip install django-static-push
+
+Documentation
+=============
+
+https://django-static-push.readthedocs.io/en/latest/
+
+Development
+===========
+
+To run the all tests run::
+
+    tox
+
+Note, to combine the coverage data from all the tox environments run:
+
+.. list-table::
+    :widths: 10 90
+    :stub-columns: 1
+
+    - - Windows
+      - ::
+
+            set PYTEST_ADDOPTS=--cov-append
+            tox
+
+    - - Other
+      - ::
+
+            PYTEST_ADDOPTS=--cov-append tox
+
+
+Changelog
+=========
+
+0.1.0 (2016-01-29)
+-----------------------------------------
+
+* First release on PyPI.
+
+
