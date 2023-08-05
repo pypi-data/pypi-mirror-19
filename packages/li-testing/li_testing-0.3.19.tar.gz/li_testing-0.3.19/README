@@ -1,0 +1,7 @@
+This package contains code used to test the applications at loja integrada.
+
+To run the tests for *this* package, install the dependencies with:
+$ pip install -r requirements.txt
+
+And then execute the tests with:
+$ python setup.py test
