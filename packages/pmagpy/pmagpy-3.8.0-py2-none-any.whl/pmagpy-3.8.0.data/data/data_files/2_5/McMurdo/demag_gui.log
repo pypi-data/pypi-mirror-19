@@ -1,0 +1,30 @@
+-W- Found backward compatibility problem with selection criteria specimen_dang. Cannot be associated with IE-SPEC. Program assumes that the statistic is specimen_int_dang
+-I- cant find zeq_gui_preferences file, using defualt default
+data model: 2.0
+-I- Read magic file ./data_files/2_5/McMurdo/magic_measurements.txt
+-E- ERROR: specimen mc15c has more than one demagnetization experiment name. You need to merge them to one experiment-name?
+
+-E- ERROR: specimen mc15d has more than one demagnetization experiment name. You need to merge them to one experiment-name?
+
+-E- ERROR: specimen mc15h has more than one demagnetization experiment name. You need to merge them to one experiment-name?
+
+-E- ERROR: specimen mc26a has more than one demagnetization experiment name. You need to merge them to one experiment-name?
+
+-E- ERROR: specimen mc26c has more than one demagnetization experiment name. You need to merge them to one experiment-name?
+
+-E- ERROR: specimen mc26d has more than one demagnetization experiment name. You need to merge them to one experiment-name?
+
+-E- ERROR: specimen mc26e has more than one demagnetization experiment name. You need to merge them to one experiment-name?
+
+-E- ERROR: specimen mc50e has more than one demagnetization experiment name. You need to merge them to one experiment-name?
+
+-E- ERROR: specimen mc217a1 has more than one demagnetization experiment name. You need to merge them to one experiment-name?
+
+-I- done sorting meas data
+-I- Reading previous interpretations from pmag* tables
+-E- invalid parameters cannot assign to fit A for specimen mc135d2 - was given:
+{'er_specimen_name': 'mc135d2', 'specimen_comp_name': 'A', 'specimen_dang': 0}
+Could not calculate dec or inc for specimen mc135d2 component A with bounds 5.0mT and 0 in coordinate_system geographic, component not added
+-E- invalid parameters cannot assign to fit A for specimen mc135e2 - was given:
+{'er_specimen_name': 'mc135e2', 'specimen_comp_name': 'A', 'specimen_dang': 0}
+Could not calculate dec or inc for specimen mc135e2 component A with bounds 5.0mT and 0 in coordinate_system geographic, component not added

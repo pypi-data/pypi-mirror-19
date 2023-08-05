@@ -1,0 +1,3 @@
+name	row_number	problem_type	problem_col	error_message
+McMurdo	0	value	lat_n	-79.0 (lat_n) must be >= -77.0 (lat_s)
+McMurdo	0	value	lat_s	-77.0 (lat_s) must be <= -79.0 (lat_n)
