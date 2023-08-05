@@ -1,0 +1,178 @@
+#!/usr/bin/env python
+# Scanit Scans It
+# Copyright (C) 2015  Torrie Fischer <tdfischer@hackerbots.net>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+SCANIT_VERSION = '0.0.2'
+
+import pyinsane.abstract as pyinsane
+import subprocess
+import tempfile
+from PIL import Image
+import os
+import sys
+
+import threading
+import argparse
+
+def run(args, name=None):
+    if name is not None:
+        print name
+    proc = subprocess.Popen(args=args, stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+    lines = []
+    while proc.poll() is None:
+        lines.append(proc.stdout.readline())
+    if proc.returncode != 0:
+        print "\n".join(lines)
+        sys.exit(proc.returncode)
+
+
+def main():
+  parser = argparse.ArgumentParser(description='Scan It %s'%(SCANIT_VERSION))
+  parser.add_argument('name', default=None, type=unicode, help='Session name')
+  parser.add_argument('-n', default=0, type=int, dest='page_count', help='Number of pages to scan')
+  parser.add_argument('--color', help="Scan in color", action='store_true', default=False)
+  parser.add_argument('--grey', help="Scan in gray", action='store_true', default=False)
+  parser.add_argument('--gray', help="Scan in grey", action='store_true', dest='grey')
+  parser.add_argument('--crop', help="Crop the scan (default)", action='store_true', dest='crop', default=True)
+  parser.add_argument('--no-crop', help="Do not crop the scan", action='store_false', dest='crop')
+
+  args = parser.parse_args()
+
+  toolsFound = True
+  pageCount = args.page_count
+
+  def processPage(src, dst):
+    run(['pngnq', src])
+    run(['pngcrush', src+'-nq8.png', dst])
+    #print "Saved to", dst
+
+  try:
+    run(['pngcrush', '-version'])
+  except OSError:
+    toolsFound = False
+    print "Missing: pngcrush"
+  try:
+    run(['pngnq', '-V'])
+  except OSError:
+    toolsFound = False
+    print "Missing: pngnq"
+  try:
+    run(['convert', '-version'])
+  except OSError:
+    toolsFound = False
+    print "Missing: convert"
+
+  if not toolsFound:
+    sys.exit(1)
+
+  if args.name is None:
+    sessionName = raw_input("What filename will you give this session? [foo.pdf] ")
+  else:
+    sessionName = args.name
+
+  if sessionName == '':
+    sessionName = 'foo.pdf'
+
+  pageNum = 0
+
+  devices = pyinsane.get_devices()
+
+  device = pyinsane.Scanner(name=devices[0].name)
+
+  #for o in device.options:
+  #    print o, device.options[o].constraint
+
+  if device.name.startswith('v4l'):
+      device = pyinsane.Scanner(name=devices[1].name)
+
+  dpi = 300
+  imgWidth = int(dpi * 8.5)
+  imgHeight = int(dpi * 11)
+
+  if 'resolution' in device.options:
+    device.options['resolution'].value = dpi
+
+  if args.color:
+      device.options['mode'].value = 'Color'
+  elif args.grey:
+      device.options['mode'].value = 'Gray'
+  else:
+      if 'LineArt' in device.options['mode'].constraint:
+          device.options['mode'].value = 'LineArt'
+      elif 'Gray' in device.options['mode'].constraint:
+          device.options['mode'].value = 'Gray'
+
+  print 'Scanning with Device %s'%(device.name,)
+
+  processThreads = []
+
+  def scanPage():
+    session = None
+    nag = False
+    while session is None:
+      if not nag:
+        print "Insert document"
+        nag = True
+      try:
+        session = device.scan(multiple=False)
+      except StopIteration:
+        pass
+
+    try:
+      while True:
+        session.scan.read()
+    except EOFError:
+      pass
+
+    fh, tmpfile = tempfile.mkstemp()
+    os.close(fh)
+    image = session.images[0]
+    if args.crop:
+        image.crop((0, 0, imgWidth, imgHeight)).save(tmpfile, "PNG")
+    else:
+        image.save(tmpfile, "PNG")
+    return tmpfile
+
+  try:
+    while True:
+      print "Scanning page %s"%(pageNum)
+      tmpfile = scanPage()
+      #print "Wrote", tmpfile
+      output = "%s-%d.png"%(sessionName, pageNum)
+      t = threading.Thread(target=processPage, args=[tmpfile, output])
+      processThreads.append((pageNum, t))
+      t.start()
+      pageNum += 1
+      if pageNum >= pageCount:
+        break
+  except KeyboardInterrupt:
+    pass
+
+  for page,t in processThreads:
+    print "Processing page %s..."%(page)
+    t.join()
+
+  fnames = map(lambda x:"%s-%d.png"%(sessionName, x), xrange(0, pageNum))
+
+  run(['convert', ] + fnames + [sessionName+'.pdf'], name="Converting to PDF")
+  for f in fnames:
+    os.unlink(f)
+  print "Wrote %s.pdf"%(sessionName)
+
+if __name__ == "__main__":
+  main()
