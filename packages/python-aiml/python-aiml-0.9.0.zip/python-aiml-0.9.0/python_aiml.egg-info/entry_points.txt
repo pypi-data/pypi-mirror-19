@@ -1,0 +1,4 @@
+[console_scripts]
+aiml-validate = aiml.script.aimlvalidate:main
+aiml-bot = aiml.script.bot:main
+
