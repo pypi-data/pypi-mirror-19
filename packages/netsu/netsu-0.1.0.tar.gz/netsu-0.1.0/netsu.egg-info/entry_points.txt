@@ -1,0 +1,3 @@
+[console_scripts]
+netsu-ctl = netsu.service.netsuctl:main
+

@@ -1,0 +1,16 @@
+language: python
+python:
+  - '3.5'
+install:
+  - pip install --upgrade tox setuptools coveralls
+script:
+  - python -m tox
+after_success:
+  - coveralls
+deploy:
+  provider: pypi
+  user: netsu
+  password:
+    secure: QAn6ddGCRhTuyCoNVN4lAwD17SdRah5Audsof30IeLK8gahna2VLhitN4jRjsWnAmvQHTIZAZxtERFidGn/xSOlSZhLDMq5eNOkw5J9v20Ijw5ZNvWYMe0FkVNCHMTMeDh0QRGStJXvOywoi0AhgKK0tCOUwJa4rYQvhellvb1wE8lX9g7R9Wavv6ZAmabj9XtJhkyhAruaAYa2628XYcTi/EOmmrK8ZZXfqBzOMerc8x09RbdH/5+F87pJIFLFF8yPH2U1+7euXE2i1vsjlZvz+J82rEilmw4uEgMzKvxwbv4tvOw40166pdIukxD5iXZWYDkXOMYAe+vNMxG42OUCjcqQaIc+oiJY62IxkLra79cD9l2zIM6oTWhDuaiAFEqx/9+3v+qdeby89pwIC0f2/jf2l1hgZh2gApqaRG1avMMHyFgMIZ9XAjDMYZtr4NWhTZUMSh6tof+zReez6NKZ6NjxXh4aYGPG3bPguSenPso1LU00kRuMSIzKJuTtwcfQ9vModSMPN5c7rVhplwLAjlVsSegqVXB6PSqnl86QtNR2BqcIGxCR/rKmyYoiAGF+xeCl6m2JydFR6tVCLHTd/qb/GMoFUuL3N6qSsaukcCYOuKcR8FxMUC87Juu/HSsm2A+XigILyppCEXkUooPeuzpZRci/t1R1G4uvZxpw=
+  on:
+    repo: netsu-project/netsu
