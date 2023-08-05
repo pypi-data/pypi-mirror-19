@@ -1,0 +1,5 @@
+{% if gallery %}
+    {% for item in gallery.items %}
+        {{ item.html_tag|safe }}
+    {% endfor %}
+{% endif %}
