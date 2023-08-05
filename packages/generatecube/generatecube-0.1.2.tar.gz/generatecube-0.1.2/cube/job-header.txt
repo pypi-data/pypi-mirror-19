@@ -1,0 +1,21 @@
+#
+# All gridengine commands use the sentinel #$
+#
+# Execute the job from the current working directory
+# ==================================================
+#$ -cwd
+#
+# Choose your queue
+# =================
+#$ -q batch
+#
+# Job priority
+# ============
+#$ -p 0
+#
+#
+# Shell
+#$ -S /bin/sh
+#
+
+#!/bin/bash

@@ -1,0 +1,14 @@
+MANIFEST.in
+setup.py
+cube/__init__.py
+cube/cube.py
+cube/job-header.txt
+cube/job-template-alpha.txt
+cube/job-template-beta.txt
+cube/parse_fchk.py
+cube/submit-template.txt
+generatecube.egg-info/PKG-INFO
+generatecube.egg-info/SOURCES.txt
+generatecube.egg-info/dependency_links.txt
+generatecube.egg-info/entry_points.txt
+generatecube.egg-info/top_level.txt

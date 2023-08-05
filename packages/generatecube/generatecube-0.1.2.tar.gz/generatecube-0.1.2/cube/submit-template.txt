@@ -1,0 +1,1 @@
+qsub -hard -N {{spin_abbreviation}}cub_h-{{homo_distance}} -l gb_free_mem=0.8 -l num_free_cpu=1 {{job}}
