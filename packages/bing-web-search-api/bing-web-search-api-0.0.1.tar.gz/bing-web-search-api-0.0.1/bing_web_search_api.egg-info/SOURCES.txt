@@ -1,0 +1,10 @@
+MANIFEST.in
+README.rst
+setup.py
+bing_web_search_api/__init__.py
+bing_web_search_api/client.py
+bing_web_search_api.egg-info/PKG-INFO
+bing_web_search_api.egg-info/SOURCES.txt
+bing_web_search_api.egg-info/dependency_links.txt
+bing_web_search_api.egg-info/requires.txt
+bing_web_search_api.egg-info/top_level.txt

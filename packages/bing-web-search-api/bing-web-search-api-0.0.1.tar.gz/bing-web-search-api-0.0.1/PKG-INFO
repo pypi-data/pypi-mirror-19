@@ -1,0 +1,49 @@
+Metadata-Version: 1.1
+Name: bing-web-search-api
+Version: 0.0.1
+Summary: Client for Bing API v5 Web Search
+Home-page: https://github.com/h-kanazawa/bing-web-search-api
+Author: h-kanazawa
+Author-email: hotaka-kanazawa@dac.co.jp
+License: MIT
+Description: Bing Web Search API
+        ==========================
+        | Python Client for Bing API v5, Web Search
+        
+        
+        | See API Reference:
+        | https://msdn.microsoft.com/en-us/library/dn760794.aspx
+        
+        
+        Install
+        ----------------
+        
+        .. code-block:: console
+        
+            $ pip install bing-web-search-api
+        
+        
+        How to use
+        ----------------
+        
+        .. code-block:: python
+        
+            from bing_web_search_api import Client
+        
+            apikey = 'Your Ocp-Apim-Subscription-Key'
+            client = Client(apikey=apikey)
+            response, content = client.search(q='...')
+        
+        
+        License
+        ----------------
+        See `LICENSE` _ for more information.
+        
+        .. _LICENSE: https://github.com/h-kanazawa/bing-web-search-api/blob/master/LICENSE
+        
+Keywords: bing
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
