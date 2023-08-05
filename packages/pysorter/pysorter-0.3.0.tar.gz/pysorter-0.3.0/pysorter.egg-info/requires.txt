@@ -1,0 +1,10 @@
+
+[build]
+twine
+wheel
+setuptools-git
+
+[test]
+pytest
+testfixtures
+pytest-cov
