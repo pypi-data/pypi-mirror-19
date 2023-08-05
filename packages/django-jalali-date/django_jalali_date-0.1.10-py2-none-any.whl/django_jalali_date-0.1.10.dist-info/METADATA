@@ -1,0 +1,63 @@
+Metadata-Version: 2.0
+Name: django-jalali-date
+Version: 0.1.10
+Summary: Jalali Date support for user interface. Easy conversion of DateTimeFiled to JalaliDateTimeField within the admin site.
+Home-page: http://github.com/a-roomana/django-jalali-date
+Author: Arman Roomana
+Author-email: roomana.arman@gmail.com
+License: Python Software Foundation License
+Download-URL: https://pypi.python.org/pypi/django-jalali-date/
+Keywords: django jalali date
+Platform: any
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: django
+Requires-Dist: jdatetime
+
+# django-jalali-date
+Jalali Date support for user interface. Easy conversion of DateTimeFiled to JalaliDateTimeField within the admin site.
+
+----------
+**DEPENDENCY**
+
+To use this module you need to install jdatetime(and of course you need django) module which you can install it with easy_install or pip
+
+----------
+**INSTALL**
+
+    pip install django-jalali-date   
+
+----------
+**USAGE**
+
+settings.py
+
+    INSTALLED_APPS = [
+	    ...
+	    'jalali_date',
+	    ...
+	]
+admin.py
+
+	from django.contrib import admin
+	from jalali_date import admin as j_admin
+
+
+    class MyInlines1(j_admin.TabularInline):
+	    model = SecendModel
+
+    class MyInlines2(j_admin.StackedInline):
+	    model = ThirdModel
+
+	@admin.register(FirstModel)
+	class FirstModelAdmin(j_admin.ModelAdmin):
+		inlines = (MyInlines1, MyInlines2, )    
+
+![example](http://bayanbox.ir/view/2877111068605695571/Screenshot-from-2016-07-26-01-37-07.png)
+
+
