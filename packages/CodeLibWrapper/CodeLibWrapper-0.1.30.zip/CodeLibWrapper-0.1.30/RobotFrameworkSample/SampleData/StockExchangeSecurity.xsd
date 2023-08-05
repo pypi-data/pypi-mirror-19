@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://equityapi.morningstar.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="StockExchangeSecurities" type="equ:StockExchangeSecuritiesType" xmlns:equ="http://equityapi.morningstar.com/"/>
+  <xs:complexType name="MessageInfoType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="MessageCode"/>
+      <xs:element type="xs:string" name="MessageDetail"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StockExchangeSecuritiesType">
+    <xs:sequence>
+      <xs:element type="equ:MessageInfoType" name="MessageInfo" xmlns:equ="http://equityapi.morningstar.com/"/>
+      <xs:element type="equ:StockExchangeSecurityEntityListType" name="StockExchangeSecurityEntityList" xmlns:equ="http://equityapi.morningstar.com/"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StockExchangeSecurityEntityType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="CompanyName"/>
+      <xs:element type="xs:string" name="ExchangeId"/>
+      <xs:element type="xs:string" name="Symbol"/>
+      <xs:element type="xs:string" name="CUSIP"/>
+      <xs:element type="xs:string" name="CIK"/>
+      <xs:element type="xs:string" name="ISIN"/>
+      <xs:element type="xs:string" name="SEDOL"/>
+      <xs:element type="xs:string" name="InvestmentTypeId"/>
+      <xs:element type="xs:string" name="StockStatus"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StockExchangeSecurityEntityListType">
+    <xs:sequence>
+      <xs:element type="equ:StockExchangeSecurityEntityType" name="StockExchangeSecurityEntity" xmlns:equ="http://equityapi.morningstar.com/"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
