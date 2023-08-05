@@ -1,0 +1,43 @@
+Metadata-Version: 1.1
+Name: SocialCrawler
+Version: 0.3.0
+Summary: This package allow you get data from Twitter, Swarm(check-ins) and Foursquare
+Home-page: http://github.com/JosielWirlino/SocialCrawler
+Author: J.Wirlino and A. Adativa
+Author-email: josiel.wirlino@gmail.com, alice.adativa@gmail.com
+License: GNU
+Description: SocialCrawler
+        =============
+        
+        It is a python package to help get data from Twitter, Foursquare.
+        
+        This package was created to facilitate the data mining from Twitter and
+        Foursquare.
+        
+        Install (generic way)
+        ---------------------
+        
+        .. code:: shell
+        
+                $ python3 -m pip install SocialCrawler
+        
+        How work ?
+        ----------
+        
+        Requeriments
+        ^^^^^^^^^^^^
+        
+        -  Python >= 3
+        -  setuptools
+        -  Foursquare developer credentials ( if you wanna work with)
+        -  Twitter developer credentials ( if you wanna work with )
+        
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
