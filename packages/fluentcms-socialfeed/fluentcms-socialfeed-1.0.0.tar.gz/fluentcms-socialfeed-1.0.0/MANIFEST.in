@@ -1,0 +1,5 @@
+include AUTHORS
+include README.rst
+include LICENSE
+recursive-include fluentcms_socialfeed/locale *.mo
+recursive-include fluentcms_socialfeed/templates *.html
