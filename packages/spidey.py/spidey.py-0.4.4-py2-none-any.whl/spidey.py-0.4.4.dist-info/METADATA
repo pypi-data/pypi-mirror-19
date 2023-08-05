@@ -1,0 +1,71 @@
+Metadata-Version: 2.0
+Name: spidey.py
+Version: 0.4.4
+Summary: A terribly coded web spider, but useful for recursive API downloads.
+Home-page: https://github.com/khilnani/spidey.py
+Author: khilnani
+Author-email: nik@khilnani.org
+License: MIT
+Keywords: web,api,downloader,spider,crawler
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: requests
+
+# spidey.py
+
+> Web spiders are usually disliked by websites, but useful for recursive API/page downloads for offline analysis.
+
+## Installation
+
+> Pypi Location: https://pypi.python.org/pypi/spidey.py
+
+- Using Pypi - `pip install spidey`
+
+## Usage
+
+> Run `spidey` for Detailed help.
+
+- `spidey --dir NEW_DIR --filter DOMAIN --url URL [--base BASE_URL]`
+- `spidey --dir NEW_DIR --filter DOMAIN --url URL --max MAX_DOWNLOADS`
+- Example - `spidey --dir test --filter 'www.google.com' --url 'https://www.google.com/' --max 20`
+
+### More Examples
+
+```
+spidey \
+	-d test \
+	-f 'www.google.com' \
+	-u 'https://www.google.com/' \
+    -b 'https://www.google.com/' \
+	-hh '{"Accept" : "application/json"}' \
+	-n 2 \
+    -m 10 \
+    -s 5
+```
+```
+spidey \
+	--dir test \
+	--filter 'www.google.com' \
+	--url 'https://www.google.com/'' \ \
+    --base 'https://www.google.com/
+	--headers '{"Accept" : "application/json"}' \
+	--depth 2 \
+    --max 10 \
+    --sleep 5
+
+```
+
+
