@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: opentsdb-py
+Version: 0.1.2
+Summary: Python3 client for OpenTSDB
+Home-page: https://github.com/scarchik/opentsdb-py
+Author: Sergey Suglobov
+Author-email: s.suglobov@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/scarchik/opentsdb-py/archive/v0.1.2.zip
+Description: UNKNOWN
+Keywords: opentsdb,tsdb,metrics
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3 :: Only
