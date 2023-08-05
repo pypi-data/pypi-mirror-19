@@ -1,0 +1,3 @@
+[console_scripts]
+nmrml2isa = nmrml2isa.parsing:run
+
