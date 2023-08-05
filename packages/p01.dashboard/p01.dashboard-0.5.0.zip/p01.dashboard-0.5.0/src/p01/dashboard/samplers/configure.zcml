@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:p01="http://namespaces.zope.org/p01"
+    i18n_domain="p01.dashboard">
+
+  <!-- generic usable sampler -->
+  <include file="simple.zcml" />
+
+
+  <!-- special sampler -->
+  <include file="buildbot.zcml" />
+  <include file="xerror.zcml" />
+
+</configure>

@@ -1,0 +1,35 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope">
+
+  <!-- permissions -->
+  <permission
+      id="p01:dashboard:View"
+      title="View"
+      description="Can view start page (default dashboard)"
+      />
+
+  <permission
+      id="p01:dashboard:ManageSite"
+      title="Manage Site"
+      description="Can manage site"
+      />
+
+  <permission
+      id="p01:dashboard:ViewDashboard"
+      title="View Dashboard"
+      description="Can view dashboard"
+      />
+
+
+  <permission
+      id="p01:dashboard:ViewMembers"
+      title="View Member"
+      description="Can view members"
+      />
+  <permission
+      id="p01:dashboard:ManageMembers"
+      title="Manage Member"
+      description="Can manage members"
+      />
+
+</configure>

@@ -1,0 +1,62 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:p01="http://namespaces.zope.org/p01"
+    i18n_domain="p01.dashboard">
+
+  <!-- simple sampler using a name and callable function -->
+  <class class=".simple.SimpleSampler">
+    <require
+        permission="p01:dashboard:ViewDashboard"
+        interface="p01.dashboard.interfaces.ISampler"
+        />
+  </class>
+
+  <!-- configure your own simple sampler with something like:
+
+        def getText():
+            import random
+            messages = [
+                'Some comment and more text',
+                'Another comment and some text',
+                'Text and some more text',
+                'Another text comment and text and text',
+                ]
+            random.shuffle(messages)
+            return {"text": messages[0]}
+
+      now setup your sampler with. Note, use your own channel. Otherwise
+      the default channel (None) get used for send the data:
+
+          channel = None
+          sampler = SimpleSampler('sometext', channel, getText, interval=15)
+
+      and configure your sampler like:
+
+          <utility
+              name="sometext"
+              provides="p01.dashboard.interfaces.ISampler"
+              component="your.package.sampler"
+              />
+
+      and include a widget in your dashboard like:
+
+
+        <div id="sometext" class="text"
+             data-x="0"
+             data-y="0"
+             data-width="4"
+             data-height="4"
+             data-type="Text">
+          <div class="title" data-bind="title">Text Title</div>
+          <div class="text" data-bind="text">...</div>
+          <div class="updated" data-bind="updated"></div>
+        </div>
+
+
+      Note: if you use your own channel, you need to register an own
+      Events view using your custom channel name. See the Events class in:
+      p01.dashboard.browser.event.
+
+  -->
+
+</configure>

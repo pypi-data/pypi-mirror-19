@@ -1,0 +1,35 @@
+/*---[ p01.dashboard/list.less ]---------------------------------------------------*/
+// variables
+@import "../variables.less";
+
+.list {
+    background-color: @widget-list-bg;
+    vertical-align: top;
+    .title {
+        color: @widget-list-title-color;
+    }
+    ul {
+        text-align: left;
+        color: @widget-list-label-color;
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        list-style: none;
+        list-style-type: none;
+        margin-bottom: 5px;
+    }
+    .list-nostyle {
+        list-style: none;
+    }
+    .label {
+        color: @widget-list-label-color;
+    }
+    .value {
+        float: right;
+        margin-left: 12px;
+        font-weight: 600;
+        color: @widget-list-value-color;
+    }
+
+}
