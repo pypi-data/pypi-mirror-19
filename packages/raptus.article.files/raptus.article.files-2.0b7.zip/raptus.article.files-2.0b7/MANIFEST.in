@@ -1,0 +1,4 @@
+graft raptus
+graft docs/
+include *.cfg *.rst *.in
+global-exclude *.pyc *.pyo
