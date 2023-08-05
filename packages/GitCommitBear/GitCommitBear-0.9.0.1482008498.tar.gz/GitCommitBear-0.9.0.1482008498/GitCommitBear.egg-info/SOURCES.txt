@@ -1,0 +1,11 @@
+MANIFEST.in
+requirements.txt
+setup.py
+GitCommitBear.egg-info/PKG-INFO
+GitCommitBear.egg-info/SOURCES.txt
+GitCommitBear.egg-info/dependency_links.txt
+GitCommitBear.egg-info/entry_points.txt
+GitCommitBear.egg-info/requires.txt
+GitCommitBear.egg-info/top_level.txt
+coalaGitCommitBear/GitCommitBear.py
+coalaGitCommitBear/__init__.py
