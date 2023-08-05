@@ -1,0 +1,25 @@
+stevedore >= 1.0.0, < 1.12.0
+
+[:python_version=="2.6"]
+stevedore >= 1.0.0, < 1.10.0
+unittest2
+argparse
+ordereddict
+enum34
+statistics
+
+[:python_version=="2.7"]
+stevedore >= 1.0.0, < 1.12.0
+enum34
+statistics
+
+[:python_version=="3.3"]
+stevedore >= 1.0.0, < 1.12.0
+enum34
+statistics
+
+[:python_version=="3.4"]
+stevedore >= 1.0.0, < 1.12.0
+
+[:python_version=="3.5"]
+stevedore >= 1.0.0, < 1.12.0
