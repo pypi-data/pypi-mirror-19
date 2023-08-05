@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: oh
+Version: 0.1.1
+Summary: A simple TCP/UDP echo server
+Home-page: https://github.com/loggerhead/oh
+Author: loggerhead
+Author-email: lloggerhead@gmail.com
+License: MIT
+Description: UNKNOWN
+Keywords: debug,echo,TCP,UDP
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Utilities
