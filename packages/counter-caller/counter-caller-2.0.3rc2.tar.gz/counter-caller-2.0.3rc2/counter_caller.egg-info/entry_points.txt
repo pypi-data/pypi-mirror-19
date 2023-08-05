@@ -1,0 +1,3 @@
+[console_scripts]
+counter-caller = counter_caller.cli:run
+
