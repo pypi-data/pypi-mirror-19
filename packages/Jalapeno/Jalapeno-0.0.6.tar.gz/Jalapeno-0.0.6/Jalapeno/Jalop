@@ -1,0 +1,58 @@
+#!/usr/bin/python3
+# -*- coding: UTF-8 -*-
+
+from sys import argv
+import Jalapeno
+from Jalapeno import shortcuts
+from Jalapeno.path import path
+
+import os 
+#from Jalapeno.utils import shortcut
+
+_version = '0.0.6'
+
+
+
+def help_info():
+	print('''
+	Usage:
+
+	Jalop [parameter]
+
+	-r or run : running server
+	-f or freeze: generate pages
+	-s or shortcut: create shortcut folder at User folder '~'
+	-h or help: help
+	-u or unlock: unlock the file, access file shortcuts without superuser/root
+	-t or touch: create a new file in "pages" folder
+	'''
+	)
+def version():
+	return _version
+
+
+
+if __name__ =='__main__':
+
+	if len(argv) != 2 and len(argv) != 3:
+		print('ERROR: Not enough or too many parameters. use "Jalop help" or "Jalop -h" for help')
+		exit()
+	if argv[1] in ['-r','run']:
+		Jalapeno.flk.run(debug = True,port = 9999)
+	elif argv[1] in ['-f','freeze']:
+		Jalapeno.freezer.freeze()
+	elif argv[1] in ['-s','shortcuts']:
+		shortcuts.create_shortcuts()
+	elif argv[1] in ['-h','help']:
+		help_info()
+	elif argv[1] in ['-u','unlock']:
+		shortcuts.change_mod()
+	elif argv[1] in ['-t','touch']:
+		shortcuts.new_page(argv[2])
+	elif argv[1] in ['-v','version']:
+		version()
+
+
+
+
+

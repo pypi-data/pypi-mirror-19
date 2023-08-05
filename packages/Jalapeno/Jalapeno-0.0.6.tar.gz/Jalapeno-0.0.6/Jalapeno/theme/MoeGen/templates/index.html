@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block css %}
+  <style media="screen">
+  h2 {
+    font-family: "Didot";
+    font-weight: bold;
+  }
+  p{
+    font-family: "Avenir";
+  }
+  </style>
+ <link rel="stylesheet" href="{{asset.css.index}}">
+{% endblock %}
+
+
+{% block content %}
+    <br><br><br><br><br>
+    <section>
+            <div class="container">
+            <div class="jumbotron">
+                <h1 class="display-3">Hello, World!</h1>
+                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                <hr class="my-2">
+                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                </p>
+            </div>
+            <br><br><br>
+            <div class="container-fluid">
+              <div class="row">
+                <h3>The Latest</h3>
+                <hr>
+              </div>
+              <br><br><br>
+      <div class="container">
+        <br><br><br>
+        {% for page in pagination %}
+            <div class="row">
+          		<div class="col-xl-9">
+          		<H2>{{ page.meta.title }}</H2>
+          		<p style="font-family: "Avenir";">{{ page.meta.lang }} | {{ page.meta.purpose }} </p>
+          	</div>
+          	<div class="col-xl-3">
+              <br><br><br><br><br><br><br>
+              {{page.body| excerpt}}...
+            </div>
+            
+            <a href="{{ url_for('article.page', path=page.path) }}">Read More</a>
+        {% endfor %}
+      </div>
+      </div>
+    </section>
+
+{% endblock %}
