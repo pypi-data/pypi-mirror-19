@@ -1,0 +1,12 @@
+Metadata-Version: 1.1
+Name: shelfdb
+Version: 0.1.0
+Summary: JSON Python DB store as files for simplicity,based on Python built-in `shelve`, inspired by RethinkDB API
+Home-page: https://github.com/nitipit/shelfdb
+Author: Nitipit Nontasuwan
+Author-email: nitipit@gmail.com
+License: MIT
+Description: UNKNOWN
+Keywords: JSON Database
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.5
