@@ -1,0 +1,4 @@
+[console_scripts]
+hpd20 = hpd20.hpd20wx:run_main
+hpd20ui = hpd20.hpd20:run_main
+
