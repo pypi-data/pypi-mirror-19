@@ -1,0 +1,4 @@
+[console_scripts]
+icscat = icstools.icscat:main
+icsgrep = icstools.icsgrep:main
+
