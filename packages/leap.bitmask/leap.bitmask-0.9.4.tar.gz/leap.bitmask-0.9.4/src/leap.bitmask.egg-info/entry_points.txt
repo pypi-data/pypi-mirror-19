@@ -1,0 +1,5 @@
+[console_scripts]
+bitmask = leap.bitmask.gui.app:start_app
+bitmaskctl = leap.bitmask.cli.bitmask_cli:main
+bitmaskd = leap.bitmask.core.launcher:run_bitmaskd
+
