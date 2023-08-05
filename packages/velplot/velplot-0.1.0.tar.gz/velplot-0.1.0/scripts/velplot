@@ -1,0 +1,68 @@
+#!/usr/bin/env python
+from velplot import *
+
+def showhelp():
+
+    print ""
+    print "----------------------------------------------------------------"
+    print "  Velocity plot software"
+    print "----------------------------------------------------------------"
+    print ""
+    print "usage: velplot <fortfile> [--args]" 
+    print ""
+    print "optional arguments: "
+    print "   --atomdir       Path to a custom atom.dat"
+    print "   --details       Plot individual Voigt profiles"
+    print "   --dispersion    Spectral velocity dispersion"
+    print "   --dv            Custom velocity range for plotting"
+    print "   --fit           Run VPFIT and embed final results in fort.13"
+    print "   --getwave       Get wavelength array from the spectrum"
+    print "   --header        List of transition IDs of each fitting region"
+    print "   --nores         Do not plot the residuals"
+    print "   --output        Give custom output filename"
+    print "   --unscale       Don't correct the data and distort the models"
+    print "   --version       Path to a custom vpfit executable"
+    print "   --vpfsetup      Path to a custom vp_setup.dat"
+    print ""
+    print "----------------------------------------------------------------"
+    print ""
+    quit()
+
+if len(sys.argv)==1 or '--help' in sys.argv or '-h' in sys.argv: showhelp()
+setup.fortfile = sys.argv[1]
+if os.path.exists('./chunks/')==True:
+    os.system('rm -rf chunks/')
+if '--fit' in sys.argv or '--error' in sys.argv or '--illcond' in sys.argv:
+    fitfort()
+    os.system('mv fort.18 '+setup.fortfile.replace('.13','.18'))
+    os.system('mv fort.26 '+setup.fortfile.replace('.13','.26'))
+if setup.fortfile.split('.')[-1]=='13' or setup.fortfile.split('.')[0]=='f13':
+    do13()
+if setup.fortfile.split('.')[-1]=='26' or setup.fortfile.split('.')[0]=='f26':
+    do26()
+getdv()
+createchunks()
+pdf_pages = PdfPages(setup.filename+'.pdf')
+i=0
+while (i<len(setup.table1)):
+    f   = 1             
+    ref = i + 6          # position in table1 to define where to create new plotting page
+    fig = figure(figsize=(8.27, 11.69))
+    axis('off')
+    subplots_adjust(left=0.1, right=0.9, bottom=0.06, top=0.96, wspace=0, hspace=0)
+    while i<len(setup.table1) and i<ref:
+        ax = fig.add_subplot(6,1,f,xlim=[-setup.dv,setup.dv],ylim=[-0.6,2.1])
+        ax.yaxis.set_major_locator(plt.FixedLocator([0,1]))
+        ax.text(-setup.dv,1.6,r'$-1\sigma$ ',ha='right',va='center',size=8)
+        ax.text(-setup.dv,1.8,r'$+1\sigma$ ',ha='right',va='center',size=8)
+        if f==1: title(os.getenv('PWD'),fontsize=7)
+        if i+1!=ref and i+1!=len(setup.table1): plt.setp(ax.get_xticklabels(), visible=False)
+        else: ax.set_xlabel('Velocity relative to $z_{abs}=%.6f$ (km/s)'%setup.zmid,fontsize=10)
+        print setup.header[i,0],setup.header[i,1],setup.table1[i][0],'chunks/vpfit_chunk'+'%03d'%(i+1)
+        checkshift(i)
+        plotfit(i,f)
+        i = i + 1
+        f = f + 1
+    pdf_pages.savefig(fig)
+pdf_pages.close()
+#os.system('rm -rf ./chunks')
