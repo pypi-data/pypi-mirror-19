@@ -1,0 +1,13 @@
+MANIFEST.in
+README.rst
+setup.py
+git_migrate/.gitmigrate.dist
+git_migrate/__init__.py
+git_migrate/cli.py
+git_migrate.egg-info/PKG-INFO
+git_migrate.egg-info/SOURCES.txt
+git_migrate.egg-info/dependency_links.txt
+git_migrate.egg-info/entry_points.txt
+git_migrate.egg-info/not-zip-safe
+git_migrate.egg-info/requires.txt
+git_migrate.egg-info/top_level.txt
