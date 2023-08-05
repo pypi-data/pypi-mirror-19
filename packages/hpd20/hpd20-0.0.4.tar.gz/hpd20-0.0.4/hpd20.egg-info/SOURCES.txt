@@ -1,0 +1,135 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+hpd20/chain.py
+hpd20/hpd20.py
+hpd20/hpd20.pyc
+hpd20/hpd20wx.py
+hpd20/instrumentname.py
+hpd20/instrumentname.pyc
+hpd20/kit.py
+hpd20/kit.pyc
+hpd20/melodypadpattern.py
+hpd20/melodypadpattern.pyc
+hpd20/memoryops.py
+hpd20/memoryops.pyc
+hpd20/pad.py
+hpd20/pad.pyc
+hpd20/scales.py
+hpd20/scales.pyc
+hpd20.egg-info/PKG-INFO
+hpd20.egg-info/SOURCES.txt
+hpd20.egg-info/dependency_links.txt
+hpd20.egg-info/entry_points.txt
+hpd20.egg-info/top_level.txt
+kits/4_On_Floor.kit
+kits/808_909 (D_BEAM_Loop On).kit
+kits/ANALOG (D_BEAM_Loop On).kit
+kits/African Song.kit
+kits/AmbientTribe.kit
+kits/Asian Melody (TriggerMode_ALT).kit
+kits/Asian Perc 1 (East Asia).kit
+kits/Asian Perc 2 (South East Asia).kit
+kits/Asian Perc 3 (Ryukyu).kit
+kits/Balaphone (w_ Gyilli).kit
+kits/Ballad Perc (Long Reverb).kit
+kits/Bass Line (D_BEAM_Mute).kit
+kits/Beepy Beats.kit
+kits/Bongo (Recording).kit
+kits/Brushes.kit
+kits/CAJONIC (Ring Modulator).kit
+kits/Cajon (Recording).kit
+kits/Cajon Plus (D_BEAM_Loop On).kit
+kits/China (Pad_Pitch Bend).kit
+kits/CombiNation (w_ _HH CTRL_).kit
+kits/Conga (w_ Quinto&Tumba).kit
+kits/Conga II (Live Stage).kit
+kits/Cowbells.kit
+kits/Crush Beat (BitCrush&Phaser).kit
+kits/CrushLowe (Drums & Loops).kit
+kits/Darabuka (w_ Riq).kit
+kits/Deep Forest (Adventure).kit
+kits/Deep Jazz (Roll_Snare_Cym).kit
+kits/Deep Space.kit
+kits/Djembe.kit
+kits/Double Bass (w_ _HH CTRL_).kit
+kits/Drama (Horror _ Comedy).kit
+kits/Drum Booth.kit
+kits/Drumline (ROLL_On).kit
+kits/Drums (Studio Live Room).kit
+kits/DrumsOfIndia (Bhangra).kit
+kits/E_SCAPE (Hybrid NewAge).kit
+kits/Echonic Dub (Tape Echo).kit
+kits/Electro (ProcessedVintage).kit
+kits/Experimental (Electronica).kit
+kits/FatStep (Dubstep Style).kit
+kits/Filt & Verb (D_BEAM_MFX Ctrl).kit
+kits/Filtered! (D_BEAM_Control).kit
+kits/Finger Bells (w_ Percussion).kit
+kits/Folklore (South America).kit
+kits/Frame Drum (w_ Bendir).kit
+kits/Garage Rock (w_ _HH CTRL_).kit
+kits/Hand Pan (w_ Tone Plate).kit
+kits/Harmony Time.kit
+kits/Instant DnB (Pressure_Mute).kit
+kits/Island Dance (Pan Pacific).kit
+kits/Jazz Club (w_ _HH CTRL_).kit
+kits/Junk Yard (Industrial).kit
+kits/Laserwave... (TriggerMode_GATE).kit
+kits/Latin Kit (Conga & Bongo).kit
+kits/Light_Mini (Melodic Tom).kit
+kits/Lithophone 1 (Pentatonic).kit
+kits/Lithophone 2 (C Major Scale).kit
+kits/Luna Mallet (Impressionist).kit
+kits/MarimHigh Cm (Loop JzFnk75).kit
+kits/MarimLow Cm (Loop JzFnk75).kit
+kits/Marimba (ROLL_On).kit
+kits/Melophone (D_BEAM_M5_Ctrl).kit
+kits/Metallic (Percussion).kit
+kits/Mute Kicker (Mute Group).kit
+kits/Mystronic.kit
+kits/Neo Soul (RnB_HipHop Style).kit
+kits/Noel (Happy Holidays).kit
+kits/Orchestral (Pressure_Mute).kit
+kits/OrientalWind (Roll_Santoor).kit
+kits/Pandeiro (Samba de Roda).kit
+kits/Perc & Flute.kit
+kits/Perc Mixture (Layered Sounds).kit
+kits/Percussive (DANCE BEAT).kit
+kits/Pop Drums.kit
+kits/Pot Drum.kit
+kits/Repinique (Escola de Samba).kit
+kits/RollingAgogo (TriggerMode_GATE).kit
+kits/Samul Nori (Korean Drums).kit
+kits/Shakers.kit
+kits/Siesta (Cajon & Marimba).kit
+kits/Snare.kit
+kits/Solid BEAT.kit
+kits/Sound EFX 1 (RAW).kit
+kits/Sound EFX 2 (DIGITAL).kit
+kits/Space_Trap.kit
+kits/Steel Pan (D_BEAM_PitchBend).kit
+kits/SteelPanBand (Pan Orchestra).kit
+kits/Symphonist (ROLL_On).kit
+kits/Tabla (Trad Method).kit
+kits/Tabla Jam.kit
+kits/Timbale_Ds (Reggae Style).kit
+kits/Timbales (w_ Cowbells).kit
+kits/Timbalitos (w_ Cowbell&Block).kit
+kits/Trap_iT! (ROLL_On).kit
+kits/Tuned Gongs (D_BEAM_Mute).kit
+kits/TwentyFunky (Disco & Funk).kit
+kits/Twin_Djembe (Ensemble).kit
+kits/Urban Mood (w_ _HH CTRL_).kit
+kits/User Kit.kit
+kits/Vibra C maj (FGA Drone).kit
+kits/Vibra C maj (Loop JzFnk75).kit
+kits/Vibra C min (CFG Drone).kit
+kits/Vibra C min (Loop JzFnk75).kit
+kits/Vibra Db maj (Loop JzFnk75).kit
+kits/Vibra G.kit
+kits/Voice Drums (Flanger & Phaser).kit
+kits/Wah Stepping (Step Flanger).kit
+kits/Waterphone (Bowed).kit
+kits/Wide_Open (Concert Hall).kit
