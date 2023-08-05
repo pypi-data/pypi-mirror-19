@@ -1,0 +1,11 @@
+__version__ = "0.4.15"
+__git_commiter_name__ = "Guy Rozendorn"
+__git_commiter_email__ = "guy@rzn.co.il"
+__git_branch__ = u'develop'
+__git_remote_tracking_branch__ = u'origin/develop'
+__git_remote_url__ = u'git@git.infinidat.com:host-opensource/infi.storagemodel.git'
+__git_head_hash__ = 'f8a522971034548f1f01a35ec4f80d407a207aeb'
+__git_head_subject__ = u'Finished Release v0.4.15'
+__git_head_message__ = u'* develop:\n  HPTVM-1108'
+__git_dirty_diff__ = u''
+__git_commit_date__ = '2016-12-28 11:13:13'
