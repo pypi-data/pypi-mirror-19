@@ -1,0 +1,17 @@
+*** Settings ***
+Library           String
+Library           Collections
+
+*** Test Cases ***
+Fetch
+    ${var}    Set Variable    x: 647, y: 1174
+    ${x}    Fetch From Left    ${var}    ,
+    ${x}    Fetch From Right    ${x}    ${SPACE}
+    ${y}    Fetch From Right    ${var}    y:${SPACE}
+    Log    ${x}
+    Log To Console    ${y}
+
+SplitString
+    @{charlist}    Split String    a,b,c,d    ,
+    log    @{charlist}[0]
+    log    @{charlist}[1]

@@ -1,0 +1,40 @@
+*** Settings ***
+Resource          ../../UserKeywords/UserKeywords_API.txt
+
+*** Variables ***
+${EXOIUserName}    GlobalEquityData@morningstar.com
+${EXOIPassword}    GXy1q88E
+${EXOITestURL}    http://equitydata.xoi.morningstar.com/DataOutput.aspx?package=EquityData&Content=ShareClassInfoHistory&Id=0P000001R0&IdType=EquityShareClassId&Dates=2016
+${OwnershipTestURL}    ownershipdata/api/GetData.aspx?function=GetOwnershipData&cusip=000360206&ownertype=MutualFund
+${productId}      Direct
+${userId}         42e5613b-49a0-4366-8cf7-480d21997883
+${WebSite}        http://api-data.morningstar.com
+${PayLoad}        {"sort": [{"sortorder": "ASC", "dp": "DIMCHAR75"}], "mandatory": ["TRI"], "dps": [{"alias": "DIMCHAR75", "dp": "DIMCHAR75"}, {"alias": "TRI", "param": {"15": "31", "14": "21", "17": "37", "16": "36"}, "dp": "FACT228"}], "name": "ColumnSetsNameAdd", "isStandard": false}
+
+*** Test Cases ***
+API_Test_EXOI
+    [Tags]    Sprint_x1    Sprint_y2    # Define the cases changeset in which sprint.
+    ${APIReaderResult}    KW_API_ReadWebService_EXOI    ${EXOIUserName}    ${EXOIPassword}    ${EXOITestURL}
+    Log    ${APIReaderResult.url}
+
+API_Test_Ownership
+    ${return_Webservice_XML}    KW_API_ReadWebService_Ownership    ${OwnershipTestURL}
+    Log    ${return_Webservice_XML}
+
+DataAPI_HttpGet
+    ${header}    Create Dictionary    X-API-ProductId=${productId}    X-API-UserId=${userId}
+    Create Session    httpbin    ${WebSite}
+    ${resp}    Get Request    httpbin    /dataapi/v2/dataPoints/830/    headers=${header}
+    ${Response_Content}    Set Variable    ${resp.content}
+    ${Response_StatusCode}    Set Variable    ${resp.status_code}
+    Log    ${Response_Content}
+    log    ${Response_StatusCode}
+
+DataAPI_HttpPost
+    ${header}    Create Dictionary    X-API-ProductId=${productId}    X-API-UserId=${userId}
+    Create Session    httpbin    ${WebSite}
+    ${resp}    Post Request    httpbin    /dataapi/v2/columnSets    headers=${header}    data=${PayLoad}
+    ${Response_Content}    Set Variable    ${resp.content}
+    ${Response_StatusCode}    Set Variable    ${resp.status_code}
+    Log    ${Response_Content}
+    log    ${Response_StatusCode}

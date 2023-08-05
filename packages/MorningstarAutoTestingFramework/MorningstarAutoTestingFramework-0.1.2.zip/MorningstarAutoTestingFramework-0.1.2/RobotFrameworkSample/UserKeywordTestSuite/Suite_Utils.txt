@@ -1,0 +1,10 @@
+*** Settings ***
+Resource          ../../UserKeywords/UserKeywords_Utils.txt
+
+*** Variables ***
+${stringlength}    ${10}
+
+*** Test Cases ***
+Utils_Test_GenerateRandomString
+    ${Result}    KW_Utils_GenerateRandomString    ${stringlength}
+    Log    ${Result}

@@ -1,0 +1,11 @@
+*** Settings ***
+Resource          ../../UserKeywords/UserKeywords_Config.txt
+
+*** Variables ***
+${ConfigFilePath}    D:\\PythonCode\\CodeLib\\Template\\EnvironmentConfig.xml
+
+*** Test Cases ***
+Config_Test_ReadParameterValue_By_Environment_and_ParameterName
+    [Documentation]    Get parameter value from configuration file by parameter name.
+    ${resultValue}    KW_Config_ReadEnvironmentParameter    ${ConfigFilePath}    DEV    Parameter_1
+    Log    ${resultValue}

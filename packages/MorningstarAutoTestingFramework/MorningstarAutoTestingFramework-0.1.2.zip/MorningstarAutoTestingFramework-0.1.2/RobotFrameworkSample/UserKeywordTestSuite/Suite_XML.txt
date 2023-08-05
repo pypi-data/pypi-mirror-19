@@ -1,0 +1,4 @@
+*** Settings ***
+Resource          ../../UserKeywords/UserKeywords_XML.txt
+
+*** Test Cases ***

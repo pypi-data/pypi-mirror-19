@@ -1,0 +1,79 @@
+*** Settings ***
+Force Tags        TagTest
+Default Tags      DefaultTag1
+
+*** Test Cases ***
+ConvertData
+    [Tags]    TestCaseTag1
+    Comment    数值转换_10进制转2进制
+    ${bin}=    Convert To Binary    10
+    Should Be Equal    ${bin}    1010
+    Comment    数值转换_10进制转8进制
+    ${Oct}=    Convert To Octal    10
+    Should Be Equal    ${Oct}    12
+    Comment    数值转换_10进制转16进制
+    ${Hex}=    Convert To Hex    10
+    Should Be Equal    ${Hex}    A
+    Comment    数值转换字符
+    ${Num}=    Convert To Integer    100
+    Should Be Equal    ${Num}    ${100}
+    Comment    转换Bool量
+    ${bool1}=    Convert To Boolean    True
+    Should Be True    ${bool1}
+    ${bool2}=    Convert To Boolean    False
+    Should Not Be True    ${bool2}
+
+RunKeywordIf
+    Comment    =====01=======
+    ${Index}    Set Variable    Index
+    ${TYPE}    Set Variable    V1
+    Run Keyword If    "${TYPE}" == "V1" \ and "${Index}" == "Index"    Log    Testing Variant 1    # 只能用小写的and
+    ...    ELSE IF    '${TYPE}' == 'V2'    Log    Testing Variant 2
+    ...    ELSE IF    '${TYPE}' == 'V3'    Log    Testing Variant 3
+    Comment    =====02=======
+    ${foo}    Set variable    true
+    Comment    Please use double quotes
+    ${bar}    Run keyword if    "${foo}" == "true"     set variable    this is bar
+    ...    ELSE    set variable    this is barbar.
+    Should be equal    ${bar}     this is bar
+    Comment    =====03=======
+    ${notbar}    Run Keyword Unless    "${foo}" != "true"     set variable    this isnot bar
+    log    ${notbar}
+    comment    =====04=======
+    ${foo1}=    Set variable    false
+    Comment    Please use double quotes, and unless word MUST be "ELSE"
+    ${bar1}    Run keyword if    "${foo1}" == "true"     set variable    this is bar
+    ...    ELSE    set variable    this is barbar.
+    Should be equal    ${bar1}     this is barbar.
+
+RunKeywordIgnoreError
+    @{CAPTAINS}    Create List    Picard    Kirk    Archer
+    Run Keyword And Ignore Error    Should Be Empty    ${CAPTAINS}
+    Log    Reached this point despite of error
+
+RunKeyword
+    ${MY_KEYWORD}=    Set Variable    Log
+    Run Keyword    ${MY_KEYWORD}    Test
+
+EvaluatingExpressions
+    should be true    len("AAAGGE")>3
+    ${inputstr}    Evaluate    "AAA"
+    Log    ${inputstr}
+    Log    =================
+    ${ms}    Evaluate    int(round(time.time() * 1000))    time
+    log    time in ms: ${ms}
+
+MetaData
+    Comment    此Metadata将出现在Report中
+    Set Suite Metadata    Author    Benjamin Zhou& QA team
+
+SetVariableIf
+    ${condition}    Set Variable    ${TRUE}
+    ${var}=    Set Variable If    ${condition}!=${TRUE}    This is string when True.    This is string when False.
+    Log    Log:${var}
+
+Assert
+    ${source}=    Set Variable    ${1}
+    ${target}=    Set Variable    ${1.0}
+    Should Be Equal    ${source}    ${target}
+    Should Not Be Equal As Strings    ${source}    ${target}

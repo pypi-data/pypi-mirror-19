@@ -1,0 +1,9 @@
+*** Settings ***
+Resource          ../../UserKeywords/UserKeywords_OS.txt
+
+*** Variables ***
+${dirpath}        D:\\123\\
+
+*** Test Cases ***
+OS_Test_MakeDir
+    ${result}    KW_OS_CreateDirectory    ${dirpath}

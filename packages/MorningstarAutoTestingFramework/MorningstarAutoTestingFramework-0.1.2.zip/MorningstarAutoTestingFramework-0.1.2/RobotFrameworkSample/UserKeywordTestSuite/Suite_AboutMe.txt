@@ -1,0 +1,11 @@
+*** Settings ***
+Resource          ../../UserKeywords/UserKeywords_AboutMe.txt
+
+*** Test Cases ***
+AboutMe_Test_ShowInformation
+    ${output}    KW_About_Information
+    Log    ${output}
+
+AboutMe_Test_SendEmailToAuthor
+    ${SendFlag}    KW_About_SendMailToAuthor    benjamin.zhou@morningstar.com    Hi Ben, The framework is very cool.
+    Log    "The email send result is :"+${SendFlag}

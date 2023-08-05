@@ -1,0 +1,24 @@
+*** Settings ***
+Library           String
+Library           Collections
+
+*** Test Cases ***
+StringAndLists
+    ${SOME_VALUE}=    Set Variable    "Test Value"
+    Log    ${SOME_VALUE}
+    @{WORDS}=    Split String    ${SOME_VALUE}    ${SPACE}
+    ${FIRST}=    Get From List    ${WORDS}    0
+    Log    ${FIRST}
+
+Dictionary
+    comment    ====01. 输出Dictionary=====
+    ${headers}=     Create Dictionary    Content-Type=application/json \     Accept=application/json
+    Log Dictionary    ${headers}
+    comment    ====02.判断Dictionary是否为空====
+    ${emptyDic}    Create Dictionary
+    ${length}    Get Length    ${emptyDic}
+    Run Keyword If    ${length}==0    log to console    Empty Dict
+    Comment    ====03. 取得Dictionary中的值====
+    ${dict}    create dictionary    a    b
+    ${value}    get from dictionary    ${dict}    a
+    should be equal    ${value}    b
