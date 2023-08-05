@@ -1,0 +1,6 @@
+represent>=1.4
+sqlalchemy
+
+[test]
+pytest-asyncio
+pytest
