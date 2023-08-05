@@ -1,0 +1,18 @@
+django-issueinspector changelog
+===============================
+
+
+v0.2.1
+------
+* Package distribution fix.
+
+
+v0.2.0
+----------
++ Added ability to start as a standalone.
++ Added config file support to store username and token.
+
+
+v0.1.0
+------
++ Basic functionality.
