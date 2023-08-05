@@ -1,0 +1,25 @@
+Metadata-Version: 2.0
+Name: dumpmyrepos
+Version: 0.1
+Summary: This python script will backup all your git repos
+Home-page: https://github.com/kernelfolla/dumpmyrepos
+Author: Marino Di Clemente
+Author-email: kernelfolla@gmail.com
+License: mit
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: System :: Systems Administration
+Classifier: Programming Language :: Python
+Requires-Dist: pyyaml
+Requires-Dist: python-gitlab
+Requires-Dist: pybitbucket
+Requires-Dist: pygithub3
+Requires-Dist: multiprocess
+
+This python script will backup all your git repos using ssh locally, supports github gitlaband bitbucket. All settings are passed using a config.yml file
+
+
