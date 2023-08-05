@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+rcmemoize/__init__.py
+rcmemoize/memoization.py
+rcmemoize/request.py
+rcmemoize.egg-info/PKG-INFO
+rcmemoize.egg-info/SOURCES.txt
+rcmemoize.egg-info/dependency_links.txt
+rcmemoize.egg-info/pbr.json
+rcmemoize.egg-info/top_level.txt
+rcmemoize/middleware/__init__.py
+rcmemoize/middleware/memoization_middleware.py
