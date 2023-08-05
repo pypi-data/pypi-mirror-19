@@ -1,0 +1,27 @@
+v0.0.8
+ - Fix broken installation.
+
+v0.0.7
+ - Fix BaseStorage.values bug when pass list of keys.
+
+v0.0.6
+ - Fix version.
+
+v0.0.5
+ - Fix version.
+
+v0.0.4
+ - Add CLI (only core). Usage: python -mfiledict --help.
+ - Add tests CLI. Usage: python -mfiledict.test.
+ - Keys list now can be passed to BaseStorage.values & BaseShardedStorage.values.
+
+v0.0.3
+ - Add tests to package.
+
+v0.0.2
+ - Fix setup.py.
+
+v0.0.1
+ - Initial implementation of filedict.
+ - Only python2.
+ - Only linux.
