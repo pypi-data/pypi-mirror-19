@@ -1,0 +1,13 @@
+{
+  "destination": "built_docs",
+  "excludes": [
+    "__tests__.+$",
+    "__mocks__.+$"
+  ],
+  "includes": [
+    "\\.(js|es6|jsx)$"
+  ],
+  "index": "esdoc/index.md",
+  "source": "scripts",
+  "title": "django_cradmin"
+}
