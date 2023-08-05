@@ -1,0 +1,5 @@
+recursive-include static *.js
+recursive-include static *.css
+recursive-include static *.mp3
+recursive-include templates *
+recursive-include bower_components *
