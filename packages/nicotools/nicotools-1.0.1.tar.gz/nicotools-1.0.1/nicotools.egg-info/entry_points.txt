@@ -1,0 +1,3 @@
+[console_scripts]
+nicotools = nicotools.__init__:main
+
