@@ -1,0 +1,9 @@
+Metadata-Version: 1.2
+Name: yieldbreaker
+Version: 0.0.1
+Summary: Simplify some use of generator/coroutine by splitting the yield/send flow into
+Home-page: https://github.com/Carreau/yieldbreaker
+License: UNKNOWN
+Author: Matthias Bussonnier
+Author-email: bussonniermatthias@gmail.com
+Classifier: License :: OSI Approved :: MIT License
