@@ -1,0 +1,30 @@
+Metadata-Version: 2.0
+Name: consecution
+Version: 0.2.0
+Summary: Pipeline Abstraction Library
+Home-page: https://github.com/robdmc/consecution
+Author: Rob deCarvalho
+Author-email: unlisted
+License: BSD
+Keywords: pipeline apache storm DAG graph topology ETL
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Scientific/Engineering
+Requires-Dist: graphviz
+Provides-Extra: dev
+Requires-Dist: nose; extra == 'dev'
+Requires-Dist: coverage; extra == 'dev'
+Requires-Dist: mock; extra == 'dev'
+Requires-Dist: flake8; extra == 'dev'
+Requires-Dist: coveralls; extra == 'dev'
+
+Consecution is an easy-to-use pipeline abstraction inspired by
+Apache Storm topologies.
+
+
