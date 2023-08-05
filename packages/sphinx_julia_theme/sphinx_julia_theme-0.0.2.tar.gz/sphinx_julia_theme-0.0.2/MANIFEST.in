@@ -1,0 +1,3 @@
+include *.txt
+include LICENSE
+recursive-include sphinx_julia_theme/sphinx_julia_theme *
