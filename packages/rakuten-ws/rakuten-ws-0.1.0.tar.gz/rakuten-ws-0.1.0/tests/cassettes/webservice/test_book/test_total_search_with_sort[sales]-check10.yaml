@@ -1,0 +1,44 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.12.4]
+    method: GET
+    uri: https://app.rakuten.co.jp/services/api/BooksTotal/Search/20130522?applicationId=XXXXXX&formatVersion=2&hits=3&keyword=%E3%83%89%E3%83%B3%E3%83%BB%E3%82%AD%E3%83%9B%E3%83%BC%E3%83%86&sort=sales
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA7VWbU/bVhT+L/7USlH8GidBmrap0zY0qZom9VNVVU5iyG3tOLIdSlUhxXZVQIUW
+        aULAYAyatdDw0o10Ky+B/pgTO3zjL+zc60AJkO6lS6RE5557znnuPcfP4zzi8lal5HIDoiomuLI2
+        rKOZ4IaI7bjMMjRqyAmuSFyHGXnNtolucwNCnHAjLpBSEtygq5sYdPsR5xLXwFIcBJMQNCA4AH8L
+        gkUImhA8OWlOhEdT7TfjUK1KJ81JLsFpFbdo2SzhF/B3INigOcE4yzxgyxlW6An4e8z5B/gvIFhg
+        AK/59uRi2Piz9X41mn9Gy9kucdybmknPgOtyJWcQp6jbHVe48zpqvIgWd8P9OY5eMqcbcSRxciW0
+        sumMIuAnLcuyhO57WineL2p24YFmd+paTicLL35DK7vE6oQ5mqE7X2kujZMEUQz33gpitDTRif3e
+        JnnaaVXCJuLJ3I4DVwXisJH8wJLPOT6E0Aq3bHrgouuWB3g+Z1n3naSt3a+4eimZt5L3yryd49Ws
+        kk6lVJ42ZGiIGARLxnn0hKZmGIMmDrCrlFusmLmSRowkoXsXin4h3KVpDJDPazlS0l2e9ok/bRZG
+        DX9+Vx/9TFVGVQVxTL1AKmYfgURJGMUvG6M9rPcRSRKEUfwiUr5IbO2hZZKzdmojCIDZBnEfokek
+        D53luIj3taENx1QiJk6uEK9xjLY+QvQHHfqcrb8c0W1GQ05IUig222/0kq0PFqhTEAUBH80sN5Y4
+        RzNKip/A/xU5clxfBm/tuL4FfhX8x+DNgjcH3uMrqdhNvXlaJ+ZXsAwBhk0we4sV32Ps24VgjW/v
+        zB7/9g68V+A/Dbdm/gHjbn77XTi+356c6Ek3URHklJDJZv4t3a4QCG+7tTsdLR2iEc5Mtw6XoPrs
+        yvtD9Tl4U11tutjKDfDq4NXwsu2Fg3Dl7UnTi+ZeRkubuHu83oCqh0bUWKfGWu24vtk6mAdvmmVt
+        4ySo/2gZtYZ55qjH96OXh9T2PfCOwFuAqn9ZNAQqGupl0RAyfRUNJZtSVaHvooGD5rvG3lfl6I3W
+        F/noDfcpGiL8jYbIlzVEScpyDxGR2O9FHcF36ioEdfA3OmShtNoEf50R5x0N8N9T7lSnehBq+rym
+        XFSGa+C/wfc1rRQEaF/nIfAgqLHkDfD3TyGb7ARNPvr599b+JotHZtfY9iwzcPs5S8MjP42rtbdX
+        w+Yr5Fa4WLtCg85JT8xg8BtM3FYg+BFvdi1aqV//IEpnOqRkMxlsVjolitnsf/4PIFM6Z5HOUgrR
+        uzmtqGqqj5wWJUWQVFnsN6lpf/iubvWT1B9B6wepPwL3KaSW/rc/BrIkpBmnZf50gYeSubE7CS6O
+        Kw1ZtqnFT+jtO2N/AXMaawP9CwAA
+    headers:
+      Access-Control-Allow-Origin: ['*']
+      Cache-Control: [no-store]
+      Connection: [close]
+      Content-Encoding: [gzip]
+      Content-Language: [ja-JP]
+      Content-Length: ['1047']
+      Content-Type: [application/json;charset=UTF-8]
+      Date: ['Tue, 27 Dec 2016 16:04:13 GMT']
+      Vary: [Accept-Encoding]
+    status: {code: 200, message: OK}
+version: 1

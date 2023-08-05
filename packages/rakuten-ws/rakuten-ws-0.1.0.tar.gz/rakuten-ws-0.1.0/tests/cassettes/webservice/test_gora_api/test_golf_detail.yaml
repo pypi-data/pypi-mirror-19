@@ -1,0 +1,86 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.12.4]
+    method: GET
+    uri: https://app.rakuten.co.jp/services/api/Gora/GoraGolfCourseDetail/20140410?applicationId=XXXXXX&formatVersion=2&golfCourseId=80004
+  response:
+    body:
+      string: !!binary |
+        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
+        k6tpIAAA
+    headers:
+      Access-Control-Allow-Origin: ['*']
+      Cache-Control: [no-store]
+      Connection: [close]
+      Content-Encoding: [gzip]
+      Content-Language: [ja-JP]
+      Content-Length: ['3426']
+      Content-Type: [application/json;charset=UTF-8]
+      Date: ['Wed, 28 Dec 2016 10:46:43 GMT']
+      Vary: [Accept-Encoding]
+    status: {code: 200, message: OK}
+version: 1

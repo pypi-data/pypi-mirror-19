@@ -1,0 +1,51 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.12.4]
+    method: GET
+    uri: https://app.rakuten.co.jp/services/api/BooksBook/Search/20130522?applicationId=XXXXXX&formatVersion=2&hits=3&sort=standard
+  response:
+    body:
+      string: !!binary |
+        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
+    headers:
+      Access-Control-Allow-Origin: ['*']
+      Cache-Control: [no-store]
+      Connection: [close]
+      Content-Encoding: [gzip]
+      Content-Language: [ja-JP]
+      Content-Length: ['1477']
+      Content-Type: [application/json;charset=UTF-8]
+      Date: ['Tue, 27 Dec 2016 16:04:28 GMT']
+      Vary: [Accept-Encoding]
+    status: {code: 200, message: OK}
+version: 1

@@ -1,0 +1,42 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.12.4]
+    method: GET
+    uri: https://app.rakuten.co.jp/services/api/BooksBook/Search/20130522?applicationId=XXXXXX&formatVersion=2&hits=3&title=%E3%83%AF%E3%83%B3%E3%83%94%E3%83%BC%E3%82%B9
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA7WWa2sTSxjHv0rY1yE7e8kmWxCVWqUIHpHjKxGZpNNmdC9hd1KrUkh2RCuCFxAV
+        vIKpindROKfHnvphxqT6ql/hPLO7nmSTGC2ysClze/7PzDP7/3UvKHW/5TFlxjCsotLES0SZ0YrK
+        Ig1CFrccLBtGUWlQFsaNOg4CSgJlBiUBs4mAhqA/z4gLq05cUBhlDmgpon2j96TTv3ZPtG8K/lbw
+        D4LfEnxTRBsFHWmV3sbHgoheCv4qnmrDlFJMog9jD0uFbBTMhq3an6n8UC9dLkcIbDA8gl0y2h+s
+        qfseI548kuzhFmv4wXB7sLLZqjk0bJAgFRTRc7mfaENuO+pKfXo+zUTDmgct07aQrdmGVrYMXQ5D
+        WWZxk1HfS3eEHRIewEyGQRUsqAKy+/fXdKN/Zz0NOBrQurwNS4fCwg5YOgC9BRrG13YsVhgaGCyR
+        CscDB/QbjDVnVLXm+2fCUoDPtODcpbpfOt1Ug5qqmaZumVZVlSdfXKQOBc0kUO7TxY4z78ItZ7RY
+        o+XWPEydEpVzI6r70CkZFmdU67hGPcJUWQk1UxdYurT3FFnZY5krlgnJXLJAW27e2TQdrcBPka92
+        sETyTqcjtAI/+cY1aIDP+S79v7p4GbKAhEPZORjR5MvmhwySHnTwUmI/6sJNLiR9uNaALFNyNrWc
+        8b2/f5kEsXWVckmmiu/6EPECMr8AgwhpSLfgr7JanOzMP47MiXb76Pzc7Fyv+6y31hUROO6R4FxE
+        b0fsubO5Jo27s3llulHB1i/kw2/AaGFYcILhd2Xpnc1PY3v6d5LPx/P8wPa9d1vbt971H1/88nf7
+        G782SoH4GO2idH7UlQ/vCP5aRE8n4OHbvUtfr77f7m4NwDB89gEk7ErVRFUbVfWKbf8iJDQNIGGg
+        MUjoZVvPFRJG1ShruUNCVkLN1CVPSEzJlgckpqTLExL6LiCRPtUMJ/p310VnS3SebT9oi84j0bk4
+        YnQgR2yIdcGvpsSQI2uyze8k/7KznLgu+MuC4A8FvwwsACN9BlMVxviRFS2MSO4KGTEGLovoieC3
+        Bb8UNxK2/SX4izjhPxMJ8j2uMBJYGIn8je+JrHCWHPxxus/OA9F58+XT7Sw/qoZZMQ298qsfGZoO
+        /NDG+aGhar4fGeUyqlRy54eshJqpS578mJItD35MSfc7/EA/4Qca5wf6ET+AHchGSFdWTxaVZMpb
+        9AMXJy/liZOr/wE1ZL6GcAwAAA==
+    headers:
+      Access-Control-Allow-Origin: ['*']
+      Cache-Control: [no-store]
+      Connection: [close]
+      Content-Encoding: [gzip]
+      Content-Language: [ja-JP]
+      Content-Length: ['931']
+      Content-Type: [application/json;charset=UTF-8]
+      Date: ['Tue, 27 Dec 2016 16:04:23 GMT']
+      Vary: [Accept-Encoding]
+    status: {code: 200, message: OK}
+version: 1

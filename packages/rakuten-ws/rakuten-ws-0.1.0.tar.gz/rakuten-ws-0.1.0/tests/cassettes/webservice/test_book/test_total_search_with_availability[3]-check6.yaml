@@ -1,0 +1,43 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.12.4]
+    method: GET
+    uri: https://app.rakuten.co.jp/services/api/BooksTotal/Search/20130522?applicationId=XXXXXX&availability=3&formatVersion=2&hits=3&keyword=%E3%83%89%E3%83%B3%E3%83%BB%E3%82%AD%E3%83%9B%E3%83%BC%E3%83%86
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA81WbWvbVhT+K0UfxgbGunq1Yxjb6NgWBmEU+imEINuyfVvJMpKcppSAo8uK3UHb
+        jZW1pCNZnJTaSZO1KaxNHfZfehNn/ZS/sHOulLfGpKVF0A+Szz33nPOc+/I81g2p5DXroVRQjIzU
+        sKo2WBmpQv0gFJZjoaFlpBoNA2GULN+nti8VSJxwMc6H9PHQdiFm8oYU0tCBStKlLI/+4WyVszZn
+        PR494tHLwu72ypvFf//r9Tib59EmZ2vgnVSnCpx1ONvi7BWPnnC2wNmAs5sX4OFRF6Nwos+jFc7W
+        MS6p/DvGRc8g4DM+/zePOnx+483j23vdNSkjWc2w5kGvEtp+SINwwnKxM85+FfWf86iHhdmKQIBh
+        98LEDz/GPQ5Xd/YWujJ2H62KeWxVhC8Le1Pe3bnLWz8PHz7e3d4AjEaz6NCgZvsJjIQ7WLQdMD8f
+        LvW/4NEOZ78IZCiyKBYA3b/gjImtWBdTD0TxbUimQbEel7lioaEbek4zTdXM5bUx8NYsv3zN8hMo
+        L4h/KRzERasRUi9JDizHDr61QoxTiWLuvXxO8sOHbU0Z/rGaJPzk0xLMa6oOBwuLCBMHjMo0ELfk
+        kqhwwnEcghUu+7jOWhg2CrJc9LyrQda3rjZDu54tedkrDdkvyoquEVMZM2Q8kEqFOhRqxonYp2s5
+        zrgLt+pUrbDWdIt1izpZinNvVf2aTGOaQJRLVpHW7VDG/ZFP7RaEVr+atme/NPVZUwcw1y7Tpps2
+        mqKSWXjERfCrdtpwKiGz8ABcqUZ967rn0qPdtWYABUo4NLwOHg3vqxeEAPqdY1Wlgorn7sJJluMx
+        HKtvz1D7WkLxo/E3M7YvpEIiWYQSZ/29Xfft8TI6iaoQHd7SXOZ9teB1pz+S/q8776DxfcFLwRgs
+        DKy6JygdF1pDKOT2lnwY1E/mMC6WlTsCajkm5v7GX3uDR0fMXxKEFwqERg/TMPmJGLbRYH8eKgmU
+        m5cFwm+cdY9bOrNuOd2+30eI2KbIviXeZ4XolbC7Qia3RgnRmK6ZOV3J542c/sFCRECIFAJCpJIz
+        QqQoqpGmEKljOslpJG0hwv2RT+1WmkJ0DloaQnQO3McIEUlViC5PmHmFt1rJf/zCs/31dW3/Xh9c
+        iQSd0B8ewX//LZiCoN0XLeDX/toSDIe3l4dPo4PBHaEAd0VwW2jCIr5brYNB+9C/hVQVvD8YdM5T
+        sxG8hTJAV8gTkvMU6Yly8TZhT9D7mKy6YaqaCSzLmYpxxNwPJquKXw0aklU9S9acmk/3s0HRVMNQ
+        02Zr3ROh00TJVmklLZaOQEmDnSNgPo3PA4UoeUIMMKS5qYwUT9Urnu9a8e2bnJr7HxkWuYqZDAAA
+    headers:
+      Access-Control-Allow-Origin: ['*']
+      Cache-Control: [no-store]
+      Connection: [close]
+      Content-Encoding: [gzip]
+      Content-Language: [ja-JP]
+      Content-Length: ['1026']
+      Content-Type: [application/json;charset=UTF-8]
+      Date: ['Tue, 27 Dec 2016 16:04:07 GMT']
+      Vary: [Accept-Encoding]
+    status: {code: 200, message: OK}
+version: 1

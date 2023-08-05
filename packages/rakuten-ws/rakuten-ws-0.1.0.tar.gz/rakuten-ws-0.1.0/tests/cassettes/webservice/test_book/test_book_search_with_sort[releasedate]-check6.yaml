@@ -1,0 +1,40 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.12.4]
+    method: GET
+    uri: https://app.rakuten.co.jp/services/api/BooksBook/Search/20130522?applicationId=XXXXXX&formatVersion=2&hits=3&sort=%2BreleaseDate
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA+2WW2sTQRSA/0rZ55DMbrZNUhAVRSmCiOhTkTJJJ8noXsLupFZF6O7Qmmq9gHcq
+        4p3Yiwpaak3BH3Pc1D75Fzyzm977pK6+CBmYOXsuM+ecj5MrWsVtOkIbLBWNAtEzWoPWmDaImyr3
+        fBHvLKo2+YxW58KPNxXqeZx52iBJDI4kPnSC5yHBbNQavqIJLiz0pXU/fFq7MxUtvokmX68/mOje
+        W/neDtemW1omUTlBHYpqEK5A+ArkHIQLEL7vA3kD5GsI34B8AfIjavvN8pmez22nnrmSMLyVf5La
+        bPd5S6fiOoI56h3qRJui7nrqjk8W1h/c/dYJNoUbt5KzGBzk0wwuCJcgXEaVRrNscb/OvF6w7st3
+        0czD6NqX5Fk+v6yk0c1H35/PoGsUcb/soKhUKJoDRsEs6XldV2LM1hHaENx1enemFvOPUqHs9RIh
+        0cqnntopj1dUaUqmiTXhvugJMOej3I/LeDq22ybYUlEeznoWeq0L0RjM5cque8HPevRCE/ORrbjZ
+        842cV85hDU2jP6fSUK1yi6PHxEzdzaaWNWRjwXd4EvWmXXYot7Jcfdvl8xAZUWZxvFyFlrnDRM5x
+        Y9URomdrvHpwhI0fGDDHB0wMYrNR3rTTiqIbZByXprraq7G0whiEjONS/VbnHr3k2nwzi3QMvaOp
+        xcUlVWTVTq4v0MMxi9YS4riN9RpNzlg8j41xdrFH2eb58BjzYlo1klWh4ooeZ47HhkaVkOgEn4pt
+        djWzBSMENyCchuAZBO8gaEHQgfAuhB2QEmTrx2ormmwXo+XOj9XpPXzOg3wLcgLJvNUHYTtBo2/T
+        OF1Cd4O5D4UQhOp5wWJ39nO39XUbiJPt9dkpkJ3o9gx+24mj0Y+c6SRuvl/AUTfyRoo85ouFvJlP
+        m0eVg9xGIlCrlhaS+wdKg8r9I/0OmMYfBJPkCSnsAnN+A8aJuIsfQvABgjncJFTqBLHcRuoePtW8
+        TIiUzxSs4TLu7oC8nsysf8ymvA9yAeQqyMcg59dftbfwXFta2jMk+wv4d0Qvloq/RGWpfyDNIYlQ
+        6mbx/5D8a0PSTJtF/OGcPJfRkk9O1fVsmjTc8LmrPwFvQrA1JgsAAA==
+    headers:
+      Access-Control-Allow-Origin: ['*']
+      Cache-Control: [no-store]
+      Connection: [close]
+      Content-Encoding: [gzip]
+      Content-Language: [ja-JP]
+      Content-Length: ['838']
+      Content-Type: [application/json;charset=UTF-8]
+      Date: ['Tue, 27 Dec 2016 16:04:31 GMT']
+      Vary: [Accept-Encoding]
+    status: {code: 200, message: OK}
+version: 1
