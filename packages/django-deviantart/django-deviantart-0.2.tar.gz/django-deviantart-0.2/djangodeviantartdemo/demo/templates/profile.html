@@ -1,0 +1,18 @@
+{% load  deviantart_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% dA "user/whoami" as da_user %}
+    <title>Hello {{ da_user.username }}</title>
+</head>
+<body>
+
+    <h2>Hi {{ da_user.username }}</h2>
+    Your awesome Avatar: <img src="{{ da_user.usericon }}" alt="very cool avatar"/>
+
+    <p>To know more about the deviantart api go to
+        <a href="https://www.deviantart.com/developers/">the developer section on dA</a>
+    </p>
+</body>
+</html>
