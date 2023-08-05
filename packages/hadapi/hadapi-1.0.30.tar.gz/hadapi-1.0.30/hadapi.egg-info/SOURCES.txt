@@ -1,0 +1,16 @@
+LICENSE.txt
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+data/data_file
+hadapi/__init__.py
+hadapi/awslogs.conf
+hadapi/model_runtime.py
+hadapi/service.py
+hadapi.egg-info/PKG-INFO
+hadapi.egg-info/SOURCES.txt
+hadapi.egg-info/dependency_links.txt
+hadapi.egg-info/entry_points.txt
+hadapi.egg-info/requires.txt
+hadapi.egg-info/top_level.txt
