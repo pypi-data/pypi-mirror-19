@@ -1,0 +1,21 @@
+Metadata-Version: 2.0
+Name: kartskrape
+Version: 1.3.0
+Summary: Kartskrape
+Home-page: https://github.com/kjartab/kartskrape
+Author: Kjartan Bjorset
+Author-email: kjartanbjorset@gmail.com
+License: MIT
+Keywords: sample setuptools development
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: beautifulsoup4
+Requires-Dist: requests
+
+long_description
+
+
