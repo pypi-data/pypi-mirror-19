@@ -1,0 +1,14 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+pytpmutils.egg-info/PKG-INFO
+pytpmutils.egg-info/SOURCES.txt
+pytpmutils.egg-info/dependency_links.txt
+pytpmutils.egg-info/entry_points.txt
+pytpmutils.egg-info/requires.txt
+pytpmutils.egg-info/top_level.txt
+tpmutils/__init__.py
+tpmutils/main.py
+tpmutils/rnd.py
+tpmutils/rsa.py
