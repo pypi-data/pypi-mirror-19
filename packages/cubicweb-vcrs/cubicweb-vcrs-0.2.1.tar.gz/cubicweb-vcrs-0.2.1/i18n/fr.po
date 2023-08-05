@@ -1,0 +1,92 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "New RepositoryStats"
+msgstr ""
+
+# schema pot file, generated on 2014-06-06 17:26:24
+#
+# singular and plural forms for each entity type
+msgid "RepositoryStats"
+msgstr "Statistiques entrepôt"
+
+msgid "RepositoryStats_plural"
+msgstr "Statistiques entrepôt"
+
+msgid "This RepositoryStats"
+msgstr ""
+
+# subject and object forms for each relation type
+# (no object form for final or symmetric relation types)
+msgid "from_import"
+msgstr ""
+
+msgctxt "RepositoryStats"
+msgid "from_import"
+msgstr ""
+
+msgid "from_import_object"
+msgstr ""
+
+msgctxt "CWDataImport"
+msgid "from_import_object"
+msgstr ""
+
+msgid "nb_closed"
+msgstr "patches fermés"
+
+msgctxt "RepositoryStats"
+msgid "nb_closed"
+msgstr "patches fermés"
+
+msgid "nb_in_progress"
+msgstr "patches en cours"
+
+msgctxt "RepositoryStats"
+msgid "nb_in_progress"
+msgstr "patches en cours"
+
+msgid "nb_other"
+msgstr "autres patches"
+
+msgctxt "RepositoryStats"
+msgid "nb_other"
+msgstr "autres patches"
+
+msgid "nb_rejected"
+msgstr "patches rejetés"
+
+msgctxt "RepositoryStats"
+msgid "nb_rejected"
+msgstr "patches rejetés"
+
+msgid "nb_validating"
+msgstr "patches en validation"
+
+msgctxt "RepositoryStats"
+msgid "nb_validating"
+msgstr "patches en validation"
+
+msgid "number of patches in the \"applied\" state"
+msgstr "nombre de patches dans l'état 'appliqué'"
+
+msgid "number of patches in the \"folded\" or \"outdated\" state"
+msgstr "nombre de patches dans l'état 'fusionné' ou 'obsolète'"
+
+msgid "number of patches in the \"in-progress\" state"
+msgstr "nombre de patches dans l'état 'en cours'"
+
+msgid "number of patches in the \"pending-review\" or \"reviewed\" state"
+msgstr "nombre de patches dans l'état 'attente de revue' ou 'revue'"
+
+msgid "number of patches in the \"rejected\" or \"deprecated\" state"
+msgstr "nombre de patches dans l'état 'rejeté' ou 'déprécié'"
+
+msgctxt "RepositoryStats"
+msgid "url"
+msgstr ""

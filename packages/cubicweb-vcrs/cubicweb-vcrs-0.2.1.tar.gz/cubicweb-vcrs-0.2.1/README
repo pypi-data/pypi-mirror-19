@@ -1,0 +1,8 @@
+Summary
+-------
+
+vcreview statistics
+
+This cube is designed to build a separate cubicweb instance that will regularly fetch some stats from several instances using vcreview as code review system.
+
+It will then provide a dashboard describing volume of work in the queue currently and in the past.

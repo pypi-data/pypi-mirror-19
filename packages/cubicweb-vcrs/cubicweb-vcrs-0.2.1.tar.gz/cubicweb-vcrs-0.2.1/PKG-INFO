@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: cubicweb-vcrs
+Version: 0.2.1
+Summary: vcreview statistics
+Home-page: http://www.cubicweb.org/project/cubicweb-vcrs
+Author: LOGILAB S.A. (Paris, FRANCE)
+Author-email: contact@logilab.fr
+License: LGPL
+Description: Summary
+        -------
+        
+        vcreview statistics
+        
+        This cube is designed to build a separate cubicweb instance that will regularly fetch some stats from several instances using vcreview as code review system.
+        
+        It will then provide a dashboard describing volume of work in the queue currently and in the past.
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: CubicWeb
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: JavaScript

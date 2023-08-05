@@ -1,0 +1,16 @@
+MANIFEST.in
+README
+__init__.py
+__pkginfo__.py
+schema.py
+setup.py
+sobjects.py
+views.py
+cubicweb_vcrs.egg-info/PKG-INFO
+cubicweb_vcrs.egg-info/SOURCES.txt
+cubicweb_vcrs.egg-info/dependency_links.txt
+cubicweb_vcrs.egg-info/not-zip-safe
+cubicweb_vcrs.egg-info/requires.txt
+cubicweb_vcrs.egg-info/top_level.txt
+i18n/fr.po
+migration/0.2.0_Any.py
