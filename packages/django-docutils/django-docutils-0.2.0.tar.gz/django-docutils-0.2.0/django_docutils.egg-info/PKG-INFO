@@ -1,0 +1,72 @@
+Metadata-Version: 1.1
+Name: django-docutils
+Version: 0.2.0
+Summary: Documentation Utilities (Docutils, reStructuredText) for django.
+Home-page: https://github.com/tony/django-docutils
+Author: Tony Narlock
+Author-email: tony@git-pull.com
+License: BSD
+Description: =============================
+        django-docutils
+        =============================
+        
+        .. image:: https://badge.fury.io/py/django-docutils.png
+            :target: https://badge.fury.io/py/django-docutils
+        
+        .. image:: https://travis-ci.org/tony/django-docutils.png?branch=master
+            :target: https://travis-ci.org/tony/django-docutils
+        
+        .. image:: https://coveralls.io/repos/tony/django-docutils/badge.png?branch=master
+            :target: https://coveralls.io/r/tony/django-docutils?branch=master
+        
+        Docutils (reStructuredText) support for Django
+        
+        Documentation
+        -------------
+        
+        The full documentation is at https://django-docutils.readthedocs.org.
+        
+        Quickstart
+        ----------
+        
+        Install django-docutils::
+        
+            pip install django-docutils
+        
+        Then use it in a project::
+        
+            import django-docutils
+        
+        Features
+        --------
+        
+        * TODO
+        
+        
+        
+        
+        History
+        -------
+        
+        0.2.0 (2017-01-01)
+        """"""""""""""""""
+        
+        - Support for Django 1.10.0
+        
+        0.1.0 (2015-06-20)
+        """"""""""""""""""
+        
+        - First release on PyPI.
+        
+Keywords: django,docutils,documentation utilities,reST,reStructuredText,rst
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
