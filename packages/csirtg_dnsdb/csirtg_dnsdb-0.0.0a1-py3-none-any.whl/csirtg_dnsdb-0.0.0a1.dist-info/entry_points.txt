@@ -1,0 +1,3 @@
+[console_scripts]
+dnsdb = csirtg_dnsdb.client:main
+
