@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: DustyShock
+Version: 1.0.0
+Summary: Two-fluid dusty gas shocks.
+Home-page: UNKNOWN
+Author: Andrew Lehmann
+Author-email: andrew.lehmann.35@gmail.com
+License: Apache
+Description: Two-fluid dusty gas shocks as benchmarking problems for numerical codes that simulate dusty gas. The two shock solutions are C-type and J-type shocks, as discussed in the soon to be submitted paper by Lehmann and Wardle.
+Keywords: Dust shocks ISM
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Scientific/Engineering :: Astronomy
