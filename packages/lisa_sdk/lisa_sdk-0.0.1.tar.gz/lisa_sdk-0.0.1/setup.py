@@ -1,0 +1,12 @@
+from distutils.core import setup
+setup(
+  name = 'lisa_sdk',
+  packages = ['lisa_sdk'],
+  version = '0.0.1',
+  description = ('Software Development Kit of the LISA project (Lightweight Improvable Software Assistant)'),
+  author = 'Xavier Saliniere',
+  author_email = 'xavier.saliniere@openmailbox.org',
+  url = 'https://bitbucket.org/lisadevteam/lisa-sdk',
+  keywords = ['sdk', 'lisa'],
+  License = 'MIT License'
+)
