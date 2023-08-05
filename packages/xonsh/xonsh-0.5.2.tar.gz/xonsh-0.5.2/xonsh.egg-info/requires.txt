@@ -1,0 +1,16 @@
+
+[linux]
+distro
+
+[mac]
+gnureadline
+
+[proctitle]
+setproctitle
+
+[ptk]
+prompt-toolkit
+pygments
+
+[win]
+win_unicode_console
