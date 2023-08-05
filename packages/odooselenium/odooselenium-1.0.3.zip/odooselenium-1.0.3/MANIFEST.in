@@ -1,0 +1,9 @@
+recursive-include odooselenium *
+include AUTHORS
+include CHANGELOG
+include CONTRIBUTING.rst
+include gpl-2.0.txt
+include INSTALL
+include LICENSE
+include README.rst
+include VERSION
