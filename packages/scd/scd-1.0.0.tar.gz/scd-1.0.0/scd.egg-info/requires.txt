@@ -1,0 +1,17 @@
+six>=1.10
+packaging>=16,<17
+semver>=2,<3
+jsonschema>=2.5,<2.6
+jinja2>=2.6,<3
+
+[colors]
+colorama>=0.3,<0.4
+
+[simplejson]
+simplejson
+
+[toml]
+toml ~= 0.9.2
+
+[yaml]
+PyYAML ~= 3.10
