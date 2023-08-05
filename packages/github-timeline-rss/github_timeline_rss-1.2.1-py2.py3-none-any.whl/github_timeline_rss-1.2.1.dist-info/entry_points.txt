@@ -1,0 +1,3 @@
+[console_scripts]
+github_timeline_rss = github_timeline_rss.cli:main
+
