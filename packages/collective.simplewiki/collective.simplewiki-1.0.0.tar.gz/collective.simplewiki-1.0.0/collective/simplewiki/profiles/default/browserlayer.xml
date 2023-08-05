@@ -1,0 +1,6 @@
+<layers>
+  <layer
+    name="collective.simplewiki"
+    interface="collective.simplewiki.interfaces.ISimpleWikiLayer"
+    />
+</layers>

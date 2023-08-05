@@ -1,0 +1,29 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   xmlns:five="http://namespaces.zope.org/five"
+   xmlns:browser="http://namespaces.zope.org/browser"
+   xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+   i18n_domain="collective.simplewiki">
+
+  <five:registerPackage package="." initialize=".initialize" />
+
+  <genericsetup:registerProfile
+    name="default"
+    title="Simple Wiki"
+    directory="profiles/default"
+    description="Simple wiki link syntax"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <adapter
+    provides="plone.outputfilters.interfaces.IFilter"
+    name="simple_wiki_transform"
+    for="* .interfaces.ISimpleWikiLayer"
+    factory=".filter.WikiFilter"
+    />
+  <adapter
+    name="collective.simplewiki.wikilinks"
+    factory=".transform.WikiTransform"
+    />
+
+</configure>

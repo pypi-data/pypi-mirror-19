@@ -1,0 +1,7 @@
+include *.rst LICENSE.GPL LICENSE.txt
+include *.py
+include .coveragerc
+include buildout.cfg
+recursive-include collective *
+recursive-include docs *
+global-exclude *.pyc
