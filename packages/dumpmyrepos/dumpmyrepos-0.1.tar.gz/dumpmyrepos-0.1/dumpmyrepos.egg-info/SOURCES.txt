@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+dumpmyrepos/__init__.py
+dumpmyrepos/cli.py
+dumpmyrepos/command.py
+dumpmyrepos/config.py
+dumpmyrepos/services/__init__.py
+dumpmyrepos/services/bitbucket.py
+dumpmyrepos/services/factory.py
+dumpmyrepos/services/git.py
+dumpmyrepos/services/github.py
+dumpmyrepos/services/gitlab.py
