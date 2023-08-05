@@ -1,0 +1,12 @@
+Metadata-Version: 1.0
+Name: ninjag
+Version: 0.0.1
+Summary: Ninja config file generator
+Home-page: https://github.com/yuhangwang/ninjag-python
+Author: Steven(Yuhang) Wang
+Author-email: UNKNOWN
+License: MIT
+Description: # ninjag-python
+        A python package for generating Ninja build configuration files based on user input YAML files
+        
+Platform: UNKNOWN
