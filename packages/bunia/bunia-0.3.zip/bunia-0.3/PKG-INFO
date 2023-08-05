@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: bunia
+Version: 0.3
+Summary: Write commands that use multiple interfaes
+Home-page: https://github.com/smok-serwis/bunia
+Author: Piotr Maślanka
+Author-email: piotrm@smok.co
+License: MIT License
+Download-URL: https://github.com/smok-serwis/bunia/archive/master.zip
+Description: This is an interface for writing commands that can use multiple interfaces, ie. you can launch
+        it from shell, Web, SMS, etc.
+        
+        A device-independent output and input is presented.
+Keywords: arguments,argparse,html,console
+Platform: UNKNOWN
