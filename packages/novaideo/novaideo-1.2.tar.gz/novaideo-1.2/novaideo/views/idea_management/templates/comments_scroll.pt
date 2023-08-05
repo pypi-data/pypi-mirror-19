@@ -1,0 +1,10 @@
+<div tal:omit-tag="" tal:define=" item subitem|nothing" i18n:domain="novaideo">
+  <div tal:omit-tag="" tal:condition="item">
+    <div tal:replace="structure item.get('channel_navbar_body', '')"/>
+    <div class=" comments-scroll">
+       <div tal:replace="structure item['body']" />
+    </div>
+  </div>
+</div>
+
+

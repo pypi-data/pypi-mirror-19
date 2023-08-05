@@ -1,0 +1,26 @@
+<tal:def tal:define="title title|field.title;
+                     description description|field.description;
+                     errormsg errormsg|field.errormsg;
+                     item_template item_template|field.widget.item_template"
+         i18n:domain="novaideo">
+  
+  <div title="${description}">
+    <div class="amendment-body">
+      <div tal:condition="errormsg" 
+           class="clearfix alert alert-message error">
+        <p i18n:translate="">
+           There was a problem with this section. Please check the infomation provided.
+        </p>
+        <p>${errormsg}</p>
+      </div>
+
+      <div tal:condition="description">
+        ${description}
+      </div>
+      <div tal:omit-tag="" tal:define="object_description field.get_root().schema.view.get_description(field, cstruct)">
+                ${structure:object_description}
+      </div>
+    </div>
+  </div>
+
+</tal:def>

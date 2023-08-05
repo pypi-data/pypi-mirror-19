@@ -1,0 +1,6 @@
+<div i18n:domain="novaideo">
+  <div i18n:translate="" class="alert alert-danger">
+      Are you sure you want to remove this comment? This cannot be undone.
+  </div>
+  <div tal:replace="structure comment_body"/>
+</div>

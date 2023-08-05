@@ -1,0 +1,23 @@
+version: '2'
+services:
+  novaideo:
+#    external_links:
+#      - postfix:mail
+#    networks:
+#      - default
+#      - mybridge
+    environment:
+      - WORKERS=1
+      - SECRET=mybigsecret
+      - APPLICATION_URL=https://mynovaideo.example.com
+      - MAIL_DEFAULT_SENDER=noreply@example.com
+      - MAILER_HOST=smtp.gmail.com
+      - MAILER_PORT=587
+      - MAILER_USERNAME=yourmail@gmail.com
+      - MAILER_PASSWORD="yourgmailpassword"
+      - MAILER_TLS=true
+      - MAILER_SSL=false
+
+#networks:
+#  mybridge:
+#    external: true

@@ -1,0 +1,27 @@
+<div id="popover-${oid}" class="comme-popover popover right popover-amendment view-item"
+	  role="tooltip"
+	  tal:define="url request.resource_url(object, '@@index');
+                 icon getattr(object, 'icon');">
+	<div style="top: 50%;" class="arrow">
+	</div>
+    <a class="popover-title-link" href="${request.resource_url(object, '@@index')}">
+      <h4 class="popover-title view-item-title"
+       data-title="${object.title}"
+        data-icon="${icon}"
+        data-img=""
+        >
+        <span class="icon ${icon}"></span> ${object.title}
+      </h4>
+    <a/>
+    <div class="popover-content">
+      <div>${object.presentation_text(100)}</div>
+      <div class="popover-footer">
+        <div class="listing-access-menu pull-right">
+            <div tal:replace="structure access_body"/>
+        </div>
+	      <div class="actions-block">
+	        <div tal:replace="structure footer_body"/>
+	      </div>
+      </div>
+    </div>
+</div>

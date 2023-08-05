@@ -1,0 +1,47 @@
+
+  <div i18n:domain="novaideo"
+    class="channel-action view-item ${channel_nb>0 and 'unread-comments'}"
+    tal:define="item action_call;
+               title object.get_title(current_user);
+               subject object.get_subject(current_user);
+               picture getattr(subject, 'picture', None);
+               profil_picture getattr(picture, 'profil', None);
+               subjectclassname subject.__class__.__name__.lower(); 
+               is_discuss object.is_discuss();
+               icon getattr(item['action'],'style_picto','');
+               interaction_type getattr(item['action'],'style_interaction_type','modal');
+               interaction_args getattr(item['action'],'style_interaction_args','');
+               channel_nb item['action'].get_nb(item['context'], request);
+               default_img request.static_url('novaideo:static/images/user.png')">
+       <a id="${item['action_id']}-btn" 
+            class="toggle-popover channel-action ajax-action dace-action-${interaction_type} media-${subjectclassname}"
+            data-oid="${getattr(subject, '__oid__', '')}"
+            data-toggle="${interaction_type}"
+            data-target="#action-${interaction_type}-container"
+            data-actionid ="${item['action_id']}" 
+            data-updateurl="${item['actionurl_update']}"
+            data-after_exe_url="${item['actionurl_after']}"
+            data-toreplay="${'toreplay' in item}"
+            data-title="${title}"
+            data-interaction_args="${interaction_args}"
+            data-view_title="${item['view_title']}"
+            data-body="${item['body']}"
+            data-icon="${icon}"
+            data-component_style="${getattr(item['action'], 'style_interaction_container', '')}" >
+          <div class="view-item-title channel-item-title"
+             data-title="${title}"
+             data-icon="${getattr(subject, 'icon', '')}"
+             data-img="${getattr(profil_picture, 'url', default_img) if is_discuss else ''}"
+            >
+             <span tal:condition="not is_discuss" class="channel-icon" >#</span>
+             <span tal:condition="not is_discuss" class="${getattr(subject, 'icon', '')}" ></span>
+             <div tal:omit-tag="" tal:condition="is_discuss">
+               <img class="author-img img-circle" tal:condition="profil_picture is None" src="${request.static_url('novaideo:static/images/user100.png')}" width="25"/>
+               <img class="author-img img-circle" tal:condition="profil_picture is not None"
+                tal:attributes="src profil_picture.url"  width="25"/>
+             </div>
+             <span>${title}</span>
+          </div>
+      </a>
+     <span tal:condition="channel_nb" class="unread-comments-len pull-right">${channel_nb}</span>
+  </div>

@@ -1,0 +1,11 @@
+<div tal:condition="vote_actions" 
+     id="${group_id}"
+     class="vote-actions-container"
+     data-body="${json.dumps(''.join([a['body'] for a in vote_actions]))}"
+     data-title="${title}">
+    <script tal:condition="activate">
+      $(document).ready(function(){
+        show_votes_modal("${group_id}")
+      })
+    </script>
+</div>

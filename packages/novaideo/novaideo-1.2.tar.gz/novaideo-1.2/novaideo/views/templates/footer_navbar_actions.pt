@@ -1,0 +1,37 @@
+<ul tal:define="footer_action footer_action|nothing" class="list-inline" style="z-index: 1300">
+  <tal:loop repeat="a footer_action">
+    <li>
+      <a tal:condition="a not in ajax_actions" tal:attributes="href a.url(obj)" class="${getattr(a, 'node_id', '')}-btn btn btn-sm"><span class="${getattr(a,'style_picto','')}" ></span> ${a.title}</a>
+        <div tal:omit-tag="" 
+           tal:condition="a in ajax_actions"
+           tal:define="item ajax_actions.get(a, None);
+                       icon getattr(a,'style_picto','');
+                       interaction_type getattr(a,'style_interaction_type','modal');
+                       interaction_args getattr(a,'style_interaction_args','');
+                       ">
+           <a id="${item['action_id']}-btn" 
+                class="${getattr(a, 'node_id', '')}-btn ajax-action dace-action-${interaction_type}"
+                data-toggle="${interaction_type}"
+                data-target="#action-${interaction_type}-container"
+                data-actionid ="${item['action_id']}" 
+                data-updateurl="${item['actionurl_update']}"
+                data-after_exe_url="${item['actionurl_after']}"
+                data-toreplay="${'toreplay' in item}"
+                data-title="${item['action'].title}"
+                data-interaction_args="${interaction_args}"
+                data-view_title="${item['view_title']}"
+                data-body="${item['body']}"
+                data-icon="${icon}"
+                data-component_style="${getattr(item['action'], 'style_interaction_container', '')}" 
+                title="${item['action'].title}" >
+               <span class="${icon}" ></span> ${item['action'].title}
+             </a>
+             <script tal:condition="'toreplay' in item">       
+                  $(document).ready(function(){
+                       $(${'\'#'+item['action_id']+'-btn\''}).click();
+                  });
+             </script>  
+          </div>
+       </li>
+  </tal:loop>
+</ul>

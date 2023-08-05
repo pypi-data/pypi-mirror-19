@@ -1,0 +1,13 @@
+
+<div class="contextual-help-item principal-help" i18n:domain="novaideo">
+    <p i18n:translate="" tal:condition="context.originalentity">The original idea has been duplicated. The copy is now available for you to work further on it.</p>
+
+    <p i18n:translate="">You are the only person able to see your idea being worked upon.</p>
+
+    <p i18n:translate="">If you wish to make it public, you must publish it.</p>
+
+    <p i18n:translate="">You can also modify your idea, archive it or add it to your favourites.</p>
+
+    <p i18n:translate="">If you wish to modify it while still keeping this version, you can dupliate it.</p>
+</div>
+

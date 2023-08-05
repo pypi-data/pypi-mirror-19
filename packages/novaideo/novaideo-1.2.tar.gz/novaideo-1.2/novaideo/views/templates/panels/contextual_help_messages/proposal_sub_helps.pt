@@ -1,0 +1,31 @@
+<tal:block  i18n:domain="novaideo">
+	<div class="contextual-help-item amendments-help hide-bloc">
+	  <p i18n:translate="">You will find under "See the amended versions" all the amended versions that you are currently preparing or that you have submitted to the other participants.</p>
+
+	  <p i18n:translate="">In order to access one of the amended versions, you just need to click on it.</p>
+	</div>
+	<div class="contextual-help-item related-ideas-help hide-bloc">
+	  <p i18n:translate="">You will find under "See the related ideas" all the ideas that you may have used at some stage for the proposal.</p>
+
+	  <p i18n:translate="">To access any one of the ideas, you just need to click on it.</p>
+	</div>
+	<div class="contextual-help-item present-help hide-bloc">
+	  <p i18n:translate="">Any member may transmit a published proposal to any other member of the platform. S/he may also transmit it to any external person by providing the person's e-mail address. This person will have access to the platform, but will be unable to connect "to it as long as s/he is not a member.</p>
+	</div>
+	<div class="contextual-help-item compare-help hide-bloc">
+	  <p i18n:translate="">You can compare the current version of the proposal with its earlier versions.</p>
+	  <p i18n:translate="">The text segments written in green and in red are the text segments added and removed respectively in the current version of the proposal.</p>
+	</div>
+	<div class="contextual-help-item  comment-help hide-bloc">
+	    <p i18n:translate="">Any published proposal can be discussed among all members of the platform.</p>
+		<p i18n:translate="">To start a discussion thread, you only need to specify your intention and the message that you wish to transmit to others.</p>
+		<p i18n:translate="">Any member can answer to you, and you can answer to any message in a discussion thread.</p>
+		<p i18n:translate="">You can also add to your message any element that is present in the platfom. By clicking on « Associations », you will find all the discussion threads with elements associated to this one.</p>
+	</div>
+</tal:block>
+
+
+
+
+
+

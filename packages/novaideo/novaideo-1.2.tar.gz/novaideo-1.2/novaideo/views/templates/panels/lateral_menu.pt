@@ -1,0 +1,3 @@
+<div tal:condition="menu_body">
+   <div tal:replace="structure menu_body"/>
+</div><!-- /.container-fluid -->

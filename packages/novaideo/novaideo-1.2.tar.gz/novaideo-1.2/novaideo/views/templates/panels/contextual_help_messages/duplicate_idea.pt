@@ -1,0 +1,14 @@
+<div  class="contextual-help-item principal-help"  i18n:domain="novaideo">
+    <p i18n:translate="">
+		You have decided to duplicate the idea.
+    </p>
+	<p i18n:translate="">
+		As soon as an idea is duplicated, the copy can be freely modified.
+    </p>
+	<p i18n:translate="" tal:condition="not request.moderate_ideas">
+		In order to be published, the duplicated copy of an idea must be different from the original idea.
+    </p>
+    <p i18n:translate="" tal:condition="request.moderate_ideas">
+		In order to be moderated, the duplicated copy of an idea must be different from the original idea.
+    </p>
+</div>
