@@ -1,0 +1,60 @@
+Metadata-Version: 1.1
+Name: recursive_dict
+Version: 0.2.0
+Summary: A dict subclass that can lookup several layers deep.
+Home-page: https://github.com/ryananguiano/recursive_dict
+Author: Ryan Anguiano
+Author-email: ryan.anguiano@gmail.com
+License: ISCL
+Description: ===============================
+        recursive_dict
+        ===============================
+        
+        .. image:: https://img.shields.io/travis/ryananguiano/recursive_dict.svg
+                :target: https://travis-ci.org/ryananguiano/recursive_dict
+        
+        .. image:: https://img.shields.io/pypi/v/recursive_dict.svg
+                :target: https://pypi.python.org/pypi/recursive_dict
+        
+        
+        A dict subclass that can lookup several layers deep.
+        
+        * Free software: ISC license
+        * Documentation: https://recursive_dict.readthedocs.org.
+        
+        Features
+        --------
+        
+        * TODO
+        
+        
+        
+        
+        History
+        -------
+        
+        0.2.0 (2016-12-29)
+        ---------------------
+        
+        * Add __setitem__ method
+        * Create a base class
+        * Retain a link to original item
+        * Access original item attributes
+        
+        0.1.0 (2015-01-11)
+        ---------------------
+        
+        * First release on PyPI.
+        
+Keywords: recursive_dict
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
