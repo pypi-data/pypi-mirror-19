@@ -1,0 +1,4 @@
+[neutron.ml2.mechanism_drivers]
+fujitsu_cfab = networking_fujitsu.ml2.cfab.mechanism_fujitsu:FujitsuMechanism
+fujitsu_ism = networking_fujitsu.ml2.ism.mech_fujitsu_ism:FujitsuIsmDriver
+
