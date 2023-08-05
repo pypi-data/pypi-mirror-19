@@ -1,0 +1,2 @@
+recursive-include survivalstan/stan *
+include versioneer.py
