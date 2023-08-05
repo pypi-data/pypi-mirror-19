@@ -1,0 +1,99 @@
+Metadata-Version: 1.1
+Name: nicfit.py
+Version: 0.4.0
+Summary: Common Python utils (App, logging, config, etc.) [Python3.4]
+Home-page: https://github.com/nicfit/nicfit.py
+Author: Travis Shirk
+Author-email: travis@pobox.com
+License: MIT
+Download-URL: https://github.com/nicfit/nicfit.py/releases/nicfit.py-0.4.0.tar.gz
+Description: nicfit.Application
+        -------------------
+        
+        .. image:: https://badge.fury.io/py/nicfit.py.svg
+            :target: http://badge.fury.io/py/nicfit.py
+        
+        .. image:: https://travis-ci.org/nicfit/nicfit.py.png?branch=master
+                :target: https://travis-ci.org/nicfit/nicfit.py
+        
+        .. image:: https://img.shields.io/travis/nicfit/nicfit.py.svg
+                :target: https://travis-ci.org/nicfit/nicfit.py
+        
+        .. image:: https://img.shields.io/pypi/v/nicfit.py.svg
+                :target: https://pypi.python.org/pypi/nicfit.py
+        
+        
+        Common Python utils (App, logging, config, etc.)
+        
+        * Free software: MIT license
+        * Documentation: https://nicfit.py.readthedocs.org.
+        
+        Features
+        --
+        
+        .. code-block:: python
+        
+            from nicfit import Application
+            def main(args):
+                return 0
+             app = Application(main)
+             app.run()
+        
+        
+        What you get:
+        
+        - An ArgumentParser (app.arg_parser)
+        - Logger (app.log)
+        - Top-level exception handling (e.g. KeyboardInterrupt, uncaught exception
+          logging)
+        - Reliable sys.exit return codes.
+        
+        Maybe you don't what to ``sys.exit``.
+        
+        .. code-block:: python
+        
+            retval = app.main()
+        
+         What you lose:
+        
+         - sys.exit
+         - Top-level exception handling
+        
+        Invoke code right before ``sys.exit``.
+        
+        .. code-block:: python
+        
+            def f(): pass
+            app = Application(main, atexit=f)
+        
+        
+        
+        History
+        -------
+        
+        
+        
+        .. _release-0.2.0-beta4:
+        0.2.0-beta4 (2016-12-18)
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        **Added:**
+        *
+        
+        **Changed:**
+        *
+        
+        **Removed:**
+        *
+        
+        **Fixed:**
+        
+Keywords: nicfit.py
+Platform: Any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: POSIX
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4

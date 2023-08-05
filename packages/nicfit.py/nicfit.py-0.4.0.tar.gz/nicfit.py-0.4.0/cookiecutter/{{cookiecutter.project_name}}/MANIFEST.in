@@ -1,0 +1,14 @@
+include AUTHORS
+include CONTRIBUTING.rst
+include HISTORY.rst
+include LICENSE
+include README.rst
+include Makefile
+include tox.ini
+
+graft docs
+graft tests
+global-exclude __pycache__
+global-exclude *.py[co]
+
+recursive-include requirements *.txt
