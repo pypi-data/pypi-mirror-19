@@ -1,0 +1,60 @@
+Metadata-Version: 2.0
+Name: pytest-spark
+Version: 0.1.2
+Summary: pytest plugin to run the tests with support of pyspark.
+Home-page: https://github.com/malexer/pytest-spark
+Author: Alex (Oleksii) Markov
+Author-email: alex@markovs.me
+License: MIT
+Keywords: pytest spark pyspark unittest test
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Pytest
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Testing
+Requires-Dist: findspark
+Requires-Dist: pytest
+
+pytest-spark
+############
+
+pytest_ plugin to run the tests with support of pyspark (`Apache Spark`_).
+
+This plugin will allow to specify SPARK_HOME directory in ``pytest.ini``
+and make "pyspark" importable in you tests which are executed by pytest.
+
+
+Install
+=======
+
+.. code-block:: shell
+
+    $ pip install pytest-spark
+
+Usage
+=====
+
+To run test with required spark_home location just add "spark_home"
+value to ``pytest.ini`` in your project directory::
+
+    [pytest]
+    spark_home = /opt/spark
+
+pytest-spark will try to import pyspark from specified location.
+
+
+
+.. _pytest: http://pytest.org/
+.. _Apache Spark: https://spark.apache.org/
+
+
