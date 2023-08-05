@@ -1,0 +1,17 @@
+MANIFEST.in
+README
+setup.cfg
+setup.py
+versioneer.py
+ri_pdnssdk/__init__.py
+ri_pdnssdk/_version.py
+ri_pdnssdk/client.py
+ri_pdnssdk/exceptions.py
+ri_pdnssdk.egg-info/PKG-INFO
+ri_pdnssdk.egg-info/SOURCES.txt
+ri_pdnssdk.egg-info/dependency_links.txt
+ri_pdnssdk.egg-info/entry_points.txt
+ri_pdnssdk.egg-info/requires.txt
+ri_pdnssdk.egg-info/top_level.txt
+test/__init__.py
+test/test_client.py

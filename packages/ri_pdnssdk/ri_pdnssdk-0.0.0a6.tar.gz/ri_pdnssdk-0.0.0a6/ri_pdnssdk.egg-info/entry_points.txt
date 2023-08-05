@@ -1,0 +1,3 @@
+[console_scripts]
+pdns = ri_pdnssdk.client:main
+
