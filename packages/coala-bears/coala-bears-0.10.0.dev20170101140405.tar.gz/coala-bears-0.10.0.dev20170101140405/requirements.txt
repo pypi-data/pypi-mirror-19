@@ -1,0 +1,7 @@
+# Use >= for development versions so that source builds always work
+coala>=0.10.0.dev20161217232433
+# Dependencies inherited from coala
+# libclang-py3
+# coala_utils
+# dependency_management
+-r bear-requirements.txt
