@@ -1,0 +1,16 @@
+setup.py
+end2end/__init__.py
+end2end/main.py
+end2end/metric.py
+end2end/security.py
+end2end/server.py
+end2end/connectors/__init__.py
+end2end/connectors/factory.py
+end2end/connectors/nakadi.py
+end2end/connectors/registry.py
+nakadi_end2end.egg-info/PKG-INFO
+nakadi_end2end.egg-info/SOURCES.txt
+nakadi_end2end.egg-info/dependency_links.txt
+nakadi_end2end.egg-info/entry_points.txt
+nakadi_end2end.egg-info/requires.txt
+nakadi_end2end.egg-info/top_level.txt
