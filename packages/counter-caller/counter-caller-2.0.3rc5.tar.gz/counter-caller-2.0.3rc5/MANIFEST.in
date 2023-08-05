@@ -1,0 +1,14 @@
+recursive-include counter_caller/static *.js
+recursive-include counter_caller/static *.css
+recursive-include counter_caller/static *.mp3
+recursive-include counter_caller/templates *
+recursive-include counter_caller/bower_components *
+
+prune counter_caller/bower_components/font-awesome/scss
+prune counter_caller/bower_components/font-awesome/less
+prune counter_caller/bower_components/socket.io-client/test
+prune counter_caller/bower_components/mousetrap/tests
+prune counter_caller/bower_components/machina/spec
+prune counter_caller/bower_components/machina/example
+prune counter_caller/bower_components/jquery/src
+prune counter_caller/bower_components/vue/src
