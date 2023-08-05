@@ -1,0 +1,5 @@
+cwltool==1.0.20161227200419
+schema-salad==2.1.20161227191302
+ruamel.yaml==0.13.7
+arvados-python-client>=0.1.20160826210445
+setuptools
