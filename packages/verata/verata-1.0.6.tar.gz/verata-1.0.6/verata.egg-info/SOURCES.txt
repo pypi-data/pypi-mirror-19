@@ -1,0 +1,17 @@
+MANIFEST.in
+requirements.txt
+setup.cfg
+setup.py
+grazer/__init__.py
+grazer/config.py
+grazer/run.py
+grazer/version.py
+grazer/core/__init__.py
+grazer/core/crawler.py
+grazer/readers/local/__init__.py
+verata.egg-info/PKG-INFO
+verata.egg-info/SOURCES.txt
+verata.egg-info/dependency_links.txt
+verata.egg-info/entry_points.txt
+verata.egg-info/requires.txt
+verata.egg-info/top_level.txt
