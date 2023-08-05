@@ -1,0 +1,3 @@
+[console_scripts]
+sherlock = sherlock:execute_from_command_line
+
