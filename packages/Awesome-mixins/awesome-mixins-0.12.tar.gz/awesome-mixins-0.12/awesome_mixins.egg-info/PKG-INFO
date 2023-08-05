@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: awesome-mixins
+Version: 0.12
+Summary: Set of the mixins for class based view on django.
+Home-page: https://github.com/MrLucasCardoso/awesome_mixins
+Author: Lucas Cardoso
+Author-email: mr.lucascardoso@gmail.com
+License: MIT
+Description: # awesome_mixins
+        Set of the mixins for class based view on django
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.10
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
