@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+Makefile
+README.md
+setup.py
+ntripbrowser/__init__.py
+ntripbrowser/ntripbrowser.py
+ntripbrowser/ntripparser.py
+ntripbrowser.egg-info/PKG-INFO
+ntripbrowser.egg-info/SOURCES.txt
+ntripbrowser.egg-info/dependency_links.txt
+ntripbrowser.egg-info/entry_points.txt
+ntripbrowser.egg-info/requires.txt
+ntripbrowser.egg-info/top_level.txt
