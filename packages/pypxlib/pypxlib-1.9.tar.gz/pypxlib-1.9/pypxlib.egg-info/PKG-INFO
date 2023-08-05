@@ -1,0 +1,31 @@
+Metadata-Version: 1.1
+Name: pypxlib
+Version: 1.9
+Summary: Python bindings for the pxlib library for reading and writing Paradox databases.
+Home-page: https://github.com/mherrmann/pypxlib
+Author: Michael Herrmann
+Author-email: [my first name]@[my last name].io
+License: GPLv2
+Description: Python bindings for the pxlib library for reading and writing Paradox databases.
+        
+        Home page: https://github.com/mherrmann/pypxlib
+Keywords: paradox database pxlib
+Platform: MacOS
+Platform: Windows
+Platform: Debian
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Database
+Classifier: Topic :: Software Development :: Libraries
