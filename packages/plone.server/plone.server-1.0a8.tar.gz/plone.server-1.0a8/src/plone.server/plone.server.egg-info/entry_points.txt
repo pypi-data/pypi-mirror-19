@@ -1,0 +1,4 @@
+[console_scripts]
+pscli = plone.server.cli:main
+pserver = plone.server.server:main
+
