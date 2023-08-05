@@ -1,0 +1,40 @@
+Metadata-Version: 1.1
+Name: nagios-audit
+Version: 1.0.6
+Summary: Nagios CLI utility for auditing purposes.
+Home-page: https://github.com/bingoarun/nagios-audit
+Author: Arun prasath
+Author-email: arunprasath33@gmail.com
+License: MIT
+Description: ============
+        nagios-audit
+        ============
+        
+        A Nagios tool for auditing purpose. This tool reads the nagios status file (status.dat) and provides a report of servers and services which needs to be taken care. It reports the servers and services which are not in OK state, notifications disabled, acknowledged and are in scheduled downtime.
+        
+        Installation
+        ============
+        ::
+        
+            pip install nagios-audit
+        
+        
+        Usage
+        =====
+        ::
+        
+            nagios-audit --input_file ~/Downloads/status.dat  --output_file ~/tmp/test.csv
+        
+Keywords: Monitoring auditing nagios
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: System :: Monitoring
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
