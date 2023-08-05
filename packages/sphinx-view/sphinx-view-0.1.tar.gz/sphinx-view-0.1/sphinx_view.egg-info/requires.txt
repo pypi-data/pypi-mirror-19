@@ -1,0 +1,10 @@
+Flask
+inflection
+sphinx
+livereload
+
+[dev]
+flake8
+pytest
+pytest-catchlog
+pytest-flask
