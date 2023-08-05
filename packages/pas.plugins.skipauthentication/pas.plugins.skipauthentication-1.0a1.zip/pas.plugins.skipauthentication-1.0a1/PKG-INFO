@@ -1,0 +1,79 @@
+Metadata-Version: 1.1
+Name: pas.plugins.skipauthentication
+Version: 1.0a1
+Summary: PAS Plugin to allow authentication for any user for development purpose
+Home-page: https://pypi.python.org/pypi/pas.plugins.skipauthentication
+Author: Martin Peeters
+Author-email: martin.peeters@affinitic.be
+License: GPL version 2
+Description: .. This README is meant for consumption by humans and pypi. Pypi can render rst files so please do not use Sphinx features.
+           If you want to learn more about writing documentation, please check out: http://docs.plone.org/about/documentation_styleguide.html
+           This text does not appear on pypi or github. It is a comment.
+        
+        ==============================================================================
+        pas.plugins.skipauthentication
+        ==============================================================================
+        
+        This plugin allow authentication for any user with a master password (for developement only)
+        
+        
+        Installation
+        ------------
+        
+        Install pas.plugins.skipauthentication by adding it to your buildout::
+        
+            [buildout]
+        
+            ...
+        
+            eggs =
+                pas.plugins.skipauthentication
+        
+        
+        and then running ``bin/buildout``
+        
+        
+        Contribute
+        ----------
+        
+        - Issue Tracker: https://github.com/collective/pas.plugins.skipauthentication/issues
+        - Source Code: https://github.com/collective/pas.plugins.skipauthentication
+        
+        
+        Support
+        -------
+        
+        If you are having issues, please let us know.
+        
+        
+        License
+        -------
+        
+        The project is licensed under the GPLv2.
+        
+        
+        Contributors
+        ============
+        
+        - Martin Peeters [Affinitic]
+        
+        
+        Changelog
+        =========
+        
+        
+        1.0a1 (2016-12-28)
+        ------------------
+        
+        - Initial release
+          [mpeeters]
+        
+Keywords: Python Plone
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Plone
+Classifier: Framework :: Plone :: 5.0
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
