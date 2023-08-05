@@ -1,0 +1,27 @@
+Metadata-Version: 1.1
+Name: magritte
+Version: 0.2.0
+Summary: Optimize image files and comic archives with external tools
+Home-page: https://github.com/ajslater/magritte/
+Author: AJ Slater
+Author-email: aj@slater.net
+License: GPLv2
+Description: Magritte
+        ========
+        
+        Export albums from Apple Photos to a hierarchical filesystem
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Natural Language :: English
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Multimedia :: Graphics :: Graphics Conversion
+Classifier: Topic :: System :: Archiving :: Backup
+Classifier: Topic :: System :: Archiving :: Mirroring
+Classifier: Topic :: Utilities
