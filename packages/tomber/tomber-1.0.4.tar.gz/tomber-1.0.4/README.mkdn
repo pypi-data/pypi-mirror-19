@@ -1,0 +1,82 @@
+Tomber
+=========
+
+
+Description
+-----------
+
+Tomber is a python wrapper for [Tomb](https://github.com/dyne/Tomb).
+It relies on Python's subprocess module for Tomb command
+execution. This project was inspired by pytomb which was included in
+Tomb ./extras in the past but is no longer maintained.
+
+The included test.jpg image file is used to test the `tbury()` and
+`texhume()` functions.
+
+To speedup forge, an entropy generator such as
+[haveged](http://www.issihosts.com/haveged/) can be installed.
+
+
+Compatibity
+----------
+
+Current version requieres at least Tomb v2.2 to run.
+If for any reason you need to use older Tomb version with tomber, please
+install tomber v1.0.2
+
+
+Installation
+----------
+
+First, Tomb must be installed. Please refer to the
+[Tomb documentation](https://github.com/dyne/Tomb/blob/master/INSTALL.md)
+to get Tomb installed on your system.
+
+Second, tomber must be installed. Tomber can be installed from
+[PyPi](https://pypi.python.org/pypi) using
+[pip](https://pypi.python.org/pypi/pip). Enter the following command
+into terminal:
+
+	pip install tomber
+
+Alternatively you can clone this public repository by entering the following
+command into terminal.
+
+	git clone https://github.com/reiven/tomber
+
+
+Example usage
+-------------
+```python
+from tomber import *
+
+# dig a tomb of 20mb
+tdig('test.tomb',20)
+
+# forge a key
+tforge('test.key', 'this is the passphrase for the key')
+
+# lock the tomb
+tlock('test.tomb', 'test.key', 'this is the passphrase for the key')
+
+# open the tomb
+topen('test.tomb', 'test.key', 'this is the passphrase for the key', '/tmp/tomb')
+
+# close the tomb
+tclose('test')
+```
+
+Running tests
+-------------
+
+Keep in mind that the included *test.py* file execute the
+`Tomb.slam()` command which will likely close any tombs, encrypted
+volumes, you may have open.
+
+
+License
+-------
+
+This package is distributed under BSD License.
+See [LICENSE](https://github.com/reiven/pynientos/blob/master/LICENSE)
+
