@@ -1,0 +1,23 @@
+Metadata-Version: 2.0
+Name: c3-reference
+Version: 1.4.3
+Summary: Reference implementations for C3 Wireless security beacons
+Home-page: https://github.com/C3Wireless/c3-reference
+Author: C3 Wireless
+Author-email: support@c3wireless.com
+License: MIT
+Keywords: c3 c3wireless btle beacon ibeacon cmac aead eax
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: pycryptodome (==3.4.3)
+Provides-Extra: test
+Requires-Dist: tox; extra == 'test'
+
+UNKNOWN
+
+
