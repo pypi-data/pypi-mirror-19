@@ -1,0 +1,1 @@
+/usr/bin/cc  -O2 -g -Wall -Wno-unused-value -Wno-unused-function -Wno-unused-but-set-variable -Wno-unused-result  -DH2O_ROOT="/usr/local" -DH2O_CONFIG_PATH="etc/h2o.conf" -pthread -D_GNU_SOURCE   CMakeFiles/examples-http1client.dir/examples/libh2o/http1client.c.o  -o examples-http1client -rdynamic libh2o.a -luv -lz -lpthread -ldl -lssl -lcrypto 
