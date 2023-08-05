@@ -1,0 +1,18 @@
+Metadata-Version: 2.0
+Name: abuse-finder
+Version: 0.1
+Summary: Look for abuse contacts for IP, domain names, email addresses and URLs.
+Home-page: https://github.com/certsocietegenerale/abuse_finder
+Author: CERT Société Générale
+Author-email: cert.sg@socgen.com
+License: GPLv3
+Platform: UNKNOWN
+Requires-Dist: dnspython
+Requires-Dist: ipaddress
+Requires-Dist: ipwhois
+Requires-Dist: pythonwhois
+Requires-Dist: tldextract
+
+UNKNOWN
+
+
