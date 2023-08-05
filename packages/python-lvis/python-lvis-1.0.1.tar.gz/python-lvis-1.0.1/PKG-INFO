@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: python-lvis
+Version: 1.0.1
+Summary: `python-lvis` provides python bindings for ELVIS.
+Home-page: https://thorgate.eu
+Author: Thorgate
+Author-email: info@thorgate.eu
+License: UNKNOWN
+Description: python-lvis
+        ===========
+        
+        [![pypi Status](https://badge.fury.io/py/python-lvis.png)](https://badge.fury.io/py/python-lvis)
+        [![Build Status](https://travis-ci.org/thorgate/python-lvis.svg?branch=master)](https://travis-ci.org/thorgate/python-lvis)
+        
+        https://www.veoseleht.ee
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
