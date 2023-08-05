@@ -1,0 +1,47 @@
+Metadata-Version: 1.1
+Name: draceditor
+Version: 1.0.0
+Summary: Django Markdown Editor build for Dracos Linux https://dracos-linux.org
+Home-page: https://github.com/agusmakmun/dracos-markdown-editor
+Author: Agus Makmun (Summon Agus)
+Author-email: agus@python.web.id
+License: GNUGPL-v3
+Download-URL: https://github.com/agusmakmun/djipsum/tarball/v1.0.0
+Description: draceditor
+        ------------
+        
+        .. image:: https://img.shields.io/pypi/v/draceditor.svg?style=flat-square
+           :target: https://pypi.python.org/pypi/draceditor
+        
+        .. image:: https://img.shields.io/badge/license-GNUGPLv3-blue.svg?style=flat-square
+           :target: https://raw.githubusercontent.com/agusmakmun/draceditor/master/LICENSE
+        
+        .. image:: https://img.shields.io/pypi/pyversions/draceditor.svg?style=flat-square
+           :target: https://pypi.python.org/pypi/draceditor
+        
+        .. image:: https://img.shields.io/badge/Django-1.8,%201.9,%201.10-green.svg?style=flat-square
+          :target: https://www.djangoproject.com
+        
+        .. image:: https://img.shields.io/pypi/dm/draceditor.svg?style=flat-square
+           :target: https://pypi.python.org/pypi/draceditor
+        
+        
+           Django Markdown Editor build for Dracos Linux https://dracos-linux.org *(Under Development Mode)*
+        
+Keywords: draceditor,django markdown,django markdown editor
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.8
+Classifier: Framework :: Django :: 1.9
+Classifier: Framework :: Django :: 1.10
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: JavaScript
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
