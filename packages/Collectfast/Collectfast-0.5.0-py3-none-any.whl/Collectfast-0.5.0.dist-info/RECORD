@@ -1,0 +1,17 @@
+Collectfast-0.5.0.dist-info/DESCRIPTION.rst,sha256=1-1BF8--9p7jw6Z6uJQkZe2bMS9El6962cxuk3YWrCU,5580
+Collectfast-0.5.0.dist-info/METADATA,sha256=FucJI_Bk6rGkmHRbCycNBgJt_G8jRItMfiRksg2RcM4,6287
+Collectfast-0.5.0.dist-info/RECORD,,
+Collectfast-0.5.0.dist-info/WHEEL,sha256=rNo05PbNqwnXiIHFsYm0m22u4Zm6YJtugFG2THx4w3g,92
+Collectfast-0.5.0.dist-info/metadata.json,sha256=djvu9wwNJ--rnO3e7jB_oEq6wsD8Gn23vWOvsI3dggM,853
+Collectfast-0.5.0.dist-info/top_level.txt,sha256=9x27ZTxDOhAq-s2xdmO0r6T8yw7mHKS2GY3WwlqECjg,12
+collectfast/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+collectfast/etag.py,sha256=oASdZoJ9CtmD3FUmpBSkT5AIdd4MIwMt_3cnt5W6MNo,2626
+collectfast/models.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+collectfast/settings.py,sha256=ITBAwShIAtOETlHeI02ETkAdmXdLmFqOzrpCFi0AGe4,481
+collectfast/management/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+collectfast/management/commands/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+collectfast/management/commands/collectstatic.py,sha256=H99rQk7kGB7oyavwBFD1vXWwgehJ_MbqN6lGYkfdSCI,4568
+collectfast/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+collectfast/tests/test_command.py,sha256=FXJGaoVSB-zgXNTPcFOOJ4JXvzK3WCMK_ZsLOX5wy3U,2221
+collectfast/tests/test_etag.py,sha256=KdAuhtXf1liCfbl76pcWdyLSZy-nC0MxzHOjNTpqWnU,2935
+collectfast/tests/utils.py,sha256=7BhwVWFecLxbwOKoGS-eWt8yrQaoQnZctqVEAqkIHDw,797
