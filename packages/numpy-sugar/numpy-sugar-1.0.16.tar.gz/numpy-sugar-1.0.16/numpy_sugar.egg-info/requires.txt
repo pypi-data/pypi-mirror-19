@@ -1,0 +1,7 @@
+ncephes
+scipy
+numpy
+cffi
+
+[numba]
+numba>=0.28
