@@ -1,0 +1,25 @@
+Metadata-Version: 1.1
+Name: kpop
+Version: 0.1.0
+Summary: Python bindings to the Structure program.
+Home-page: https://github.com/fabiommendes/kpop/
+Author: Fábio Macêdo Mendes
+Author-email: fabiomacedomendes@gmail.com
+License: UNKNOWN
+Description: K-Pop detects population structure from SNP data. It has an interface to run
+        the popular Structure and ADMIX programs from Python and also implements a novel
+        k-means based approach for clustering of genetic data.
+        
+        These are Python binding to the Structure (http://pritch.bsd.uchicago.edu/structure.html)
+        program.
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Software Development :: Libraries
