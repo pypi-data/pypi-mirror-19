@@ -1,0 +1,14 @@
+setup.py
+bin/regx
+regx/__init__.py
+regx/__main__.py
+regx.egg-info/PKG-INFO
+regx.egg-info/SOURCES.txt
+regx.egg-info/dependency_links.txt
+regx.egg-info/not-zip-safe
+regx.egg-info/requires.txt
+regx.egg-info/top_level.txt
+regx/engine/__init__.py
+test/__init__.py
+test/engine/__init__.py
+test/engine/test_pattern.py
