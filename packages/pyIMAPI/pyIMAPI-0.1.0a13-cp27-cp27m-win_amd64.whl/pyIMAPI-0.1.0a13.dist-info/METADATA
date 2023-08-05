@@ -1,0 +1,35 @@
+Metadata-Version: 2.0
+Name: pyIMAPI
+Version: 0.1.0a13
+Summary: A python module to provide a tarfile like object for creating ISO 9660 files using a Windows IMAPI2 FileSystem COM object (I feel happy!)
+Home-page: http://bitbucket.org/ken_long/pyIMAPI2FS/
+Author: Kenneth Long
+Author-email: kennethlong@acm.org
+License: MIT License
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: C
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Multimedia
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: System :: Archiving
+Classifier: Topic :: System :: Archiving :: Backup
+Classifier: Topic :: System :: Filesystems
+Classifier: Topic :: System :: Software Distribution
+Classifier: Topic :: Utilities
+Classifier: Development Status :: 3 - Alpha
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: Microsoft :: Windows :: Windows 7
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: Environment :: Console
+
+UNKNOWN
+
+
