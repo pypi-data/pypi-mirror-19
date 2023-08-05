@@ -1,0 +1,14 @@
+MANIFEST.in
+README.rst
+requirements.txt
+requirements_test.txt
+setup.cfg
+setup.py
+pyrecursive/__init__.py
+pyrecursive.egg-info/PKG-INFO
+pyrecursive.egg-info/SOURCES.txt
+pyrecursive.egg-info/dependency_links.txt
+pyrecursive.egg-info/requires.txt
+pyrecursive.egg-info/top_level.txt
+tests/__init__.py
+tests/test_pyrecursive.py
