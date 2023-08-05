@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: reclass
+Version: 1.4.1
+Summary: merge data by recursive descent down an ancestry hierarchy
+Home-page: https://github.com/madduck/reclass
+Author: Jason Ritzke (@Rtzq0)
+Author-email: jasonritzke@4loopz.com
+License: Artistic Licence 2.0
+Description: reclass README
+        ==============
+        
+        The documentation for **reclass** is available from
+        http://reclass.pantsfullofunix.net.
+        
+Keywords: enc ansible salt
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: System :: Systems Administration
+Classifier: License :: OSI Approved :: Artistic License
+Classifier: Programming Language :: Python :: 2.7

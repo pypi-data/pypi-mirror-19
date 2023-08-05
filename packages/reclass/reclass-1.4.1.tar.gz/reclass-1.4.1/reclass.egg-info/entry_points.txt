@@ -1,0 +1,5 @@
+[console_scripts]
+reclass = reclass.cli:main
+reclass-ansible = reclass.adapters.ansible:cli
+reclass-salt = reclass.adapters.salt:cli
+
