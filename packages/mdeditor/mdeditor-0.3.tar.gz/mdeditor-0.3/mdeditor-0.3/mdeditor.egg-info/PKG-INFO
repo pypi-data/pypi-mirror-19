@@ -1,0 +1,21 @@
+Metadata-Version: 1.0
+Name: mdeditor
+Version: 0.3
+Summary: markdown editor web
+Home-page: https://github.com/kghch/md_editor
+Author: kghch
+Author-email: wanghan0307@gmail.com
+License: UNKNOWN
+Description: ``mdeditor`` is a Python web app based on tornado and some other libs.
+        
+        Install
+        -------
+        
+        ``$ pip install mdeditor``
+        
+        Usage
+        -----
+        
+        After installation, run command ``mdeditor`` in your shell. The web app is on ``port=9876``, so open your brower with the following url: ``http://127.0.0.1:9876``, then you will see the page.
+        
+Platform: UNKNOWN
