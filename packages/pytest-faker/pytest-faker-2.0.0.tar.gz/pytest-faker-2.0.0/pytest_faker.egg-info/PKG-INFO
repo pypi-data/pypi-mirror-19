@@ -1,0 +1,108 @@
+Metadata-Version: 1.1
+Name: pytest-faker
+Version: 2.0.0
+Summary: Faker integration with the pytest framework.
+Home-page: https://github.com/pytest-dev/pytest-faker
+Author: Anatoly Bubenkov, Oleg Pidsadnyi and others
+Author-email: bubenkoff@gmail.com
+License: MIT license
+Description: Faker_ integration with the pytest_ test runner
+        ==========================================
+        
+        .. image:: http://img.shields.io/travis/pytest-dev/pytest-faker.svg
+           :target: https://travis-ci.org/pytest-dev/pytest-faker
+        .. image:: https://img.shields.io/pypi/pyversions/pytest-qt.svg
+          :target: https://pypi.python.org/pypi/pytest-qt/   
+        .. image:: http://img.shields.io/pypi/v/pytest-faker.svg
+           :target: https://pypi.python.org/pypi/pytest-faker
+        .. image:: http://img.shields.io/coveralls/pytest-dev/pytest-faker.svg
+           :target: https://coveralls.io/r/pytest-dev/pytest-faker
+        .. image:: https://readthedocs.org/projects/pytest-faker/badge/?version=latest
+            :target: https://readthedocs.org/projects/pytest-faker/?badge=latest
+            :alt: Documentation Status
+        
+        pytest-faker adds Faker fixtures_ for easy use of Faker_ for your tests under pytest_ runner.
+        
+        .. _Faker: https://faker.readthedocs.io/
+        .. _pytest: http://pytest.org/
+        .. _fixtures: https://pytest.org/latest/fixture.html
+        
+        Install pytest-faker
+        -------------------------
+        
+        ::
+        
+            pip install pytest-faker
+        
+        Example
+        -------
+        
+        An example of Faker_ and pytest_ integration.
+        
+        
+        tests/test_faker.py:
+        
+        .. code-block:: python
+        
+            from faker.generator import Generator
+        
+            def test_faker(faker):
+                """Faker factory is a fixture."""
+                assert isinstance(faker, Generator)
+                assert isinstance(faker.name(), str)
+        
+        
+        License
+        -------
+        
+        This software is licensed under the `MIT license <http://en.wikipedia.org/wiki/MIT_License>`_.
+        
+        © 2015 Anatoly Bubenkov, Oleg Pidsadnyi and others
+        
+        Authors
+        =======
+        
+        `Anatoly Bubenkov <bubenkoff@gmail.com>`_
+            original idea and implementation
+        
+        These people have contributed to `pytest-faker`, in alphabetical order:
+        
+        * `Jeff Widman <jeff@jeffwidman.com>`_
+        * `Oleg Pidsadnyi <oleg.pidsadnyi@gmail.com>`_
+        
+        Changelog
+        =========
+        
+        2.0.0
+        -----
+        
+        - Switch to a recent Faker (jeffwidman, bubenkoff)
+        
+        1.1.0
+        -----
+        
+        - Switch to a session scoped fixture (bubenkoff, thedrow)
+        
+        1.0.0
+        -----
+        
+        - initial release (bubenkoff)
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 6 - Mature
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Utilities
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.0
+Classifier: Programming Language :: Python :: 3.1
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
