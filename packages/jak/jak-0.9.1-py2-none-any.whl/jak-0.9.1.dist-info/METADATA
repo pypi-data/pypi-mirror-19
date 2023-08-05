@@ -1,0 +1,29 @@
+Metadata-Version: 2.0
+Name: jak
+Version: 0.9.1
+Summary: jak makes encrypting files really easy
+Home-page: https://github.com/dispel/jak
+Author: Dispel, LLC
+Author-email: jak@dispel.io
+License: Apache-2.0
+Platform: any
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Unix
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: click (>=6.6)
+Requires-Dist: pycrypto (>=2.6.1)
+Requires-Dist: six (>=1.10.0)
+
+Copyright 2016 Dispel, LLC
+Apache 2.0 License, see https://github.com/dispel/jak/blob/master/LICENSE for details.
+
+
