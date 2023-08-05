@@ -1,0 +1,26 @@
+Metadata-Version: 2.0
+Name: gideonai
+Version: 6.9.6.9
+Summary: An intelligent bot written in Python
+Home-page: UNKNOWN
+Author: Rishabh Bector and Leo Orshansky
+Author-email: bector.rishabh@gmail.com
+License: BSD
+Keywords: gideon apiai bot intelligent
+Platform: UNKNOWN
+Requires-Dist: apiai
+Requires-Dist: bs4
+Requires-Dist: gtts
+Requires-Dist: lxml
+Requires-Dist: pafy
+Requires-Dist: pydub
+Requires-Dist: pygame
+Requires-Dist: pyjokes
+Requires-Dist: quizlet-api
+Requires-Dist: speechrecognition
+Requires-Dist: wikipedia
+Requires-Dist: youtube-dl
+
+UNKNOWN
+
+
