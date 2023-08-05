@@ -1,0 +1,48 @@
+Metadata-Version: 2.0
+Name: falsy
+Version: 2017.1.2.dev40
+Summary: falcon.swagger.yaml
+Home-page: UNKNOWN
+Author: Jesse MENG (dameng/pingf)
+Author-email: pingf0@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: falcon
+Requires-Dist: PyYAML
+Requires-Dist: Jinja2
+Requires-Dist: gunicorn
+
+# FALSY
+
+```
+name: FAL.S.Y
+version: 2017.01.02
+summary: falcon.swagger.yaml
+author: Jesse MENG (dameng/pingf)
+author-email: pingf0@gmail.com
+
+Intended Audience: Web Developers
+License: Apache Software License
+License: MIT License
+Programming Language: Python3
+```
+
+```python
+    from falsy.falsy import FALSY
+
+    f = FALSY(static_path='test', static_dir='static')
+    f.begin_api()
+    f.swagger('test.yml', ui=True,theme='impress')
+    f.end_api()
+    api = f.api
+```
+
+
+
