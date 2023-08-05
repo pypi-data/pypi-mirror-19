@@ -1,0 +1,72 @@
+Metadata-Version: 1.1
+Name: s3workers
+Version: 0.1.0
+Summary: Helper to simplify concurrent access to object scanning in AWS S3 buckets.
+Home-page: https://github.com/bradrf/s3workers
+Author: Brad Robel-Forrest
+Author-email: brad@bitpony.com
+License: MIT license
+Description: ===============================
+        s3workers
+        ===============================
+        
+        
+        .. image:: https://img.shields.io/pypi/v/s3workers.svg
+                :target: https://pypi.python.org/pypi/s3workers
+        
+        .. image:: https://img.shields.io/travis/bradrf/s3workers.svg
+                :target: https://travis-ci.org/bradrf/s3workers
+        
+        .. image:: https://readthedocs.org/projects/s3workers/badge/?version=latest
+                :target: https://s3workers.readthedocs.io/en/latest/?badge=latest
+                :alt: Documentation Status
+        
+        .. image:: https://pyup.io/repos/github/bradrf/s3workers/shield.svg
+             :target: https://pyup.io/repos/github/bradrf/s3workers/
+             :alt: Updates
+        
+        
+        Helper to simplify concurrent access to object scanning in AWS S3 buckets.
+        
+        
+        * Free software: MIT license
+        * Documentation: https://s3workers.readthedocs.io.
+        
+        
+        Features
+        --------
+        
+        * TODO
+        
+        Credits
+        ---------
+        
+        This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+        
+        
+        =======
+        History
+        =======
+        
+        0.1.0 (2016-12-28)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: s3workers
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
