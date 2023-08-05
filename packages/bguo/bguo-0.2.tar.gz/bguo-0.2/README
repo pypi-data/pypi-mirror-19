@@ -1,0 +1,65 @@
+bguo
+====
+File-based contact management
+
+Concept
+-------
+Each contact corresponds to a single file inside of the bguo directory.
+Contact information should be edited in this directory and then exported
+to various output formats for use by other programs. They can also be
+roughly imported to this directory, but you will have to proofread the
+results; the importers are intended for one-time imports, not for
+regular synchronization with other programs.
+
+For our purposes, a contact is a thing with a single name, a single
+email address, &c. People, mailing lists, and organizations can all be
+contacts. bguo has no special features for grouping contacts.
+
+Usage
+-------
+Install ::
+
+    pip3 install bguo
+
+Help ::
+
+    bguo -h
+
+Examples ::
+
+    wget http://src.thomaslevine.com/bguo/tarball/bguo.tar.gz
+    tar xzf bguo.tar.gz
+    cd bguo/examples
+    make
+
+Supported formats
+-----------------
+bguo supports only the formats that I (`Tom <https://thomaslevine.com>`_) have used.
+
+* MH ``~/.aliases`` file
+* Mutt ``alias_file``
+* Newsbeuter ``~/.newsbeuter/urls``
+* Plain postal addresses
+* VoIP.ms phonebook export 
+* Seltzer CRM member listing (``/?q=members``)
+
+For most of these formats, only the import or the export is supported,
+not both. This is summarized in the table below.
+
+============= ====== ======
+Format        Import Export
+============= ====== ======
+MH            Yes    Yes
+Mutt          Yes    Yes
+Seltzer       Yes    No
+VoIP.ms       Yes    No
+Newsbeuter    No     Yes
+Post          No     Yes
+============= ====== ======
+
+For imports, command-line program expects that you are converting from
+only one format to bguo. There was a case where I wanted to merge two
+formats for existing contacts, one for email addresses (MH) and the
+other for phone numbers (VoIP.MS). To do this, write a custom merging
+program with the functions in ``bguo.parse``; ``examples/merge.py`` is
+an example.
