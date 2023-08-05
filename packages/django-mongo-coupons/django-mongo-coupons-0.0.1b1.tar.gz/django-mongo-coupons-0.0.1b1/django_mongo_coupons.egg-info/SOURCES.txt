@@ -1,0 +1,17 @@
+setup.cfg
+setup.py
+django_mongo_coupons.egg-info/PKG-INFO
+django_mongo_coupons.egg-info/SOURCES.txt
+django_mongo_coupons.egg-info/dependency_links.txt
+django_mongo_coupons.egg-info/top_level.txt
+mongo_coupons/__init__.py
+mongo_coupons/coupon_settings.py
+mongo_coupons/couponserializer.py
+mongo_coupons/models.py
+mongo_coupons/serializer.py
+mongo_coupons/urls.py
+mongo_coupons/views.py
+tests/__init__.py
+tests/settings.py
+tests/test_models.py
+tests/test_use_cases.py
