@@ -1,0 +1,4 @@
+
+      [console_scripts]
+pyramid-swagger-router=pyramid_swagger_router.cmd:main
+swagger-pyramid-router=pyramid_swagger_router.cmd:main
