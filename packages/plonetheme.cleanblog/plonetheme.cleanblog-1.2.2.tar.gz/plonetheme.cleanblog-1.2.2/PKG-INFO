@@ -1,0 +1,122 @@
+Metadata-Version: 1.1
+Name: plonetheme.cleanblog
+Version: 1.2.2
+Summary: A theme for Plone 5.x
+Home-page: https://github.com/collective/plonetheme.clean_blog/
+Author: Vikas Parashar
+Author-email: svnitvikas@gmail.com
+License: MIT License
+Description: ==========
+        Clean Blog
+        ==========
+        
+        A minimal theme for Plone 5.x
+        
+        .. image:: https://raw.githubusercontent.com/collective/plonetheme.clean_blog/master/demo.jpg
+        
+        See additional screenshots below.
+        
+        Installation
+        ------------
+        
+        Zip
+        ~~~~~~~~
+        
+        #. Download the `zip file`_
+        #. Import the theme from the Diazo theme control panel.
+        
+        Buildout
+        ~~~~~~~~
+        
+        Install plonetheme.cleanblog by adding it to your buildout. Note the correct name of the egg!::
+        
+            [buildout]
+        
+            ...
+        
+            eggs =
+                plonetheme.cleanblog
+        
+        
+        and then running ``bin/buildout``
+        
+        Documentation
+        -------------
+        
+        Full documentation for end users can be found `here`_
+        
+        Contribution
+        -------------
+        
+        - Clone the repo.
+        - Run ``bin/buildout``
+        - next, install the local dependencies theme requires
+            ``$ npm install``
+        - Watch For Changes & Automatically Refresh
+            ``$ grunt watch``
+        - Build & Optimize(This will create a ``dist`` folder with optimized files and a zip of theme)
+            ``$ grunt dist``
+        
+        License
+        -------
+        
+        MIT License
+        
+        Credit
+        ------
+        
+        Based on `Clean Blog Bootstrap Blog Theme Start Bootstrap`_
+        
+        .. _zip file: https://github.com/collective/plonetheme.clean_blog/blob/master/plonetheme.clean_blog.zip?raw=true
+        .. _Clean Blog Bootstrap Blog Theme Start Bootstrap: http://startbootstrap.com/template-overviews/clean-blog/
+        .. _here: https://github.com/collective/plonetheme.clean_blog/blob/master/docs/index.rst
+        
+        Screenshots
+        -----------
+        
+        Full size screenshot:
+        
+        .. image:: https://raw.githubusercontent.com/collective/plonetheme.clean_blog/master/docs/plonetheme.clean_blog-screenshot.jpg
+        
+        iPhone Plus screenshot:
+        
+        .. image:: https://raw.githubusercontent.com/collective/plonetheme.clean_blog/master/docs/plonetheme.clean_blog-screenshot-iphone-plus.jpg
+        
+        
+        Changelog
+        ---------
+        
+        
+        1.2.2 (2017-01-01)
+        ------------------
+        
+        - cleaned up docs, README, update repo URL
+          [tkimnguyen]
+        
+        1.2.1 (2016-10-04)
+        ------------------
+        
+        - Package name updated in docs 
+          [vikas-parashar]
+        
+        1.2 (2016-10-04)
+        ----------------
+        
+        - uploaded whole dirs, added grunt setup, updated docs 
+          [vikas-parashar]
+        
+        1.1 (2016-06-29)
+        ----------------
+        
+        - Initial release [vikas-parashar]
+        
+Keywords: Python Plone Theme Web
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Plone
+Classifier: Framework :: Plone :: 5.0
+Classifier: Framework :: Plone :: 5.1
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
