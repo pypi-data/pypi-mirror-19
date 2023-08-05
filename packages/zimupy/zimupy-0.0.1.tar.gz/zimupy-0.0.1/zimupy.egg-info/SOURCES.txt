@@ -1,0 +1,17 @@
+setup.cfg
+setup.py
+zimupy/__init__.py
+zimupy/base.py
+zimupy/enums.py
+zimupy/exceptions.py
+zimupy/utils.py
+zimupy.egg-info/PKG-INFO
+zimupy.egg-info/SOURCES.txt
+zimupy.egg-info/dependency_links.txt
+zimupy.egg-info/requires.txt
+zimupy.egg-info/top_level.txt
+zimupy/client/__init__.py
+zimupy/client/api/__init__.py
+zimupy/client/api/base.py
+zimupy/client/api/common.py
+zimupy/client/api/resource.py
