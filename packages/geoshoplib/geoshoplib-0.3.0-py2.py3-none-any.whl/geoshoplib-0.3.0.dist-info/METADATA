@@ -1,0 +1,55 @@
+Metadata-Version: 2.0
+Name: geoshoplib
+Version: 0.3.0
+Summary: Python API to access geoshop services.
+Home-page: https://gitlab.com/gf-bl/geoshoplib
+Author: Clemens Rudert
+Author-email: clemens.rudert@bl.ch
+License: GNU General Public License
+Keywords: api geoshop infogrips soap xml
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP
+Requires-Dist: httplib2
+Requires-Dist: untangle
+
+geoshoplib
+===============================
+
+Small library which provides api to contact to geoshop.
+
+For reading all products:
+
+- create a base_service
+- create a user_service with user/password and base_service as service parameter
+- read the products => get_products()
+
+For reading a specific product definition:
+
+- create a base_service
+- create a product with a known product_id, user/password and base_service as parameter
+- read the definition => get_definition()
+
+Have fun!
+
+0.2.0
+---
+
+- Use geoshop id for error handling now.
+
+
+0.2.0
+---
+
+- Fix bug when fields are not set in geoshop, now it is printed out to the console but the lib keeps running
+
+
+0.1.0
+---
+
+- Initial version.
+- implements first views for connection data sets
+
+
