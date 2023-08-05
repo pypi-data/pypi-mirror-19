@@ -1,0 +1,37 @@
+Metadata-Version: 2.0
+Name: gargparse
+Version: 0.0.6
+Summary: Global argparse parser
+Home-page: http://github.com/raviqqe/gargparse.py/
+Author: Yota Toyama
+Author-email: raviqqe@gmail.com
+License: Public Domain
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: Public Domain
+Classifier: Programming Language :: Python :: 3
+
+gargparse.py
+============
+
+.. image:: https://travis-ci.org/raviqqe/gargparse.py.svg?branch=master
+    :target: https://travis-ci.org/raviqqe/gargparse.py
+.. image:: https://img.shields.io/badge/license-unlicense-lightgray.svg
+    :target: https://unlicense.org
+
+Global argparse parser for command-line programs in Python
+
+
+Why?
+----
+
+Because arguments are constants for programs.
+
+
+License
+-------
+
+`The Unlicense <https://unlicense.org>`_
+
+
