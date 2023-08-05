@@ -1,0 +1,17 @@
+language: python
+sudo: false
+
+env:
+  - TOXENV=py27
+  - TOXENV=py34
+  - TOXENV=pypy
+  - TOXENV=flake8
+
+install:
+  - travis_retry pip install tox coveralls
+
+script:
+  - travis_retry tox
+
+after_success:
+  - coveralls
