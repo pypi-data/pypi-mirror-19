@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.rst
+ez_setup.py
+setup.cfg
+setup.py
+mongo_connector/__init__.py
+mongo_connector/doc_managers/__init__.py
+mongo_connector/doc_managers/solr_doc_manager.py
+solr_doc_manager.egg-info/PKG-INFO
+solr_doc_manager.egg-info/SOURCES.txt
+solr_doc_manager.egg-info/dependency_links.txt
+solr_doc_manager.egg-info/requires.txt
+solr_doc_manager.egg-info/top_level.txt
