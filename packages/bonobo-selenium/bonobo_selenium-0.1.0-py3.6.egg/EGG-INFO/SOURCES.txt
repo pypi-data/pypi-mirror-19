@@ -1,0 +1,14 @@
+MANIFEST.in
+README.rst
+classifiers.txt
+requirements-dev.txt
+requirements.txt
+setup.cfg
+setup.py
+version.txt
+bonobo_selenium/__init__.py
+bonobo_selenium.egg-info/PKG-INFO
+bonobo_selenium.egg-info/SOURCES.txt
+bonobo_selenium.egg-info/dependency_links.txt
+bonobo_selenium.egg-info/requires.txt
+bonobo_selenium.egg-info/top_level.txt
