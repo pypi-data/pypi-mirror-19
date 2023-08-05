@@ -1,0 +1,77 @@
+#
+# French translations for PACKAGE package
+# This file is distributed under the same license as the PACKAGE package.
+# amensouissi <amensouissi@ecreall.com>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE 1.0\n"
+"POT-Creation-Date: 2016-06-23 14:42+0200\n"
+"PO-Revision-Date: 2016-08-18 15:12+0100\n"
+"Last-Translator: SOUISSI <amensouissi@ecreall.com>\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: src/ecreall_pontus/pontus/default_behavior.py:17
+msgid "Cancel"
+msgstr "Annuler"
+
+#: src/ecreall_pontus/pontus/index.py:26
+msgid "Index"
+msgstr "Index"
+
+#: src/ecreall_pontus/pontus/view.py:53
+msgid "View"
+msgstr "Vue"
+
+#: src/ecreall_pontus/pontus/view.py:354
+msgid "An error has occurred!"
+msgstr "Une erreur est survenue!"
+
+#: src/ecreall_pontus/pontus/core.py:53
+msgid "Title"
+msgstr "Titre"
+
+#: src/ecreall_pontus/pontus/core.py:59
+msgid "Label"
+msgstr ""
+
+#: src/ecreall_pontus/pontus/core.py:65
+msgid "Description"
+msgstr "Description"
+
+#. Default: Reorder (via drag and drop)
+#: src/ecreall_pontus/pontus/templates/table_item.pt:18
+#: src/ecreall_pontus/pontus/templates/sequence_item.pt:36
+msgid "title"
+msgstr "titre"
+
+#: src/ecreall_pontus/pontus/templates/table_item.pt:23
+#: src/ecreall_pontus/pontus/templates/sequence_item.pt:41
+msgid "Remove"
+msgstr "Supprimer"
+
+#: src/ecreall_pontus/pontus/templates/simple_mapping.pt:13
+#: src/ecreall_pontus/pontus/templates/mapping.pt:13
+msgid "There was a problem with this section"
+msgstr ""
+"Un problème a été rencontré avec cette section. Merci de vérifier les "
+"informations saisies."
+
+#. Default: en
+#: src/ecreall_pontus/pontus/templates/richtext.pt:25
+#: src/ecreall_pontus/pontus/templates/ajax_select2.pt:135
+msgid "language-code"
+msgstr "fr"
+
+#: src/ecreall_pontus/pontus/templates/panels/usermenu.pt:16
+msgid "${icon} Account"
+msgstr "${icon} Mon profil"
+
+#: src/ecreall_pontus/pontus/templates/panels/usermenu.pt:20
+msgid "${icon} Log Out"
+msgstr "${icon} Se déconnecter"

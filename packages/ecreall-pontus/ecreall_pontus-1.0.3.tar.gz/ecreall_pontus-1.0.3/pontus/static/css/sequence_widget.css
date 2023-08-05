@@ -1,0 +1,25 @@
+.deform-seq-item-btns{
+    width: 3.333% !important
+}
+
+.deform-seq-item-container{
+	width: 96.667% !important;
+	padding: 6px
+}
+
+a.deform-seq-add{
+	color: #5cb85c !important;
+	font-size: 17px;
+	margin-top: -23px;
+	padding: 0 5px 1px;
+}
+
+a.deform-seq-add .add-seq-item-text{
+	font-size: 13px;
+}
+
+.deform-seq-item a.deform-close-button{
+	color: #d9534f;
+	cursor: pointer;
+	font-size: 17px;
+}
