@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: django-admino
+Version: 0.0.1
+Summary: Admino is a django package that provides a REST API for admin endpoints. It allows you to customize django admin panel.
+Home-page: https://github.com/erdem/django-admino
+Author: Erdem Ozkol
+Author-email: info@admino.io
+License: MIT
+Description: Admino is a django package that provides a REST API for admin endpoints. It allows you to customize django admin panel.
+Platform: any
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Framework :: Django
+Classifier: Programming Language :: Python
