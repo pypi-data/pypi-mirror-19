@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://equityapi.morningstar.com/" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://equityapi.morningstar.com/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <xsd:element name="CompanyEventAvailabilities">
+        <xsd:complexType mixed="true">
+            <xsd:sequence>
+                <xsd:element name="MessageInfo" minOccurs="0">
+                    <xsd:complexType mixed="true">
+                        <xsd:sequence>
+                            <xsd:element name="MessageCode" minOccurs="0" type="xsd:int"/>
+                            <xsd:element name="MessageDetail" minOccurs="0" type="xsd:string"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="CompanyEventAvailabilityEntityList" minOccurs="0">
+                    <xsd:complexType mixed="true">
+                        <xsd:sequence>
+                            <xsd:element name="CompanyEventAvailabilityEntity" minOccurs="0">
+                                <xsd:complexType mixed="true">
+                                    <xsd:sequence>
+                                        <xsd:element name="CompanyName" minOccurs="0" type="xsd:string"/>
+                                        <xsd:element name="ExchangeId" minOccurs="0" type="xsd:normalizedString"/>
+                                        <xsd:element name="Symbol" minOccurs="0" type="xsd:normalizedString"/>
+                                        <xsd:element name="CUSIP" minOccurs="0" type="xsd:int"/>
+                                        <xsd:element name="CIK" minOccurs="0" type="xsd:int"/>
+                                        <xsd:element name="ISIN" minOccurs="0" type="xsd:normalizedString"/>
+                                        <xsd:element name="SEDOL" minOccurs="0" type="xsd:int"/>
+                                        <xsd:element name="Start" minOccurs="0" type="xsd:dateTime"/>
+                                        <xsd:element name="End" minOccurs="0" type="xsd:dateTime"/>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

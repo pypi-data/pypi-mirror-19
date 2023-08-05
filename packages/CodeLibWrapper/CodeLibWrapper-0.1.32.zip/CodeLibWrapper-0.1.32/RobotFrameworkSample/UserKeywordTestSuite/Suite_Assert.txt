@@ -1,0 +1,13 @@
+*** Settings ***
+Resource          ../../UserKeywords/UserKeywords_Assert.txt
+
+*** Variables ***
+${SourceFile}     C:\\Python27\\Lib\\site-packages\\CodeLibWrapper\\RobotFrameworkSample\\SampleData\\xmldiff_source.xml    # 要比较的Source文件
+${TargetFile}     C:\\Python27\\Lib\\site-packages\\CodeLibWrapper\\RobotFrameworkSample\\SampleData\\xmldiff_target.xml    # 要比较的Target文件
+${SourceDir}      \    # 要比较的Source文件夹
+${TargetDir}      \    # 要比较的Target文件夹
+
+*** Test Cases ***
+Assert_Test_CompareFiles
+    [Documentation]    快速比较两个文件是否相同
+    ${result}    KW_Assert_CompareTwoFile    ${SourceFile}    ${TargetFile}
