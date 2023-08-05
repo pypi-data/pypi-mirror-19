@@ -1,0 +1,27 @@
+Metadata-Version: 2.0
+Name: Flask-IPInfo
+Version: 0.0.4
+Summary: Get IP, ISP, Location, OS from flask request
+Home-page: http://github.com/borisliu/flask-ipinfo/
+Author: borisliu
+Author-email: boris_cn@263.net
+License: MIT
+Platform: all
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: Flask
+
+# Flask-Uploads
+
+Flask-Uploads provides file uploads for Flask.
+
+## Installation
+
+```sh
+pip install flask-uploads
+```
+
