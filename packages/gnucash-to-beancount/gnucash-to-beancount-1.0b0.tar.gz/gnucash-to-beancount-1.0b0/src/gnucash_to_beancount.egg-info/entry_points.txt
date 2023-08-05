@@ -1,0 +1,3 @@
+[console_scripts]
+gnucash-to-beancount = gnucash_to_beancount.cli:main
+

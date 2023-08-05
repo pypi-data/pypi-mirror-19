@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.rst
+requirements.txt
+setup.py
+src/gnucash_to_beancount/__init__.py
+src/gnucash_to_beancount/__main__.py
+src/gnucash_to_beancount/cli.py
+src/gnucash_to_beancount/convert.py
+src/gnucash_to_beancount/directives.py
+src/gnucash_to_beancount.egg-info/PKG-INFO
+src/gnucash_to_beancount.egg-info/SOURCES.txt
+src/gnucash_to_beancount.egg-info/dependency_links.txt
+src/gnucash_to_beancount.egg-info/entry_points.txt
+src/gnucash_to_beancount.egg-info/not-zip-safe
+src/gnucash_to_beancount.egg-info/requires.txt
+src/gnucash_to_beancount.egg-info/top_level.txt
