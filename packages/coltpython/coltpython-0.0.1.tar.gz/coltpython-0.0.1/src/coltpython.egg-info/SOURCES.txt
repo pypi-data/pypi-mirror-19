@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+src/coltpython/__init__.py
+src/coltpython.egg-info/PKG-INFO
+src/coltpython.egg-info/SOURCES.txt
+src/coltpython.egg-info/dependency_links.txt
+src/coltpython.egg-info/entry_points.txt
+src/coltpython.egg-info/requires.txt
+src/coltpython.egg-info/top_level.txt
+tests/__init__.py
