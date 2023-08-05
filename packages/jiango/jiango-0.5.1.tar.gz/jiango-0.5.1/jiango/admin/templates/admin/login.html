@@ -1,0 +1,29 @@
+{% load bootstrap  %}
+{% load staticfiles %}
+
+<div class="panel panel-warning" style="width:400px;margin:0 auto;margin-top:50px;">
+	<div class="panel-heading">管理登陆</div>
+	<div class="panel-body">
+		<form method="post" action="" class="form" id="login-form">
+			{% csrf_token %}
+			{{form|bootstrap}}
+			<div style="text-align:center;margin-top:30px">
+				<button type="submit" class="btn btn-warning btn-large">登陆</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+<script src="{% static 'js/md5.js' %}"></script>
+<script type="text/javascript">
+<!--
+$('#login-form').submit(function(e){
+	var salt = $(this).find('input[name=salt]').val();
+	var SECRET_KEY = '{{secret_key}}';
+	$.each($(this).find('input[type=password]'), function(){
+		var self = $(this);
+		self.val(MD5(salt + MD5(MD5(self.val())+SECRET_KEY)));
+	});
+});
+//-->
+</script>
