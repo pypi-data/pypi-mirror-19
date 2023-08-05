@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: aetf
+Version: 0.0.4
+Summary: Python package for autoencoding(Deep Learning) functionality using TensorFlow
+Home-page: https://bitbucket.org/HNGML/aetf
+Author: hngml
+Author-email: nilesh.chaudhari@healthnextgen.com
+License: MIT
+Description: aetf: autoencoder functions using TensorFlow \\
+        *********************************************
+        To use aetf's functions, do:
+        >>> import aetf
+        >>> print(aetf.__doc__)
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
