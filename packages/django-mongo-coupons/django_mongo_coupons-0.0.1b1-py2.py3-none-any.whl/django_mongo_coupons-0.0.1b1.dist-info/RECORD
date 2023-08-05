@@ -1,0 +1,17 @@
+django_mongo_coupons-0.0.1b1.dist-info/DESCRIPTION.rst,sha256=Q4ZuBJptkbDxoo4H1HJqkYnJTSkzP6Ip5i245Oq4hB8,2686
+django_mongo_coupons-0.0.1b1.dist-info/METADATA,sha256=u5sDgPdJF28SVyWhTcUcaeNSNxVghKtPbaJwFPrrT4s,3302
+django_mongo_coupons-0.0.1b1.dist-info/RECORD,,
+django_mongo_coupons-0.0.1b1.dist-info/WHEEL,sha256=5wvfB7GvgZAbKBSE9uX9Zbi6LCL-_KgezgHblXhCRnM,113
+django_mongo_coupons-0.0.1b1.dist-info/metadata.json,sha256=DNFZjB3oPNtpboaTrpVKZCKgn666UiM1xflU8Y1YqFQ,750
+django_mongo_coupons-0.0.1b1.dist-info/top_level.txt,sha256=6dtaY3kqwsiFTEDym1MGE2EuBJ3somBfieJvyeHN46g,20
+mongo_coupons/__init__.py,sha256=Pd5s7RbZieg9KKUgE9RowpKOLkT8VXzoeLErJhXF0lw,25
+mongo_coupons/coupon_settings.py,sha256=guPgM-m2ESmW6Vfl_KNxmLaaX8bDgCiV2AwKTRovvn8,1010
+mongo_coupons/couponserializer.py,sha256=sXNQbSNkgJHWraQQOkp91W6VL86pa1pSXbHoGd28yWI,2249
+mongo_coupons/models.py,sha256=m0sq5Im5Zm5ksYUtCZk0-z5phXR5QvJFOLwr9Jx5u28,7835
+mongo_coupons/serializer.py,sha256=_L_D8RdktWNGboz_z_Y2y0IMnqvvU0VVafwjlHuxn_E,486
+mongo_coupons/urls.py,sha256=7A47IC9kmQOuuBOHEsGiX5-5aY_0bMK0AZft_32AKKY,1467
+mongo_coupons/views.py,sha256=tIug3bF8Fmg9DItOSrmtdteUBUcbAssEnP7r1eAyp04,2926
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/settings.py,sha256=B8GPR6EYKhbBclbdsVnCwltYxldeFPJh77P_epwLwyE,1785
+tests/test_models.py,sha256=H87ui_iEzdml1xa-gciPxBpUUBFlDNzRhPMK6rd9kNg,2878
+tests/test_use_cases.py,sha256=92luOAthvVgz0DQnTcmgsrWZMB55YW_22L-B6Qi4gdw,2147
