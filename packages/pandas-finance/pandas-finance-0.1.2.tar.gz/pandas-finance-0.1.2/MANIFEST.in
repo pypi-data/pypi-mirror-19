@@ -1,0 +1,6 @@
+include README.rst
+include LICENSE.md
+include pandas_finance/*.py
+
+include pandas_finance/tests/*.py
+include pandas_finance/tests/data/*
