@@ -1,0 +1,14 @@
+Metadata-Version: 2.0
+Name: tudo
+Version: 0.1.0.dev4
+Summary: A simple command-line based TODO-app in Python
+Home-page: https://github.com/Sukram21/TUDO
+Author: Markus Müller, Martin Zehendner
+Author-email: mail@muellermarkus.com
+License: MIT
+Requires-Dist: pytz
+Requires-Dist: tabulate
+
+TUDO
+
+
