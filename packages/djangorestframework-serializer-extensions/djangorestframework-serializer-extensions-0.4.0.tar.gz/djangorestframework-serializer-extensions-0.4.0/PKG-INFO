@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: djangorestframework-serializer-extensions
+Version: 0.4.0
+Summary: Extensions to DRY up Django Rest Framework serializers
+Home-page: https://github.com/evenicoulddoit/django-rest-framework-serializer-extensions
+Author: Ian Clark
+Author-email: ianclark001@gmail.com
+License: BSD
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Internet :: WWW/HTTP
