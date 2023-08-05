@@ -1,0 +1,102 @@
+Metadata-Version: 2.0
+Name: pySqsListener
+Version: 0.4.7
+Summary: A simple Python SQS utility package
+Home-page: https://github.com/jegesh/python-sqs-listener
+Author: Yaakov Gesher
+Author-email: yaakov@gesher.net
+License: Apache Software License
+Keywords: aws sqs listener and launcher
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: boto3
+
+AWS SQS Listener
+----------------
+
+This package takes care of the boilerplate involved in listening to an SQS
+queue, as well as sending messages to a queue.
+
+Installation
+~~~~~~~~~~~~
+
+``pip install pySqsListener``
+
+Listening to a queue
+~~~~~~~~~~~~~~~~~~~~
+
+| Using the listener is very straightforward - just inherit from the
+  ``SqsListener`` class and implement the ``handle_message()`` method.
+  The queue will be created at runtime if it doesn't already exist.
+  You can also specify an error queue to automatically push any errors to.
+  By default the listener runs in the current process, but it will run as a Unix daemon if the
+  parameter is set to `True` in the `listen()` method.
+
+Here is a basic code sample:
+
+| **Standard Listener**
+
+::
+
+    from sqs_listener import SqsListener
+
+    class MyListener(SqsListener):
+        def handle_message(self, body, attributes, messages_attributes):
+            run_my_function(body['param1'], body['param2']
+
+    listener = MyListener('my-message-queue', 'my-error-queue')
+    listener.listen(True)
+
+**Error Listener**
+
+::
+
+    from sqs_listener import SqsListener
+    class MyErrorListener(SqsListener):
+        def handle_message(self, body, attributes, messages_attributes):
+            save_to_log(body['exception_type'], body['error_message']
+
+    error_listener = MyErrorListener('my-error-queue')
+    error_listener.listen()
+
+Sending messages
+~~~~~~~~~~~~~~~~
+
+| In order to send a message, instantiate an `SqsLauncher` with the name of the queue.  By default an exception will
+  be raised if the queue doesn't exist, but it can be created automatically if the `create_queue` parameter is
+  set to true.  In such a case, there's also an option to set the newly created queue's `VisibilityTimeout` via the
+  third parameter.
+|
+| After instantiation, use the `launch_message()` method to send the message.  The message body should be a `dict`,
+  and additional kwargs can be specified as stated in the [SQS docs](http://boto3.readthedocs.io/en/latest/reference/services/sqs.html#SQS.Client.send_message).
+  The method returns the response from SQS.
+
+**Launcher Example**
+
+::
+
+    from sqs_launcher import SqsLauncher
+
+    launcher = SqsLauncher('my-queue')
+    response = launcher.launch_message({'param1': 'hello', 'param2': 'world'})
+
+Important Notes
+~~~~~~~~~~~~~~~
+
+-  The environment variable ``AWS_ACCOUNT_ID`` must be set, in addition
+   to the environment having valid AWS credentials (via environment variables or a credentials file)
+-  For both the main queue and the error queue, if the queue doesn’t
+   exist (in the specified region), it will be created at runtime.
+-  The error queue receives only two values in the message body: ``exception_type`` and ``error_message``. Both are of type ``str``
+
+Upcoming Features
+~~~~~~~~~~~~~~~~~
+
+Create an issue with a suggestion for a feature, and I’ll see what I can
+do!
+
