@@ -1,0 +1,51 @@
+Metadata-Version: 1.1
+Name: pythainlp
+Version: 0.0.8
+Summary: Thai NLP in python package.
+Home-page: https://github.com/wannaphongcom/pythainlp
+Author: Wannaphong Phatthiyaphaibun
+Author-email: wannaphong@yahoo.com
+License: Apache Software License 2.0
+Description: ===============================
+        PyThaiNLP
+        ===============================
+        
+        .. image:: https://img.shields.io/pypi/v/pythainlp.svg
+                :target: https://pypi.python.org/pypi/pythainlp
+        
+        .. image:: https://img.shields.io/travis/wannaphongcom/pythainlp.svg
+                :target: https://travis-ci.org/wannaphongcom/pythainlp
+        
+        Thai NLP in python package.
+        
+        Version
+        --------
+        0.0.8
+        
+        * Free software: Apache Software License 2.0
+        * Documentation: https://pythonhosted.org/pythainlp/
+        
+        
+        Features
+        --------
+        
+        * Thai split words
+        * Thai postagger
+        * And more.
+        
+        
+        INSTALL
+        --------
+        
+             $ pip3 install pythainlp
+        
+Keywords: pythainlp
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: Thai
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
