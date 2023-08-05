@@ -1,0 +1,8 @@
+mgrspy
+======
+
+Utility module for converting between WGS84 lat/lon and MGRS coordinates.
+
+Based on `GeoTrans <http://earth-info.nga.mil/GandG/geotrans/>`_ code.
+
+
