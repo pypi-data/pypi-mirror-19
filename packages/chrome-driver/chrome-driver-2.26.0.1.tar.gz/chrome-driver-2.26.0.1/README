@@ -1,0 +1,23 @@
+Chromedriver for pip
+=======================
+
+A pip package for installing Chromedriver (https://sites.google.com/a/chromium.org/chromedriver/).
+It only works with Linux (64-bit).
+
+Installation
+--------------
+
+`pip install chrome-driver`
+
+
+How to publish
+---------------
+
+1. `rm -rf dist`
+2. `python setup.py sdist`
+3. `twine upload dist/*`
+
+
+Authors
+--------
+Tanin Na Nakorn
