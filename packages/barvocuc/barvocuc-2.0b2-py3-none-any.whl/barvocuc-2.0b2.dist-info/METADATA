@@ -1,0 +1,28 @@
+Metadata-Version: 2.0
+Name: barvocuc
+Version: 2.0b2
+Summary: Software for Analysis of Color Images
+Home-page: https://github.com/encukou/barvocuc
+Author: Petr Viktorin
+Author-email: encukou@gmail.com
+License: GPL v3+
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: Click
+Requires-Dist: Numpy
+Requires-Dist: Pillow
+Requires-Dist: Scipy
+Provides-Extra: gui
+Requires-Dist: PyQT5; extra == 'gui'
+Provides-Extra: oldconf
+Requires-Dist: PyYAML; extra == 'oldconf'
+Provides-Extra: test
+Requires-Dist: pytest; extra == 'test'
+
+UNKNOWN
+
+
