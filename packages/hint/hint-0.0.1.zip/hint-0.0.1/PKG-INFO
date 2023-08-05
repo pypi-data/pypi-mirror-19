@@ -1,0 +1,60 @@
+Metadata-Version: 1.1
+Name: hint
+Version: 0.0.1
+Summary: Simple Python HTTP server short for SimpleHTTPServer.
+Home-page: https://github.com/hustcc
+Author: hustcc
+Author-email: i@hust.cc
+License: MIT
+Description: # server
+        
+        > A Simple Python HTTP server. Just short for **SimpleHTTPServer**.
+        
+        
+        [![Latest Stable Version](https://img.shields.io/pypi/v/server.svg)](https://pypi.python.org/pypi/server) [![Build Status](https://travis-ci.org/hustcc/server.svg?branch=master)](https://travis-ci.org/hustcc/server) 
+        
+        
+        ## 1. Install
+        
+        > **pip install server**
+        
+        Then get a cli command named `server`.
+        
+        
+        ## 2. Usage
+        
+        CLI command **server**，How to use it：
+        
+        > **server [port]**
+        
+        Or `hint --help` to get documents.
+        
+        ```shell
+        $ server --help
+        Usage: server [OPTIONS] [PORT]
+        
+        Options:
+          --host TEXT  The binding host of server.
+          --help       Show this message and exit.
+        ```
+        
+        
+        # LICENSE
+        
+        MIT @[hustcc](https://github.com/hustcc).
+Keywords: server,http,httpserver,simple,SimpleHTTPServer
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: Chinese (Simplified)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.5
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Utilities
