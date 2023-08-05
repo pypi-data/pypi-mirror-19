@@ -1,0 +1,25 @@
+Metadata-Version: 2.0
+Name: topic-db
+Version: 0.2.0
+Summary: TopicDB is a topic map-based graph (NoSQL) database
+Home-page: https://github.com/brettkromkamp/topic_db
+Author: Brett Alistair Kromkamp
+Author-email: brett.kromkamp@gmail.com
+License: MIT
+Keywords: topic map,graph database,nosql,semantic,concept map,knowledge management
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Database :: Database Engines/Servers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: python-slugify
+
+UNKNOWN
+
+
