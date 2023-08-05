@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+django_onthefly.egg-info/PKG-INFO
+django_onthefly.egg-info/SOURCES.txt
+django_onthefly.egg-info/dependency_links.txt
+django_onthefly.egg-info/requires.txt
+django_onthefly.egg-info/top_level.txt
+onthelfy/__init__.py
+onthelfy/apps.py
+onthelfy/monkey_patch.py
+onthelfy/utils.py
+onthelfy/backend/__init__.py
+onthelfy/backend/redis_backend.py
+onthelfy/backend/twelvefactor_backend.py
