@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: CoolAMQP
+Version: 0.7
+Summary: AMQP client with sane reconnects
+Home-page: https://github.com/smok-serwis/coolamqp
+Author: DMS Serwis s.c.
+Author-email: piotrm@smok.co
+License: MIT License
+Download-URL: https://github.com/smok-serwis/coolamqp/archive/master.zip
+Description: The AMQP client that handles reconnection madness for you
+Keywords: amqp,pyamqp,rabbitmq,client,network,ha,high availability
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Operating System :: OS Independent
+Requires: amqp
+Requires: six
+Requires: monotonic
