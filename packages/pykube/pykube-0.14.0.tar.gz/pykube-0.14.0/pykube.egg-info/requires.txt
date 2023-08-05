@@ -1,0 +1,6 @@
+requests>=2.12
+requests-oauthlib
+PyYAML
+six
+tzlocal
+oauth2client
