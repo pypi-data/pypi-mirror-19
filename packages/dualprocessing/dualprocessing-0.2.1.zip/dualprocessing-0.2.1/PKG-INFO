@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: dualprocessing
+Version: 0.2.1
+Summary: This module is designed to help with running a single-instance, thread-blocking computation pipeline on a second process. It does all the heavy lifting of scheduling calls and asynchronously waiting for the results.
+Home-page: https://github.com/michaelosthege/dualprocessing
+Author: Michael Osthege
+Author-email: thecakedev@hotmail.com
+License: MIT
+Download-URL: https://github.com/michaelosthege/dualprocessing/tarball/0.2.1
+Description: UNKNOWN
+Keywords: multiprocessing
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Intended Audience :: Developers
