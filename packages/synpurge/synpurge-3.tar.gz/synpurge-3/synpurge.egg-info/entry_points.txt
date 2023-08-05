@@ -1,0 +1,3 @@
+[console_scripts]
+synpurge = synpurge.cli:cmd
+
