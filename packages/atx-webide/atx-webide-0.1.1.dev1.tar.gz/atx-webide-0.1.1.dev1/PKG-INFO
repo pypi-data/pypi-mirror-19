@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: atx-webide
+Version: 0.1.1.dev1
+Summary: Helper tool for writing atx testcase using google blockly.
+Home-page: https://github.com/openatx/atx-webide
+Author: wuxc
+Author-email: wuxc08@gmail.com
+License: Apache
+Description: Related Project: https://github.com/codeskyblue/AutomatorX
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.7
