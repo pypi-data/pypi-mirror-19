@@ -1,0 +1,9 @@
+[console_scripts]
+volta-grab = volta.analysis.grab:main
+volta-realtime = volta.analysis.realtime:main
+volta-sync = volta.analysis.sync:main
+volta-ui = volta.ui.ui:main
+volta-uploader = volta.analysis.uploader:main
+volta-wizard = volta.analysis.wizard:main
+volta-wizard-ui = volta.wizard.ui:main
+
