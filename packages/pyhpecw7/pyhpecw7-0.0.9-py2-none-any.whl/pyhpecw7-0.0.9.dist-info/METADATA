@@ -1,0 +1,29 @@
+Metadata-Version: 2.0
+Name: pyhpecw7
+Version: 0.0.9
+Summary: Python package to simplify working with HPE Comware7 Based devices 
+Home-page: https://github.com/hpenetworking/pyhpecw7
+Author: HPE
+Author-email: UNKNOWN
+License: Apache2
+Download-URL: https://github.com/hpenetworking/pyhpecw7/tarball/0.0.9
+Keywords: HPE IMC NMS RESTFUL API
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: gtextfsm (==0.2.1)
+Requires-Dist: ipaddr (>=2.1.11)
+Requires-Dist: lxml
+Requires-Dist: ncclient
+Requires-Dist: paramiko
+Requires-Dist: scp
+
+UNKNOWN
+
+
