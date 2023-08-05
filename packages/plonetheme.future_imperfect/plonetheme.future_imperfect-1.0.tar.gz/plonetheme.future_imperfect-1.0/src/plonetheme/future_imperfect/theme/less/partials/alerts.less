@@ -1,0 +1,77 @@
+/* ==========================================================================
+   ALERTS
+   ========================================================================== */
+
+
+
+
+#global_statusmessage{
+
+    width: 100%;
+}
+
+.portalMessage{
+
+    box-shadow: none;
+    text-shadow: none;
+
+    &.info{
+        
+        background-color: fadeout(@info, 100%);
+        color: @info;
+        font-weight: 500;
+        border: 0;
+        border-radius: 0;
+        box-shadow: inset 0 0 0 1px @info;
+
+        dt, strong{
+            color: @info;
+        }
+
+        > strong:before,
+        > dt:before{
+
+        background-color: darken(@info, 10%);
+        }
+    }
+
+    &.warning{
+
+        background-color: fadeout(@warning, 100%);
+        color: @warning;
+        font-weight: 500;
+        border: 0;
+        border-radius: 0;
+        box-shadow: inset 0 0 0 1px @warning;
+
+        dt, strong{
+            color: @warning;
+        }
+
+        > strong:before,
+        > dt:before{
+
+        background-color: darken(@warning, 10%);
+        }
+    }
+
+    &.error{
+        
+        background-color: fadeout(@error, 100%);
+        color: @error;
+        font-weight: 500;
+        border: 0;
+        border-radius: 0;
+        box-shadow: inset 0 0 0 1px @error;
+
+        dt, strong{
+            color: @error;
+        }
+
+        > strong:before,
+        > dt:before{
+
+        background-color: darken(@error, 10%);
+        }
+    }
+}

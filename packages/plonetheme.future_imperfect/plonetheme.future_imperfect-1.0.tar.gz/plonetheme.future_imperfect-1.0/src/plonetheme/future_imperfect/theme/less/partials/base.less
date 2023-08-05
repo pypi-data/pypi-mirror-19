@@ -1,0 +1,97 @@
+/* ==========================================================================
+   Base styling
+   ========================================================================== */
+
+
+main .box{
+    
+    width: 100%;
+    background: @bg-content;
+}
+
+h1{
+
+    font-size: 1.3em;
+    font-weight: 900;
+}
+
+h2{
+    font-size: 1.2em;
+}
+
+h3{
+    font-size: 1.18em;
+}
+
+h4{
+
+    font-size: 1.16em;
+}
+
+h5{
+
+    font-size: 1.14em;
+}
+
+h6{
+    font-size: 1.12;
+}
+
+p, li, dd, dt{
+
+    font-size: 1.1em;
+}
+
+li li {
+
+    font-size: 1em;
+}
+
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h1 a:focus,
+h2 a:focus,
+h3 a:focus{
+
+    border-bottom: none;
+}
+
+#main-container >.col-xs-12.col-sm-6{
+
+    padding-left: 2em;
+}
+
+// remove https link glyph
+i.link-https:after{
+    content: "" !important;
+}
+
+// edit-zone
+
+#edit-zone{
+
+    ul li{
+
+        padding-left: 0;
+
+        a{
+            border-bottom: 0;
+
+            &:hover{
+
+                color: inherit !important;
+            }
+        }
+    }
+}
+
+// remove underline from menu items
+.navbar-nav{
+
+    a:hover,
+    a:focus{
+        
+        text-decoration: none;
+    }
+}

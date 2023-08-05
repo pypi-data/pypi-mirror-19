@@ -1,0 +1,65 @@
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+
+
+
+
+#portal-footer-wrapper{
+
+    background-color: transparent;
+    color: @gray;
+    border-top: solid 1px rgba(160, 160, 160, 0.3);
+
+    a{
+        color: @black !important;
+
+        &:hover,
+        &:focus,
+        &:active{
+            color: @green !important;
+        }
+    }
+
+    abbr{
+        color: @gray;
+    }
+
+    .portletWrapper {
+
+        display: block;
+
+        &:first-child{
+
+            border-bottom: 0;
+            padding-top: 1.5em;
+        }
+
+    }
+    .portlet {
+
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        margin-bottom: 0;
+
+        .portletContent{
+            text-align: center;
+            border-top: 0;
+
+            >*{
+                padding: 0;
+            }
+
+            >ul>li a{
+                padding-bottom: 15px;
+            }
+
+            >ul>li a:before{
+                content: "";
+            }
+        }
+    }
+
+}
