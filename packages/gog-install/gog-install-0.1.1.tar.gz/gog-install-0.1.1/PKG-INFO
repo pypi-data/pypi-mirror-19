@@ -1,0 +1,104 @@
+Metadata-Version: 1.1
+Name: gog-install
+Version: 0.1.1
+Summary: Install GOG.com games from .sh archives
+Home-page: http://chadok.info/gog-install
+Author: Olivier Schwander
+Author-email: olivier.schwander@chadok.info
+License: UNKNOWN
+Download-URL: http://chadok.info/gog-install/gog-install-0.1.1.tar.gz
+Description: gog-install - Install GOG.com games from .sh archives
+        *****************************************************
+        
+        Description
+        ===========
+        
+        *gog-install* is a command line tool for installing your
+        GNU/Linux-compatible DRM-free games purchased on the `GOG.com`_ online
+        store. It allows one to install the games without running the
+        self-extractable ``.sh`` archive and the graphical installer.
+        
+        This tool was created for the following reasons:
+        
+        - I dislike graphical interfaces;
+        - I use a game controller-only box without mouse and keyboard (so it
+          would be boring to use a graphical installed, even with remote
+          display);
+        - I avoid to run proprietary code on my computer (no choice for games,
+          so I use `Firejail`_ but I prefer a cleaner solution if possible).
+        
+        **This client is not supported in any way by GOG.com !**
+        
+        .. _GOG.com: https://gog.com
+        .. _Firejail: https://firejail.wordpress.com/
+        
+        Installation
+        ============
+        
+        You can always install the latest version from PyPi using:
+        
+        .. code-block:: bash
+        
+           $ pip install gog-client
+        
+        Using an archive, this software can be installed using
+        
+        .. code-block:: bash
+        
+           $ python setup.py install
+        
+        Usage
+        =====
+        
+        .. code-block:: bash
+        
+           $ gog-install /path/to/archive_from_gog.sh
+        
+        The game will be extracted to ``/opt/GOG Games`` (use ``--install-dir``
+        to select the target directory).
+        
+        The game can be launched with:
+        
+        .. code-block:: bash
+        
+           $ /opt/GOG Games/Fancy Name of the Game/start.sh
+        
+        There is nothing pointing to this directory (.desktop files, symbolic
+        links or scripts ``/usr/local/bin``, etc), so you can freely rename or
+        move the directory containing the game.
+        
+        Dependencies
+        ============
+        
+        - Python3 (at least 3.4)
+        
+        Download
+        ========
+        
+        * Version 0.1.0: http://chadok.info/gog-install/gog-install-0.1.1.tar.gz
+        * Version 0.1.0: http://chadok.info/gog-install/gog-install-0.1.0.tar.gz
+        * Darcs repository: http://hub.darcs.net/oschwand/gog-install/
+        
+        Bugs and comments
+        =================
+        
+        Please submit bug reports on the `issues tracker`_.
+        
+        .. _issues tracker: http://hub.darcs.net/oschwand/gog-install/issues
+        
+        Licence
+        =======
+        
+        Humble is free software, released under the term of the GPLv3+.
+        
+        Copyright 2016 Olivier Schwander <olivier.schwander@ens-lyon.org>
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent

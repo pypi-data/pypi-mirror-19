@@ -1,0 +1,193 @@
+#! /usr/bin/python3
+
+import os
+import sys
+import zlib
+import struct
+import io
+from gzip import FTEXT, FHCRC, FEXTRA, FNAME, FCOMMENT
+import zipfile
+import shutil
+from pathlib import Path
+import argparse
+
+def swap32(x):
+    return int.from_bytes(x.to_bytes(4, byteorder='little'), byteorder='big', signed=False)
+
+# simple progress meter
+def progress(step, count):
+    format_str = "\r{:>" + str(len(str(count))) + "}/{}"
+    line       = format_str.format(step, count)
+    print(line, end="", flush=True)
+
+# adapted from module gzip
+# https://hg.python.org/cpython/file/3.5/Lib/gzip.py
+def _read_exact(file, n):
+    '''Read exactly *n* bytes from `file`
+
+    This method is required because file may be unbuffered,
+    i.e. return short reads.
+    '''
+
+    data = file.read(n)
+    while len(data) < n:
+        b = file.read(n - len(data))
+        if not b:
+            raise EOFError("Compressed file ended before the "
+                           "end-of-stream marker was reached")
+        data += b
+    return data
+
+# adapted from module gzip
+# https://hg.python.org/cpython/file/3.5/Lib/gzip.py
+def _read_gzip_header(file):
+    magic = file.read(2)
+    if magic == b'':
+        return False
+
+    if magic != b'\037\213':
+        raise OSError('Not a gzipped file (%r)' % magic)
+
+    (method, flag, last_mtime) = struct.unpack("<BBIxx", _read_exact(file, 8))
+    if method != 8:
+        raise OSError('Unknown compression method')
+
+    if flag & FEXTRA:
+        # Read & discard the extra field, if present
+        extra_len, = struct.unpack("<H", _read_exact(file, 2))
+        _read_exact(file, extra_len)
+    if flag & FNAME:
+        # Read and discard a null-terminated string containing the filename
+        while True:
+            s = file.read(1)
+            if not s or s==b'\000':
+                break
+    if flag & FCOMMENT:
+        # Read and discard a null-terminated string containing a comment
+        while True:
+            s = file.read(1)
+            if not s or s==b'\000':
+                break
+    if flag & FHCRC:
+        _read_exact(file, 2)     # Read & discard the 16-bit header CRC
+    return True
+
+zlib_magic = bytes([0x1f, 0x8b])
+# zip_magic  = bytes([0x50, 0x4b, 0x03, 0x04])
+buf_size = io.DEFAULT_BUFFER_SIZE
+# buf_size = 512
+
+def _read_zlib(archive):
+    decompressor = zlib.decompressobj(-zlib.MAX_WBITS)
+    output = True
+    while output != b'':
+        buf = archive.read(buf_size)
+        output = decompressor.decompress(buf)
+    archive.seek(-len(decompressor.unused_data), 1)
+    crc32, isize = struct.unpack("<II", _read_exact(archive, 8))
+    # XXX check the crc32
+
+def _read_makeself(archive):
+    buf = archive.read(buf_size)
+    while buf:
+        try:
+            offset = buf.index(zlib_magic)
+            archive.seek(-len(buf) + offset, 1)
+            break
+        except ValueError:
+            buf = archive.read(buf_size)
+
+def install(filename, installdir, verbose=False, force=False):
+    try:
+        installdir.mkdir()
+    except FileExistsError:
+        pass
+
+    with open(filename, 'rb') as archive:
+        # reading and discarding makeself script
+        print("Found makeself...", file=sys.stderr)
+        _read_makeself(archive)
+
+        # XXX the following may probably be done with GZipFile
+
+        # reading and discarding gzip header
+        print("Found gzip...", file=sys.stderr)
+        _read_gzip_header(archive)
+
+        # reading and discarding zlib data
+        print("Found zlib...", file=sys.stderr)
+        _read_zlib(archive)
+
+        with zipfile.ZipFile(archive) as zip:
+            with zip.open("data/noarch/gameinfo", "r") as gameinfo:
+                name = gameinfo.readline().decode().rstrip("\n")
+                version = gameinfo.readline().decode().rstrip("\n")
+            print("Extracting «", name, "»", version)
+
+            targetdir = installdir / Path(name)
+
+            count = len([x for x in zip.namelist() if x.startswith("data/noarch/")])
+            step  = 0
+            for member in zip.infolist():
+                filename = member.filename
+
+                if not filename.startswith("data/noarch/"):
+                    continue
+                filename   = filename[len("data/noarch/"):]
+                targetpath = targetdir / Path(filename)
+
+                step += 1
+                if verbose:
+                    print(filename)
+                else:
+                    progress(step, count)
+                    print("", filename , end="", flush=True)
+
+                attr     = member.external_attr >> 16
+                perms    = attr & 0o7777
+
+                if attr & 0o040000: # directory
+                    try:
+                        targetpath.mkdir()
+                    except FileExistsError:
+                        if force:
+                            pass
+                        else:
+                            raise
+                    targetpath.chmod(perms)
+                elif attr & 0o120000 == 0o120000: # symbolic link
+                    with zip.open(member.filename, "r") as link:
+                        dest = link.read().decode()
+                    targetpath.symlink_to(dest)
+                else: # regular file
+                    with zip.open(member) as source, targetpath.open("wb") as target:
+                        shutil.copyfileobj(source, target)
+                    targetpath.chmod(perms)
+
+            if not verbose:
+                print()
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='gog-install - Install GOG.com games from .sh archives')
+    parser.add_argument("--install-dir",
+                        dest="installdir",
+                        default="/opt/GOG Games/",
+                        help="Install in this directory")
+    parser.add_argument("--verbose", "-v",
+                        dest="verbose",
+                        action="store_true",
+                        help="Display extracted filenames")
+    parser.add_argument("--force", "-f",
+                        action="store_true",
+                        help="Install even if the directories already exist")
+    parser.add_argument("filename",
+                        help="Path to .sh archive")
+    args = parser.parse_args()
+
+    try:
+        install(args.filename, Path(args.installdir), args.verbose, args.force)
+    except FileExistsError as e:
+        print("Error, the directory « %s » already exists, use --force to install anyway" % e.filename, file=sys.stderr)
+        sys.exit(1)
+
+
