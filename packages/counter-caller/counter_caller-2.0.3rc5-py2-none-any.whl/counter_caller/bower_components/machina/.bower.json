@@ -1,0 +1,39 @@
+{
+  "name": "machina",
+  "version": "1.1.2",
+  "main": [
+    "lib/machina.js"
+  ],
+  "dependencies": {
+    "lodash": "3.x"
+  },
+  "devDependencies": {
+    "jquery": "~1.10.2",
+    "accounting": "~0.3.2",
+    "amplify": "~1.1.2",
+    "backbone": "0.9.1",
+    "bootstrap": "~3.0.3",
+    "expect": "0.1.2",
+    "jquery-mockjax": "~1.5.3",
+    "machina.postal": "0.3.0",
+    "mocha": "~1.17.0",
+    "postal.js": "0.8.11",
+    "modernizr": "2.6.2",
+    "requirejs": "~2.1.10",
+    "requirejs-text": "~2.0.10",
+    "postal.diagnostics": "~0.7.0"
+  },
+  "ignore": [
+    "**/.*"
+  ],
+  "homepage": "https://github.com/ifandelse/machina.js",
+  "_release": "1.1.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.1.2",
+    "commit": "6cfd4fc96c3b8b805bf28f44aef7d64ae06d7910"
+  },
+  "_source": "https://github.com/ifandelse/machina.js.git",
+  "_target": "~1.1.2",
+  "_originalSource": "machina"
+}
