@@ -1,0 +1,33 @@
+Metadata-Version: 1.1
+Name: alignak-checks-snmp
+Version: 0.2.7
+Summary: Alignak checks pack for SNMP monitored hosts
+Home-page: https://github.com/Alignak-monitoring-contrib/alignak-checks-snmp
+Author: Frédéric MOHIER
+Author-email: frederic.mohier@gmail.com
+License: GNU Affero General Public License, version 3
+Description: Alignak checks package for SNMP
+        ===============================
+        
+        Checks pack for monitoring hosts with SNMP
+        
+        --------------------------------------------------------------------
+        **Beware**: This checks pack is now deprecated. It has been replaced with `alignak-checks-linux-snmp` that makes its naming more consistent with the used naming conventions.
+        
+        The current future-master branch in this repository contains the modifications used as a basis for the next repository.
+        
+        As of now, see: https://github.com/Alignak-monitoring-contrib/alignak-checks-linux-snmp
+        --------------------------------------------------------------------
+        
+        
+Keywords: a,l,i,g,n,a,k, ,m,o,n,i,t,o,r,i,n,g, ,p,a,c,k, ,c,h,e,c,k,s, ,s,n,m,p
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Topic :: System :: Monitoring
+Classifier: Topic :: System :: Systems Administration
