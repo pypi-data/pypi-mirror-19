@@ -1,0 +1,5 @@
+exclude .gitignore
+include README.rst
+include setup.cfg
+include README.md
+exclude .git
