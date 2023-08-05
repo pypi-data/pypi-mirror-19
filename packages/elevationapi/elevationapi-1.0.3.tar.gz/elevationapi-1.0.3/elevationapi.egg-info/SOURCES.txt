@@ -1,0 +1,10 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+elevationapi/Elevation.py
+elevationapi/__init__.py
+elevationapi.egg-info/PKG-INFO
+elevationapi.egg-info/SOURCES.txt
+elevationapi.egg-info/dependency_links.txt
+elevationapi.egg-info/top_level.txt
