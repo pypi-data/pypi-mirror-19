@@ -1,0 +1,484 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>csvkit 1.0.1 &mdash; csvkit 1.0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="csvkit 1.0.1 documentation" href="#"/>
+        <link rel="next" title="Tutorial" href="tutorial.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> csvkit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricks.html">Tips and Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to csvkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Release process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">csvkit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>csvkit 1.0.1</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="csvkit-release">
+<h1>csvkit 1.0.1<a class="headerlink" href="#csvkit-release" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="https://travis-ci.org/wireservice/csvkit"><img alt="Build Status" src="https://secure.travis-ci.org/wireservice/csvkit.png" /></a>
+<a class="reference external image-reference" href="https://gemnasium.com/wireservice/csvkit"><img alt="Dependency Status" src="https://gemnasium.com/wireservice/csvkit.png" /></a>
+<a class="reference external image-reference" href="https://coveralls.io/r/wireservice/csvkit"><img alt="Coverage Status" src="https://coveralls.io/repos/wireservice/csvkit/badge.png?branch=master" /></a>
+<a class="reference external image-reference" href="https://pypi.python.org/pypi/csvkit"><img alt="PyPI downloads" src="https://img.shields.io/pypi/dw/csvkit.svg" /></a>
+<a class="reference external image-reference" href="https://pypi.python.org/pypi/csvkit"><img alt="Version" src="https://img.shields.io/pypi/v/csvkit.svg" /></a>
+<a class="reference external image-reference" href="https://pypi.python.org/pypi/csvkit"><img alt="License" src="https://img.shields.io/pypi/l/csvkit.svg" /></a>
+<a class="reference external image-reference" href="https://pypi.python.org/pypi/csvkit"><img alt="Support Python versions" src="https://img.shields.io/pypi/pyversions/csvkit.svg" /></a>
+<p>csvkit is a suite of command-line tools for converting to and working with CSV, the king of tabular file formats.</p>
+<p>It is inspired by pdftk, gdal and the original csvcut tool by Joe Germuska and Aaron Bycoffe.</p>
+<p>If you need to do more complex data analysis than csvkit can handle, use <a class="reference external" href="https://github.com/wireservice/agate">agate</a>.</p>
+<p>Important links:</p>
+<ul class="simple">
+<li>Repository:    <a class="reference external" href="https://github.com/wireservice/csvkit">https://github.com/wireservice/csvkit</a></li>
+<li>Issues:        <a class="reference external" href="https://github.com/wireservice/csvkit/issues">https://github.com/wireservice/csvkit/issues</a></li>
+<li>Documentation: <a class="reference external" href="http://csvkit.rtfd.org/">http://csvkit.rtfd.org/</a></li>
+<li>Schemas:       <a class="reference external" href="https://github.com/wireservice/ffs">https://github.com/wireservice/ffs</a></li>
+<li>Buildbot:      <a class="reference external" href="https://travis-ci.org/wireservice/csvkit">https://travis-ci.org/wireservice/csvkit</a></li>
+</ul>
+</div>
+<div class="section" id="why-csvkit">
+<h2>Why csvkit?<a class="headerlink" href="#why-csvkit" title="Permalink to this headline">¶</a></h2>
+<p>Because it makes your life easier.</p>
+<p>Convert Excel to CSV:</p>
+<div class="highlight-python"><div class="highlight"><pre>in2csv data.xls &gt; data.csv
+</pre></div>
+</div>
+<p>Convert JSON to CSV:</p>
+<div class="highlight-python"><div class="highlight"><pre>in2csv data.json &gt; data.csv
+</pre></div>
+</div>
+<p>Print column names:</p>
+<div class="highlight-python"><div class="highlight"><pre>csvcut -n data.csv
+</pre></div>
+</div>
+<p>Select a subset of columns:</p>
+<div class="highlight-python"><div class="highlight"><pre>csvcut -c column_a,column_c data.csv &gt; new.csv
+</pre></div>
+</div>
+<p>Reorder columns:</p>
+<div class="highlight-python"><div class="highlight"><pre>csvcut -c column_c,column_a data.csv &gt; new.csv
+</pre></div>
+</div>
+<p>Find rows with matching cells:</p>
+<div class="highlight-python"><div class="highlight"><pre>csvgrep -c phone_number -r &quot;555-555-\d{4}&quot; data.csv &gt; new.csv
+</pre></div>
+</div>
+<p>Convert to JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre>csvjson data.csv &gt; data.json
+</pre></div>
+</div>
+<p>Generate summary statistics:</p>
+<div class="highlight-python"><div class="highlight"><pre>csvstat data.csv
+</pre></div>
+</div>
+<p>Query with SQL:</p>
+<div class="highlight-python"><div class="highlight"><pre>csvsql --query &quot;select name from data where age &gt; 30&quot; data.csv &gt; new.csv
+</pre></div>
+</div>
+<p>Import into PostgreSQL:</p>
+<div class="highlight-python"><div class="highlight"><pre>csvsql --db postgresql:///database --insert data.csv
+</pre></div>
+</div>
+<p>Extract data from PostgreSQL:</p>
+<div class="highlight-python"><div class="highlight"><pre>sql2csv --db postgresql:///database --query &quot;select * from data&quot; &gt; new.csv
+</pre></div>
+</div>
+<p>And much more...</p>
+</div>
+<div class="section" id="table-of-contents">
+<h2>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1_getting_started.html">1. Getting started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/1_getting_started.html#about-this-tutorial">1.1. About this tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/1_getting_started.html#installing-csvkit">1.2. Installing csvkit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/1_getting_started.html#getting-the-data">1.3. Getting the data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/1_getting_started.html#in2csv-the-excel-killer">1.4. in2csv: the Excel killer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/1_getting_started.html#csvlook-data-periscope">1.5. csvlook: data periscope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/1_getting_started.html#csvcut-data-scalpel">1.6. csvcut: data scalpel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/1_getting_started.html#putting-it-together-with-pipes">1.7. Putting it together with pipes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/1_getting_started.html#summing-up">1.8. Summing up</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/2_examining_the_data.html">2. Examining the data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/2_examining_the_data.html#csvstat-statistics-without-code">2.1. csvstat: statistics without code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/2_examining_the_data.html#csvgrep-find-the-data-you-need">2.2. csvgrep: find the data you need</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/2_examining_the_data.html#csvsort-order-matters">2.3. csvsort: order matters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/2_examining_the_data.html#summing-up">2.4. Summing up</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/3_power_tools.html">3. Power tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/3_power_tools.html#csvjoin-merging-related-data">3.1. csvjoin: merging related data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/3_power_tools.html#csvstack-combining-subsets">3.2. csvstack: combining subsets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/3_power_tools.html#csvsql-and-sql2csv-ultimate-power">3.3. csvsql and sql2csv: ultimate power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/3_power_tools.html#summing-up">3.4. Summing up</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/4_going_elsewhere.html">4. Going elsewhere with your data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/4_going_elsewhere.html#csvjson-going-online">4.1. csvjson: going online</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/4_going_elsewhere.html#csvpy-going-into-code">4.2. csvpy: going into code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/4_going_elsewhere.html#csvformat-for-legacy-systems">4.3. csvformat: for legacy systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/4_going_elsewhere.html#summing-up">4.4. Summing up</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cli.html#input">Input</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scripts/in2csv.html">in2csv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scripts/sql2csv.html">sql2csv</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cli.html#processing">Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scripts/csvclean.html">csvclean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scripts/csvcut.html">csvcut</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scripts/csvgrep.html">csvgrep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scripts/csvjoin.html">csvjoin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scripts/csvsort.html">csvsort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scripts/csvstack.html">csvstack</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cli.html#output-and-analysis">Output and Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scripts/csvformat.html">csvformat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scripts/csvjson.html">csvjson</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scripts/csvlook.html">csvlook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scripts/csvpy.html">csvpy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scripts/csvsql.html">csvsql</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scripts/csvstat.html">csvstat</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cli.html#common-arguments">Common arguments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common_arguments.html">Arguments common to all tools</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tricks.html">Tips and Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tricks.html#tips">Tips</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tricks.html#reading-compressed-csvs">Reading compressed CSVs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tricks.html#reading-a-csv-with-a-byte-order-mark-bom">Reading a CSV with a byte-order mark (BOM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tricks.html#specifying-stdin-as-a-file">Specifying STDIN as a file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tricks.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tricks.html#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tricks.html#csv-formatting-and-parsing">CSV formatting and parsing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tricks.html#csv-data-interpretation">CSV data interpretation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tricks.html#slow-performance">Slow performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tricks.html#database-errors">Database errors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to csvkit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#principles-of-development">Principles of development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#how-to-contribute">How to contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#a-note-on-new-tools">A note on new tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#streaming-versus-buffering">Streaming versus buffering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#legalese">Legalese</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Release process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">1.0.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#december-27-2016">1.0.0 - December 27, 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#march-31-2015">0.9.1 - March 31, 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">0.9.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">0.8.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">0.7.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id5">0.7.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id6">0.7.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id7">0.7.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id8">0.6.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id9">0.5.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id10">0.4.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id11">0.4.3</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="citation">
+<h2>Citation<a class="headerlink" href="#citation" title="Permalink to this headline">¶</a></h2>
+<p>When citing csvkit in publications, you may use this BibTeX entry:</p>
+<div class="highlight-python"><div class="highlight"><pre>@Manual{,
+  title = {csvkit},
+  author = {Christopher Groskopf and contributors},
+  year = 2016,
+  url = {https://csvkit.readthedocs.org/}
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="authors">
+<h2>Authors<a class="headerlink" href="#authors" title="Permalink to this headline">¶</a></h2>
+<p>The following individuals have contributed code to csvkit:</p>
+<ul class="simple">
+<li>Christopher Groskopf</li>
+<li>Joe Germuska</li>
+<li>Aaron Bycoffe</li>
+<li>Travis Mehlinger</li>
+<li>Alejandro Companioni</li>
+<li>Benjamin Wilson</li>
+<li>Bryan Silverthorn</li>
+<li>Evan Wheeler</li>
+<li>Matt Bone</li>
+<li>Ryan Pitts</li>
+<li>Hari Dara</li>
+<li>Jeff Larson</li>
+<li>Jim Thaxton</li>
+<li>Miguel Gonzalez</li>
+<li>Anton Ian Sipos</li>
+<li>Gregory Temchenko</li>
+<li>Kevin Schaul</li>
+<li>Marc Abramowitz</li>
+<li>Noah Hoffman</li>
+<li>Jan Schulz</li>
+<li>Derek Wilson</li>
+<li>Chris Rosenthal</li>
+<li>Davide Setti</li>
+<li>Gabi Davar</li>
+<li>Sriram Karra</li>
+<li>James McKinney</li>
+<li>Aaron McMillin</li>
+<li>Matt Dudys</li>
+<li>Joakim Lundborg</li>
+<li>Federico Scrinzi</li>
+<li>Chris Rosenthal</li>
+<li>Shane StClair</li>
+<li>raistlin7447</li>
+<li>Alex Dergachev</li>
+<li>Jeff Paine</li>
+<li>Jeroen Janssens</li>
+<li>Sébastien Fievet</li>
+<li>Travis Swicegood</li>
+<li>Ryan Murphy</li>
+<li>Diego Rabatone Oliveira</li>
+<li>Matt Pettis</li>
+<li>Tasneem Raja</li>
+<li>Richard Low</li>
+<li>Kristina Durivage</li>
+<li>Espartaco Palma</li>
+<li>pnaimoli</li>
+<li>Michael Mior</li>
+<li>Jennifer Smith</li>
+<li>Antonio Lima</li>
+<li>Dave Stanton</li>
+<li>Pedrow</li>
+<li>Neal McBurnett</li>
+<li>Anthony DeBarros</li>
+<li>Baptiste Mispelon</li>
+<li>James Seppi</li>
+<li>Karrie Kehoe</li>
+<li>Geert Barentsen</li>
+<li>Cathy Deng</li>
+<li>Eric Bréchemier</li>
+<li>Neil Freeman</li>
+<li>Fede Isas</li>
+<li>Patricia Lipp</li>
+<li>Kev++</li>
+<li>edwardros</li>
+<li>Martin Burch</li>
+<li>Pedro Silva</li>
+<li>hydrosIII</li>
+</ul>
+</div>
+<div class="section" id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span>Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span>Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span>Search Page</span></a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tutorial.html" class="btn btn-neutral float-right" title="Tutorial" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Christopher Groskopf.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

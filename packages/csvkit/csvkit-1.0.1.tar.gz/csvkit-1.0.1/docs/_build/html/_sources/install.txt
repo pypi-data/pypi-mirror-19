@@ -1,0 +1,66 @@
+============
+Installation
+============
+
+For users
+=========
+
+If you only want to use agate, install it this way::
+
+    pip install agate
+
+If you are installing on Ubuntu you may need to install the Python development headers prior to install csvkit::
+
+    sudo apt-get install python-dev python-pip python-setuptools build-essential
+    pip install csvkit
+
+If the installation is successful but csvkit's tools fail, you may need to update Python's setuptools package first::
+
+    pip install --upgrade setuptools
+    pip install --upgrade csvkit
+
+On OS X, if you see `OSError: [Errno 1] Operation not permitted`, try::
+
+    sudo pip install --ignore-installed csvkit
+
+If you use Python 2 and have a recent version of pip, you may need to run pip with :code:`--allow-external argparse`.
+
+If you use Python 2 on FreeBSD, you may need to install `py-sqlite3 <https://www.freshports.org/databases/py-sqlite3/>`_.
+
+.. note::
+
+    Need more speed? If you're running Python 2.7 you can :code:`pip install cdecimal` for a significant speed boost. This isn't installed automatically because it can create additional complications.
+
+For developers
+==============
+
+If you are a developer that also wants to hack on csvkit, install it this way::
+
+    git clone git://github.com/onyxfish/csvkit.git
+    cd csvkit
+    mkvirtualenv csvkit
+
+    # If running Python 2, then...
+    pip install -r requirements-py2.txt
+
+    # Otherwise, for Python 3...
+    pip install -r requirements-py3.txt
+
+    # Run tests against your current version
+    nosetests tests
+
+    # Run tests against all versions (you'll need numerous versions of Python installed)
+    tox
+
+Before writing any code be sure to read the documentation for :doc:`contributing`.
+
+Supported platforms
+===================
+
+csvkit supports the following versions of Python:
+
+* Python 2.7
+* Python 3.3+
+* `PyPy <http://pypy.org/>`_ versions >= 4.0.0
+
+It is tested on OS X, but has been used successfully by others on both Linux and Windows.

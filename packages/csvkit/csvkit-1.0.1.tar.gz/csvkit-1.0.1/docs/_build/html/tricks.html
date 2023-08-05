@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tips and Troubleshooting &mdash; csvkit 1.0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="csvkit 1.0.1 documentation" href="index.html"/>
+        <link rel="next" title="Contributing to csvkit" href="contributing.html"/>
+        <link rel="prev" title="Arguments common to all tools" href="common_arguments.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> csvkit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Tips and Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tips">Tips</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reading-compressed-csvs">Reading compressed CSVs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-a-csv-with-a-byte-order-mark-bom">Reading a CSV with a byte-order mark (BOM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#specifying-stdin-as-a-file">Specifying STDIN as a file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csv-formatting-and-parsing">CSV formatting and parsing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csv-data-interpretation">CSV data interpretation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#slow-performance">Slow performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database-errors">Database errors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to csvkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Release process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">csvkit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Tips and Troubleshooting</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/tricks.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tips-and-troubleshooting">
+<h1>Tips and Troubleshooting<a class="headerlink" href="#tips-and-troubleshooting" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tips">
+<h2>Tips<a class="headerlink" href="#tips" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="reading-compressed-csvs">
+<h3>Reading compressed CSVs<a class="headerlink" href="#reading-compressed-csvs" title="Permalink to this headline">¶</a></h3>
+<p>csvkit has builtin support for reading <code class="docutils literal"><span class="pre">gzip</span></code> or <code class="docutils literal"><span class="pre">bz2</span></code> compressed input files. This is automatically detected based on the file extension. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre>csvstat examples/dummy.csv.gz
+csvstat examples/dummy.csv.bz2
+</pre></div>
+</div>
+<p>Please note, the files are decompressed in memory, so this is a convenience, not an optimization.</p>
+</div>
+<div class="section" id="reading-a-csv-with-a-byte-order-mark-bom">
+<h3>Reading a CSV with a byte-order mark (BOM)<a class="headerlink" href="#reading-a-csv-with-a-byte-order-mark-bom" title="Permalink to this headline">¶</a></h3>
+<p>Set the encoding to <code class="docutils literal"><span class="pre">utf-8-sig</span></code>, for example:</p>
+<div class="highlight-python"><div class="highlight"><pre>csvcut -e utf-8-sig -c column1 csv-with-bom.csv
+</pre></div>
+</div>
+</div>
+<div class="section" id="specifying-stdin-as-a-file">
+<h3>Specifying STDIN as a file<a class="headerlink" href="#specifying-stdin-as-a-file" title="Permalink to this headline">¶</a></h3>
+<p>Most tools use <code class="docutils literal"><span class="pre">STDIN</span></code> as input if no filename is given, but tools that accept multiple inputs like <a class="reference internal" href="scripts/csvjoin.html"><em>csvjoin</em></a> and <a class="reference internal" href="scripts/csvstack.html"><em>csvstack</em></a> don&#8217;t. To use <code class="docutils literal"><span class="pre">STDIN</span></code> as an input to these tools, use <code class="docutils literal"><span class="pre">-</span></code> as the filename. For example, these three commands produce the same output:</p>
+<div class="highlight-python"><div class="highlight"><pre>csvstat examples/dummy.csv
+cat examples/dummy.csv | csvstat
+cat examples/dummy.csv | csvstat -
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">csvstack</span></code> can take a filename and <code class="docutils literal"><span class="pre">STDIN</span></code> as input, for example:</p>
+<div class="highlight-python"><div class="highlight"><pre>cat examples/dummy.csv | csvstack examples/dummy3.csv -
+</pre></div>
+</div>
+<p>Alternately, you can pipe in multiple inputs like so:</p>
+<div class="highlight-python"><div class="highlight"><pre>csvjoin -c id &lt;(csvcut -c 2,5,6 a.csv) &lt;(csvcut -c 1,7 b.csv)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<p>csvkit is supported on:</p>
+<ul class="simple">
+<li>Python 2.7+</li>
+<li>Python 3.3+</li>
+<li><a class="reference external" href="http://pypy.org/">PyPy</a></li>
+</ul>
+<p>It is tested on OS X, and has also been used on Linux and Windows.</p>
+<p>If installing on Ubuntu, you may need to install Python&#8217;s development headers first:</p>
+<div class="highlight-python"><div class="highlight"><pre>sudo apt-get install python-dev python-pip python-setuptools build-essential
+pip install csvkit
+</pre></div>
+</div>
+<p>If the installation is successful but csvkit&#8217;s tools fail, you may need to update Python&#8217;s setuptools package first:</p>
+<div class="highlight-python"><div class="highlight"><pre>pip install --upgrade setuptools
+pip install --upgrade csvkit
+</pre></div>
+</div>
+<p>On OS X, if you see <cite>OSError: [Errno 1] Operation not permitted</cite>, try:</p>
+<div class="highlight-python"><div class="highlight"><pre>sudo pip install --ignore-installed csvkit
+</pre></div>
+</div>
+<p>If you use Python 2 and have a recent version of pip, you may need to run pip with <code class="code docutils literal"><span class="pre">--allow-external</span> <span class="pre">argparse</span></code>.</p>
+<p>If you use Python 2 on FreeBSD, you may need to install <a class="reference external" href="https://www.freshports.org/databases/py-sqlite3/">py-sqlite3</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Need more speed? If you use Python 2, <code class="code docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">cdecimal</span></code> for a boost.</p>
+</div>
+</div>
+<div class="section" id="csv-formatting-and-parsing">
+<h3>CSV formatting and parsing<a class="headerlink" href="#csv-formatting-and-parsing" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Are values appearing in incorrect columns?</li>
+<li>Does the output combine multiple fields into a single column with double-quotes?</li>
+<li>Does the outplit split a single field into multiple columns?</li>
+<li>Are <cite>csvstat -c 1</cite> and <cite>csvstat &#8211;count</cite> reporting inconsistent row counts?</li>
+</ul>
+<p>These may be symptoms of CSV sniffing gone wrong. As there is no single, standard CSV format, csvkit uses Python&#8217;s <a class="reference external" href="https://docs.python.org/3.5/library/csv.html#csv.Sniffer">csv.Sniffer</a> to deduce the format of a CSV file: that is, the field delimiter and quote character. By default, the entire file is sent for sniffing, which can be slow. You can send a small sample with the <code class="code docutils literal"><span class="pre">--snifflimit</span></code> option. If you&#8217;re encountering any cases above, you can try setting <code class="code docutils literal"><span class="pre">--snifflimit</span> <span class="pre">0</span></code> to disable sniffing and set the <code class="code docutils literal"><span class="pre">--delimiter</span></code> and <code class="code docutils literal"><span class="pre">--quotechar</span></code> options yourself.</p>
+<p>Although these issues are annoying, in most cases, CSV sniffing Just Works™. Disabling sniffing by default would produce a lot more issues than enabling it by default.</p>
+</div>
+<div class="section" id="csv-data-interpretation">
+<h3>CSV data interpretation<a class="headerlink" href="#csv-data-interpretation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Are the numbers <code class="docutils literal"><span class="pre">1</span></code> and <code class="docutils literal"><span class="pre">0</span></code> being interepted as <code class="docutils literal"><span class="pre">True</span></code> and <code class="docutils literal"><span class="pre">False</span></code>?</li>
+<li>Are phone numbers changing to integers and losing their leading <code class="docutils literal"><span class="pre">+</span></code> or <code class="docutils literal"><span class="pre">0</span></code>?</li>
+<li>Is the Italian comune of &#8220;None&#8221; being treated as a null value?</li>
+</ul>
+<p>These may be symptoms of csvkit&#8217;s type inference being too aggressive for your data. CSV is a text format, but it may contain text representing numbers, dates, booleans or other types. csvkit attempts to reverse engineer that text into proper data types—a process called &#8220;type inference&#8221;.</p>
+<p>For some data, type inference can be error prone. If necessary you can disable it with the To <code class="code docutils literal"><span class="pre">--no-inference</span></code> switch. This will force all columns to be treated as regular text.</p>
+</div>
+<div class="section" id="slow-performance">
+<h3>Slow performance<a class="headerlink" href="#slow-performance" title="Permalink to this headline">¶</a></h3>
+<p>csvkit&#8217;s tools fall into two categories: Those that load an entire CSV into memory (e.g. <a class="reference internal" href="scripts/csvstat.html"><em>csvstat</em></a>) and those that only read data one row at a time (e.g. <a class="reference internal" href="scripts/csvcut.html"><em>csvcut</em></a>). Those that stream results will generally be very fast. For those that buffer the entire file, the slowest part of that process is typically the &#8220;type inference&#8221; described in the previous section.</p>
+<p>If a tool is too slow to be practical for your data try setting the <code class="code docutils literal"><span class="pre">--snifflimit</span></code> option or using the <code class="code docutils literal"><span class="pre">--no-inference</span></code>.</p>
+</div>
+<div class="section" id="database-errors">
+<h3>Database errors<a class="headerlink" href="#database-errors" title="Permalink to this headline">¶</a></h3>
+<p>Are you seeing this error message, even after running <code class="code docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">psycopg2</span></code> or <code class="code docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">MySQL-python</span></code>?</p>
+<div class="highlight-python"><div class="highlight"><pre>You don&#39;t appear to have the necessary database backend installed for connection string you&#39;re trying to use. Available backends include:
+
+Postgresql: pip install psycopg2
+MySQL:      pip install MySQL-python
+
+For details on connection strings and other backends, please see the SQLAlchemy documentation on dialects at:
+
+http://www.sqlalchemy.org/docs/dialects/
+</pre></div>
+</div>
+<p>First, make sure that you can open a <code class="docutils literal"><span class="pre">python</span></code> interpreter and run <code class="code docutils literal"><span class="pre">import</span> <span class="pre">psycopg2</span></code>. If you see an error containing <code class="docutils literal"><span class="pre">mach-o,</span> <span class="pre">but</span> <span class="pre">wrong</span> <span class="pre">architecture</span></code>, you may need to reinstall <code class="docutils literal"><span class="pre">psycopg2</span></code> with <code class="code docutils literal"><span class="pre">export</span> <span class="pre">ARCHFLAGS=&quot;-arch</span> <span class="pre">i386&quot;</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">psycopg2</span></code> (<a class="reference external" href="http://www.destructuring.net/2013/07/31/trouble-installing-psycopg2-on-osx/">source</a>). If you see another error, you may be able to find a solution on StackOverflow.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="contributing.html" class="btn btn-neutral float-right" title="Contributing to csvkit" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common_arguments.html" class="btn btn-neutral" title="Arguments common to all tools" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Christopher Groskopf.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

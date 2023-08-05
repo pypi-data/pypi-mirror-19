@@ -1,0 +1,250 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tutorial &mdash; csvkit 1.0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="csvkit 1.0.1 documentation" href="index.html"/>
+        <link rel="next" title="1. Getting started" href="tutorial/1_getting_started.html"/>
+        <link rel="prev" title="csvkit 1.0.1" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> csvkit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1_getting_started.html">1. Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/2_examining_the_data.html">2. Examining the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/3_power_tools.html">3. Power tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/4_going_elsewhere.html">4. Going elsewhere with your data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tricks.html">Tips and Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to csvkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Release process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">csvkit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Tutorial</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/tutorial.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tutorial">
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
+<p>The csvkit tutorial walks through processing and analyzing a real dataset:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/1_getting_started.html">1. Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1_getting_started.html#about-this-tutorial">1.1. About this tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1_getting_started.html#installing-csvkit">1.2. Installing csvkit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1_getting_started.html#getting-the-data">1.3. Getting the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1_getting_started.html#in2csv-the-excel-killer">1.4. in2csv: the Excel killer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1_getting_started.html#csvlook-data-periscope">1.5. csvlook: data periscope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1_getting_started.html#csvcut-data-scalpel">1.6. csvcut: data scalpel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1_getting_started.html#putting-it-together-with-pipes">1.7. Putting it together with pipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1_getting_started.html#summing-up">1.8. Summing up</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/2_examining_the_data.html">2. Examining the data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/2_examining_the_data.html#csvstat-statistics-without-code">2.1. csvstat: statistics without code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/2_examining_the_data.html#csvgrep-find-the-data-you-need">2.2. csvgrep: find the data you need</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/2_examining_the_data.html#csvsort-order-matters">2.3. csvsort: order matters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/2_examining_the_data.html#summing-up">2.4. Summing up</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/3_power_tools.html">3. Power tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/3_power_tools.html#csvjoin-merging-related-data">3.1. csvjoin: merging related data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/3_power_tools.html#csvstack-combining-subsets">3.2. csvstack: combining subsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/3_power_tools.html#csvsql-and-sql2csv-ultimate-power">3.3. csvsql and sql2csv: ultimate power</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/3_power_tools.html#summing-up">3.4. Summing up</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/4_going_elsewhere.html">4. Going elsewhere with your data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/4_going_elsewhere.html#csvjson-going-online">4.1. csvjson: going online</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/4_going_elsewhere.html#csvpy-going-into-code">4.2. csvpy: going into code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/4_going_elsewhere.html#csvformat-for-legacy-systems">4.3. csvformat: for legacy systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/4_going_elsewhere.html#summing-up">4.4. Summing up</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tutorial/1_getting_started.html" class="btn btn-neutral float-right" title="1. Getting started" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="csvkit 1.0.1" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Christopher Groskopf.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,318 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>csvsql &mdash; csvkit 1.0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="csvkit 1.0.1 documentation" href="../index.html"/>
+        <link rel="up" title="Reference" href="../cli.html"/>
+        <link rel="next" title="csvstat" href="csvstat.html"/>
+        <link rel="prev" title="csvpy" href="csvpy.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> csvkit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../cli.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../cli.html#input">Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli.html#processing">Processing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../cli.html#output-and-analysis">Output and Analysis</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="csvformat.html">csvformat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvjson.html">csvjson</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvlook.html">csvlook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvpy.html">csvpy</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">csvsql</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvstat.html">csvstat</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cli.html#common-arguments">Common arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tricks.html">Tips and Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to csvkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Release process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">csvkit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../cli.html">Reference</a> &raquo;</li>
+      
+    <li>csvsql</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/scripts/csvsql.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="csvsql">
+<h1>csvsql<a class="headerlink" href="#csvsql" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Generate SQL statements for a CSV file or execute those statements directly on a database. In the latter case supports both creating tables and inserting data:</p>
+<div class="highlight-python"><div class="highlight"><pre>usage: csvsql [-h] [-d DELIMITER] [-t] [-q QUOTECHAR] [-u {0,1,2,3}] [-b]
+              [-p ESCAPECHAR] [-z MAXFIELDSIZE] [-e ENCODING] [-S] [-H] [-v]
+              [--zero] [-y SNIFFLIMIT]
+              [-i {firebird,maxdb,informix,mssql,oracle,sybase,sqlite,access,mysql,postgresql}]
+              [--db CONNECTION_STRING] [--query QUERY] [--insert]
+              [--tables TABLE_NAMES] [--no-constraints] [--no-create]
+              [--blanks] [--no-inference] [--db-schema DB_SCHEMA]
+              [FILE [FILE ...]]
+
+Generate SQL statements for one or more CSV files, or execute those
+statements directly on a database, and execute one or more SQL queries.
+
+positional arguments:
+  FILE                  The CSV file(s) to operate on. If omitted, will accept
+                        input on STDIN.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -y SNIFFLIMIT, --snifflimit SNIFFLIMIT
+                        Limit CSV dialect sniffing to the specified number of
+                        bytes. Specify &quot;0&quot; to disable sniffing entirely.
+  -i {firebird,maxdb,informix,mssql,oracle,sybase,sqlite,access,mysql,postgresql}, --dialect {firebird,maxdb,informix,mssql,oracle,sybase,sqlite,access,mysql,postgresql}
+                        Dialect of SQL to generate. Only valid when --db is
+                        not specified.
+  --db CONNECTION_STRING
+                        If present, a sqlalchemy connection string to use to
+                        directly execute generated SQL on a database.
+  --query QUERY         Execute one or more SQL queries delimited by &quot;;&quot; and
+                        output the result of the last query as CSV.
+  --insert              In addition to creating the table, also insert the
+                        data into the table. Only valid when --db is
+                        specified.
+  --tables TABLE_NAMES  Specify the names of the tables to be created. By
+                        default, the tables will be named after the
+                        filenames without extensions or &quot;stdin&quot;.
+  --no-constraints      Generate a schema without length limits or null
+                        checks. Useful when sampling big tables.
+  --no-create           Skip creating a table. Only valid when --insert is
+                        specified.
+  --blanks              Do not coerce empty strings to NULL values.
+  --no-inference        Disable type inference when parsing the input.
+  --db-schema DB_SCHEMA
+                        Optional name of database schema to create table(s)
+                        in.
+</pre></div>
+</div>
+<p>See also: <a class="reference internal" href="../common_arguments.html"><em>Arguments common to all tools</em></a>.</p>
+<p>For information on connection strings and supported dialects refer to the <a class="reference external" href="http://www.sqlalchemy.org/docs/dialects/">SQLAlchemy documentation</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Using the <code class="docutils literal"><span class="pre">--query</span></code> option may cause rounding (in Python 2) or introduce [Python floating point issues](<a class="reference external" href="https://docs.python.org/3.4/tutorial/floatingpoint.html">https://docs.python.org/3.4/tutorial/floatingpoint.html</a>) (in Python 3).</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Generate a statement in the PostgreSQL dialect:</p>
+<div class="highlight-python"><div class="highlight"><pre>csvsql -i postgresql examples/realdata/FY09_EDU_Recipients_by_State.csv
+</pre></div>
+</div>
+<p>Create a table and import data from the CSV directly into PostgreSQL:</p>
+<div class="highlight-python"><div class="highlight"><pre>createdb test
+csvsql --db postgresql:///test --table fy09 --insert examples/realdata/FY09_EDU_Recipients_by_State.csv
+</pre></div>
+</div>
+<p>For large tables it may not be practical to process the entire table. One solution to this is to analyze a sample of the table. In this case it can be useful to turn off length limits and null checks with the <code class="docutils literal"><span class="pre">no-constraints</span></code> option:</p>
+<div class="highlight-python"><div class="highlight"><pre>head -n 20 examples/realdata/FY09_EDU_Recipients_by_State.csv | csvsql --no-constraints --table fy09
+</pre></div>
+</div>
+<p>Create tables for an entire folder of CSVs and import data from those files directly into PostgreSQL:</p>
+<div class="highlight-python"><div class="highlight"><pre>createdb test
+csvsql --db postgresql:///test --insert examples/*_converted.csv
+</pre></div>
+</div>
+<p>If those CSVs have identical headers, you can import them into the same table by using <a class="reference internal" href="csvstack.html"><em>csvstack</em></a> first:</p>
+<div class="highlight-python"><div class="highlight"><pre>createdb test
+csvstack examples/dummy?.csv | csvsql --db postgresql:///test --insert
+</pre></div>
+</div>
+<p>Group rows by one column:</p>
+<div class="highlight-python"><div class="highlight"><pre>csvsql --query &quot;select * from &#39;dummy3&#39; group by a&quot; examples/dummy3.csv
+</pre></div>
+</div>
+<p>You can also use CSVSQL to &#8220;directly&#8221; query one or more CSV files. Please note that this will create an in-memory SQL database, so it won&#8217;t be very fast:</p>
+<div class="highlight-python"><div class="highlight"><pre>csvsql --query  &quot;select m.usda_id, avg(i.sepal_length) as mean_sepal_length from iris as i join irismeta as m on (i.species = m.species) group by m.species&quot; examples/iris.csv examples/irismeta.csv
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="csvstat.html" class="btn btn-neutral float-right" title="csvstat" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="csvpy.html" class="btn btn-neutral" title="csvpy" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Christopher Groskopf.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

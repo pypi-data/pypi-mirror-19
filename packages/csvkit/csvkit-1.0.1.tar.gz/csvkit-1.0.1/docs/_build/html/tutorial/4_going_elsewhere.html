@@ -1,0 +1,305 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4. Going elsewhere with your data &mdash; csvkit 1.0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="csvkit 1.0.1 documentation" href="../index.html"/>
+        <link rel="up" title="Tutorial" href="../tutorial.html"/>
+        <link rel="next" title="Reference" href="../cli.html"/>
+        <link rel="prev" title="3. Power tools" href="3_power_tools.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> csvkit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Tutorial</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1_getting_started.html">1. Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_examining_the_data.html">2. Examining the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_power_tools.html">3. Power tools</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">4. Going elsewhere with your data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#csvjson-going-online">4.1. csvjson: going online</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csvpy-going-into-code">4.2. csvpy: going into code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csvformat-for-legacy-systems">4.3. csvformat: for legacy systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summing-up">4.4. Summing up</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tricks.html">Tips and Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to csvkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Release process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">csvkit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../tutorial.html">Tutorial</a> &raquo;</li>
+      
+    <li>4. Going elsewhere with your data</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/tutorial/4_going_elsewhere.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="going-elsewhere-with-your-data">
+<h1>4. Going elsewhere with your data<a class="headerlink" href="#going-elsewhere-with-your-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="csvjson-going-online">
+<h2>4.1. csvjson: going online<a class="headerlink" href="#csvjson-going-online" title="Permalink to this headline">¶</a></h2>
+<p>Very frequently one of the last steps in any data analysis is to get the data onto the web for display as a table, map or chart. CSV is rarely the ideal format for this. More often than not what you want is JSON and that&#8217;s where <a class="reference internal" href="../scripts/csvjson.html"><em>csvjson</em></a> comes in. <code class="docutils literal"><span class="pre">csvjson</span></code> takes an input CSV and outputs neatly formatted JSON. For the sake of illustration, let&#8217;s use <code class="docutils literal"><span class="pre">csvcut</span></code> and <code class="docutils literal"><span class="pre">csvgrep</span></code> to convert just a small slice of our data:</p>
+<div class="highlight-bash"><div class="highlight"><pre>csvcut -c county,item_name data.csv <span class="p">|</span> csvgrep -c county -m <span class="s2">&quot;GREELEY&quot;</span> <span class="p">|</span> csvjson --indent 4
+</pre></div>
+</div>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;county&quot;</span><span class="p">:</span> <span class="s2">&quot;GREELEY&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;item_name&quot;</span><span class="p">:</span> <span class="s2">&quot;RIFLE,7.62 MILLIMETER&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;county&quot;</span><span class="p">:</span> <span class="s2">&quot;GREELEY&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;item_name&quot;</span><span class="p">:</span> <span class="s2">&quot;RIFLE,7.62 MILLIMETER&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;county&quot;</span><span class="p">:</span> <span class="s2">&quot;GREELEY&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;item_name&quot;</span><span class="p">:</span> <span class="s2">&quot;RIFLE,7.62 MILLIMETER&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>A common usage of turning a CSV into a JSON file is for usage as a lookup table in the browser. This can be illustrated with the ACS data we looked at earlier, which contains a unique <code class="docutils literal"><span class="pre">fips</span></code> code for each county:</p>
+<div class="highlight-bash"><div class="highlight"><pre>csvjson --indent <span class="m">4</span> --key fips acs2012_5yr_population.csv <span class="p">|</span> head
+</pre></div>
+</div>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;31001&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;fips&quot;</span><span class="p">:</span> <span class="s2">&quot;31001&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Adams County, NE&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;total_population&quot;</span><span class="p">:</span> <span class="s2">&quot;31299&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;margin_of_error&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;31003&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;fips&quot;</span><span class="p">:</span> <span class="s2">&quot;31003&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Antelope County, NE&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;...&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For making maps, <code class="docutils literal"><span class="pre">csvjson</span></code> can also output GeoJSON, see its <a class="reference internal" href="../scripts/csvjson.html"><em>csvjson</em></a> for more details.</p>
+</div>
+<div class="section" id="csvpy-going-into-code">
+<h2>4.2. csvpy: going into code<a class="headerlink" href="#csvpy-going-into-code" title="Permalink to this headline">¶</a></h2>
+<p>For the programmers out there, the command line is rarely as functional as just writing a little bit of code. <a class="reference internal" href="../scripts/csvpy.html"><em>csvpy</em></a> exists just to make a programmer&#8217;s life easier. Invoking it simply launches a Python interactive terminal, with the data preloaded into a CSV reader:</p>
+<div class="highlight-bash"><div class="highlight"><pre>csvpy data.csv
+</pre></div>
+</div>
+<div class="highlight-none"><div class="highlight"><pre>Welcome! &quot;data.csv&quot; has been loaded in a reader object named &quot;reader&quot;.
+&gt;&gt;&gt; print len(list(reader))
+1037
+&gt;&gt;&gt; quit()
+</pre></div>
+</div>
+<p>In addition to being a time-saver, because this uses agate, the reader is Unicode aware.</p>
+</div>
+<div class="section" id="csvformat-for-legacy-systems">
+<h2>4.3. csvformat: for legacy systems<a class="headerlink" href="#csvformat-for-legacy-systems" title="Permalink to this headline">¶</a></h2>
+<p>It is a foundational principle of csvkit that it always outputs cleanly formatted CSV data. None of the normal csvkit tools can be forced to produce pipe or tab-delimited output, despite these being common formats. This principle is what allows the csvkit tools to chain together so easily and hopefully also reduces the amount of crummy, non-standard CSV files in the world. However, sometimes a legacy system just has to have a pipe-delimited file and it would be crazy to make you use another tool to create it. That&#8217;s why we&#8217;ve got <a class="reference internal" href="../scripts/csvformat.html"><em>csvformat</em></a>.</p>
+<p>Pipe-delimited:</p>
+<div class="highlight-bash"><div class="highlight"><pre>csvformat -D <span class="se">\|</span> data.csv
+</pre></div>
+</div>
+<p>Tab-delimited:</p>
+<div class="highlight-bash"><div class="highlight"><pre>csvformat -T data.csv
+</pre></div>
+</div>
+<p>Quote every cell:</p>
+<div class="highlight-bash"><div class="highlight"><pre>csvformat -U <span class="m">1</span> data.csv
+</pre></div>
+</div>
+<p>Ampersand-delimited, dollar-signs for quotes, quote all strings, and asterisk for line endings:</p>
+<div class="highlight-bash"><div class="highlight"><pre>csvformat -D <span class="se">\&amp;</span> -Q <span class="se">\$</span> -U <span class="m">2</span> -M <span class="se">\*</span> data.csv
+</pre></div>
+</div>
+<p>You get the picture.</p>
+</div>
+<div class="section" id="summing-up">
+<h2>4.4. Summing up<a class="headerlink" href="#summing-up" title="Permalink to this headline">¶</a></h2>
+<p>Thus concludes the csvkit tutorial. At this point, I hope, you have a sense a breadth of possibilities these tools open up with a relatively small number of command-line tools. Of course, this tutorial has only scratched the surface of the available options, so remember to check the <a class="reference internal" href="../cli.html"><em>Reference</em></a> documentation for each tool as well.</p>
+<p>So armed, go forth and expand the empire of the king of tabular file formats.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../cli.html" class="btn btn-neutral float-right" title="Reference" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="3_power_tools.html" class="btn btn-neutral" title="3. Power tools" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Christopher Groskopf.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>csvcut &mdash; csvkit 1.0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="csvkit 1.0.1 documentation" href="../index.html"/>
+        <link rel="up" title="Reference" href="../cli.html"/>
+        <link rel="next" title="csvgrep" href="csvgrep.html"/>
+        <link rel="prev" title="csvclean" href="csvclean.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> csvkit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../cli.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../cli.html#input">Input</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../cli.html#processing">Processing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="csvclean.html">csvclean</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">csvcut</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvgrep.html">csvgrep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvjoin.html">csvjoin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvsort.html">csvsort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvstack.html">csvstack</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cli.html#output-and-analysis">Output and Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli.html#common-arguments">Common arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tricks.html">Tips and Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to csvkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Release process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">csvkit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../cli.html">Reference</a> &raquo;</li>
+      
+    <li>csvcut</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/scripts/csvcut.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="csvcut">
+<h1>csvcut<a class="headerlink" href="#csvcut" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Filters and truncates CSV files. Like the Unix &#8220;cut&#8221; command, but for tabular data:</p>
+<div class="highlight-python"><div class="highlight"><pre>usage: csvcut [-h] [-d DELIMITER] [-t] [-q QUOTECHAR] [-u {0,1,2,3}] [-b]
+              [-p ESCAPECHAR] [-z MAXFIELDSIZE] [-e ENCODING] [-S] [-H] [-v]
+              [-l] [--zero] [-n] [-c COLUMNS] [-C NOT_COLUMNS] [-x]
+              [FILE]
+
+Filter and truncate CSV files. Like the Unix &quot;cut&quot; command, but for tabular data.
+
+positional arguments:
+  FILE                  The CSV file to operate on. If omitted, will accept
+                        input on STDIN.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -n, --names           Display column names and indices from the input CSV
+                        and exit.
+  -c COLUMNS, --columns COLUMNS
+                        A comma separated list of column indices or names to
+                        be extracted. Defaults to all columns.
+  -C NOT_COLUMNS, --not-columns NOT_COLUMNS
+                        A comma separated list of column indices or names to
+                        be excluded. Defaults to no columns.
+  -x, --delete-empty-rows
+                        After cutting, delete rows which are completely empty.
+</pre></div>
+</div>
+<p>See also: <a class="reference internal" href="../common_arguments.html"><em>Arguments common to all tools</em></a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">csvcut does not implement row filtering, for this you should pipe data to <a class="reference internal" href="csvgrep.html"><em>csvgrep</em></a>.</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Print the indices and names of all columns:</p>
+<div class="highlight-python"><div class="highlight"><pre>csvcut -n examples/realdata/FY09_EDU_Recipients_by_State.csv
+  1: State Name
+  2: State Abbreviate
+  3: Code
+  4: Montgomery GI Bill-Active Duty
+  5: Montgomery GI Bill- Selective Reserve
+  6: Dependents&#39; Educational Assistance
+  7: Reserve Educational Assistance Program
+  8: Post-Vietnam Era Veteran&#39;s Educational Assistance Program
+  9: TOTAL
+ 10:
+</pre></div>
+</div>
+<p>Extract the first and third columns:</p>
+<div class="highlight-python"><div class="highlight"><pre>csvcut -c 1,3 examples/realdata/FY09_EDU_Recipients_by_State.csv
+</pre></div>
+</div>
+<p>Extract columns named &#8220;TOTAL&#8221; and &#8220;State Name&#8221; (in that order):</p>
+<div class="highlight-python"><div class="highlight"><pre>csvcut -c TOTAL,&quot;State Name&quot; examples/realdata/FY09_EDU_Recipients_by_State.csv
+</pre></div>
+</div>
+<p>Add line numbers to a file, making no other changes:</p>
+<div class="highlight-python"><div class="highlight"><pre>csvcut -l examples/realdata/FY09_EDU_Recipients_by_State.csv
+</pre></div>
+</div>
+<p>Extract a column that may not exist in all files:</p>
+<div class="highlight-python"><div class="highlight"><pre>echo d, | csvjoin examples/dummy.csv - | csvcut -c d
+echo d, | csvjoin examples/join_no_header_row.csv - | csvcut -c d
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="csvgrep.html" class="btn btn-neutral float-right" title="csvgrep" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="csvclean.html" class="btn btn-neutral" title="csvclean" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Christopher Groskopf.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
