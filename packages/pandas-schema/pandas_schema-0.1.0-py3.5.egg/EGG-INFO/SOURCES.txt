@@ -1,0 +1,12 @@
+README.rst
+setup.py
+pandas_schema.egg-info/PKG-INFO
+pandas_schema.egg-info/SOURCES.txt
+pandas_schema.egg-info/dependency_links.txt
+pandas_schema.egg-info/requires.txt
+pandas_schema.egg-info/top_level.txt
+test/test_column.py
+test/test_example.py
+test/test_schema.py
+test/test_validation.py
+test/test_validation_warning.py
