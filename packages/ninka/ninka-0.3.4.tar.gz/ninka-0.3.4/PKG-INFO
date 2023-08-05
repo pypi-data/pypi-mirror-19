@@ -1,0 +1,46 @@
+Metadata-Version: 1.1
+Name: ninka
+Version: 0.3.4
+Summary: Indieauth Toolkit
+Home-page: https://github.com/bear/ninka
+Author: bear (Mike Taylor)
+Author-email: bear@bear.im
+License: MIT
+Download-URL: https://pypi.python.org/pypi/ninka
+Description: [![Downloads](https://img.shields.io/pypi/v/ninka.svg)](https://pypi.python.org/pypi/ninka/)
+        [![Circle CI](https://circleci.com/gh/bear/ninka.svg?style=svg)](https://circleci.com/gh/bear/ninka)
+        [![CodeCov](http://codecov.io/github/bear/ninka/coverage.svg?branch=master)](http://codecov.io/github/bear/ninka)
+        [![Requirements Status](https://requires.io/github/bear/ninka/requirements.svg?branch=master)](https://requires.io/github/bear/ninka/requirements/?branch=master)
+        
+        認可 ninka - permission, license
+        
+        Python package to assist working with IndieAuth.
+        
+        * IndieAuth tools
+        * MicroPub support
+        
+        See the examples/ directory for sample command line tools.
+        
+        Contributors
+        ============
+        * bear (Mike Taylor)
+        
+        IndieAuth
+        =========
+        discoverAuthEndpoints()
+        -----------------------
+        Find the authorization or redirect_uri endpoints for the given authDomain.
+        
+        validateAuthCode()
+        ------------------
+        Call authorization endpoint to validate given auth code.
+        
+        Requires
+        ========
+        Python v2.7+ but see requirements.txt for a full list
+        
+Platform: Any
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
