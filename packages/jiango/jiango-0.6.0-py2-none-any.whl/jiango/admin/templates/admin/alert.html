@@ -1,0 +1,19 @@
+<section class="content-header">
+    <h1>
+        {% if tag == 'debug' %}调试
+        {% elif tag == 'info' %}提示信息
+        {% elif tag == 'success' %}成功
+        {% elif tag == 'warning' %}注意
+        {% elif tag == 'error' %}错误
+        {% endif %}
+    </h1>
+</section>
+
+<section class="content">
+    <div class="callout callout-danger">
+        <p>{{message|linebreaksbr}}</p>
+    </div>
+    {% for name,link in buttons.items %}
+		<a href="{{link}}" class="btn btn-default">{{name}}</a>
+	{% endfor %}
+</section>
