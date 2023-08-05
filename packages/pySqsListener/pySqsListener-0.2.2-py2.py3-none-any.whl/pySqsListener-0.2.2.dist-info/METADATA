@@ -1,0 +1,74 @@
+Metadata-Version: 2.0
+Name: pySqsListener
+Version: 0.2.2
+Summary: A simple Python SQS listener
+Home-page: https://github.com/jegesh/python-sqs-listener
+Author: Yaakov Gesher
+Author-email: yaakov@gesher.net
+License: Apache Software License
+Keywords: aws sqs listener
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: boto3
+
+AWS SQS Listener
+----------------
+
+This package takes care of the boilerplate involved in creating an SQS
+listening agent.
+
+Installation
+~~~~~~~~~~~~
+
+``pip install``
+
+Usage
+~~~~~
+
+| Using the package is very straightforward - just inherit from the
+  ``SqsListener`` class and implement the
+| ``handle_message()`` method.
+
+Here is a basic code sample:
+
+| **Standard Listener**
+| \`
+| from sqs\_listener import SqsListener
+| class MyListener(SqsListener):
+| def handle\_message(self, body, attributes, messages\_attributes):
+| run\_my\_function(body[‘param1’], body[‘param2’]
+
+| listener = MyListener(‘my-message-queue’, ‘my-error-queue’)
+| listener.listen()
+| \`
+
+| **Error Listener**
+| \`
+| from sqs\_listener import SqsListener
+| class MyErrorListener(SqsListener):
+| def handle\_message(self, body, attributes, messages\_attributes):
+| save\_to\_log(body[‘exception\_type’], body[‘error\_message’]
+
+| error\_listener = MyErrorListener(‘my-error-queue’)
+| error\_listener.listen()
+| \`
+
+**Notes**
+
+-  The environment variable ``AWS_ACCOUNT_ID`` must be set, in addition
+   to the environment having valid AWS credentials (via environment variables or a credentials file)
+-  For both the main queue and the error queue, if the queue doesn’t
+   exist (in the specified region), it will be created at runtime.
+-  The error queue receives only two values in the message body: ``exception_type`` and ``error_message``. Both are of type ``str``
+
+Upcoming Features
+~~~~~~~~~~~~~~~~~
+
+Create an issue with a suggestion for a feature, and I’ll see what I can
+do!
+
