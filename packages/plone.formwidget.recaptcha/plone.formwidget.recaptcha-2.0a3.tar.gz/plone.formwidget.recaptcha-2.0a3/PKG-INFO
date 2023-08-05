@@ -1,0 +1,129 @@
+Metadata-Version: 1.1
+Name: plone.formwidget.recaptcha
+Version: 2.0a3
+Summary: ReCaptcha widget for Plone.
+Home-page: http://pypi.python.org/pypi/plone.formwidget.recaptcha
+Author: Timo Stollenwerk - Plone Foundation
+Author-email: plone-developers@lists.sourceforge.net
+License: GPL
+Description: Introduction
+        ============
+        
+        plone.formwidget.recaptcha is a ``z3c.form`` ReCaptcha widget for use with Plone.
+        
+        It is a z3c.form re-implementation of the `collective.recaptcha`_ package original written by David Glick.
+        
+        .. _collective.recaptcha: http://plone.org/products/collective.recaptcha
+        
+        
+        Buildout Installation
+        ---------------------
+        
+        Add the following code to your buildout.cfg to install plone.formwidget.recaptcha::
+        
+            [buildout]
+            ...
+        
+            [instance]
+            ...
+            eggs =
+                ...
+                plone.formwidget.recaptcha
+                ...
+        
+        
+        ReCaptcha setup
+        ---------------
+        
+        Before the service will work, you must obtain a public and private key from
+        `developers.google.com/recaptcha <https://developers.google.com/recaptcha/>`_, and configure them at ``http://path/to/site/@@recaptcha-settings``
+        
+        
+        Upgrade to API v2
+        -----------------
+        
+        plone.formwidget.recaptcha 2.* uses V2 of the reCaptcha API. Users upgrading from plone.formwidget.recaptcha
+        1.* will therefore need to generate new keys as global Keys are not supported in the V2 API.
+        
+        Source Code
+        -----------
+        
+        Contributors please read the document `Process for Plone core's development <http://docs.plone.org/develop/plone-coredev/index.html>`_
+        
+        Sources are at the `Plone code repository hosted at Github <https://github.com/plone/plone.formwidget.recaptcha>`_.
+        
+        Changelog
+        =========
+        
+        2.0a3 (2016-12-21)
+        ------------------
+        
+        - Support for use the widget with plone.supermodel
+          [jpgimenez]
+        
+        - Support for widget display settings as described in
+          https://developers.google.com/recaptcha/docs/display
+          [jensens]
+        
+        
+        2.0a2 (2015-06-17)
+        ------------------
+        
+        - Fix: problem with MANIFEST.in and old package structure made 2.0a1 a
+          brown bag release. All non-python files (i.e. zcml) were missing.
+          [jensens]
+        
+        
+        2.0a1 (2015-06-17)
+        ------------------
+        
+        * some pep8/plone conventions code style cleanup.
+          [jensens]
+        
+        * recaptcha API 2 (aka norecaptcha)
+          [mamico]
+        
+        1.0b3 - 2010-11-18
+        ------------------
+        
+        * Register browser components for a product browser layer so they don't
+          leak to sites without this product installed.  Run the upgrade step
+          if upgrading on a site that already has this product installed.
+          [davisagli]
+        
+        * Move to plone.app.discussion-captcha feature declaration to meta.zcml.
+          [timo]
+        
+        * Adapt recaptcha view instead of captcha view for validation.
+          [ramon]
+        
+        
+        1.0b2 - 2010-06-02
+        ------------------
+        
+        * Updated package metadata and marked this as a Plone add-on.
+          [timo]
+        
+        * Declare that plone.formwidget.captcha provides a Captcha field that can be
+          used by plone.app.discussion to add a Captcha field to comment forms.
+          [timo]
+        
+        
+        1.0b1 - 2009-12-07
+        ------------------
+        
+        * z3c.autoinclude.plugin added
+          [timo]
+        
+        
+        1.0a1 - 2009-08-28
+        ------------------
+        
+        * Initial release
+          [timo]
+        
+Keywords: plone discussion plone.app.discussion spam captcha recaptcha
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

@@ -1,0 +1,99 @@
+<configure
+    i18n_domain="plone.formwidget.recaptcha"
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:gs="http://namespaces.zope.org/genericsetup"
+    xmlns:meta="http://namespaces.zope.org/meta"
+    xmlns:z3c="http://namespaces.zope.org/z3c">
+
+  <include package="plone.z3cform" />
+  <include package="plone.app.registry" />
+  <include file="meta.zcml" />
+
+  <!-- Profile and upgrades -->
+  <gs:registerProfile
+      description="z3c.form ReCaptcha widget."
+      directory="profiles/default"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="default"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      title="ReCaptcha widget"
+  />
+  <gs:upgradeStep
+      description=""
+      destination="2"
+      handler=".upgrades.install_browserlayer"
+      profile="plone.formwidget.recaptcha:default"
+      source="1"
+      title="Install browser layer"
+  />
+  <gs:upgradeStep
+      description=""
+      destination="3"
+      handler=".upgrades.reapply_registry"
+      profile="plone.formwidget.recaptcha:default"
+      source="2"
+      title="Re-Apply registry: load new controlpanel values"
+  />
+
+  <!-- Control panel -->
+  <browser:page
+      class=".controlpanel.ReCaptchaSettingsControlPanel"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      layer=".interfaces.IReCaptchaLayer"
+      name="recaptcha-settings"
+      permission="cmf.ManagePortal"
+  />
+
+  <!-- Resource directory for recaptcha ajax JS -->
+  <browser:resourceDirectory
+      directory="recaptcha-ajax"
+      layer=".interfaces.IReCaptchaLayer"
+      name="plone.formwidget.recaptcha"
+  />
+
+  <!-- Resource directory for images -->
+  <browser:resourceDirectory
+      directory="images"
+      layer=".interfaces.IReCaptchaLayer"
+      name="plone.formwidget.recaptcha.images"
+  />
+
+  <adapter factory=".view.RecaptchaInfo" />
+
+  <browser:view
+      class=".view.RecaptchaView"
+      for="*"
+      layer=".interfaces.IReCaptchaLayer"
+      name="recaptcha"
+      permission="zope2.Public"
+  />
+
+  <!-- make security assertions for use from restricted Python -->
+  <class class="plone.formwidget.recaptcha.view.RecaptchaView">
+    <allow attributes="image_tag audio_url verify external" />
+  </class>
+
+  <!-- ReCaptcha widget -->
+  <class class=".widget.ReCaptchaWidget">
+    <require
+        interface="plone.formwidget.recaptcha.interfaces.IReCaptchaWidget"
+        permission="zope.Public"
+    />
+  </class>
+
+  <z3c:widgetTemplate
+      layer="z3c.form.interfaces.IFormLayer"
+      mode="input"
+      template="widget.pt"
+      widget="plone.formwidget.recaptcha.interfaces.IReCaptchaWidget"
+  />
+
+
+    <!--
+    example:
+    http://yourplonesite/@@recaptcha_form
+    -->
+    <!--<include package=".demo" />-->
+
+</configure>
