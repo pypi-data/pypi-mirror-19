@@ -1,0 +1,26 @@
+Metadata-Version: 2.0
+Name: oss-lib
+Version: 0.1.1
+Summary: OSS Tooling Library
+Home-page: https://github.com/seecloud/oss-lib
+Author: Alexander Maretskiy
+Author-email: amaretskiy@mirantis.com
+License: Apache 2.0
+Platform: any
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: Flask (==0.11.1)
+Requires-Dist: PyYAML (>=3.10.0)
+Requires-Dist: jsonschema (<3.0.0,>=2.0.0,!=2.5.0)
+Requires-Dist: six (>=1.9.0)
+
+UNKNOWN
+
+
