@@ -1,0 +1,28 @@
+<StockExchangeSecuritys>
+	<MessageInfo>
+		<MessageCode>200</MessageCode>
+		<MessageDetail>Request data successfully</MessageDetail>
+	</MessageInfo>
+	<GeneralInfo>
+		<CIK>917851</CIK>
+		<CUSIP>91912E204</CUSIP>
+		<CompanyName>Vale SA</CompanyName>
+		<ExchangeId>PAR</ExchangeId>
+		<ISIN>US91912E2046</ISIN>
+		<SEDOL>2933900</SEDOL>
+		<Symbol>VALE5</Symbol>
+	</GeneralInfo>
+	<StockExchangeSecurityEntityList>
+		<StockExchangeSecurityEntity>
+			<CIK>917851</CIK>
+			<CUSIP>91912E204</CUSIP>
+			<CompanyName>Vale SA</CompanyName>
+			<ExchangeId>PAR</ExchangeId>
+			<ISIN>US91912E2046</ISIN>
+			<InvestmentTypeId>PE</InvestmentTypeId>
+			<SEDOL>2933900</SEDOL>
+			<StockStatus>1</StockStatus>
+			<Symbol>VALE5</Symbol>
+		</StockExchangeSecurityEntity>
+	</StockExchangeSecurityEntityList>
+</StockExchangeSecuritys>

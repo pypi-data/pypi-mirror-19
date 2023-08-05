@@ -1,0 +1,13 @@
+*** Settings ***
+Library           String
+
+*** Test Cases ***
+Boolean
+    ${x}    Set Variable    bbb
+    ${y}    Set Variable    bbb
+    Should Be Equal    ${x}    ${y}    Custom error    values=True
+    comment    =============
+    ${TrueValue}=    Convert To Boolean    True
+    ${FalseValue}=    Convert To Boolean    False
+    Should Be True    ${TrueValue}
+    Should Not Be True    ${FalseValue}
