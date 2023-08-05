@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: pyconfimporter
+Version: 0.1.0
+Summary: Easy way to import an external Python module into an environment.
+
+Home-page: https://github.com/braincore/pyconfimporter
+Author: Ken Elkabany
+Author-email: ken@elkabany.com
+License: MIT
+Description: UNKNOWN
+Platform: CPython 2.7
+Platform: CPython 3.4
+Platform: CPython 3.5
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
