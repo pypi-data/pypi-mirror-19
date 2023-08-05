@@ -1,0 +1,18 @@
+Metadata-Version: 2.0
+Name: spdx-tools
+Version: 0.3
+Summary: SPDX parser and tools.
+Home-page: https://github.com/spdx/tools-python
+Author: Philippe Ombredanne and SPDX group at the Linux Foundation and others
+Author-email: pombredanne@gmail.com
+License: Apache-2.0
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: ply
+Requires-Dist: rdflib
+
+UNKNOWN
+
+
