@@ -1,0 +1,14 @@
+Metadata-Version: 2.0
+Name: redisdict
+Version: 0.0.3
+Summary: A dict-like object using Redis as the backend.
+Home-page: https://github.com/kxrr/redisdict
+Author: kxrr
+Author-email: hi@kxrr.us
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: redis (>=2.10.5)
+
+UNKNOWN
+
+
