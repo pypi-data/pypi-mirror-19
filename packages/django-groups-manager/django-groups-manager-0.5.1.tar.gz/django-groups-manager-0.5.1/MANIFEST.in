@@ -1,0 +1,7 @@
+include AUTHORS
+include LICENSE
+include README.md
+recursive-include docs/source *
+recursive-exclude docs/build *
+recursive-include groups_manager/templates *
+recursive-include groups_manager/static/groups_manager *.js *.css *.png
