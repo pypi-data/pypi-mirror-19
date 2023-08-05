@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README
+setup.py
+PyWhist.egg-info/PKG-INFO
+PyWhist.egg-info/SOURCES.txt
+PyWhist.egg-info/dependency_links.txt
+PyWhist.egg-info/entry_points.txt
+PyWhist.egg-info/top_level.txt
+pywhist/__init__.py
+pywhist/bridge.py
+pywhist/bridge_ai.py
+pywhist/bridge_fltk.py
+pywhist/bridge_hum.py
+pywhist/bridge_tk.py
+pywhist/bridge_util.py
