@@ -1,0 +1,33 @@
+Metadata-Version: 1.1
+Name: PyNFSe
+Version: 0.1.0
+Summary: Lib que facilita a vida de quem trabalham com Nota Fiscal de Serviços Eletrônica (NFS-e)
+Home-page: https://github.com/marcelobelli/PyNFSe
+Author: Marcelo Belli
+Author-email: marcelo@belli.me
+License: GNU General Public License v3 or later (GPLv3+)
+Description: 
+        A PyNFSe realiza todos os passos para quem trabalha com NFS-e:
+        
+        - Cria os XMLs de RPS (Recibo Provisório de Serviço) e dos Lotes RPS. Tudo devidamente assinado :)
+        
+        - Realiza a comunicação com o webservice da respectiva prefeitura, enviando lotes RPSs, consultando e cancelando NFS-es...
+        
+        Enfim, a PyNFSe faz todo o trabalho duro :)
+        
+        Prefeituras suportadas:
+        - Curitiba/PR
+        - Mais em breve :)
+        
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Other Audience
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Natural Language :: Portuguese (Brazilian)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Office/Business :: Financial
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
