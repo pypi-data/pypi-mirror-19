@@ -1,0 +1,49 @@
+Metadata-Version: 1.1
+Name: statsbot
+Version: 0.2.1
+Summary: Monitors and satisfies requests for subreddit_stats.
+Home-page: https://github.com/bboe/statsbot
+Author: Bryce Boe
+Author-email: bbzbryce@gmail.com
+License: Simplified BSD License
+Description: statsbot
+        ========
+        
+        .. image:: https://img.shields.io/pypi/v/statsbot.svg
+           :alt: Latest statsbot version
+           :target: https://pypi.python.org/pypi/statsbot
+        
+        Monitors and satisfies requests for subreddit_stats made to `/r/subreddit_stats
+        <https://www.reddit.com/r/subreddit_stats>`_.
+        
+        
+        Installation
+        ------------
+        
+        Install statsbot via:
+        
+        .. code-block:: bash
+        
+           pip install statsbot
+        
+        
+        Copyright and License
+        ---------------------
+        
+        Source released under the Simplified BSD License.
+        
+        * Copyright (c), 2016, Bryce Boe
+        
+Keywords: reddit subreddit stats
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: Implementation :: CPython
