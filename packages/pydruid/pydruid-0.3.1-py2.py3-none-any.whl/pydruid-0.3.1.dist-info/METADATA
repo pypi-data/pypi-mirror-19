@@ -1,0 +1,18 @@
+Metadata-Version: 2.0
+Name: pydruid
+Version: 0.3.1
+Summary: A Python connector for Druid.
+Home-page: https://pypi.python.org/pypi/pydruid/
+Author: Druid Developers
+Author-email: druid-development@googlegroups.com
+License: Apache License, Version 2.0
+Platform: UNKNOWN
+Requires-Dist: six (>=1.9.0)
+Provides-Extra: async
+Requires-Dist: tornado; extra == 'async'
+Provides-Extra: pandas
+Requires-Dist: pandas; extra == 'pandas'
+
+See https://github.com/druid-io/pydruid for more information.
+
+
