@@ -1,0 +1,25 @@
+.. image:: https://drone.io/bitbucket.org/brittonsmith/ytree/status.png
+   :target: https://drone.io/bitbucket.org/brittonsmith/ytree/latest
+   :alt: Build Status
+
+.. image:: https://readthedocs.org/projects/ytree/badge/?version=latest
+   :target: http://ytree.readthedocs.io/en/latest/?badge=latest
+   :alt: Documentation Status
+
+ytree
+===========
+
+This is ytree, a yt extension for generating and working with
+merger tree data.  ytree can:
+
+* create merger trees from Gadget's inline FOF/SUBFIND catalogs
+
+* create merger trees from Rockstar halo catalogs
+
+* read in consistent-trees merger trees
+
+* output all merger trees to a universal, reloadable format
+
+For more information, visit:
+
+http://ytree.readthedocs.org
