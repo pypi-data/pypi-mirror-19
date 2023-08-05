@@ -1,0 +1,16 @@
+MANIFEST.in
+README.rst
+setup.py
+botsocket/__init__.py
+botsocket/client.py
+botsocket/commandbus.py
+botsocket/core.py
+botsocket/default_settings.py
+botsocket/exceptions.py
+botsocket/server.py
+botsocket/utils.py
+botsocket.egg-info/PKG-INFO
+botsocket.egg-info/SOURCES.txt
+botsocket.egg-info/dependency_links.txt
+botsocket.egg-info/requires.txt
+botsocket.egg-info/top_level.txt
