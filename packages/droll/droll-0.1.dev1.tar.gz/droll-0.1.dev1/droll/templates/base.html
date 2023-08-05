@@ -1,0 +1,45 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    {% block title  %}<title>{{ title }}</title>{% endblock %}
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{% static "vendor/normalize/normalize.css" %}">
+    <link rel="stylesheet" href="{% static "local/css/main.css" %}">
+    <link rel="stylesheet" href="{% static "local/css/opensans.css" %}">
+    <link rel="stylesheet" href="{% static "local/css/noto.css" %}">
+    {% block extra_head %}{% endblock %}
+  </head>
+
+  <body>
+    <div class="container">
+
+      <aside id="sidebar">
+
+        <section class="links">
+          <header><span class="title">Links</span></header>
+
+          <ul class="links">
+            {% for link in links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </section>
+
+      </aside>
+
+      <div class="content">
+        <div class="site-title"><a href="{% url 'landing' %}">{{ title }}</a></div>
+
+        {% block content %}{% endblock %}
+      </div>
+
+    </div>
+
+    {% block extra_scripts %}{% endblock %}
+  </body>
+</html>

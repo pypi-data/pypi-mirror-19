@@ -1,0 +1,7 @@
+Django>=1.8,<1.9
+gunicorn
+Markdown
+six
+pyotp
+django-storages
+dj-database-url

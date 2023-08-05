@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}<title>{{ post.title }}</title>{% endblock %}
+
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static "vendor/highlight/styles/default.css" %}">
+{% endblock %}
+
+{% block content %}
+  <section class="post-container" id="piece">
+    {% include 'partials/post.html' %}
+  </section>
+{% endblock %}
+
+{% block extra_scripts %}
+  <script src="{% static 'vendor/highlight/highlight.pack.js' %}"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+{% endblock %}
