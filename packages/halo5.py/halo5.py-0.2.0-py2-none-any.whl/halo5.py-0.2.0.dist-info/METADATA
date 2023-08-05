@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: halo5.py
+Version: 0.2.0
+Summary: A wrapper for the Halo 5: Guardians API
+Home-page: https://github.com/Jma353/halo5.py
+Author: Joe Antonakakis
+Author-email: jma353@cornell.edu
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet
+Classifier: Topic :: Games/Entertainment :: First Person Shooters
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: requests (>=2.12.4)
+
+UNKNOWN
+
+
