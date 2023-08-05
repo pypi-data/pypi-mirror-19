@@ -1,0 +1,3 @@
+include versioneer.py
+include REPERE/_version.py
+recursive-include REPERE/data *
