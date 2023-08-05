@@ -1,0 +1,17 @@
+setup.py
+ninjag/__init__.py
+ninjag/check_input.py
+ninjag/cli.py
+ninjag/main.py
+ninjag.egg-info/PKG-INFO
+ninjag.egg-info/SOURCES.txt
+ninjag.egg-info/dependency_links.txt
+ninjag.egg-info/entry_points.txt
+ninjag.egg-info/not-zip-safe
+ninjag.egg-info/requires.txt
+ninjag.egg-info/top_level.txt
+ninjag/core/__init__.py
+ninjag/core/ninja_build.py
+ninjag/core/ninja_const.py
+ninjag/core/ninja_generate.py
+ninjag/core/ninja_rule.py
