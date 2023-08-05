@@ -1,0 +1,31 @@
+Changelog
+=========
+
+1.8.1 (2016-12-27)
+----------------
+
+- add Plone version classifiers
+  [tkimnguyen]
+  
+- include all needed files
+  [skurfer]
+  
+1.8 (2012-12-17)
+----------------
+
+- Plone 4.3 compatibility
+  [ale-rt]
+  
+- Handle case when attribute parentsInThread does not exist on comment
+  [tkimnguyen]
+
+1.8a1 (2011-03-30)
+------------------
+
+- Compatibility with Plone 4 [sargo] (r100977_, r100979_)
+
+- Fixed problem where blog's topics view acquired an object with the tag name 
+  from higher up instead of showing blogs with that tag. [jcbrand] (r232360_)
+
+For older entries, please see Products.Quills/Products.QuillsEnabled for a changes.
+
