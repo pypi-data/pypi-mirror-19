@@ -1,0 +1,17 @@
+Metadata-Version: 2.0
+Name: pyredux
+Version: 0.0.5
+Summary: Python-Version of redux.js
+Home-page: https://github.com/peterpeter5/pyredux
+Author: peter
+Author-email: dev.peterpeter5@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: pyrsistent (==0.11.13)
+Requires-Dist: nose
+Requires-Dist: singledispatch
+Requires-Dist: coverage
+
+UNKNOWN
+
+
