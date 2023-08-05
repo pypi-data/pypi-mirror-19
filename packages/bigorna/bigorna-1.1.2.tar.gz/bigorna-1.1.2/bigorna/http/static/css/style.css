@@ -1,0 +1,39 @@
+.modal-body {
+	white-space: pre-wrap;
+}
+
+.floating-buttons {
+	float: right;
+	display: inline;
+	padding: 15px;
+}
+
+label {
+	padding-top: 0px;
+	padding-bottom: 0px;
+	font-weight: bold;
+}
+
+.sub {
+	padding-left: 10px;
+}
+
+.brand {
+	display: inline;
+	padding: 15px;
+	float: left;
+}
+
+.brand .h1 {
+	font-size: 18px;
+}
+
+.brand .small {
+	font-size: 14px;
+}
+
+.version {
+	padding: 15px;
+	float: left;
+	font-size: 12px;
+}

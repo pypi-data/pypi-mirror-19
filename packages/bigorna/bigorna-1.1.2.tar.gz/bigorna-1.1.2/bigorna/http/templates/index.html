@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Bigorna Jobs</title>
+
+<meta name="description" content="Bigorna web view">
+<meta name="author" content="cliix inc.">
+
+<link
+  href="{{ url_for('webview.static', filename='css/bootstrap.min.css') }}"
+  rel="stylesheet">
+<link href="{{ url_for('webview.static', filename='css/style.css') }}"
+  rel="stylesheet">
+
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="alert alert-danger fade in"
+      role="alert" style="display: none;">
+      <button type="button" class="close" onclick="$('.alert').hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      Output not available.
+    </div>
+    <div class="row">
+      <h1 class="brand">
+        Bigorna! <small>jobs tracker</small>
+      </h1>
+      <small class="version">v{{version}}</small>
+      <div class="floating-buttons">
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-secondary"
+            onclick="showConfig();">Show Config</button>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <table class="table table-striped">
+          <thead class="thead-inverse">
+            <tr>
+              <th>Job ID</th>
+              <th>Submitted by</th>
+              <th>Submitted at</th>
+              <th>Last update at</th>
+              <th>Command</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for job in jobs %}
+            <tr>
+              <td>{{ job.id }}</td>
+              <td>{{ job.submitted_by }}</td>
+              <td>{{ job.submitted_at | datefmt }}</td>
+              <td>{{ job.last_update | datefmt }}</td>
+              <td>{{ job.cmd }}</td>
+              <td>{% if job.is_pending %}
+                <button type="button" class="btn btn-sm" disabled>Pending</button>
+                {% elif job.is_running %}
+                <button type="button" class="btn btn-sm btn-warning"
+                  onclick="showOutput('{{ url_for('api.job_output', _external=True, job_id=job.id) }}')">
+                  Running</button> {% elif job.is_success %}
+                <button type="button" class="btn btn-success btn-sm"
+                  onclick="showOutput('{{ url_for('api.job_output', _external=True, job_id=job.id) }}')">
+                  Success</button> {% else %}
+                <button type="button" class="btn btn-danger btn-sm"
+                  onclick="showOutput('{{ url_for('api.job_output', _external=True, job_id=job.id) }}');">
+                  Failed</button> {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- output modal -->
+  <div id="outputModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"
+            aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 id=class="modal-title">Job output</h4>
+        </div>
+        <div id="outputContent" class="modal-body">No output.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- config modal -->
+  <div id="configModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"
+            aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 id=class="modal-title">Configuration</h4>
+        </div>
+        <div class="modal-body">
+          <label>DB File:</label> {{ conf.db_file }}
+          <label>Output Pattern:</label> {{ conf.output_pattern }}
+          <label>Max Concurrent Tasks:</label> {{ conf.concurrent_tasks }}
+          <label>Task Check Interval:</label> {{ conf.task_check_delay }}
+          <label>Http Server Port:</label> {{ conf.http_port }}
+          <label>Tasks:</label> {% for task in conf.tasks %}
+          <label class='sub'>Name:</label> {{ task.get('name') }}
+          <label class='sub'>Command:</label> {{ task.get('cmd') }}
+          {% if 'base_dir' in task %}<label class='sub'>Base dir:</label>{{ task.get('base_dir') }}{% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script
+    src="{{ url_for('webview.static', filename='js/jquery.min.js') }}"></script>
+  <script
+    src="{{ url_for('webview.static', filename='js/bootstrap.min.js') }}"></script>
+  <script
+    src="{{ url_for('webview.static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

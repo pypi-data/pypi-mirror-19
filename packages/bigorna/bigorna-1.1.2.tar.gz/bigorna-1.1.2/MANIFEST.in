@@ -1,0 +1,9 @@
+include bigorna/http/static/css/*.css
+include bigorna/http/static/js/*.js
+include bigorna/http/static/fonts/*
+include bigorna/http/templates/*.html
+include LICENSE
+include MANIFEST.in
+include README.md
+include requirements.txt
+include dev_requirements.txt
