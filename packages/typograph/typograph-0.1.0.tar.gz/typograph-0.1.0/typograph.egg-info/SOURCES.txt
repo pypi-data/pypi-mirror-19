@@ -1,0 +1,16 @@
+setup.cfg
+setup.py
+typograph/__init__.py
+typograph/_version.py
+typograph/cms_plugins_processors.py
+typograph/django.py
+typograph/i18n.py
+typograph/regexps.py
+typograph/typograph.py
+typograph.egg-info/PKG-INFO
+typograph.egg-info/SOURCES.txt
+typograph.egg-info/dependency_links.txt
+typograph.egg-info/requires.txt
+typograph.egg-info/top_level.txt
+typograph/templatetags/__init__.py
+typograph/templatetags/typograph.py
