@@ -1,0 +1,14 @@
+README.rst
+setup.py
+examples/__init__.py
+examples/example.py
+metrics_migration.egg-info/PKG-INFO
+metrics_migration.egg-info/SOURCES.txt
+metrics_migration.egg-info/dependency_links.txt
+metrics_migration.egg-info/requires.txt
+metrics_migration.egg-info/top_level.txt
+migration/__init__.py
+migration/migration.py
+migration/schema_func.py
+tests/__init__.py
+tests/test_migration.py
