@@ -1,0 +1,33 @@
+CREDITS
+-------
+
+Development
+-----------
+
+* Martijn Faassen
+
+* Stefano Taschini
+
+With contributions by
+---------------------
+
+* Henri Hulski (build environment)
+
+* Thomas Lotze (co-authored original core mapping code)
+
+Special contributions
+---------------------
+
+* Special thanks to CONTACT software (http://contact.de)
+
+Special inspiration
+-------------------
+
+Reg is heavily inspired by ``zope.interface`` and ``zope.component``,
+by Jim Fulton and a lot of Zope developers. It is also inspired by
+Pyramid's view predicate system.
+
+Thanks also to Chris McDonough who showed the way, reimplementing code
+to make it better.
+
+See also doc/history.rst for a more detailed history of its development.

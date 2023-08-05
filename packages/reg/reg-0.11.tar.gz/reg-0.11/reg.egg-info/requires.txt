@@ -1,0 +1,16 @@
+setuptools
+repoze.lru
+
+[coverage]
+pytest-cov
+
+[docs]
+sphinx
+
+[pep8]
+flake8
+
+[test]
+pytest >= 2.9.0
+sphinx
+pytest-remove-stale-bytecode
