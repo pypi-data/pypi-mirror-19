@@ -1,0 +1,103 @@
+Metadata-Version: 1.0
+Name: IceVolt
+Version: 0.1.0
+Summary: A mini blog with minimal architecture
+Home-page: http://pypi.python.org/pypi/icevolt_v010/
+Author: Clint Moyer
+Author-email: contact@clintmoyer.com
+License: LICENSE.txt
+Description: # IceVolt
+        This is a work in progress. Not intended for current use.
+        
+        IceVolt is a particle-sized, portable blogging platform.
+        ```
+        # small
+        $ git ls-files | wc -l
+        20
+        
+        # lightweight
+        $ git ls-files | du -sh
+        1.7M     icevolt/
+        ```
+        This web interface is lightweight, developer friendly, and performance optimized. No Bootstrap, no third-party plugins, and certainly no jQuery.
+        
+        
+        ## Install
+        After install, make sure to run `icevolt createdb` to generate the sqlite3 database from the Flask model. Use `icevolt run` to get the development server started.
+        
+        ### Option 1: With Package Manager
+          * [Arch Linux](INSTALL.md#arch-linux---installation-guide)
+          * [Ubuntu](INSTALL.md#ubuntu--debian---installation-guide)
+        
+        ### Option 2: Platform Agnostic
+          * [Github](INSTALL.md#github)
+          * [Pip](INSTALL.md#pip)
+        
+        
+        ## Usage
+        
+        ### Commands
+        
+        ```
+        positional arguments:
+          {createdb,optimize,shell,run}  createdb - create database from model
+                                         optimize - optimize static files with compression
+                                         shell    - returns interactive shell context
+                                         run      - run the application development server
+        
+        optional arguments:
+          -h, --help                show this help message and exit
+          -p PORT, --port PORT      port number to use
+          -H HOST, --host HOST      server hostname
+          -f FILL, --fill FILL      populate the database with random text
+          -P, --prod                run in production
+        ```
+        
+        ### Basic Usage
+        
+        Run the development server. Not suitable for production.
+        ```
+        $ icevolt run -p <port> -H <host>
+        ```
+        
+        Run the production server.
+        ```
+        $ service nginx start
+        $ icevolt run -P
+        ```
+        
+        
+        ## Features
+        
+        * Minimalistic blog powered by [Flask](https://github.com/pallets/flask) microframework
+        * Blog post storage with sqlite3 managed by [SQLAlchemy](https://github.com/zzzeek/sqlalchemy)
+        * Easy-use [manage.py](manage.py) script for application
+        * Minifier tool to decrease file size using [csscompressor](https://github.com/sprymix/csscompressor)
+        
+        
+        ## Tools
+        
+        ### Database Launcher
+        The database launcher scans the SQLAlchemy declarative model, connects to the database server, and creates the database with Python bindings.
+        
+        Before running your IceVolt blog, launch the application database with `icevolt createdb`.
+        
+        **New:**
+        If you would like to immediately populate your empty database with random data, we have a function to do that now. Run `icevolt createdb --fill <num>` where *num* is the number of blog posts you would like to generate. This feature will fill the text blocks with random alphabet characters.
+        
+        ### CSS Minifier
+        Each application request delivers static files such as CSS. To increase performance, these files can be optimized or 'minified' to eliminate whitespace and decrease filesize.
+        
+        Current tool will minify static/css/main.css by running `icevolt optimize`. This will output the optimized file as main.min.css in the static folder.
+        
+        
+        ## License
+        
+        GPUv3: [LICENSE](LICENSE)
+        
+        
+        ## Author
+        
+        [Clint Moyer](http://clintmoyer.com) created IceVolt in 2017.
+        
+Platform: UNKNOWN
