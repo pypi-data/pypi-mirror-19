@@ -1,0 +1,29 @@
+Metadata-Version: 2.0
+Name: systemdlogger
+Version: 0.1.0
+Summary: Exports systemd logs to cloudwatch/elasticsearch.
+Home-page: https://github.com/techjacker/systemdlogger
+Author: Andrew Griffiths
+Author-email: mail@andrewgriffithsonline.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+
+systemdlogger
+=======================
+
+Exports systemd logs to an external service, eg cloudwatch, elasticsearch.
+Use with a cron job.
+Python3+.
+
+----
+
+See README.md for more info.
+
+
