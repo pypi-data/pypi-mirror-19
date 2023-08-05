@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.rst
+requirements.txt
+setup.cfg
+setup.py
+tox.ini
+filetreesubs/__init__.py
+filetreesubs/__main__.py
+filetreesubs/subs.py
+filetreesubs/utils.py
+filetreesubs.egg-info/PKG-INFO
+filetreesubs.egg-info/SOURCES.txt
+filetreesubs.egg-info/dependency_links.txt
+filetreesubs.egg-info/entry_points.txt
+filetreesubs.egg-info/requires.txt
+filetreesubs.egg-info/top_level.txt
