@@ -1,0 +1,21 @@
+Metadata-Version: 2.0
+Name: mospy
+Version: 1.0.0
+Summary: Application to create Mosaic
+Home-page: https://github.com/kapilgarg1996/mospy
+Author: Kapil Garg
+Author-email: kapilgarg1996@gmail.com
+License: MIT
+Keywords: mosaic image
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Multimedia :: Graphics :: Graphics Conversion
+Requires-Dist: numpy
+Requires-Dist: pillow
+
+# pymos
+A simple python application to create a mosaic using any set of pictures.
+
+

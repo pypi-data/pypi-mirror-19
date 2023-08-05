@@ -1,0 +1,6 @@
+[console_scripts]
+mospy = mospy.command_line:main
+
+[gui_scripts]
+mospy-app = mospy.GUI:main
+
