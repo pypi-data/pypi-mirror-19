@@ -1,0 +1,13 @@
+docopt>=0.6,<1
+rapidpro-python>=2.1.1,<3
+sqlalchemy>=1.1.3,<2
+
+[development]
+PyHamcrest>=1.9,<2
+behave>=1.2.5,<2
+iocapture>=0.1.2,<1
+mock>=2,<3
+pretenders>=1.4.2,<2
+pytest>=3,<4
+pytest-cov>=2.4,<3
+pytz>=2016.7
