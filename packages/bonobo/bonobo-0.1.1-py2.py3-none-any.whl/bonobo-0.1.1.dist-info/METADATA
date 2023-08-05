@@ -1,0 +1,56 @@
+Metadata-Version: 2.0
+Name: bonobo
+Version: 0.1.1
+Summary: Bonobo
+Home-page: https://github.com/hartym/bonobo
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: Apache License, Version 2.0
+Download-URL: https://github.com/hartym/bonobo
+Platform: UNKNOWN
+Requires-Dist: blessings (<1.7,>=1.6)
+Requires-Dist: psutil (>=5.0,<5.1)
+Provides-Extra: dev
+Requires-Dist: coverage (>=4.2,<4.3); extra == 'dev'
+Requires-Dist: mock (>=2.0,<2.1); extra == 'dev'
+Requires-Dist: nose (<1.4,>=1.3); extra == 'dev'
+Requires-Dist: pylint (<1.7,>=1.6); extra == 'dev'
+Requires-Dist: pytest (>=3,<4); extra == 'dev'
+Requires-Dist: pytest-cov (<2.5,>=2.4); extra == 'dev'
+Requires-Dist: sphinx; extra == 'dev'
+Requires-Dist: sphinx-rtd-theme; extra == 'dev'
+Requires-Dist: yapf; extra == 'dev'
+Provides-Extra: jupyter
+Requires-Dist: ipywidgets (>=6.0.0.beta5); extra == 'jupyter'
+
+bonobo
+======
+
+modernization of rdc.etl, work in progress.
+python 3.5+ only
+
+
+Release announcements: http://eepurl.com/csHFKL 
+
+
+.. image:: https://travis-ci.org/python-bonobo/bonobo.svg?branch=master
+    :target: https://travis-ci.org/python-bonobo/bonobo
+    :alt: Continuous Integration
+
+.. image::    :target: 
+.. image:: https://img.shields.io/coveralls/python-bonobo/bonobo.svg
+    :target: https://coveralls.io/github/python-bonobo/bonobo?branch=master
+    :alt: Coverage
+
+.. image:: https://readthedocs.org/projects/bonobo/badge/?version=latest
+    :target: http://bonobo.readthedocs.org/en/latest/?badge=latest
+    :alt: Documentation
+
+.. image:: https://img.shields.io/github/downloads/python-bonobo/bonobo/total.svg
+    :target: https://github.com/python-bonobo/bonobo/releases
+    :alt: Downloads
+
+.. image:: https://img.shields.io/pypi/dm/bonobo.svg
+    :target: https://pypi.python.org/pypi/bonobo
+    :alt: Python Package on PyPI
+
