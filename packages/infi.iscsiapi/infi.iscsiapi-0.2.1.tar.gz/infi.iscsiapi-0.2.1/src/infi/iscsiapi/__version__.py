@@ -1,0 +1,11 @@
+__version__ = "0.2.1"
+__git_commiter_name__ = "Amir Reshef"
+__git_commiter_email__ = "amirr@infinidat.com"
+__git_branch__ = u'develop'
+__git_remote_tracking_branch__ = u'origin/develop'
+__git_remote_url__ = u'git@git.infinidat.com:host-opensource/infi.iscsiapi.git'
+__git_head_hash__ = '9074c4b3f6a0b0183ee405c3e7e6ab00a0e3ebd9'
+__git_head_subject__ = u'Finished Release v0.2.1'
+__git_head_message__ = u''
+__git_dirty_diff__ = u''
+__git_commit_date__ = '2016-12-29 17:41:42'
