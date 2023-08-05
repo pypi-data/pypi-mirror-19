@@ -1,0 +1,76 @@
+Metadata-Version: 1.1
+Name: Flask-WebSocket
+Version: 0.1
+Summary: simple websocket for Flask
+Home-page: http://github.com/damonchen/flask-websocket/
+Author: Damon Chen
+Author-email: netubu@gmail.com
+License: BSD
+Description: # Flask-WebSocket
+        
+        
+        copyright: (c) 2017 by Damon Chen.
+        license: BSD, see LICENSE for more details.
+        
+        simple websocket for Flask
+        
+        ## Install
+        
+        pip install flask-websocket
+        
+        
+        ## Usage
+        
+        you must define message with the follow message if you use on decorator:
+        
+        ```
+        {
+            "event": event for listen
+            "data": the event happend with dtaa
+        }
+        ```
+        
+        
+        
+        ```python
+        
+        from flask import Flask
+        from flask_websocket import WebSocket
+        
+        app = Flask(__name__)
+        ws = WebSocket(app)
+        
+        @ws.on('click')
+        def click(data):
+            print(data)
+        
+        
+        ```
+        
+        
+        or you could process raw message by yourself.
+        
+        
+        ```python
+        from flask import Flask
+        from flask_websocket import WebSocket
+        
+        app = Flask(__name__)
+        ws = WebSocket(app)
+        
+        
+        @ws.on_raw_message
+        def raw_message_handler(message):
+            print(message)
+        
+        
+        ```
+        
+Platform: any
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
