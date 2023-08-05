@@ -1,0 +1,19 @@
+*** Settings ***
+Resource          ../../UserKeywords/UserKeywords_DataSource.txt
+
+*** Variables ***
+${FilePath}       C:\\Python27\\Lib\\site-packages\\CodeLibWrapper\\RobotFrameworkSample\\SampleData\\Id.txt
+
+*** Test Cases ***
+DataSource_Test_ReadFlatFileByLines
+    @{lines}    KW_DataSource_ReadFlatFile    ${FilePath}
+    Log    ${lines}
+    Comment    读取第二个Id
+    Should Be Equal    @{Lines}[2]    0C000006TG
+
+DataSource_Test_ReadFlagFile_RemoveHeader
+    @{Lines}    KW_DataSource_ReadFlatFileRemoveHeader    ${FilePath}
+    log    ${Lines}
+    Comment    读取第二个Id
+    log    @{Lines}[2]
+    Should Be Equal    @{Lines}[2]    0C000006TP
