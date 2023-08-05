@@ -1,0 +1,28 @@
+Metadata-Version: 2.0
+Name: bss
+Version: 0.9.4
+Summary: BrainSuite statistics toolbox
+Home-page: UNKNOWN
+Author: Shantanu H. Joshi, David Shattuck
+Author-email: s.joshi@ucla.edu, shattuck@ucla.edu
+License: GPLv2
+Keywords: BrainSuite statistics
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Requires-Dist: matplotlib (>=1.5.3)
+Requires-Dist: nibabel (>=2.1)
+Requires-Dist: numpy (>=1.11)
+Requires-Dist: pandas (>=0.19)
+Requires-Dist: patsy (>=0.4)
+Requires-Dist: scipy (>=0.18)
+Requires-Dist: statsmodels (>=0.6.1)
+
+UNKNOWN
+
+
