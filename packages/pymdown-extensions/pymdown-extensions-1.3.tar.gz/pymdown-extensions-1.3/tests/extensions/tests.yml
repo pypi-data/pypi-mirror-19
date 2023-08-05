@@ -1,0 +1,250 @@
+__default__: {}
+
+arithmatex:
+  extensions:
+    pymdownx.arithmatex:
+
+b64:
+  extensions:
+    pymdownx.b64:
+      base_path: '{{BASE}}'
+
+betterem (normal):
+  extensions:
+    pymdownx.betterem:
+
+betterem (reverse):
+  extensions:
+    pymdownx.betterem:
+      smart_enable: asterisk
+
+caret:
+  extensions:
+    pymdownx.caret:
+
+critic (accept):
+  extensions:
+    pymdownx.critic:
+      mode: accept
+
+critic (reject):
+  extensions:
+    pymdownx.critic:
+      mode: reject
+
+critic (view):
+  extensions:
+    pymdownx.critic:
+      mode: view
+
+extrarawhtml:
+  extensions:
+    pymdownx.extrarawhtml:
+
+github:
+  extensions:
+    pymdownx.github:
+
+github_legacy:
+  extensions:
+    pymdownx.github:
+      no_nl2br: false
+
+githubemoji:
+  extensions:
+    pymdownx.githubemoji:
+
+gemoji (png):
+  extensions:
+    pymdownx.emoji:
+      emoji_index: !!python/name:pymdownx.emoji.gemoji
+      alt: short
+      options:
+        attributes:
+          align: absmiddle
+          height: 20px
+          width: 20px
+
+gemoji (entities):
+  extensions:
+    pymdownx.emoji:
+      emoji_index: !!python/name:pymdownx.emoji.gemoji
+      emoji_generator: !!python/name:pymdownx.emoji.to_alt
+      alt: html_entity
+
+emoji1 (long title):
+  extensions:
+    pymdownx.emoji:
+      title: long
+
+emoji1 (no title):
+  extensions:
+    pymdownx.emoji:
+      title: none
+
+emoji1 (escaped):
+  extensions:
+    pymdownx.emoji:
+
+emoji1 (awesome):
+  extensions:
+    pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_awesome
+
+emoji1 (entities):
+  extensions:
+    pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_alt
+      alt: html_entity
+      remove_variation_selector: True
+
+emoji1 (png):
+  css:
+    - https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/css/emojione.min.css
+  extensions:
+    pymdownx.emoji:
+
+emoji1 (png sprite):
+  css:
+    - https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/sprites/emojione.sprites.css
+  extensions:
+    pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_png_sprite
+
+emoji1 (svg):
+  css:
+    - https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/css/emojione.min.css
+  extensions:
+    pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+
+emoji1 (svg sprite):
+  extensions:
+    pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg_sprite
+
+headeranchor:
+  css:
+    - headeranchor.css
+  extensions:
+    markdown.extensions.attr_list:
+    pymdownx.headeranchor:
+
+headeranchor-unicode:
+  css:
+    - headeranchor.css
+  extensions:
+    pymdownx.headeranchor:
+      slugify: !!python/name:pymdownx.headeranchor.uslugify
+
+headeranchor-unicode-encode:
+  css:
+    - headeranchor.css
+  extensions:
+    pymdownx.headeranchor:
+      slugify: !!python/name:pymdownx.headeranchor.uslugify_encoded
+
+inlinehilite:
+  extensions:
+    pymdownx.inlinehilite:
+      style_plain_text: true
+      guess_lang: false
+
+inlinehilite_codehilite:
+  extensions:
+    markdown.extensions.codehilite:
+      guess_lang: false
+    pymdownx.inlinehilite:
+      style_plain_text: true
+
+inlinehilite_guess:
+  extensions:
+    pymdownx.inlinehilite:
+      style_plain_text: true
+      guess_lang: true
+
+inlinehilite_no_pygments:
+  extensions:
+    pymdownx.inlinehilite:
+      guess_lang: false
+      use_pygments: false
+
+inlinehilite_plaintext:
+  extensions:
+    pymdownx.inlinehilite:
+      style_plain_text: false
+      guess_lang: false
+
+magiclink:
+  extensions:
+    pymdownx.magiclink:
+      hide_protocol: false
+
+magiclink_hide_protocol:
+  extensions:
+    pymdownx.magiclink:
+      hide_protocol: true
+
+mark:
+  extensions:
+    pymdownx.mark:
+
+pathconverter:
+  extensions:
+    pymdownx.pathconverter:
+      base_path: '{{BASE}}'
+      relative_path: '{{RELATIVE}}'
+
+plainhtml:
+  extensions:
+    pymdownx.plainhtml:
+
+progressbar:
+  css:
+    - progressbar.css
+  extensions:
+    pymdownx.progressbar:
+    markdown.extensions.attr_list:
+
+smartsymbols:
+  extensions:
+    pymdownx.smartsymbols:
+
+superfences (failures):
+  extensions:
+    pymdownx.superfences:
+
+superfences (no indent blocks):
+  extensions:
+    markdown.extensions.codehilite:
+      guess_lang: false
+    pymdownx.superfences:
+      disable_indented_code_blocks: true
+
+superfences (no nesting):
+  extensions:
+    pymdownx.superfences:
+      nested: false
+
+superfences (normal):
+  extensions:
+    markdown.extensions.codehilite:
+      guess_lang: false
+    pymdownx.superfences:
+
+tasklist:
+  css:
+    - tasklist.css
+  extensions:
+    pymdownx.tasklist:
+
+tasklist (custom):
+  css:
+    - tasklist_custom.css
+  extensions:
+    pymdownx.tasklist:
+      custom_checkbox: true
+
+tilde:
+  extensions:
+    pymdownx.tilde:
