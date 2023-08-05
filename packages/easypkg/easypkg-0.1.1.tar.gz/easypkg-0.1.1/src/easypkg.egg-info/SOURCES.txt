@@ -1,0 +1,12 @@
+setup.cfg
+setup.py
+src/easypkg/__init__.py
+src/easypkg/bitbucket.py
+src/easypkg.egg-info/PKG-INFO
+src/easypkg.egg-info/SOURCES.txt
+src/easypkg.egg-info/dependency_links.txt
+src/easypkg.egg-info/entry_points.txt
+src/easypkg.egg-info/namespace_packages.txt
+src/easypkg.egg-info/pbr.json
+src/easypkg.egg-info/requires.txt
+src/easypkg.egg-info/top_level.txt
