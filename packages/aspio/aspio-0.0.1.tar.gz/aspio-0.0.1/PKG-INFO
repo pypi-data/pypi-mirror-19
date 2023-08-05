@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: aspio
+Version: 0.0.1
+Summary: ASP interface to object-oriented programs
+Home-page: https://github.com/hexhex/py-aspio
+Author: Jakob Rath
+Author-email: jakob.rath@student.tuwien.ac.at
+License: MIT
+Description: This library simplifies integration of Answer Set Programming into Python applications.
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
