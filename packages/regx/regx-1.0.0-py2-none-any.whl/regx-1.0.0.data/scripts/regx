@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo "This is regx"
+python -m regulator $(pwd) $@
