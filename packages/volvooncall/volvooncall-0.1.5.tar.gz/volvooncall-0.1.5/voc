@@ -1,0 +1,101 @@
+#!/usr/bin/env python
+# -*- mode: python; coding: utf-8 -*-
+"""
+Retrieve information from VOC
+
+Usage:
+  voc (-h | --help)
+  voc --version
+  voc [-v | -vv] [(-u <username> -p <password>)] list
+  voc [-v | -vv] [(-u <username> -p <password>)] [--vin <vin>] status
+  voc [-v | -vv] [(-u <username> -p <password>)] [--vin <vin>] (lock | unlock)
+  voc [-v | -vv] [(-u <username> -p <password>)] [--vin <vin>] heater (start | stop)
+  voc [-v | -vv] [(-u <username> -p <password>)] [--vin <vin>] call <method>
+
+Options:
+  -u <username>, --user=<username>  VOC username
+  -p <password>, --pass=<password>  VOC password
+  --vin=<vin>                       Specify vehicle number
+  -h --help                         Show this message
+  -v                                Increase verbosity
+  --version                         Show version
+"""
+
+from sys import exit
+import docopt
+import logging
+
+from volvooncall import __version__, read_credentials, Connection
+
+def print_vehicle(vehicle):
+    print('%s %dkm (fuel %d%% %dkm)' % (
+	vehicle,
+	vehicle.odometer / 1000,
+	vehicle.fuelAmountLevel,
+	vehicle.distanceToEmpty))
+    try:
+	print('    position: %.14f,%.14f' %
+	      (vehicle.position['latitude'],
+	       vehicle.position['longitude']))
+    except AttributeError:
+	pass
+    print('    locked: %s' % ('yes' if vehicle.is_locked else 'no'))
+    if vehicle.remoteHeaterSupported:
+        print('    heater: %s' % ('on' if vehicle.is_heater_on else 'off'))
+    if vehicle.preclimatizationSupported:
+        print('    preclimatization: %s' % ('on' if vehicle.is_preclimatization_on else 'off'))
+
+
+def main():
+    """Command line interface."""
+
+    args = docopt.docopt(__doc__,
+			 version=__version__)
+
+    if args['-v'] == 2:
+	logging.basicConfig(level=logging.DEBUG)
+    elif args['-v']:
+	logging.basicConfig(level=logging.INFO)
+    else:
+	logging.basicConfig(level=logging.ERROR)
+
+    if args['--user'] and args['--pass']:
+	connection = Connection(args['--user'],
+				args['--pass'])
+    else:
+	credentials = read_credentials()
+        if not credentials:
+            exit("Could not read credentuals and none supplied.")
+        connection = Connection(**credentials)
+
+    if not connection.update():
+	exit('Could not connect to the server.')
+
+    if args['list']:
+	for vehicle in connection.vehicles:
+	    print(vehicle)
+            exit()
+
+    if args['--vin']:
+	vehicle = connection.vehicle(args['--vin'])
+    else:
+        vehicle = next(connection.vehicles)
+
+    if not vehicle:
+        print('Vehicle not found')
+        exit('Vehicle not found')
+
+    if args['status']:
+        print_vehicle(vehicle)
+    elif args['heater']:
+        vehicle.set_heater_or_preclimatization(args['start'])
+    elif args['lock']:
+        vehicle.lock()
+    elif args['unlock']:
+        vehicle.unlock()
+    elif args['call']:
+        vehicle.call(args['<method>'])
+
+
+if __name__ == '__main__':
+   main()
