@@ -1,0 +1,26 @@
+Metadata-Version: 1.1
+Name: django-slack-integration
+Version: 1.0
+Summary: Lightweight OAuth integration with Slack for your Django Projects.
+Home-page: https://github.com/vanflymen/django-slack-oauth
+Author: Daniel van Flymen
+Author-email: vanflymen@gmail.com
+License: MIT Licence
+Download-URL: https://github.com/vanflymen/django-slack-oauth/tarball/1.0
+Description: UNKNOWN
+Keywords: django,slack,oauth,integration
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
