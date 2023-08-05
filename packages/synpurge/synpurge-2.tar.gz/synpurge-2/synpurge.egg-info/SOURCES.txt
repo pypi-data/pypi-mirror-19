@@ -1,0 +1,17 @@
+CHANGELOG.md
+MANIFEST.in
+README.rst
+config.example.conf
+requirements.txt
+setup.py
+synpurge/__init__.py
+synpurge/cli.py
+synpurge/config.py
+synpurge/minimx.py
+synpurge/purger.py
+synpurge.egg-info/PKG-INFO
+synpurge.egg-info/SOURCES.txt
+synpurge.egg-info/dependency_links.txt
+synpurge.egg-info/entry_points.txt
+synpurge.egg-info/requires.txt
+synpurge.egg-info/top_level.txt
