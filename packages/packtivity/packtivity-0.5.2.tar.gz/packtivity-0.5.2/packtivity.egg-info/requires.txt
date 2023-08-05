@@ -1,0 +1,11 @@
+requests[security]
+jsonschema
+jsonref
+pyyaml
+functools32
+click
+psutil
+cap-schemas
+
+[celery]
+celery
