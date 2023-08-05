@@ -1,0 +1,32 @@
+Metadata-Version: 2.0
+Name: no-cloud
+Version: 0.0.4
+Summary: There is no cloud
+Home-page: http://github.com/saalaa/no-cloud
+Author: Benoit Myard
+Author-email: myardbenoit@gmail.com
+License: BSD
+Platform: any
+Classifier: Topic :: Utilities
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: PyYAML (==3.12)
+Requires-Dist: boto (==2.45.0)
+Requires-Dist: cffi (==1.9.1)
+Requires-Dist: click (==6.6)
+Requires-Dist: cryptography (==1.7.1)
+Requires-Dist: enum34 (==1.1.6)
+Requires-Dist: idna (==2.2)
+Requires-Dist: ipaddress (==1.0.17)
+Requires-Dist: pyasn1 (==0.1.9)
+Requires-Dist: pycparser (==2.17)
+Requires-Dist: pyperclip (==1.5.27)
+Requires-Dist: six (==1.10.0)
+
+UNKNOWN
+
+
