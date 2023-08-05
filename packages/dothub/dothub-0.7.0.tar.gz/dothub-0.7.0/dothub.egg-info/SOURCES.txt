@@ -1,0 +1,16 @@
+setup.py
+dothub/__init__.py
+dothub/__main__.py
+dothub/_main.py
+dothub/_version.py
+dothub/dict_diff.py
+dothub/github_helper.py
+dothub/organization.py
+dothub/repository.py
+dothub/utils.py
+dothub.egg-info/PKG-INFO
+dothub.egg-info/SOURCES.txt
+dothub.egg-info/dependency_links.txt
+dothub.egg-info/entry_points.txt
+dothub.egg-info/requires.txt
+dothub.egg-info/top_level.txt

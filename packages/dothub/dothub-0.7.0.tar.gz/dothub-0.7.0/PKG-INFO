@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: dothub
+Version: 0.7.0
+Summary: Manage your github repo as code!
+Home-page: https://github.com/Mariocj89/dothub
+Author: Mario Corchero
+Author-email: mariocj89@gmail.com
+License: MIT
+Description: Tool to sync a github repo based on a config file
+Keywords: configuration,github,code,GitPython
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
