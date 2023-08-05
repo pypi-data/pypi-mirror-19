@@ -1,0 +1,6 @@
+*** Settings ***
+Library           ../CodeLibWrapper.py
+
+*** Keywords ***
+KW_PrintALLTestCase
+    [Arguments]    ${TestCaseDir}

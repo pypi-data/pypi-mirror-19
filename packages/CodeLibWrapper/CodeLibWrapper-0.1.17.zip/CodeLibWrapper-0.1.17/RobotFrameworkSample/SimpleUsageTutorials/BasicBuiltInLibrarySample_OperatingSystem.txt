@@ -1,0 +1,19 @@
+*** Settings ***
+Library           OperatingSystem
+Library           Collections
+
+*** Test Cases ***
+Keyword_Run
+    comment    Start calc.exe
+    Run    calc.exe
+
+GetEnvironmentVariable
+    ${ComputerName}=    Get Environment Variable    COMPUTERNAME
+    Log    ${ComputerName}
+
+FileAndDirectory
+    @{FileItems}    List Directory    D:\\TempCode    *.rar    True
+    ${list}    Create List    @{FileItems}
+    Log     ==============
+    Log List    ${list}
+    log    ${list[0]}
