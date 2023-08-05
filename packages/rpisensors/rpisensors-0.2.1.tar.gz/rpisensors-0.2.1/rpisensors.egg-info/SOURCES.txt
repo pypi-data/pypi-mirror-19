@@ -1,0 +1,16 @@
+CHANGELOG.md
+MANIFEST.in
+README.rst
+setup.py
+rpisensors/__init__.py
+rpisensors/bmp180.py
+rpisensors/eeprom16.py
+rpisensors/i2c_device.py
+rpisensors/proximity.py
+rpisensors/smbus_wrapper.py
+rpisensors.egg-info/PKG-INFO
+rpisensors.egg-info/SOURCES.txt
+rpisensors.egg-info/dependency_links.txt
+rpisensors.egg-info/not-zip-safe
+rpisensors.egg-info/requires.txt
+rpisensors.egg-info/top_level.txt
