@@ -1,0 +1,22 @@
+{% extends "gramps-base.html" %}
+
+{% block title %}{{sitename}}: {{opts.database}} {% end %}
+{% block heading %}{{sitename}}: {{opts.database}} {% end %}
+
+{% block content %}
+<h3>{{_("Logged in: %s") % user}}</h3>
+
+  <table>
+       <tr>
+	 <th>{{_("Item")}}</th>
+	 <th>{{_("Count")}}</th>
+       </tr>
+  {% for table in sorted(database.get_table_func()) %}
+       <tr>
+          <td><a href="/{{table.lower()}}" class="browsecell">{{_(table)}}</a></td>
+          <td><a href="/{{table.lower()}}" class="browsecell">{{database.get_table_func(table,"count_func")()}}</a></td>
+       </tr>
+  {% end %}
+  </table>
+
+{% end %}
