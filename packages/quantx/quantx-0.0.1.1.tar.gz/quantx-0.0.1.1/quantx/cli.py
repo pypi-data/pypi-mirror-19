@@ -1,0 +1,179 @@
+import os
+import click
+import pandas
+import shutil
+from odo import odo
+from quantx.btest.exch import SimulationExch
+from quantx.utils import click_type
+from quantx.utils import convert
+from quantx.utils.config import Config
+from quantx.utils.const import ModCls, DateDefault, DataSrc, DataType, DataCol, Func, DateFormat
+from quantx.utils.factory import cls
+from quantx.plotting import analyse
+
+
+@click.group()
+def cli():
+    pass
+
+
+@cli.command("import")
+@click.argument("path", type=click.Path(exists=True, dir_okay=False), metavar="[文件路径]")
+@click.option("--dt_col", default=DataCol.dt, help="时间字段名")
+@click.option("--symbol_col", default=DataCol.symbol, help="股票字段名")
+def import_data(path, dt_col, symbol_col):
+    """导入因子数据"""
+
+    dframe = odo(path, pandas.DataFrame)
+    for column in filter(lambda x: x not in [dt_col, symbol_col], dframe.columns):
+        cls(Config.db, ModCls.dataset)(Config.get_db()).update_factor(
+            dframe.loc[:, [dt_col, symbol_col, column]],
+            dt_col=dt_col,
+            symbol_col=symbol_col,
+            append=False)
+
+
+@cli.command("update_factor")
+@click.argument("factor", default="", metavar="[因子名称]")
+@click.option("-s", "--start_date", type=click_type.DateTime(), default=DateDefault.start.strftime(DateFormat.day),
+              help="开始时间")
+@click.option("-e", "--end_date", type=click_type.DateTime(), default=DateDefault.end.strftime(DateFormat.day),
+              help="结束时间")
+@click.option("--src", default=DataSrc.china_scope, type=click.Choice([DataSrc.china_scope]))
+def update_factor(factor, start_date, end_date, src):
+    """更新因子数据"""
+    dsource = cls(src, ModCls.source)()
+    dsource.update_factor(factor, start_date, end_date)
+
+
+@cli.command("update_market")
+@click.option("-s", "--start_date", type=click_type.DateTime(), default=DateDefault.start.strftime(DateFormat.day),
+              help="开始时间")
+@click.option("-e", "--end_date", type=click_type.DateTime(), default=DateDefault.end.strftime(DateFormat.day),
+              help="结束时间")
+@click.option("--src", default=DataSrc.china_scope, type=click.Choice([DataSrc.china_scope]), help="数据源")
+def update_market(start_date, end_date, src):
+    """更新行情数据"""
+    dsource = cls(src, ModCls.source)()
+
+    dsource.update_trading_days()
+    dsource.update_market(start_date, end_date)
+
+
+@cli.command("config")
+@click.argument("name", default="", type=click.STRING, metavar="[配置参数]")
+@click.option("-v", "--value", default="", type=click.STRING, help="设置新值")
+def config(name, value):
+    """配置文件"""
+
+    if name and value:
+        setattr(Config, name, value)
+        Config.save()
+    elif name:
+        click.echo("%s=%s" % (name, getattr(Config, name)))
+    elif value:
+        pass
+    else:
+        for attr in Config.iter_attr():
+            click.echo("%s=%s" % (attr, getattr(Config, attr)))
+
+
+@cli.command("clean")
+@click.option("--factor", default=None, help="因子名称")
+@click.option("--bundle", default=None, type=click.Choice([DataType.market]), help="数据集")
+@click.option("--config", is_flag=True, help="配置文件")
+@click.option("--cache", is_flag=True, help="缓存文件")
+def clean(factor, bundle, config, cache):
+    """清理数据"""
+    dset = cls(Config.db, ModCls.dataset)(Config.get_db())
+
+    if bundle:
+        dset.drop(convert.cls_tab(bundle))
+
+    if config:
+        os.remove(Config.__config__)
+
+    if cache:
+        shutil.rmtree(Config.get_cache_dir())
+
+    if factor:
+        dset.drop(factor)
+
+
+@cli.command("run")
+@click.argument("py", type=click.Path(True, dir_okay=False), metavar="[策略文件]")
+@click.option("-s", "--start_date", type=click_type.DateTime(), default=DateDefault.start.strftime(DateFormat.day),
+              help="回测开始时间")
+@click.option("-e", "--end_date", type=click_type.DateTime(), default=DateDefault.end.strftime(DateFormat.day),
+              help="回测结束时间")
+@click.option("-o", "--out_file", default=None, type=click.Path(file_okay=True), help="输出结果")
+@click.option("--plot", is_flag=True, help="输出图表")
+@click.option("--initialize", default=Func.initialize)
+@click.option("--before_trading_start", default=Func.before_trading_start)
+@click.option("--handle_bar", default=Func.handle_bar)
+@click.option("--after_trading_end", default=Func.after_trading_end)
+def run(
+        py,
+        start_date,
+        end_date,
+        initialize,
+        before_trading_start,
+        handle_bar,
+        after_trading_end,
+        plot,
+        out_file
+):
+    """执行策略"""
+
+    g = {
+        Func.initialize: None,
+        Func.before_trading_start: None,
+        Func.after_trading_end: None
+    }
+    with open(py) as f_py:
+        c = compile(f_py.read(), py, "exec")
+        exec(c, g)
+
+    se = SimulationExch()
+    result = se.run(
+        start_date=start_date,
+        end_date=end_date,
+        initialize=g[initialize],
+        before_trading_start=g[before_trading_start],
+        handle_bar=g[handle_bar],
+        after_trading_end=g[after_trading_end]
+    )
+
+    if out_file:
+        result.to_pickle(out_file)
+    elif not result.empty:
+        click.echo(result.tail(1).T)
+
+    if plot:
+        analyse(result)
+
+
+@cli.command("plot")
+@click.argument("pickle", type=click.Path(True, file_okay=True), metavar="[文件路径]")
+def plot(pickle):
+    """图表"""
+    analyse(pandas.read_pickle(pickle))
+
+
+def main():
+    cli()
+
+
+if __name__ == "__main__":
+    import click
+    from click.testing import CliRunner
+
+    runner = CliRunner()
+    result = runner.invoke(cli,
+                           ["run",
+                            "d:/work/my/quantx/examples/buy_and_hold.py",
+                            "-e", "2016-03-01",
+                            "-s", "2016-01-01"])
+    print(result.exception)
+    print(result.exc_info)
+    print(result.output)
