@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: goldschmidt
+Version: 0.0.2
+Summary: Readout a GU-3001D Milli-Gauss meter via USB/serial oport
+Home-page: https://github.com/achim1/goldschmidt
+Author: Achim Stoessl
+Author-email: achim.stoessl@gmail.com
+License: GPL
+Description: Provides commandline readout and gui for the named instrument. For the name see https://en.wikipedia.org/wiki/Carl_Wolfgang_Benjamin_Goldschmidt who was an astronomer, mathematician and physicist and assistant to Gauss
+Keywords: magnetometer,gauss,GU-3001D,gaussmeter,Milli-Gauss Meter,readout,physics,engineering,serial,RS-232,USB
+Platform: Ubuntu 14.04
+Platform: Ubuntu 16.04
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Scientific/Engineering :: Physics
