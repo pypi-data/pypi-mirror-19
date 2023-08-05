@@ -1,0 +1,13 @@
+setup.py
+pyscrape/__init__.py
+pyscrape/http.py
+pyscrape/mixins.py
+pyscrape/session.py
+pyscrape/webkit.py
+pyscrape/xvfb.py
+scrapejs.egg-info/PKG-INFO
+scrapejs.egg-info/SOURCES.txt
+scrapejs.egg-info/dependency_links.txt
+scrapejs.egg-info/entry_points.txt
+scrapejs.egg-info/requires.txt
+scrapejs.egg-info/top_level.txt
