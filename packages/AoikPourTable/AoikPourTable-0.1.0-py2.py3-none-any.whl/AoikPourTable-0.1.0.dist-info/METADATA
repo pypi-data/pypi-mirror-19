@@ -1,0 +1,25 @@
+Metadata-Version: 2.0
+Name: AoikPourTable
+Version: 0.1.0
+Summary: Pour data in out of table.
+Home-page: https://github.com/AoiKuiyuyou/AoikPourTable
+Author: Aoi.Kuiyuyou
+Author-email: aoi.kuiyuyou@google.com
+License: MIT
+Keywords: table import export
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: SQLAlchemy (>=0.8,>=1.0,>=0.9)
+
+`Documentation on Github
+<https://github.com/AoiKuiyuyou/AoikPourTable>`_
+
