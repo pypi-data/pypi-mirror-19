@@ -1,0 +1,84 @@
+Metadata-Version: 1.0
+Name: accepts
+Version: 0.0.71
+Summary: @accepts decorator to check arguments types3
+
+Home-page: https://github.com/russianidiot/accepts.py
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: UNKNOWN
+Description: .. README generated with readmemako.py (github.com/russianidiot/readme-mako.py) and .README dotfiles (github.com/russianidiot-dotfiles/.README)
+        
+        Install
+        ```````
+        
+        :code:`[sudo] pip install accepts`
+        
+        Features
+        ````````
+        *	support **multiple types** argument
+        *	support **None** argument
+        *	human readable detailed exception message
+        
+        Usage
+        `````
+        
+        .. code:: python
+        
+        	>>> from accepts import accepts
+        	
+        	>>> @accepts(arg1type,arg2type,...)
+        
+        Example
+        ```````
+        
+        .. code:: bash
+        
+        	>>> @accepts(int)
+        	def inc(value):
+        		return value+1
+        	
+        	>>> inc(1) # ok
+        	>>> inc(1.5) # exception
+        	TypeError: ....
+        	
+        	# multiple types
+        	>>> @accepts((int,float))
+        	
+        	# None
+        	>>> @accepts((int,float,None))
+        
+        `Examples/`_
+        
+        .. _Examples/: https://github.com/russianidiot/accepts.py/tree/master/Examples
+        
+        Feedback |github_issues| |gitter| |github_follow|
+        
+        .. |github_issues| image:: https://img.shields.io/github/issues/russianidiot/accepts.py.svg
+        	:target: https://github.com/russianidiot/accepts.py/issues
+        
+        .. |github_follow| image:: https://img.shields.io/github/followers/russianidiot.svg?style=social&label=Follow
+        	:target: https://github.com/russianidiot
+        
+        .. |gitter| image:: https://badges.gitter.im/russianidiot/accepts.py.svg
+        	:target: https://gitter.im/russianidiot/accepts.py
+Keywords: type decorator
+
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Natural Language :: Russian
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.0
+Classifier: Programming Language :: Python :: 3.1
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
