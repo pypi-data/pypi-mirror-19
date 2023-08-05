@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+django_settings_helper/__init__.py
+django_settings_helper/test_import.py
+django_settings_helper/tests.py
+django_settings_helper.egg-info/PKG-INFO
+django_settings_helper.egg-info/SOURCES.txt
+django_settings_helper.egg-info/dependency_links.txt
+django_settings_helper.egg-info/top_level.txt
