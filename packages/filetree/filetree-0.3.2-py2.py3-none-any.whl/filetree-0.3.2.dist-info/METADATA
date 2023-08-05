@@ -1,0 +1,71 @@
+Metadata-Version: 2.0
+Name: filetree
+Version: 0.3.2
+Summary: Easier file tree.
+Home-page: https://github.com/weaming/filetree
+Author: weaming
+Author-email: garden.yuen@gmail.com
+License: MIT
+Keywords: file tree fs
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.0
+Classifier: Programming Language :: Python :: 3.1
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: ordereddict
+
+Easier file tree for human.
+===========================
+
+Examples::
+
+    >>> from filetree import File
+    >>> f = File('.')
+    >>> f.files
+    [<file: .gitignore>, <file: LICENSE>, <file: Makefile>, <file: README.rst>, <file: setup.py>]
+    >>> f.dirs
+    [<dir: .git>, <dir: build>, <dir: dist>, <dir: docs>, <dir: filetree>]
+    >>> f.images
+    [<file: python-logo.png>, <file: favicon.jpg>]
+
+API::
+
+   __call__ 
+   __iter__ 
+   __eq__
+
+   files 
+   dirs 
+   images 
+   listdir 
+
+   exists 
+   type 
+
+   is_blank 
+   is_dir 
+   is_file 
+   is_hidden 
+
+   info 
+   atime 
+   ctime 
+   mtime 
+
+   move_to 
+   remove 
+   remove_blank_dirs 
+   remove_blank_subdir 
+
+   size 
+   walk 
+
+
