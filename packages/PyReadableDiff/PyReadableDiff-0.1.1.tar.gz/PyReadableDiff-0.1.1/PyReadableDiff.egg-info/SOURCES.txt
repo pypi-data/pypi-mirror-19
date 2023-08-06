@@ -1,0 +1,11 @@
+setup.py
+PyReadableDiff.egg-info/PKG-INFO
+PyReadableDiff.egg-info/SOURCES.txt
+PyReadableDiff.egg-info/dependency_links.txt
+PyReadableDiff.egg-info/top_level.txt
+pydiff/__init__.py
+pydiff/base.py
+pydiff/character.py
+pydiff/convert.py
+pydiff/line.py
+pydiff/word.py
