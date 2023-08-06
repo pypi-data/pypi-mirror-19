@@ -1,0 +1,71 @@
+Metadata-Version: 1.1
+Name: remoter
+Version: 0.1.1
+Summary: Python 3 compatible remote task runner
+Home-page: https://github.com/levchik/remoter
+Author: Lev Rubel
+Author-email: rubel.lev@gmail.com
+License: Apache Software License 2.0
+Description: ===============================
+        remoter
+        ===============================
+        
+        
+        .. image:: https://img.shields.io/pypi/v/remoter.svg
+                :target: https://pypi.python.org/pypi/remoter
+        
+        .. image:: https://img.shields.io/travis/levchik/remoter.svg
+                :target: https://travis-ci.org/levchik/remoter
+        
+        .. image:: https://readthedocs.org/projects/remoter/badge/?version=latest
+                :target: https://remoter.readthedocs.io/en/latest/?badge=latest
+                :alt: Documentation Status
+        
+        .. image:: https://pyup.io/repos/github/levchik/remoter/shield.svg
+             :target: https://pyup.io/repos/github/levchik/remoter/
+             :alt: Updates
+        
+        
+        Python 3 compatible remote task runner
+        
+        
+        * Free software: Apache Software License 2.0
+        * Documentation: https://remoter.readthedocs.io.
+        
+        
+        Features
+        --------
+        
+            $ docker run --rm -it -v $(pwd):/code remoter:latest python remoter/cli.py
+        
+        Credits
+        ---------
+        
+        This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+        
+        =======
+        History
+        =======
+        
+        0.1.0 (2017-01-18)
+        ------------------
+        
+        * First release on PyPI.
+        
+        0.1.1 (2017-01-18)
+        ------------------
+        
+        * Messing around with the services CI/check deps/pypi, etc...
+        
+Keywords: remoter
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
