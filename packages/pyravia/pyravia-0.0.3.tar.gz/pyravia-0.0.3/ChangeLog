@@ -1,0 +1,23 @@
+CHANGES
+=======
+
+0.0.3
+-----
+
+* Document TV codes on the XBR75X850D
+* Add turn_off and extract turn_on into a method
+* Make more things private
+* Make is_on a property
+* Add some context to README
+* Make XML command template private
+
+0.0.2
+-----
+
+* Fix trove classifier
+
+0.0.1
+-----
+
+* Inital content
+* Initial Cookiecutter Commit
