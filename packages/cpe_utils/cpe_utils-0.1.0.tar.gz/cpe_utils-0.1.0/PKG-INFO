@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: cpe_utils
+Version: 0.1.0
+Summary: A CPE utility library
+Home-page: https://github.com/ExodusIntelligence/cpe_utils
+Author: Exodus Intelligence
+Author-email: eng@exodusintel.com
+License: MIT
+Download-URL: https://github.com/ExodusIntelligence/cpe_utils/tarball/v1.0.0
+Description: 
+                A CPE utility library that provides utility functions for
+                expanding CPE wildcards, matching CPEs, etc.
+            
+Platform: Cross Platform
+Classifier: Programming Language :: Python :: 2
