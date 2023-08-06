@@ -1,0 +1,44 @@
+# Wracker
+
+(PRE-ALPHA DO NOT USE) A Python clone of bundler.  The wheel racker!
+
+## Commands
+
+* `wracker install` installs packages from a `requirements.in` file (in your CWD
+  or parent directories) and writes the specific versions to `requirements.txt`
+
+* `wracker exec` sets `$PYTHONPATH` to use your wheel rack and sets
+  `$PYTHONHOME` to an automatically created and empty virtualenv, keeping your
+  project isolated from other Python projects on your machine.  The automatic
+  virtualenv is set to use the same version of Python that's accessible as
+  `python` on the prompt, so it works well with virtualenv and pyenv.  The
+  version of Python can also be manually specified using the `-p` switch
+  (although this has not been extensively tested).
+
+* `wracker exec` also sets `$PATH` to include paths to scripts installed by your
+  Python packages, so `wracker exec pep8` will launch your frozen pep8
+
+
+## Todo
+
+(Presented in no particular order.)
+
+* [ ] Support installation with Python 3
+
+* [ ] Integrate cleanly with pyenv
+
+* [ ] VCS URLs
+
+* [ ] `-r` includes
+
+* [ ] Verification that all versions are compatible
+
+* [ ] Friendly errors
+
+* [ ] Tests
+
+* [ ] Segregate installed modules by Python version used to compile
+
+* [ ] A million other things
+
+
