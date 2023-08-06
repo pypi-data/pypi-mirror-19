@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: NURI
+Version: 0.0.1
+Summary: NURI Urban Magnetometry
+Home-page: https://vincentdumont.github.io/nuri/
+Author: Vincent Dumont
+Author-email: vincentdumont@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires: numpy
+Requires: matplotlib
+Requires: scipy
+Requires: pylab
+Requires: obspy
+Requires: mlpy
+Requires: smtplib
