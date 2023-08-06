@@ -1,0 +1,35 @@
+{
+    "InstanceId": "i-0bdb771fa054bccf5", 
+    "LaunchSpec": {
+        "Monitoring": {
+            "Enabled": false
+        }, 
+        "SecurityGroupIds": [
+            "sg-31982956", 
+            "sg-76bd4f11"
+        ], 
+        "KeyName": "mvrad-pdx-htang", 
+        "EbsOptimized": true, 
+        "SubnetId": "subnet-123ab865", 
+        "IamInstanceProfile": {
+            "Name": "", 
+            "Arn": ""
+        }, 
+        "InstanceType": "c4.8xlarge", 
+        "ImageId": "ami-5650e636"
+    }, 
+    "Volumes": [
+        {
+            "Device": "/dev/sdf", 
+            "VolumeId": "vol-aad57e1f"
+        }, 
+        {
+            "Device": "/dev/sdg", 
+            "VolumeId": "vol-c709aa72"
+        }, 
+        {
+            "Device": "/dev/sdh", 
+            "VolumeId": "vol-2f09aa9a"
+        }
+    ]
+}
