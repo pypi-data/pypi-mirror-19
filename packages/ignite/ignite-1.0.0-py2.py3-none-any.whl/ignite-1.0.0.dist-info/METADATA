@@ -1,0 +1,35 @@
+Metadata-Version: 2.0
+Name: ignite
+Version: 1.0.0
+Summary: Apache Ignite REST Library
+Home-page: https://github.com/dany74q/python-apache-ignite
+Author: Danny Shemesh
+Author-email: dany74q@gmail.com
+License: MIT
+Keywords: apache ignite rest library
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: requests
+Requires-Dist: wrapt
+
+Apache Ignite REST client.
+=======================
+
+For documentation please consult: http://apacheignite.gridgain.org/docs/rest-api
+
+This library supports all available REST operations (as of version v1.8).
+To enable the REST module in Ignite copy the 'ignite-rest-http' located in IGNITE_HOME/libs/optional to IGNITE_HOME/libs
+and restart the Ignite server.
+
+Take a look at usage.py for a usage example.
+
