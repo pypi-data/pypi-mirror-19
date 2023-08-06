@@ -1,0 +1,15 @@
+setup.py
+seq_tools.egg-info/PKG-INFO
+seq_tools.egg-info/SOURCES.txt
+seq_tools.egg-info/dependency_links.txt
+seq_tools.egg-info/entry_points.txt
+seq_tools.egg-info/top_level.txt
+seqtools/__init__.py
+seqtools/align.py
+seqtools/errors.py
+seqtools/graph.py
+seqtools/range.py
+seqtools/sequence.py
+seqtools/statistics.py
+seqtools/stream.py
+seqtools/structure.py
