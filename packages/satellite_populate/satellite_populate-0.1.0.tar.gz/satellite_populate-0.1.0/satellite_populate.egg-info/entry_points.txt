@@ -1,0 +1,3 @@
+[console_scripts]
+satellite-populate = satellite_populate.commands:main
+
