@@ -1,0 +1,43 @@
+Metadata-Version: 2.0
+Name: universal-notifications
+Version: 0.6.2
+Summary: High-level framework for notifications
+Home-page: https://github.com/ArabellaTech/universal_notifications
+Author: Pawel Krzyzaniak
+Author-email: pawelk@arabel.la
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Internet :: WWW/HTTP
+Requires-Dist: django-push-notifications (>=1.4.1)
+Requires-Dist: django-rest-swagger (<1.0,>=0.3)
+Requires-Dist: django-websocket-redis
+Requires-Dist: djangorestframework (>=3.3)
+Requires-Dist: phonenumbers (>=7.7.3)
+Requires-Dist: premailer
+Requires-Dist: pyfcm
+Requires-Dist: redis
+Requires-Dist: six (>=1.10.0)
+Requires-Dist: twilio (>=5.6.0)
+Requires-Dist: pysocks; python_version=="3.6"
+
+# universal_notifications
+
+
+To have Universal Notifications receive WS notifications (ie. to mark notification as received) add to your settings.py:
+
+::
+
+    WS4REDIS_SUBSCRIBER = 'universal_notifications.backend.websockets.RedisSubscriber'
+
+
+

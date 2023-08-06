@@ -1,0 +1,7 @@
+universal_notifications
+universal_notifications/backends
+universal_notifications/backends/push
+universal_notifications/backends/twilio
+universal_notifications/management
+universal_notifications/management/commands
+universal_notifications/migrations
