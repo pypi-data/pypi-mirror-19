@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: eventsender
+Version: 1.0
+Summary: RabbitMQ event sender
+Home-page: https://github.com/ByteInternet/eventsender
+Author: Byte B.V.
+Author-email: tech@byte.nl
+License: MIT License
+Description: UNKNOWN
+Keywords: amqp rabbitmq events eventsender
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Utilities
+Classifier: Topic :: Communications
+Classifier: Topic :: Internet
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
