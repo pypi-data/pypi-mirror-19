@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+UNLICENSE
+setup.py
+char2image/__init__.py
+char2image/__main__.py
+char2image/char2image.py
+char2image/chars2images_main.py
+char2image.egg-info/PKG-INFO
+char2image.egg-info/SOURCES.txt
+char2image.egg-info/dependency_links.txt
+char2image.egg-info/entry_points.txt
+char2image.egg-info/requires.txt
+char2image.egg-info/top_level.txt
