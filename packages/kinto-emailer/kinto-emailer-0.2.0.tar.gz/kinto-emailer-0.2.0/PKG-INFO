@@ -1,0 +1,217 @@
+Metadata-Version: 1.1
+Name: kinto-emailer
+Version: 0.2.0
+Summary: Kinto emailer plugin
+Home-page: https://github.com/Kinto/kinto-emailer
+Author: Mozilla Services
+Author-email: developers@kinto-storage.org
+License: Apache License (2.0)
+Description: Kinto Emailer
+        #############
+        
+        .. image:: https://img.shields.io/travis/Kinto/kinto-emailer.svg
+                :target: https://travis-ci.org/Kinto/kinto-emailer
+        
+        .. image:: https://img.shields.io/pypi/v/kinto-emailer.svg
+                :target: https://pypi.python.org/pypi/kinto-emailer
+        
+        .. image:: https://coveralls.io/repos/Kinto/kinto-emailer/badge.svg?branch=master
+                :target: https://coveralls.io/r/Kinto/kinto-emailer
+        
+        
+        **kinto-emailer**  send emails when some events arise (e.g. new records have
+        been created). It relies on `Pyramid Mailer <https://github.com/Pylons/pyramid_mailer/>`_
+        for the sending part.
+        
+        
+        Install
+        =======
+        
+        ::
+        
+            pip install kinto-emailer
+        
+        Setup
+        =====
+        
+        In the `Kinto <http://kinto.readthedocs.io/>`_ settings:
+        
+        .. code-block:: ini
+        
+            kinto.includes = kinto_emailer
+        
+            mail.default_sender = kinto@restmail.net
+        
+            # mail.host = localhost
+            # mail.port = 25
+            # mail.username = None
+            # mail.password = None
+            # mail.tls = False
+        
+        See `more details about Pyramid Mailer configuration <http://docs.pylonsproject.org/projects/pyramid_mailer/en/latest/#configuration>`_.
+        
+        
+        Development
+        -----------
+        
+        Use a fake emailer that write emails files to disk:
+        
+        .. code-block:: ini
+        
+            mail.debug_mailer = true
+        
+        
+        How does it work?
+        =================
+        
+        Some information — like monitored action or list of recipients — are defined in
+        the collection metadata. When an event occurs, the plugin sends emails if one of
+        the expected condition is met.
+        
+        
+        Usage
+        =====
+        
+        The metadata on the collection must look like this:
+        
+        .. code-block:: js
+        
+            {
+              "kinto-emailer": {
+                "hooks": [{
+                  "template": "Something happened!",
+                  "recipients": ['Security reviewers <security-reviews@mozilla.com>']
+                }]
+              }
+            }
+        
+        In the above example, every action on the collection metadata or any record in that
+        collection will trigger an email notification.
+        
+        Optional:
+        
+        * ``sender`` (e.g. ``"Kinto team <developers@kinto-storage.org>"``)
+        
+        
+        Recipients
+        ----------
+        
+        The list of recipients can either contain:
+        
+        * Email adresses (eg. ``alice@wonderland.com`` or ``"Joe Doe <jon@doe.com>"``)
+        * Group URI (eg. ``/buckets/staging/groups/reviewers``)
+        
+        With group URIs, the email recipients will be expanded with the group members
+        principals look like email addresses (eg. ``ldap:peace@world.org``).
+        
+        
+        Selection
+        ---------
+        
+        It is possible to define several *hooks*, and filter on some condition. For example:
+        
+        .. code-block:: js
+        
+          {
+            "kinto-emailer": {
+              "hooks": [{
+                "resource_name": "record",
+                "action": "create",
+                "template": "Record created!",
+                "recipients": ['Security reviewers <security-reviews@mozilla.com>']
+              }, {
+                "resource_name": "collection",
+                "action": "updated",
+                "template": "Collection updated!",
+                "recipients": ["Security reviewers <security-reviews@mozilla.com>"]
+              }]
+            }
+          }
+        
+        The possible filters are:
+        
+        * ``resource_name``: ``record`` or ``collection`` (default: all)
+        * ``action``: ``create``, ``update``, ``delete`` (default: all)
+        * ``event``: ``kinto.core.events.AfterResourceChanged`` (default), or
+          ``kinto_signer.events.ReviewRequested``, ``kinto_signer.events.ReviewApproved``,
+          ``kinto_signer.events.ReviewRejected``
+        
+        
+        Template
+        --------
+        
+        The template string can have placeholders:
+        
+        * ``bucket_id``
+        * ``id``: record or collection ``id``)
+        * ``user_id``
+        * ``resource_name``
+        * ``uri``
+        * ``action``
+        * ``timestamp``
+        * ``root_url``
+        * ``client_address``
+        * ``user_agent``
+        
+        For example:
+        
+        ``{user_id} has {action}d a {resource_name} in {bucket_id}.``
+        
+        See `Kinto core notifications <http://kinto.readthedocs.io/en/5.3.0/core/notifications.html#payload>`_.
+        
+        
+        Running the tests
+        =================
+        
+        To run the unit tests::
+        
+          $ make tests
+        
+        For the functional tests, run a Kinto instance in a separate terminal::
+        
+          $ make run-kinto
+        
+        
+        And start the test suite::
+        
+          $ make functional
+        
+        
+        Changelog
+        =========
+        
+        This document describes changes between each past release.
+        
+        0.2.0 (2017-01-27)
+        ------------------
+        
+        **New features**
+        
+        - List of recipients can now contain groups URIs. The principals from the specified
+          group that look like email addresses will be used as recipients (fixes #6)
+        - Support new variables like server root url or client IP address in email template (fixes #22)
+        - Add some validation when defining kinto-emailer settings in collections metadata (fixes #21)
+        
+        
+        0.1.0 (2017-01-25)
+        ------------------
+        
+        **Initial version**
+        
+        - Use a list of hooks to configure emails bound to notifications (fixes #11)
+        - Support *kinto-signer* events (fixes #14)
+        
+        
+        Contributors
+        ============
+        
+        * Alexis Métaireau <alexis@notmyidea.org>
+        * Rémy Hubscher <rhubscher@mozilla.com>
+        * Mathieu Leplatre <mathieu@mozilla.com>
+        
+Keywords: web services
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Application
+Classifier: License :: OSI Approved :: Apache Software License
