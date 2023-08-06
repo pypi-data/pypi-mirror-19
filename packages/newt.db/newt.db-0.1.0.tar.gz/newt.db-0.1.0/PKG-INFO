@@ -1,0 +1,26 @@
+Metadata-Version: 1.0
+Name: newt.db
+Version: 0.1.0
+Summary: Newt DB, the amphibious database
+Home-page: http://www.newtdb.org/
+Author: Jim Fulton
+Author-email: jim@jimfulton.info
+License: MIT
+Description: ================================
+        Newt DB, the amphibious database
+        ================================
+        
+        Python objects above, Postgtresql JSONB below.
+        
+        See http://www.newtdb.org
+        
+        Changes
+        =======
+        
+        0.1.0 (2017-01-24)
+        ==================
+        
+        Initial release
+        
+Keywords: database nosql python postgresql postgres
+Platform: UNKNOWN
