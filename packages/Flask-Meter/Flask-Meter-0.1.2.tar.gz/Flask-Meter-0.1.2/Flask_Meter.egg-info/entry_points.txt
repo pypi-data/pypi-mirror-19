@@ -1,0 +1,3 @@
+[console_scripts]
+flask_meter = flask_meter.cli:main
+
