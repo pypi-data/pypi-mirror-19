@@ -1,0 +1,12 @@
+MANIFEST.in
+README.rst
+requirements.txt
+setup.py
+jupyterhub_hook_filemanager/__version__.py
+jupyterhub_hook_filemanager/hook_filemanager.py
+jupyterhub_hook_filemanager.egg-info/PKG-INFO
+jupyterhub_hook_filemanager.egg-info/SOURCES.txt
+jupyterhub_hook_filemanager.egg-info/dependency_links.txt
+jupyterhub_hook_filemanager.egg-info/requires.txt
+jupyterhub_hook_filemanager.egg-info/top_level.txt
+jupyterhub_hook_filemanager/__pycache__/hook_filemanager.cpython-35.pyc
