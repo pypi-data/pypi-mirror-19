@@ -1,0 +1,51 @@
+Metadata-Version: 2.0
+Name: okami
+Version: 0.1.1
+Summary: A high-level web scraping framework
+Home-page: UNKNOWN
+Author: ambrozic
+Author-email: ambrozic@gmail.com
+License: BSD
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Intended Audience :: Developers
+Requires-Dist: aiohttp (==1.2.0)
+Requires-Dist: async-timeout (==1.1.0)
+Requires-Dist: chardet (==2.3.0)
+Requires-Dist: lxml (==3.7.2)
+Requires-Dist: multidict (==2.1.4)
+Requires-Dist: yarl (==0.8.1)
+Provides-Extra: cluster
+Requires-Dist: aiohttp (==1.2.0); extra == 'cluster'
+Requires-Dist: async-timeout (==1.1.0); extra == 'cluster'
+Requires-Dist: chardet (==2.3.0); extra == 'cluster'
+Requires-Dist: lxml (==3.7.2); extra == 'cluster'
+Requires-Dist: multidict (==2.1.4); extra == 'cluster'
+Requires-Dist: redis (==2.10.5); extra == 'cluster'
+Requires-Dist: yarl (==0.8.1); extra == 'cluster'
+Provides-Extra: docs
+Requires-Dist: Sphinx (==1.5.1); extra == 'docs'
+Requires-Dist: aiohttp (==1.2.0); extra == 'docs'
+Requires-Dist: async-timeout (==1.1.0); extra == 'docs'
+Requires-Dist: chardet (==2.3.0); extra == 'docs'
+Requires-Dist: lxml (==3.7.2); extra == 'docs'
+Requires-Dist: multidict (==2.1.4); extra == 'docs'
+Requires-Dist: yarl (==0.8.1); extra == 'docs'
+Provides-Extra: tests
+Requires-Dist: aiohttp (==1.2.0); extra == 'tests'
+Requires-Dist: async-timeout (==1.1.0); extra == 'tests'
+Requires-Dist: chardet (==2.3.0); extra == 'tests'
+Requires-Dist: lxml (==3.7.2); extra == 'tests'
+Requires-Dist: multidict (==2.1.4); extra == 'tests'
+Requires-Dist: pytest (==3.0.5); extra == 'tests'
+Requires-Dist: pytest-asyncio (==0.5.0); extra == 'tests'
+Requires-Dist: yarl (==0.8.1); extra == 'tests'
+
+UNKNOWN
+
+

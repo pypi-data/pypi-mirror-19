@@ -1,0 +1,3 @@
+[console_scripts]
+okami = okami.cli.main:main
+
