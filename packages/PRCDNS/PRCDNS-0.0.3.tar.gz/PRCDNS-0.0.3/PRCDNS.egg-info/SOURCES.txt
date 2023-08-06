@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README
+setup.cfg
+setup.py
+PRCDNS/__init__.py
+PRCDNS/domain_cache.py
+PRCDNS/proxy_client.py
+PRCDNS/server.py
+PRCDNS.egg-info/PKG-INFO
+PRCDNS.egg-info/SOURCES.txt
+PRCDNS.egg-info/dependency_links.txt
+PRCDNS.egg-info/entry_points.txt
+PRCDNS.egg-info/requires.txt
+PRCDNS.egg-info/top_level.txt
+data/data_file

@@ -1,0 +1,13 @@
+asyncio
+aiohttp
+aiodns
+cchardet
+dnslib
+argparse
+IPy
+
+[dev]
+check-manifest
+
+[test]
+coverage
