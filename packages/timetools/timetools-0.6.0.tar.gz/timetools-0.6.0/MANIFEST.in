@@ -1,0 +1,11 @@
+include HISTORY LICENSE README.md VERSION
+include *.yml
+
+include requirements.txt .coveragerc
+
+recursive-include timetools *.py
+
+recursive-exclude timetools *.empty
+recursive-exclude timetools *tests*
+
+global-exclude __pycache__

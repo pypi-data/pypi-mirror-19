@@ -1,0 +1,29 @@
+language: python
+python:
+  - "3.4"
+  - "3.5"
+  - "3.6"
+
+# Setup anaconda
+before_install:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
+  - bash miniconda.sh -b -p $HOME/miniconda
+  - export PATH="$HOME/miniconda/bin:$PATH"
+  - conda update --yes conda
+  - conda info -a
+# Install packages
+install:
+  - conda install --yes python=$TRAVIS_PYTHON_VERSION pip atlas numpy scipy matplotlib
+  - pip install coveralls nose
+
+# Run test
+script:
+  - nosetests --with-cov --logging-level=DEBUG
+  
+# Calculate coverage
+after_success:
+  - coveralls
+  
+sudo: false
