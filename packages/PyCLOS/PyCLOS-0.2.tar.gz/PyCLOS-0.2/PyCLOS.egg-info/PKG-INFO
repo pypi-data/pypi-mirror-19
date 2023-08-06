@@ -1,0 +1,42 @@
+Metadata-Version: 1.1
+Name: PyCLOS
+Version: 0.2
+Summary: CLOS-style generic functions with annotation based syntax
+Home-page: https://github.com/adh/py-clos
+Author: Ales Hakl
+Author-email: ales@hakl.net
+License: MIT
+Description: PyCLOS
+        ======
+        
+        PyCLOS implements CLOS-style generic functions for Python 3. Current
+        implementation is pure python with optional dependency on C
+        implemented lru-dict which gets used for dispatch caches in case of
+        specialization on value.
+        
+        Example usage::
+        
+          from py_clos import generic
+          @generic
+          def display(what, where):
+              return "{} on {}".format(what, where)
+        
+          @generic.around
+          def display(what, where: Webpage, next_method):
+              return "<html>{}</html>".format(next_method(what, where))
+        
+          @generic
+          def display(what: User, where):
+              return "user"
+        
+        
+        
+Keywords: clos generic
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
