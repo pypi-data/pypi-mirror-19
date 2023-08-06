@@ -1,0 +1,41 @@
+Metadata-Version: 1.1
+Name: hint
+Version: 0.0.3
+Summary: ('A simple markdown lint / hint `cli-tool`, ', 'for markdown developer integrated with travis.')
+Home-page: https://github.com/hustcc
+Author: hustcc
+Author-email: i@hust.cc
+License: MIT
+Description: 
+        ## 一、安装
+        
+        > **pip install hint**
+        
+        然后在系统中会得到一个 `hint` 的命令 cli 工具。
+        
+        
+        ## 二、使用
+        
+        简单使用方法如下：
+        
+        > **hint markdown_file**
+        
+        或者使用 `hint --help` 查看帮助信息和具体详细的使用方法。
+        
+        
+Keywords: hint,lint,markdown,rules,error
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: Chinese (Simplified)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.5
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Utilities
