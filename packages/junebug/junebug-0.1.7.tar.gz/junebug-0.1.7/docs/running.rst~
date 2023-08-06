@@ -1,0 +1,69 @@
+.. Junebug command line
+
+Running Junebug
+===============
+
+Running junebug is done through the ``jb`` command.
+
+Usage
+-----
+::
+
+    jb [-h] [--config CONFIG_FILENAME] [--interface INTERFACE]\
+    [--port PORT] [--log-file LOGFILE] [--redis-host REDIS_HOST]
+    [--redis-port REDIS_PORT] [--redis-db REDIS_DB]
+    [--redis-password REDIS_PASS] [--amqp-host AMQP_HOST]
+    [--amqp-vhost AMQP_VHOST] [--amqp-port AMQP_PORT]
+    [--amqp-user AMQP_USER] [--amqp-password AMQP_PASS]
+    [--inbound-message-ttl INBOUND_MESSAGE_TTL]
+    [--outbound-message-ttl OUTBOUND_MESSAGE_TTL]
+
+
+Optional Arguments:
+-------------------
+
+-h, --help
+    show this help message and exit
+
+--config CONFIG_FILENAME, -c CONFIG_FILENAME
+    Path to config file. Optional. Command line options override config options
+
+--interface INTERFACE, -i INTERFACE
+    The interface to expose the API on. Defaults to "localhost"
+
+--port PORT, -p PORT
+    The port to expose the API on, defaults to "8080"
+
+--log-file LOGFILE, -l LOGFILE
+    The file to log to. Defaults to not logging to a file
+
+--redis-host RH, -rsh RH
+    The hostname of the redis instance. Defaults to "localhost"
+
+--redis-host REDIS_HOST, -redish REDIS_HOST
+    The hostname of the redis instance. Defaults to "localhost"
+
+--redis-port REDIS_PORT, -redisp REDIS_PORT
+    The port of the redis instance. Defaults to "6379"
+
+--redis-db REDIS_DB, -redisdb REDIS_DB
+    The database to use for the redis instance. Defaults to "0"
+
+--redis-password REDIS_PASS, -redispass REDIS_PASS
+    The password to use for the redis instance. Defaults to "None"
+
+--amqp-host AMQP_HOST, -amqph AMQP_HOST
+    The hostname of the amqp endpoint. Defaults to "127.0.0.1"
+
+--amqp-vhost AMQP_VHOST, -amqpvh AMQP_VHOST
+    The amqp vhost. Defaults to "/"
+--amqp-port AMQP_PORT, -amqpp AMQP_PORT
+    The port of the amqp endpoint. Defaults to "5672"
+--amqp-user AMQP_USER, -amqpu AMQP_USER
+    The username to use for the amqp auth. Defaults to "guest"
+--amqp-password AMQP_PASS, -amqppass AMQP_PASS
+    The password to use for the amqp auth. Defaults to "guest"
+--inbound-message-ttl INBOUND_MESSAGE_TTL, -ittl INBOUND_MESSAGE_TTL
+    The maximum time allowed to reply to a message. Defaults to 60*10 seconds or 10 minutes
+--outbound-message-ttl OUTBOUND_MESSAGE_TTL, -ottl OUTBOUND_MESSAGE_TTL
+    The maximum time allowed for events to arrive for messages. Defaults to 60*60*24*2 seconds or 2 days
