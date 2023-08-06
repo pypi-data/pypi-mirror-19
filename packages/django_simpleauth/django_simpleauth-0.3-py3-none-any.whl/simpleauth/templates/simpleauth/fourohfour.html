@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <h2>Oops !</h2>
+    <br>
+    <br>
+    <p>Seems like User: {{ user }} doesn't exist in system !</p>
+    <br>
+    <p>Please check login details !</p>
+    <br>
+    <br>
+    <a href="{% url "simpleauth:register" %}">Click here to register</a>
+</body>
+</html>

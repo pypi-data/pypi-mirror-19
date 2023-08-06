@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> ~~ USERLOG ~~</title>
+</head>
+<body>
+    <h4>
+        <u>Login</u>
+    </h4>
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ start_form.as_p }}
+        <input value="Login" name="" type="submit" class="text">
+    </form>
+    <br>
+    <br>
+    <a href="{% url "simpleauth:register" %}">Click here to register</a>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> ~~ WELCOME TO THE HOOD ~~</title>
+</head>
+<body>
+    {% if users %}
+    <h4>Users in the system are: </h4>
+    <ul>
+        {% for user in users %}
+        <li>{{ user.username }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url "simpleauth:start" %}">Click to return to login</a>
+    {% else %}
+        <h4> No User in the system ! Please register</h4><br><br>
+        <a href="{% url "simpleauth:register" %}">Click here to register</a>
+    {% endif %}
+</body>
+</html>
