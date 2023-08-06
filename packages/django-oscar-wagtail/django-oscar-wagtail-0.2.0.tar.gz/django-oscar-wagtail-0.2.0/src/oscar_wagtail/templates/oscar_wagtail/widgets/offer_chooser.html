@@ -1,0 +1,10 @@
+{% extends "wagtailadmin/widgets/chooser.html" %}
+{% load thumbnail %}
+
+{% block chooser_class %}offer-chooser{% endblock %}
+
+{% block chosen_state_view %}
+    <div class="title">{{ offer.name }}</div>
+{% endblock %}
+
+{% block edit_chosen_item_url %}{% if offer %}{% url 'dashboard:offer-detail' offer.id %}{% endif %}{% endblock %}
