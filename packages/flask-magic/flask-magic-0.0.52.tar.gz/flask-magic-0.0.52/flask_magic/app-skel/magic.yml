@@ -1,0 +1,23 @@
+#-------------------------------------------------------------------------------
+################################################################################
+# ** MAGIC **
+################################################################################
+#
+# - magic push
+#
+# contain a k/v store of remote/hosts to push application to
+# Require local git and remote git for push to work
+push:
+    # remote name containing list of git hosts
+    # > magic push web
+    web:
+      - ssh://user@host/path.git
+
+# - magic assets2s3
+#
+# contain list of project name to send "assets to s3"
+assets2s3:
+    - {project_name}
+
+
+
