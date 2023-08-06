@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: putty.settings
+Version: 1.0.3
+Summary: Bindings for Putty's settings
+Home-page: https://github.com/KalleDK/putty.settings.git
+Author: Kalle R. Møller
+Author-email: python@k-moeller.dk
+License: MIT
+Description: UNKNOWN
+Keywords: putty paramiko development
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Operating System :: Microsoft
