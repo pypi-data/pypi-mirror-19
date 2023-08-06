@@ -1,0 +1,21 @@
+Metadata-Version: 2.0
+Name: nibelis-dl
+Version: 1.0.0
+Summary: Download pay slips from Nibelis website
+Home-page: https://github.com/benoitryder/nibelis-dl
+Author: Benoît Ryder
+Author-email: benoit@ryder.fr
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Dist: beautifulsoup4
+Requires-Dist: html5lib
+Requires-Dist: requests
+
+UNKNOWN
+
+
