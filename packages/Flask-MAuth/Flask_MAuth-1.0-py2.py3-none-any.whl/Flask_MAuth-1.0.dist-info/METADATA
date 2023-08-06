@@ -1,0 +1,28 @@
+Metadata-Version: 2.0
+Name: Flask-MAuth
+Version: 1.0
+Summary: MAuth Client and Server Library for MAuth
+Home-page: https://www.github.com/mdsol/flask-mauth/
+Author: Geoff Low
+Author-email: glow@mdsol.com
+License: MIT
+Platform: any
+Classifier: Framework :: Flask
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: Flask
+Requires-Dist: cachetools
+Requires-Dist: requests
+Requires-Dist: requests-mauth
+Requires-Dist: rsa
+Requires-Dist: six
+Provides-Extra: docs
+Requires-Dist: sphinx; extra == 'docs'
+
+UNKNOWN
+
+
