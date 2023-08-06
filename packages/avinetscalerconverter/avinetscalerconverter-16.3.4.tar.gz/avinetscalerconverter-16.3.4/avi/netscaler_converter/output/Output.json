@@ -1,0 +1,5658 @@
+{
+    "HTTPPolicySet": [
+        {
+            "http_request_policy": {
+                "rules": [
+                    {
+                        "index": "10", 
+                        "name": "bag-replace-pol-rule-10", 
+                        "match": {
+                            "path": {
+                                "match_case": "INSENSITIVE", 
+                                "match_str": [
+                                    "bag.xml"
+                                ], 
+                                "match_criteria": "CONTAINS"
+                            }
+                        }, 
+                        "rewrite_url_action": {
+                            "action": "HTTP_ADD_HDR", 
+                            "host_hdr": {
+                                "tokens": [
+                                    {
+                                        "str_value": "http.REQ.URL.PATH_AND_QUERY", 
+                                        "type": "URI_TOKEN_TYPE_STRING"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }, 
+                            "query": {
+                                "keep_query": false
+                            }, 
+                            "path": {
+                                "tokens": [
+                                    {
+                                        "str_value": "/WebObjects/MZInit.woa/wa/initiateSession", 
+                                        "type": "URI_TOKEN_TYPE_STRING"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }
+                        }
+                    }
+                ]
+            }, 
+            "enable": "false", 
+            "name": "bag-replace-pol-http-request-policy-1", 
+            "tenant_uuid": "admin"
+        }, 
+        {
+            "http_request_policy": {
+                "rules": [
+                    {
+                        "index": "10", 
+                        "name": "bag-replace-pol-rule-10", 
+                        "match": {
+                            "path": {
+                                "match_case": "INSENSITIVE", 
+                                "match_str": [
+                                    "bag.xml"
+                                ], 
+                                "match_criteria": "CONTAINS"
+                            }
+                        }, 
+                        "rewrite_url_action": {
+                            "action": "HTTP_ADD_HDR", 
+                            "host_hdr": {
+                                "tokens": [
+                                    {
+                                        "str_value": "http.REQ.URL.PATH_AND_QUERY", 
+                                        "type": "URI_TOKEN_TYPE_STRING"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }, 
+                            "query": {
+                                "keep_query": false
+                            }, 
+                            "path": {
+                                "tokens": [
+                                    {
+                                        "str_value": "/WebObjects/MZInit.woa/wa/initiateSession", 
+                                        "type": "URI_TOKEN_TYPE_STRING"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }
+                        }
+                    }
+                ]
+            }, 
+            "enable": "false", 
+            "name": "bag-replace-pol-http-request-policy-1-clone", 
+            "tenant_uuid": "admin"
+        }, 
+        {
+            "http_request_policy": {
+                "rules": [
+                    {
+                        "index": "90", 
+                        "name": "mzselfservice-htmlresources-pol-rule-90", 
+                        "match": {
+                            "path": {
+                                "match_case": "INSENSITIVE", 
+                                "match_str": [
+                                    "^htmlResources://.*"
+                                ], 
+                                "match_criteria": "EQUALS"
+                            }
+                        }, 
+                        "hdr_action": [
+                            {
+                                "action": "HTTP_ADD_HDR", 
+                                "hdr": {
+                                    "name": "insert_http_header", 
+                                    "value": {
+                                        "val": "http.req.url.path.get(3)"
+                                    }
+                                }
+                            }
+                        ]
+                    }, 
+                    {
+                        "index": "100", 
+                        "name": "mzselfservice-pol-rule-100", 
+                        "match": {
+                            "path": {
+                                "match_case": "INSENSITIVE", 
+                                "match_str": [
+                                    "^MZSelfService://.*"
+                                ], 
+                                "match_criteria": "EQUALS"
+                            }
+                        }, 
+                        "rewrite_url_action": {
+                            "action": "HTTP_ADD_HDR", 
+                            "host_hdr": {
+                                "tokens": [
+                                    {
+                                        "str_value": "http.REQ.URL.PATH_AND_QUERY", 
+                                        "type": "URI_TOKEN_TYPE_STRING"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }, 
+                            "query": {
+                                "keep_query": false
+                            }, 
+                            "path": {
+                                "tokens": [
+                                    {
+                                        "str_value": "/MZSelfService", 
+                                        "type": "URI_TOKEN_TYPE_STRING"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }
+                        }
+                    }
+                ]
+            }, 
+            "enable": "false", 
+            "name": "mzselfservice-htmlresources-polmzselfservice-pol-http-request-policy-2", 
+            "tenant_uuid": "admin"
+        }, 
+        {
+            "http_request_policy": {
+                "rules": [
+                    {
+                        "index": 0, 
+                        "redirect_action": {
+                            "host": {
+                                "tokens": [
+                                    {
+                                        "str_value": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                                        "type": "URI_TOKEN_TYPE_HOST", 
+                                        "start_index": "1", 
+                                        "end_index": "65535"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }, 
+                            "protocol": "HTTP"
+                        }, 
+                        "name": "mzbuy-app-pol-rule-0", 
+                        "match": {
+                            "path": {
+                                "match_case": "INSENSITIVE", 
+                                "match_str": [
+                                    ".*//\"MZBookkeeper.woa.*"
+                                ], 
+                                "match_criteria": "EQUALS"
+                            }
+                        }
+                    }, 
+                    {
+                        "index": 1, 
+                        "redirect_action": {
+                            "host": {
+                                "tokens": [
+                                    {
+                                        "str_value": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                                        "type": "URI_TOKEN_TYPE_HOST", 
+                                        "start_index": "1", 
+                                        "end_index": "65535"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }, 
+                            "protocol": "HTTP"
+                        }, 
+                        "name": "mzdsservice-app-pol-rule-1", 
+                        "match": {
+                            "path": {
+                                "match_case": "INSENSITIVE", 
+                                "match_str": [
+                                    ".*//\"MZBookkeeper.woa.*"
+                                ], 
+                                "match_criteria": "EQUALS"
+                            }
+                        }
+                    }, 
+                    {
+                        "index": 2, 
+                        "redirect_action": {
+                            "host": {
+                                "tokens": [
+                                    {
+                                        "str_value": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                                        "type": "URI_TOKEN_TYPE_HOST", 
+                                        "start_index": "1", 
+                                        "end_index": "65535"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }, 
+                            "protocol": "HTTP"
+                        }, 
+                        "name": "mzfastfinance-app-pol-rule-2", 
+                        "match": {
+                            "path": {
+                                "match_case": "INSENSITIVE", 
+                                "match_str": [
+                                    ".*//\"MZBookkeeper.woa.*"
+                                ], 
+                                "match_criteria": "EQUALS"
+                            }
+                        }
+                    }, 
+                    {
+                        "index": 3, 
+                        "redirect_action": {
+                            "host": {
+                                "tokens": [
+                                    {
+                                        "str_value": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                                        "type": "URI_TOKEN_TYPE_HOST", 
+                                        "start_index": "1", 
+                                        "end_index": "65535"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }, 
+                            "protocol": "HTTP"
+                        }, 
+                        "name": "mzfinance-app-pol-rule-3", 
+                        "match": {
+                            "path": {
+                                "match_case": "INSENSITIVE", 
+                                "match_str": [
+                                    ".*//\"MZBookkeeper.woa.*"
+                                ], 
+                                "match_criteria": "EQUALS"
+                            }
+                        }
+                    }, 
+                    {
+                        "index": 4, 
+                        "name": "mzbookkeeper-app-pol-rule-4", 
+                        "match": {
+                            "path": {
+                                "match_case": "INSENSITIVE", 
+                                "match_str": [
+                                    ".*//\"MZBookkeeper.woa.*"
+                                ], 
+                                "match_criteria": "EQUALS"
+                            }
+                        }, 
+                        "switching_action": {
+                            "action": "HTTP_SWITCHING_SELECT_POOL", 
+                            "status_code": 200, 
+                            "pool_ref": "vp21q05it-mzbookkeeper-0-pool"
+                        }
+                    }
+                ]
+            }, 
+            "enable": "false", 
+            "name": "mzbuy-app-polmzdsservice-app-polmzfastfinance-app-polmzfinance-app-polmzbookkeeper-app-pol-http-request-policy-5", 
+            "tenant_uuid": "admin"
+        }, 
+        {
+            "http_request_policy": {
+                "rules": [
+                    {
+                        "index": "90", 
+                        "name": "mzselfservice-htmlresources-443-pol-rule-90", 
+                        "match": {
+                            "path": {
+                                "match_case": "INSENSITIVE", 
+                                "match_str": [
+                                    "^htmlResources://.*"
+                                ], 
+                                "match_criteria": "EQUALS"
+                            }
+                        }, 
+                        "hdr_action": [
+                            {
+                                "action": "HTTP_ADD_HDR", 
+                                "hdr": {
+                                    "name": "insert_http_header", 
+                                    "value": {
+                                        "val": "http.req.url.path.get(3)"
+                                    }
+                                }
+                            }
+                        ]
+                    }, 
+                    {
+                        "index": "100", 
+                        "name": "mzselfservice-443-pol-rule-100", 
+                        "match": {
+                            "path": {
+                                "match_case": "INSENSITIVE", 
+                                "match_str": [
+                                    "^MZSelfService://.*"
+                                ], 
+                                "match_criteria": "EQUALS"
+                            }
+                        }, 
+                        "rewrite_url_action": {
+                            "action": "HTTP_ADD_HDR", 
+                            "host_hdr": {
+                                "tokens": [
+                                    {
+                                        "str_value": "http.REQ.URL.PATH_AND_QUERY", 
+                                        "type": "URI_TOKEN_TYPE_STRING"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }, 
+                            "query": {
+                                "keep_query": false
+                            }, 
+                            "path": {
+                                "tokens": [
+                                    {
+                                        "str_value": "/MZSelfService", 
+                                        "type": "URI_TOKEN_TYPE_STRING"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }
+                        }
+                    }
+                ]
+            }, 
+            "enable": "false", 
+            "name": "mzselfservice-htmlresources-443-polmzselfservice-443-pol-http-request-policy-2", 
+            "tenant_uuid": "admin"
+        }, 
+        {
+            "http_request_policy": {
+                "rules": [
+                    {
+                        "index": 2, 
+                        "redirect_action": {
+                            "host": {
+                                "tokens": [
+                                    {
+                                        "str_value": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                                        "type": "URI_TOKEN_TYPE_HOST", 
+                                        "start_index": "1", 
+                                        "end_index": "65535"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }, 
+                            "protocol": "HTTP"
+                        }, 
+                        "name": "mzfinance-app-pol-phobos-rule-2", 
+                        "match": {
+                            "path": {
+                                "match_case": "INSENSITIVE", 
+                                "match_str": [
+                                    ".*//\"MZFinance.woa.*"
+                                ], 
+                                "match_criteria": "EQUALS"
+                            }
+                        }
+                    }
+                ]
+            }, 
+            "enable": "false", 
+            "name": "mzfinance-app-pol-phobos-http-request-policy-3", 
+            "tenant_uuid": "admin"
+        }, 
+        {
+            "http_request_policy": {
+                "rules": [
+                    {
+                        "index": "3", 
+                        "name": "itcdataservice-api-pol2-rule-3", 
+                        "match": {
+                            "query": {
+                                "match_case": "INSENSITIVE", 
+                                "match_str": [
+                                    "api"
+                                ], 
+                                "match_criteria": "QUERY_MATCH_CONTAINS"
+                            }
+                        }, 
+                        "rewrite_url_action": {
+                            "action": "HTTP_ADD_HDR", 
+                            "host_hdr": {
+                                "tokens": [
+                                    {
+                                        "str_value": "http.req.url.path.get(1)", 
+                                        "type": "URI_TOKEN_TYPE_STRING"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }, 
+                            "query": {
+                                "keep_query": false
+                            }, 
+                            "path": {
+                                "tokens": [
+                                    {
+                                        "str_value": "WebObjects/MZITCDataService.woa/ra", 
+                                        "type": "URI_TOKEN_TYPE_STRING"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }
+                        }
+                    }
+                ]
+            }, 
+            "enable": "false", 
+            "name": "itcdataservice-api-pol2-http-request-policy-1", 
+            "tenant_uuid": "admin"
+        }, 
+        {
+            "http_request_policy": {
+                "rules": [
+                    {
+                        "index": "100", 
+                        "redirect_action": {
+                            "protocol": "HTTP", 
+                            "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                            "path": {
+                                "tokens": [
+                                    {
+                                        "str_value": "http://itunesu.itunes.apple.com/coursemanager", 
+                                        "type": "URI_TOKEN_TYPE_STRING"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }, 
+                            "keep_query": false, 
+                            "query": {
+                                "keep_query": false
+                            }, 
+                            "port": 80
+                        }, 
+                        "name": "itunesu-coursemanager-pol-rule-100", 
+                        "match": {
+                            "query": {
+                                "match_case": "INSENSITIVE", 
+                                "match_str": [
+                                    ""
+                                ], 
+                                "match_criteria": "QUERY_MATCH_CONTAINS"
+                            }
+                        }
+                    }
+                ]
+            }, 
+            "enable": "false", 
+            "name": "itunesu-coursemanager-pol-http-request-policy-1", 
+            "tenant_uuid": "admin"
+        }, 
+        {
+            "http_request_policy": {
+                "rules": [
+                    {
+                        "index": 0, 
+                        "redirect_action": {
+                            "host": {
+                                "tokens": [
+                                    {
+                                        "str_value": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                                        "type": "URI_TOKEN_TYPE_HOST", 
+                                        "start_index": "1", 
+                                        "end_index": "65535"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }, 
+                            "protocol": "HTTP"
+                        }, 
+                        "name": "vpp443-mzf-cleanurls-pol-rule-0", 
+                        "match": {
+                            "path": {
+                                "match_case": "INSENSITIVE", 
+                                "match_str": [
+                                    ".*//\"MZFinance.woa.*"
+                                ], 
+                                "match_criteria": "EQUALS"
+                            }
+                        }
+                    }, 
+                    {
+                        "index": 2, 
+                        "redirect_action": {
+                            "host": {
+                                "tokens": [
+                                    {
+                                        "str_value": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                                        "type": "URI_TOKEN_TYPE_HOST", 
+                                        "start_index": "1", 
+                                        "end_index": "65535"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }, 
+                            "protocol": "HTTP"
+                        }, 
+                        "name": "vpp443-mzf-app-pol-rule-2", 
+                        "match": {
+                            "path": {
+                                "match_case": "INSENSITIVE", 
+                                "match_str": [
+                                    ".*//\"MZFinance.woa.*"
+                                ], 
+                                "match_criteria": "EQUALS"
+                            }
+                        }
+                    }
+                ]
+            }, 
+            "enable": "false", 
+            "name": "vpp443-mzf-cleanurls-polvpp443-mzf-app-pol-http-request-policy-3", 
+            "tenant_uuid": "admin"
+        }, 
+        {
+            "http_request_policy": {
+                "rules": [
+                    {
+                        "index": "200", 
+                        "redirect_action": {
+                            "protocol": "HTTP", 
+                            "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                            "path": {
+                                "tokens": [
+                                    {
+                                        "str_value": "https://lego-test.itunes.apple.com/portal", 
+                                        "type": "URI_TOKEN_TYPE_STRING"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }, 
+                            "keep_query": false, 
+                            "query": {
+                                "keep_query": false
+                            }, 
+                            "port": 80
+                        }, 
+                        "name": "lego-resp-pol-rule-200", 
+                        "match": {
+                            "path": {
+                                "match_case": "INSENSITIVE", 
+                                "match_str": [
+                                    ""
+                                ], 
+                                "match_criteria": "EQUALS"
+                            }
+                        }
+                    }
+                ]
+            }, 
+            "enable": "false", 
+            "name": "lego-resp-pol-http-request-policy-1", 
+            "tenant_uuid": "admin"
+        }, 
+        {
+            "http_request_policy": {
+                "rules": [
+                    {
+                        "index": "45", 
+                        "name": "mzs1-pol-rule-45", 
+                        "match": {
+                            "path": {
+                                "match_case": "INSENSITIVE", 
+                                "match_str": [
+                                    ".*//MZSupport.woa.*"
+                                ], 
+                                "match_criteria": "EQUALS"
+                            }, 
+                            "cookie": {
+                                "match_case": "INSENSITIVE", 
+                                "name": "mzs_in", 
+                                "value": "0", 
+                                "match_criteria": "HDR_EQUALS"
+                            }
+                        }, 
+                        "rewrite_url_action": {
+                            "action": "HTTP_ADD_HDR", 
+                            "host_hdr": {
+                                "tokens": [
+                                    {
+                                        "str_value": "http.REQ.COOKIE.VALUE(\\mzs_in\\)", 
+                                        "type": "URI_TOKEN_TYPE_STRING"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }, 
+                            "query": {
+                                "keep_query": false
+                            }, 
+                            "path": {
+                                "tokens": [
+                                    {
+                                        "str_value": "mzs_in", 
+                                        "type": "URI_TOKEN_TYPE_STRING"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }
+                        }
+                    }, 
+                    {
+                        "index": "46", 
+                        "name": "mzs2-pol-rule-46", 
+                        "match": {
+                            "path": {
+                                "match_case": "INSENSITIVE", 
+                                "match_str": [
+                                    ".*//MZSupport.woa.*"
+                                ], 
+                                "match_criteria": "EQUALS"
+                            }, 
+                            "cookie": {
+                                "match_case": "INSENSITIVE", 
+                                "name": "mzs_in", 
+                                "value": "0", 
+                                "match_criteria": "HDR_EQUALS"
+                            }
+                        }, 
+                        "rewrite_url_action": {
+                            "action": "HTTP_ADD_HDR", 
+                            "host_hdr": {
+                                "tokens": [
+                                    {
+                                        "str_value": "http.REQ.COOKIE.VALUE(\\mzs_in\\)", 
+                                        "type": "URI_TOKEN_TYPE_STRING"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }, 
+                            "query": {
+                                "keep_query": false
+                            }, 
+                            "path": {
+                                "tokens": [
+                                    {
+                                        "str_value": "mzs_in", 
+                                        "type": "URI_TOKEN_TYPE_STRING"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }
+                        }
+                    }, 
+                    {
+                        "index": "5", 
+                        "redirect_action": {
+                            "protocol": "HTTP", 
+                            "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                            "path": {
+                                "tokens": [
+                                    {
+                                        "str_value": "https://mzsupport.apple.com/WebObjects/MZSupport.woa", 
+                                        "type": "URI_TOKEN_TYPE_STRING"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }, 
+                            "keep_query": false, 
+                            "query": {
+                                "keep_query": false
+                            }, 
+                            "port": 80
+                        }, 
+                        "name": "mzsupport-login-redirect-pol-rule-5", 
+                        "match": {
+                            "query": {
+                                "match_case": "INSENSITIVE", 
+                                "match_str": [
+                                    ".*//MZSupport.woa.*", 
+                                    ""
+                                ], 
+                                "match_criteria": "QUERY_MATCH_CONTAINS"
+                            }
+                        }
+                    }
+                ]
+            }, 
+            "enable": "false", 
+            "name": "mzs1-polmzs2-polmzsupport-login-redirect-pol-http-request-policy-4", 
+            "tenant_uuid": "admin"
+        }, 
+        {
+            "http_request_policy": {
+                "rules": [
+                    {
+                        "index": "9", 
+                        "name": "no-cache-dj-static-pol-rule-9", 
+                        "match": {
+                            "path": {
+                                "match_case": "INSENSITIVE", 
+                                "match_str": [
+                                    "^v://.*"
+                                ], 
+                                "match_criteria": "EQUALS"
+                            }
+                        }, 
+                        "rewrite_url_action": {
+                            "action": "HTTP_ADD_HDR", 
+                            "host_hdr": {
+                                "tokens": [
+                                    {
+                                        "str_value": "http.res.HEADER(\\Cache-Control\\)", 
+                                        "type": "URI_TOKEN_TYPE_STRING"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }, 
+                            "query": {
+                                "keep_query": false
+                            }, 
+                            "path": {
+                                "tokens": [
+                                    {
+                                        "str_value": "public,max-age=31536000,no-transform", 
+                                        "type": "URI_TOKEN_TYPE_STRING"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }
+                        }
+                    }, 
+                    {
+                        "index": "50", 
+                        "redirect_action": {
+                            "protocol": "HTTP", 
+                            "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                            "path": {
+                                "tokens": [
+                                    {
+                                        "str_value": "https://itms5-dj.itunes.apple.com/WebObjects/MZAdmin.woa", 
+                                        "type": "URI_TOKEN_TYPE_STRING"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }, 
+                            "keep_query": false, 
+                            "query": {
+                                "keep_query": false
+                            }, 
+                            "port": 80
+                        }, 
+                        "name": "mzadmin-slash-443-responder-rule-50", 
+                        "match": {
+                            "path": {
+                                "match_case": "INSENSITIVE", 
+                                "match_str": [
+                                    "^v://.*", 
+                                    ""
+                                ], 
+                                "match_criteria": "EQUALS"
+                            }
+                        }
+                    }, 
+                    {
+                        "index": "60", 
+                        "redirect_action": {
+                            "protocol": "HTTP", 
+                            "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                            "path": {
+                                "tokens": [
+                                    {
+                                        "str_value": "https://mzsupport.apple.com/build_info.html", 
+                                        "type": "URI_TOKEN_TYPE_STRING"
+                                    }
+                                ], 
+                                "type": "URI_PARAM_TYPE_TOKENIZED"
+                            }, 
+                            "keep_query": false, 
+                            "query": {
+                                "keep_query": false
+                            }, 
+                            "port": 80
+                        }, 
+                        "name": "responder_build_info_pol-rule-60", 
+                        "match": {
+                            "query": {
+                                "match_case": "INSENSITIVE", 
+                                "match_str": [
+                                    "^v://.*", 
+                                    "", 
+                                    "build_info.html"
+                                ], 
+                                "match_criteria": "QUERY_MATCH_CONTAINS"
+                            }
+                        }
+                    }
+                ]
+            }, 
+            "enable": "false", 
+            "name": "no-cache-dj-static-polmzadmin-slash-443-responderresponder_build_info_pol-http-request-policy-5", 
+            "tenant_uuid": "admin"
+        }
+    ], 
+    "SSLProfile": [], 
+    "SSLKeyAndCertificate": [], 
+    "NetworkProfile": [], 
+    "ApplicationProfile": [], 
+    "META": {
+        "supported_migrations": {
+            "versions": [
+                "14_2", 
+                "15_1", 
+                "15_1_1", 
+                "15_2", 
+                "15_2_3", 
+                "15_3", 
+                "current_version"
+            ]
+        }, 
+        "version": {
+            "Product": "controller", 
+            "Version": "16.2", 
+            "min_version": 15.2, 
+            "ProductName": "Avi Cloud Controller"
+        }, 
+        "use_tenant": "admin", 
+        "upgrade_mode": false
+    }, 
+    "HealthMonitor": [
+        {
+            "receive_timeout": 2, 
+            "name": "ping-self", 
+            "failed_checks": 3, 
+            "send_interval": "120", 
+            "type": "HEALTH_MONITOR_PING", 
+            "successful_checks": 1
+        }
+    ], 
+    "VirtualService": [
+        {
+            "network_profile_ref": "admin:System-TCP-Proxy", 
+            "name": "vp21q05it-liardns05-tcp-int-0", 
+            "type": "VS_TYPE_NORMAL", 
+            "enabled": false, 
+            "application_profile_ref": "admin:System-L4-Application", 
+            "pool_ref": "vp21q05it-liardns05-tcp-int-0-pool", 
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "53"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.12"
+            }
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.73"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-srvaccount-ext-80", 
+            "enabled": false
+        }, 
+        {
+            "name": "vp21q05it-vp2-isql-443", 
+            "type": "VS_TYPE_NORMAL", 
+            "enabled": false, 
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.72"
+            }, 
+            "ssl_key_and_certificate_refs": [
+                "admin:System-Default-Cert"
+            ]
+        }, 
+        {
+            "network_profile_ref": "admin:System-UDP-Per-Pkt", 
+            "name": "vp21q05it-liardns01-int-0", 
+            "type": "VS_TYPE_NORMAL", 
+            "enabled": false, 
+            "application_profile_ref": "admin:System-DNS", 
+            "pool_ref": "vp21q05it-liardns01-int-0-pool", 
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "53"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.8"
+            }
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.76"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-fastly-443", 
+            "enabled": false
+        }, 
+        {
+            "network_profile_ref": "admin:System-UDP-Per-Pkt", 
+            "name": "vp21q05it-liardns02-int-0", 
+            "type": "VS_TYPE_NORMAL", 
+            "enabled": false, 
+            "application_profile_ref": "admin:System-DNS", 
+            "pool_ref": "vp21q05it-liardns02-int-0-pool", 
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "53"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.9"
+            }
+        }, 
+        {
+            "name": "vp21q05it-contentbridge-80", 
+            "pool_ref": "vp21q05it-contentbridge-80-pool", 
+            "enabled": false, 
+            "type": "VS_TYPE_NORMAL", 
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.86"
+            }
+        }, 
+        {
+            "network_profile_ref": "admin:System-UDP-Per-Pkt", 
+            "name": "vp21q01ms-janadnsvip-53", 
+            "type": "VS_TYPE_NORMAL", 
+            "enabled": false, 
+            "application_profile_ref": "admin:System-DNS", 
+            "pool_ref": "vp21q01ms-janadnsvip-53-pool", 
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "53"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.53.136"
+            }
+        }, 
+        {
+            "name": "vp21q05it-sherlocksyncui-t-443", 
+            "pool_ref": "vp21q05it-sherlocksyncui-t-443-pool", 
+            "enabled": false, 
+            "type": "VS_TYPE_NORMAL", 
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.81"
+            }, 
+            "ssl_key_and_certificate_refs": [
+                "admin:System-Default-Cert"
+            ]
+        }, 
+        {
+            "name": "vp21q05it-srvaccount-ext-443", 
+            "type": "VS_TYPE_NORMAL", 
+            "enabled": false, 
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.73"
+            }, 
+            "ssl_key_and_certificate_refs": [
+                "admin:System-Default-Cert"
+            ]
+        }, 
+        {
+            "network_profile_ref": "admin:System-UDP-Per-Pkt", 
+            "name": "vp21q05it-liardns04-int-0", 
+            "type": "VS_TYPE_NORMAL", 
+            "enabled": false, 
+            "application_profile_ref": "admin:System-DNS", 
+            "pool_ref": "vp21q05it-liardns04-int-0-pool", 
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "53"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.11"
+            }
+        }, 
+        {
+            "name": "vp21q05it-eai", 
+            "pool_ref": "vp21q05it-eai-pool", 
+            "enabled": false, 
+            "type": "VS_TYPE_NORMAL", 
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.74"
+            }
+        }, 
+        {
+            "name": "vp21q05it-sherlocksyncui-t-80", 
+            "pool_ref": "vp21q05it-sherlocksyncui-t-80-pool", 
+            "enabled": false, 
+            "type": "VS_TYPE_NORMAL", 
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.81"
+            }
+        }, 
+        {
+            "network_profile_ref": "admin:System-TCP-Proxy", 
+            "name": "vp21q05it-liardns03-tcp-int-0", 
+            "type": "VS_TYPE_NORMAL", 
+            "enabled": false, 
+            "application_profile_ref": "admin:System-L4-Application", 
+            "pool_ref": "vp21q05it-liardns03-tcp-int-0-pool", 
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "53"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.10"
+            }
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.76"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-fastly-80", 
+            "enabled": false
+        }, 
+        {
+            "name": "vp21q05it-sherlocksynct", 
+            "pool_ref": "vp21q05it-sherlocksynct-pool", 
+            "enabled": false, 
+            "type": "VS_TYPE_NORMAL", 
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.75"
+            }
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.54"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-mzsidebar-80", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.17"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-search-80", 
+            "enabled": false
+        }, 
+        {
+            "name": "vp21q05it-init-80", 
+            "http_policies": [
+                {
+                    "index": 11, 
+                    "http_policy_set_ref": "bag-replace-pol-http-request-policy-1"
+                }
+            ], 
+            "type": "VS_TYPE_NORMAL", 
+            "enabled": false, 
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.22"
+            }
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.35"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-mzstatic-80", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.57"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-mappingservice-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.30"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-genius-download-80", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.53.139"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q01ms-carnival-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.45"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-su.itunes-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.53"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-dzc-80", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.17"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-search-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.34"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-mzdirectuploader-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.60"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-srvselfservicebridge-80", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.52"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-vpp-80", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.82"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-sandbox-itunes-80", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.71"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-assets-80", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.24"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-bookkeeper-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.32"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-itmsls-80", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.47"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-u-p1.itunes-80", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.65"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-discoverdebugger-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.43"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-sitemanager-80", 
+            "enabled": false
+        }, 
+        {
+            "name": "vp21q05it-init-443", 
+            "http_policies": [
+                {
+                    "index": 11, 
+                    "http_policy_set_ref": "bag-replace-pol-http-request-policy-1-clone"
+                }
+            ], 
+            "type": "VS_TYPE_NORMAL", 
+            "enabled": false, 
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.22"
+            }
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.16"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-itunesconnect-80", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.46"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-u.itunes-80", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.28"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-files-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.38"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-partiality-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.20"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-lego-test-80", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.68"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05iu-deimos2-80", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.57"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-mappingservice-80", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.35"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-mzstatic-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.67"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05iu-deimos-80", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.48"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-u-p2.itunes-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.40"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-phobos-80", 
+            "enabled": false
+        }, 
+        {
+            "name": "vp21q05it-reportaproblem-80", 
+            "http_policies": [
+                {
+                    "index": 11, 
+                    "http_policy_set_ref": "mzselfservice-htmlresources-polmzselfservice-pol-http-request-policy-2"
+                }
+            ], 
+            "type": "VS_TYPE_NORMAL", 
+            "enabled": false, 
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.61"
+            }
+        }, 
+        {
+            "name": "vp21q05it-buy-443", 
+            "http_policies": [
+                {
+                    "index": 11, 
+                    "http_policy_set_ref": "mzbuy-app-polmzdsservice-app-polmzfastfinance-app-polmzfinance-app-polmzbookkeeper-app-pol-http-request-policy-5"
+                }
+            ], 
+            "type": "VS_TYPE_NORMAL", 
+            "enabled": false, 
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.25"
+            }
+        }, 
+        {
+            "name": "vp21q05it-reportaproblem-443", 
+            "http_policies": [
+                {
+                    "index": 11, 
+                    "http_policy_set_ref": "mzselfservice-htmlresources-443-polmzselfservice-443-pol-http-request-policy-2"
+                }
+            ], 
+            "type": "VS_TYPE_NORMAL", 
+            "enabled": false, 
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.61"
+            }
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.47"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-u-p1.itunes-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.39"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-partner-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.18"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-static-itunes-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.53"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-dzc-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.64"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-itusupport-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.49"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-upp-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.87"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-play-443", 
+            "enabled": false
+        }, 
+        {
+            "name": "vp21q05it-phobos-443", 
+            "http_policies": [
+                {
+                    "index": 11, 
+                    "http_policy_set_ref": "mzfinance-app-pol-phobos-http-request-policy-3"
+                }
+            ], 
+            "type": "VS_TYPE_NORMAL", 
+            "enabled": false, 
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.40"
+            }
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.28"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-files-80", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.62"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-mzstoreplatform-srv-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.45"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-su.itunes-80", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.30"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-genius-download-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.51"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-userpub-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.31"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-genius-upload-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.70"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-contentdelivery-443", 
+            "enabled": false
+        }, 
+        {
+            "name": "vp21q05it-itunesconnect-443", 
+            "http_policies": [
+                {
+                    "index": 11, 
+                    "http_policy_set_ref": "itcdataservice-api-pol2-http-request-policy-1"
+                }
+            ], 
+            "type": "VS_TYPE_NORMAL", 
+            "enabled": false, 
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.16"
+            }
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.29"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-genius-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.56"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-mzappmonitor-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.43"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-sitemanager-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.29"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-genius-80", 
+            "enabled": false
+        }, 
+        {
+            "name": "vp21q05it-u.itunes-443", 
+            "http_policies": [
+                {
+                    "index": 11, 
+                    "http_policy_set_ref": "itunesu-coursemanager-pol-http-request-policy-1"
+                }
+            ], 
+            "type": "VS_TYPE_NORMAL", 
+            "enabled": false, 
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.46"
+            }
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.66"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-buy-csaction-443", 
+            "enabled": false
+        }, 
+        {
+            "name": "vp21q05it-vpp-443", 
+            "http_policies": [
+                {
+                    "index": 11, 
+                    "http_policy_set_ref": "vpp443-mzf-cleanurls-polvpp443-mzf-app-pol-http-request-policy-3"
+                }
+            ], 
+            "type": "VS_TYPE_NORMAL", 
+            "enabled": false, 
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.52"
+            }
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.15"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-carnival-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.42"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-se-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.31"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-genius-upload-80", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.34"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-mzdirectuploader-80", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.23"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-itunes-80", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.63"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-itmsdav-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.36"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "mzuserxp-443", 
+            "enabled": false
+        }, 
+        {
+            "name": "vp21q05it-lego-test-443", 
+            "http_policies": [
+                {
+                    "index": 11, 
+                    "http_policy_set_ref": "lego-resp-pol-http-request-policy-1"
+                }
+            ], 
+            "type": "VS_TYPE_NORMAL", 
+            "enabled": false, 
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.20"
+            }
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.18"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-static-itunes-80", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.55"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-mzstoreplatform-80", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.88"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-homesharing-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.94"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-radio-services-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.62"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-mzstoreplatform-srv-80", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.23"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-itunes-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.95"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-radio-activity-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.42"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-se-80", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.21"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05iu-carnival-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.54"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-mzsidebar-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": false, 
+                    "port": "80"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.48"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-u-p2.itunes-80", 
+            "enabled": false
+        }, 
+        {
+            "name": "vp21q05it-mzsupport-443", 
+            "http_policies": [
+                {
+                    "index": 11, 
+                    "http_policy_set_ref": "mzs1-polmzs2-polmzsupport-login-redirect-pol-http-request-policy-4"
+                }
+            ], 
+            "type": "VS_TYPE_NORMAL", 
+            "enabled": false, 
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.58"
+            }
+        }, 
+        {
+            "name": "vp21q05it-dj-443", 
+            "http_policies": [
+                {
+                    "index": 11, 
+                    "http_policy_set_ref": "no-cache-dj-static-polmzadmin-slash-443-responderresponder_build_info_pol-http-request-policy-5"
+                }
+            ], 
+            "type": "VS_TYPE_NORMAL", 
+            "enabled": false, 
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.59"
+            }
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.93"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-radio-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.82"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-sandbox-itunes-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.68"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05iu-deimos2-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.33"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-ld-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.55"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-mzstoreplatform-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.67"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05iu-deimos-443", 
+            "enabled": false
+        }, 
+        {
+            "services": [
+                {
+                    "enable_ssl": true, 
+                    "port": "443"
+                }
+            ], 
+            "ip_address": {
+                "type": "V4", 
+                "addr": "17.176.248.85"
+            }, 
+            "type": "VS_TYPE_NORMAL", 
+            "name": "vp21q05it-mzdsservice-443", 
+            "enabled": false
+        }
+    ], 
+    "StringGroup": [
+        {
+            "name": "vpp443-mzf-cleanurls-pol-string_group_object-0", 
+            "kv": [
+                {
+                    "key": "^/../://.*"
+                }
+            ]
+        }
+    ], 
+    "ApplicationPersistenceProfile": [
+        {
+            "http_cookie_persistence_profile": {
+                "always_send_cookie": false, 
+                "timeout": 2
+            }, 
+            "persistence_type": "PERSISTENCE_TYPE_HTTP_COOKIE", 
+            "server_hm_down_recovery": "HM_DOWN_PICK_NEW_SERVER", 
+            "name": "vp21q05it-sherlocksyncui-t-443-persistance-profile"
+        }, 
+        {
+            "http_cookie_persistence_profile": {
+                "always_send_cookie": false, 
+                "timeout": 2
+            }, 
+            "persistence_type": "PERSISTENCE_TYPE_HTTP_COOKIE", 
+            "server_hm_down_recovery": "HM_DOWN_PICK_NEW_SERVER", 
+            "name": "vp21q05it-sherlocksyncui-t-80-persistance-profile"
+        }
+    ], 
+    "Pool": [
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzplay-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.194"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-support-cookie-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.93"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.94"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzadminmac-old-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.59"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "fail_action": {
+                "redirect": {
+                    "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                    "host": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                    "protocol": "HTTP"
+                }, 
+                "type": "FAIL_ACTION_HTTP_REDIRECT"
+            }, 
+            "name": "mzfinance-p1-vp21q05-pool-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.57"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-liardns05-tcp-int-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.155"
+                    }, 
+                    "enabled": true, 
+                    "port": "5357"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "fail_action": {
+                "redirect": {
+                    "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                    "host": "\"https://ritms5-itunesconnect.apple.com/iTCUnavailable.html\"", 
+                    "protocol": "HTTP"
+                }, 
+                "type": "FAIL_ACTION_HTTP_REDIRECT"
+            }, 
+            "name": "vp21q05it-mzlabel-woinst-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.64"
+                    }, 
+                    "enabled": true, 
+                    "port": "82"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q01ms-carnival-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.53.11"
+                    }, 
+                    "enabled": true, 
+                    "port": "8088"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05iu-carnival-int-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.175"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzpurchasedaap-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.232"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "fail_action": {
+                "redirect": {
+                    "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                    "host": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                    "protocol": "HTTP"
+                }, 
+                "type": "FAIL_ACTION_HTTP_REDIRECT"
+            }, 
+            "name": "mzbuy-anon-pool-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.40"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.41"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "itc-301-itunesconnect_resp-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-lzteacher-p2-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.216"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-srvaccount-ext-80-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.185"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzapppersonalizer-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.37"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-ucupdate-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.153"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-eai-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.129.144"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-srvselfservicebridge-all-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.193"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzadminlocalize-old-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.32"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzsoftwareupdate-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.86"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-vp2-isql-443-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.235"
+                    }, 
+                    "enabled": true, 
+                    "port": "443"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-lego-test-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.178"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzappmonitor-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.36"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-liardns01-int-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.155"
+                    }, 
+                    "enabled": true, 
+                    "port": "5353"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-dzstudio-internal-url-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.23"
+                    }, 
+                    "enabled": true, 
+                    "port": "8080"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-ucchannel-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.147"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-support-pod1-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.93"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-u.itunes-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.27"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzitcdataservice-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.62"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "fail_action": {
+                "redirect": {
+                    "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                    "host": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                    "protocol": "HTTP"
+                }, 
+                "type": "FAIL_ACTION_HTTP_REDIRECT"
+            }, 
+            "name": "mzdsservice-p1-download-pool-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.48"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-lzteacher-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.30"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-contentbridge-80-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.45"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "fail_action": {
+                "redirect": {
+                    "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                    "host": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                    "protocol": "HTTP"
+                }, 
+                "type": "FAIL_ACTION_HTTP_REDIRECT"
+            }, 
+            "name": "mzdsservice-p2-vp21q05-pool-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.49"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzdirectuploader-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.52"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05iu-indigo-core-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.227"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-sandbox-bag-redirect-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "127.0.0.1"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-sandbox-mzfastfinance-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.249"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzadminlocalize-new-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.184"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "mzuserxp-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.238"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-dzstudio-url-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.23"
+                    }, 
+                    "enabled": true, 
+                    "port": "82"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-carnival-int-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.156"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-itunes-301-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "buy-activationkey-responder-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "127.0.0.1"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "bagxml-no-ix-resp-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzlibrarydaap-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.51"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-lzstudent-p1-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.213"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzsidebar-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.79"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "itc-mzlabel-nowoa_resp-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "fail_action": {
+                "redirect": {
+                    "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                    "host": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                    "protocol": "HTTP"
+                }, 
+                "type": "FAIL_ACTION_HTTP_REDIRECT"
+            }, 
+            "name": "mzbuy-p2-vp21q05-download-pool-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.41"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "library4query-resp-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mfc-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.189"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzadminmac-new-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.50"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-dzr-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.22"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-itunes-check-resp-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-support-anon-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.93"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.94"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzselfservice-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.195"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "fail_action": {
+                "redirect": {
+                    "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                    "host": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                    "protocol": "HTTP"
+                }, 
+                "type": "FAIL_ACTION_HTTP_REDIRECT"
+            }, 
+            "name": "mzfastfinance-p1-download-pool-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.54"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-srvselfservicebridge-p2-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.192"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzdiscoverdebugger-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.53"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-dzsupport-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.24"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-activationkey-resp-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05iu-batch-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.225"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzuserprofile-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.98"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzadminpricingregressiontesttool-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.219"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-liardns02-int-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.155"
+                    }, 
+                    "enabled": true, 
+                    "port": "5354"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-srvselfservicebridge-p1-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.191"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "200-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-sandbox-srvaccount-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.253"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "nikebag-resp-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mztilt-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.96"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzstoreservices-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.90"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "storebag-resp-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-liardns01-tcp-int-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.155"
+                    }, 
+                    "enabled": true, 
+                    "port": "5353"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-sandbox-mzsupport-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.252"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzstoreelements-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.89"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "fail_action": {
+                "redirect": {
+                    "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                    "host": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                    "protocol": "HTTP"
+                }, 
+                "type": "FAIL_ACTION_HTTP_REDIRECT"
+            }, 
+            "name": "mzfastfinance-anon-pool-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.54"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.55"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q01ms-janadnsvip-53-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.53.8"
+                    }, 
+                    "enabled": true, 
+                    "port": "53"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.53.9"
+                    }, 
+                    "enabled": true, 
+                    "port": "53"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.53.10"
+                    }, 
+                    "enabled": true, 
+                    "port": "53"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzadmineng-new-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.183"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-itc-slash-resp-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-dzstudio-cookie-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.23"
+                    }, 
+                    "enabled": true, 
+                    "port": "81"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-itunesweb-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.157"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.189"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-srvpartner-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.124"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "fail_action": {
+                "redirect": {
+                    "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                    "host": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                    "protocol": "HTTP"
+                }, 
+                "type": "FAIL_ACTION_HTTP_REDIRECT"
+            }, 
+            "name": "mzfinance-p1-download-pool-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.57"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzbookkeeper-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.38"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "itmssearch4query-resp-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzadmineng-old-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.34"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "fail_action": {
+                "redirect": {
+                    "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                    "host": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                    "protocol": "HTTP"
+                }, 
+                "type": "FAIL_ACTION_HTTP_REDIRECT"
+            }, 
+            "name": "mzfastfinance-p2-download-pool-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.55"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzpartiality-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.66"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzuserpublishing-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.101"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzbuyseo-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.40"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.41"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzfinance-urlpods-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.57"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.58"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-srvpartner-cm-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.124"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05iu-indigo-internal-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.228"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-liardns02-tcp-int-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.155"
+                    }, 
+                    "enabled": true, 
+                    "port": "5354"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-itmsdav-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.201"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzitcservice-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.202"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "fail_action": {
+                "redirect": {
+                    "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                    "host": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                    "protocol": "HTTP"
+                }, 
+                "type": "FAIL_ACTION_HTTP_REDIRECT"
+            }, 
+            "name": "mzdsservice-p2-download-pool-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.49"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-sandbox-mzbuy-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.247"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzstoreplatform-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.91"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "itc-301-redir_resp-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "fail_action": {
+                "redirect": {
+                    "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                    "host": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                    "protocol": "HTTP"
+                }, 
+                "type": "FAIL_ACTION_HTTP_REDIRECT"
+            }, 
+            "name": "mzfastfinance-p2-vp21q05-pool-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.55"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "rssgen-resp-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzsearch-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.72"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzbookkeeper-upp-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.39"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-ucappchannel-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.146"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzcontentdelivery-woinst-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.46"
+                    }, 
+                    "enabled": true, 
+                    "port": "82"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "bagxml-noquery-resp-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-sherlocksyncui-t-443-pool", 
+            "application_persistence_profile_ref": "vp21q05it-sherlocksyncui-t-443-persistance-profile", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.129.139"
+                    }, 
+                    "enabled": true, 
+                    "port": "10001"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.129.139"
+                    }, 
+                    "enabled": true, 
+                    "port": "10002"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.129.140"
+                    }, 
+                    "enabled": true, 
+                    "port": "10001"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.129.140"
+                    }, 
+                    "enabled": true, 
+                    "port": "10002"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.129.141"
+                    }, 
+                    "enabled": true, 
+                    "port": "10001"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.129.141"
+                    }, 
+                    "enabled": true, 
+                    "port": "10002"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.129.142"
+                    }, 
+                    "enabled": true, 
+                    "port": "10001"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.129.142"
+                    }, 
+                    "enabled": true, 
+                    "port": "10002"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-srvselfsrvicebridge-all-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.191"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.192"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "fail_action": {
+                "redirect": {
+                    "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                    "host": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                    "protocol": "HTTP"
+                }, 
+                "type": "FAIL_ACTION_HTTP_REDIRECT"
+            }, 
+            "name": "mzfinance-p2-vp21q05-pool-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.58"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzsearchhints-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.73"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "bag-all-resp-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "itmssearch4-resp-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzcontentdelivery-osx-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.200"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "itc-mzlabel-apply_resp-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzcontentdelivery-itc-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.46"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-lzteacher-p1-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.215"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-srvaccount-ext-443-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.185"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzadminrpc-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.35"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-sandbox-mzfinance-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.248"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-itc-mzlabel-redir-resp-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "fail_action": {
+                "redirect": {
+                    "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                    "host": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                    "protocol": "HTTP"
+                }, 
+                "type": "FAIL_ACTION_HTTP_REDIRECT"
+            }, 
+            "name": "mzdsservice-p1-vp21q05-pool-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.48"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "fail_action": {
+                "redirect": {
+                    "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                    "host": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                    "protocol": "HTTP"
+                }, 
+                "type": "FAIL_ACTION_HTTP_REDIRECT"
+            }, 
+            "name": "mzfinance-p2-download-pool-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.58"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-liardns04-int-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.155"
+                    }, 
+                    "enabled": true, 
+                    "port": "5356"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-sgcourier-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.104"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-sandbox-mzinit-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.250"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-sherlocksyncui-t-80-pool", 
+            "application_persistence_profile_ref": "vp21q05it-sherlocksyncui-t-80-persistance-profile", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.129.139"
+                    }, 
+                    "enabled": true, 
+                    "port": "10001"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.129.139"
+                    }, 
+                    "enabled": true, 
+                    "port": "10002"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.129.140"
+                    }, 
+                    "enabled": true, 
+                    "port": "10001"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.129.140"
+                    }, 
+                    "enabled": true, 
+                    "port": "10002"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.129.141"
+                    }, 
+                    "enabled": true, 
+                    "port": "10001"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.129.141"
+                    }, 
+                    "enabled": true, 
+                    "port": "10002"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.129.142"
+                    }, 
+                    "enabled": true, 
+                    "port": "10001"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.129.142"
+                    }, 
+                    "enabled": true, 
+                    "port": "10002"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-liardns05-int-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.155"
+                    }, 
+                    "enabled": true, 
+                    "port": "5357"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzpersonalizer-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.67"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05iu-indigo-search-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.226"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-liardns03-tcp-int-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.155"
+                    }, 
+                    "enabled": true, 
+                    "port": "5355"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzadmin-new-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.181"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "fail_action": {
+                "redirect": {
+                    "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                    "host": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                    "protocol": "HTTP"
+                }, 
+                "type": "FAIL_ACTION_HTTP_REDIRECT"
+            }, 
+            "name": "mzbuy-p1-vp21q05-pool-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.40"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "library4-resp-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-lzstudent-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.29"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-liardns03-int-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.155"
+                    }, 
+                    "enabled": true, 
+                    "port": "5355"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-dzcrunch-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.21"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzadminbatch-new-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.182"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzstoreplatform-js-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.231"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzadmin-old-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.31"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mztiltservices-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.223"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "active-ha-lb-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "127.0.0.1"
+                    }, 
+                    "enabled": true, 
+                    "port": "1"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-support-url-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.93"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.94"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "fail_action": {
+                "redirect": {
+                    "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                    "host": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                    "protocol": "HTTP"
+                }, 
+                "type": "FAIL_ACTION_HTTP_REDIRECT"
+            }, 
+            "name": "mzfinance-anon-pool-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.57"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.58"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-ucgovernor-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.150"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "fail_action": {
+                "redirect": {
+                    "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                    "host": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                    "protocol": "HTTP"
+                }, 
+                "type": "FAIL_ACTION_HTTP_REDIRECT"
+            }, 
+            "name": "mzfastfinance-p1-vp21q05-pool-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.54"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzcontentdelivery-sid-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.46"
+                    }, 
+                    "enabled": true, 
+                    "port": "81"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzcontentlink-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.47"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzhomesharing-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.61"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzstoreplatform-srv-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.92"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzstore-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.88"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-dzc-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.20"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mztiltactivity-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.97"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "fail_action": {
+                "redirect": {
+                    "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                    "host": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                    "protocol": "HTTP"
+                }, 
+                "type": "FAIL_ACTION_HTTP_REDIRECT"
+            }, 
+            "name": "mzdsservice-anon-pool-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.48"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.49"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "display4query-resp-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "library5-resp-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-sherlocksynct-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.129.139"
+                    }, 
+                    "enabled": true, 
+                    "port": "11000"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.129.140"
+                    }, 
+                    "enabled": true, 
+                    "port": "11000"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.129.141"
+                    }, 
+                    "enabled": true, 
+                    "port": "11000"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.129.142"
+                    }, 
+                    "enabled": true, 
+                    "port": "11000"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-itc-80-resp-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-files-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.28"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "fail_action": {
+                "redirect": {
+                    "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                    "host": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                    "protocol": "HTTP"
+                }, 
+                "type": "FAIL_ACTION_HTTP_REDIRECT"
+            }, 
+            "name": "mzbuy-p1-vp21q05-download-pool-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.40"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mappingservice-int-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.65"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "fail_action": {
+                "redirect": {
+                    "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                    "host": "\"https://ritms5-itunesconnect.apple.com/iTCUnavailable.html\"", 
+                    "protocol": "HTTP"
+                }, 
+                "type": "FAIL_ACTION_HTTP_REDIRECT"
+            }, 
+            "name": "vp21q05it-mzlabel-itc-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.64"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "itc-301-itunesconnect_pol2-resp-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-akamai-itunesweb-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.157"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.189"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-support-pod2-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.94"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q01ms-janadnstcpvip-53-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.53.8"
+                    }, 
+                    "enabled": true, 
+                    "port": "53"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.53.9"
+                    }, 
+                    "enabled": true, 
+                    "port": "53"
+                }, 
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.53.10"
+                    }, 
+                    "enabled": true, 
+                    "port": "53"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-liardns04-tcp-int-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.155"
+                    }, 
+                    "enabled": true, 
+                    "port": "5356"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "fail_action": {
+                "redirect": {
+                    "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                    "host": "\"https://ritms5-itunesconnect.apple.com/iTCUnavailable.html\"", 
+                    "protocol": "HTTP"
+                }, 
+                "type": "FAIL_ACTION_HTTP_REDIRECT"
+            }, 
+            "name": "vp21q05it-mzlabel-sid-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.64"
+                    }, 
+                    "enabled": true, 
+                    "port": "81"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-srvpartner-ma-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.124"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-dzstudio-https-resp-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-lzstudent-p2-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.214"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "commerce-default-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "1.22.0.2"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "fail_action": {
+                "redirect": {
+                    "status_code": "HTTP_REDIRECT_STATUS_CODE_302", 
+                    "host": "\"https://buy.itunes.apple.com/financeOverflow.xml\"", 
+                    "protocol": "HTTP"
+                }, 
+                "type": "FAIL_ACTION_HTTP_REDIRECT"
+            }, 
+            "name": "mzbuy-p2-vp21q05-pool-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.41"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05iu-indigo-files-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.229"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzadminbatch-old-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.33"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-sandbox-mzstore-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.251"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "frostycup-responder-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "127.0.0.1"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "daap-block-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "127.0.0.1"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_ROUND_ROBIN", 
+            "health_monitor_refs": [], 
+            "name": "vp21q05it-mzinit-0-pool", 
+            "servers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "17.176.128.63"
+                    }, 
+                    "enabled": true, 
+                    "port": "80"
+                }
+            ]
+        }
+    ], 
+    "PKIProfile": []
+}
