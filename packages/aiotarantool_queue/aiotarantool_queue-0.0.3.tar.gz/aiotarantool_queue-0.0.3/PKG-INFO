@@ -1,0 +1,62 @@
+Metadata-Version: 1.1
+Name: aiotarantool_queue
+Version: 0.0.3
+Summary: Tarantool Queue python bindings for asyncio
+Home-page: https://github.com/shveenkov/aiotarantool-queue-python
+Author: Dmitry Shveenkov
+Author-email: shveenkov@mail.ru
+License: UNKNOWN
+Description: Tarantool Queue bindings for work with python asyncio
+        ----------------------------------------------------------
+        Bindings require tarantool version 1.6 and aiotarantool connector:
+        
+            $ pip install aiotarantool_queue aiotarantool
+        
+        
+        Try it example:
+        
+        .. code:: python
+        
+            import asyncio
+            import aiotarantool_queue
+            import random
+        
+            @asyncio.coroutine
+            def put_job(queue):
+                for tube_name in ("tube1", "tube2", "tube3"):
+                    tube = queue.tube(tube_name)
+                    task = yield from tube.put({"task_data": random.random()})
+        
+            @asyncio.coroutine
+            def take_job(tube):
+                while True:
+                    task = yield from tube.take(5)
+                    if not task:
+                        break
+        
+                    print(task.data)
+                    yield from task.ack()
+        
+            loop = asyncio.get_event_loop()
+        
+            queue = aiotarantool_queue.Queue("127.0.0.1", 3301)
+            put_tasks = [asyncio.async(put_job(queue))
+                         for _ in range(20)]
+        
+            take_tasks = [asyncio.async(take_job(queue.tube(tube_name)))
+                          for tube_name in ("tube1", "tube2", "tube3")]
+        
+            loop.run_until_complete(asyncio.wait(put_tasks + take_tasks))
+            loop.run_until_complete(queue.close())
+            loop.close()
+        
+        
+        This code makes it easy to develop your application to work with queue.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Database :: Front-Ends

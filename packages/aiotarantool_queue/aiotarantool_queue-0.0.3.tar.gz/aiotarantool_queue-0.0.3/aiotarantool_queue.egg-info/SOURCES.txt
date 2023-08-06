@@ -1,0 +1,11 @@
+MANIFEST.in
+README.rst
+README.txt
+setup.py
+aiotarantool_queue/__init__.py
+aiotarantool_queue/queue.py
+aiotarantool_queue.egg-info/PKG-INFO
+aiotarantool_queue.egg-info/SOURCES.txt
+aiotarantool_queue.egg-info/dependency_links.txt
+aiotarantool_queue.egg-info/requires.txt
+aiotarantool_queue.egg-info/top_level.txt
