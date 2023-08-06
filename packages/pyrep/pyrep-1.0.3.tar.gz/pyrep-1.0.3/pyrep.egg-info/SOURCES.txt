@@ -1,0 +1,10 @@
+MANIFEST.in
+setup.py
+./Repository.py
+./__init__.py
+./__pkginfo__.py
+pyrep.egg-info/PKG-INFO
+pyrep.egg-info/SOURCES.txt
+pyrep.egg-info/dependency_links.txt
+pyrep.egg-info/requires.txt
+pyrep.egg-info/top_level.txt
