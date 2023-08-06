@@ -1,0 +1,19 @@
+# last hit wins
+# shared configurations
+- default/shared
+- default/shared/os/${os}
+- default/shared/environment/${environment}
+- default/shared/pool/${pool}
+- default/shared/cluster/${cluster}
+- default/shared/switch/${switch}
+- default/shared/rack/${rack}
+- default/shared/host/${host}
+# application centric overrides
+- default/app/${app}
+- default/app/${app}/os/${os}
+- default/app/${app}/environment/${environment}
+- default/app/${app}/pool/${pool}
+- default/app/${app}/cluster/${cluster}
+- default/app/${app}/switch/${switch}
+- default/app/${app}/rack/${rack}
+- default/app/${app}/host/${host}

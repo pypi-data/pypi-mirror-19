@@ -1,0 +1,6 @@
+recursive-include pyconverge/resources *
+recursive-include pyconverge/schemas *
+recursive-include tests/resources *
+include README.md
+include LICENSE.md
+include requirements.txt
