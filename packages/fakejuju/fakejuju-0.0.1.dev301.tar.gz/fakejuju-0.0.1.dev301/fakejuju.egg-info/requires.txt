@@ -1,0 +1,11 @@
+PyYAML
+Twisted
+fixtures
+pbr
+pymongo
+testtools
+txfixtures
+txjuju>=0.9.0a2
+
+[test]
+testtools
