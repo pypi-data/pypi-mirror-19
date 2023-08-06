@@ -1,0 +1,28 @@
+Metadata-Version: 1.1
+Name: pyvadc
+Version: 0.0.5
+Summary: A python library for vADC
+Home-page: https://github.com/TuxInvader/python-vadc
+Author: Mark Boddington
+Author-email: mbodding@brocade.com
+License: MIT
+Description: 
+        A Python library for vADC
+        =========================
+        
+        A library for interacting with the REST API of `Brocade vADC <http://www.brocade.com/vadc>`_.
+        
+        ----
+        
+        This is the README file for the project.
+        
+        
+Keywords: brocade vadc vtm bsd
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
