@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: swaggerit
+Version: 0.2.1
+Summary: A Framework featuring Swagger, SQLAlchemy and Redis
+Home-page: https://github.com/dutradda/swaggerit
+Author: Diogo Dutra
+Author-email: dutradda@gmail.com
+License: MIT
+Download-URL: http://github.com/dutradda/swaggerit/archive/master.zip
+Description: UNKNOWN
+Keywords: framework swagger openapi sqlalchemy redis crud
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Middleware
+Classifier: Topic :: Database :: Front-Ends
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
