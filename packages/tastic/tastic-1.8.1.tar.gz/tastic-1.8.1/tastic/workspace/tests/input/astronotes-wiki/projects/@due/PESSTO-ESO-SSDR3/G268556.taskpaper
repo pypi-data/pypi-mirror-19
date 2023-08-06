@@ -1,0 +1,13 @@
+PanSTARRS Skymaps:
+	- GWID annotate night logs via mjd and ra dec range, OBJECTS only
+	- add nightlog update to command-line update
+Archive:
+	- investigate way no PS1 footprints show up @done(2017-01-06) @project(PanSTARRS Skymaps)
+		if they don’t appear I may have to scrape the footprints from night logs @done(2017-01-06)
+	- add an ‘updateAll’ flag to ps1 nightlog funcation (default = False), parse from 3 days ago if false @done(2017-01-06) @project(PanSTARRS Skymaps)
+	- add atlas lists and panstarrs lists to pinboard and chrome tabs @done(2017-01-06)
+	- regenerate skymap plots on VM03 to see if ATLAS footprints & transients show up @done(2017-01-06) @project(ATLAS)
+	ATLAS: @done(2017-01-06)
+		- fix the footprint plots for the 21 days before detection @done(2017-01-06)
+		- check that there are definately no ATLAS transients missing @done(2017-01-06)
+		- add plot generation into crontab @done(2017-01-06)
