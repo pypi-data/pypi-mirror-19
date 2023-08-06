@@ -1,0 +1,12 @@
+ipyparallel>=4.0,<5.0
+distob>=0.3.2
+sdeint>=0.2.0
+numpy>=1.6
+scipy>=0.9
+matplotlib>=1.1
+
+[read_EDF_BDF_files]
+python-edf>=0.4
+
+[read_all_files]
+python-biosig>=1.3
