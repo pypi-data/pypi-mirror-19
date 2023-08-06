@@ -1,0 +1,15 @@
+setup.cfg
+setup.py
+openedoo/__init__.py
+openedoo/config.py
+openedoo/error.py
+openedoo/route.py
+openedoo/tables.py
+openedoo/bin/openedoo-cli.py
+otest_cli.egg-info/PKG-INFO
+otest_cli.egg-info/SOURCES.txt
+otest_cli.egg-info/dependency_links.txt
+otest_cli.egg-info/entry_points.txt
+otest_cli.egg-info/not-zip-safe
+otest_cli.egg-info/requires.txt
+otest_cli.egg-info/top_level.txt

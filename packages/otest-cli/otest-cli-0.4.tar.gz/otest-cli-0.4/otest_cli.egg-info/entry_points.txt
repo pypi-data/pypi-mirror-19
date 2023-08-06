@@ -1,0 +1,3 @@
+[console_scripts]
+otest-cli = openedoo.core.libs.command:main
+
