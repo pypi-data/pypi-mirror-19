@@ -1,0 +1,38 @@
+Metadata-Version: 2.0
+Name: nltokeniz
+Version: 0.0.3
+Summary: Natural language tokenizer for documents in Python
+Home-page: https://github.com/raviqqe/nltokeniz.py/
+Author: Yota Toyama
+Author-email: raviqqe@gmail.com
+License: Public Domain
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: Public Domain
+Classifier: Natural Language :: English
+Classifier: Natural Language :: Japanese
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Text Processing :: Linguistic
+Requires-Dist: iso639
+Requires-Dist: langdetect
+Requires-Dist: nlnormaliz
+Requires-Dist: nltk
+
+# nltokeniz.py
+
+[![PyPI version](https://badge.fury.io/py/nltokeniz.svg)](https://badge.fury.io/py/nltokeniz)
+[![Python versions](https://img.shields.io/pypi/pyversions/nltokeniz.svg)](setup.py)
+[![Build Status](https://travis-ci.org/raviqqe/nltokeniz.py.svg?branch=master)](https://travis-ci.org/raviqqe/nltokeniz.py)
+[![License](https://img.shields.io/badge/license-unlicense-lightgray.svg)](https://unlicense.org)
+
+Natural language tokenizer for English and Japanese documents in Python
+
+
+## License
+
+[The Unlicense](https://unlicense.org)
+
+
