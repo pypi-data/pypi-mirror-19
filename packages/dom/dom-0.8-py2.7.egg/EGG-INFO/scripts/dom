@@ -1,0 +1,7 @@
+#!/usr/local/opt/python/bin/python2.7
+
+from domainr import Domain
+
+
+if __name__ == '__main__':
+    Domain().main()
