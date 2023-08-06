@@ -1,0 +1,4 @@
+[console_scripts]
+deduper = run.deduper:main
+hasher = run.hasher:main
+
