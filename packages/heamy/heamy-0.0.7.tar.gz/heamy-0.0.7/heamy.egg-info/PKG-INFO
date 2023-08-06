@@ -1,0 +1,61 @@
+Metadata-Version: 1.1
+Name: heamy
+Version: 0.0.7
+Summary: A set of useful tools for competitive data science.
+Home-page: https://github.com/rushter/heamy
+Author: Artem Golubin
+Author-email: me@rushter.com
+License: MIT
+Description: =====
+        heamy
+        =====
+        
+        .. image:: https://img.shields.io/pypi/v/heamy.svg
+                :target: https://pypi.python.org/pypi/heamy
+        
+        .. image:: https://img.shields.io/travis/rushter/heamy.svg
+                :target: https://travis-ci.org/rushter/heamy
+        
+        .. image:: https://coveralls.io/repos/github/rushter/heamy/badge.svg?branch=master
+                :target: https://coveralls.io/github/rushter/heamy?branch=master
+        
+        A set of useful tools for competitive data science.
+        
+        
+        Installation
+        ------------
+        
+        To install Heamy, simply:
+        
+        .. code:: bash
+        
+            $ pip install -U heamy
+        
+        
+        Features
+        --------
+        * Automatic caching (data preprocessing, predictions from models)
+        * Ensemble learning (stacking, blending, weighted average, etc.).
+        
+        
+        Documentation
+        -------------
+        
+        * Documentation: http://heamy.readthedocs.io/en/latest/        
+        * Examples: https://github.com/rushter/heamy/tree/master/examples
+        
+        
+        
+Keywords: heamy
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
