@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: Flask-IndieAuth
+Version: 0.0.2
+Summary: Allow requests to be authenticated with https://indieauth.com/
+Home-page: https://github.com/martymcguire/flask-indieauth/
+Author: Marty McGuire
+Author-email: mail@martymcgui.re
+License: MIT
+Description: 
+        Flask-IndieAuth
+        -------------
+        
+        Allows requests to be authenticated with https://indieauth.com/
+        
+Platform: any
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
