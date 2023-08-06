@@ -1,0 +1,13 @@
+aiohttp
+colorama
+
+[mysql]
+aiomysql
+sqlalchemy>=0.9
+
+[postgres]
+aiopg
+sqlalchemy>=0.9
+
+[sa]
+sqlalchemy>=0.9
