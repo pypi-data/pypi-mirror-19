@@ -1,0 +1,12 @@
+docutils
+
+[dev]
+flake8
+mypy-lang
+
+[doc]
+sphinx
+
+[test]
+pytest
+pytest-cov
