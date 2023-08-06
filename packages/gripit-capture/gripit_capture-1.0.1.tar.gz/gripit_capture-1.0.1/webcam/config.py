@@ -1,0 +1,8 @@
+class Config:
+    VIDEO_CODEC = 'XVID'  # XVID
+    VIDEO_FPS = 25
+    VIDEO_RESOLUTION = (640, 480)
+
+    OUTPUT_FILE_NAME = None
+    LAST_OUTPUT_FILE_NAME = None
+    OUTPUT_FILE_EXTENSION = '.avi'
