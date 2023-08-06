@@ -1,0 +1,38 @@
+Metadata-Version: 1.0
+Name: vcf2mutt
+Version: 0.1
+Summary: Convert vCard contacts to mutt format aliases.
+Home-page: http://github.com/chr15m/vcf2mutt
+Author: Chris McCormick
+Author-email: chris@mccormick.cx
+License: UNKNOWN
+Description: Convert vCard contacts to mutt format aliases.
+        
+        Install
+        ~~~~~~~
+        
+        ::
+        
+            pip install vcf2mutt
+        
+        Hint: ``pip install --user vcf2mutt`` does not require root and installs
+        to your home directory.
+        
+        Use
+        ~~~
+        
+        From a local file:
+        
+        ::
+        
+            vcf2mutt ./contacts.vcf > ~/.aliases
+        
+        From a remotely hosted contacts file (e.g. from
+        `radicale <http://radicale.org/>`__):
+        
+        ::
+        
+            vcf2mutt https://USERNAME:PASSWORD@SERVER/.../contacts.vcf/ > ~/.aliases
+        
+        
+Platform: UNKNOWN
