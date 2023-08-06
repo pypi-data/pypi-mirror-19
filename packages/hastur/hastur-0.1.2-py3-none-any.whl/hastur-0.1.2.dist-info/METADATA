@@ -1,0 +1,21 @@
+Metadata-Version: 2.0
+Name: hastur
+Version: 0.1.2
+Summary: A multi-armed bandit implementation in python
+Home-page: https://github.com/julbright/hastur
+Author: Jim Ulbright
+Author-email: jim.ulbright@gmail.com
+License: MIT
+Download-URL: https://github.com/julbright/hastur/tarball/0.1.2
+Keywords: ab testing,multi-armed bandits,statistics
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Provides-Extra: develop
+Requires-Dist: nose (>=1.3); extra == 'develop'
+
+UNKNOWN
+
+
