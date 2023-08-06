@@ -1,0 +1,14 @@
+setup.py
+pimped_subprocess/__init__.py
+pimped_subprocess/capture_output.py
+pimped_subprocess/pimped_subprocess_.py
+pimped_subprocess/remote.py
+pimped_subprocess.egg-info/PKG-INFO
+pimped_subprocess.egg-info/SOURCES.txt
+pimped_subprocess.egg-info/dependency_links.txt
+pimped_subprocess.egg-info/not-zip-safe
+pimped_subprocess.egg-info/requires.txt
+pimped_subprocess.egg-info/top_level.txt
+test/test_pimped_subprocess.py
+test/test_real_live_processes.py
+test/test_remote.py
