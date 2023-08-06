@@ -1,0 +1,9 @@
+flake8
+pytest
+pytest-cov
+pytest-mccabe
+sphinx
+watchdog
+tox
+happybase
+aerospike
