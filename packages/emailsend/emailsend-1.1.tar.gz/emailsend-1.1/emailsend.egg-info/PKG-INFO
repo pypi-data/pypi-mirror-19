@@ -1,0 +1,26 @@
+Metadata-Version: 1.1
+Name: emailsend
+Version: 1.1
+Summary: With this module you can easy send emails.
+Home-page: http://github.com/filips123/pythonMail
+Author: filips
+Author-email: filip.stamcar@hotmail.com
+License: GNU
+Download-URL: https://github.com/filips123/pythonMail/tarball/v1.1
+Description: With this module you can easy send emails.
+        
+        INSTALATION
+        ===========
+        Run 'py setup.py install' or 'python setup.py install'
+        
+        USAGE
+        =====
+        See example.py file.
+        
+        .. code:: python
+        
+          from emailsend import sendMail
+          sendMail(fromAddress = "sender email", toAddress = "receiver email", mSubject = "message subject", mBody = "message body", mBodyHTML = "message subject HTML", mAttachment = ["massage" , "attachments", "-", "path", "to", "file", "(optional)"], serverLogin = "login to server (True/False)", serverServer = "server URL", serverPort = "server port (int)", serverTSL = "TSL (True/False), serverUser = "server userame", serverPass = "server password")
+Keywords: mail,python,send email
+Platform: any
+Classifier: Programming Language :: Python :: 3

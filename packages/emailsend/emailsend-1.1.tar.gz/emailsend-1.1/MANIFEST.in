@@ -1,0 +1,9 @@
+#example files
+include example.py
+
+#Misc
+include CHANGES.rst
+include README.rst
+
+#documentation
+include README.rst
