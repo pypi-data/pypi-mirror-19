@@ -1,0 +1,3 @@
+[console_scripts]
+kozinaki-manage = kozinaki.manage.__main__:main
+
