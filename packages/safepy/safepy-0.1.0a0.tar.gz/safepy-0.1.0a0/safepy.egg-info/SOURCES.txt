@@ -1,0 +1,16 @@
+README.rst
+setup.cfg
+setup.py
+safepy/__init__.py
+safepy/_async_batch.py
+safepy/batching_mechanism.py
+safepy/combination.py
+safepy/copy_exception.py
+safepy/handle_bounded_methods.py
+safepy/retry_mechanism.py
+safepy/throttling.py
+safepy/timeout.py
+safepy.egg-info/PKG-INFO
+safepy.egg-info/SOURCES.txt
+safepy.egg-info/dependency_links.txt
+safepy.egg-info/top_level.txt
