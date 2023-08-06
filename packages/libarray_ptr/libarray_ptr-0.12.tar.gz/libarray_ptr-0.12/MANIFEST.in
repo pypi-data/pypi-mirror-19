@@ -1,0 +1,12 @@
+include COPYING*
+
+include zetuprc
+
+include VERSION
+include requirements.txt
+include requirements.setup.txt
+
+recursive-include include *.hpp
+
+exclude .hg*
+exclude PREFIX

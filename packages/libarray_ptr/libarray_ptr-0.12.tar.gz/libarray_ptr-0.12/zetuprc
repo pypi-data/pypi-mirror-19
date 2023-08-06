@@ -1,0 +1,20 @@
+[libarray_ptr]
+
+description =
+    C++ wrapper for C arrays with STL features
+
+author = Stefan Zimmermann <zimmermann.code@gmail.com>
+url = http://bitbucket.org/StefanZimmermann/array_ptr
+
+license = LGPLv3
+
+packages =
+    libarray_ptr: .
+
+zetup config module = no
+
+zetup config hooks =
+    libarray_ptr:zetup_config
+
+setup hooks =
+    libarray_ptr:setup_keywords
