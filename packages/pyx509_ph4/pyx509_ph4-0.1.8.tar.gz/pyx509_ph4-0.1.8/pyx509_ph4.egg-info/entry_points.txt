@@ -1,0 +1,4 @@
+[console_scripts]
+pkcs7_parse.py = pyx509.commands:print_signature_info_cmd
+x509_parse.py = pyx509.commands:print_certificate_info_cmd
+
