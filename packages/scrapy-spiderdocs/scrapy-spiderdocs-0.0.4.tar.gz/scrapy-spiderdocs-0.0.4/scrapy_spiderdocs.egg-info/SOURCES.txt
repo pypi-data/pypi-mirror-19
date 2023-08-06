@@ -1,0 +1,16 @@
+README.rst
+setup.py
+documented/__init__.py
+documented/settings.py
+documented/commands/__init__.py
+documented/commands/spiderdocs.py
+documented/spiders/__init__.py
+documented/spiders/example.py
+documented/tests/__init__.py
+documented/tests/test_commands.py
+scrapy_spiderdocs.egg-info/PKG-INFO
+scrapy_spiderdocs.egg-info/SOURCES.txt
+scrapy_spiderdocs.egg-info/dependency_links.txt
+scrapy_spiderdocs.egg-info/entry_points.txt
+scrapy_spiderdocs.egg-info/requires.txt
+scrapy_spiderdocs.egg-info/top_level.txt
