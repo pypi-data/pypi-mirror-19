@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+elsa/__init__.py
+elsa/_cli.py
+elsa/_deployment.py
+elsa.egg-info/PKG-INFO
+elsa.egg-info/SOURCES.txt
+elsa.egg-info/dependency_links.txt
+elsa.egg-info/requires.txt
+elsa.egg-info/top_level.txt
