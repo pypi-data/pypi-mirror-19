@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+setup.py
+data/colon.csv
+data/titanic.csv
+fuzzy_dempster_shafer/__init__.py
+fuzzy_dempster_shafer/ds_fit.py
+fuzzy_dempster_shafer/ds_predict.py
+fuzzy_dempster_shafer/mass_comb_fxn.py
+fuzzy_dempster_shafer.egg-info/PKG-INFO
+fuzzy_dempster_shafer.egg-info/SOURCES.txt
+fuzzy_dempster_shafer.egg-info/dependency_links.txt
+fuzzy_dempster_shafer.egg-info/not-zip-safe
+fuzzy_dempster_shafer.egg-info/requires.txt
+fuzzy_dempster_shafer.egg-info/top_level.txt
