@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: infi.djangopypi
+Version: 0.4.8
+Summary: Simple PyPI server written in django
+Home-page: https://github.com/Infinidat/djangopypi
+Author: Arnon Yaari
+Author-email: arnony@infinidat.com
+License: PSF
+Description: Simple PyPI server written in django. Allows you to register/upload with distutils and install with easy_install/pip.
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Python Software Foundation License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
