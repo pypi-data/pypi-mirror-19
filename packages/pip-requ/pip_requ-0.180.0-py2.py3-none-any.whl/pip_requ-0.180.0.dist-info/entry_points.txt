@@ -1,0 +1,4 @@
+[console_scripts]
+pip-compile = pip_requ.scripts.compile:cli
+pip-sync = pip_requ.scripts.sync:cli
+
