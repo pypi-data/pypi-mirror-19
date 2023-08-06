@@ -1,0 +1,12 @@
+Metadata-Version: 1.1
+Name: closer
+Version: 0.1.1
+Summary: a small script that runs a Popen command and closes all its child subprocesses
+Home-page: https://github.com/haarcuba/closer
+Author: Yoav Kleinberger
+Author-email: haarcuba@gmail.com
+License: UNKNOWN
+Description: a small script that runs a Popen command and closes all its child subprocesses
+Keywords: subprocess
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
