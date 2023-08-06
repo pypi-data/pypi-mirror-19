@@ -1,0 +1,16 @@
+Metadata-Version: 2.0
+Name: flood
+Version: 0.6
+Summary: Python search APIs to various Torrent trackers
+Home-page: https://github.com/DandyDev/flood
+Author: Daan Debie
+Author-email: debie.daan@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: beautifulsoup4 (==4.5.3)
+Requires-Dist: lxml (>=2.3.2)
+Requires-Dist: requests (==2.10.0)
+
+UNKNOWN
+
+
