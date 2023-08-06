@@ -1,0 +1,113 @@
+Metadata-Version: 1.1
+Name: sphinxjp.themes.impressjs
+Version: 0.1.4
+Summary: A sphinx theme for HTML presentation style.
+Home-page: https://github.com/shkumagai/sphinxjp.themes.impressjs
+Author: Shoji KUMAGAI
+Author-email: take dot this dot 2 dot your dot grave at gmail dot com
+License: MIT
+Description: ===========================
+         sphinxjp.themes.impressjs
+        ===========================
+        
+        Impress.js presentation style theme for Sphinx.
+        
+        
+        Output sample
+        =============
+        :output: http://packages.python.org/sphinxjp.themes.impressjs
+        :source: http://packages.python.org/sphinxjp.themes.impressjs/_sources/index.txt
+        
+        
+        Feature
+        =======
+        * provide ``impressjs`` directive for impress.js presentaion control
+        * provide ``impressjs`` presentation theme for render HTML document
+        
+        
+        Installation
+        ============
+        Make environment with easy_install::
+        
+           $ pip sphinxjp.themes.impressjs
+        
+        
+        setup conf.py with::
+        
+           extensions = ['sphinxjp.themes.impressjs']
+           html_theme = 'impressjs'
+           html_use_index = False
+        
+        
+        and run::
+        
+           $ make html
+        
+        
+        Requirement
+        ===========
+        Libraries:
+        
+        * Python 2.7 or later (not support 3.x)
+        * Sphinx 1.2.x or later.
+        
+        
+        Browsers:
+        
+        * Safari
+        * Chrome
+        * Firefox 10
+        
+        
+        License
+        =======
+        Licensed under the `MIT license <http://www.opensource.org/licenses/mit-license.php>`_ .
+        See the LICENSE file for specific terms.
+        
+        
+        .. END
+        
+        AUTHORS
+        =======
+        
+        Sphinx template, css, packaging
+        -------------------------------
+        * Shoji KUMAGAI <take.this.2.your.grave at gmail.com> Sphinx-users.jp
+        
+        Impress.js
+        ----------
+        * Copyright 2011-2012 Bartek Szopka
+        
+        HISTORY
+        =======
+        
+        0.1.4 (2017.01.12)
+        ------------------
+        * Fix import failure when using Python3
+        * Fix some document typos
+        
+        0.1.3 (2014.09.15)
+        ------------------
+        * remove 'sphinxjp.themecore' dependency
+        
+        0.1.2 (2012.03.17)
+        ------------------
+        * Fix packaging failure
+        * Fix typos
+        
+        0.1.1 (2012.02.06)
+        ------------------
+        * Unify a text representation
+        
+        0.1.0 (2012.02.05)
+        ------------------
+        * first release
+        
+Keywords: sphinx,reStructuredText,theme,presentation
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Documentation
+Classifier: Topic :: Text Processing :: Markup
