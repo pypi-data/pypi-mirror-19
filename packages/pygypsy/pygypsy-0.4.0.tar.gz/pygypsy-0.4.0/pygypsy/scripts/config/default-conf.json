@@ -1,0 +1,37 @@
+{
+    "prep": {
+        "minimumAge": 25
+    },
+    "simulation": {
+        "years": 10,
+        "backwards": false
+    },
+    "data": {
+        "acquistionYear": 2011
+    },
+    "output": {
+        "level": "plot"
+    },
+    "utilization": {
+        "aw": {
+            "topDiamInsideBark": 7,
+            "stumpDiamOutsideBark": 13,
+            "stumpHeight": 0.3
+        },
+        "sw": {
+            "topDiamInsideBark": 7,
+            "stumpDiamOutsideBark": 13,
+            "stumpHeight": 0.3
+        },
+        "sb": {
+            "topDiamInsideBark": 7,
+            "stumpDiamOutsideBark": 13,
+            "stumpHeight": 0.3
+        },
+        "pl": {
+            "topDiamInsideBark": 7,
+            "stumpDiamOutsideBark": 13,
+            "stumpHeight": 0.3
+        }
+    }
+}
