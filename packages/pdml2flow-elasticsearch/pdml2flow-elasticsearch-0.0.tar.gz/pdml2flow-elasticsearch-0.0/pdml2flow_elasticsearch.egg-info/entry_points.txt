@@ -1,0 +1,3 @@
+[pdml2flow.plugins]
+elasticsearch = plugins.elasticsearch:Elasticsearch
+

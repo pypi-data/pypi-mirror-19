@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+README.rst
+requirements.txt
+setup.py
+pdml2flow_elasticsearch.egg-info/PKG-INFO
+pdml2flow_elasticsearch.egg-info/SOURCES.txt
+pdml2flow_elasticsearch.egg-info/dependency_links.txt
+pdml2flow_elasticsearch.egg-info/entry_points.txt
+pdml2flow_elasticsearch.egg-info/requires.txt
+pdml2flow_elasticsearch.egg-info/top_level.txt
+plugins/__init__.py
+plugins/elasticsearch.py
