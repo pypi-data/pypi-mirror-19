@@ -1,0 +1,25 @@
+future
+backports.csv
+configparser >= 3.5.0
+iso8601
+pyyaml
+pytz
+xmltodict
+tzlocal
+gitpython
+tabulate >= 0.7.0
+click >= 6.0
+
+[dev]
+check-manifest
+
+[test]
+coverage
+pytest >=3.0
+mock
+tox
+pylint
+pep8
+autopep8
+flake8
+isort
