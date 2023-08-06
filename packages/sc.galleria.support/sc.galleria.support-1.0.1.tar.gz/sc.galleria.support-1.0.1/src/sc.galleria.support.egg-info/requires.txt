@@ -1,0 +1,7 @@
+setuptools
+plone.app.registry
+collective.js.galleria
+
+[test]
+plone.app.testing
+unittest2
