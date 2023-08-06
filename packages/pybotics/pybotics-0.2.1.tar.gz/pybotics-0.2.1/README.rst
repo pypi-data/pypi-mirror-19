@@ -1,0 +1,99 @@
+`|PyPI| <https://pypi.python.org/pypi/pybotics>`_ `|GitHub
+tag| <https://github.com/nnadeau/pybotics/releases>`_
+`|DOI| <https://zenodo.org/badge/latestdoi/66797360>`_
+`|image3| <https://pypi.python.org/pypi/pybotics>`_
+
+`|image4| <https://pypi.python.org/pypi/pybotics>`_
+`|image5| <https://pypi.python.org/pypi/pybotics>`_
+`|image6| <https://pypi.python.org/pypi/pybotics>`_
+`|image7| <https://pypi.python.org/pypi/pybotics>`_
+`|image8| <https://pypi.python.org/pypi/pybotics>`_
+`|image9| <https://pypi.python.org/pypi/pybotics>`_
+
+`|Build Status| <https://travis-ci.org/nnadeau/pybotics>`_
+`|CircleCI| <https://circleci.com/gh/nnadeau/pybotics/tree/master>`_
+
+`|Dependency
+Status| <https://www.versioneye.com/user/projects/57d87a4a7129660045cf3a58>`_
+`|Coverage
+Status| <https://coveralls.io/github/nnadeau/pybotics?branch=master>`_
+`|codecov| <https://codecov.io/gh/nnadeau/pybotics>`_ `|Codacy
+Badge| <https://www.codacy.com/app/nicholas-nadeau/pybotics?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=nnadeau/pybotics&amp;utm_campaign=Badge_Grade>`_
+`|Code Climate| <https://codeclimate.com/github/nnadeau/pybotics>`_
+`|Issue Count| <https://codeclimate.com/github/nnadeau/pybotics>`_
+
+pybotics
+========
+
+Python Toolbox for Robotics
+
+Context
+-------
+
+Inspired from `Peter Corke's Robotics
+Toolbox <http://www.petercorke.com/Robotics_Toolbox.html>`_ for MATLAB.
+However, MATLAB is not necessarily widespread outside of academia (and I
+prefer Python), thus Pybotics was born.
+
+Requirements/Compatibility
+--------------------------
+
+-  `Python >= 3.4 <https://travis-ci.org/nnadeau/pybotics>`_
+-  See `requirements.txt <requirements.txt>`_ for package dependencies
+
+Applications and Usage
+----------------------
+
+-  `Kinematics <examples/example_kinematics.ipynb>`_
+-  `Calibration <examples/example_calibration.ipynb>`_
+-  Trajectory and path planning
+
+Contributing
+------------
+
+1. Fork it!
+2. Create your feature branch
+3. Follow PEP 8 style guide
+4. Don't break the current codebase (without good reason)
+5. Have tests for all your code
+6. Submit a pull request :D
+
+Limitations
+-----------
+
+-  Currently only supports `Modified Denavit–Hartenberg
+   Parameters <https://en.wikipedia.org/wiki/Denavit%E2%80%93Hartenberg_parameters#Modified_DH_parameters>`_
+
+References
+----------
+
+-  Craig, John J. Introduction to robotics: mechanics and control. Vol.
+   3. Upper Saddle River: Pearson Prentice Hall, 2005.
+-  Corke, Peter. Robotics, vision and control: fundamental algorithms in
+   MATLAB. Vol. 73. Springer, 2011.
+
+.. |PyPI| image:: https://img.shields.io/pypi/v/pybotics.svg
+.. |GitHub
+tag| image:: https://img.shields.io/github/tag/nnadeau/pybotics.svg?maxAge=2592000?style=flat-square
+.. |DOI| image:: https://zenodo.org/badge/66797360.svg
+.. |image3| image:: https://img.shields.io/pypi/l/pybotics.svg
+.. |image4| image:: https://img.shields.io/pypi/dm/pybotics.svg
+.. |image5| image:: https://img.shields.io/pypi/wheel/pybotics.svg
+.. |image6| image:: https://img.shields.io/pypi/format/pybotics.svg
+.. |image7| image:: https://img.shields.io/pypi/pyversions/pybotics.svg
+.. |image8| image:: https://img.shields.io/pypi/implementation/pybotics.svg
+.. |image9| image:: https://img.shields.io/pypi/status/pybotics.svg
+.. |Build
+Status| image:: https://travis-ci.org/nnadeau/pybotics.svg?branch=master
+.. |CircleCI| image:: https://circleci.com/gh/nnadeau/pybotics/tree/master.svg?style=svg
+.. |Dependency
+Status| image:: https://www.versioneye.com/user/projects/57d87a4a7129660045cf3a58/badge.svg?style=flat-square
+.. |Coverage
+Status| image:: https://coveralls.io/repos/github/nnadeau/pybotics/badge.svg?branch=master
+.. |codecov| image:: https://codecov.io/gh/nnadeau/pybotics/branch/master/graph/badge.svg
+.. |Codacy
+Badge| image:: https://api.codacy.com/project/badge/Grade/9d4f77b167874a049e97731181e2b53a
+.. |Code
+Climate| image:: https://codeclimate.com/github/nnadeau/pybotics/badges/gpa.svg
+.. |Issue
+Count| image:: https://codeclimate.com/github/nnadeau/pybotics/badges/issue_count.svg
