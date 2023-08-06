@@ -1,0 +1,12 @@
+include *.py
+include */*.py
+include tox.ini dev-requirements.txt
+include doc/*.rst
+include i18n/*.po
+include test/data/bootstrap_cubes test/data/*.xml test/data/*.xsd test/data/*.rng
+recursive-include data *.gif *.png *.ico *.css *.js
+recursive-include xsd *.xsd
+recursive-include migration *.py *.csv
+
+prune cubicweb-seda.spec
+prune debian
