@@ -1,0 +1,102 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from __future__ import print_function
+import os
+import sys
+import re
+del os.link
+from importlib import import_module
+
+try:
+    from setuptools import setup, find_packages
+except:
+    sys.exit("Error: missing python-setuptools library")
+
+try:
+    python_version = sys.version_info
+except:
+    python_version = (1, 5)
+if python_version < (2, 7):
+    sys.exit("This application requires a minimum Python 2.7.x, sorry!")
+
+try:
+    from alignak.version import VERSION
+    __alignak_version__ = VERSION
+except:
+    __alignak_version__ = 'x.y.z'
+
+from alignak_backend import __application__, __version__, __copyright__
+from alignak_backend import __releasenotes__, __license__, __doc_url__
+from alignak_backend import __name__ as __pkg_name__
+
+package = import_module('alignak_backend')
+
+# Define paths
+if 'linux' in sys.platform or 'sunos5' in sys.platform:
+    installation_paths = {
+        'bin':     "/usr/bin",
+        'var':     "/var/lib/alignak-backend/",
+        'etc':     "/etc/alignak-backend",
+        'run':     "/var/run/alignak-backend",
+        'log':     "/var/log/alignak-backend",
+    }
+elif 'bsd' in sys.platform or 'dragonfly' in sys.platform:
+    installation_paths = {
+        'bin':     "/usr/local/bin",
+        'var':     "/usr/local/libexec/alignak-backend",
+        'etc':     "/usr/local/etc/alignak-backend",
+        'run':     "/var/run/alignak-backend",
+        'log':     "/var/log/alignak-backend",
+    }
+else:
+    print("Unsupported platform, sorry!")
+    exit(1)
+
+setup(
+    name=__pkg_name__,
+    version=__version__,
+
+    license=__license__,
+
+    # metadata for upload to PyPI
+    author="David Durieux",
+    author_email="d.durieux@siprossii.com",
+    keywords="alignak monitoring backend",
+    url="https://github.com/Alignak-monitoring-contrib/alignak-backend",
+    description=package.__doc__.strip(),
+    long_description=open('README.rst').read(),
+
+    zip_safe=False,
+
+    packages=find_packages(),
+    include_package_data=True,
+    # package_data={
+        # 'sample': ['package_data.dat'],
+    # },
+    data_files = [(installation_paths['etc'], ['etc/settings.json'])],
+
+    install_requires=[
+        'python-dateutil==2.4.2', 'Eve>=0.5', 'flask-bootstrap', 'docopt', 'jsonschema',
+        'eve-swagger', 'configparser',
+        'future', 'influxdb', 'flask-apscheduler'
+    ],
+
+    entry_points={
+        'console_scripts': [
+            'alignak-backend = alignak_backend.main:main'
+        ],
+    },
+
+    classifiers = [
+        'Development Status :: 4 - Beta',
+        'Environment :: Console',
+        'Intended Audience :: Developers',
+        'Intended Audience :: System Administrators',
+        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
+        'Natural Language :: English',
+        'Programming Language :: Python',
+        'Topic :: System :: Monitoring',
+        'Topic :: System :: Systems Administration'
+    ]
+)
