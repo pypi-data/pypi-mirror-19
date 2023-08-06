@@ -1,0 +1,3 @@
+[console_scripts]
+structure-generator = src.__main__:main
+
