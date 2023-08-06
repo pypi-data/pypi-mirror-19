@@ -1,0 +1,11 @@
+Plone
+ftw.profilehook
+plone.api
+setuptools
+
+[tests]
+ftw.builder
+ftw.testing
+ftw.testbrowser
+plone.app.testing
+plone.testing
