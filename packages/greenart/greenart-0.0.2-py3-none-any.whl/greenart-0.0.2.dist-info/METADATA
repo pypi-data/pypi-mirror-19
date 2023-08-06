@@ -1,0 +1,17 @@
+Metadata-Version: 2.0
+Name: greenart
+Version: 0.0.2
+Summary: Green art is cli tool for drawing on the github green panel
+Home-page: https://github.com/seregayoga/greenart
+Author: Sergey Fedchenko
+Author-email: seregayoga@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: Pillow (==4.0.0)
+Requires-Dist: docopt (==0.6.2)
+
+UNKNOWN
+
+
