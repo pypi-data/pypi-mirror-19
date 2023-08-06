@@ -1,0 +1,15 @@
+algoliasearch_django-1.2.5.dist-info/DESCRIPTION.rst,sha256=KpiTLcWFqIH2V27nqofzA-ED0GZFsmh-vYkbtU4ctIM,6537
+algoliasearch_django-1.2.5.dist-info/METADATA,sha256=aEsKTJoaI3z3LjplpsljsHhYq_lgvfFX-gQcPluuIos,7354
+algoliasearch_django-1.2.5.dist-info/RECORD,,
+algoliasearch_django-1.2.5.dist-info/WHEEL,sha256=o2k-Qa-RMNIJmUdIc7KU6VWR_ErNRbWNlxDIpl7lm34,110
+algoliasearch_django-1.2.5.dist-info/metadata.json,sha256=PLfy3GgoKSkxkL-A3SWt4LHjtOLEzgEVGhjdt6kahSI,1000
+algoliasearch_django-1.2.5.dist-info/top_level.txt,sha256=V_goijg9tfO20ox_7os6CcnPvmBavbxu46LpJiNLwjA,7
+django/contrib/algoliasearch/__init__.py,sha256=Gu8GGPiU4ug6p7do5WeeEXH0ZvYVPCWV9H3NDZ_n2BM,556
+django/contrib/algoliasearch/models.py,sha256=rANdg89o2f7dt7fnbCy48auFe_L06NR3ChlV5KKeb8c,8854
+django/contrib/algoliasearch/registration.py,sha256=TZYE_uZhRbLtjDcD-6sGLpgIKAuxPCbNYAm6Ezmly50,4743
+django/contrib/algoliasearch/version.py,sha256=d1kUyH7Y6fFqdo_rsSPtvOQ9ECJQkKqHI1ypBdakahc,18
+django/contrib/algoliasearch/management/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django/contrib/algoliasearch/management/commands/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django/contrib/algoliasearch/management/commands/algolia_applysettings.py,sha256=sG9zHacp2VW6FtCRXRV35iCZD8JKvp0OoVc9qbZ2AGE,770
+django/contrib/algoliasearch/management/commands/algolia_clearindex.py,sha256=wy7F-eG7tJsN_OUndjc2M3exxYVI1qRP_n3kFi5_Oo8,748
+django/contrib/algoliasearch/management/commands/algolia_reindex.py,sha256=04Htvo4Uksz9CpG8ZN3dfXj9tSQ7wS5dBSQRuLMihVc,949
