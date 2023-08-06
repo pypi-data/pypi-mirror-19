@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.rst
+requirements.txt
+setup.cfg
+setup.py
+cambot/__init__.py
+cambot/cmd.py
+cambot/constants.py
+cambot/plugin.py
+cambot.egg-info/PKG-INFO
+cambot.egg-info/SOURCES.txt
+cambot.egg-info/dependency_links.txt
+cambot.egg-info/entry_points.txt
+cambot.egg-info/not-zip-safe
+cambot.egg-info/requires.txt
+cambot.egg-info/top_level.txt
