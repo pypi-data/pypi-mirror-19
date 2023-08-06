@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: Flask-Cachual
+Version: 0.2.0
+Summary: Flask extension for the Cachual library
+Home-page: https://github.com/bal2ag/flask-cachual
+Author: Alex Landau
+Author-email: balexlandau@gmail.com
+License: UNKNOWN
+Description: 
+        Flask-Cachual
+        -------------
+        
+        Flask extension for the Cachual library. See https://github.com/bal2ag/cachual
+        
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
