@@ -1,0 +1,9 @@
+# last hit wins
+- default/default
+- default/app/${app}
+- default/environment/${environment}
+- default/environment/${environment}/${app}
+- default/pool/${pool}
+- default/pool/${pool}/${app}
+- default/host/${host}
+- default/host/${host}/${app}
