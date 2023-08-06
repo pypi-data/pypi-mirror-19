@@ -1,0 +1,6 @@
+include readme.md
+include emerald/templates/*
+include emerald/static/css/*
+include emerald/static/js/*
+include emerald/static/fonts/roboto/*
+
