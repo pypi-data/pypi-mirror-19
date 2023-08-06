@@ -1,0 +1,13 @@
+.gitignore
+README.md
+setup.py
+zops/__init__.py
+zops.code_standards.egg-info/PKG-INFO
+zops.code_standards.egg-info/SOURCES.txt
+zops.code_standards.egg-info/dependency_links.txt
+zops.code_standards.egg-info/entry_points.txt
+zops.code_standards.egg-info/namespace_packages.txt
+zops.code_standards.egg-info/requires.txt
+zops.code_standards.egg-info/top_level.txt
+zops/code_standards/__init__.py
+zops/code_standards/cli.py

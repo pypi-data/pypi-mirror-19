@@ -1,0 +1,4 @@
+
+        [zops.plugins]
+        main=zops.code_standards.cli:main
+    
