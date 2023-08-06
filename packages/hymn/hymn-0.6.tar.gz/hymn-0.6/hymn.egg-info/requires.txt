@@ -1,0 +1,10 @@
+hy>=0.12.1
+
+[dev]
+twine
+
+[doc]
+Sphinx>=1.2.3
+
+[test]
+pytest>=2.6.4
