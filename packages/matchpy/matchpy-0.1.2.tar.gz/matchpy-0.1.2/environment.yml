@@ -1,0 +1,18 @@
+channels:
+  - conda-forge
+name: py36
+dependencies:
+- openssl
+- pip
+- python=3.6
+- readline
+- setuptools
+- sqlite
+- wheel
+- zlib
+- pip:
+  - Sphinx
+  - graphviz
+  - git+https://github.com/wheerd/sphinx-autodoc-typehints.git@napoleon-master#egg=sphinx-autodoc-napoleon-typehints
+  - hopcroftkarp
+  - multiset
