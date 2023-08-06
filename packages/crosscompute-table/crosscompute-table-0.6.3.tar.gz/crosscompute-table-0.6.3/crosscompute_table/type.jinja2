@@ -1,0 +1,40 @@
+{% from 'invisibleroads_uploads:templates/parts.jinja2' import upload_button %}
+
+{% macro head_style_loaded(request) %}{% endmacro %}
+
+{% macro head_style_inline(request) %}{% endmacro %}
+
+{% macro head_script_inline(request) %}
+x = CC.table = {};
+x.import_url = '{{ request.route_path('table/import_table') }}';
+{% endmacro %}
+
+{% macro body_script_loaded(request) %}{% endmacro %}
+
+{% macro body_script_inline(request) %}{% endmacro %}
+
+{% macro render_argument(request, data_item) %}
+{% set key = data_item.key %}
+{{ upload_button(request, id='%s-upload-button' % key, text='Upload', class='btn-lg table-upload', data_name=key) }}
+{{ render_property(request, data_item, class='editable', editable=True) }}
+<input name="{{ key }}_csv" type="hidden">
+{% endmacro %}
+
+{% macro render_property(request, data_item, stamp='', class='', editable=False) %}
+{% set key = data_item.key + stamp %}
+{% set table = data_item.value %}
+<div id="{{ key }}" class="scrollable">
+{% if table is not none %}
+<table id="{{ key }}-table" class="table {{ class }}" {% if editable %}contenteditable="true"{% endif %}>
+<thead>
+<tr>{% for column in table.columns %}<th>{{ column }}</th>{% endfor %}</tr>
+</thead>
+<tbody>
+{% for index, row in table.fillna('').iterrows() %}
+<tr>{% for column in row %}<td>{{ column }}</td>{% endfor %}</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endif %}
+</div>
+{% endmacro %}
