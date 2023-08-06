@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+
+import guacamole
+from lesana.command import New, Edit, Index, Search, Init, Remove
+
+class Lesana(guacamole.Command):
+    """
+    Manage collections
+    """
+
+    sub_commands = (
+        ('new', New),
+        ('edit', Edit),
+        ('index', Index),
+        ('search', Search),
+        ('init', Init),
+        ('rm', Remove),
+        )
+
+if __name__ == '__main__':
+    Lesana().main()

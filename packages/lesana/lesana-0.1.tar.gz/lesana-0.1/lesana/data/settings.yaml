@@ -1,0 +1,8 @@
+name: 'My Collection'
+lang: english
+fields:
+    - name: name
+      type: string
+      prefix: S
+      index: free
+
