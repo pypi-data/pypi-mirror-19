@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: TreeNote
+Version: 1.7.7
+Summary: An intuitive outliner for personal knowledge and task management
+Home-page: http://treenote.org
+Author: Jan Korte
+Author-email: j.korte@me.com
+License: GPL3
+Description: The author has used many time management programs over the last four years.
+        When the number of tasks grew, a neat system like Getting Things Done became essential.
+        Therefore the development of TreeNote was influenced by powerful tools like Omnifocus (Mac only) and Org mode (too complex).
+        However, TreeNote is as intuitive to use as the light tools Wunderlist and Evernote.
+        
+        To run TreeNote simply type `treenote` in a Terminal.
+        
+        For more details, please go to the `home page`_.
+        
+        .. _`home page`: http://treenote.org
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: X11 Applications :: Qt
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Text Editors
