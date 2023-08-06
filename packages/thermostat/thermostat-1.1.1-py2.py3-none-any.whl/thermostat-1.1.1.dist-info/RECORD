@@ -1,0 +1,19 @@
+thermostat/__init__.py,sha256=AZUk3v3vxZXu-AW4kf3N1npTSgKaqT4SsRX4FOVRoSw,421
+thermostat/core.py,sha256=0IaNdHzHMPVciFasEVAI7-a8_5yaYTNHKoRTGkSQP20,64185
+thermostat/exporters.py,sha256=ZqL9HMtJNBMlR-etdp0ztx9hPjaxICjo4_Bb4x46I-Y,2901
+thermostat/importers.py,sha256=3v4z0-iuYDzZWfxd_6Nnah-JAgv3kFHvRWhhgqiQBuE,7307
+thermostat/parallel.py,sha256=0OLYjjsvNdT_qgx66t2nknLowTJihDd4PS2uOQ5MyNI,4252
+thermostat/regression.py,sha256=9NT6wo4f5mCXcrb5D8z0CYUm3UJ5ZbQerkLl1V8ktCw,1855
+thermostat/stats.py,sha256=C3MBS-8n8C6kdS2UVMknTJ-0DwkDuHlKhCG-Ifn0pMQ,28369
+thermostat/resources/Building America Climate Zone to Zipcode Database_Rev2_2016.09.08.csv,sha256=7xpClvgEd4T_LKjeXgo58xUTW5TcYkbYeNl7OMdHXeA,771726
+thermostat/resources/NationalAverageClimateZoneWeightings.csv,sha256=33Nb2ipozaU_0oSlfyC4VOoHb4aUdd12ENAfA0g1POk,171
+thermostat/resources/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+thermostat/resources/regional_baselines.csv,sha256=OraoZrKz2OvmtaufziesBCRIN3IakJB-XeqUnF2m2Jw,168
+thermostat/util/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+thermostat/util/testing.py,sha256=1W4rBZ6j2AULFjdzVnMiyp3o9yyHj6DHc-fgeTrrJqk,413
+thermostat-1.1.1.dist-info/DESCRIPTION.rst,sha256=T3_ztYyt4bHAke4RrE7atpw740E_ftSf8iJu97_ei-c,63
+thermostat-1.1.1.dist-info/METADATA,sha256=FiNdQbaSECA5pHV-2soVhtg22chMmW5gpC5XvtSs4DY,603
+thermostat-1.1.1.dist-info/RECORD,,
+thermostat-1.1.1.dist-info/WHEEL,sha256=9Z5Xm-eel1bTS7e6ogYiKz0zmPEqDwIypurdHN1hR40,116
+thermostat-1.1.1.dist-info/metadata.json,sha256=LqRPM3S1M0lUrjGrUEnOGS-4MUegkSWDNeYra_HHz7w,704
+thermostat-1.1.1.dist-info/top_level.txt,sha256=8zUGvv8p7DXah7LLKUJ8IQ94DBX9L2oyUpCKJENyqJc,11
