@@ -1,0 +1,9 @@
+MANIFEST.in
+setup.py
+cod-tools/src/components/pycodcif/__init__.py
+cod-tools/src/components/pycodcif/pycodcif.c
+cod-tools/src/components/pycodcif/pycodcif.i
+pycodcif.egg-info/PKG-INFO
+pycodcif.egg-info/SOURCES.txt
+pycodcif.egg-info/dependency_links.txt
+pycodcif.egg-info/top_level.txt
