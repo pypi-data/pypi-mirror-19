@@ -1,0 +1,5 @@
+[console_scripts]
+RoundCreator = RoundCreator.RoundCreator:main
+round-creator = RoundCreator.RoundCreator:main
+roundcreator = RoundCreator.RoundCreator:main
+
