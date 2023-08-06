@@ -1,0 +1,3 @@
+[console_scripts]
+gh-notifier = ghnotifier.main_cli:main
+
