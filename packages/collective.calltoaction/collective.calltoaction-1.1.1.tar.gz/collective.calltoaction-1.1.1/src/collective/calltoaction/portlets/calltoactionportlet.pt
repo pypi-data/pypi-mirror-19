@@ -1,0 +1,19 @@
+<div tal:attributes="class string:portletCallToAction ${view/css_class}"
+     i18n:domain="collective.calltoaction">
+
+  <img tal:replace="structure view/get_image_tag" />
+
+
+  <div class="portletHeader"
+       tal:define="header view/data/header"
+       tal:attributes="class python:header and 'portletHeader' or 'portletHeader titleless'">
+    <span tal:condition="header"
+          tal:content="header" />
+  </div>
+
+  <div class="callToActionMain">
+   <div tal:replace="structure view/transformed" />
+   <div tal:replace="structure view/embedded_form" />
+  </div>
+
+</div>
