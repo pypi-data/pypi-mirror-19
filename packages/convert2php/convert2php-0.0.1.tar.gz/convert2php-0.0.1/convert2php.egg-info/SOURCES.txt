@@ -1,0 +1,11 @@
+setup.cfg
+setup.py
+convert2php.egg-info/PKG-INFO
+convert2php.egg-info/SOURCES.txt
+convert2php.egg-info/dependency_links.txt
+convert2php.egg-info/not-zip-safe
+convert2php.egg-info/top_level.txt
+src/__init__.py
+src/php2python.py
+src/test_scripts/ProfileResponse.py
+src/test_scripts/__init__.py
