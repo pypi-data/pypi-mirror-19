@@ -1,0 +1,23 @@
+Metadata-Version: 1.0
+Name: django-debug-toolbar-template-flamegraph
+Version: 0.2.2
+Summary: Template flamegraphs for Django Debug Toolbar
+Home-page: http://github.com/inglesp/django-debug-toolbar-template-flamegraph
+Author: Peter Inglesby
+Author-email: peter.inglesby@gmail.com
+License: License :: OSI Approved :: MIT License
+Description: # django-debug-toolbar-template-flamegraph
+        
+        This provides a Django Debug Toolbar panel which generates a [Flame Graph](http://www.brendangregg.com/flamegraphs.html) for the rendering of a template.
+        
+        It is probably worth using in conjunction with the [Template Profiler](https://github.com/node13h/django-debug-toolbar-template-profiler) and/or [Template Timings](https://github.com/orf/django-debug-toolbar-template-timings) panels.
+        
+        It borrows a lot from 23andMe's [DjDT Flame Graph](https://github.com/23andMe/djdt-flamegraph).
+        
+        ## Setup
+        
+        * Install `django-debug-toolbar-template-flamegraph` via `pip`
+        * Add `'template_flamegraph'` to `INSTALLED_APPS`
+        * Add `'template_flamegraph.TemplateFlamegraphPanel'` to `DEBUG_TOOLBAR_PANELS`
+        
+Platform: UNKNOWN
