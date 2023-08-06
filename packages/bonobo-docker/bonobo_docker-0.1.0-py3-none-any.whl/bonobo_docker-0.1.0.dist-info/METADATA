@@ -1,0 +1,18 @@
+Metadata-Version: 2.0
+Name: bonobo-docker
+Version: 0.1.0
+Summary: Docker extension for Bonobo
+Home-page: https://bonobo-project.org/
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: Apache License, Version 2.0
+Download-URL: https://github.com/python-bonobo/bonobo-docker/tarball/0.1.0
+Platform: UNKNOWN
+Requires-Dist: bonobo
+Requires-Dist: docker
+Provides-Extra: dev
+Requires-Dist: bonobo[dev]; extra == 'dev'
+
+UNKNOWN
+
+
