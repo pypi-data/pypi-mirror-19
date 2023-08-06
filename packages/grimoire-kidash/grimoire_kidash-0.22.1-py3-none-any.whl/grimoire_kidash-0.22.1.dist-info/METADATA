@@ -1,0 +1,34 @@
+Metadata-Version: 2.0
+Name: grimoire-kidash
+Version: 0.22.1
+Summary: GrimoireLab to manage Kibana dashboards from the command line
+Home-page: https://github.com/grimoirelab/GrimoireELK
+Author: Bitergia
+Author-email: metrics-grimoire@lists.libresoft.info
+License: GPLv3
+Keywords: development repositories analytics
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: grimoire-elk (==0.22.1)
+Requires-Dist: perceval (>=0.5)
+Requires-Dist: python-dateutil
+
+Kidash
+======
+
+Kidash is a prototype of a tool for managing Kibana dashboards from the
+command line. It is a part of
+`GrimoireLab <https://grimoirelab.github.io>`__.
+
+Source code
+-----------
+
+The source code is for now a part of
+`GrimoireELK <https://github.com/grimoirelab/grimoireelk>`__.
+
+
