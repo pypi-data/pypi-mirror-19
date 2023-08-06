@@ -1,0 +1,76 @@
+Metadata-Version: 2.0
+Name: congler
+Version: 0.4.0
+Summary: Search and delete consul services
+Home-page: https://github.com/flypenguin/python-congler
+Author: Axel Bock
+Author-email: mr.axel.bock@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/flypenguin/python-congler/tarball/0.4.0
+Keywords: consul,cli
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: MacOS
+Classifier: Topic :: System :: Systems Administration
+Requires-Dist: python-consul (==0.7.0)
+
+Congler
+=======
+
+A small CLI tool to interface with consul services. Useful for debugging consul service discovery mechanisms.
+
+.. _`see the GitHub page`: https://github.com/flypenguin/python-congler
+
+CHANGELOG
+=========
+
+0.4.0
+-----
+
+Date: 2017-01-20
+
+- FEATURE: *-filtered can now also filter by top level lists (i.e. tags). See github page for example.
+
+
+0.3.0
+-----
+
+Date: 2017-01-20
+
+- FEATURE: simple output filter for list-services and list-tags
+
+
+0.2.1
+-----
+
+Date: 2017-01-20
+
+- FIX: Update docs in PyPI :)
+
+
+0.2.0
+-----
+
+Date: 2017-01-20
+
+- FEATURE: Filter capability (list and delete, with {delete,list}-filtered)
+- FEATURE: Version output
+- FEATURE: Docker distribution (quay.io/flypenguin/congler)
+
+
+0.1.0
+-----
+
+Date: 2017-01-20
+
+- Initial release
+
+
