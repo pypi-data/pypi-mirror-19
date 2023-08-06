@@ -1,0 +1,32 @@
+Metadata-Version: 1.1
+Name: fsubot
+Version: 0.2.4
+Summary: Base bot for developing FSU bots.
+Home-page: https://github.com/seanpianka/fsubot
+Author: Sean Pianka
+Author-email: pianka@eml.cc
+License: MIT
+Download-URL: https://github.com/seanpianka/FSUBot/tarball/0.2.4
+Description: FSUBot
+        ======
+        
+        A bot which serves as the foundation for other bots for use on the
+        Florida State University website. It is useful for automating tasks that
+        are otherwise very menial and tedious.
+        
+Keywords: florida,state,university,fsu,bot
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Education
+Classifier: Topic :: Utilities
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
