@@ -1,0 +1,10 @@
+setuptools
+plone.api
+
+[test]
+plone.app.testing
+unittest2
+robotsuite
+robotframework-selenium2library
+plone.app.robotframework
+robotframework-debuglibrary
