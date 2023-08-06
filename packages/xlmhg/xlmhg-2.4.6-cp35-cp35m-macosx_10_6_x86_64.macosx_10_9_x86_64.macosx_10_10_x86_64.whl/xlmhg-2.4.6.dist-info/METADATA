@@ -1,0 +1,177 @@
+Metadata-Version: 2.0
+Name: xlmhg
+Version: 2.4.6
+Summary: XL-mHG: A Semiparametric Test for Enrichment
+Home-page: https://github.com/flo-compbio/xlmhg
+Author: Florian Wagner
+Author-email: florian.wagner@duke.edu
+License: GPLv3
+Keywords: statistics nonparametric semiparametric enrichment test ranked lists
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Cython
+Requires-Dist: cython (>=0.25.0,<1)
+Requires-Dist: future (<1,>=0.15.2)
+Requires-Dist: numpy (>=1.8,<2)
+Requires-Dist: pip (>=8.1.2)
+Requires-Dist: plotly (>=1.12.4,<2)
+Requires-Dist: six (>=1.10.0,<2)
+Provides-Extra: docs
+Requires-Dist: sphinx (>=1.4.5,<2); extra == 'docs'
+Requires-Dist: sphinx-rtd-theme (>=0.1.9); extra == 'docs'
+Requires-Dist: sphinxcontrib-napoleon (>=0.5.3); extra == 'docs'
+Provides-Extra: tests
+Requires-Dist: pytest (<3,>=2.8.5); extra == 'tests'
+Requires-Dist: pytest-cov (<3,>=2.2.1); extra == 'tests'
+Requires-Dist: scipy (<1,>=0.17.0); extra == 'tests'
+
+XL-mHG
+======
+
+| |pypi| |versions| |license|
+
+===========  ====================================================================
+**master**   |codecov-master| |travis-master| |appveyor-master| |docs-latest|
+**develop**  |codecov-develop| |travis-develop| |appveyor-develop| |docs-develop|
+===========  ====================================================================
+
+This is an efficient Python/Cython implementation of the semiparametric
+`XL-mHG test`__ for enrichment in ranked lists. The XL-mHG test is an extension
+of the nonparametric `mHG test`__, which was developed by `Dr. Zohar
+Yakhini`__ and colleagues.
+
+__ xlmhg_paper_
+__ mhg_paper_
+__ zohar_
+
+Installation
+------------
+
+.. code-block:: bash
+
+    $ pip install xlmhg
+
+Getting started
+---------------
+
+The `xlmhg` package provides two functions (one simple and more more advanced)
+for performing XL-mHG tests. These functions are documented in the
+`User Manual`__. Here's a quick example using the "simple" test function:
+
+.. code-block:: python
+
+    import xlmhg
+    stat, cutoff, pval = xlmhg.xlmhg_test(v, X, L)
+
+Where: ``v`` is the ranked list of 0's and 1's, represented by a NumPy array of
+integers, ``X`` and ``L`` are the XL-mHG parameters, and the return values have
+the following meanings:
+
+- ``stat``: The XL-mHG test statistic
+- ``cutoff``: The cutoff at which XL-mHG test statistic was attained
+- ``pval``: The XL-mHG p-value
+
+__ user_manual_
+
+Documentation
+-------------
+
+Please refer to the `XL-mHG User Manual`__ (hosted on ReadTheDocs).
+
+__ user_manual_
+
+Citing XL-mHG
+-------------
+
+If you use the XL-mHG test in your research, please cite `Eden et al. (PLoS
+Comput Biol, 2007)`__ and `Wagner (PLoS One, 2015)`__.
+
+__ mhg_paper_
+__ go_pca_paper_
+
+Copyright and License
+---------------------
+
+Copyright (c) 2015-2017 Florian Wagner
+
+::
+
+  XL-mHG is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License, Version 3,
+  as published by the Free Software Foundation.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+
+.. _xlmhg_paper: https://doi.org/10.7287/peerj.preprints.1962v2
+
+.. _zohar: http://bioinfo.cs.technion.ac.il/people/zohar
+
+.. _mhg_paper: https://dx.doi.org/10.1371/journal.pcbi.0030039
+
+.. _go_pca_paper: https://dx.doi.org/10.1371/journal.pone.0143196
+
+.. _user_manual: https://xl-mhg.readthedocs.io
+
+.. |pypi| image:: https://img.shields.io/pypi/v/xlmhg.svg
+    :target: https://pypi.python.org/pypi/xlmhg
+    :alt: PyPI version
+
+.. |versions| image:: https://img.shields.io/pypi/pyversions/xlmhg.svg
+    :target: https://pypi.python.org/pypi/xlmhg
+    :alt: Python versions supported
+
+.. |license| image:: https://img.shields.io/pypi/l/xlmhg.svg
+    :target: https://pypi.python.org/pypi/xlmhg
+    :alt: License
+
+.. |travis-master| image:: https://travis-ci.org/flo-compbio/xlmhg.svg?branch=master
+    :alt: Travis-CI build Status (master branch)
+    :scale: 100%
+    :target: https://travis-ci.org/flo-compbio/xlmhg.svg?branch=master
+
+.. |travis-develop| image:: https://travis-ci.org/flo-compbio/xlmhg.svg?branch=develop
+    :alt: Travis-CI build Status (develop branch)
+    :scale: 100%
+    :target: https://travis-ci.org/flo-compbio/xlmhg.svg?branch=develop
+
+.. |appveyor-master| image:: https://ci.appveyor.com/api/projects/status/wpon7qkwpxx3fe6q/branch/master?svg=true
+    :alt: Appveyor build Status (master branch)
+    :scale: 100%
+    :target: https://ci.appveyor.com/project/flo-compbio/xlmhg/branch/master
+
+.. |appveyor-develop| image:: https://ci.appveyor.com/api/projects/status/wpon7qkwpxx3fe6q/branch/develop?svg=true
+    :alt: Appveyor build Status (develop branch)
+    :scale: 100%
+    :target: https://ci.appveyor.com/project/flo-compbio/xlmhg/branch/develop
+
+.. |codecov-master| image:: https://codecov.io/gh/flo-compbio/xlmhg/branch/master/graph/badge.svg
+    :alt: Coverage (master branch)
+    :target: https://codecov.io/gh/flo-compbio/xlmhg/branch/master
+
+.. |codecov-develop| image:: https://codecov.io/gh/flo-compbio/xlmhg/branch/develop/graph/badge.svg
+    :alt: Coverage (develop branch)
+    :target: https://codecov.io/gh/flo-compbio/xlmhg/branch/develop
+
+.. |docs-latest| image:: https://readthedocs.org/projects/xl-mhg/badge/?version=latest
+    :alt: Documentation Status (master branch)
+    :target: https://xl-mhg.readthedocs.io/en/latest
+
+.. |docs-develop| image:: https://readthedocs.org/projects/xl-mhg/badge/?version=develop
+    :alt: Documentation Status (develop branch)
+    :target: https://xl-mhg.readthedocs.io/en/develop
+
+
