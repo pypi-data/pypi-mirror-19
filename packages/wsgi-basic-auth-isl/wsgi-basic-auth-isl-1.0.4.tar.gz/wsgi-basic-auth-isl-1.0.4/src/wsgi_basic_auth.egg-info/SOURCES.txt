@@ -1,0 +1,10 @@
+MANIFEST.in
+README.rst
+setup.py
+src/wsgi_basic_auth.py
+src/wsgi_basic_auth.egg-info/PKG-INFO
+src/wsgi_basic_auth.egg-info/SOURCES.txt
+src/wsgi_basic_auth.egg-info/dependency_links.txt
+src/wsgi_basic_auth.egg-info/not-zip-safe
+src/wsgi_basic_auth.egg-info/requires.txt
+src/wsgi_basic_auth.egg-info/top_level.txt
