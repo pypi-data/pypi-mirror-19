@@ -1,0 +1,4 @@
+[console_scripts]
+mergeit = mergeit.scripts.server:main
+mergeit-shell = mergeit.scripts.shell:main
+

@@ -1,0 +1,2 @@
+recursive-include mergeit *.py
+include requirements.txt
