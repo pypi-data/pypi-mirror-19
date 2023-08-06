@@ -1,0 +1,75 @@
+Metadata-Version: 2.0
+Name: requests-staticmock
+Version: 0.1.0
+Summary: A static HTTP mock interface for requests
+Home-page: https://github.com/tonybaloney/requests-staticmock
+Author: Anthony Shaw
+Author-email: anthonyshaw@apache.org
+License: Apache License (2.0)
+Keywords: requests_staticmock
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Dist: requests
+Requires-Dist: requests-mock
+Requires-Dist: six
+
+===============================
+requests-staticmock
+===============================
+
+.. image:: https://img.shields.io/pypi/v/requests-staticmock.svg
+        :target: https://pypi.python.org/pypi/requests-staticmock
+
+.. image:: https://img.shields.io/travis/tonybaloney/requests-staticmock.svg
+        :target: https://travis-ci.org/tonybaloney/requests-staticmock
+
+.. image:: https://readthedocs.org/projects/requests-staticmock/badge/?version=latest
+        :target: https://readthedocs.org/projects/requests-staticmock/?badge=latest
+        :alt: Documentation Status
+
+
+A static HTTP mock interface for requests
+
+* Free software: ISC license
+* Documentation: https://requests-staticmock.readthedocs.org.
+
+Features
+--------
+
+* TODO
+
+Credits
+---------
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+=======
+History
+=======
+
+0.1.0 (2017-01-01)
+------------------
+
+* First release on PyPI.
+
+
