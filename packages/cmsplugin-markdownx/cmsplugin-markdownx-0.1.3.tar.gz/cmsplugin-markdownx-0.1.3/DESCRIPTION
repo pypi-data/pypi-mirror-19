@@ -1,0 +1,3 @@
+A plugin for django-cms that wraps django-markdownx, enabling WYSIWYG editing of markdown fields.
+To quote Richard Stallman, lo these many years ago, "What you see is what you get" == ""What you see is all there is!".
+This plugin does not replace the standard CMS text plugin, it is a new plugin class, Markdown.

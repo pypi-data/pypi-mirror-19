@@ -1,0 +1,10 @@
+{% extends "admin/cms/page/plugin/change_form.html" %}
+{% load static sekizai_tags cmsplugin_markdownx %}
+{% get_setting "CMSPLUGIN_MARKDOWNX_CODEHILITE_CSS" as codehilite_css  %}
+{% if codehilite_css %}
+{% addtoblock "css" %}
+<link rel="stylesheet" type="text/css" href="{% static codehilite_css %}" />
+{% endaddtoblock %}
+{% endif %}
+
+

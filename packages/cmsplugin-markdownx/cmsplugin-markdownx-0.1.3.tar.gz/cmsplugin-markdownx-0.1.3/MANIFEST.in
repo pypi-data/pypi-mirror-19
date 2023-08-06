@@ -1,0 +1,12 @@
+include AUTHORS
+include LICENSE
+include DESCRIPTION
+include CHANGELOG.txt
+include README.md
+include .gitignore
+include MANIFEST.in
+include setup.py
+graft cmsplugin_markdownx
+global-exclude *.orig *.pyc *.log
+prune cmsplugin_markdownx/tests/coverage
+prune cmsplugin_markdownx/.ropeproject
