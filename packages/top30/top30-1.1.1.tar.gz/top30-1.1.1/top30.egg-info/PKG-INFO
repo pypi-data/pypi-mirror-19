@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: top30
+Version: 1.1.1
+Summary: Creates rundowns from top30 charts
+Home-page: https://gitlab.com/paddatrapper/top30
+Author: Kyle Robbertze
+Author-email: krobbertze@gmail.com
+License: GPL-3+
+Description: #Top 30
+        
+        Automatically creates run downs of songs given certain parameters.
+        
+Keywords: radio audio rundown
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Other Audience
+Classifier: Topic :: Multimedia :: Sound/Audio
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
