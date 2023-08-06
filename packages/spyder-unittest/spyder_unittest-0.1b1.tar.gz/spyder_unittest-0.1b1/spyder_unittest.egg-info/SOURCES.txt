@@ -1,0 +1,17 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+spyder_unittest/__init__.py
+spyder_unittest/unittestplugin.py
+spyder_unittest.egg-info/PKG-INFO
+spyder_unittest.egg-info/SOURCES.txt
+spyder_unittest.egg-info/dependency_links.txt
+spyder_unittest.egg-info/requires.txt
+spyder_unittest.egg-info/top_level.txt
+spyder_unittest/backend/__init__.py
+spyder_unittest/backend/testrunner.py
+spyder_unittest/widgets/__init__.py
+spyder_unittest/widgets/configdialog.py
+spyder_unittest/widgets/unittestgui.py
