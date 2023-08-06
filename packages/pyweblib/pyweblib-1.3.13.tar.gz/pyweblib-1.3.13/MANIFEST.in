@@ -1,0 +1,4 @@
+include CHANGES MANIFEST.in
+recursive-include pyweblib *.py
+recursive-include htdocs *.html
+recursive-include cgi-bin *.py

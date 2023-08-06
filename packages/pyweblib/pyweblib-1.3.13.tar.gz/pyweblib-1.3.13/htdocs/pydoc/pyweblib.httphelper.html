@@ -1,0 +1,68 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module pyweblib.httphelper</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="pyweblib.html"><font color="#ffffff">pyweblib</font></a>.httphelper</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/michael/Proj/python/PyWebLib/pyweblib/httphelper.py">/home/michael/Proj/python/PyWebLib/pyweblib/httphelper.py</a></font></td></tr></table>
+    <p><tt>httphelper.py&nbsp;-&nbsp;basic&nbsp;HTTP-related&nbsp;functions<br>
+(C)&nbsp;1998-2015&nbsp;by&nbsp;Michael&nbsp;Ströder&nbsp;&lt;michael@stroeder.com&gt;<br>
+&nbsp;<br>
+This&nbsp;module&nbsp;is&nbsp;distributed&nbsp;under&nbsp;the&nbsp;terms&nbsp;of&nbsp;the<br>
+GPL&nbsp;(GNU&nbsp;GENERAL&nbsp;PUBLIC&nbsp;LICENSE)&nbsp;Version&nbsp;2<br>
+(see&nbsp;<a href="http://www.gnu.org/copyleft/gpl.html">http://www.gnu.org/copyleft/gpl.html</a>)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-DateTimeRFC1123"><strong>DateTimeRFC1123</strong></a>(secs<font color="#909090">=0</font>)</dt><dd><tt>Return&nbsp;seconds&nbsp;as&nbsp;<a href="http://www.rfc-editor.org/rfc/rfc1123.txt">RFC1123</a>&nbsp;date/time&nbsp;format&nbsp;preferred<br>
+for&nbsp;HTTP&nbsp;1.1&nbsp;(see&nbsp;<a href="http://www.rfc-editor.org/rfc/rfc2616.txt">RFC2616</a>)</tt></dd></dl>
+ <dl><dt><a name="-SendHeader"><strong>SendHeader</strong></a>(outf<font color="#909090">=&lt;open file '&lt;stdout&gt;', mode 'w'&gt;</font>, contenttype<font color="#909090">='text/html'</font>, charset<font color="#909090">='ISO-8859-1'</font>, contentlength<font color="#909090">=None</font>, expires_offset<font color="#909090">=0</font>, current_datetime<font color="#909090">=None</font>, additional_header<font color="#909090">=None</font>)</dt><dd><tt>Generate&nbsp;HTTP&nbsp;header<br>
+&nbsp;<br>
+outf<br>
+&nbsp;&nbsp;&nbsp;&nbsp;File&nbsp;object&nbsp;used&nbsp;for&nbsp;sending&nbsp;to&nbsp;client.<br>
+contenttype<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MIME&nbsp;type&nbsp;of&nbsp;object&nbsp;in&nbsp;HTTP&nbsp;body.&nbsp;Default&nbsp;is&nbsp;'text/html'.<br>
+charset<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Character&nbsp;set&nbsp;used.&nbsp;Default&nbsp;is&nbsp;'ISO-8859-1'.<br>
+contentlength<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Content-Length&nbsp;if&nbsp;known&nbsp;and&nbsp;gzip-encoding&nbsp;is&nbsp;not&nbsp;used.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Default&nbsp;is&nbsp;None&nbsp;indicating&nbsp;unknown&nbsp;length.<br>
+expires_offset=0,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Expiry&nbsp;time&nbsp;from&nbsp;current&nbsp;time&nbsp;in&nbsp;seconds.&nbsp;Default&nbsp;is&nbsp;0.<br>
+current_datetime<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Last&nbsp;modification&nbsp;time&nbsp;in&nbsp;seconds.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;zero&nbsp;(default)&nbsp;'Last-modified'&nbsp;header&nbsp;will&nbsp;be&nbsp;omitted.<br>
+additional_header<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Dictionary&nbsp;containing&nbsp;arbitrary&nbsp;additional&nbsp;HTTP&nbsp;header&nbsp;fields<br>
+&nbsp;&nbsp;&nbsp;&nbsp;as&nbsp;key/value-pairs.</tt></dd></dl>
+ <dl><dt><a name="-SimpleMsg"><strong>SimpleMsg</strong></a>(outf, msg)</dt><dd><tt>Output&nbsp;HTML&nbsp;text.</tt></dd></dl>
+ <dl><dt><a name="-URLRedirect"><strong>URLRedirect</strong></a>(outf, url, refreshtime<font color="#909090">=0</font>, msg<font color="#909090">='Redirecting...'</font>, additional_header<font color="#909090">=None</font>)</dt><dd><tt>Output&nbsp;HTML&nbsp;text&nbsp;with&nbsp;redirecting&nbsp;&lt;head&gt;&nbsp;section.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>HTTP_LINESEP</strong> = '<font color="#c040c0">\r\n</font>'<br>
+<strong>__info__</strong> = '$Id: pyweblib.httphelper.html,v 1.13 2015/01/10 14:40:54 michael Exp $'<br>
+<strong>__revision__</strong> = '1.15'</td></tr></table>
+</body></html>

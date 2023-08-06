@@ -1,0 +1,59 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module pyweblib.sslenv</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="pyweblib.html"><font color="#ffffff">pyweblib</font></a>.sslenv</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/michael/Proj/python/PyWebLib/pyweblib/sslenv.py">/home/michael/Proj/python/PyWebLib/pyweblib/sslenv.py</a></font></td></tr></table>
+    <p><tt>pyweblib.sslenv.py&nbsp;-&nbsp;retrieve&nbsp;SSL&nbsp;data&nbsp;from&nbsp;environment&nbsp;vars<br>
+(C)&nbsp;1998-2015&nbsp;by&nbsp;Michael&nbsp;Ströder&nbsp;&lt;michael@stroeder.com&gt;<br>
+&nbsp;<br>
+This&nbsp;module&nbsp;is&nbsp;distributed&nbsp;under&nbsp;the&nbsp;terms&nbsp;of&nbsp;the<br>
+GPL&nbsp;(GNU&nbsp;GENERAL&nbsp;PUBLIC&nbsp;LICENSE)&nbsp;Version&nbsp;2<br>
+(see&nbsp;<a href="http://www.gnu.org/copyleft/gpl.html">http://www.gnu.org/copyleft/gpl.html</a>)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="re.html">re</a><br>
+</td><td width="25%" valign=top><a href="string.html">string</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-GetAllSSLEnviron"><strong>GetAllSSLEnviron</strong></a>(env<font color="#909090">=None</font>)</dt><dd><tt>Get&nbsp;all&nbsp;SSL-related&nbsp;environment&nbsp;vars&nbsp;and&nbsp;return&nbsp;mod_ssl<br>
+compatible&nbsp;dictionary.<br>
+&nbsp;<br>
+mod_ssl&nbsp;compatible&nbsp;names&nbsp;are&nbsp;preferred.&nbsp;ApacheSSL&nbsp;names<br>
+are&nbsp;used&nbsp;as&nbsp;fallback.</tt></dd></dl>
+ <dl><dt><a name="-PrintSecInfo"><strong>PrintSecInfo</strong></a>(env, acceptedciphers, valid_dn_regex<font color="#909090">=''</font>, valid_idn_regex<font color="#909090">=''</font>, f<font color="#909090">=&lt;open file '&lt;stdout&gt;', mode 'w'&gt;</font>)</dt><dd><tt>Print&nbsp;the&nbsp;SSL&nbsp;data&nbsp;in&nbsp;HTML&nbsp;format</tt></dd></dl>
+ <dl><dt><a name="-SecLevel"><strong>SecLevel</strong></a>(env, acceptedciphers, valid_dn_regex<font color="#909090">=''</font>, valid_idn_regex<font color="#909090">=''</font>)</dt><dd><tt>Determine&nbsp;Security&nbsp;Level&nbsp;of&nbsp;SSL&nbsp;session.<br>
+&nbsp;<br>
+Returns:<br>
+0&nbsp;&nbsp;no&nbsp;SSL&nbsp;at&nbsp;all<br>
+1&nbsp;&nbsp;SSL-connection&nbsp;and&nbsp;cipher&nbsp;used&nbsp;is&nbsp;in&nbsp;acceptedciphers<br>
+2&nbsp;&nbsp;like&nbsp;1&nbsp;but&nbsp;client&nbsp;also&nbsp;has&nbsp;sent&nbsp;client&nbsp;certificate<br>
+&nbsp;&nbsp;&nbsp;matching&nbsp;valid_dn_regex&nbsp;and&nbsp;valid_idn_regex.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>__info__</strong> = '$Id: pyweblib.sslenv.html,v 1.14 2015/01/10 14:40:54 michael Exp $'<br>
+<strong>__revision__</strong> = '1.13'</td></tr></table>
+</body></html>

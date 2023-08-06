@@ -1,0 +1,217 @@
+2017-01-18      PyWebLib 1.3.13
+- new release version for signed source file because of PyPI madness
+
+2015-01-10      PyWebLib 1.3.12
+- Cosmetic changes in meta vars and __doc__ strings, updated pydoc
+
+2014-03-22      PyWebLib 1.3.11
+- Radio.inputHTML(): Fixed Unicode issue
+
+2013-05-17      PyWebLib 1.3.10
+- Select.inputHTML(): Fixed Unicode issue
+
+2012-04-23      PyWebLib 1.3.9
+- Radio.inputHTML(): Fixed double output of attribute name id=
+- File.inputHTML(): Various attributes are not allowed for <input type="file">
+
+2011-06-19      PyWebLib 1.3.8
+- sslenv.PrintSecInfo(): Simplified output of issuer and subject DNs
+- Class Radio: Regex-checking is not used anymore since this fails on
+  larger option lists
+
+2011-02-19      PyWebLib 1.3.7
+- sslenv.PrintSecInfo(): Also SSL_PROTOCOL is displayed
+- fixed inconsistent use of tabs and spaces (python -tt)
+- Single quotes and backticks are now escaped in pyweblib.forms.escapeHTML()
+- pyweblib.forms.Form.hiddenInputFields(): Treat default value for key-word
+  argument ignoreFieldNames more robustely
+- forms.Select now also supports 3-tuples as option and the third
+  value will be added as attribute text to HTML tag <option>
+
+2009-07-26      PyWebLib 1.3.6
+- pyweblib.session.WebSession.__init__() has two new key-word arguments:
+  sessionIDLength and sessionIDChars which allows to specify length and
+  valid chars of session IDs generated
+- A few chars added to pyweblib.session.SESSION_ID_CHARS to
+  increase security
+
+2008-07-26      PyWebLib 1.3.5
+- httphelper.SendHeader():
+  Send ;charset along with Content-Type: header only if argument
+  contenttype starts with 'text/'
+- helper.AcceptCharsetDict: if not explicitly specified the weight
+  for ISO-8859-1 is derived from "*" instead of setting it to 1.0
+
+2006-10-03      PyWebLib 1.3.4
+- New method pyweblib.Field.titleHTML() implements appropriate
+  escaping of HTML character entities in title strings.
+
+2004-08-23      PyWebLib 1.3.3
+- pyweblib.httphelper.URLRedirect() does not invoke
+  vars() anymore to be friendly to psyco module
+- Fixed MANIFEST.in and setup.cfg to not include
+  non-existing directory doc/
+- Fixed handling of dictobj passed in to
+  pyweblib.session.WebSession.__init__()
+- Fixed handling of argument crossCheckVars in
+  pyweblib.session.WebSession.__init__(). Only use
+  default from SESSION_CROSSCHECKVARS if crossCheckVars
+  is None
+
+2004-03-31      PyWebLib 1.3.2
+- Fixed argument handling of 'checked' in
+  pyweblib.forms.Checkbox.inputHTML()
+- Stronger session ID chosen randomly from
+  string.letters+string.digits
+
+2003-12-01      PyWebLib 1.3.1
+- Fixed some subtle bugs found with pychecker
+- pyweblib.session now uses module random instead of whrandom
+
+- Support for file upload with new class pyweblib.forms.File.
+2003-10-21      PyWebLib 1.3.0
+
+- Support for file upload with new class pyweblib.forms.File.
+- Fixed pyweblib.forms.Field.labelHTML() to always return string
+  instead of sometimes returning Unicode object
+- pyweblib.forms.Checkbox.inputHTML() has new key-word argument
+  checked
+- pyweblib.forms.Password.inputHTML() has key-word argument
+  default
+- pyweblib.forms.Field.inputHTML() (all derived) have new
+  key-word argument id_value for specifying id-attribute
+  of input field tag.
+- pyweblib.forms.Field.labelHTML() has new
+  key-word argument id_value for specifying for-attribute
+  of label tag.
+- Renamed pyweblib.session.KeyError to pyweblib.session.InvalidSessionId
+  to avoid name clash with standard KeyError exception
+- New method pyweblib.session.Session._validateSessionIdFormat()
+  implements sanity check on session ID for protecting underlying
+  implementations from overflows etc.
+- pyweblib.session.Session._generateSessionID() does not
+  add time.time() to session ID anymore. This was never used
+  for anything meaningful and is only bloat.
+
+2003-05-23      PyWebLib 1.2.3
+
+- pyweblib.forms.escapeHTML() without for-loop for increased
+  performance
+- added new function pyweblib.helper.guessClientAddr()
+- pyweblib.forms.Checkbox.__init__():
+  Set maxLen class attribute to 0 if default is None
+- pyweblib.forms.Form.getInputFields():
+  New argument unquotePlus to choose whether to use
+  urllib.unquote_plus() or urllib.unquote().
+  Default is to use urllib.unquote().
+
+2003-01-26      PyWebLib 1.2.2
+
+- Security fix:
+  os.environ not longer used as default for key-word argument
+  of pyweblib.sslenv.GetAllSSLEnviron()
+
+2002-09-11      PyWebLib 1.2.1
+
+- Minor security fixes:
+  Mutable types and instances as defaults for key-word args
+  are eliminated
+- Fixed demo cgi-bin/test-forms.py
+
+2002-07-25      PyWebLib 1.2.0
+
+- Added generation of Date header in httphelper.SendHeader()
+- pyweblib.forms.Form.hiddenInputFields(): Values are escapedHTML()
+  and line breaks are added for better readability of HTML source
+- Support for Python installations built without thread support
+  in pyweblib.session (mimikri lock handling)
+- New parameter maxSessionCount for
+  pyweblib.session.WebSession.__init__() defines the maximum
+  number of web sessions. pyweblib.session.WebSession.newSession()
+  raises pyweblib.session.MaxSessionCountExceeded if number of
+  sessions is higher than the limit
+- Added pyweblib.httphelper.SimpleMsg() for situations where
+  ressources are really tight
+
+------------------------------------------------------------------
+
+2002-02-17      PyWebLib 1.1.0
+
+- Generalized old class pyweblib.helper.AcceptCharsetDict to
+  general usable class pyweblib.helper.AcceptHeaderDict
+  which is suitable for parsing all Accept-* headers described
+  in sections 14.1 to 14.5 of RFC2616.
+
+------------------------------------------------------------------
+
+
+2001-11-17      PyWebLib 1.0.6
+
+- Added pyweblib.forms.getInputValue()
+
+------------------------------------------------------------------
+
+2001-11-11      PyWebLib 1.0.5
+
+- pyweblib.forms.Field._labelHTML() was renamed to labelHTML()
+- pyweblib.forms.Field.inputHTML() does not call labelHTML().
+  The application has to explicitly call labelHTML() if needed.
+- Removed parameters of pyweblib.forms.Field.inputHTML() related
+  to <label>.
+
+------------------------------------------------------------------
+
+2001-07-19      PyWebLib 1.0.4
+
+- Local var maxContentLength is calculated correctly now in
+  Form.getInputFields() instead of using class attribute
+  Form.maxContentLength. Class attribute Form.maxContentLength
+  was abandoned completely.
+- Fixed test program cgi-bin/test-session.py to reflect
+  renaming of key word arguments done in 1.0.3 for
+  pyweblib.session.WebSession.__init__()
+
+------------------------------------------------------------------
+
+2001-07-13      PyWebLib 1.0.3
+
+- Cleaned up pyweblib.session.CleanUpThread
+- Some incompatible renaming of key word arguments of
+  pyweblib.session.WebSession.__init__()!
+
+------------------------------------------------------------------
+
+2001-07-10      PyWebLib 1.0.2
+
+- Cleaned up and extended regex handling in pyweblib.forms.Field()
+- Cleaned up some minor issues found by PyChecker
+- Fix for non-existent dict keys in
+  pyweblib.session.WebSession._crosscheckSessionEnv()
+- Modified error handling in
+  pyweblib.session.WebSession._generateSessionID()
+- other minor fixes
+- __doc__ strings
+
+------------------------------------------------------------------
+
+2001-07-01      PyWebLib 1.0.1
+
+- Renamed package to avoid name clash with commercial product
+- A session is deleted now in any case in method
+  pyweblib.session.WebSession.deleteSession() no matter
+  which key type, etc.
+
+------------------------------------------------------------------
+
+2001-06-25      msweb 1.0.0
+
+Initial release containing a major overhaul of the modules
+formerly shipped with web2ldap:
+- cgiforms
+- cgissl
+- cgihelper
+- cgisession
+
+------------------------------------------------------------------
+
+$Id: CHANGES,v 1.38 2015/01/10 14:44:36 michael Exp $

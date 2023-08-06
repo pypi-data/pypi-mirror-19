@@ -1,0 +1,721 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module pyweblib.session</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="pyweblib.html"><font color="#ffffff">pyweblib</font></a>.session</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/michael/Proj/python/PyWebLib/pyweblib/session.py">/home/michael/Proj/python/PyWebLib/pyweblib/session.py</a></font></td></tr></table>
+    <p><tt>pyweblib.session&nbsp;-&nbsp;server-side&nbsp;web&nbsp;session&nbsp;handling<br>
+(C)&nbsp;1998-2015&nbsp;by&nbsp;Michael&nbsp;Ströder&nbsp;&lt;michael@stroeder.com&gt;<br>
+&nbsp;<br>
+This&nbsp;module&nbsp;implements&nbsp;server&nbsp;side&nbsp;session&nbsp;handling&nbsp;stored&nbsp;in<br>
+arbitrary&nbsp;string-keyed&nbsp;dictionary&nbsp;objects<br>
+&nbsp;<br>
+This&nbsp;module&nbsp;is&nbsp;distributed&nbsp;under&nbsp;the&nbsp;terms&nbsp;of&nbsp;the<br>
+GPL&nbsp;(GNU&nbsp;GENERAL&nbsp;PUBLIC&nbsp;LICENSE)&nbsp;Version&nbsp;2<br>
+(see&nbsp;<a href="http://www.gnu.org/copyleft/gpl.html">http://www.gnu.org/copyleft/gpl.html</a>)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="pickle.html">pickle</a><br>
+<a href="random.html">random</a><br>
+</td><td width="25%" valign=top><a href="re.html">re</a><br>
+<a href="string.html">string</a><br>
+</td><td width="25%" valign=top><a href="threading.html">threading</a><br>
+<a href="time.html">time</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="exceptions.html#Exception">exceptions.Exception</a>(<a href="exceptions.html#BaseException">exceptions.BaseException</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="pyweblib.session.html#SessionException">SessionException</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="pyweblib.session.html#BadSessionId">BadSessionId</a>
+</font></dt><dt><font face="helvetica, arial"><a href="pyweblib.session.html#CorruptData">CorruptData</a>
+</font></dt><dt><font face="helvetica, arial"><a href="pyweblib.session.html#GenerateIDError">GenerateIDError</a>
+</font></dt><dt><font face="helvetica, arial"><a href="pyweblib.session.html#InvalidSessionId">InvalidSessionId</a>
+</font></dt><dt><font face="helvetica, arial"><a href="pyweblib.session.html#MaxSessionCountExceeded">MaxSessionCountExceeded</a>
+</font></dt><dt><font face="helvetica, arial"><a href="pyweblib.session.html#SessionExpired">SessionExpired</a>
+</font></dt><dt><font face="helvetica, arial"><a href="pyweblib.session.html#SessionHijacked">SessionHijacked</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="pyweblib.session.html#WebSession">WebSession</a>
+</font></dt><dt><font face="helvetica, arial"><a href="threading.html#Thread">threading.Thread</a>(<a href="threading.html#_Verbose">threading._Verbose</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="pyweblib.session.html#CleanUpThread">CleanUpThread</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="BadSessionId">class <strong>BadSessionId</strong></a>(<a href="pyweblib.session.html#SessionException">SessionException</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Raised&nbsp;if&nbsp;session&nbsp;ID&nbsp;not&nbsp;found&nbsp;in&nbsp;session&nbsp;dictionary.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="pyweblib.session.html#BadSessionId">BadSessionId</a></dd>
+<dd><a href="pyweblib.session.html#SessionException">SessionException</a></dd>
+<dd><a href="exceptions.html#Exception">exceptions.Exception</a></dd>
+<dd><a href="exceptions.html#BaseException">exceptions.BaseException</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="BadSessionId-__init__"><strong>__init__</strong></a>(self, session_id)</dt></dl>
+
+<dl><dt><a name="BadSessionId-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="pyweblib.session.html#SessionException">SessionException</a>:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#BadSessionId-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;object&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><a name="BadSessionId-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#BadSessionId-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="BadSessionId-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#BadSessionId-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="BadSessionId-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#BadSessionId-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="BadSessionId-__getslice__"><strong>__getslice__</strong></a>(...)</dt><dd><tt>x.<a href="#BadSessionId-__getslice__">__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="BadSessionId-__reduce__"><strong>__reduce__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="BadSessionId-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#BadSessionId-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="BadSessionId-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#BadSessionId-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="BadSessionId-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="BadSessionId-__unicode__"><strong>__unicode__</strong></a>(...)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+<dl><dt><strong>message</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="CleanUpThread">class <strong>CleanUpThread</strong></a>(<a href="threading.html#Thread">threading.Thread</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="threading.html#Thread">Thread</a>&nbsp;class&nbsp;for&nbsp;clean-up&nbsp;thread<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="pyweblib.session.html#CleanUpThread">CleanUpThread</a></dd>
+<dd><a href="threading.html#Thread">threading.Thread</a></dd>
+<dd><a href="threading.html#_Verbose">threading._Verbose</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="CleanUpThread-__init__"><strong>__init__</strong></a>(self, sessionInstance, interval<font color="#909090">=60</font>)</dt></dl>
+
+<dl><dt><a name="CleanUpThread-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="CleanUpThread-join"><strong>join</strong></a>(self, timeout<font color="#909090">=0.0</font>)</dt></dl>
+
+<dl><dt><a name="CleanUpThread-run"><strong>run</strong></a>(self)</dt><dd><tt><a href="threading.html#Thread">Thread</a>&nbsp;function&nbsp;for&nbsp;cleaning&nbsp;up&nbsp;session&nbsp;database</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="threading.html#Thread">threading.Thread</a>:<br>
+<dl><dt><a name="CleanUpThread-getName"><strong>getName</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="CleanUpThread-isAlive"><strong>isAlive</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;the&nbsp;thread&nbsp;is&nbsp;alive.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;returns&nbsp;True&nbsp;just&nbsp;before&nbsp;the&nbsp;<a href="#CleanUpThread-run">run</a>()&nbsp;method&nbsp;starts&nbsp;until&nbsp;just<br>
+after&nbsp;the&nbsp;<a href="#CleanUpThread-run">run</a>()&nbsp;method&nbsp;terminates.&nbsp;The&nbsp;module&nbsp;function&nbsp;enumerate()<br>
+returns&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;alive&nbsp;threads.</tt></dd></dl>
+
+<dl><dt><a name="CleanUpThread-isDaemon"><strong>isDaemon</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="CleanUpThread-is_alive"><strong>is_alive</strong></a> = isAlive(self)</dt><dd><tt>Return&nbsp;whether&nbsp;the&nbsp;thread&nbsp;is&nbsp;alive.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;returns&nbsp;True&nbsp;just&nbsp;before&nbsp;the&nbsp;<a href="#CleanUpThread-run">run</a>()&nbsp;method&nbsp;starts&nbsp;until&nbsp;just<br>
+after&nbsp;the&nbsp;<a href="#CleanUpThread-run">run</a>()&nbsp;method&nbsp;terminates.&nbsp;The&nbsp;module&nbsp;function&nbsp;enumerate()<br>
+returns&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;alive&nbsp;threads.</tt></dd></dl>
+
+<dl><dt><a name="CleanUpThread-setDaemon"><strong>setDaemon</strong></a>(self, daemonic)</dt></dl>
+
+<dl><dt><a name="CleanUpThread-setName"><strong>setName</strong></a>(self, name)</dt></dl>
+
+<dl><dt><a name="CleanUpThread-start"><strong>start</strong></a>(self)</dt><dd><tt>Start&nbsp;the&nbsp;thread's&nbsp;activity.<br>
+&nbsp;<br>
+It&nbsp;must&nbsp;be&nbsp;called&nbsp;at&nbsp;most&nbsp;once&nbsp;per&nbsp;thread&nbsp;object.&nbsp;It&nbsp;arranges&nbsp;for&nbsp;the<br>
+object's&nbsp;<a href="#CleanUpThread-run">run</a>()&nbsp;method&nbsp;to&nbsp;be&nbsp;invoked&nbsp;in&nbsp;a&nbsp;separate&nbsp;thread&nbsp;of&nbsp;control.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;will&nbsp;raise&nbsp;a&nbsp;RuntimeError&nbsp;if&nbsp;called&nbsp;more&nbsp;than&nbsp;once&nbsp;on&nbsp;the<br>
+same&nbsp;thread&nbsp;object.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="threading.html#Thread">threading.Thread</a>:<br>
+<dl><dt><strong>daemon</strong></dt>
+<dd><tt>A&nbsp;boolean&nbsp;value&nbsp;indicating&nbsp;whether&nbsp;this&nbsp;thread&nbsp;is&nbsp;a&nbsp;daemon&nbsp;thread&nbsp;(True)&nbsp;or&nbsp;not&nbsp;(False).<br>
+&nbsp;<br>
+This&nbsp;must&nbsp;be&nbsp;set&nbsp;before&nbsp;start()&nbsp;is&nbsp;called,&nbsp;otherwise&nbsp;RuntimeError&nbsp;is<br>
+raised.&nbsp;Its&nbsp;initial&nbsp;value&nbsp;is&nbsp;inherited&nbsp;from&nbsp;the&nbsp;creating&nbsp;thread;&nbsp;the<br>
+main&nbsp;thread&nbsp;is&nbsp;not&nbsp;a&nbsp;daemon&nbsp;thread&nbsp;and&nbsp;therefore&nbsp;all&nbsp;threads&nbsp;created&nbsp;in<br>
+the&nbsp;main&nbsp;thread&nbsp;default&nbsp;to&nbsp;daemon&nbsp;=&nbsp;False.<br>
+&nbsp;<br>
+The&nbsp;entire&nbsp;Python&nbsp;program&nbsp;exits&nbsp;when&nbsp;no&nbsp;alive&nbsp;non-daemon&nbsp;threads&nbsp;are<br>
+left.</tt></dd>
+</dl>
+<dl><dt><strong>ident</strong></dt>
+<dd><tt>Thread&nbsp;identifier&nbsp;of&nbsp;this&nbsp;thread&nbsp;or&nbsp;None&nbsp;if&nbsp;it&nbsp;has&nbsp;not&nbsp;been&nbsp;started.<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;a&nbsp;nonzero&nbsp;integer.&nbsp;See&nbsp;the&nbsp;thread.get_ident()&nbsp;function.&nbsp;Thread<br>
+identifiers&nbsp;may&nbsp;be&nbsp;recycled&nbsp;when&nbsp;a&nbsp;thread&nbsp;exits&nbsp;and&nbsp;another&nbsp;thread&nbsp;is<br>
+created.&nbsp;The&nbsp;identifier&nbsp;is&nbsp;available&nbsp;even&nbsp;after&nbsp;the&nbsp;thread&nbsp;has&nbsp;exited.</tt></dd>
+</dl>
+<dl><dt><strong>name</strong></dt>
+<dd><tt>A&nbsp;string&nbsp;used&nbsp;for&nbsp;identification&nbsp;purposes&nbsp;only.<br>
+&nbsp;<br>
+It&nbsp;has&nbsp;no&nbsp;semantics.&nbsp;Multiple&nbsp;threads&nbsp;may&nbsp;be&nbsp;given&nbsp;the&nbsp;same&nbsp;name.&nbsp;The<br>
+initial&nbsp;name&nbsp;is&nbsp;set&nbsp;by&nbsp;the&nbsp;constructor.</tt></dd>
+</dl>
+<hr>
+Data descriptors inherited from <a href="threading.html#_Verbose">threading._Verbose</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="CorruptData">class <strong>CorruptData</strong></a>(<a href="pyweblib.session.html#SessionException">SessionException</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Raised&nbsp;if&nbsp;data&nbsp;was&nbsp;corrupt,&nbsp;e.g.&nbsp;UnpicklingError&nbsp;occured<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="pyweblib.session.html#CorruptData">CorruptData</a></dd>
+<dd><a href="pyweblib.session.html#SessionException">SessionException</a></dd>
+<dd><a href="exceptions.html#Exception">exceptions.Exception</a></dd>
+<dd><a href="exceptions.html#BaseException">exceptions.BaseException</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="CorruptData-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="pyweblib.session.html#SessionException">SessionException</a>:<br>
+<dl><dt><a name="CorruptData-__init__"><strong>__init__</strong></a>(self, *args)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="pyweblib.session.html#SessionException">SessionException</a>:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#CorruptData-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;object&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><a name="CorruptData-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#CorruptData-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="CorruptData-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#CorruptData-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="CorruptData-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#CorruptData-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="CorruptData-__getslice__"><strong>__getslice__</strong></a>(...)</dt><dd><tt>x.<a href="#CorruptData-__getslice__">__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="CorruptData-__reduce__"><strong>__reduce__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="CorruptData-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#CorruptData-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="CorruptData-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#CorruptData-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="CorruptData-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="CorruptData-__unicode__"><strong>__unicode__</strong></a>(...)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+<dl><dt><strong>message</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="GenerateIDError">class <strong>GenerateIDError</strong></a>(<a href="pyweblib.session.html#SessionException">SessionException</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Raised&nbsp;if&nbsp;generation&nbsp;of&nbsp;unique&nbsp;session&nbsp;ID&nbsp;failed.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="pyweblib.session.html#GenerateIDError">GenerateIDError</a></dd>
+<dd><a href="pyweblib.session.html#SessionException">SessionException</a></dd>
+<dd><a href="exceptions.html#Exception">exceptions.Exception</a></dd>
+<dd><a href="exceptions.html#BaseException">exceptions.BaseException</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="GenerateIDError-__init__"><strong>__init__</strong></a>(self, maxtry)</dt></dl>
+
+<dl><dt><a name="GenerateIDError-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="pyweblib.session.html#SessionException">SessionException</a>:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#GenerateIDError-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;object&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><a name="GenerateIDError-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#GenerateIDError-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="GenerateIDError-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#GenerateIDError-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="GenerateIDError-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#GenerateIDError-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="GenerateIDError-__getslice__"><strong>__getslice__</strong></a>(...)</dt><dd><tt>x.<a href="#GenerateIDError-__getslice__">__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="GenerateIDError-__reduce__"><strong>__reduce__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="GenerateIDError-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#GenerateIDError-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="GenerateIDError-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#GenerateIDError-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="GenerateIDError-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="GenerateIDError-__unicode__"><strong>__unicode__</strong></a>(...)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+<dl><dt><strong>message</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="InvalidSessionId">class <strong>InvalidSessionId</strong></a>(<a href="pyweblib.session.html#SessionException">SessionException</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Raised&nbsp;if&nbsp;session&nbsp;ID&nbsp;not&nbsp;found&nbsp;in&nbsp;session&nbsp;dictionary.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="pyweblib.session.html#InvalidSessionId">InvalidSessionId</a></dd>
+<dd><a href="pyweblib.session.html#SessionException">SessionException</a></dd>
+<dd><a href="exceptions.html#Exception">exceptions.Exception</a></dd>
+<dd><a href="exceptions.html#BaseException">exceptions.BaseException</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="InvalidSessionId-__init__"><strong>__init__</strong></a>(self, session_id)</dt></dl>
+
+<dl><dt><a name="InvalidSessionId-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="pyweblib.session.html#SessionException">SessionException</a>:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#InvalidSessionId-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;object&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><a name="InvalidSessionId-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#InvalidSessionId-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="InvalidSessionId-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#InvalidSessionId-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="InvalidSessionId-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#InvalidSessionId-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="InvalidSessionId-__getslice__"><strong>__getslice__</strong></a>(...)</dt><dd><tt>x.<a href="#InvalidSessionId-__getslice__">__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="InvalidSessionId-__reduce__"><strong>__reduce__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="InvalidSessionId-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#InvalidSessionId-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="InvalidSessionId-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#InvalidSessionId-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="InvalidSessionId-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="InvalidSessionId-__unicode__"><strong>__unicode__</strong></a>(...)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+<dl><dt><strong>message</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="MaxSessionCountExceeded">class <strong>MaxSessionCountExceeded</strong></a>(<a href="pyweblib.session.html#SessionException">SessionException</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Raised&nbsp;if&nbsp;maximum&nbsp;number&nbsp;of&nbsp;sessions&nbsp;is&nbsp;exceeded.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="pyweblib.session.html#MaxSessionCountExceeded">MaxSessionCountExceeded</a></dd>
+<dd><a href="pyweblib.session.html#SessionException">SessionException</a></dd>
+<dd><a href="exceptions.html#Exception">exceptions.Exception</a></dd>
+<dd><a href="exceptions.html#BaseException">exceptions.BaseException</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="MaxSessionCountExceeded-__init__"><strong>__init__</strong></a>(self, max_session_count)</dt></dl>
+
+<dl><dt><a name="MaxSessionCountExceeded-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="pyweblib.session.html#SessionException">SessionException</a>:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#MaxSessionCountExceeded-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;object&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><a name="MaxSessionCountExceeded-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#MaxSessionCountExceeded-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="MaxSessionCountExceeded-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#MaxSessionCountExceeded-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="MaxSessionCountExceeded-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#MaxSessionCountExceeded-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="MaxSessionCountExceeded-__getslice__"><strong>__getslice__</strong></a>(...)</dt><dd><tt>x.<a href="#MaxSessionCountExceeded-__getslice__">__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="MaxSessionCountExceeded-__reduce__"><strong>__reduce__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="MaxSessionCountExceeded-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#MaxSessionCountExceeded-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="MaxSessionCountExceeded-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#MaxSessionCountExceeded-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="MaxSessionCountExceeded-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="MaxSessionCountExceeded-__unicode__"><strong>__unicode__</strong></a>(...)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+<dl><dt><strong>message</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="SessionException">class <strong>SessionException</strong></a>(<a href="exceptions.html#Exception">exceptions.Exception</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Raised&nbsp;if<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="pyweblib.session.html#SessionException">SessionException</a></dd>
+<dd><a href="exceptions.html#Exception">exceptions.Exception</a></dd>
+<dd><a href="exceptions.html#BaseException">exceptions.BaseException</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="SessionException-__init__"><strong>__init__</strong></a>(self, *args)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#SessionException-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;object&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><a name="SessionException-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#SessionException-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="SessionException-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#SessionException-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="SessionException-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#SessionException-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="SessionException-__getslice__"><strong>__getslice__</strong></a>(...)</dt><dd><tt>x.<a href="#SessionException-__getslice__">__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="SessionException-__reduce__"><strong>__reduce__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SessionException-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#SessionException-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="SessionException-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#SessionException-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="SessionException-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SessionException-__str__"><strong>__str__</strong></a>(...)</dt><dd><tt>x.<a href="#SessionException-__str__">__str__</a>()&nbsp;&lt;==&gt;&nbsp;str(x)</tt></dd></dl>
+
+<dl><dt><a name="SessionException-__unicode__"><strong>__unicode__</strong></a>(...)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+<dl><dt><strong>message</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="SessionExpired">class <strong>SessionExpired</strong></a>(<a href="pyweblib.session.html#SessionException">SessionException</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Raised&nbsp;if&nbsp;session&nbsp;is&nbsp;expired.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="pyweblib.session.html#SessionExpired">SessionExpired</a></dd>
+<dd><a href="pyweblib.session.html#SessionException">SessionException</a></dd>
+<dd><a href="exceptions.html#Exception">exceptions.Exception</a></dd>
+<dd><a href="exceptions.html#BaseException">exceptions.BaseException</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="SessionExpired-__init__"><strong>__init__</strong></a>(self, timestamp, session_data)</dt></dl>
+
+<dl><dt><a name="SessionExpired-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="pyweblib.session.html#SessionException">SessionException</a>:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#SessionExpired-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;object&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><a name="SessionExpired-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#SessionExpired-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="SessionExpired-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#SessionExpired-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="SessionExpired-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#SessionExpired-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="SessionExpired-__getslice__"><strong>__getslice__</strong></a>(...)</dt><dd><tt>x.<a href="#SessionExpired-__getslice__">__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="SessionExpired-__reduce__"><strong>__reduce__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SessionExpired-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#SessionExpired-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="SessionExpired-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#SessionExpired-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="SessionExpired-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SessionExpired-__unicode__"><strong>__unicode__</strong></a>(...)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+<dl><dt><strong>message</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="SessionHijacked">class <strong>SessionHijacked</strong></a>(<a href="pyweblib.session.html#SessionException">SessionException</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Raised&nbsp;if&nbsp;hijacking&nbsp;of&nbsp;session&nbsp;was&nbsp;detected.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="pyweblib.session.html#SessionHijacked">SessionHijacked</a></dd>
+<dd><a href="pyweblib.session.html#SessionException">SessionException</a></dd>
+<dd><a href="exceptions.html#Exception">exceptions.Exception</a></dd>
+<dd><a href="exceptions.html#BaseException">exceptions.BaseException</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="SessionHijacked-__init__"><strong>__init__</strong></a>(self, failed_vars)</dt></dl>
+
+<dl><dt><a name="SessionHijacked-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="pyweblib.session.html#SessionException">SessionException</a>:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#SessionHijacked-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;object&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><a name="SessionHijacked-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#SessionHijacked-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="SessionHijacked-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#SessionHijacked-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="SessionHijacked-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#SessionHijacked-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="SessionHijacked-__getslice__"><strong>__getslice__</strong></a>(...)</dt><dd><tt>x.<a href="#SessionHijacked-__getslice__">__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="SessionHijacked-__reduce__"><strong>__reduce__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SessionHijacked-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#SessionHijacked-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="SessionHijacked-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#SessionHijacked-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="SessionHijacked-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SessionHijacked-__unicode__"><strong>__unicode__</strong></a>(...)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+<dl><dt><strong>message</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="WebSession">class <strong>WebSession</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>The&nbsp;session&nbsp;class&nbsp;which&nbsp;handles&nbsp;storing&nbsp;and&nbsp;retrieving&nbsp;of&nbsp;session&nbsp;data<br>
+in&nbsp;a&nbsp;dictionary-like&nbsp;sessiondict&nbsp;object.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="WebSession-__init__"><strong>__init__</strong></a>(self, dictobj<font color="#909090">=None</font>, expireDeactivate<font color="#909090">=0</font>, expireRemove<font color="#909090">=0</font>, crossCheckVars<font color="#909090">=None</font>, maxSessionCount<font color="#909090">=None</font>, sessionIDLength<font color="#909090">=12</font>, sessionIDChars<font color="#909090">=None</font>)</dt><dd><tt>dictobj<br>
+&nbsp;&nbsp;&nbsp;&nbsp;has&nbsp;to&nbsp;be&nbsp;a&nbsp;instance&nbsp;of&nbsp;a&nbsp;dictionary-like&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(e.g.&nbsp;derived&nbsp;from&nbsp;UserDict&nbsp;or&nbsp;shelve)<br>
+expireDeactivate<br>
+&nbsp;&nbsp;&nbsp;&nbsp;amount&nbsp;of&nbsp;time&nbsp;(secs)&nbsp;after&nbsp;which&nbsp;a&nbsp;session<br>
+&nbsp;&nbsp;&nbsp;&nbsp;expires&nbsp;and&nbsp;a&nbsp;<a href="#SessionExpired">SessionExpired</a>&nbsp;exception&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;raised&nbsp;which&nbsp;contains&nbsp;the&nbsp;session&nbsp;data.<br>
+expireRemove<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Amount&nbsp;of&nbsp;time&nbsp;(secs)&nbsp;after&nbsp;which&nbsp;a&nbsp;session<br>
+&nbsp;&nbsp;&nbsp;&nbsp;expires&nbsp;and&nbsp;the&nbsp;session&nbsp;data&nbsp;is&nbsp;silently&nbsp;deleted.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;<a href="#InvalidSessionId">InvalidSessionId</a>&nbsp;exception&nbsp;is&nbsp;raised&nbsp;in&nbsp;this&nbsp;case&nbsp;if<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;application&nbsp;trys&nbsp;to&nbsp;access&nbsp;the&nbsp;session&nbsp;ID&nbsp;again.<br>
+crossCheckVars<br>
+&nbsp;&nbsp;&nbsp;&nbsp;List&nbsp;of&nbsp;keys&nbsp;of&nbsp;variables&nbsp;cross-checked&nbsp;for&nbsp;each<br>
+&nbsp;&nbsp;&nbsp;&nbsp;retrieval&nbsp;of&nbsp;session&nbsp;data&nbsp;in&nbsp;<a href="#WebSession-retrieveSession">retrieveSession</a>().&nbsp;If&nbsp;None<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SESSION_CROSSCHECKVARS&nbsp;is&nbsp;used.<br>
+maxSessionCount<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Maximum&nbsp;number&nbsp;of&nbsp;valid&nbsp;sessions.&nbsp;This&nbsp;affects<br>
+&nbsp;&nbsp;&nbsp;&nbsp;behaviour&nbsp;of&nbsp;<a href="#WebSession-retrieveSession">retrieveSession</a>()&nbsp;which&nbsp;raises.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;None&nbsp;means&nbsp;unlimited&nbsp;number&nbsp;of&nbsp;sessions.<br>
+sessionIDLength<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Exact&nbsp;integer&nbsp;length&nbsp;of&nbsp;the&nbsp;session&nbsp;ID&nbsp;generated<br>
+sessionIDChars<br>
+&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;containing&nbsp;the&nbsp;valid&nbsp;chars&nbsp;for&nbsp;session&nbsp;IDs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(if&nbsp;this&nbsp;is&nbsp;zero-value&nbsp;the&nbsp;default&nbsp;is&nbsp;SESSION_ID_CHARS)</tt></dd></dl>
+
+<dl><dt><a name="WebSession-cleanUp"><strong>cleanUp</strong></a>(self)</dt><dd><tt>Search&nbsp;for&nbsp;expired&nbsp;session&nbsp;entries&nbsp;and&nbsp;delete&nbsp;them.<br>
+&nbsp;<br>
+Returns&nbsp;integer&nbsp;counter&nbsp;of&nbsp;deleted&nbsp;sessions&nbsp;as&nbsp;result.</tt></dd></dl>
+
+<dl><dt><a name="WebSession-close"><strong>close</strong></a>(self)</dt><dd><tt>Call&nbsp;<a href="#WebSession-close">close</a>()&nbsp;if&nbsp;self.<strong>sessiondict</strong>&nbsp;has&nbsp;.<a href="#WebSession-close">close</a>()&nbsp;method</tt></dd></dl>
+
+<dl><dt><a name="WebSession-deleteSession"><strong>deleteSession</strong></a>(self, session_id)</dt><dd><tt>Delete&nbsp;session_data&nbsp;referenced&nbsp;by&nbsp;session_id.</tt></dd></dl>
+
+<dl><dt><a name="WebSession-newSession"><strong>newSession</strong></a>(self, env<font color="#909090">=None</font>)</dt><dd><tt>Store&nbsp;session&nbsp;data&nbsp;under&nbsp;session&nbsp;id</tt></dd></dl>
+
+<dl><dt><a name="WebSession-retrieveSession"><strong>retrieveSession</strong></a>(self, session_id, env<font color="#909090">={}</font>)</dt><dd><tt>Retrieve&nbsp;session&nbsp;data</tt></dd></dl>
+
+<dl><dt><a name="WebSession-storeSession"><strong>storeSession</strong></a>(self, session_id, session_data)</dt><dd><tt>Store&nbsp;session_data&nbsp;under&nbsp;session_id.</tt></dd></dl>
+
+<dl><dt><a name="WebSession-sync"><strong>sync</strong></a>(self)</dt><dd><tt>Call&nbsp;sync&nbsp;if&nbsp;self.<strong>sessiondict</strong>&nbsp;has&nbsp;.<a href="#WebSession-sync">sync</a>()&nbsp;method</tt></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-ThreadingLock"><strong>ThreadingLock</strong></a> = allocate_lock(...)</dt><dd><tt>allocate_lock()&nbsp;-&gt;&nbsp;lock&nbsp;object<br>
+(allocate()&nbsp;is&nbsp;an&nbsp;obsolete&nbsp;synonym)<br>
+&nbsp;<br>
+Create&nbsp;a&nbsp;new&nbsp;lock&nbsp;object.&nbsp;&nbsp;See&nbsp;help(LockType)&nbsp;for&nbsp;information&nbsp;about&nbsp;locks.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>SESSION_CROSSCHECKVARS</strong> = ('<font color="#c040c0">\n</font>  List of environment variables assumed to be c...gh a network of web proxy siblings.<font color="#c040c0">\n</font>  REMOTE_ADDR', 'REMOTE_HOST', 'REMOTE_IDENT', 'REMOTE_USER', 'FORWARDED_FOR', 'HTTP_X_FORWARDED_FOR', 'HTTP_USER_AGENT', 'HTTP_ACCEPT_CHARSET', 'SSL_SESSION_ID', 'SSL_CLIENT_V_START', 'SSL_CLIENT_V_END', 'SSL_CLIENT_I_DN', 'SSL_CLIENT_IDN', 'SSL_CLIENT_S_DN', 'SSL_CLIENT_SDN', 'SSL_CLIENT_M_SERIAL', 'SSL_CLIENT_CERT_SERIAL')<br>
+<strong>SESSION_ID_CHARS</strong> = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._'<br>
+<strong>__info__</strong> = '$Id: pyweblib.session.html,v 1.14 2015/01/10 14:40:54 michael Exp $'<br>
+<strong>__revision__</strong> = '1.31'</td></tr></table>
+</body></html>

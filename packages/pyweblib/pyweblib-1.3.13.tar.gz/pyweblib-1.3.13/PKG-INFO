@@ -1,0 +1,18 @@
+Metadata-Version: 1.0
+Name: pyweblib
+Version: 1.3.13
+Summary: Yet another web programming framework for Python
+Home-page: http://www.stroeder.com/pylib/PyWebLib/
+Author: Michael Stroeder
+Author-email: michael@stroeder.com
+License: GPL (GNU GENERAL PUBLIC LICENSE) Version 2
+Description: Yet another web programming framework for Python
+        
+        Sub-modules:
+        pyweblib.forms        class library for handling <FORM> input
+        pyweblib.session      server-side web session handling
+        pyweblib.helper       misc. stuff useful in CGI-BINs
+        pyweblib.sslenv       retrieves SSL-related env vars
+        pyweblib.httphelper   very basic HTTP functions
+        
+Platform: UNKNOWN
