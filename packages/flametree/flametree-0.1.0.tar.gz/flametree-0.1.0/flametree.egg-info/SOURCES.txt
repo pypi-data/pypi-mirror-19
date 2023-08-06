@@ -1,0 +1,16 @@
+.gitignore
+LICENCE.txt
+MANIFEST.in
+README.rst
+ez_setup.py
+setup.py
+flametree/DirectoryFilesTree.py
+flametree/FilesTree.py
+flametree/ZipFilesTree.py
+flametree/__init__.py
+flametree/utils.py
+flametree/version.py
+flametree.egg-info/PKG-INFO
+flametree.egg-info/SOURCES.txt
+flametree.egg-info/dependency_links.txt
+flametree.egg-info/top_level.txt
