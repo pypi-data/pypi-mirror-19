@@ -1,0 +1,11 @@
+README.rst
+setup.py
+pipenv/__init__.py
+pipenv/core.py
+pipenv/delegator.py
+pipenv.egg-info/PKG-INFO
+pipenv.egg-info/SOURCES.txt
+pipenv.egg-info/dependency_links.txt
+pipenv.egg-info/entry_points.txt
+pipenv.egg-info/requires.txt
+pipenv.egg-info/top_level.txt
