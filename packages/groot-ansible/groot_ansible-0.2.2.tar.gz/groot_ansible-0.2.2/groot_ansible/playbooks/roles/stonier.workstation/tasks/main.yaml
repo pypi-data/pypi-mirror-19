@@ -1,0 +1,35 @@
+---
+
+##############################################################################
+# Preparatory Tasks (but no deb installs)
+##############################################################################
+
+- include: sysadmin.yaml
+- include: gtk_themes.yaml
+- include: chrome.yaml
+  tags   : [preparation]
+
+##############################################################################
+# Update
+##############################################################################
+
+# All previous steps should defer the update to this call so we don't call
+# it multiply, nor skip it after a ppa has been added with a cache check
+- name: Apt update
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+  become: yes
+
+##############################################################################
+# Tasks that (also) install debs
+##############################################################################
+
+- include: kubuntu.yaml
+- include: system_debs.yaml
+- include: gpg.yaml
+- include: snorriheim.yaml
+- include: chrome.yaml
+  tags   : [apt_install]
+
+##############################################################################
