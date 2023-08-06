@@ -1,0 +1,43 @@
+Metadata-Version: 1.1
+Name: jp
+Version: 0.1.1
+Summary: json print query filter
+Home-page: https://github.com/hoffmann/jp
+Author: Peter Hoffmann
+Author-email: ph@peter-hoffmann.com
+License: BSD
+Description: jp
+        ==
+        
+        author: Peter Hoffmann
+        
+        Overview
+        --------
+        
+        json print query filter
+        
+        Installation / Usage
+        --------------------
+        
+        To install use pip:
+        
+            $ pip install jp
+        
+        
+        Or clone the repo:
+        
+            $ git clone https://github.com/hoffmann/jp.git
+            $ python setup.py install
+        
+        Contributing
+        ------------
+        
+        TBD
+        
+        Example
+        -------
+        
+        TBD
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
