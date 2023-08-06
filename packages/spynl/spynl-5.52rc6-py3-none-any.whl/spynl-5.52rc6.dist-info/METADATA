@@ -1,0 +1,41 @@
+Metadata-Version: 2.0
+Name: spynl
+Version: 5.52rc6
+Summary: spynl
+Home-page: http://www.softwear.nl
+Author: Softwear BV
+Author-email: development@softwear.nl
+License: MIT
+Keywords: API SaaS
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Framework :: Pylons
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Application
+Requires-Dist: webob (==1.6.3)
+Requires-Dist: pyramid (>=1.7,<1.8)
+Requires-Dist: invoke (>=0.14,<0.15)
+Requires-Dist: requests
+Requires-Dist: pyramid-mailer
+Requires-Dist: pyramid-jinja2
+Requires-Dist: pyramid-exclog
+Requires-Dist: pytz
+Requires-Dist: pbkdf2
+Requires-Dist: python-dateutil
+Requires-Dist: html2text
+Requires-Dist: beaker
+Requires-Dist: waitress
+Requires-Dist: gunicorn
+Requires-Dist: jsonschema
+Requires-Dist: sphinx
+Requires-Dist: pyyaml
+Requires-Dist: tld
+Requires-Dist: babel
+Requires-Dist: webtest
+Requires-Dist: pytest
+Requires-Dist: pytest-raisesregexp
+
+# spynl
+Python Web Framework, Pyramid + CLI (Docker/Jenkins support) and other batteries
+
+
