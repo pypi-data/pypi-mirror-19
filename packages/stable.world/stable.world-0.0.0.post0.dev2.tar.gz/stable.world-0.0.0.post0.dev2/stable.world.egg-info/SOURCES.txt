@@ -1,0 +1,13 @@
+MANIFEST.in
+setup.cfg
+setup.py
+versioneer.py
+stable.world.egg-info/PKG-INFO
+stable.world.egg-info/SOURCES.txt
+stable.world.egg-info/dependency_links.txt
+stable.world.egg-info/entry_points.txt
+stable.world.egg-info/requires.txt
+stable.world.egg-info/top_level.txt
+stable_world/__init__.py
+stable_world/_version.py
+stable_world/script.py
