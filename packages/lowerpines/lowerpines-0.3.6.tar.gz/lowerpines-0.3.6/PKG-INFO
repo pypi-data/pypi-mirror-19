@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: lowerpines
+Version: 0.3.6
+Summary: Library wrapper for GroupMe API
+Home-page: https://github.com/bigfootjon/lowerpines
+Author: Jonathan Janzen
+Author-email: jjjonjanzen@gmail.com
+License: GNU Lesser General Public License v3 (LGPLv3)
+Download-URL: https://github.com/bigfootjon/lowerpines/tarball/0.3.6
+Description: UNKNOWN
+Keywords: api,GroupMe
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Communications :: Chat
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Requires: requests
