@@ -1,0 +1,4 @@
+[console_scripts]
+lionshead-platform = lionshead:get_specific_platform_string
+lionshead-stability = lionshead:get_platform_stability_string
+
