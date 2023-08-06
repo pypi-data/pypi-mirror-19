@@ -1,0 +1,23 @@
+Metadata-Version: 2.0
+Name: openlut
+Version: 0.0.1a1
+Summary: OpenLUT is a practical color management library.
+Home-page: https://www.github.com/so-rose/openlut
+Author: Sofus Rose
+Author-email: sofus@sofusrose.com
+License: MIT Licence
+Keywords: color image images processing
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: PyOpenGL
+Requires-Dist: numba
+Requires-Dist: numpy
+Requires-Dist: pygame
+Requires-Dist: scipy
+Requires-Dist: wand
+
+UNKNOWN
+
+
