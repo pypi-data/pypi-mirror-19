@@ -1,0 +1,14 @@
+CHANGES.txt
+LICENSE.txt
+MANIFEST.in
+README.txt
+setup.py
+DroneConnect.egg-info/PKG-INFO
+DroneConnect.egg-info/SOURCES.txt
+DroneConnect.egg-info/dependency_links.txt
+DroneConnect.egg-info/top_level.txt
+bin/droneconnect_client.py
+bin/droneconnect_pb2.py
+bin/droneconnect_server.py
+droneconnect/__init__.py
+droneconnect/droneconnect_pb2.py
