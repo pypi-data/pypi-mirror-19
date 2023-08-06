@@ -1,0 +1,29 @@
+Metadata-Version: 1.1
+Name: pti-analyzer
+Version: 0.0.19.dev5
+Summary: Analyzing articles based on topic model(LDA)
+Home-page: https://github.com/PhysicsEngine/pti-analyzer
+Author: Kai Sasaki
+Author-email: lewuathe@me.com
+License: Apache V2
+Description: #####
+        PTI Analyzer
+        #####
+        
+        
+        *****
+        How to install
+        *****
+        
+            $ pip install pti-analyzer
+        
+        *****
+        LICENSE
+        *****
+        
+        `Apache V2 License <https://www.apache.org/licenses/LICENSE-2.0>`_
+Keywords: machine-learning topic-model LDA
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
