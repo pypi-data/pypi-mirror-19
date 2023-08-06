@@ -1,0 +1,4 @@
+include *.txt
+include *.html
+include src/pymor/tools/*.pyx
+include src/pymor/grids/*.pyx
