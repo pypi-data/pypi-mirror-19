@@ -1,0 +1,3 @@
+[console_scripts]
+apimas = apimas.modeling.cli.cli:main
+
