@@ -1,0 +1,11 @@
+README.rst
+setup.py
+pyfldigi/__init__.py
+pyfldigi/appmonitor.py
+pyfldigi/client.py
+pyfldigi.egg-info/PKG-INFO
+pyfldigi.egg-info/SOURCES.txt
+pyfldigi.egg-info/dependency_links.txt
+pyfldigi.egg-info/not-zip-safe
+pyfldigi.egg-info/top_level.txt
+tests/test_client.py
