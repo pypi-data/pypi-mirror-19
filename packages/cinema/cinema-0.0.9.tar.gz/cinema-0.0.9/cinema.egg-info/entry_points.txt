@@ -1,0 +1,3 @@
+[console_scripts]
+watch-movie = scripts.watch_movie:main
+
