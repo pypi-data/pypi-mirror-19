@@ -1,0 +1,16 @@
+shoehorn/__init__.py,sha256=IvSeqEHja1WGp6074vQNa51ZA_9Ez0KTtAnLcbrJ2h8,257
+shoehorn/compat.py,sha256=cKwUsBFVpRmIQoXHUVP6kS7IWDPJcsYeW9Bw3Rl1EFw,197
+shoehorn/event.py,sha256=yKyhppnRZs-yGM1uO4bQOnpSp-Y80dsjvtWF3D73V2U,352
+shoehorn/logger.py,sha256=8LJ3elXvFeOwidItlHnm4LGYOh9oZgfEdS_vK5k8LOs,2135
+shoehorn/stdlib.py,sha256=OU378-46WKVmMB8qL0pS2VdpuQ4l_Q55y2EK6K-Bw-U,2625
+shoehorn-0.2.0.dist-info/DESCRIPTION.rst,sha256=OCTuuN6LcWulhHS3d5rfjdsQtW22n7HENFRh6jC6ego,10
+shoehorn-0.2.0.dist-info/METADATA,sha256=eTR7PN2HDzMFQTuoZ7m5sH-l-8LuegTK83QrQrORGY0,1106
+shoehorn-0.2.0.dist-info/RECORD,,
+shoehorn-0.2.0.dist-info/WHEEL,sha256=o2k-Qa-RMNIJmUdIc7KU6VWR_ErNRbWNlxDIpl7lm34,110
+shoehorn-0.2.0.dist-info/metadata.json,sha256=QP42CpEtN3MNUIC-djfp8gWQCkQBm3iSq1grljQ_zpc,983
+shoehorn-0.2.0.dist-info/top_level.txt,sha256=ZG3AX4RY6eehzE3_n-OSXs5oA1YqJlR8VmAHwoct_Aw,15
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_default.py,sha256=4w6-HORybJQxV1tK-uzDID7DXTSRrhoCwdDSZ1mRDc0,2211
+tests/test_event.py,sha256=sorzAHf5J74QmKtSiOkVBwjoPe1XfZOKZKiQbFqNkDk,644
+tests/test_logger.py,sha256=npaIaQ9mUeECSXPPtiRWg7mTUmzQuNrXLAX0CvZcoFc,6712
+tests/test_stdlib.py,sha256=w0oVGW7y5qtaXMoEeeEXVr_smNseW3CWic5cSlbRwSo,6114
