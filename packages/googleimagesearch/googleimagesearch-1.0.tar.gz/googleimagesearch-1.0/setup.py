@@ -1,0 +1,14 @@
+from setuptools import setup
+
+setup(
+    name='googleimagesearch',
+    version='1.0',
+    description='A simple API for using Google Image Search',
+    url='https://github.com/expenses/googleimagesearch',
+    author='expenses',
+    author_email='expenses@airmail.cc',
+    license='MIT',
+    keywords='google image search',
+    packages=[],
+    install_requires=['requests']
+)
