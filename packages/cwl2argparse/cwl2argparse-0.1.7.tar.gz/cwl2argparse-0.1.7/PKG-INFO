@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: cwl2argparse
+Version: 0.1.7
+Summary: Generating Python code from CWL tool descriptions with CWL inputs/outputs as argparse arguments
+Home-page: https://github.com/common-workflow-language/cwl2argparse
+Author: Anton Khodak
+Author-email: anton.khodak@ukr.net
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Operating System :: POSIX
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: Apache Software License

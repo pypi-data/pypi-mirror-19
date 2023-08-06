@@ -1,0 +1,14 @@
+MANIFEST.in
+setup.py
+cwl2argparse/__init__.py
+cwl2argparse/argparse.j2
+cwl2argparse/cwl_argparse_translation.py
+cwl2argparse/cwl_classes.py
+cwl2argparse/main.py
+cwl2argparse/test_cwl2argparse.py
+cwl2argparse.egg-info/PKG-INFO
+cwl2argparse.egg-info/SOURCES.txt
+cwl2argparse.egg-info/dependency_links.txt
+cwl2argparse.egg-info/entry_points.txt
+cwl2argparse.egg-info/requires.txt
+cwl2argparse.egg-info/top_level.txt
