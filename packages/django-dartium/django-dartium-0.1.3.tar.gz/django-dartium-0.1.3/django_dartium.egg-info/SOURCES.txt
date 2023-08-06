@@ -1,0 +1,13 @@
+CHANGES.rst
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+django_dartium/__init__.py
+django_dartium/middleware.py
+django_dartium.egg-info/PKG-INFO
+django_dartium.egg-info/SOURCES.txt
+django_dartium.egg-info/dependency_links.txt
+django_dartium.egg-info/top_level.txt
+django_dartium/templatetags/__init__.py
+django_dartium/templatetags/dartium.py
