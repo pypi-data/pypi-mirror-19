@@ -1,0 +1,7 @@
+ansible==2.0.2.0
+clc-sdk==2.44
+future
+mock
+nose
+requests>=2.7
+setuptools
