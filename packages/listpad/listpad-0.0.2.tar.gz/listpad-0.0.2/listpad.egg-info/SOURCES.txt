@@ -1,0 +1,10 @@
+MANIFEST.in
+README.md
+UNLICENSE
+setup.py
+listpad/__init__.py
+listpad/list_padder.py
+listpad.egg-info/PKG-INFO
+listpad.egg-info/SOURCES.txt
+listpad.egg-info/dependency_links.txt
+listpad.egg-info/top_level.txt
