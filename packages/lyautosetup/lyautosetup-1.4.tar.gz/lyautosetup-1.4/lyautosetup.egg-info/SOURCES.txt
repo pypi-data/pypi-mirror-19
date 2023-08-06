@@ -1,0 +1,17 @@
+MANIFEST.in
+setup.py
+autosetup/__init__.py
+autosetup/app.py
+autosetup/templates/SetIMDNSInfo.j2
+autosetup/templates/__init__.py
+autosetup/templates/filedata.j2
+autosetup/templates/__pycache__/__init__.cpython-35.pyc
+lyautosetup.egg-info/PKG-INFO
+lyautosetup.egg-info/SOURCES.txt
+lyautosetup.egg-info/dependency_links.txt
+lyautosetup.egg-info/entry_points.txt
+lyautosetup.egg-info/not-zip-safe
+lyautosetup.egg-info/requires.txt
+lyautosetup.egg-info/top_level.txt
+tests/__init__.py
+tests/generator_test.py
