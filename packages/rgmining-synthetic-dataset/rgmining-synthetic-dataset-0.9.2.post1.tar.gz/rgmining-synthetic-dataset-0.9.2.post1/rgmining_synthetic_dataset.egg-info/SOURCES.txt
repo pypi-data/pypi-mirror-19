@@ -1,0 +1,17 @@
+COPYING
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+synthetic_evaluation.py
+rgmining_synthetic_dataset.egg-info/PKG-INFO
+rgmining_synthetic_dataset.egg-info/SOURCES.txt
+rgmining_synthetic_dataset.egg-info/dependency_links.txt
+rgmining_synthetic_dataset.egg-info/entry_points.txt
+rgmining_synthetic_dataset.egg-info/requires.txt
+rgmining_synthetic_dataset.egg-info/top_level.txt
+synthetic/__init__.py
+synthetic/loader.py
+synthetic/product.dat
+synthetic/review.dat
+synthetic/reviewer.dat
