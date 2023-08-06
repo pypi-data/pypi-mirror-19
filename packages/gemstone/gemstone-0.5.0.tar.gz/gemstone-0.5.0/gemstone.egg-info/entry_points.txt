@@ -1,0 +1,3 @@
+[console_scripts]
+gemstone = gemstone.cli:cli
+
