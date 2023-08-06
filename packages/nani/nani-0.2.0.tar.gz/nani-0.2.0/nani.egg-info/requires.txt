@@ -1,0 +1,9 @@
+numpy
+
+[dev]
+coverage
+sphinx>=1.3
+tox
+
+[docs]
+sphinx>=1.3
