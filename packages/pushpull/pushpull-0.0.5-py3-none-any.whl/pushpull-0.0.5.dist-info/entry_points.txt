@@ -1,0 +1,4 @@
+[console_scripts]
+pushpull-client = pushpull.cli.client:client
+pushpull-server = pushpull.cli.server:serve
+
