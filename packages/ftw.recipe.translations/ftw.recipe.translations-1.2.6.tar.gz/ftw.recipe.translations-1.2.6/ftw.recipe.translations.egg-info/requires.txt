@@ -1,0 +1,19 @@
+argparse
+i18ndude
+path.py
+setuptools
+zc.buildout
+zc.recipe.egg
+
+[masstranslate]
+gspread
+keyring
+oauth2client < 2a
+
+[tests]
+mocker
+plone.testing
+unittest2
+gspread
+keyring
+oauth2client < 2a
