@@ -1,0 +1,6 @@
+six
+
+[testing]
+pytest
+backports.unittest_mock
+nose
