@@ -1,0 +1,29 @@
+Metadata-Version: 1.1
+Name: uploadwithus
+Version: 0.1.0
+Summary: CLI to facilitate keeping sendwithus templates and snippets code up to date with an emails repository.
+Home-page: https://github.com/SwankSwashbucklers/uploadwithus
+Author: Nick Balboni
+Author-email: nbalboni2@gmail.com
+License: MIT
+Description: 
+        Uploadwithus is a command line tool to facilitate keeping sendwithus templates
+        and snippets code up to date with an emails repository.  The tool allows you to
+        maintain your email templates and snippets under a version control system, and
+        also allows separation of testing and production emails.  For more in depth
+        information on its usage and features, check out the
+        
+        Copyright (c) 2017, Nick Balboni.
+        License: MIT (see LICENSE for details)
+        
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Communications :: Email
+Classifier: Topic :: Utilities
