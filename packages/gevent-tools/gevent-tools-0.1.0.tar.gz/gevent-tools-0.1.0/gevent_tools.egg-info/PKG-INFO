@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: gevent-tools
+Version: 0.1.0
+Summary: gevent utilities library
+Home-page: https://github.com/tiagocoutinho/gtools
+Author: Tiago Coutinho
+Author-email: coutinhotiago@gmail.com
+License: MIT
+Download-URL: http://pypi.python.org/pypi/gevent-tools
+Description: # gtools
+        
+Keywords: gevent,tools
+Platform: Linux
+Platform: Windows XP/Vista/7/8/10
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Utilities
