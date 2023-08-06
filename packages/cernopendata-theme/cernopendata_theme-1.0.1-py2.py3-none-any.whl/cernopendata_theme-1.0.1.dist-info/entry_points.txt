@@ -1,0 +1,6 @@
+[invenio_assets.bundles]
+cernopendata_theme_css = cernopendata_theme.bundles:css
+
+[invenio_base.blueprints]
+cernopendata_theme = cernopendata_theme.views:blueprint
+
