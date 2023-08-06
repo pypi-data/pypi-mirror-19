@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: Flask-PyFCM
+Version: 0.1.0
+Summary: Flask extension for PyFCM
+Home-page: https://github.com/rstit/flask-pyfcm/
+Author: RST-IT
+Author-email: piotr.poteralski@rst-it.com
+License: BSD
+Description: 
+        Flask-PyFCM
+        -------------
+        
+        Flask extension for PyFCM - Python client for FCM
+        
+Platform: any
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
