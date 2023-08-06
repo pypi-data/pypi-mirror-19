@@ -1,0 +1,29 @@
+from swagger_schema import QueryParameter, HeaderParameter, PathParameter
+
+def get_swagger_parameters(transmute_func, context=default_context):
+    parameters = []
+    for name, details in self.parameters.query.items():
+        parameters.append(QueryParameter({
+            "name": name,
+            "required": details.default is None,
+            "type": "string"
+        }))
+    for name, details in self.parameters.header.items():
+        parameters.append(HeaderParameter({
+            "name": name,
+            "required": details.default is None,
+            "type": "string"
+        }))
+    for name, details in self.parameters.body.items():
+        parameters.append(BodyParameter({
+            "name": name,
+            "required": details.default is None,
+            "schema": context.serializers.to_json_schema(details.type),
+        }))
+    for name, details in self.parameters.path.items():
+        parameters.append(PathParameter({
+            "name": name,
+            "required": True,
+            "type": "string"
+        }))
+    return parameters
