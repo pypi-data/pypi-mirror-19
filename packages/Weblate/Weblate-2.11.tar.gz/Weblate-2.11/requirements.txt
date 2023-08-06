@@ -1,0 +1,14 @@
+Django>=1.10
+Whoosh>=2.5.2,!=2.6.0
+translate-toolkit>=2.0.0b4
+lxml>=3.1.0
+Pillow
+six>=1.7.0
+python-dateutil
+social-auth-core>=1.0.0
+social-auth-app-django>= 1.0.1
+django-crispy-forms>=1.4.0
+oauthlib>=0.6.3
+django_compressor>=1.5.0,!=2.0
+djangorestframework>=3.4
+defusedxml>=0.4
