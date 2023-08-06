@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="fr:unistra:di:archive:pathfinder:v1">
+  <xs:element xmlns:unis="fr:unistra:di:archive:pathfinder:v1" name="personnage" type="unis:personnageType"/>
+  <!-- Type nom -->
+  <xs:complexType name="nomType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="name" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <!-- Type age -->
+  <xs:complexType name="ageType">
+    <xs:simpleContent>
+      <xs:extension base="xs:byte">
+        <xs:attribute type="xs:string" name="name" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <!-- Type classe -->
+  <xs:complexType name="classeType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="nom"/>
+      <xs:element type="xs:byte" name="niveau"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="name" use="optional"/>
+  </xs:complexType>
+  <!-- Type classes -->
+  <xs:complexType name="classesType">
+    <xs:sequence>
+      <xs:element xmlns:unis="fr:unistra:di:archive:pathfinder:v1" type="unis:classeType" name="classe" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="name" use="optional"/>
+  </xs:complexType>
+  <!-- Type etat civil -->
+  <xs:complexType name="etat-civilType">
+    <xs:sequence>
+      <xs:element xmlns:unis="fr:unistra:di:archive:pathfinder:v1" type="unis:nomType" name="nom"/>
+      <xs:element xmlns:unis="fr:unistra:di:archive:pathfinder:v1" type="unis:ageType" name="age"/>
+      <xs:element xmlns:unis="fr:unistra:di:archive:pathfinder:v1" type="unis:classesType" name="classes"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="name" use="optional"/>
+  </xs:complexType>
+  <!-- Type personnage -->
+  <xs:complexType name="personnageType">
+    <xs:sequence>
+      <xs:element xmlns:unis="fr:unistra:di:archive:pathfinder:v1" type="unis:etat-civilType" name="etat-civil"/>
+    </xs:sequence>
+    <xs:attribute type="xs:byte" name="id"/>
+    <xs:attribute type="xs:string" name="source"/>
+    <xs:attribute type="xs:string" name="name" use="optional"/>
+  </xs:complexType>
+</xs:schema>
