@@ -1,0 +1,55 @@
+Metadata-Version: 2.0
+Name: ictools
+Version: 0.0.0
+Summary: Incident Commander Utilities
+Home-page: https://github.com/dave-shawley/ictools
+Author: Dave Shawley
+Author-email: daves@aweber.com
+License: UNKNOWN
+Platform: any
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 4 - Beta
+Requires-Dist: maya
+Requires-Dist: requests
+
+
+==========================
+Incident Command Utilities
+==========================
+
+This is a simple toolkit of utilities that make my on-call life easier.
+
+Tools
+=====
+
+scan-hipchat-room
+-----------------
+::
+
+   scan-hipchat-room START END ROOM [ROOM...]
+
+**START**
+   The earliest time to fetch messages from.  IOW, the starting date.
+
+**END**
+   The latest time to fetch messages from.  IOW, the ending date.
+
+**ROOM**
+   One or more room names to fetch messages from.
+
+This utility writes the JSON formatted messages to the standard output stream.
+
+
+Environment Variables
+=====================
+
+HIPCHAT_TOKEN
+-------------
+API token to use when talking to the `HipChat API`_.
+
+.. _HipChat API: https://developer.atlassian.com/hipchat/guide/hipchat-rest-api
+
+
