@@ -1,0 +1,18 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import numpy.random as npr
+import os
+import psutil
+import SpectralToolbox.Spectral1D as S1D
+mem = []
+
+
+shape = (10000,5,5)
+N = 10000
+
+P = S1D.HermiteProbabilistsPolynomial()
+(x, w) = P.GaussQuadrature(100)
+for i in range(N):
+    (x, w) = P.GaussQuadrature(100)
+    process = psutil.Process(os.getpid())
+    mem.append( process.memory_info().rss )
