@@ -1,0 +1,28 @@
+\documentclass[letterpaper,12pt, oneside]{article}
+\usepackage[right=2.5cm,left=2.5cm,top=3.8cm,bottom=2.5cm]{geometry}
+\usepackage{setspace}
+
+\usepackage[T1]{fontenc}
+((* for package in packages *))\usepackage{(((package)))}
+((* endfor *))
+\usepackage{microtype}
+\usepackage{hyphenat}
+
+\parskip 1pt %No more funny paragraph spacing shenanigans!
+
+\setlength{\headheight}{15.2pt}
+
+((* if author *))\author{(((author)))}((* endif *))
+\title{(((title)))((* if subtitle *)):\\(((subtitle)))((* endif *))}
+((* if date *))\date{(((date)))}((* endif *))
+
+\begin{document}
+
+\maketitle                              %Title Page
+
+\onehalfspace
+((* if abstract *))\begin{abstract}\noindent {(((abstract)))}\end{abstract}((* endif *))
+((* if spacing *))(((spacing)))((* else *))\doublespace((* endif *))
+(((content)))
+
+\end{document}
