@@ -1,0 +1,42 @@
+Metadata-Version: 1.1
+Name: pytrr
+Version: 0.3.0
+Summary: A package for reading GROMACS .trr files
+Home-page: https://github.com/andersle/pytrr
+Author: AL
+Author-email: andersle@gmail.com
+License: LGPLv3
+Description: #####
+        pytrr
+        #####
+        
+        pytrr is a python package for reading .trr files from GROMACS.
+        
+        Example
+        =======
+        
+        .. code:: python
+        
+           from pytrr import GroTrrReader
+        
+           with GroTrrReader('traj.trr') as trrfile:
+               for frame in trrfile:
+                   print(frame['step'])
+                   frame_data = trrfile.get_data()
+                   print(frame_data['x'][0])
+        
+Keywords: gromacs simulation trr
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Scientific/Engineering :: Physics
