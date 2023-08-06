@@ -1,0 +1,8 @@
+pytils
+six
+user_agent
+
+[full]
+lxml;platform_system!="Windows"
+feedparser
+selenium
