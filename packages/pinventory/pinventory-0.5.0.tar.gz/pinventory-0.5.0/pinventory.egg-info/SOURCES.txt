@@ -1,0 +1,15 @@
+README.rst
+setup.py
+pinventory/__init__.py
+pinventory/__main__.py
+pinventory/inventory.py
+pinventory/network.py
+pinventory.egg-info/PKG-INFO
+pinventory.egg-info/SOURCES.txt
+pinventory.egg-info/dependency_links.txt
+pinventory.egg-info/entry_points.txt
+pinventory.egg-info/requires.txt
+pinventory.egg-info/top_level.txt
+pinventory/transform/__init__.py
+pinventory/transform/hostsvars.py
+pinventory/transform/inventory.py
