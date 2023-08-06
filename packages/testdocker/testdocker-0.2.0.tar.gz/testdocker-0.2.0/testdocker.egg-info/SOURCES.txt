@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+testdocker/__init__.py
+testdocker/commands.py
+testdocker/mixins.py
+testdocker/objects.py
+testdocker/util.py
+testdocker.egg-info/PKG-INFO
+testdocker.egg-info/SOURCES.txt
+testdocker.egg-info/dependency_links.txt
+testdocker.egg-info/not-zip-safe
+testdocker.egg-info/requires.txt
+testdocker.egg-info/top_level.txt
