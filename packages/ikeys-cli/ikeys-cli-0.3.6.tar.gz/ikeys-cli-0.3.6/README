@@ -1,0 +1,57 @@
+ikeys-cli
+=========
+
+|Build Status| |Codacy Badge| |codecov| |PyPI|
+
+ikeystone python client
+
+Installation
+------------
+
+PYPI
+~~~~
+
+.. code:: shell
+
+    pip install ikeys-cli
+
+GIT
+~~~
+
+.. code:: shell
+
+    pip install https://github.com/MrLYC/ikeys-cli/archive/master.zip
+
+Quick start
+-----------
+
+.. code:: python
+
+    from ikeys_cli import IKeytoneAPI
+    api = IKeytoneAPI(url="https://ikeystone.example.com/v1/")
+    api.authenticate(
+        domain="server_domain",
+        user="server_user",
+        password="server_password",
+        project="server_project",
+    )
+    result = api.domain.request.verify({
+        "domian": "client_domain",
+        "user": "client_user",
+        "project": "client_project",
+        "expires": "client_expires",
+        "nonce": "client_nonce",
+        "signature": "client_signature",
+    })
+
+    assert(result.errno == 0, result.errmsg)
+    print result.data
+
+.. |Build Status| image:: https://travis-ci.org/MrLYC/ikeys-cli.svg?branch=master
+   :target: https://travis-ci.org/MrLYC/ikeys-cli
+.. |Codacy Badge| image:: https://api.codacy.com/project/badge/Grade/a60c4c155da142a7beea2d454495f347
+   :target: https://www.codacy.com/app/imyikong/ikeys-cli?utm_source=github.com&utm_medium=referral&utm_content=MrLYC/ikeys-cli&utm_campaign=badger
+.. |codecov| image:: https://codecov.io/gh/MrLYC/ikeys-cli/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/MrLYC/ikeys-cli
+.. |PyPI| image:: https://img.shields.io/pypi/pyversions/ikeys-cli.svg
+   :target: https://pypi.python.org/pypi/ikeys-cli
