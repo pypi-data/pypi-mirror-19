@@ -1,0 +1,4 @@
+[console_scripts]
+mais = imagebot.run:start
+maisbot = gui.main:start
+
