@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+
+import sys, os
+
+import hypergan as hg
+import hypergan.cli as cli
+
+cli.CLI()
