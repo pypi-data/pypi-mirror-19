@@ -1,0 +1,33 @@
+Metadata-Version: 2.0
+Name: django-simple-mail
+Version: 0.1.0
+Summary: A simple and customizable email template built for Django
+Home-page: https://github.com/charlesthk/django-simple-mail
+Author: Charles TISSIER
+Author-email: charles@vingtcinq.io
+License: MIT
+Keywords: python django mail html template
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Framework :: Django :: 1.10
+Classifier: Framework :: Django :: 1.9
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.3
+Classifier: Programming Language :: Python :: 2.4
+Classifier: Programming Language :: Python :: 2.5
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: html2text (>=2016.9.19)
+Requires-Dist: premailer (>=3.0.1)
+Requires-Dist: six (>=1.10.0)
+
+UNKNOWN
+
+
