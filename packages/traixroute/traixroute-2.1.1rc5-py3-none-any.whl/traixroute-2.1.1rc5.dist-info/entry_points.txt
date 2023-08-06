@@ -1,0 +1,4 @@
+[console_scripts]
+scamper-install = traixroute.downloader.install_scamper:main
+traixroute = traixroute.application:run_traixroute
+
