@@ -1,0 +1,21 @@
+Metadata-Version: 2.0
+Name: hyperboard
+Version: 0.1
+Summary: A web-based dashboard for Deep Learning
+Home-page: https://github.com/WarBean/hyperboard
+Author: Huabin Zheng
+Author-email: warbean@qq.com
+License: MIT
+Keywords: dashboard deep learning hyperparameter DL
+Platform: UNKNOWN
+Requires-Dist: flask
+Requires-Dist: flask-httpauth
+Requires-Dist: numpy
+Requires-Dist: requests
+
+HyperBoard: A web-based dashboard for Deep Learning
+=======================================================
+
+`Documentation on GitHub <https://github.com/WarBean/hyperboard>`_
+
+
