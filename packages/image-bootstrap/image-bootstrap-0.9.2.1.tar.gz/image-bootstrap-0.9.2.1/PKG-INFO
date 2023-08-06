@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: image-bootstrap
+Version: 0.9.2.1
+Summary: Command line tool for creating bootable virtual machine images
+Home-page: https://github.com/hartwork/image-bootstrap
+Author: Sebastian Pipping
+Author-email: sebastian@pipping.org
+License: AGPL v3 or later
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: System :: Installation/Setup
+Classifier: Topic :: Utilities

@@ -1,0 +1,4 @@
+[console_scripts]
+directory-bootstrap = directory_bootstrap.cli:main
+image-bootstrap = image_bootstrap.cli:main
+
