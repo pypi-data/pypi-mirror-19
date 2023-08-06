@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: hippy-chat
+Version: 0.3.0
+Summary: Log messages to a hipchat room
+Home-page: UNKNOWN
+Author: Tucker Beck
+Author-email: tucker.beck@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: arrow
+Requires-Dist: click
+Requires-Dist: py-buzz
+Requires-Dist: requests
+Provides-Extra: dev
+Requires-Dist: flake8; extra == 'dev'
+Requires-Dist: pytest; extra == 'dev'
+Requires-Dist: pytest-capturelog; extra == 'dev'
+Requires-Dist: sphinx; extra == 'dev'
+
+UNKNOWN
+
+

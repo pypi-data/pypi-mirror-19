@@ -1,0 +1,3 @@
+[console_scripts]
+hippy-chat-demo = hippy_chat.exec.demo:main
+
