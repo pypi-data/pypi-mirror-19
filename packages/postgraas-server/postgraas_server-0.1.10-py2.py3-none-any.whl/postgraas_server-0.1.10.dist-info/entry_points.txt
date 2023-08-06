@@ -1,0 +1,4 @@
+[console_scripts]
+postgraas_create = postgraas_server.create_db:main
+postgraas_init = postgraas_server.init_db:main
+
