@@ -1,0 +1,25 @@
+#!/usr/bin/env python
+
+from __future__ import absolute_import
+
+import os
+
+from divspl.parser import parser
+from divspl.lexer import lexer
+
+
+def main():
+    import sys
+    begin(sys.argv)
+
+
+def begin(argv):
+    if len(argv) > 1:
+        with open(argv[1], 'r') as f:
+            result = parser.parse(lexer.lex(f.read()))
+            os.write(1, result.eval().encode())
+    else:
+        os.write(1, "Please provide a filename.".encode())
+
+if __name__ == '__main__':
+    main()
