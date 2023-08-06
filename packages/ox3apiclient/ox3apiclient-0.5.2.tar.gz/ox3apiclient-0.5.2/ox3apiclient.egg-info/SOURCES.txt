@@ -1,0 +1,11 @@
+setup.cfg
+setup.py
+ox3apiclient/__init__.py
+ox3apiclient.egg-info/PKG-INFO
+ox3apiclient.egg-info/SOURCES.txt
+ox3apiclient.egg-info/dependency_links.txt
+ox3apiclient.egg-info/requires.txt
+ox3apiclient.egg-info/top_level.txt
+tests/__init__.py
+tests/client.py
+tests/clientfromfile.py
