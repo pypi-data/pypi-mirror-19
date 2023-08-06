@@ -1,0 +1,15 @@
+README.rst
+setup.py
+general_tools/__init__.py
+general_tools/file_utils.py
+general_tools/git_wrapper.py
+general_tools/languages.py
+general_tools/print_utils.py
+general_tools/smartquotes.py
+general_tools/url_utils.py
+uw/__init__.py
+uw/update_catalog.py
+uw_tools.egg-info/PKG-INFO
+uw_tools.egg-info/SOURCES.txt
+uw_tools.egg-info/dependency_links.txt
+uw_tools.egg-info/top_level.txt
