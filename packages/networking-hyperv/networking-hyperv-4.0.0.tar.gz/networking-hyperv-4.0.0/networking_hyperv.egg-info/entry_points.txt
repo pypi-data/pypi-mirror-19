@@ -1,0 +1,12 @@
+[console_scripts]
+neutron-hyperv-agent = hyperv.neutron.l2_agent:main
+
+[neutron.agent.firewall_drivers]
+hyperv = hyperv.neutron.security_groups_driver:HyperVSecurityGroupsDriver
+
+[neutron.ml2.mechanism_drivers]
+hyperv = hyperv.neutron.ml2.mech_hyperv:HypervMechanismDriver
+
+[neutron.qos.agent_drivers]
+hyperv = hyperv.neutron.qos.qos_driver:QosHyperVAgentDriver
+
