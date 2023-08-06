@@ -1,0 +1,5 @@
+[groundwork.plugin]
+gw_db_validator = groundwork_utilities.plugins.GwDbValidator.gw_db_validator:GwDbValidator
+gw_resource_monitor = groundwork_utilities.plugins.GwResourceMonitor.gw_resource_monitor:GwResourceMonitor
+gw_resource_monitor_Web = groundwork_utilities.plugins.GwResourceMonitorWeb.gw_resource_monitor_web:GwResourceMonitorWeb
+

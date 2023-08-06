@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: groundwork-utilities
+Version: 0.1.1
+Summary: Provides groundwork plugins to monitor and validate applications during runtime.
+Home-page: http://groundwork-utilities.readthedocs.org
+Author: team useblocks
+Author-email: info@useblocks.com
+License: MIT license
+Description: 
+        groundwork utilities
+        ====================
+        
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
