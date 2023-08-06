@@ -1,0 +1,3 @@
+[groundwork.plugin]
+groundwork_database = groundwork_database.plugins.gwdatabase_plugin:GwDatabasePlugin
+
