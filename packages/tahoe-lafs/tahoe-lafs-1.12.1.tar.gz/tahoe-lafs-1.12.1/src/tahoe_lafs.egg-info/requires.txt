@@ -1,0 +1,38 @@
+setuptools >= 11.3
+zfec >= 1.1.0
+simplejson >= 1.4
+zope.interface >= 3.6.0, != 3.6.3, != 3.6.4
+foolscap >= 0.12.6
+pycrypto >= 2.1.0, != 2.2, != 2.4
+pycryptopp >= 0.6.0
+service-identity
+characteristic >= 14.0.0
+pyasn1 >= 0.1.8
+pyasn1-modules >= 0.0.5
+Twisted[tls] >= 16.1.0
+Nevow >= 0.11.1
+pyOpenSSL >= 0.14
+PyYAML >= 3.11
+
+[:sys_platform=="win32"]
+pypiwin32
+
+[i2p]
+foolscap[i2p]
+txi2p >= 0.3.1
+
+[test]
+pyflakes
+coverage
+mock
+tox
+foolscap[tor] >= 0.12.5
+txtorcon >= 0.17.0
+foolscap[i2p]
+txi2p >= 0.3.1
+pytest
+pytest-twisted
+
+[tor]
+foolscap[tor] >= 0.12.5
+txtorcon >= 0.17.0
