@@ -1,0 +1,8 @@
+[console_scripts]
+freethinkdb-dump = freethinkdb._dump:main
+freethinkdb-export = freethinkdb._export:main
+freethinkdb-import = freethinkdb._import:main
+freethinkdb-index-rebuild = freethinkdb._index_rebuild:main
+freethinkdb-repl = freethinkdb.__main__:startInterpreter
+freethinkdb-restore = freethinkdb._restore:main
+
