@@ -1,0 +1,65 @@
+{{- $searchPath := ":global.kolla.keystone.create_keystone_endpoint.job:global.kolla.keystone.create_keystone_endpoint.all:global.kolla.keystone.all:global.kolla.all" }}
+{{- $containerConfigDirectory := include "kolla_val_get_str" (dict "key" "container_config_directory" "searchPath" $searchPath "Values" .Values ) }}
+{{- $selectorKey := include "kolla_val_get_str" (dict "key" "selector_key" "searchPath" $searchPath "Values" .Values ) }}
+{{- $selectorValue := include "kolla_val_get_str" (dict "key" "selector_value" "searchPath" $searchPath "Values" .Values ) }}
+{{- $port := include "kolla_val_get_str" (dict "key" "port" "searchPath" $searchPath "Values" .Values ) }}
+{{- $adminPort := include "kolla_val_get_str" (dict "key" "admin_port" "searchPath" $searchPath "Values" .Values ) }}
+{{- $region := include "kolla_val_get_str" (dict "key" "region" "searchPath" $searchPath "Values" .Values ) }}
+{{- $c := dict "searchPath" $searchPath "Values" .Values }}
+{{- $_ := set $c "contName" "keystone" }}
+{{- $_ := set $c "imageName" "image_full" }}
+{{- $_ := set $c "tagName" "image_tag" }}
+{{- $imageFull := include "kolla_build_image_full" $c }}
+{{- $resourceName := "keystone" }}
+{{- $netHostTrue := false }}
+{{- $podTypeBootstrap := true }}
+{{- $elementName := .Values.element_name | default $resourceName }}
+{{- $defaultPublicHost := printf "%s-public" $elementName }}
+{{- $publicHost := .Values.public_host | default $defaultPublicHost }}
+{{- with $env := dict "netHostTrue" $netHostTrue "podTypeBootstrap" $podTypeBootstrap "resourceName" $resourceName "Values" .Values "Release" .Release "searchPath" $searchPath }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: keystone-endpoints
+spec:
+  template:
+{{- include "init_container_header" $env | indent 4 }}
+{{- include "common_dependency_container_single" $env | indent 10 }}
+{{- include "init_container_tail" $env | indent 4 }}
+    spec:
+      nodeSelector:
+          {{ $selectorKey }}: {{ $selectorValue | quote }}
+      restartPolicy: OnFailure
+      containers:
+        - image: "{{ $imageFull }}"
+          name: main
+          command: ["sh", "-c", "mkdir -p /var/log/kolla/keystone; sudo -E kolla_set_configs;
+                    kolla_keystone_bootstrap admin
+                    $KEYSTONE_ADMIN_PASSWORD
+                    admin
+                    admin
+                    http://{{ $elementName }}-admin:{{ $adminPort }}/v3
+                    http://{{ $elementName }}-internal:{{ $port }}/v3
+                    http://{{ $publicHost }}:{{ $port }}/v3
+                    {{ $region }}"]
+          volumeMounts:
+{{- include "common_volume_mounts" $env | indent 12 }}
+            - mountPath: {{ $containerConfigDirectory }}
+              name: service-configmap
+              readOnly: true
+          env:
+            - name: KOLLA_KUBERNETES
+              value: ""
+            - name: KOLLA_CONFIG_STRATEGY
+              value: "COPY_ONCE"
+            - name: KEYSTONE_ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: keystone-admin-password
+                  key: password
+      volumes:
+{{- include "common_volumes" . | indent 8 }}
+        - name: service-configmap
+          configMap:
+            name: {{ .resourceName }}
+{{- end }}

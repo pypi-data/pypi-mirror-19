@@ -1,0 +1,14 @@
+{{- $localVals := dict }}
+{{- $searchPath := printf ":global.kolla.%s.svc:global.kolla.%s.all:global.kolla.memcached.svc:global.kolla.memcached.all:global.kolla.all" .Values.element_name .Values.element_name }}
+{{- $elementPort := include "kolla_val_get_str" (dict "key" "port" "searchPath" $searchPath "Values" .Values) }}
+{{- $elementName := .Values.element_name | default "memcached" }}
+{{- $elementService := .Values.element_name | default "memcached" }}
+{{- $c := dict "searchPath" $searchPath "key" "enabled" "retDict" $localVals "retKey" "enabled" "Values" .Values }}
+{{- include "kolla_val_get_raw" $c }}
+{{- with $env := dict "element_port" $elementPort "element_name" $elementName "element_service" $elementService "searchPath" $searchPath "Values" .Values "Release" .Release }}
+{{- if $localVals.enabled }}
+{{- include "common_svc" $env }}
+{{- else }}
+{{- include "common_disabled" (dict "elementName" $elementName "serviceKind" "svc") }}
+{{- end }}
+{{- end }}
