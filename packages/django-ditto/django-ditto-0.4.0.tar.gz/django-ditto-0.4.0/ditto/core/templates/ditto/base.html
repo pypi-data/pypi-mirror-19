@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>{% block head_title %}{% block title %}{% endblock %} ({% block head_site_title %}Ditto{% endblock %}){% endblock %}</title>
+
+        {% load static %}
+        <link rel="stylesheet" href="{% static "bootstrap.min.css" %}">
+
+        {% block head_extra %}
+            {# Use this if you need to more to the <head> of every page. #}
+        {% endblock %}
+    </head>
+    <body>
+
+        {% block navbar %}
+            <nav class="navbar navbar-toggleable navbar-inverse bg-inverse">
+                <div class="container">
+                    <a class="navbar-brand" href="{% url 'ditto:home' %}">
+                        {% block navbar_title %}
+                            Ditto
+                        {% endblock %}
+                    </a>
+                    <div id="navbar-content">
+                        <ul class="navbar-nav mr-auto">
+                            {% block navbar_list_start %}
+                            {% endblock %}
+
+                            {% if enabled_apps %}
+                                {% for app in enabled_apps %}
+                                    {% if app == 'flickr' %}
+                                        <li class="nav-item {% block flickr_nav_active %}{% endblock %}">
+                                            <a class="nav-link" href="{% url 'flickr:home' %}">
+                                                Flickr
+                                            </a>
+                                        </li>
+                                    {% elif app == 'lastfm' %}
+                                        <li class="nav-item {% block lastfm_nav_active %}{% endblock %}">
+                                            <a class="nav-link" href="{% url 'lastfm:home' %}">
+                                               Last.fm
+                                            </a>
+                                        </li>
+                                    {% elif app == 'pinboard' %}
+                                        <li class="nav-item {% block pinboard_nav_active %}{% endblock %}">
+                                            <a class="nav-link" href="{% url 'pinboard:home' %}">
+                                                Pinboard
+                                            </a>
+                                        </li>
+                                    {% elif app == 'twitter' %}
+                                        <li class="nav-item {% block twitter_nav_active %}{% endblock %}">
+                                            <a class="nav-link" href="{% url 'twitter:home' %}">
+                                                Twitter
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+
+                            {% block navbar_list_end %}
+                            {% endblock %}
+                        </ul>
+                    </div> <!-- .collapse.navbar-collapse -->
+                </div> <!-- .container -->
+            </nav>
+        {% endblock navbar %}
+
+        <div class="container">
+
+            {% if not enabled_apps %}
+                <p class="text-warning">Add <code>ditto.core.context_processors.ditto</code> to <code>context_processors</code> in your settings.</p>
+            {% endif %}
+
+            <ol class="breadcrumb">
+                {% block breadcrumbs %}{% endblock %}
+            </ol>
+
+            {% block content %}
+            {% endblock content %}
+
+        </div>
+
+    {% block footer %}
+        {# Use this if you need to add a visible footer to every page. #}
+    {% endblock %}
+
+    {% block foot_extra %}
+        {# Use this if you need to add JS etc to the foot of the page. #}
+    {% endblock %}
+    </body>
+</html>
