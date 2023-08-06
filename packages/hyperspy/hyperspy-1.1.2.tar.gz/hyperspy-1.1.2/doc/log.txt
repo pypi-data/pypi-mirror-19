@@ -1,0 +1,8 @@
+
+[31;01mException occurred:[39;49;00m
+  File "conf.py", line 20, in __getattr__
+    return Mock()
+RecursionError: maximum recursion depth exceeded while calling a Python object
+[31;01mThe full traceback has been saved in /tmp/sphinx-err-h6ddw78z.log, if you want to report the issue to the developers.[39;49;00m
+Please also report this if it was a user error, so that a better error message can be provided next time.
+A bug report can be filed in the tracker at <https://github.com/sphinx-doc/sphinx/issues>. Thanks!

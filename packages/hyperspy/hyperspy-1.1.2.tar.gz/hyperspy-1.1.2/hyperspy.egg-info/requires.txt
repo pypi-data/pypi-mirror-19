@@ -1,0 +1,15 @@
+scipy
+ipython>=2.0
+matplotlib>=1.2
+numpy>=1.10
+traits>=4.5.0
+traitsui>=5.0
+natsort
+requests
+tqdm
+sympy
+dill
+h5py
+python-dateutil
+ipyparallel
+scikit-image
