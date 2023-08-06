@@ -1,0 +1,125 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="fr:unistra:di:archive:pathfinder:v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="personnage" type="fr:personnageType" xmlns:fr="fr:unistra:di:archive:pathfinder:v1">
+    <xs:annotation>
+      <xs:documentation>Racine du fichier, id et source sont optionnels, le name correspond au titre</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="ageType">
+    <xs:simpleContent>
+      <xs:extension base="xs:byte">
+        <xs:attribute type="xs:string" name="name"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="classeType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="nom"/>
+      <xs:element type="xs:byte" name="niveau"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="name" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="classesType">
+    <xs:sequence>
+      <xs:element type="fr:classeType" name="classe" maxOccurs="unbounded" minOccurs="0" xmlns:fr="fr:unistra:di:archive:pathfinder:v1">
+        <xs:annotation>
+          <xs:documentation>Ici on affiche le sous-titre de name  Ici name est vide, donc ça affiche un titre vide  Lorsqu'il n'y a pas d'attribut name, on affiche le nom du tag. Ici classe</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="name"/>
+  </xs:complexType>
+  <xs:complexType name="etat-civilType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="nom">
+        <xs:annotation>
+          <xs:documentation>Affichage de clés/valeurs</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="fr:ageType" name="age" xmlns:fr="fr:unistra:di:archive:pathfinder:v1"/>
+      <xs:element type="fr:classesType" name="classes" xmlns:fr="fr:unistra:di:archive:pathfinder:v1">
+        <xs:annotation>
+          <xs:documentation>Nouveau bloc avec un sous-titre</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="name"/>
+  </xs:complexType>
+  <xs:complexType name="porteeType">
+    <xs:simpleContent>
+      <xs:extension base="xs:byte">
+        <xs:attribute type="xs:string" name="name" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="degatType">
+    <xs:simpleContent>
+      <xs:extension base="xs:byte">
+        <xs:attribute type="xs:string" name="name" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="elementType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="name" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="rareteType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="name" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="qualiteType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="name" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="armeType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="nom"/>
+      <xs:element type="xs:string" name="type"/>
+      <xs:element type="fr:porteeType" name="portee" xmlns:fr="fr:unistra:di:archive:pathfinder:v1"/>
+      <xs:element type="fr:degatType" name="degat" xmlns:fr="fr:unistra:di:archive:pathfinder:v1"/>
+      <xs:element type="fr:elementType" name="element" xmlns:fr="fr:unistra:di:archive:pathfinder:v1"/>
+      <xs:element type="fr:rareteType" name="rarete" xmlns:fr="fr:unistra:di:archive:pathfinder:v1"/>
+      <xs:element type="xs:short" name="prix"/>
+      <xs:element type="fr:qualiteType" name="qualite" xmlns:fr="fr:unistra:di:archive:pathfinder:v1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="armesType">
+    <xs:sequence>
+      <xs:element type="fr:armeType" name="arme" maxOccurs="unbounded" minOccurs="0" xmlns:fr="fr:unistra:di:archive:pathfinder:v1"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="style"/>
+    <xs:attribute type="xs:string" name="name"/>
+  </xs:complexType>
+  <xs:complexType name="familierType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="nom"/>
+      <xs:element type="xs:string" name="type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="personnageType">
+    <xs:sequence>
+      <xs:element type="fr:etat-civilType" name="etat-civil" xmlns:fr="fr:unistra:di:archive:pathfinder:v1">
+        <xs:annotation>
+          <xs:documentation>Affiche le sous-titre de l'état civil</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="fr:armesType" name="armes" xmlns:fr="fr:unistra:di:archive:pathfinder:v1">
+        <xs:annotation>
+          <xs:documentation>Element de style tableau</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="fr:familierType" name="familier" xmlns:fr="fr:unistra:di:archive:pathfinder:v1"/>
+    </xs:sequence>
+    <xs:attribute type="xs:byte" name="id"/>
+    <xs:attribute type="xs:string" name="source"/>
+    <xs:attribute type="xs:string" name="name"/>
+  </xs:complexType>
+</xs:schema>
