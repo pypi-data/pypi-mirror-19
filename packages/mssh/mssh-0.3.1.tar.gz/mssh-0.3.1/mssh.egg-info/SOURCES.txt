@@ -1,0 +1,15 @@
+MANIFEST.in
+setup.cfg
+setup.py
+bin/mssh
+mssh/__init__.py
+mssh.egg-info/PKG-INFO
+mssh.egg-info/SOURCES.txt
+mssh.egg-info/dependency_links.txt
+mssh.egg-info/requires.txt
+mssh.egg-info/top_level.txt
+mssh/completions/bash/mssh
+mssh/completions/zsh/_mssh
+mssh/config/__init__.py
+mssh/config/msshconfig.py
+mssh/config/sample/config_sample.yml
