@@ -1,0 +1,61 @@
+Metadata-Version: 1.1
+Name: Flask-Hooker
+Version: 1.0.3
+Summary: Receive and manage webhooks of several services at the same time
+Home-page: http://github.com/doblel/Flask-Hooker/
+Author: Lisandro Lucatti (doblel)
+Author-email: lucattilisandro@gmail.com
+License: MIT
+Description: Flask-Hooker
+        ============
+        
+        Receive and manage webhooks of several services at the same time
+        
+        |PyPI version| |Build Status| |Code Health| |contributions welcome|
+        
+        Simple usage
+        ~~~~~~~~~~~~
+        
+        .. code:: python
+        
+            from flask import Flask
+            from flask_hooker import Hooker
+        
+            def github_issue(json):
+                print 'new issue at:', json['issue']['url']
+                
+            def gitlab_push(json):
+                print 'the user %s push change into %s' % (json['user_name'], json['project']['name'])
+        
+            app = Flask(__name__)
+        
+            hooker = Hooker(app=app, url_prefix='/webhook')
+        
+            # with fabrics
+            # hooker = Hooker()
+            # hooker.init_app(app)
+        
+            hooker.add_handler(event='issues', func=github_issue, event_type='X-Github-Event')
+            hooker.add_handler('Push Hook', gitlab_push, 'X-Gitlab-Event')
+        
+            ...
+        
+        .. |PyPI version| image:: https://badge.fury.io/py/Flask-Hooker.svg
+           :target: https://badge.fury.io/py/Flask-Hooker
+        .. |Build Status| image:: https://travis-ci.org/doblel/Flask-Hooker.svg?branch=master
+           :target: https://travis-ci.org/doblel/Flask-Hooker
+        .. |Code Health| image:: https://landscape.io/github/doblel/Flask-Hooker/master/landscape.svg?style=flat
+           :target: https://landscape.io/github/doblel/Flask-Hooker/master
+        .. |contributions welcome| image:: https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat
+           :target: https://github.com/doblel/Flask-Hooker/issues
+        
+Platform: any
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
