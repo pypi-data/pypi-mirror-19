@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+__init__.py
+requirements.txt
+setup.py
+marve/Measurements.py
+marve/__init__.py
+marve/classes.py
+marve/dependency_patterns.json
+marve/grobid.py
+marve/sample.py
+marve.egg-info/PKG-INFO
+marve.egg-info/SOURCES.txt
+marve.egg-info/dependency_links.txt
+marve.egg-info/requires.txt
+marve.egg-info/top_level.txt
