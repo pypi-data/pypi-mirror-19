@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        tb=trackopy.scripts.tb:cli
+    
