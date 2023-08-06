@@ -1,0 +1,83 @@
+{% autoescape None %}
+{% extends "gramps-base.html" %}
+
+{% block title %}{{sitename}}: {{opts.database}}, {{tview}} {% end %}
+{% block heading %}{{sitename}}: {{opts.database}}, {{tview}} {% end %}
+
+{% block content %} 
+   <script type="text/javascript">
+   $(function(){
+     $('#tabs').tabs({
+	'select': function(event, ui){
+			document.location.hash = ui.panel.id;
+		}
+     });
+   });
+   </script>
+
+<div class="content" id="IndividualDetail">
+
+{% include "detail_breadcrumb.html" %}
+  
+<div id="summaryarea">
+  <table class="infolist" style="width:100%;">
+    <col width="10%">
+    <col width="90%">
+<tbody>
+<form method="post">{% module xsrf_form_html() %}
+
+    <td class="ColumnAttribute">{{ _("Event") }}:</td>
+    <td class="ColumnValue">
+      <a href="{{form.handler.app.make_url(form.instance.get_field(form.path + '.ref.self', form.database).make_url())}}" style="text-decoration: underline">
+	{{ form.display_event_from_field_handle(form.path + ".ref") }}
+      </a>
+    </td>
+
+  <tr><td id="rowspace"></td></tr>
+  <tr>
+    <td class="ColumnAttribute">{{_("Private") }}:</td>
+    <td class="ColumnValue">{{ form.render(form.path + ".private", user, action) }}</td>
+  </tr>
+  <tr>
+    <td class="ColumnAttribute">{{ _("role") }}:</td>
+    <td class="ColumnValue">{{ form.render(form.path + ".role", user, action) }}</td>
+  </tr>
+
+</tbody>
+</table>
+
+{% if user %}
+  {% if action == "edit" %}
+    <input type="hidden" name="search" value="{{ search }}"/>
+    <input type="hidden" name="page" value="{{ page }}"/>
+    <input type="submit" value="Save"/>
+    {{form.make_button(_("Cancel"), form.url)}}
+  {% else %}
+    <div style="background-color: lightgray; padding: 2px 0px 0px 2px; clear: both;">
+      {{ form.make_icon_button(_("Add Media reference"), form.url + "/add", icon="+") }}
+      {{ form.make_icon_button(_("Edit Media reference"), form.url + "/edit", icon="?") }}
+      {{ form.make_icon_button(_("Delete Media reference"), form.url + "/delete", icon="-") }}
+    </div>
+  {% end %}
+{% else %}
+{% end %}
+
+<!-- Tabs -->
+
+<div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs" style="border: none;">
+  <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+    <li class="ui-corner-top ui-state-default ui-tabs-selected ui-state-active"><a class="tab-attributes" href="#tab-attributes">{{_("Attributes")}}</a></li>
+    <li class="ui-corner-top ui-state-default"><a class="tab-notes" href="#tab-notes">{{_("Note")}}</a></li>
+  </ul>
+  <div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="tab-attributes" style="background-color: #f4f0ec;"> 
+    {{ attribute_table(form, user, action, form.subitem.attribute_list, form.path) }}
+  </div>
+  <div class="ui-tabs-panel ui-widget-content ui-corner-bottom
+	      ui-tabs-hide" id="tab-notes" style="background-color: #f4f0ec;"> 
+    {{ note_table(form, user, action, form.subitem.note_list, form.path) }}
+  </div>
+</div>
+
+    
+</form>
+{% end %}
