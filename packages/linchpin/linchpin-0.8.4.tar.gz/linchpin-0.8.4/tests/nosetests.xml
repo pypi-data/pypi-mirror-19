@@ -1,0 +1,1473 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite name="nosetests" tests="172" errors="10" failures="4" skip="0"><testcase classname="TestA.TestA" name="test_init" time="0.000"></testcase><testcase classname="TestA.TestA" name="test_raise_exc" time="0.000"></testcase><testcase classname="TestA.TestA" name="test_raise_exc_with_decorator" time="0.000"></testcase><testcase classname="TestA.TestA" name="test_return_true" time="0.000"></testcase><testcase classname="test.TestLinchPinAPI" name="test_get_config" time="0.006"><system-out><![CDATA[debug:: current working directory
+/home/srallaba/linch-pin/tests
+debug:: c_file
+/home/srallaba/linch-pin/tests/linchpin_config.yml
+debug:: c_file
+/home/srallaba/linch-pin/tests/linch-pin/linchpin_config.yml
+debug:: c_file
+~/.linchpin_config.yml
+debug:: c_file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: returned file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: config_path
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug::print file path
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+]]></system-out></testcase><testcase classname="test.TestLinchPinAPI" name="test_get_config_path" time="0.000"><system-out><![CDATA[debug:: current working directory
+/home/srallaba/linch-pin/tests
+debug:: c_file
+/home/srallaba/linch-pin/tests/linchpin_config.yml
+debug:: c_file
+/home/srallaba/linch-pin/tests/linch-pin/linchpin_config.yml
+debug:: c_file
+~/.linchpin_config.yml
+debug:: c_file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: returned file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+]]></system-out></testcase><testcase classname="test.TestLinchPinAPI" name="test_get_evars" time="0.002"><error type="exceptions.Exception" message="Topology or Layout mentioned                                      in pf file not found .                                      Please check your pf file."><![CDATA[Traceback (most recent call last):
+  File "/usr/lib64/python2.7/unittest/case.py", line 367, in run
+    testMethod()
+  File "/usr/lib/python2.7/site-packages/nose-1.3.7-py2.7.egg/nose/case.py", line 197, in runTest
+    self.test(*self.arg)
+  File "/home/srallaba/linch-pin/tests/test_linchpin_api.py", line 60, in test_get_evars
+    lp.get_evars(pf)
+  File "/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_api/v1/api.py", line 76, in get_evars
+    Please check your pf file.")
+Exception: Topology or Layout mentioned                                      in pf file not found .                                      Please check your pf file.
+]]></error></testcase><testcase classname="test.TestLinchPinAPI" name="test_get_evars_without_pf" time="0.000"></testcase><testcase classname="test.TestLinchPinAPI" name="test_lp_drop" time="0.000"></testcase><testcase classname="test.TestLinchPinAPI" name="test_lp_drop_with_target" time="0.000"></testcase><testcase classname="test.TestLinchPinAPI" name="test_lp_invgen_with_params" time="0.336"><failure type="exceptions.AssertionError" message="False != True&#10;-------------------- &gt;&gt; begin captured stdout &lt;&lt; ---------------------&#10;debug:: current working directory&#10;/home/srallaba/linch-pin/tests&#10;debug:: c_file&#10;/home/srallaba/linch-pin/tests/linchpin_config.yml&#10;debug:: c_file&#10;/home/srallaba/linch-pin/tests/linch-pin/linchpin_config.yml&#10;debug:: c_file&#10;~/.linchpin_config.yml&#10;debug:: c_file&#10;/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml&#10;debug:: returned file&#10;/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml&#10;debug:: module path ::/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/library&#10;&#10;PLAY [Inventory Filter Testing] ************************************************&#10;&#10;TASK [include_vars] ************************************************************&#10;ok: [localhost]&#10;&#10;TASK [Updating topology_outputs] ***********************************************&#10;ok: [localhost]&#10;&#10;TASK [copy] ********************************************************************&#10;An exception occurred during task execution. To see the full traceback, use -vvv. The error was: KeyError: 'beaker_res'&#10;fatal: [localhost]: FAILED! =&gt; {&quot;failed&quot;: true, &quot;msg&quot;: &quot;Unexpected failure during module execution.&quot;, &quot;stdout&quot;: &quot;&quot;}&#10;&#10;NO MORE HOSTS LEFT *************************************************************&#10;&#9;to retry, use: --limit @/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/provision/invgen.retry&#10;&#10;PLAY RECAP *********************************************************************&#10;localhost                  : ok=2    changed=0    unreachable=0    failed=1   &#10;&#10;&#10;--------------------- &gt;&gt; end captured stdout &lt;&lt; ----------------------"><![CDATA[  File "/usr/lib64/python2.7/unittest/case.py", line 367, in run
+    testMethod()
+  File "/usr/lib/python2.7/site-packages/nose-1.3.7-py2.7.egg/nose/case.py", line 197, in runTest
+    self.test(*self.arg)
+  File "/home/srallaba/linch-pin/tests/test_linchpin_api.py", line 195, in test_lp_invgen_with_params
+    assert_equal(filegenerated, True)
+  File "/usr/lib64/python2.7/unittest/case.py", line 551, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib64/python2.7/unittest/case.py", line 544, in _baseAssertEqual
+    raise self.failureException(msg)
+False != True
+-------------------- >> begin captured stdout << ---------------------
+debug:: current working directory
+/home/srallaba/linch-pin/tests
+debug:: c_file
+/home/srallaba/linch-pin/tests/linchpin_config.yml
+debug:: c_file
+/home/srallaba/linch-pin/tests/linch-pin/linchpin_config.yml
+debug:: c_file
+~/.linchpin_config.yml
+debug:: c_file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: returned file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: module path ::/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/library
+
+PLAY [Inventory Filter Testing] ************************************************
+
+TASK [include_vars] ************************************************************
+ok: [localhost]
+
+TASK [Updating topology_outputs] ***********************************************
+ok: [localhost]
+
+TASK [copy] ********************************************************************
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: KeyError: 'beaker_res'
+fatal: [localhost]: FAILED! => {"failed": true, "msg": "Unexpected failure during module execution.", "stdout": ""}
+
+NO MORE HOSTS LEFT *************************************************************
+	to retry, use: --limit @/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/provision/invgen.retry
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=1   
+
+
+--------------------- >> end captured stdout << ----------------------]]></failure><system-out><![CDATA[debug:: current working directory
+/home/srallaba/linch-pin/tests
+debug:: c_file
+/home/srallaba/linch-pin/tests/linchpin_config.yml
+debug:: c_file
+/home/srallaba/linch-pin/tests/linch-pin/linchpin_config.yml
+debug:: c_file
+~/.linchpin_config.yml
+debug:: c_file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: returned file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: module path ::/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/library
+
+PLAY [Inventory Filter Testing] ************************************************
+
+TASK [include_vars] ************************************************************
+ok: [localhost]
+
+TASK [Updating topology_outputs] ***********************************************
+ok: [localhost]
+
+TASK [copy] ********************************************************************
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: KeyError: 'beaker_res'
+fatal: [localhost]: FAILED! => {"failed": true, "msg": "Unexpected failure during module execution.", "stdout": ""}
+
+NO MORE HOSTS LEFT *************************************************************
+	to retry, use: --limit @/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/provision/invgen.retry
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=1   
+
+]]></system-out></testcase><testcase classname="test.TestLinchPinAPI" name="test_lp_invgen_without_params" time="0.000"></testcase><testcase classname="test.TestLinchPinAPI" name="test_lp_layout_get_without_params" time="0.000"></testcase><testcase classname="test.TestLinchPinAPI" name="test_lp_layout_list_with_wrong_upstream" time="0.000"></testcase><testcase classname="test.TestLinchPinAPI" name="test_lp_layout_list_without_params" time="0.000"></testcase><testcase classname="test.TestLinchPinAPI" name="test_lp_list_without_params" time="0.000"></testcase><testcase classname="test.TestLinchPinAPI" name="test_lp_rise" time="0.000"></testcase><testcase classname="test.TestLinchPinAPI" name="test_lp_rise_with_target" time="0.000"></testcase><testcase classname="test.TestLinchPinAPI" name="test_lp_topo_get_with_wrong_input_topo" time="0.000"></testcase><testcase classname="test.TestLinchPinAPI" name="test_lp_topo_get_with_wrong_upstream" time="0.000"></testcase><testcase classname="test.TestLinchPinAPI" name="test_lp_topo_get_without_params" time="0.000"></testcase><testcase classname="test.TestLinchPinAPI" name="test_lp_topo_list_with_wrong_upstream" time="0.000"><system-out><![CDATA[getting from upstream
+]]></system-out></testcase><testcase classname="test.TestLinchPinAPI" name="test_lp_topo_list_without_params" time="0.000"></testcase><testcase classname="test.TestLinchPinAPI" name="test_lp_validate_topology" time="0.508"><system-out><![CDATA[debug:: module path ::/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/library
+
+PLAY [Initiating playbook to perform schema_check on files] ********************
+
+TASK [Initiating schema_check] *************************************************
+ok: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=1    changed=0    unreachable=0    failed=0   
+
+]]></system-out></testcase><testcase classname="test.TestLinchPinAPI" name="test_lp_validate_topology_without_params" time="0.000"></testcase><testcase classname="test.TestLinchPinAPI" name="test_object_create" time="0.001"></testcase><testcase classname="test.TestLinchPinCli" name="test_get_config" time="0.004"><system-out><![CDATA[debug:: current working directory
+/home/srallaba/linch-pin/tests
+debug:: c_file
+/home/srallaba/linch-pin/tests/linchpin_config.yml
+debug:: c_file
+/home/srallaba/linch-pin/tests/linch-pin/linchpin_config.yml
+debug:: c_file
+~/.linchpin_config.yml
+debug:: c_file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: returned file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: config_path
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug::print file path
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+]]></system-out></testcase><testcase classname="test.TestLinchPinCli" name="test_get_config_path" time="0.001"><system-out><![CDATA[debug:: current working directory
+/home/srallaba/linch-pin/tests
+debug:: c_file
+/home/srallaba/linch-pin/tests/linchpin_config.yml
+debug:: c_file
+/home/srallaba/linch-pin/tests/linch-pin/linchpin_config.yml
+debug:: c_file
+~/.linchpin_config.yml
+debug:: c_file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: returned file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+]]></system-out></testcase><testcase classname="test.TestLinchPinCli" name="test_get_evars" time="0.003"><error type="exceptions.Exception" message="Topology or Layout mentioned                                      in pf file not found .                                      Please check your pf file."><![CDATA[Traceback (most recent call last):
+  File "/usr/lib64/python2.7/unittest/case.py", line 367, in run
+    testMethod()
+  File "/usr/lib/python2.7/site-packages/nose-1.3.7-py2.7.egg/nose/case.py", line 197, in runTest
+    self.test(*self.arg)
+  File "/home/srallaba/linch-pin/tests/test_linchpin_cli.py", line 61, in test_get_evars
+    lp.get_evars(pf)
+  File "/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_api/v1/api.py", line 76, in get_evars
+    Please check your pf file.")
+Exception: Topology or Layout mentioned                                      in pf file not found .                                      Please check your pf file.
+]]></error></testcase><testcase classname="test.TestLinchPinCli" name="test_get_evars_without_pf" time="0.000"></testcase><testcase classname="test.TestLinchPinCli" name="test_lp_drop_with_wrong_target" time="0.002"><system-out><![CDATA[debug:: current working directory
+/home/srallaba/linch-pin/tests
+debug:: c_file
+/home/srallaba/linch-pin/tests/linchpin_config.yml
+debug:: c_file
+/home/srallaba/linch-pin/tests/linch-pin/linchpin_config.yml
+debug:: c_file
+~/.linchpin_config.yml
+debug:: c_file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: returned file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+]]></system-out></testcase><testcase classname="test.TestLinchPinCli" name="test_lp_drop_without_params" time="0.000"></testcase><testcase classname="test.TestLinchPinCli" name="test_lp_invgen_with_params" time="0.394"><error type="exceptions.OSError" message="[Errno 2] No such file or directory: '/home/srallaba/linch-pin/tests/testoutput.txt'&#10;-------------------- &gt;&gt; begin captured stdout &lt;&lt; ---------------------&#10;debug:: current working directory&#10;/home/srallaba/linch-pin/tests&#10;debug:: c_file&#10;/home/srallaba/linch-pin/tests/linchpin_config.yml&#10;debug:: c_file&#10;/home/srallaba/linch-pin/tests/linch-pin/linchpin_config.yml&#10;debug:: c_file&#10;~/.linchpin_config.yml&#10;debug:: c_file&#10;/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml&#10;debug:: returned file&#10;/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml&#10;debug:: module path ::/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/library&#10;&#10;PLAY [Inventory Filter Testing] ************************************************&#10;&#10;TASK [include_vars] ************************************************************&#10;ok: [localhost]&#10;&#10;TASK [Updating topology_outputs] ***********************************************&#10;ok: [localhost]&#10;&#10;TASK [copy] ********************************************************************&#10;An exception occurred during task execution. To see the full traceback, use -vvv. The error was: KeyError: 'beaker_res'&#10;fatal: [localhost]: FAILED! =&gt; {&quot;failed&quot;: true, &quot;msg&quot;: &quot;Unexpected failure during module execution.&quot;, &quot;stdout&quot;: &quot;&quot;}&#10;&#10;NO MORE HOSTS LEFT *************************************************************&#10;&#9;to retry, use: --limit @/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/provision/invgen.retry&#10;&#10;PLAY RECAP *********************************************************************&#10;localhost                  : ok=2    changed=0    unreachable=0    failed=1   &#10;&#10;&#10;--------------------- &gt;&gt; end captured stdout &lt;&lt; ----------------------"><![CDATA[  File "/usr/lib64/python2.7/unittest/case.py", line 367, in run
+    testMethod()
+  File "/usr/lib/python2.7/site-packages/nose-1.3.7-py2.7.egg/nose/case.py", line 197, in runTest
+    self.test(*self.arg)
+  File "/home/srallaba/linch-pin/tests/test_linchpin_cli.py", line 194, in test_lp_invgen_with_params
+    os.remove(io)
+[Errno 2] No such file or directory: '/home/srallaba/linch-pin/tests/testoutput.txt'
+-------------------- >> begin captured stdout << ---------------------
+debug:: current working directory
+/home/srallaba/linch-pin/tests
+debug:: c_file
+/home/srallaba/linch-pin/tests/linchpin_config.yml
+debug:: c_file
+/home/srallaba/linch-pin/tests/linch-pin/linchpin_config.yml
+debug:: c_file
+~/.linchpin_config.yml
+debug:: c_file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: returned file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: module path ::/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/library
+
+PLAY [Inventory Filter Testing] ************************************************
+
+TASK [include_vars] ************************************************************
+ok: [localhost]
+
+TASK [Updating topology_outputs] ***********************************************
+ok: [localhost]
+
+TASK [copy] ********************************************************************
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: KeyError: 'beaker_res'
+fatal: [localhost]: FAILED! => {"failed": true, "msg": "Unexpected failure during module execution.", "stdout": ""}
+
+NO MORE HOSTS LEFT *************************************************************
+	to retry, use: --limit @/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/provision/invgen.retry
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=1   
+
+
+--------------------- >> end captured stdout << ----------------------]]></error><system-out><![CDATA[debug:: current working directory
+/home/srallaba/linch-pin/tests
+debug:: c_file
+/home/srallaba/linch-pin/tests/linchpin_config.yml
+debug:: c_file
+/home/srallaba/linch-pin/tests/linch-pin/linchpin_config.yml
+debug:: c_file
+~/.linchpin_config.yml
+debug:: c_file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: returned file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: module path ::/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/library
+
+PLAY [Inventory Filter Testing] ************************************************
+
+TASK [include_vars] ************************************************************
+ok: [localhost]
+
+TASK [Updating topology_outputs] ***********************************************
+ok: [localhost]
+
+TASK [copy] ********************************************************************
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: KeyError: 'beaker_res'
+fatal: [localhost]: FAILED! => {"failed": true, "msg": "Unexpected failure during module execution.", "stdout": ""}
+
+NO MORE HOSTS LEFT *************************************************************
+	to retry, use: --limit @/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/provision/invgen.retry
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=1   
+
+]]></system-out></testcase><testcase classname="test.TestLinchPinCli" name="test_lp_invgen_without_params" time="0.000"></testcase><testcase classname="test.TestLinchPinCli" name="test_lp_layout_get_without_params" time="0.000"></testcase><testcase classname="test.TestLinchPinCli" name="test_lp_layout_list_with_wrong_upstream" time="0.000"></testcase><testcase classname="test.TestLinchPinCli" name="test_lp_layout_list_without_params" time="0.000"></testcase><testcase classname="test.TestLinchPinCli" name="test_lp_list_without_params" time="0.000"></testcase><testcase classname="test.TestLinchPinCli" name="test_lp_rise_with_wrong_target" time="0.002"><system-out><![CDATA[debug:: current working directory
+/home/srallaba/linch-pin/tests
+debug:: c_file
+/home/srallaba/linch-pin/tests/linchpin_config.yml
+debug:: c_file
+/home/srallaba/linch-pin/tests/linch-pin/linchpin_config.yml
+debug:: c_file
+~/.linchpin_config.yml
+debug:: c_file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: returned file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+]]></system-out></testcase><testcase classname="test.TestLinchPinCli" name="test_lp_rise_wthout_params" time="0.000"></testcase><testcase classname="test.TestLinchPinCli" name="test_lp_topo_get_with_wrong_input_topo" time="0.000"></testcase><testcase classname="test.TestLinchPinCli" name="test_lp_topo_get_with_wrong_upstream" time="0.000"></testcase><testcase classname="test.TestLinchPinCli" name="test_lp_topo_get_without_params" time="0.000"></testcase><testcase classname="test.TestLinchPinCli" name="test_lp_topo_list_with_wrong_upstream" time="0.000"><system-out><![CDATA[getting from upstream
+]]></system-out></testcase><testcase classname="test.TestLinchPinCli" name="test_lp_topo_list_without_params" time="0.000"></testcase><testcase classname="test.TestLinchPinCli" name="test_lp_validate_topology" time="0.504"><system-out><![CDATA[debug:: module path ::/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/library
+
+PLAY [Initiating playbook to perform schema_check on files] ********************
+
+TASK [Initiating schema_check] *************************************************
+ok: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=1    changed=0    unreachable=0    failed=0   
+
+]]></system-out></testcase><testcase classname="test.TestLinchPinCli" name="test_lp_validate_topology_without_params" time="0.001"></testcase><testcase classname="test.TestLinchPinCli" name="test_object_create" time="0.000"></testcase><testcase classname="test.TestLinchPinCredentials" name="test_linchpin_aws_creds" time="0.002"></testcase><testcase classname="test.TestLinchPinCredentials" name="test_linchpin_duffy_creds" time="0.003"></testcase><testcase classname="test.TestLinchPinCredentials" name="test_linchpin_gcloud_creds" time="0.002"></testcase><testcase classname="test.TestLinchPinCredentials" name="test_linchpin_os_creds" time="0.005"></testcase><testcase classname="test.TestLinchPinCredentials" name="test_linchpin_rax_creds" time="0.002"></testcase><testcase classname="test.TestLinchPinEnv" name="test_ansible_version" time="0.002"></testcase><testcase classname="test.TestLinchPinEnv" name="test_boto_version" time="0.002"></testcase><testcase classname="test.TestLinchPinEnv" name="test_init" time="0.076"><system-out><![CDATA[
+PLAY [localhost] ***************************************************************
+
+TASK [echo] ********************************************************************
+ok: [localhost] => {
+    "msg": "hello"
+}
+
+TASK [echo2] *******************************************************************
+ok: [localhost] => {
+    "msg": "ech02"
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=0   
+
+]]></system-out></testcase><testcase classname="test.TestLinchPinEnv" name="test_jsonschema_version" time="0.002"></testcase><testcase classname="test.TestLinchPinEnv" name="test_libcloud_version" time="0.002"></testcase><testcase classname="test.TestLinchPinInventoryFilters" name="test_filter_aws_get_host_ips" time="0.001"></testcase><testcase classname="test.TestLinchPinInventoryFilters" name="test_filter_aws_get_inventory" time="0.002"></testcase><testcase classname="test.TestLinchPinInventoryFilters" name="test_filter_duffy_get_host_ips" time="0.001"></testcase><testcase classname="test.TestLinchPinInventoryFilters" name="test_filter_duffy_get_inventory" time="0.001"></testcase><testcase classname="test.TestLinchPinInventoryFilters" name="test_filter_gcloud_get_host_ips" time="0.001"></testcase><testcase classname="test.TestLinchPinInventoryFilters" name="test_filter_gcloud_get_inventory" time="0.002"></testcase><testcase classname="test.TestLinchPinInventoryFilters" name="test_filter_generic_get_host_ips" time="0.001"><error type="exceptions.KeyError" message="'beaker_res'"><![CDATA[Traceback (most recent call last):
+  File "/usr/lib64/python2.7/unittest/case.py", line 367, in run
+    testMethod()
+  File "/usr/lib/python2.7/site-packages/nose-1.3.7-py2.7.egg/nose/case.py", line 197, in runTest
+    self.test(*self.arg)
+  File "/home/srallaba/linch-pin/tests/test_linchpin_inventory_filters.py", line 72, in test_filter_generic_get_host_ips
+    host_ips = inv.get_host_ips(self.test_input)
+  File "/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/InventoryFilters/GenericInventory.py", line 37, in get_host_ips
+    ips = self.filter_classes[inv_filter]().get_host_ips(topo)
+  File "/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/InventoryFilters/BeakerInventory.py", line 17, in get_host_ips
+    return self.get_hostnames(topo)
+  File "/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/InventoryFilters/BeakerInventory.py", line 12, in get_hostnames
+    for group in topology['beaker_res']:
+KeyError: 'beaker_res'
+]]></error></testcase><testcase classname="test.TestLinchPinInventoryFilters" name="test_filter_generic_get_inventory" time="0.001"><error type="exceptions.KeyError" message="'beaker_res'"><![CDATA[Traceback (most recent call last):
+  File "/usr/lib64/python2.7/unittest/case.py", line 367, in run
+    testMethod()
+  File "/usr/lib/python2.7/site-packages/nose-1.3.7-py2.7.egg/nose/case.py", line 197, in runTest
+    self.test(*self.arg)
+  File "/home/srallaba/linch-pin/tests/test_linchpin_inventory_filters.py", line 106, in test_filter_generic_get_inventory
+    output = inv.get_inventory(self.test_input, self.test_layout)
+  File "/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/InventoryFilters/GenericInventory.py", line 54, in get_inventory
+    host_ip_dict = self.get_host_ips(topo)
+  File "/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/InventoryFilters/GenericInventory.py", line 37, in get_host_ips
+    ips = self.filter_classes[inv_filter]().get_host_ips(topo)
+  File "/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/InventoryFilters/BeakerInventory.py", line 17, in get_host_ips
+    return self.get_hostnames(topo)
+  File "/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/InventoryFilters/BeakerInventory.py", line 12, in get_hostnames
+    for group in topology['beaker_res']:
+KeyError: 'beaker_res'
+]]></error></testcase><testcase classname="test.TestLinchPinInventoryFilters" name="test_filter_os_get_host_ips" time="0.001"></testcase><testcase classname="test.TestLinchPinInventoryFilters" name="test_filter_os_get_inventory" time="0.002"></testcase><testcase classname="test.TestLinchPinInventoryGen" name="test_inventory_aws" time="0.572"><system-out><![CDATA[
+PLAY [Inventory Filter Testing] ************************************************
+
+TASK [include_vars] ************************************************************
+ok: [localhost]
+
+TASK [Updating topology_outputs] ***********************************************
+ok: [localhost]
+
+TASK [debug] *******************************************************************
+ok: [localhost] => {
+    "msg": "[OSEv3:children]\nmasters\nnodes\n\n[OSEv3:vars]\nopenshift_override_hostname_check = True\nopenshift_docker_insecure_registries = \"registry.example.com\"\n\t\nopenshift_docker_additional_registries = \"registry.example.com\"\n\t\ndebug_level = 2\nansible_ssh_user = root\nopenshift_set_hostname = True\nansible_sudo = False\n\n[repo_host]\nec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com openshift_public_hostname=ec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com  openshift_hostname=ec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com \n\n[nodes]\nec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com openshift_public_hostname=ec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com  openshift_hostname=ec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com \nec2-xx-xx-xx-xxx.compute-1.amazonaws.com openshift_public_hostname=ec2-xx-xx-xx-xxx.compute-1.amazonaws.com  openshift_hostname=ec2-xx-xx-xx-xxx.compute-1.amazonaws.com \n\n[masters]\nec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com openshift_public_hostname=ec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com  openshift_hostname=ec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com \n\n[OSEv3]\nec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com openshift_public_hostname=ec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com  openshift_hostname=ec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com \nec2-xx-xx-xx-xxx.compute-1.amazonaws.com openshift_public_hostname=ec2-xx-xx-xx-xxx.compute-1.amazonaws.com  openshift_hostname=ec2-xx-xx-xx-xxx.compute-1.amazonaws.com \n\n[all]\nec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com openshift_public_hostname=ec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com  openshift_hostname=ec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com \nec2-xx-xx-xx-xxx.compute-1.amazonaws.com openshift_public_hostname=ec2-xx-xx-xx-xxx.compute-1.amazonaws.com  openshift_hostname=ec2-xx-xx-xx-xxx.compute-1.amazonaws.com \n\n"
+}
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [fail] ********************************************************************
+skipping: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=3    changed=0    unreachable=0    failed=0   
+
+]]></system-out></testcase><testcase classname="test.TestLinchPinInventoryGen" name="test_inventory_duffy" time="0.614"><system-out><![CDATA[
+PLAY [Inventory Filter Testing] ************************************************
+
+TASK [include_vars] ************************************************************
+ok: [localhost]
+
+TASK [Updating topology_outputs] ***********************************************
+ok: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [fail] ********************************************************************
+fatal: [localhost]: FAILED! => {"changed": false, "failed": true, "msg": "inventory type not mentioned"}
+
+NO MORE HOSTS LEFT *************************************************************
+	to retry, use: --limit @/home/srallaba/linch-pin/tests/playbooks/test_inventory.retry
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=1   
+
+]]></system-out></testcase><testcase classname="test.TestLinchPinInventoryGen" name="test_inventory_gcloud" time="0.584"><system-out><![CDATA[
+PLAY [Inventory Filter Testing] ************************************************
+
+TASK [include_vars] ************************************************************
+ok: [localhost]
+
+TASK [Updating topology_outputs] ***********************************************
+ok: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+ok: [localhost] => {
+    "msg": "[OSEv3:children]\nmasters\nnodes\n\n[OSEv3:vars]\nopenshift_override_hostname_check = True\nopenshift_docker_insecure_registries = \"registry.example.com\"\n\t\nopenshift_docker_additional_registries = \"registry.example.com\"\n\t\ndebug_level = 2\nansible_ssh_user = root\nopenshift_set_hostname = True\nansible_sudo = False\n\n[repo_host]\nxxx.xxx.xxx.xxx openshift_public_hostname=xxx.xxx.xxx.xxx  openshift_hostname=xxx.xxx.xxx.xxx \n\n[nodes]\nxxx.xxx.xx.xx openshift_public_hostname=xxx.xxx.xx.xx  openshift_hostname=xxx.xxx.xx.xx \nxxx.xxx.xxx.xxx openshift_public_hostname=xxx.xxx.xxx.xxx  openshift_hostname=xxx.xxx.xxx.xxx \nxx.xxx.xx.xxx openshift_public_hostname=xx.xxx.xx.xxx  openshift_hostname=xx.xxx.xx.xxx \n\n[masters]\nxx.xxx.xx.xxx openshift_public_hostname=xx.xxx.xx.xxx  openshift_hostname=xx.xxx.xx.xxx \n\n[OSEv3]\nxxx.xxx.xx.xx openshift_public_hostname=xxx.xxx.xx.xx  openshift_hostname=xxx.xxx.xx.xx \nxxx.xxx.xxx.xxx openshift_public_hostname=xxx.xxx.xxx.xxx  openshift_hostname=xxx.xxx.xxx.xxx \nxx.xxx.xx.xxx openshift_public_hostname=xx.xxx.xx.xxx  openshift_hostname=xx.xxx.xx.xxx \n\n[all]\nxxx.xxx.xx.xx openshift_public_hostname=xxx.xxx.xx.xx  openshift_hostname=xxx.xxx.xx.xx \nxxx.xxx.xxx.xxx openshift_public_hostname=xxx.xxx.xxx.xxx  openshift_hostname=xxx.xxx.xxx.xxx \nxx.xxx.xx.xxx openshift_public_hostname=xx.xxx.xx.xxx  openshift_hostname=xx.xxx.xx.xxx \n\n"
+}
+
+TASK [fail] ********************************************************************
+skipping: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=3    changed=0    unreachable=0    failed=0   
+
+]]></system-out></testcase><testcase classname="test.TestLinchPinInventoryGen" name="test_inventory_generic" time="0.452"><failure type="exceptions.AssertionError" message="1 != 0&#10;-------------------- &gt;&gt; begin captured stdout &lt;&lt; ---------------------&#10;&#10;PLAY [Inventory Filter Testing] ************************************************&#10;&#10;TASK [include_vars] ************************************************************&#10;ok: [localhost]&#10;&#10;TASK [Updating topology_outputs] ***********************************************&#10;ok: [localhost]&#10;&#10;TASK [debug] *******************************************************************&#10;skipping: [localhost]&#10;&#10;TASK [debug] *******************************************************************&#10;An exception occurred during task execution. To see the full traceback, use -vvv. The error was: KeyError: 'beaker_res'&#10;fatal: [localhost]: FAILED! =&gt; {&quot;failed&quot;: true, &quot;msg&quot;: &quot;Unexpected failure during module execution.&quot;, &quot;stdout&quot;: &quot;&quot;}&#10;&#10;NO MORE HOSTS LEFT *************************************************************&#10;&#9;to retry, use: --limit @/home/srallaba/linch-pin/tests/playbooks/test_inventory.retry&#10;&#10;PLAY RECAP *********************************************************************&#10;localhost                  : ok=2    changed=0    unreachable=0    failed=1   &#10;&#10;&#10;--------------------- &gt;&gt; end captured stdout &lt;&lt; ----------------------"><![CDATA[  File "/usr/lib64/python2.7/unittest/case.py", line 367, in run
+    testMethod()
+  File "/usr/lib/python2.7/site-packages/nose-1.3.7-py2.7.egg/nose/case.py", line 197, in runTest
+    self.test(*self.arg)
+  File "/home/srallaba/linch-pin/tests/test_linchpin_inventory_gen.py", line 133, in test_inventory_generic
+    assert_equal(results, 0)
+  File "/usr/lib64/python2.7/unittest/case.py", line 551, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib64/python2.7/unittest/case.py", line 544, in _baseAssertEqual
+    raise self.failureException(msg)
+1 != 0
+-------------------- >> begin captured stdout << ---------------------
+
+PLAY [Inventory Filter Testing] ************************************************
+
+TASK [include_vars] ************************************************************
+ok: [localhost]
+
+TASK [Updating topology_outputs] ***********************************************
+ok: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: KeyError: 'beaker_res'
+fatal: [localhost]: FAILED! => {"failed": true, "msg": "Unexpected failure during module execution.", "stdout": ""}
+
+NO MORE HOSTS LEFT *************************************************************
+	to retry, use: --limit @/home/srallaba/linch-pin/tests/playbooks/test_inventory.retry
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=1   
+
+
+--------------------- >> end captured stdout << ----------------------]]></failure><system-out><![CDATA[
+PLAY [Inventory Filter Testing] ************************************************
+
+TASK [include_vars] ************************************************************
+ok: [localhost]
+
+TASK [Updating topology_outputs] ***********************************************
+ok: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: KeyError: 'beaker_res'
+fatal: [localhost]: FAILED! => {"failed": true, "msg": "Unexpected failure during module execution.", "stdout": ""}
+
+NO MORE HOSTS LEFT *************************************************************
+	to retry, use: --limit @/home/srallaba/linch-pin/tests/playbooks/test_inventory.retry
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=1   
+
+]]></system-out></testcase><testcase classname="test.TestLinchPinInventoryGen" name="test_inventory_os" time="0.567"><system-out><![CDATA[
+PLAY [Inventory Filter Testing] ************************************************
+
+TASK [include_vars] ************************************************************
+ok: [localhost]
+
+TASK [Updating topology_outputs] ***********************************************
+ok: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+ok: [localhost] => {
+    "msg": "[OSEv3:children]\nmasters\nnodes\n\n[OSEv3:vars]\nopenshift_override_hostname_check = True\nopenshift_docker_insecure_registries = \"registry.example.com\"\n\t\nopenshift_docker_additional_registries = \"registry.example.com\"\n\t\ndebug_level = 2\nansible_ssh_user = root\nopenshift_set_hostname = True\nansible_sudo = False\n\n[repo_host]\nxxxxxxxxxxxx openshift_public_hostname=xxxxxxxxxxxx  openshift_hostname=xxxxxxxxxxxx \n\n[nodes]\nxxxxxxxxxxx openshift_public_hostname=xxxxxxxxxxx  openshift_hostname=xxxxxxxxxxx \nxxxxxxxxxxxx openshift_public_hostname=xxxxxxxxxxxx  openshift_hostname=xxxxxxxxxxxx \n\n[masters]\nxxxxxxxxxxx openshift_public_hostname=xxxxxxxxxxx  openshift_hostname=xxxxxxxxxxx \n\n[OSEv3]\nxxxxxxxxxxx openshift_public_hostname=xxxxxxxxxxx  openshift_hostname=xxxxxxxxxxx \nxxxxxxxxxxxx openshift_public_hostname=xxxxxxxxxxxx  openshift_hostname=xxxxxxxxxxxx \n\n[all]\nxxxxxxxxxxx openshift_public_hostname=xxxxxxxxxxx  openshift_hostname=xxxxxxxxxxx \nxxxxxxxxxxxx openshift_public_hostname=xxxxxxxxxxxx  openshift_hostname=xxxxxxxxxxxx \n\n"
+}
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [fail] ********************************************************************
+skipping: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=3    changed=0    unreachable=0    failed=0   
+
+]]></system-out></testcase><testcase classname="test.TestLinchPinInventoryGen" name="test_inventory_other" time="0.620"><system-out><![CDATA[
+PLAY [Inventory Filter Testing] ************************************************
+
+TASK [include_vars] ************************************************************
+ok: [localhost]
+
+TASK [Updating topology_outputs] ***********************************************
+ok: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [fail] ********************************************************************
+fatal: [localhost]: FAILED! => {"changed": false, "failed": true, "msg": "inventory type not mentioned"}
+
+NO MORE HOSTS LEFT *************************************************************
+	to retry, use: --limit @/home/srallaba/linch-pin/tests/playbooks/test_inventory.retry
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=1   
+
+]]></system-out></testcase><testcase classname="test.TestLinchPinInvocation" name="test_linchpin_invocation_without_param" time="0.314"><system-out><![CDATA[statically included: /home/srallaba/linch-pin/provision/roles/beaker/tasks/provision_resource_group.yml
+statically included: /home/srallaba/linch-pin/provision/roles/output_writer/tasks/update_async_outputs.yml
+statically included: /home/srallaba/linch-pin/provision/roles/output_writer/tasks/update_os_server_outputs.yml
+statically included: /home/srallaba/linch-pin/provision/roles/output_writer/tasks/update_os_obj_outputs.yml
+statically included: /home/srallaba/linch-pin/provision/roles/output_writer/tasks/update_os_volume_outputs.yml
+statically included: /home/srallaba/linch-pin/provision/roles/output_writer/tasks/update_os_heat_outputs.yml
+statically included: /home/srallaba/linch-pin/provision/roles/output_writer/tasks/update_aws_ec2_outputs.yml
+statically included: /home/srallaba/linch-pin/provision/roles/output_writer/tasks/update_aws_cfn_outputs.yml
+statically included: /home/srallaba/linch-pin/provision/roles/output_writer/tasks/update_gcloud_gce_outputs.yml
+
+PLAY [including the configuration files] ***************************************
+
+TASK [Include linchpin_config] *************************************************
+ok: [localhost] => (item=/home/srallaba/linch-pin/linchpin_config.yml)
+
+PLAY [schema check and Pre Provisioning Activities  on topology_file] **********
+
+TASK [common : Including Linchpin config vars] *********************************
+ok: [localhost]
+
+TASK [common : DEBUG: topology and schema] *************************************
+fatal: [localhost]: FAILED! => {"failed": true, "msg": "the field 'args' has an invalid value, which appears to include a variable that is undefined. The error was: 'topology' is undefined\n\nThe error appears to have been in '/home/srallaba/linch-pin/provision/roles/common/tasks/main.yml': line 6, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: \"DEBUG: topology and schema\"\n  ^ here\nThis one looks easy to fix.  It seems that there is a value started\nwith a quote, and the YAML parser is expecting to see the line ended\nwith the same kind of quote.  For instance:\n\n    when: \"ok\" in result.stdout\n\nCould be written as:\n\n   when: '\"ok\" in result.stdout'\n\nOr equivalently:\n\n   when: \"'ok' in result.stdout\"\n"}
+
+NO MORE HOSTS LEFT *************************************************************
+	to retry, use: --limit @/home/srallaba/linch-pin/provision/site.retry
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=1   
+
+]]></system-out></testcase><testcase classname="test.TestLinchPinModuleOSHotStack" name="test_module_dir_params" time="0.435"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "failed": true, 
+    "invocation": {
+        "module_args": {
+            "os_auth_url": null, 
+            "os_password": null, 
+            "os_tenant_name": null, 
+            "os_username": null, 
+            "parameters": null, 
+            "stack_name": "testname", 
+            "state": "present", 
+            "template": "/tmp/tmpXXWyfF", 
+            "wait": null
+        }
+    }, 
+    "msg": "Recursive directory not supported  /tmp/tmpXXWyfF "
+}
+]]></system-out></testcase><testcase classname="test.TestLinchPinModuleOSHotStack" name="test_module_empty_params" time="0.380"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "failed": true, 
+    "invocation": {
+        "module_args": {}
+    }, 
+    "msg": "missing required arguments: stack_name,state,template"
+}
+]]></system-out></testcase><testcase classname="test.TestLinchPinModuleOSHotStack" name="test_module_unsupported_params" time="0.390"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "failed": true, 
+    "invocation": {
+        "module_args": {
+            "test": "params"
+        }
+    }, 
+    "msg": "unsupported parameter for module: test"
+}
+]]></system-out></testcase><testcase classname="test.TestLinchPinModuleOutputParser" name="test_module_dir_params" time="0.360"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "failed": true, 
+    "invocation": {
+        "module_args": {
+            "output_file": "/tmp/tmpGq6mIC"
+        }
+    }, 
+    "msg": "Recursive directory not supported  /tmp/tmpGq6mIC "
+}
+]]></system-out></testcase><testcase classname="test.TestLinchPinModuleOutputParser" name="test_module_empty_file" time="0.361"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "failed": true, 
+    "invocation": {
+        "module_args": {
+            "output_file": "/tmp/tmpcoCZ68"
+        }
+    }, 
+    "msg": {
+        "content": null, 
+        "path": "/tmp/tmpcoCZ68"
+    }
+}
+]]></system-out></testcase><testcase classname="test.TestLinchPinModuleOutputParser" name="test_module_empty_params" time="0.371"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "failed": true, 
+    "invocation": {
+        "module_args": {}
+    }, 
+    "msg": "missing required arguments: output_file"
+}
+]]></system-out></testcase><testcase classname="test.TestLinchPinModuleOutputParser" name="test_module_unsupported_params" time="0.366"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "failed": true, 
+    "invocation": {
+        "module_args": {
+            "test": "params"
+        }
+    }, 
+    "msg": "unsupported parameter for module: test"
+}
+]]></system-out></testcase><testcase classname="test.TestLinchPinModuleOutputParser" name="test_module_yaml_file" time="0.373"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "changed": true, 
+    "invocation": {
+        "module_args": {
+            "output_file": "/tmp/tmpWUGX11"
+        }
+    }, 
+    "output": {
+        "content": {
+            "testkey": "testval"
+        }, 
+        "path": "/tmp/tmpWUGX11"
+    }
+}
+]]></system-out></testcase><testcase classname="test.TestLinchPinModuleSchemaCheck" name="test_module_dir_params" time="0.367"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "failed": true, 
+    "invocation": {
+        "module_args": {
+            "data": "/tmp/tmp9a5hIS", 
+            "data_format": null, 
+            "schema": "/tmp/tmp9a5hIS"
+        }
+    }, 
+    "msg": "Recursive directory not supported  /tmp/tmp9a5hIS "
+}
+]]></system-out></testcase><testcase classname="test.TestLinchPinModuleSchemaCheck" name="test_module_empty_params" time="0.364"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "failed": true, 
+    "invocation": {
+        "module_args": {}
+    }, 
+    "msg": "missing required arguments: data,schema"
+}
+]]></system-out></testcase><testcase classname="test.TestLinchPinModuleSchemaCheck" name="test_module_invalid_data_param" time="0.372"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "failed": true, 
+    "invocation": {
+        "module_args": {
+            "data": "hello", 
+            "data_format": null, 
+            "schema": "mockdata/schema_v3.json"
+        }
+    }, 
+    "msg": "File not found hello not found"
+}
+]]></system-out></testcase><testcase classname="test.TestLinchPinModuleSchemaCheck" name="test_module_invalid_schema_param" time="0.364"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "failed": true, 
+    "invocation": {
+        "module_args": {
+            "data": "mockdata/ex_all.yml", 
+            "data_format": null, 
+            "schema": "hello"
+        }
+    }, 
+    "msg": "File not found hello not found"
+}
+]]></system-out></testcase><testcase classname="test.TestLinchPinModuleSchemaCheck" name="test_module_unsupported_params" time="0.366"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "failed": true, 
+    "invocation": {
+        "module_args": {
+            "test": "params"
+        }
+    }, 
+    "msg": "unsupported parameter for module: test"
+}
+]]></system-out></testcase><testcase classname="test_linchpin_api.TestLinchPinAPI" name="test_get_config" time="0.004"><system-out><![CDATA[debug:: current working directory
+/home/srallaba/linch-pin/tests
+debug:: c_file
+/home/srallaba/linch-pin/tests/linchpin_config.yml
+debug:: c_file
+/home/srallaba/linch-pin/tests/linch-pin/linchpin_config.yml
+debug:: c_file
+~/.linchpin_config.yml
+debug:: c_file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: returned file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: config_path
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug::print file path
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+]]></system-out></testcase><testcase classname="test_linchpin_api.TestLinchPinAPI" name="test_get_config_path" time="0.001"><system-out><![CDATA[debug:: current working directory
+/home/srallaba/linch-pin/tests
+debug:: c_file
+/home/srallaba/linch-pin/tests/linchpin_config.yml
+debug:: c_file
+/home/srallaba/linch-pin/tests/linch-pin/linchpin_config.yml
+debug:: c_file
+~/.linchpin_config.yml
+debug:: c_file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: returned file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+]]></system-out></testcase><testcase classname="test_linchpin_api.TestLinchPinAPI" name="test_get_evars" time="0.003"><error type="exceptions.Exception" message="Topology or Layout mentioned                                      in pf file not found .                                      Please check your pf file."><![CDATA[Traceback (most recent call last):
+  File "/usr/lib64/python2.7/unittest/case.py", line 367, in run
+    testMethod()
+  File "/usr/lib/python2.7/site-packages/nose-1.3.7-py2.7.egg/nose/case.py", line 197, in runTest
+    self.test(*self.arg)
+  File "/home/srallaba/linch-pin/tests/test_linchpin_api.py", line 60, in test_get_evars
+    lp.get_evars(pf)
+  File "/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_api/v1/api.py", line 76, in get_evars
+    Please check your pf file.")
+Exception: Topology or Layout mentioned                                      in pf file not found .                                      Please check your pf file.
+]]></error></testcase><testcase classname="test_linchpin_api.TestLinchPinAPI" name="test_get_evars_without_pf" time="0.000"></testcase><testcase classname="test_linchpin_api.TestLinchPinAPI" name="test_lp_drop" time="0.000"></testcase><testcase classname="test_linchpin_api.TestLinchPinAPI" name="test_lp_drop_with_target" time="0.000"></testcase><testcase classname="test_linchpin_api.TestLinchPinAPI" name="test_lp_invgen_with_params" time="0.342"><failure type="exceptions.AssertionError" message="False != True&#10;-------------------- &gt;&gt; begin captured stdout &lt;&lt; ---------------------&#10;debug:: current working directory&#10;/home/srallaba/linch-pin/tests&#10;debug:: c_file&#10;/home/srallaba/linch-pin/tests/linchpin_config.yml&#10;debug:: c_file&#10;/home/srallaba/linch-pin/tests/linch-pin/linchpin_config.yml&#10;debug:: c_file&#10;~/.linchpin_config.yml&#10;debug:: c_file&#10;/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml&#10;debug:: returned file&#10;/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml&#10;debug:: module path ::/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/library&#10;&#10;PLAY [Inventory Filter Testing] ************************************************&#10;&#10;TASK [include_vars] ************************************************************&#10;ok: [localhost]&#10;&#10;TASK [Updating topology_outputs] ***********************************************&#10;ok: [localhost]&#10;&#10;TASK [copy] ********************************************************************&#10;An exception occurred during task execution. To see the full traceback, use -vvv. The error was: KeyError: 'beaker_res'&#10;fatal: [localhost]: FAILED! =&gt; {&quot;failed&quot;: true, &quot;msg&quot;: &quot;Unexpected failure during module execution.&quot;, &quot;stdout&quot;: &quot;&quot;}&#10;&#10;NO MORE HOSTS LEFT *************************************************************&#10;&#9;to retry, use: --limit @/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/provision/invgen.retry&#10;&#10;PLAY RECAP *********************************************************************&#10;localhost                  : ok=2    changed=0    unreachable=0    failed=1   &#10;&#10;&#10;--------------------- &gt;&gt; end captured stdout &lt;&lt; ----------------------"><![CDATA[  File "/usr/lib64/python2.7/unittest/case.py", line 367, in run
+    testMethod()
+  File "/usr/lib/python2.7/site-packages/nose-1.3.7-py2.7.egg/nose/case.py", line 197, in runTest
+    self.test(*self.arg)
+  File "/home/srallaba/linch-pin/tests/test_linchpin_api.py", line 195, in test_lp_invgen_with_params
+    assert_equal(filegenerated, True)
+  File "/usr/lib64/python2.7/unittest/case.py", line 551, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib64/python2.7/unittest/case.py", line 544, in _baseAssertEqual
+    raise self.failureException(msg)
+False != True
+-------------------- >> begin captured stdout << ---------------------
+debug:: current working directory
+/home/srallaba/linch-pin/tests
+debug:: c_file
+/home/srallaba/linch-pin/tests/linchpin_config.yml
+debug:: c_file
+/home/srallaba/linch-pin/tests/linch-pin/linchpin_config.yml
+debug:: c_file
+~/.linchpin_config.yml
+debug:: c_file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: returned file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: module path ::/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/library
+
+PLAY [Inventory Filter Testing] ************************************************
+
+TASK [include_vars] ************************************************************
+ok: [localhost]
+
+TASK [Updating topology_outputs] ***********************************************
+ok: [localhost]
+
+TASK [copy] ********************************************************************
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: KeyError: 'beaker_res'
+fatal: [localhost]: FAILED! => {"failed": true, "msg": "Unexpected failure during module execution.", "stdout": ""}
+
+NO MORE HOSTS LEFT *************************************************************
+	to retry, use: --limit @/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/provision/invgen.retry
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=1   
+
+
+--------------------- >> end captured stdout << ----------------------]]></failure><system-out><![CDATA[debug:: current working directory
+/home/srallaba/linch-pin/tests
+debug:: c_file
+/home/srallaba/linch-pin/tests/linchpin_config.yml
+debug:: c_file
+/home/srallaba/linch-pin/tests/linch-pin/linchpin_config.yml
+debug:: c_file
+~/.linchpin_config.yml
+debug:: c_file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: returned file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: module path ::/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/library
+
+PLAY [Inventory Filter Testing] ************************************************
+
+TASK [include_vars] ************************************************************
+ok: [localhost]
+
+TASK [Updating topology_outputs] ***********************************************
+ok: [localhost]
+
+TASK [copy] ********************************************************************
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: KeyError: 'beaker_res'
+fatal: [localhost]: FAILED! => {"failed": true, "msg": "Unexpected failure during module execution.", "stdout": ""}
+
+NO MORE HOSTS LEFT *************************************************************
+	to retry, use: --limit @/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/provision/invgen.retry
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=1   
+
+]]></system-out></testcase><testcase classname="test_linchpin_api.TestLinchPinAPI" name="test_lp_invgen_without_params" time="0.001"></testcase><testcase classname="test_linchpin_api.TestLinchPinAPI" name="test_lp_layout_get_without_params" time="0.000"></testcase><testcase classname="test_linchpin_api.TestLinchPinAPI" name="test_lp_layout_list_with_wrong_upstream" time="0.000"></testcase><testcase classname="test_linchpin_api.TestLinchPinAPI" name="test_lp_layout_list_without_params" time="0.000"></testcase><testcase classname="test_linchpin_api.TestLinchPinAPI" name="test_lp_list_without_params" time="0.000"></testcase><testcase classname="test_linchpin_api.TestLinchPinAPI" name="test_lp_rise" time="0.000"></testcase><testcase classname="test_linchpin_api.TestLinchPinAPI" name="test_lp_rise_with_target" time="0.000"></testcase><testcase classname="test_linchpin_api.TestLinchPinAPI" name="test_lp_topo_get_with_wrong_input_topo" time="0.000"></testcase><testcase classname="test_linchpin_api.TestLinchPinAPI" name="test_lp_topo_get_with_wrong_upstream" time="0.000"></testcase><testcase classname="test_linchpin_api.TestLinchPinAPI" name="test_lp_topo_get_without_params" time="0.000"></testcase><testcase classname="test_linchpin_api.TestLinchPinAPI" name="test_lp_topo_list_with_wrong_upstream" time="0.000"><system-out><![CDATA[getting from upstream
+]]></system-out></testcase><testcase classname="test_linchpin_api.TestLinchPinAPI" name="test_lp_topo_list_without_params" time="0.000"></testcase><testcase classname="test_linchpin_api.TestLinchPinAPI" name="test_lp_validate_topology" time="0.448"><system-out><![CDATA[debug:: module path ::/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/library
+
+PLAY [Initiating playbook to perform schema_check on files] ********************
+
+TASK [Initiating schema_check] *************************************************
+ok: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=1    changed=0    unreachable=0    failed=0   
+
+]]></system-out></testcase><testcase classname="test_linchpin_api.TestLinchPinAPI" name="test_lp_validate_topology_without_params" time="0.000"></testcase><testcase classname="test_linchpin_api.TestLinchPinAPI" name="test_object_create" time="0.000"></testcase><testcase classname="test_linchpin_cli.TestLinchPinCli" name="test_get_config" time="0.011"><system-out><![CDATA[debug:: current working directory
+/home/srallaba/linch-pin/tests
+debug:: c_file
+/home/srallaba/linch-pin/tests/linchpin_config.yml
+debug:: c_file
+/home/srallaba/linch-pin/tests/linch-pin/linchpin_config.yml
+debug:: c_file
+~/.linchpin_config.yml
+debug:: c_file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: returned file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: config_path
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug::print file path
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+]]></system-out></testcase><testcase classname="test_linchpin_cli.TestLinchPinCli" name="test_get_config_path" time="0.000"><system-out><![CDATA[debug:: current working directory
+/home/srallaba/linch-pin/tests
+debug:: c_file
+/home/srallaba/linch-pin/tests/linchpin_config.yml
+debug:: c_file
+/home/srallaba/linch-pin/tests/linch-pin/linchpin_config.yml
+debug:: c_file
+~/.linchpin_config.yml
+debug:: c_file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: returned file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+]]></system-out></testcase><testcase classname="test_linchpin_cli.TestLinchPinCli" name="test_get_evars" time="0.003"><error type="exceptions.Exception" message="Topology or Layout mentioned                                      in pf file not found .                                      Please check your pf file."><![CDATA[Traceback (most recent call last):
+  File "/usr/lib64/python2.7/unittest/case.py", line 367, in run
+    testMethod()
+  File "/usr/lib/python2.7/site-packages/nose-1.3.7-py2.7.egg/nose/case.py", line 197, in runTest
+    self.test(*self.arg)
+  File "/home/srallaba/linch-pin/tests/test_linchpin_cli.py", line 61, in test_get_evars
+    lp.get_evars(pf)
+  File "/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_api/v1/api.py", line 76, in get_evars
+    Please check your pf file.")
+Exception: Topology or Layout mentioned                                      in pf file not found .                                      Please check your pf file.
+]]></error></testcase><testcase classname="test_linchpin_cli.TestLinchPinCli" name="test_get_evars_without_pf" time="0.001"></testcase><testcase classname="test_linchpin_cli.TestLinchPinCli" name="test_lp_drop_with_wrong_target" time="0.002"><system-out><![CDATA[debug:: current working directory
+/home/srallaba/linch-pin/tests
+debug:: c_file
+/home/srallaba/linch-pin/tests/linchpin_config.yml
+debug:: c_file
+/home/srallaba/linch-pin/tests/linch-pin/linchpin_config.yml
+debug:: c_file
+~/.linchpin_config.yml
+debug:: c_file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: returned file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+]]></system-out></testcase><testcase classname="test_linchpin_cli.TestLinchPinCli" name="test_lp_drop_without_params" time="0.000"></testcase><testcase classname="test_linchpin_cli.TestLinchPinCli" name="test_lp_invgen_with_params" time="0.490"><error type="exceptions.OSError" message="[Errno 2] No such file or directory: '/home/srallaba/linch-pin/tests/testoutput.txt'&#10;-------------------- &gt;&gt; begin captured stdout &lt;&lt; ---------------------&#10;debug:: current working directory&#10;/home/srallaba/linch-pin/tests&#10;debug:: c_file&#10;/home/srallaba/linch-pin/tests/linchpin_config.yml&#10;debug:: c_file&#10;/home/srallaba/linch-pin/tests/linch-pin/linchpin_config.yml&#10;debug:: c_file&#10;~/.linchpin_config.yml&#10;debug:: c_file&#10;/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml&#10;debug:: returned file&#10;/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml&#10;debug:: module path ::/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/library&#10;&#10;PLAY [Inventory Filter Testing] ************************************************&#10;&#10;TASK [include_vars] ************************************************************&#10;ok: [localhost]&#10;&#10;TASK [Updating topology_outputs] ***********************************************&#10;ok: [localhost]&#10;&#10;TASK [copy] ********************************************************************&#10;An exception occurred during task execution. To see the full traceback, use -vvv. The error was: KeyError: 'beaker_res'&#10;fatal: [localhost]: FAILED! =&gt; {&quot;failed&quot;: true, &quot;msg&quot;: &quot;Unexpected failure during module execution.&quot;, &quot;stdout&quot;: &quot;&quot;}&#10;&#10;NO MORE HOSTS LEFT *************************************************************&#10;&#9;to retry, use: --limit @/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/provision/invgen.retry&#10;&#10;PLAY RECAP *********************************************************************&#10;localhost                  : ok=2    changed=0    unreachable=0    failed=1   &#10;&#10;&#10;--------------------- &gt;&gt; end captured stdout &lt;&lt; ----------------------"><![CDATA[  File "/usr/lib64/python2.7/unittest/case.py", line 367, in run
+    testMethod()
+  File "/usr/lib/python2.7/site-packages/nose-1.3.7-py2.7.egg/nose/case.py", line 197, in runTest
+    self.test(*self.arg)
+  File "/home/srallaba/linch-pin/tests/test_linchpin_cli.py", line 194, in test_lp_invgen_with_params
+    os.remove(io)
+[Errno 2] No such file or directory: '/home/srallaba/linch-pin/tests/testoutput.txt'
+-------------------- >> begin captured stdout << ---------------------
+debug:: current working directory
+/home/srallaba/linch-pin/tests
+debug:: c_file
+/home/srallaba/linch-pin/tests/linchpin_config.yml
+debug:: c_file
+/home/srallaba/linch-pin/tests/linch-pin/linchpin_config.yml
+debug:: c_file
+~/.linchpin_config.yml
+debug:: c_file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: returned file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: module path ::/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/library
+
+PLAY [Inventory Filter Testing] ************************************************
+
+TASK [include_vars] ************************************************************
+ok: [localhost]
+
+TASK [Updating topology_outputs] ***********************************************
+ok: [localhost]
+
+TASK [copy] ********************************************************************
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: KeyError: 'beaker_res'
+fatal: [localhost]: FAILED! => {"failed": true, "msg": "Unexpected failure during module execution.", "stdout": ""}
+
+NO MORE HOSTS LEFT *************************************************************
+	to retry, use: --limit @/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/provision/invgen.retry
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=1   
+
+
+--------------------- >> end captured stdout << ----------------------]]></error><system-out><![CDATA[debug:: current working directory
+/home/srallaba/linch-pin/tests
+debug:: c_file
+/home/srallaba/linch-pin/tests/linchpin_config.yml
+debug:: c_file
+/home/srallaba/linch-pin/tests/linch-pin/linchpin_config.yml
+debug:: c_file
+~/.linchpin_config.yml
+debug:: c_file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: returned file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: module path ::/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/library
+
+PLAY [Inventory Filter Testing] ************************************************
+
+TASK [include_vars] ************************************************************
+ok: [localhost]
+
+TASK [Updating topology_outputs] ***********************************************
+ok: [localhost]
+
+TASK [copy] ********************************************************************
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: KeyError: 'beaker_res'
+fatal: [localhost]: FAILED! => {"failed": true, "msg": "Unexpected failure during module execution.", "stdout": ""}
+
+NO MORE HOSTS LEFT *************************************************************
+	to retry, use: --limit @/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/provision/invgen.retry
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=1   
+
+]]></system-out></testcase><testcase classname="test_linchpin_cli.TestLinchPinCli" name="test_lp_invgen_without_params" time="0.000"></testcase><testcase classname="test_linchpin_cli.TestLinchPinCli" name="test_lp_layout_get_without_params" time="0.000"></testcase><testcase classname="test_linchpin_cli.TestLinchPinCli" name="test_lp_layout_list_with_wrong_upstream" time="0.000"></testcase><testcase classname="test_linchpin_cli.TestLinchPinCli" name="test_lp_layout_list_without_params" time="0.000"></testcase><testcase classname="test_linchpin_cli.TestLinchPinCli" name="test_lp_list_without_params" time="0.000"></testcase><testcase classname="test_linchpin_cli.TestLinchPinCli" name="test_lp_rise_with_wrong_target" time="0.002"><system-out><![CDATA[debug:: current working directory
+/home/srallaba/linch-pin/tests
+debug:: c_file
+/home/srallaba/linch-pin/tests/linchpin_config.yml
+debug:: c_file
+/home/srallaba/linch-pin/tests/linch-pin/linchpin_config.yml
+debug:: c_file
+~/.linchpin_config.yml
+debug:: c_file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+debug:: returned file
+/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/linchpin_config.yml
+]]></system-out></testcase><testcase classname="test_linchpin_cli.TestLinchPinCli" name="test_lp_rise_wthout_params" time="0.000"></testcase><testcase classname="test_linchpin_cli.TestLinchPinCli" name="test_lp_topo_get_with_wrong_input_topo" time="0.000"></testcase><testcase classname="test_linchpin_cli.TestLinchPinCli" name="test_lp_topo_get_with_wrong_upstream" time="0.000"></testcase><testcase classname="test_linchpin_cli.TestLinchPinCli" name="test_lp_topo_get_without_params" time="0.000"></testcase><testcase classname="test_linchpin_cli.TestLinchPinCli" name="test_lp_topo_list_with_wrong_upstream" time="0.000"><system-out><![CDATA[getting from upstream
+]]></system-out></testcase><testcase classname="test_linchpin_cli.TestLinchPinCli" name="test_lp_topo_list_without_params" time="0.000"></testcase><testcase classname="test_linchpin_cli.TestLinchPinCli" name="test_lp_validate_topology" time="0.448"><system-out><![CDATA[debug:: module path ::/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/library
+
+PLAY [Initiating playbook to perform schema_check on files] ********************
+
+TASK [Initiating schema_check] *************************************************
+ok: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=1    changed=0    unreachable=0    failed=0   
+
+]]></system-out></testcase><testcase classname="test_linchpin_cli.TestLinchPinCli" name="test_lp_validate_topology_without_params" time="0.000"></testcase><testcase classname="test_linchpin_cli.TestLinchPinCli" name="test_object_create" time="0.000"></testcase><testcase classname="test_linchpin_creds.TestLinchPinCredentials" name="test_linchpin_aws_creds" time="0.002"></testcase><testcase classname="test_linchpin_creds.TestLinchPinCredentials" name="test_linchpin_duffy_creds" time="0.003"></testcase><testcase classname="test_linchpin_creds.TestLinchPinCredentials" name="test_linchpin_gcloud_creds" time="0.002"></testcase><testcase classname="test_linchpin_creds.TestLinchPinCredentials" name="test_linchpin_os_creds" time="0.005"></testcase><testcase classname="test_linchpin_creds.TestLinchPinCredentials" name="test_linchpin_rax_creds" time="0.001"></testcase><testcase classname="test_linchpin_env.TestLinchPinEnv" name="test_ansible_version" time="0.001"></testcase><testcase classname="test_linchpin_env.TestLinchPinEnv" name="test_boto_version" time="0.001"></testcase><testcase classname="test_linchpin_env.TestLinchPinEnv" name="test_init" time="0.074"><system-out><![CDATA[
+PLAY [localhost] ***************************************************************
+
+TASK [echo] ********************************************************************
+ok: [localhost] => {
+    "msg": "hello"
+}
+
+TASK [echo2] *******************************************************************
+ok: [localhost] => {
+    "msg": "ech02"
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=0   
+
+]]></system-out></testcase><testcase classname="test_linchpin_env.TestLinchPinEnv" name="test_jsonschema_version" time="0.002"></testcase><testcase classname="test_linchpin_env.TestLinchPinEnv" name="test_libcloud_version" time="0.001"></testcase><testcase classname="test_linchpin_inventory_filters.TestLinchPinInventoryFilters" name="test_filter_aws_get_host_ips" time="0.001"></testcase><testcase classname="test_linchpin_inventory_filters.TestLinchPinInventoryFilters" name="test_filter_aws_get_inventory" time="0.002"></testcase><testcase classname="test_linchpin_inventory_filters.TestLinchPinInventoryFilters" name="test_filter_duffy_get_host_ips" time="0.001"></testcase><testcase classname="test_linchpin_inventory_filters.TestLinchPinInventoryFilters" name="test_filter_duffy_get_inventory" time="0.001"></testcase><testcase classname="test_linchpin_inventory_filters.TestLinchPinInventoryFilters" name="test_filter_gcloud_get_host_ips" time="0.001"></testcase><testcase classname="test_linchpin_inventory_filters.TestLinchPinInventoryFilters" name="test_filter_gcloud_get_inventory" time="0.002"></testcase><testcase classname="test_linchpin_inventory_filters.TestLinchPinInventoryFilters" name="test_filter_generic_get_host_ips" time="0.001"><error type="exceptions.KeyError" message="'beaker_res'"><![CDATA[Traceback (most recent call last):
+  File "/usr/lib64/python2.7/unittest/case.py", line 367, in run
+    testMethod()
+  File "/usr/lib/python2.7/site-packages/nose-1.3.7-py2.7.egg/nose/case.py", line 197, in runTest
+    self.test(*self.arg)
+  File "/home/srallaba/linch-pin/tests/test_linchpin_inventory_filters.py", line 72, in test_filter_generic_get_host_ips
+    host_ips = inv.get_host_ips(self.test_input)
+  File "/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/InventoryFilters/GenericInventory.py", line 37, in get_host_ips
+    ips = self.filter_classes[inv_filter]().get_host_ips(topo)
+  File "/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/InventoryFilters/BeakerInventory.py", line 17, in get_host_ips
+    return self.get_hostnames(topo)
+  File "/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/InventoryFilters/BeakerInventory.py", line 12, in get_hostnames
+    for group in topology['beaker_res']:
+KeyError: 'beaker_res'
+]]></error></testcase><testcase classname="test_linchpin_inventory_filters.TestLinchPinInventoryFilters" name="test_filter_generic_get_inventory" time="0.001"><error type="exceptions.KeyError" message="'beaker_res'"><![CDATA[Traceback (most recent call last):
+  File "/usr/lib64/python2.7/unittest/case.py", line 367, in run
+    testMethod()
+  File "/usr/lib/python2.7/site-packages/nose-1.3.7-py2.7.egg/nose/case.py", line 197, in runTest
+    self.test(*self.arg)
+  File "/home/srallaba/linch-pin/tests/test_linchpin_inventory_filters.py", line 106, in test_filter_generic_get_inventory
+    output = inv.get_inventory(self.test_input, self.test_layout)
+  File "/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/InventoryFilters/GenericInventory.py", line 54, in get_inventory
+    host_ip_dict = self.get_host_ips(topo)
+  File "/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/InventoryFilters/GenericInventory.py", line 37, in get_host_ips
+    ips = self.filter_classes[inv_filter]().get_host_ips(topo)
+  File "/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/InventoryFilters/BeakerInventory.py", line 17, in get_host_ips
+    return self.get_hostnames(topo)
+  File "/usr/lib/python2.7/site-packages/linchpin-0.8.1-py2.7.egg/InventoryFilters/BeakerInventory.py", line 12, in get_hostnames
+    for group in topology['beaker_res']:
+KeyError: 'beaker_res'
+]]></error></testcase><testcase classname="test_linchpin_inventory_filters.TestLinchPinInventoryFilters" name="test_filter_os_get_host_ips" time="0.001"></testcase><testcase classname="test_linchpin_inventory_filters.TestLinchPinInventoryFilters" name="test_filter_os_get_inventory" time="0.002"></testcase><testcase classname="test_linchpin_inventory_gen.TestLinchPinInventoryGen" name="test_inventory_aws" time="0.535"><system-out><![CDATA[
+PLAY [Inventory Filter Testing] ************************************************
+
+TASK [include_vars] ************************************************************
+ok: [localhost]
+
+TASK [Updating topology_outputs] ***********************************************
+ok: [localhost]
+
+TASK [debug] *******************************************************************
+ok: [localhost] => {
+    "msg": "[OSEv3:children]\nmasters\nnodes\n\n[OSEv3:vars]\nopenshift_override_hostname_check = True\nopenshift_docker_insecure_registries = \"registry.example.com\"\n\t\nopenshift_docker_additional_registries = \"registry.example.com\"\n\t\ndebug_level = 2\nansible_ssh_user = root\nopenshift_set_hostname = True\nansible_sudo = False\n\n[repo_host]\nec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com openshift_public_hostname=ec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com  openshift_hostname=ec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com \n\n[nodes]\nec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com openshift_public_hostname=ec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com  openshift_hostname=ec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com \nec2-xx-xx-xx-xxx.compute-1.amazonaws.com openshift_public_hostname=ec2-xx-xx-xx-xxx.compute-1.amazonaws.com  openshift_hostname=ec2-xx-xx-xx-xxx.compute-1.amazonaws.com \n\n[masters]\nec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com openshift_public_hostname=ec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com  openshift_hostname=ec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com \n\n[OSEv3]\nec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com openshift_public_hostname=ec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com  openshift_hostname=ec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com \nec2-xx-xx-xx-xxx.compute-1.amazonaws.com openshift_public_hostname=ec2-xx-xx-xx-xxx.compute-1.amazonaws.com  openshift_hostname=ec2-xx-xx-xx-xxx.compute-1.amazonaws.com \n\n[all]\nec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com openshift_public_hostname=ec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com  openshift_hostname=ec2-xx-xxx-xxx-xxx.compute-1.amazonaws.com \nec2-xx-xx-xx-xxx.compute-1.amazonaws.com openshift_public_hostname=ec2-xx-xx-xx-xxx.compute-1.amazonaws.com  openshift_hostname=ec2-xx-xx-xx-xxx.compute-1.amazonaws.com \n\n"
+}
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [fail] ********************************************************************
+skipping: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=3    changed=0    unreachable=0    failed=0   
+
+]]></system-out></testcase><testcase classname="test_linchpin_inventory_gen.TestLinchPinInventoryGen" name="test_inventory_duffy" time="0.581"><system-out><![CDATA[
+PLAY [Inventory Filter Testing] ************************************************
+
+TASK [include_vars] ************************************************************
+ok: [localhost]
+
+TASK [Updating topology_outputs] ***********************************************
+ok: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [fail] ********************************************************************
+fatal: [localhost]: FAILED! => {"changed": false, "failed": true, "msg": "inventory type not mentioned"}
+
+NO MORE HOSTS LEFT *************************************************************
+	to retry, use: --limit @/home/srallaba/linch-pin/tests/playbooks/test_inventory.retry
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=1   
+
+]]></system-out></testcase><testcase classname="test_linchpin_inventory_gen.TestLinchPinInventoryGen" name="test_inventory_gcloud" time="0.545"><system-out><![CDATA[
+PLAY [Inventory Filter Testing] ************************************************
+
+TASK [include_vars] ************************************************************
+ok: [localhost]
+
+TASK [Updating topology_outputs] ***********************************************
+ok: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+ok: [localhost] => {
+    "msg": "[OSEv3:children]\nmasters\nnodes\n\n[OSEv3:vars]\nopenshift_override_hostname_check = True\nopenshift_docker_insecure_registries = \"registry.example.com\"\n\t\nopenshift_docker_additional_registries = \"registry.example.com\"\n\t\ndebug_level = 2\nansible_ssh_user = root\nopenshift_set_hostname = True\nansible_sudo = False\n\n[repo_host]\nxxx.xxx.xxx.xxx openshift_public_hostname=xxx.xxx.xxx.xxx  openshift_hostname=xxx.xxx.xxx.xxx \n\n[nodes]\nxxx.xxx.xx.xx openshift_public_hostname=xxx.xxx.xx.xx  openshift_hostname=xxx.xxx.xx.xx \nxxx.xxx.xxx.xxx openshift_public_hostname=xxx.xxx.xxx.xxx  openshift_hostname=xxx.xxx.xxx.xxx \nxx.xxx.xx.xxx openshift_public_hostname=xx.xxx.xx.xxx  openshift_hostname=xx.xxx.xx.xxx \n\n[masters]\nxx.xxx.xx.xxx openshift_public_hostname=xx.xxx.xx.xxx  openshift_hostname=xx.xxx.xx.xxx \n\n[OSEv3]\nxxx.xxx.xx.xx openshift_public_hostname=xxx.xxx.xx.xx  openshift_hostname=xxx.xxx.xx.xx \nxxx.xxx.xxx.xxx openshift_public_hostname=xxx.xxx.xxx.xxx  openshift_hostname=xxx.xxx.xxx.xxx \nxx.xxx.xx.xxx openshift_public_hostname=xx.xxx.xx.xxx  openshift_hostname=xx.xxx.xx.xxx \n\n[all]\nxxx.xxx.xx.xx openshift_public_hostname=xxx.xxx.xx.xx  openshift_hostname=xxx.xxx.xx.xx \nxxx.xxx.xxx.xxx openshift_public_hostname=xxx.xxx.xxx.xxx  openshift_hostname=xxx.xxx.xxx.xxx \nxx.xxx.xx.xxx openshift_public_hostname=xx.xxx.xx.xxx  openshift_hostname=xx.xxx.xx.xxx \n\n"
+}
+
+TASK [fail] ********************************************************************
+skipping: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=3    changed=0    unreachable=0    failed=0   
+
+]]></system-out></testcase><testcase classname="test_linchpin_inventory_gen.TestLinchPinInventoryGen" name="test_inventory_generic" time="0.415"><failure type="exceptions.AssertionError" message="1 != 0&#10;-------------------- &gt;&gt; begin captured stdout &lt;&lt; ---------------------&#10;&#10;PLAY [Inventory Filter Testing] ************************************************&#10;&#10;TASK [include_vars] ************************************************************&#10;ok: [localhost]&#10;&#10;TASK [Updating topology_outputs] ***********************************************&#10;ok: [localhost]&#10;&#10;TASK [debug] *******************************************************************&#10;skipping: [localhost]&#10;&#10;TASK [debug] *******************************************************************&#10;An exception occurred during task execution. To see the full traceback, use -vvv. The error was: KeyError: 'beaker_res'&#10;fatal: [localhost]: FAILED! =&gt; {&quot;failed&quot;: true, &quot;msg&quot;: &quot;Unexpected failure during module execution.&quot;, &quot;stdout&quot;: &quot;&quot;}&#10;&#10;NO MORE HOSTS LEFT *************************************************************&#10;&#9;to retry, use: --limit @/home/srallaba/linch-pin/tests/playbooks/test_inventory.retry&#10;&#10;PLAY RECAP *********************************************************************&#10;localhost                  : ok=2    changed=0    unreachable=0    failed=1   &#10;&#10;&#10;--------------------- &gt;&gt; end captured stdout &lt;&lt; ----------------------"><![CDATA[  File "/usr/lib64/python2.7/unittest/case.py", line 367, in run
+    testMethod()
+  File "/usr/lib/python2.7/site-packages/nose-1.3.7-py2.7.egg/nose/case.py", line 197, in runTest
+    self.test(*self.arg)
+  File "/home/srallaba/linch-pin/tests/test_linchpin_inventory_gen.py", line 133, in test_inventory_generic
+    assert_equal(results, 0)
+  File "/usr/lib64/python2.7/unittest/case.py", line 551, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib64/python2.7/unittest/case.py", line 544, in _baseAssertEqual
+    raise self.failureException(msg)
+1 != 0
+-------------------- >> begin captured stdout << ---------------------
+
+PLAY [Inventory Filter Testing] ************************************************
+
+TASK [include_vars] ************************************************************
+ok: [localhost]
+
+TASK [Updating topology_outputs] ***********************************************
+ok: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: KeyError: 'beaker_res'
+fatal: [localhost]: FAILED! => {"failed": true, "msg": "Unexpected failure during module execution.", "stdout": ""}
+
+NO MORE HOSTS LEFT *************************************************************
+	to retry, use: --limit @/home/srallaba/linch-pin/tests/playbooks/test_inventory.retry
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=1   
+
+
+--------------------- >> end captured stdout << ----------------------]]></failure><system-out><![CDATA[
+PLAY [Inventory Filter Testing] ************************************************
+
+TASK [include_vars] ************************************************************
+ok: [localhost]
+
+TASK [Updating topology_outputs] ***********************************************
+ok: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: KeyError: 'beaker_res'
+fatal: [localhost]: FAILED! => {"failed": true, "msg": "Unexpected failure during module execution.", "stdout": ""}
+
+NO MORE HOSTS LEFT *************************************************************
+	to retry, use: --limit @/home/srallaba/linch-pin/tests/playbooks/test_inventory.retry
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=1   
+
+]]></system-out></testcase><testcase classname="test_linchpin_inventory_gen.TestLinchPinInventoryGen" name="test_inventory_os" time="0.533"><system-out><![CDATA[
+PLAY [Inventory Filter Testing] ************************************************
+
+TASK [include_vars] ************************************************************
+ok: [localhost]
+
+TASK [Updating topology_outputs] ***********************************************
+ok: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+ok: [localhost] => {
+    "msg": "[OSEv3:children]\nmasters\nnodes\n\n[OSEv3:vars]\nopenshift_override_hostname_check = True\nopenshift_docker_insecure_registries = \"registry.example.com\"\n\t\nopenshift_docker_additional_registries = \"registry.example.com\"\n\t\ndebug_level = 2\nansible_ssh_user = root\nopenshift_set_hostname = True\nansible_sudo = False\n\n[repo_host]\nxxxxxxxxxxxx openshift_public_hostname=xxxxxxxxxxxx  openshift_hostname=xxxxxxxxxxxx \n\n[nodes]\nxxxxxxxxxxx openshift_public_hostname=xxxxxxxxxxx  openshift_hostname=xxxxxxxxxxx \nxxxxxxxxxxxx openshift_public_hostname=xxxxxxxxxxxx  openshift_hostname=xxxxxxxxxxxx \n\n[masters]\nxxxxxxxxxxx openshift_public_hostname=xxxxxxxxxxx  openshift_hostname=xxxxxxxxxxx \n\n[OSEv3]\nxxxxxxxxxxx openshift_public_hostname=xxxxxxxxxxx  openshift_hostname=xxxxxxxxxxx \nxxxxxxxxxxxx openshift_public_hostname=xxxxxxxxxxxx  openshift_hostname=xxxxxxxxxxxx \n\n[all]\nxxxxxxxxxxx openshift_public_hostname=xxxxxxxxxxx  openshift_hostname=xxxxxxxxxxx \nxxxxxxxxxxxx openshift_public_hostname=xxxxxxxxxxxx  openshift_hostname=xxxxxxxxxxxx \n\n"
+}
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [fail] ********************************************************************
+skipping: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=3    changed=0    unreachable=0    failed=0   
+
+]]></system-out></testcase><testcase classname="test_linchpin_inventory_gen.TestLinchPinInventoryGen" name="test_inventory_other" time="0.570"><system-out><![CDATA[
+PLAY [Inventory Filter Testing] ************************************************
+
+TASK [include_vars] ************************************************************
+ok: [localhost]
+
+TASK [Updating topology_outputs] ***********************************************
+ok: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [debug] *******************************************************************
+skipping: [localhost]
+
+TASK [fail] ********************************************************************
+fatal: [localhost]: FAILED! => {"changed": false, "failed": true, "msg": "inventory type not mentioned"}
+
+NO MORE HOSTS LEFT *************************************************************
+	to retry, use: --limit @/home/srallaba/linch-pin/tests/playbooks/test_inventory.retry
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=1   
+
+]]></system-out></testcase><testcase classname="test_linchpin_invocation.TestLinchPinInvocation" name="test_linchpin_invocation_without_param" time="0.277"><system-out><![CDATA[statically included: /home/srallaba/linch-pin/provision/roles/beaker/tasks/provision_resource_group.yml
+statically included: /home/srallaba/linch-pin/provision/roles/output_writer/tasks/update_async_outputs.yml
+statically included: /home/srallaba/linch-pin/provision/roles/output_writer/tasks/update_os_server_outputs.yml
+statically included: /home/srallaba/linch-pin/provision/roles/output_writer/tasks/update_os_obj_outputs.yml
+statically included: /home/srallaba/linch-pin/provision/roles/output_writer/tasks/update_os_volume_outputs.yml
+statically included: /home/srallaba/linch-pin/provision/roles/output_writer/tasks/update_os_heat_outputs.yml
+statically included: /home/srallaba/linch-pin/provision/roles/output_writer/tasks/update_aws_ec2_outputs.yml
+statically included: /home/srallaba/linch-pin/provision/roles/output_writer/tasks/update_aws_cfn_outputs.yml
+statically included: /home/srallaba/linch-pin/provision/roles/output_writer/tasks/update_gcloud_gce_outputs.yml
+
+PLAY [including the configuration files] ***************************************
+
+TASK [Include linchpin_config] *************************************************
+ok: [localhost] => (item=/home/srallaba/linch-pin/linchpin_config.yml)
+
+PLAY [schema check and Pre Provisioning Activities  on topology_file] **********
+
+TASK [common : Including Linchpin config vars] *********************************
+ok: [localhost]
+
+TASK [common : DEBUG: topology and schema] *************************************
+fatal: [localhost]: FAILED! => {"failed": true, "msg": "the field 'args' has an invalid value, which appears to include a variable that is undefined. The error was: 'topology' is undefined\n\nThe error appears to have been in '/home/srallaba/linch-pin/provision/roles/common/tasks/main.yml': line 6, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: \"DEBUG: topology and schema\"\n  ^ here\nThis one looks easy to fix.  It seems that there is a value started\nwith a quote, and the YAML parser is expecting to see the line ended\nwith the same kind of quote.  For instance:\n\n    when: \"ok\" in result.stdout\n\nCould be written as:\n\n   when: '\"ok\" in result.stdout'\n\nOr equivalently:\n\n   when: \"'ok' in result.stdout\"\n"}
+
+NO MORE HOSTS LEFT *************************************************************
+	to retry, use: --limit @/home/srallaba/linch-pin/provision/site.retry
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=1   
+
+]]></system-out></testcase><testcase classname="test_linchpin_module_os_hot_stack.TestLinchPinModuleOSHotStack" name="test_module_dir_params" time="0.353"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "failed": true, 
+    "invocation": {
+        "module_args": {
+            "os_auth_url": null, 
+            "os_password": null, 
+            "os_tenant_name": null, 
+            "os_username": null, 
+            "parameters": null, 
+            "stack_name": "testname", 
+            "state": "present", 
+            "template": "/tmp/tmpF1K7mn", 
+            "wait": null
+        }
+    }, 
+    "msg": "Recursive directory not supported  /tmp/tmpF1K7mn "
+}
+]]></system-out></testcase><testcase classname="test_linchpin_module_os_hot_stack.TestLinchPinModuleOSHotStack" name="test_module_empty_params" time="0.347"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "failed": true, 
+    "invocation": {
+        "module_args": {}
+    }, 
+    "msg": "missing required arguments: stack_name,state,template"
+}
+]]></system-out></testcase><testcase classname="test_linchpin_module_os_hot_stack.TestLinchPinModuleOSHotStack" name="test_module_unsupported_params" time="0.363"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "failed": true, 
+    "invocation": {
+        "module_args": {
+            "test": "params"
+        }
+    }, 
+    "msg": "unsupported parameter for module: test"
+}
+]]></system-out></testcase><testcase classname="test_linchpin_module_output_parser.TestLinchPinModuleOutputParser" name="test_module_dir_params" time="0.328"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "failed": true, 
+    "invocation": {
+        "module_args": {
+            "output_file": "/tmp/tmpGalD1G"
+        }
+    }, 
+    "msg": "Recursive directory not supported  /tmp/tmpGalD1G "
+}
+]]></system-out></testcase><testcase classname="test_linchpin_module_output_parser.TestLinchPinModuleOutputParser" name="test_module_empty_file" time="0.325"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "failed": true, 
+    "invocation": {
+        "module_args": {
+            "output_file": "/tmp/tmposYhEo"
+        }
+    }, 
+    "msg": {
+        "content": null, 
+        "path": "/tmp/tmposYhEo"
+    }
+}
+]]></system-out></testcase><testcase classname="test_linchpin_module_output_parser.TestLinchPinModuleOutputParser" name="test_module_empty_params" time="0.350"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "failed": true, 
+    "invocation": {
+        "module_args": {}
+    }, 
+    "msg": "missing required arguments: output_file"
+}
+]]></system-out></testcase><testcase classname="test_linchpin_module_output_parser.TestLinchPinModuleOutputParser" name="test_module_unsupported_params" time="0.327"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "failed": true, 
+    "invocation": {
+        "module_args": {
+            "test": "params"
+        }
+    }, 
+    "msg": "unsupported parameter for module: test"
+}
+]]></system-out></testcase><testcase classname="test_linchpin_module_output_parser.TestLinchPinModuleOutputParser" name="test_module_yaml_file" time="0.330"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "changed": true, 
+    "invocation": {
+        "module_args": {
+            "output_file": "/tmp/tmp_UUhBi"
+        }
+    }, 
+    "output": {
+        "content": {
+            "testkey": "testval"
+        }, 
+        "path": "/tmp/tmp_UUhBi"
+    }
+}
+]]></system-out></testcase><testcase classname="test_linchpin_module_schema_check.TestLinchPinModuleSchemaCheck" name="test_module_dir_params" time="0.342"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "failed": true, 
+    "invocation": {
+        "module_args": {
+            "data": "/tmp/tmp0am9xc", 
+            "data_format": null, 
+            "schema": "/tmp/tmp0am9xc"
+        }
+    }, 
+    "msg": "Recursive directory not supported  /tmp/tmp0am9xc "
+}
+]]></system-out></testcase><testcase classname="test_linchpin_module_schema_check.TestLinchPinModuleSchemaCheck" name="test_module_empty_params" time="0.326"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "failed": true, 
+    "invocation": {
+        "module_args": {}
+    }, 
+    "msg": "missing required arguments: data,schema"
+}
+]]></system-out></testcase><testcase classname="test_linchpin_module_schema_check.TestLinchPinModuleSchemaCheck" name="test_module_invalid_data_param" time="0.327"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "failed": true, 
+    "invocation": {
+        "module_args": {
+            "data": "hello", 
+            "data_format": null, 
+            "schema": "mockdata/schema_v3.json"
+        }
+    }, 
+    "msg": "File not found hello not found"
+}
+]]></system-out></testcase><testcase classname="test_linchpin_module_schema_check.TestLinchPinModuleSchemaCheck" name="test_module_invalid_schema_param" time="0.343"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "failed": true, 
+    "invocation": {
+        "module_args": {
+            "data": "mockdata/ex_all.yml", 
+            "data_format": null, 
+            "schema": "hello"
+        }
+    }, 
+    "msg": "File not found hello not found"
+}
+]]></system-out></testcase><testcase classname="test_linchpin_module_schema_check.TestLinchPinModuleSchemaCheck" name="test_module_unsupported_params" time="0.327"><system-out><![CDATA[* including generated source,           if any, saving to: /root/.ansible_module_generated
+* ziploader module detected;             extracted module source to: /root/debug_dir
+***********************************
+PARSED OUTPUT
+{
+    "failed": true, 
+    "invocation": {
+        "module_args": {
+            "test": "params"
+        }
+    }, 
+    "msg": "unsupported parameter for module: test"
+}
+]]></system-out></testcase></testsuite>
