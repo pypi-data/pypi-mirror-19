@@ -1,0 +1,11 @@
+__version__ = "0.4.16"
+__git_commiter_name__ = "Guy Rozendorn"
+__git_commiter_email__ = "guy@rzn.co.il"
+__git_branch__ = u'develop'
+__git_remote_tracking_branch__ = u'origin/develop'
+__git_remote_url__ = u'git@git.infinidat.com:host-opensource/infi.storagemodel.git'
+__git_head_hash__ = '9c27701d48c9c2d379ed64c2df1e9f789e27d7bd'
+__git_head_subject__ = u'Finished Release v0.4.16'
+__git_head_message__ = u'* develop:\n  HPTVM-1137 ignoring iSCSI targets not configured in sendtarget'
+__git_dirty_diff__ = u''
+__git_commit_date__ = '2017-01-19 11:45:12'
