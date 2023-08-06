@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: mnemon
+Version: 0.1b0
+Summary: A simple cache interface for Python objects
+Home-page: UNKNOWN
+Author: myyc
+Author-email: UNKNOWN
+License: BSD
+Description: 
+        A simple cache interface for Python objects.
+        
+        Source and (minimal) documentation `here <https://github.com/myyc/mnemon/>`_.
+        
+Keywords: python cache redis
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: BSD License
