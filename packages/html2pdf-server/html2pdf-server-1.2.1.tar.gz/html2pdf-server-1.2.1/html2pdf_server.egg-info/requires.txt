@@ -1,0 +1,5 @@
+aiohttp >= 1.0.5, < 1.1.0
+aiohttp-wsgi == 0.6.3
+Wand >= 0.4.2
+WeasyPrint >= 0.22
+Werkzeug >= 0.9
