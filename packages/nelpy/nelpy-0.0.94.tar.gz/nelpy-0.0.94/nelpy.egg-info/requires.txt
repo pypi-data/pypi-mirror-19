@@ -1,0 +1,11 @@
+numpy>=1.9.0
+scipy>=0.16.0
+matplotlib>=1.4.0
+
+[docs]
+sphinx
+numpydoc
+mock
+
+[testing]
+pytest
