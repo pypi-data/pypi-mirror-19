@@ -1,0 +1,33 @@
+language: python
+python:
+- 2.6
+- 2.7
+- 3.3
+- 3.4
+- 3.5
+- 3.6
+- pypy
+- pypy3
+- nightly
+matrix:
+  fast_finish: true
+  allow_failures:
+  - python: pypy
+  - python: pypy3
+  - env: TOXENV=pre-commit
+  include:
+  - python: 3.6
+    env: TOXENV=pre-commit
+cache: pip
+install: pip install tox
+script: tox
+deploy:
+  provider: pypi
+  on:
+    tags: true
+    python: 3.6
+  user: jaraco
+  distributions: release
+  skip_upload_docs: true
+  password:
+    secure: RAfz06AINvz7bfij/YhfkAreRqamgxS8a6jSRNxntYhtJke3ZszUbIDag8+n1I+G5XT2LnMhHqPNR7Plc+AeMz7VXTuy+b81Li5kse20NYlPhd7mBVmTUpXtqYQashV5J39F4qkATBLznCOrMEomM07VTXjO/o2hmQuXniab2Uo=
