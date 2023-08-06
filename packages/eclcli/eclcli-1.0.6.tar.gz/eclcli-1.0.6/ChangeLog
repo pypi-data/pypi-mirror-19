@@ -1,0 +1,85 @@
+CHANGES
+=======
+
+1.0.6
+-----
+
+* :new: added image copy job show command
+* :new: added image copy job list command
+* :recycle: added image cancel-copy command
+* :new: added image copy command
+* :bug: fixed vrrp settings
+* :recycle: added default value to image list limit option
+* CS-239
+* CS-239
+* CS-231 add enable column and filter to fw/lb plan
+
+1.0.5
+-----
+
+* :heavy_plus_sign: version upgrade
+* :bug: fixed create port
+
+1.0.4
+-----
+
+* :heavy_plus_sign: version upgrade
+* :bug: fix service_type empty showing nothing
+* :pencil2: --service-type option to list qos option command
+* :bug: fixed volume boot endpoint
+* :recycle: added ignore file to gitignore
+
+1.0.3
+-----
+
+* :heavy_plus_sign: version upgrade
+* :new: added image update member command
+* :bug: fixed update storage volume
+* fix: Add missing keys in keypair create response
+* change: Update bare flavor show links response format
+* change: Improve bare zone show response
+* change: Update bare server response
+* change: Update bare port show response
+* change: Update bare uefi response
+* fix: Fix sss billing show response format
+* fixed update network port
+* :bug: fixed create storage volume
+
+1.0.2
+-----
+
+* :wrench: modified conflict
+* :wrench: modified conflict
+* new: Add IAM support in eclcli
+* changed version in setup.cfg to 1.0.2 and added some missing code in server create
+* changed version 1.0.1->1.0.0
+* corrected a typo
+* Added dh folder
+* added dh commands
+* corrected a typo
+
+1.0.1
+-----
+
+* :bug: modified version
+* :bug: modified travis.yaml
+* :bug: ignored test
+* :bug: ignored test
+* :bug: modified version
+* :bug: ignored tests
+* :bug: modified version
+* :bug: modified version
+* :bug: modified travis.yaml
+* :new: added travis.yaml
+* :bug: deleted cache path and modified args type
+* :new: enabled --os-cloud option
+* change: eclclient->eclcli
+* new: ecl monitoring module
+* Added dh folder
+* added dh commands
+
+1.0.0
+-----
+
+*  :pencil2: Changed README format from md to rst to support PyPI web page Removed Python3 and Python3.4 from classifier of setup.cfg Updated author-email of setup.cfg Updated contact info of README.rst
+* :new: first commit
