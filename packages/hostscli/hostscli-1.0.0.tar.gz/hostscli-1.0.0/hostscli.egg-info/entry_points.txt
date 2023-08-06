@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        hostscli=hostscli.cli:cli
+    
