@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+django_auth_gitlab/oidc.py
+django_auth_gitlab/urls.py
+django_auth_gitlab/views.py
+django_auth_gitlab.egg-info/PKG-INFO
+django_auth_gitlab.egg-info/SOURCES.txt
+django_auth_gitlab.egg-info/dependency_links.txt
+django_auth_gitlab.egg-info/requires.txt
+django_auth_gitlab.egg-info/top_level.txt
+django_auth_gitlab.egg-info/zip-safe
