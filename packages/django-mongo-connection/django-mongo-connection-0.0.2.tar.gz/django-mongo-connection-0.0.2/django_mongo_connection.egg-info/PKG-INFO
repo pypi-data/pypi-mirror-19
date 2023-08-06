@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: django-mongo-connection
+Version: 0.0.2
+Summary: Simple connection wrapper for Mongoengine
+Home-page: https://github.com/inonit/django-mongo-connection
+Author: Rolf Håvard Blindheim
+Author-email: rhblind@gmail.com
+License: MIT License
+Download-URL: https://github.com/inonit/django-mongo-connection.git
+Description: Define Mongoengine connections in settings.py and make sure they're available when needed.
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
