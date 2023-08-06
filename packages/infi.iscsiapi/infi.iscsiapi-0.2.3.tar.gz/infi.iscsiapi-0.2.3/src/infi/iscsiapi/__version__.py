@@ -1,0 +1,11 @@
+__version__ = "0.2.3"
+__git_commiter_name__ = "Guy Rozendorn"
+__git_commiter_email__ = "guy@rzn.co.il"
+__git_branch__ = u'develop'
+__git_remote_tracking_branch__ = u'origin/develop'
+__git_remote_url__ = u'git@git.infinidat.com:host-opensource/infi.iscsiapi.git'
+__git_head_hash__ = 'd010a468f0a702a0ec308232c311815a0dad056c'
+__git_head_subject__ = u'Finished Release v0.2.3'
+__git_head_message__ = u'* develop:\n  HPT-2027 now working\n  HPT-2027 a different fix\n  HPT-2027 ignoring unparsable ip addresses\n  TRIVIAL - typo\n  HPT-2021 - changed service reload to be platfrom specific (bug fix)\n  Fix logging\n  HPT-2021 - added reset_source_iqn on linux windows and solaris + tests\n  Revert "HOSTDEV-2603 re-running discovery after changing auth on Linux"\n  HOSTDEV-2603 re-running discovery after changing auth on Linux'
+__git_dirty_diff__ = u''
+__git_commit_date__ = '2017-01-19 12:14:33'
