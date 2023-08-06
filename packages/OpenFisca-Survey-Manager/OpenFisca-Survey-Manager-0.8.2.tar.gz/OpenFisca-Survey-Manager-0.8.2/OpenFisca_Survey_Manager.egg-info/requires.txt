@@ -1,0 +1,17 @@
+configparser
+numpy
+pandas >= 0.19
+PyYAML
+tables
+wquantiles >= 0.3
+pyxdg
+
+[calmar]
+scipy
+
+[matching]
+feather
+rpy2
+
+[sas]
+SAS7BDAT
