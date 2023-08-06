@@ -1,0 +1,12 @@
+3.1.4:
+  Add whatsup option
+  Fix default value for --config
+3.1.2:
+  Add missing README
+  Fix for monolithic usage
+3.1.1:
+  Use biomaj daemon utils for options management
+  Fix config setup when using local install
+  Rename biomaj-daemon-cli to biomaj-cli
+3.1.0:
+  Create client for biomaj with micro services
