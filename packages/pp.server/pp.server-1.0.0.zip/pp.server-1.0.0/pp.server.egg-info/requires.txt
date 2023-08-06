@@ -1,0 +1,13 @@
+pyramid
+pyramid_chameleon
+waitress
+sqlalchemy
+celery
+flower
+circus
+waitress
+plac
+pp.client-python
+
+[testing]
+webtest
