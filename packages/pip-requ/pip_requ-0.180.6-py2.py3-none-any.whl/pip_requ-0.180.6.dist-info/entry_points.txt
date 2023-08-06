@@ -1,0 +1,3 @@
+[console_scripts]
+pip-requ = pip_requ.scripts.pip_requ:main
+
