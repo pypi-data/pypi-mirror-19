@@ -1,0 +1,9 @@
+fluiddyn >= 0.0.12a0
+pyusb
+minimalmodbus
+Cython >= 0.20
+h5py
+
+[doc]
+Sphinx>=1.1
+numpydoc
