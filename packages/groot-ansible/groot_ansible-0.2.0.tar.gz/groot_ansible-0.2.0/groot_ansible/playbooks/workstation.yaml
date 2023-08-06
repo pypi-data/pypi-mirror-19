@@ -1,0 +1,21 @@
+#
+# Playbook to ensure ros is installed and up to date. This includes:
+#
+# - the ros repository
+# - ros-<rosdistro>-base
+# - rosdep
+# - any other ros packages the user may have installed
+#
+---
+- name: Workstation Bootstrap
+  hosts:
+    - localhost
+
+  # Public Variables
+  vars:
+  - ros_release: kinetic
+
+  roles:
+  - role: stonier.workstation
+  - role: stonier.ros
+    ros_release: "{{ ros_release }}"
