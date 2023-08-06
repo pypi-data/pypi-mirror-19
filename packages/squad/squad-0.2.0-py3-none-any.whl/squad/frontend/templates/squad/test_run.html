@@ -1,0 +1,143 @@
+{% extends "squad/base.html" %}
+{% load squad %}
+
+{% block content %}
+    {% include "squad/project-nav.html" %}
+
+    <h2>
+        <a href="{% project_url build %}">
+            Build {{build.version}}
+        </a>
+        »
+        Test run <u>{{test_run.job_id}}</u>
+    </h2>
+
+    <table class='table table-hover table-condensed'>
+        <tr>
+            <td colspan='2'><h3>Metadata</h3></td>
+        </tr>
+        {% for key, value in metadata.items %}
+        <tr>
+            <th>{{key}}</th>
+            <td>{{value}}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td><h3>Downloads</h3></td>
+            <td style='vertical-align: middle'>
+                {% if test_run.log_file|length > 0 %}
+                <a href="log" class='btn btn-default'>
+                    <i class='fa fa-file-text-o'></i>
+                    Log file
+                </a>
+                {% endif %}
+                {% if test_run.tests_file|length > 0 %}
+                <a href="tests" class='btn btn-default'>
+                    <i class='fa fa-file-code-o'></i>
+                    Tests file
+                </a>
+                {% endif %}
+                {% if test_run.metrics_file|length > 0 %}
+                <a href="metrics" class='btn btn-default'>
+                    <i class='fa fa-file-code-o'></i>
+                    Metrics file
+                </a>
+                {% endif %}
+                {% if test_run.metadata_file|length > 0 %}
+                <a href="metadata" class='btn btn-default'>
+                    <i class='fa fa-file-code-o'></i>
+                    Metadata file
+                </a>
+                {% endif %}
+            </td>
+        </tr>
+        {% if attachments|length > 0 %}
+        <tr>
+            <td><h3>Attachments</h3></td>
+            <td style='vertical-align: middle'>
+                {% for file, file_type, length in attachments %}
+                <a href="attachments/{{file}}" class='btn btn-default'>
+                    {% if file_type %}
+                    <i class='fa fa-file-{{file_type}}-o'></i>
+                    {% else %}
+                    <i class='fa fa-file-o'></i>
+                    {% endif %}
+                    {{file}}
+                    ({{length|filesizeformat}})
+                </a>
+                {% endfor %}
+            </td>
+        </tr>
+        {% endif %}
+    </table>
+
+    <table class='table table-hover table-condensed'>
+
+        <tr>
+            <td colspan='2'>
+                <h3>Metrics</h3>
+            </td>
+        </tr>
+        {% for suite, metrics in metrics_by_suite %}
+            <tr class='warning'>
+                <td colspan='2'>
+                    <h4>{{suite}}</h4>
+                </td>
+            </tr>
+            {% for metric in metrics %}
+                <tr>
+                    <td>{{metric.name}}</td>
+                    <td>{{metric.result}}</td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td colspan='2'>&nbsp;</td>
+            </tr>
+        {% endfor %}
+
+        {% if not metrics_by_suite %}
+        <tr>
+            <td colspan='2'>
+                <em>No metrics in this test run</em>
+            </td>
+        </tr>
+        {% endif %}
+
+        <tr>
+            <td colspan='2'>
+                <h3>Tests</h3>
+            </td>
+        </tr>
+        {% for suite, tests in tests_by_suite %}
+        <tr class='warning'>
+            <td colspan='2'>
+                <h4>{{suite}}</h4>
+            </td>
+        </tr>
+            {% for test in tests %}
+            <tr>
+                <td>{{test.name}}</td>
+                <td>
+                    {% if test.result %}
+                        <strong class='pass'>pass</strong>
+                    {% else %}
+                        <strong class='fail'>fail</strong>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan='2'>&nbsp;</td>
+            </tr>
+        {% endfor %}
+
+        {% if not tests_by_suite %}
+        <tr>
+            <td colspan='2'>
+                <em>No tests in this test run</em>
+            </td>
+        </tr>
+        {% endif %}
+    </table>
+
+{% endblock %}
