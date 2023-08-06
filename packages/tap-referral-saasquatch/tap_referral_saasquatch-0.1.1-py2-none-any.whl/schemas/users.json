@@ -1,0 +1,57 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "accountId": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "imageUrl": {
+      "type": "string"
+    },
+    "firstSeenIP": {
+      "type": "string"
+    },
+    "lastSeenIP": {
+      "type": "string"
+    },
+    "dateCreated": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "emailHash": {
+      "type": "string"
+    },
+    "referralSource": {
+      "type": "string"
+    },
+    "locale": {
+      "type": "string"
+    },
+    "shareLink": {
+      "type": "string"
+    },
+    "facebookShareLink": {
+      "type": "string"
+    },
+    "twitterShareLink": {
+      "type": "string"
+    },
+    "emailShareLink": {
+      "type": "string"
+    },
+    "linkedinShareLink": {
+      "type": "string"
+    }
+  }
+}
