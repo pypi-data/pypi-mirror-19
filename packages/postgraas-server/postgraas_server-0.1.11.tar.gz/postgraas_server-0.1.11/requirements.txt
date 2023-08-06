@@ -1,0 +1,5 @@
+flask
+flask-restful
+flask-sqlalchemy
+psycopg2
+docker-py<1.9
