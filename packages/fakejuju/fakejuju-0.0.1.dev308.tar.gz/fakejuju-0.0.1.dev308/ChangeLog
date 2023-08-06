@@ -1,0 +1,265 @@
+CHANGES
+=======
+
+* Fallback to monogd 2.4 if 3.2 is not available (e.g. trusty)
+* Fix FakeJuju.address API server port
+* Make it easier to change the default fake-juju version
+* Fake out kill-controller command (#29)
+* Wait for machine 0 to be started before declaring bootstrap complete (#28)
+* Add support for automatically completing actions (#27)
+* Fix a regression in the build target of legacy Makefiles (#26)
+* Drop unnecessary Debian dependencies in the fake-juju binary package (#25)
+* Make the FakeJuju fixture easier to use and to test (#23)
+* Point quiltrc at /dev/null to avoid interference from ~/.quiltrc (#24)
+* Update packaging and clean up Makefile (#22)
+* Start units when they pop up (#21)
+* Automatically transition machines to the "started" state (#20)
+* Implement the core delta stream watch loop (#19)
+* Implement a fake version of the "destroy-controller" CLI. (#18)
+* Drop the FAKE_JUJUD_CERT environment variable. (#17)
+* Make the bootstrap command start the controller machine (#16)
+* Make the bootstrap command perform a fake bootstrap (#15)
+* Implement the /bootstrap control plane API endpoint (#11)
+* Add quilt/tox depends, fix makefile paths for make init (#14)
+* Re-use the MongoDB instance started by MgoTestPackage (#10)
+* Add more development-oriented documentation (#9)
+* Convert patches to quilt (#8)
+* Initial plumbing for fake-jujud's control plane API (#7)
+* Runner main loop (#6)
+* Initial fake juju CLI skeleton (#4)
+* Support using an external mongod server when running fake-jujud (#3)
+* Set PBR_VERSION explicitly in debian/rules
+* Fix missing Build-Depend on python-setuptools
+* Use tox to run Python tests and switch setup.py to PBR. (#2)
+* Point to Travis builds in the README (#1)
+* Appen -indep to dh override rules so we can handle python-related targets properly
+* Fix empty python-fakejuju package (no files were installed)
+* Add Travis integration
+* Fix regressed use of Go 1.2 vs 1.6 when building on trusty [r=sparkiegeek]
+* Fix patch file
+* Don't let LoggingSuite reset logging
+* Rename FakeJujuState to FakeJujuService
+* Add missing import
+* Skip regular tests
+* Initial unit tests for 2.0.2
+* Address review comments
+* Replace symlinks with actual files
+* Add missing dh-python build-dependency
+* Fix target dependency
+* Drop patches dir
+* Split Makefile into parent and child
+* Simplify Makefile rules by levaraging dh-python for packaging
+* Build patch from Makefile target (what a novel idea)
+* Add a 2.0.0 patch for https://github.com/go-mgo/mgo/pull/311
+* Update Makefile and setup.py to install 'PyYAML' and with with yakkety python-setuptools
+* Remove automatic addition of ppa:landscape/txjuju-daily and move it to the README
+* Handle failed entities and error status correctly
+* Drop an early return
+* Add handling for action deltas
+* Set PYTHONPATH when installing python-fakejuju
+* Fix unit status
+* Default the series to xenial
+* Fix some logging
+* Allow internet access
+* Overwrite the existing symlink in install-dev
+* Allow charmstore charms to be uploaded
+* Add the "update-patch" make target
+* Rebuild if anything in the patches directory changes
+* Allow uploading charmstore charms to fake-juju
+* Set the API endpoint's network space name correctly for fake-juju
+* Pull a little more code from 2.0.0
+* Default to Juju 2.x in tests
+* Copy some of the 2.0.0 tweaks over to 1.25.6
+* add txjuju daily PPA to ci-test make target. Fix whitespace on pip cmd [trivial] [r=fginther,sparkiegeek]
+* Fix PYTHON_INSTALLDIR in Makefile (incorrectly used PYTHON_INSTALL_DIR). [trivial] [r=chad.smith]
+* Fix bootstrap arg order in a test
+* Set up logging right *after* calling JujuConnSuite.SetUpTest()
+* Support a -v bootstrap arg
+* Always ensure that the Juju cfg dir exists
+* Parse all the supported "juju bootstrap" args
+* Ensure that the daemon runs with FAKE_JUJU_DATA_DIR set
+* Factor out reportInfo()
+* Add a log file for jujud logs
+* Set a tempdir prefix rather than a suffix
+* Use constants for the environment variable names
+* Minor touch-ups to SetUpTest()
+* Add python-txjuju to the ci-test make target
+* Capture error output from the daemon
+* Handle bootstrap error cleanup centrally
+* Call copyConfig() before updating the bootstrap result
+* Factor out updateBootstrapResult()
+* Destroy the controller if bootstrap fails
+* Factor out destroyController()
+* Rename the command handler functions
+* Factor out waitForBootstrapCompletion()
+* Add some comments about bootstrap
+* Drop support for Juju 1.24.x
+* Update from 2.0-beta17 to 2.0.0
+* Fix a rename
+* Clarify some names
+* Add missing doc comments
+* Clarify some names
+* Use a script instead of the actual fake-juju in tests
+* Make python-fakejuju a dependency of fake-juju
+* Fix the deb package name
+* Fix the make file
+* Switch to RST for the README
+* Add a python-fakejuju debian package
+* Add a changelog entry
+* Tie the Python-related targets to the original targets
+* Remove the old Python-related Makefile
+* Add Python-related make targets
+* Support explicitly stating multiple Juju versions to make
+* Clearly separate the groups of make targets
+* lint
+* Fix a test
+* Add FakeJuju.is_bootstrapped()
+* Rename fake-juju data files when controller stops
+* Report the right API username and password
+* Use assertItemsEqual()
+* lint
+* Make all the same changes for 2.x
+* Add the FAKE_JUJU_DATA_DIR env var
+* Use fakejujuFilenames in FakeJujuSuite
+* Always rebuild if the source file changed
+* Use fakejujuFilenames.fifo() in destroyEnvironment()
+* Factor out the bootstrapResult type
+* Pass fakejujuFilenames to handlers
+* Add fakejujuFilenames
+* Fix up FakeJujuFixture
+* Add fakejuju.FakeJuju.bootstrap()
+* Fix the install-dev make recipe
+* Return the password in the API info (for 1.25.6)
+* Fix a docstring
+* Do not use namedtuple for FakeJuju
+* FakeJuju() doesn't do any coercion
+* Failures() doesn' do any coercion
+* Split the helper tests into separate test classes
+* Move get_bootstrap_spec() to __init__.py
+* Add the fakejuju.testing module
+* Add docstrings to test methods
+* Add fakejuju.__all__
+* Add FakeJuju.cli()
+* Add FakeJuju.from_version()
+* Add FakeJuju
+* Add Failures
+* Add docstrings to tests
+* Add docstrings to tests
+* Add fakejuju.set_envvars()
+* Add fakejuju.set_envvars()
+* Add fakejuju.get_filename()
+* Add fakejuju.get_filename()
+* Add fakejuju.get_bootstrap_spec()
+* Add fakejuju.get_bootstrap_spec()
+* Fix Makefile and setup.py
+* Add a Python library for using fake-juju
+* Add an "install-dev" make target
+* Support specifying a single Juju version target
+* Hush up pyflakes
+* lint
+* Ignore a missing directory
+* Move the jujuclient archives under the tests dir
+* Always delete the Go src dir
+* Install jujuclient from a local archive rather than PyPI
+* Fix go formatting
+* Add files to support installing jujuclient without PyPI
+* Add a script to support instally jujuclient without PyPI
+* Simplify the download rule
+* Ignore a ResourceWarning coming from jujuclient
+* Split the Juju 2.x tests from the Juju 1.x tests
+* Use Juju terminology correctly
+* Elaborate on the reason for the Juju2Client wrapper
+* Update a comment
+* Drop a superfluous line
+* Fix dependency ordering
+* lint
+* Move to beta17
+* Update to beta16
+* Switch to python3
+* Use the latest jujuclient
+* Implement the Juju 2 test prep
+* Prepare for Juju 2 support
+* update fake-juju to 1.25.6
+* add beta13 to make target
+* move beta12 patch -> beta13
+* move 2.0-beta12 -> 2.0-beta13 fake-juju.go
+* drop debug prints. Add beta12 make target to JUJU2_VERSIONS
+* move fake-juju.go implementation from beta10 -> beta12. Crop CurrentController and AccountByName function calls as they have been dropped from the file interface and replaced with AccountDetails
+* move patch files from beta10 -> beta12
+* trivial-ish bump to juju 2.0~beta10
+* Use golang-1.6 only for juju2 builds. When building juju1 versions, use the system golang. [r=blackboxsw]
+* Beta9 fake-juju build. update patch files and changed names import in fake-juju
+* drop duplicated stale beta8 version target from makefile
+* Beta9 fake-juju build. update patch files and changed names import in fake-juju
+* sync trunk resolve Makefile conflict
+* Build with golang-1.6 [trivial] [r=benji]
+* move ci-test make target below default version target to avoid getting called by dh_auto_build's 'make -j1'. Build-depends should be sorted from debian/control in this case [trivial] [r=simpoir]
+* add 2.0-beta9 version to supported makefile targets
+* update 2.0-beta9/fake-juju import changed for names -> namesv2
+* update beta9 patch s/beta8/beta9/
+* replace 1.24.7 and 1.25.3 fake-juju version targets
+* Add support for juju2.0 beta8. Collaboration between simpoir and blackboxsw
+* move .PHONY declarations above each make target. apt install -y needs --force-yes
+* add -y for apt-get install
+* add ci-stack make target for ci to install needed dependencies and kick off tests. Add deps to debian/control Build-depends
+* drop commented code from 2.0beta which only applies to 1.25.3
+* sync trunk, resolve merge conflicts
+* commit simpoir's fixes that allow us to bootstrap beta8 for real
+* Use bootstrap controller name in JUJU_DATA configuration files
+* gofmt
+* fix all the stuffs
+* need time.Now in StatusInfo struct setup
+* ran gofmt on 1.24.7
+* ran gofmt on 2.0beta6
+* ran gofmt on 1.25.3
+* remove 2.0 beta6 and replace with fake-juju patched 2.0 beta8
+* add logging to fake-juju-1.24.7
+* add logging to fake-juju 2.0 beta6
+* remove fake-juju-2.0-beta2 as we now use beta6
+* add more logging prior to assert fails to 1.25.3
+* Add patch against 2.0-beta6
+* merge
+* Add 2.0-beta6
+* fake-juju admin username is dummy-admin, drop the dummy- for subsequent requests
+* bump fake-juju rev. Log fake-juju and real juju revs for faked 1.25.3
+* log both fake-juju package version and juju version faked for fake-juju 2.0-beta2
+* log both fake-juju package version and juju version faked for fake-juju 1.24.7
+* revert debug print statements
+* add user key to api-info on 1.25.3
+* Add support for FAKE_JUJU_LOGS_DIR
+* Fix race between started and error unit states
+* Revert removed logging
+* Address review comments
+* Apply diff to 2.0-beta2 as well
+* Add support for erroring entities
+* Drop support for versions of Juju that we don't use anymore
+* Skip tests for 2.0
+* Add 2.0-beta2 to VERSIONS
+* Got to clean compilation
+* Pull patch and tarball names out to top level, re-use (ack's review)
+* move JUJU_VERSION as arg to make (ack's nitpick)
+* Add patches for 1.22.6 and 1.24.6 too
+* Declare dependency on patch file
+* Patch 1.24.7 and 1.25.0
+* Drop test-common and redefine test to use xargs (thereby capturing return codes)
+* More dependency declarations
+* Clean up Makefile - add PHONY markers for the tasks, better express dependencies
+* Add Juju patch to increase key size to 1024
+* Respect the default-series setting
+* Add support for 1.25.3
+* Merged add-support-for-1.25.0 [r=free.ekanayaka]
+* Fix typo in hasattr() check (don't need/want () at the end)
+* Build 1.25.0 too
+* Update fake-juju.go to account for changes in EntityId struct in 1.25.0
+* Update line numbers for 1.25.0
+* WIP test fix for SSL on vivid
+* Fixed paths in patch for 1.24.7 (fixes the build)
+* Added support for 1.24.7
+* Added line about dependencies in README
+* Added support for juju 1.24.7
+* Re-add 1.22.6
+* Drop build-dependency on python-jujuclient
+* Support writing .jenv files under
+* Test build
+* Add bzrignore
+* Add initial files
