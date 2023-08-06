@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: besttrack
+Version: 0.2.0
+Summary: Object-based geotemporal path optimization
+Home-page: https://github.com/arkweather/BestTrack
+Author: David Harrison
+Author-email: david.r.harrison-1@ou.edu
+License: MIT
+Description: Best Track is approximately equivalent to the Warning Decision Support System - Integrated Information (WDSS-II) w2besttrack algorithm with the potential for additional features and greater flexibility.
+Keywords: verification,tracking,weather,meteorology
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
