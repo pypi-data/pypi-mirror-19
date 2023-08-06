@@ -1,0 +1,31 @@
+Metadata-Version: 1.1
+Name: celerite
+Version: 0.1.0.dev0
+Summary: Scalable 1D Gaussian Processes
+Home-page: https://github.com/dfm/celerite
+Author: Daniel Foreman-Mackey
+Author-email: foreman.mackey@gmail.com
+License: MIT
+Description: **celerite** — Scalable 1D Gaussian Processes in C++, Python, and Julia
+        
+        Read the documentation at: `celerite.rtfd.io <http://celerite.readthedocs.io>`_.
+        
+        .. image:: https://img.shields.io/badge/GitHub-dfm%2Fcelerite-blue.svg?style=flat
+            :target: https://github.com/dfm/celerite
+        .. image:: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
+            :target: https://github.com/dfm/celerite/blob/master/LICENSE
+        .. image:: http://img.shields.io/travis/dfm/celerite/master.svg?style=flat
+            :target: https://travis-ci.org/dfm/celerite
+        .. image:: https://readthedocs.org/projects/celerite/badge/?version=latest&style=flat
+            :target: http://celerite.readthedocs.io/en/latest/?badge=latest
+        .. image:: https://img.shields.io/badge/PDF-latest-orange.svg?style=flat
+            :target: https://github.com/dfm/celerite/blob/master-pdf/paper/ms.pdf
+        .. image:: https://img.shields.io/badge/ArXiv-TBD-orange.svg?style=flat
+            :target: https://arxiv.org
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
