@@ -1,0 +1,3 @@
+[nose.plugins.0.10]
+simple-nose-selenium = simple_nose_selenium:SimpleNoseSelenium
+
