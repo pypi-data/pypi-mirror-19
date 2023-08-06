@@ -1,0 +1,10 @@
+setup.py
+bin/circlecli
+circlecli/__init__.py
+circlecli/circleapi.py
+circlecli/circleutils.py
+circlecli.egg-info/PKG-INFO
+circlecli.egg-info/SOURCES.txt
+circlecli.egg-info/dependency_links.txt
+circlecli.egg-info/requires.txt
+circlecli.egg-info/top_level.txt
