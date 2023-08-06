@@ -1,0 +1,86 @@
+CHANGES
+=======
+
+* add resolution display
+* add display resolution
+* remove extension tab
+* use @auto.png instead of add width x height
+* refresh all image when crop, disable vim mode by default
+* update structure
+* update config
+
+0.1.0
+-----
+
+* support tag and simple push
+* add auto publish with travis
+* comment all tabs except coding and images
+* fix fix again
+* quick dirty hot fix
+
+0.0.10
+------
+
+* switch on autorefresh, set interval to 3s for android and 5s for ios
+* fix 'disabled' elements
+* default imagename use fixed pattern
+
+0.0.9
+-----
+
+* add hotkey helpinfo
+
+0.0.8
+-----
+
+* add a lame autorefresh. but the server response poorly and disable the function
+* disable scroll
+* add  to discard changes in working directory)
+* add replace image, close #8
+* add select placeholder
+* add stop sign when finished running. close #7
+* fix typo and add Ctrl-G to run in code editor
+
+0.0.7
+-----
+
+* update README
+* remove atx dependency
+
+0.0.6
+-----
+
+* fix #2, ref https://github.com/ajaxorg/ace/issues/3045
+* contextmenu delete function
+* contextmenu item "insert click_image"
+* right click to save crop & left click to clean
+* add resolution suffix in image name
+* add contextmenu
+* used image listed in front
+
+0.0.5
+-----
+
+* ignore adb environment error
+* autocomplete atx keywords and image name
+* add auto complete image name
+* change image in manual editor
+* add a editor for coders.
+* use local media & fix flyout canvas bbox
+* fix steprun encode error & adjust categories
+
+0.0.4
+-----
+
+* minor bug fix
+* handle Ctrl-S at workspace page
+* show device list refreshing status
+* ignore autoreload for ext.py
+* turn off debug
+* update ext
+* update blocks
+* clear console add function
+* listen to comment change
+* resolve missing extension blocks
+* fix blockly extensions
+* update extension blocks
