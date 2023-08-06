@@ -1,0 +1,68 @@
+Metadata-Version: 1.1
+Name: speeder
+Version: 0.0.4
+Summary: Debian Net Speeder 
+Home-page: https://github.com/gkdeveloper/speeder
+Author: Gaurav Kumar Verma
+Author-email: gkverma1094@gmail.com
+License: GNU
+Description: speeder made by Gkdeveloper
+        ==============
+        
+        Debian Indicator to display net speed on Unity taskbar.
+        https://pypi.python.org/pypi/speeder
+        
+        Requirements:
+        -------------
+        
+        1. Ubuntu OS
+        2. Python 2.6 or higher
+        
+        
+        Install
+        -------
+        
+        ::
+        
+        	$ pip install speeder
+        To Run
+        ~~~~~~
+        
+        ::
+        
+            $ speeder
+            
+        
+        To stop
+        ~~~~~~~
+        
+        ::
+        
+            $ killall speeder
+        
+        Result
+        ~~~~~~
+        
+        |alt tag| 
+        
+        Menu: 
+        
+        |alt tab|
+        
+        To-Do
+        ~~~~~
+        
+        Add features like total net usage, and alert on certain limit.
+        
+        May the Force be with you.
+        
+        
+        
+Keywords: Debain,Internet speed
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Environment :: Console
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
