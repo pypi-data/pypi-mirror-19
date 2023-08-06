@@ -1,0 +1,13 @@
+LICENSE.txt
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+bcsquants/__init__.py
+bcsquants/backtest.py
+bcsquants.egg-info/PKG-INFO
+bcsquants.egg-info/SOURCES.txt
+bcsquants.egg-info/dependency_links.txt
+bcsquants.egg-info/requires.txt
+bcsquants.egg-info/top_level.txt
+sample/__init__.py
