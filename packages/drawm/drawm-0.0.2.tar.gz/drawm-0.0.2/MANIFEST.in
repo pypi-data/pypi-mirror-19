@@ -1,0 +1,9 @@
+include LICENSE
+include setup.py
+include README.md
+include MANIFEST.in
+include bin drawm
+include drawm VERSION
+include *.txt
+recursive-include drawm *.py *.txt
+recursive-include docs *.txt
