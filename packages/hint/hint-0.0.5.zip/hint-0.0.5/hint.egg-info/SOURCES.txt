@@ -1,0 +1,17 @@
+setup.cfg
+setup.py
+hint/__init__.py
+hint/cli.py
+hint/hint.py
+hint/parsing.py
+hint/utils.py
+hint.egg-info/PKG-INFO
+hint.egg-info/SOURCES.txt
+hint.egg-info/dependency_links.txt
+hint.egg-info/entry_points.txt
+hint.egg-info/not-zip-safe
+hint.egg-info/requires.txt
+hint.egg-info/top_level.txt
+hint/detector/__init__.py
+hint/detector/error.py
+hint/detector/exxx.py
