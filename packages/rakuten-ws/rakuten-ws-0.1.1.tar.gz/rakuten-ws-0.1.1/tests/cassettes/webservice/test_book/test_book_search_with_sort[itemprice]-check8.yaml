@@ -1,0 +1,43 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.12.4]
+    method: GET
+    uri: https://app.rakuten.co.jp/services/api/BooksBook/Search/20130522?applicationId=XXXXXX&formatVersion=2&hits=3&sort=%2BitemPrice
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA+2WW2/TSBSA/0rl5ygZu25sV1rtIhCrCgmtdpcnhKpJ6iSz+BLZTimLKtU2LZcW
+        Um6iUFYtaklSKLRaQNAt0B8zcdL+C86MQ2guW7YPWe3DVkoyx3NunjnfOb0iZO2S5QmjmiopSEwI
+        RZzXhVFY5IjjenxlYLYYTggF4rl8kcWOQ3RHGEWxwcnYh4hAHvN0E7TOXxE84hngSzjzC/W3aFCj
+        wQ4NH9Nwg4avaXg9Wv5I/ffUfxXNPqPBzai8Rv1VIRGbncEWBlMagOYHGnyE7yEabg31umEqQbwR
+        3oafdRo+p8E2DX0wmAF/binzayuTPtZ+9WDlHqTSeDi7/3ThkHo7g24TcHsN4rxgUis2RAyrXKgw
+        DzocjnsWmzxk+AfPib9xeaGx/L5D40uUQ1pD7HWDCg3egVNQztqWp1vs5AWQcMkr2HDyQvP+dv2v
+        B/Wd2frOfPt5O+k9cJeg4V0avKUh+HoJKsVSxiBuQXdaqTUePms82exzMS8r9Q+PWZrkd6YXzdYO
+        ludouNvOn7gZCzY0RZVV+FMQUkfYY7j6k7joEduKk3WxobunsMe8iJqmRTtvRNR4cr2l+5NDsrAl
+        sRojrtcSoYYmiMvL8mdueujBVxVmf84xwHHB84qjqVTGti+6SQdfLMFpJbN28rdiysmkRDGtpJGW
+        YkeUyxGDgMvYjuVnYsMYM6GCO1x5hZKZsTAxkoTtdTn9AY0zMx4wlcUZYuleyrK56jgSk3mS+35c
+        n/ouLU+lZQhi6hOkZA4qiiihKfgIDFMnrw8qjITQFHxYORaIgy/bJmmfIp4E72BqEO8yu2hWarbr
+        gYfTBs7z2zKICRc20ZYdfZLol1ptQ/0in5jUHd5+BDkpSuCG3+mPuuXoYxPwFCERiSPCdOJrb6H+
+        HvXnqb9IgxvUn6P+SrP8qb67Vt99FS3e6u4m4QrjljWHDU7YHrD2Jy/6GYZfsEnDm50do7chdAPe
+        D+e/p7ab1D5YRusbzcW5xoNHB/69qDzfXP90CMVbS9ClgNouCJEyjBDStG9DqCCAEMkAIRKhAXSS
+        ODxQEpGoamnpfxL/NRLl45Io9ZI4nET/CMRouwxzo7H6FL6be3cbC9ei7dv7Ff9gdWm/urb/fJPO
+        zEBZN6t3mu9qPVMeRl2NEwkEXo0H6RATgi2+V4llWN3gq1iZTd1avPOC47sLxnwYs+G8BFz/B1iu
+        xlM2Wn7dGv1Hgiwr8E+YJn8bZKgAlYGs9kzTdHqADI+osqiMKINmmJ1AquM8QDU/KJaPiDYIpo8I
+        dwy2peOyLfYds2mxP91IRfDeSBKmLySEeMvK2Y6J43I8f2H6MxXCh246DAAA
+    headers:
+      Access-Control-Allow-Origin: ['*']
+      Cache-Control: [no-store]
+      Connection: [close]
+      Content-Encoding: [gzip]
+      Content-Language: [ja-JP]
+      Content-Length: ['1014']
+      Content-Type: [application/json;charset=UTF-8]
+      Date: ['Tue, 27 Dec 2016 16:04:35 GMT']
+      Vary: [Accept-Encoding]
+    status: {code: 200, message: OK}
+version: 1

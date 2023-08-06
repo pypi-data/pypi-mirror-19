@@ -1,0 +1,45 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.12.4]
+    method: GET
+    uri: https://app.rakuten.co.jp/services/api/BooksTotal/Search/20130522?applicationId=XXXXXX&formatVersion=2&hits=3&keyword=%E3%83%89%E3%83%B3%E3%83%BB%E3%82%AD%E3%83%9B%E3%83%BC%E3%83%86&sort=%2BitemPrice
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA71VW08bRxT+L/tseXd9N1LVVqla8VJVlfoURdHaXvAk64t214QoirQzyzWGOJgE
+        l5I0aiAEcLiIpE0BY/5LD7u2n/gLPTM2NJSSBFWOvLuayznfN/PNfMf3pHShlLelATWmBqSiNqxj
+        MyANEdOyRcvQeCMckLLEtkQjrZkm0U1pQOkmXOsCRCMBadDWcxh0/Z5kE9tAKAncaXDfgHsAbBPc
+        JXAb4E5IAUkr2dmCKQKeA9sFt85j3EkReSC6j0TiBLA9Mfg7sBfgLgrAdVlMrwNbExHLIuKFQJ8C
+        d5s32DZmcibTJpb9vZbjy8F+sZQyiJXVzd4QsBURvidSkboG7utuqqGldKObRaxUHlvJeCIST6gx
+        RUmEYjh8S8t357OambmjmT2OgtXLQj2uaUWbFHhYZ+2ht1zv0PnW9Hp741egW+2NTaBHHfoQ+PPK
+        Wx3zcc+03ll8CXQZ6PN2c9ffmcNIsbtNrgg7PFWzIvbrtB16vL8PdBscimhAfwFaBjYNrHrceNbe
+        eI3pXWqga77zDOhYu9ngkQ5t1daBLnVWeQzHZ+/AfdDTna55zfm2M86l5yMU3FdCoDmxDDyPqtd4
+        AnQW6AqwGUTztv7waxVgY16lLJa05R25nfFZjAQ2BRSp695EtbPIp/zaOO9O7gMr/+WsgsPakxv+
+        WKW9+TMiYHpnYZ6HTT3qPHkHdAPoOkdAItpErTBXDJa7QoEz4zllcGa5qqsLLTxOVj3Vud5aWgL2
+        4GzXGMzlokiEiq3ylKO544Nlb6fC5eIga8AYCgWswhlZ+aQxd9KoHf+50Hrr8H2xuePDp0jhN+qt
+        xwfezAKuHw/c0gzd+kaz+T0IKUrS23urRPynU7278INJ0jgVTcbwcuGt7PXRSBliCSP+KHLfG/gn
+        hAP8ZPL7mLXt4oAspwqF21bQ1G6XbD0fTBeCt4qymZJjSigUjSVkfveHhohBELKbxxeY0wxjMIe2
+        PQdlZ0u5VF4jRpDwuX+BfqXc5GmCUE5rKZLXbZk7QD7nBwwd/vKmPvpFLDIaiyBZTs+QUq7fbGpI
+        GcVX+NUc1vtNh8c6ii/SpbPE1O4WcuRMXW0EWRDCIPZdHOEaFAuWjaTfGtqwOEWD5PAgM2d9Ux8h
+        +p1eDU2e9r8e0U1Ri6VwMJ5AGHHW3+l5Ux/M4KiiqIqaxK982opL9wMfKbsnjSn1pDH9fvVt/zbj
+        Nauyv/um9XinszTmHdU+oWT6Czv+4VZrpXlpjVSVeFzFX/yqNfKCh9Qw91ASPYSf2svPaSQ1FFHj
+        oUSs307iOsnnVOunkz7A1g8nfYDuCk5Sr+ok5aKTlKDy30biTxiL5ic5KPRZHRSJKv/fQRHuoOiF
+        f6GYGu2reeKhSDgZ7rt5UCL5nGB9Nc/lbH0xz+V0/TSPetE8kY+b50ZA6k7lhwpmTutex+s37v8N
+        2fEdrmMMAAA=
+    headers:
+      Access-Control-Allow-Origin: ['*']
+      Cache-Control: [no-store]
+      Connection: [close]
+      Content-Encoding: [gzip]
+      Content-Language: [ja-JP]
+      Content-Length: ['1091']
+      Content-Type: [application/json;charset=UTF-8]
+      Date: ['Tue, 27 Dec 2016 16:04:14 GMT']
+      Vary: [Accept-Encoding]
+    status: {code: 200, message: OK}
+version: 1

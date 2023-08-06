@@ -1,0 +1,70 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.12.4]
+    method: GET
+    uri: https://app.rakuten.co.jp/services/api/Gora/GoraGolfCourseSearch/20131113?applicationId=XXXXXX&formatVersion=2&hits=3
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA7VYbU9aWxb+KxM+G4QivjSZTCadzKSZyWSSyf00nTQUKTK1YJB2Mrm5yXlRy5ui
+        omJ9RUFBUPCKVhSo/+Vu9nn5xF+4a63Na2vbubneaE4O5+y99trPXutZzzrfW9yBN/6Q5bF9YuzR
+        kGXG5fXA/ZDlpS84G6K7aRfeOIYsU77QLN24XcGgzxO0PLaJCU+EhVHn+JDlacjzGkb963uLNzD9
+        Et4EZz1PJy2Px20228hQ38O/u17DShamHDKlClee2NAiMaYUmVphapipBabWufRBO2qYat7SP/WP
+        L14EP5/65InlU/t/dfldOFBWmLxJ1zxTokzOMRlWSrZ/qnUmJ5gSYfKHAQtPXDMhX8APBni1qmeW
+        TRlmlIzza74a50v7T61PrEwJgwW7k4cXWnXZVBv8TiXbYKxE/pWZUmPKDU6MlJm8zuS4eTbPo9tM
+        Unguwo9vmFJBF3BMUf+wxeRFJslMWqaJ50w5ZkqOKVkmrTBl1W6z8cQ5P1/i80ewopY60nZOm1UJ
+        7IuH2jpMWTUK72ijH5n8HhZi6joZOexaa96kYACMZ0qcJ8qG2gBU9FyNx2Ckwu+KpnxyvxsAnnLJ
+        1CLaJJe0zbK5u9dsJM084JNi8jGT7+DarMZov3PgwDP/Mz/akqP8Y4qp8H+CxyyXwHU4XbDC5DX9
+        8qZZi4FRGKvW+HwedsdrsHpUW/toHsRhv616lDeS8Bz3mz3hEuyOQLg40KMftIoMGIozgefGXYNH
+        07gUOI9BFaGTX2RyAbzi6Uu+DCMhKNaYvIF+duCi9cFXo7Cur+1rO2E9csPnqxhAShS8EP7dVMiP
+        spnZZ/KNcBFPXWxNlZm6jHgpZ/gTEJTkEaZcMTXNIxe8vk6OKOQpLiiQkXMQ7gTiHCCD9hGZqHae
+        MmoN3JscNeUl8jjVjy/ErWtyMuiZhdSzGPE831/Sd+IiL3hV0fMXdseIzYLJHPKF3kxC5jmc1gnb
+        qH10FLJyOuD3th/bR2xWm2NizOkcxYz3Tv3X9b9uBhjvChAgRg2cSHbzYCBn/uQJuXzT3wWnYc5U
+        KDTzeHj4RSDwyuf3Wr2BoMuKI61B16s3IY/f6g5Y/zMz7H3jm/QMT/pmZ4bdz32Tw8QUYBR24wm+
+        hSwcNDfrcQXdU1+05nZN32cLtu33/iK33gZ8bnCL9jNorI/YXgP7DVj9kjXfa+8wPhZGhmemAqGA
+        HV54wZ7nrWv6jUtQjcM68sPQp9z5CCaNOu8hz2Y1oq+dM/WUCKSM4QURB3E+yKL4CqNy4z4W/ZKN
+        r9HpOpFnGrijTZ4iDoEyfhmvPrLZx/jNZau+AknWqq9SwIvsXWJqJ3FEQiFLwv8WkxJIOuUlGGxu
+        xLhyCvE/4gReXF7kCQUzHpjsSmneLiDF0hPjAtK53OYd5cYBgxfwrfFjwQDyq+zxpMyzW8idktKq
+        h42TCiVhgmZt407UNK6NEFUFWxnHORqQFptv1SPP/K06wF1r1Y+QPxB0AlWt6LFToBAqCeftI1Er
+        fEUUo5KRPzPyYSgMWnxFCx9rcwnt9AIWMXMLMEAvxpBSlVhfnch1eUqSgCfpuOt43MjYS7TCoQBM
+        Sy42GzuwiLld0zOyUdiEMuFs3t6KAtA3E1EVJQQLBh5xBAlHWmrVc636easO5uBMk0y5IDeumZrD
+        E5ESzdpm1yWmACRbOBdvkMd6S8ilboHR5w4QPDwQgkgumtsLzeoZf3er7QKpLvJsjmcj/KhhnKz3
+        jCNB7/dwUA8oJBbIsQo+URSzCM7MwazmxwPEMK1o4UsKzv1OcYr2l0bEME5rHlOBBrAzOLazGr5C
+        7AEh4Ou8kZdowDEYZjKUvxisw6UsIkwro3foGqTeCpXdE9r9XtvBT6iaz1/x2yJQtchCoGrc+PWu
+        Lp3aR0btg4Q9Yp0YcYyOjzkHCRuI3A6s7bSP9RM2grnd6CdsvhwByw/N1oKbHoiue8Yegq+71n4V
+        YQsrX2bse/h6wmYbG72Hrk0lY6bD/DwB59ATUV8j5/4Zf/kKIRcwmCGw5Tjl3RqGrHz1LfrtY5Qy
+        aCEgIeBgIOMO5RUpPwa8xnQFaZmhGE8RR4dpbLSTjUDfq2RmmW/vmVKGJG2uzdSYgZBb8ftmdXzB
+        PCuBF636Zs8RqCiSrF9f6nerfQ9hWLLP2aV//O27f/7OgVwGQAhx1ZXAXfuikICqRf/DyPBAmTKQ
+        xTvK7Ly5nYESgISv3AKrozWYLklfPz1Sfl06y5mL20wO0zHk24uC+pbjxDEJPDAlBkqSybtULwtd
+        90wpTby82mGrub4t9IoH6k5pS89BwVr6s33gDTJ5gbZ4TSZvaTigVbbbXnpcoWbtqFnFuqO9V0j+
+        ChEqm9I+rUZkq4RbjT0iwQFgOpTe61hEzaIpMeqwCsS0Zf0yra1fCWskmfHv/4DwC+L5E5kN3mYu
+        oM3oqO5uQdRSp0jFGeBt6DaKpPAB7m2k93lYalXP5NvVAOCBjkbFjgxLpBIDBcAbIGEK2sZ7fRka
+        unUIYj1fMg8ICZQOWXQTQ3+BADhrI6GS2OnDsiNb9oTgQDnwyYaErm+L/btuNekB0Kuoh4hTe6Ei
+        VulluEoo81RxzmWsewN4FCl01nj4RF/r7BeVyspA3ZMAr51dArYMFRm2TauW4CFVbdE0XtHCSVG9
+        sE9Bp7GJ4vPXiDLuZJlqJARVnl/XqLKfddy96rReeS2zSk4LvOYIJni1KjKGOqB5jLfPAh/6DHCS
+        z2+hbxuko/D8qNnDVqiMOdRGP0ZvQTzkmtUwzxY7zWc3yNQE9bI3xB5r5hbkfpyX7rRKlJxWUeBB
+        WIeXRZ0XckG7jPFSFrs+aHnghk7PlGFk5V50mbLQ1hEwtyJYiKx1g77HFfGO6OnMbbeChY5XvW4Z
+        m+TDW6OwiA6gUF7syNSoeUDqA392T/ibCQcnAK26ICDA7DQizIlUQ3ehuW6HaMIo7FExmet7ONe3
+        H5EdmGLdqCZXUsQfC10OeOb/aSP908bBb3H9NsOUSSJDZ39OHzKUZuNO8DSScbv1qTSri8ax/NP7
+        AuyEZ08wG5EpVMq0LHFsjCpMN8HEZ4WPHa5r3sZ4BMuY/r5mxi/wPYAGWSWXeCIFehmpF8P2oq0V
+        2xo5YuQ3QYB31wesFpJdY3j6bXtQRJJEzREYAP/P/N+QM5MBd1u6TXmmQW1Nedygpob/MOv2Tf7+
+        te+5N+h67p56NQMrSrV7NkwfJhAL9LdO2hauu+23uAPFuCgjBATlb3nIAwJaS6vaTh4EtDh4Uz2A
+        Gx2aPtDQa7egqo16wf5o3DGopEetYyPjE+NOx+efPiYmbI7BTx/a7o88nupX0vr+obZ799BKmlTj
+        Awnprq2H0NEdY79KRpORr6nof//wM1Fr/ruLFgAA
+    headers:
+      Access-Control-Allow-Origin: ['*']
+      Cache-Control: [no-store]
+      Connection: [close]
+      Content-Encoding: [gzip]
+      Content-Language: [ja-JP]
+      Content-Length: ['2538']
+      Content-Type: [application/json;charset=UTF-8]
+      Date: ['Wed, 28 Dec 2016 10:46:41 GMT']
+      Vary: [Accept-Encoding]
+    status: {code: 200, message: OK}
+version: 1
