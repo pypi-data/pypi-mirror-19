@@ -1,0 +1,4 @@
+Flask>=0.11.1
+-e git+https://github.com/inveniosoftware/invenio-assets.git#egg=invenio-assets
+-e git+https://github.com/inveniosoftware/invenio-i18n.git#egg=invenio-i18n
+-e git+https://github.com/inveniosoftware/invenio-theme.git#egg=invenio-theme
