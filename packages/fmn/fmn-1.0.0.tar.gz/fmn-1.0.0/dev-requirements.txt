@@ -1,0 +1,8 @@
+# Unit test requirements
+flake8
+html5lib
+mock
+nose
+# Docs requirements
+sphinx
+sqlalchemy_schemadisplay
