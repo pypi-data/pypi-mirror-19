@@ -1,0 +1,4 @@
+include CHANGES.txt
+include README.rst
+include nelson/clyde_sample/workspace/._gitignore
+recursive-include nelson/clyde_sample/ *.py *.c
