@@ -1,0 +1,3 @@
+[pytest11]
+django_ordering = pytest_django_ordering.plugin
+
