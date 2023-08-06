@@ -1,0 +1,82 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:i18n="http://genshi.edgewall.org/i18n"
+      xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="layout.html" />
+  <head>
+      <title>SQL</title>
+  </head>
+
+<body>
+
+<div id="content" class="wiki">
+
+<h1>Query</h1>
+
+<div class="query">
+<form method="post" id="form">
+<table cellpadding="3">
+<tr><td colspan="2">
+<textarea id="text" name="query" cols="80" rows="15">${query}</textarea>
+</td></tr>
+<tr><td align="left">
+<input type="submit" value="Submit" />&nbsp;
+<input type="reset" value="Reset" />&nbsp;
+<py:choose test="raw">
+<py:when>
+<input type="checkbox" name="raw" checked="checked" />Raw Output
+</py:when>
+<py:otherwise>
+<input type="checkbox" name="raw" />Raw Output
+</py:otherwise>
+</py:choose>
+<py:choose test="csv">
+<py:when>
+<input type="checkbox" name="csv" checked="checked" />CSV
+</py:when>
+<py:otherwise>
+<input type="checkbox" name="csv" />CSV
+</py:otherwise>
+</py:choose>
+</td><td align="right">
+<py:if test="not error">
+<b>${len(rows)}</b> results (<b>${took}</b> seconds)
+</py:if>
+</td></tr>
+</table>
+</form>
+</div>
+
+<br />
+
+<py:choose test="error">
+<py:when>
+<h1><font color="red">Error!</font></h1>
+${error}
+</py:when>
+<py:otherwise>
+<table class="results" cellpadding="2" cellspacing="0">
+<thead>
+<tr>
+    <py:for each="col in cols"><th>${col}</th></py:for>
+</tr>
+</thead>
+<tbody>
+<py:for each="row in rows">
+<tr>
+    <py:for each="col in row"><td>${col}</td></py:for>
+</tr>
+</py:for>
+</tbody>
+</table>
+</py:otherwise>
+</py:choose>
+
+</div>
+
+</body>
+</html>
+

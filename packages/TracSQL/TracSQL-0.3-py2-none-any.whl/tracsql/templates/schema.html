@@ -1,0 +1,69 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:i18n="http://genshi.edgewall.org/i18n"
+      xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="layout.html" />
+  <head>
+      <title>Schema</title>
+  </head>
+
+<body>
+
+<div id="content" class="wiki">
+
+<h1>Schema</h1>
+
+<table cellpadding="5" cellspacing="5">
+<tr>
+<td valign="top" style="border-right: 1px #ccc solid;">
+<py:for each="table in tables">${table}<br /></py:for>
+</td>
+
+<td valign="top">
+
+<py:if test="table">
+<b>${table}</b> has <b>${count}</b> rows.<br />
+</py:if>
+
+<py:if test="cols">
+<p><u>COLUMNS</u></p>
+<div style="padding-left: 10px;">
+<table class="results" cellpadding="2" cellspacing="0">
+<thead>
+<tr>
+    <py:for each="col in cols"><th width="75">${col}</th></py:for>
+</tr>
+</thead>
+<tbody>
+<py:for each="row in rows">
+<tr>
+    <py:for each="col in row"><td>${col}</td></py:for>
+</tr>
+</py:for>
+</tbody>
+</table>
+</div>
+</py:if>
+
+<py:if test="indexes">
+<p><u>INDEXES</u></p>
+<div style="padding-left: 10px;">
+<py:for each="index in indexes">
+<p><b>${index[0]}</b><br />${index[1]}</p>
+</py:for>
+</div>
+</py:if>
+
+</td>
+</tr>
+</table>
+
+</div>
+
+</body>
+
+</html>
+
