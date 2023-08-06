@@ -1,0 +1,3 @@
+include lib/libzk_app_utils.so
+include etc/systemd/system/zymkey-filesystem@.service
+include config/*
