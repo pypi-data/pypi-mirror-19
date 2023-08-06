@@ -1,0 +1,12 @@
+OpenFisca-Core == 4.3.3
+PyYAML >= 3.10
+
+[api]
+OpenFisca-Web-Api[paster] == 3.0.1.dev0
+
+[notebook]
+notebook
+matplotlib
+
+[survey]
+OpenFisca-Survey-Manager >= 0.8.2
