@@ -1,0 +1,55 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Sign In" %} - Trigger Happy{% endblock %}
+
+{% block content %}
+<div class="col-md-12">
+<h1>{% trans "Sign In" %}</h1>
+
+<p>{% blocktrans %}If you have not created an account yet, then please
+<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+
+{% if form.non_field_errors %}
+<div class="alert alert-danger" role="alert">
+    <p>{{ form.non_field_errors }}</p>
+</div>
+{% endif %}
+<form class="login form-horizontal" method="POST" action="{% url 'account_login' %}">
+  {% csrf_token %}
+    <div class="form-group">
+        <label class="form-label col-md-2" for="id_login">{% trans 'Username' %}</label>
+        <div class="col-md-10">
+        {{ form.login }}
+        {% if form.login.errors %}
+            <p class="help-block">{{ form.login.errors.as_text }}</p>
+        {% endif %}
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="form-label col-md-2" for="id_password">{% trans 'Password' %}</label>
+        <div class="col-md-10">
+        {{ form.password }}
+        {% if form.password.errors %}
+            <p class="help-block">{{ form.password.errors.as_text }}</p>
+        {% endif %}
+        </div>
+    </div>
+
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+
+    <div class="form-group">
+        <div class="col-md-2">
+          <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+        </div>
+        <div class="col-md-10">
+            <input type="submit" class="btn btn-primary"  value="{% trans 'Sign in' %}" />
+        </div>
+    </div>
+
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Signup" %} - Trigger Happy{% endblock %}
+
+{% block content %}
+<div class="col-md-12">
+<h1>{% trans "Sign Up" %}</h1>
+
+{% if form.non_field_errors %}
+<div class="alert alert-danger" role="alert">
+    <p>{{ form.non_field_errors }}</p>
+</div>
+{% endif %}
+
+<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+
+<form class="signup form-horizontal" id="signup_form" method="post" action="{% url 'account_signup' %}">
+  {% csrf_token %}
+    <div class="form-group {% if form.username.errors %}has-error{% endif %}">
+        <label class="form-label col-md-2" for="id_username">{% trans 'Username' %}</label>
+        <div class="col-md-10">
+        {{ form.username }}
+        {% if form.username.errors %}
+            <p class="help-block">{{ form.username.errors.as_text }}</p>
+        {% endif %}
+        </div>
+    </div>
+
+    <div class="form-group {% if form.email.errors %}has-error{% endif %}">
+        <label class="form-label col-md-2" for="id_email">{% trans 'E-mail' %}</label>
+        <div class="col-md-10">
+        {{ form.email }}
+        {% if form.email.errors %}
+            <p class="help-block">{{ form.email.errors.as_text }}</p>
+        {% endif %}
+        </div>
+    </div>
+
+    <div class="form-group {% if form.password1.errors %}has-error{% endif %}">
+        <label class="form-label col-md-2" for="id_password1">{% trans 'Password' %}</label>
+        <div class="col-md-10">
+        {{ form.password1 }}
+        {% if form.password1.errors %}
+            <p class="help-block">{{ form.password1.errors.as_text }}</p>
+        {% endif %}
+        </div>
+    </div>
+
+    <div class="form-group {% if form.password2.errors %}has-error{% endif %}">
+        <label class="form-label col-md-2" for="id_password2">{% trans 'Password (again)' %}</label>
+        <div class="col-md-10">
+        {{ form.password2 }}
+        {% if form.password2.errors %}
+            <p class="help-block">{{ form.password2.errors.as_text }}</p>
+        {% endif %}
+        </div>
+    </div>
+
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-primary"  value="{% trans 'Sign Up' %}" />
+        </div>
+    </div>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Sign Up Closed" %} - Trigger Happy{% endblock %}
+<div class="col-md-12">
+{% block content %}
+    <h1>{% trans "Sign Up Closed" %}</h1>
+    <div class="alert alert-warning" role="alert">
+        <p>{% trans "We are sorry, but the sign up is currently closed." %}</p>
+    </div>
+{% endblock %}
+</div>

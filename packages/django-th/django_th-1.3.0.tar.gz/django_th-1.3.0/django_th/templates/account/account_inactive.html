@@ -1,0 +1,13 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Account Inactive" %} - Trigger Happy{% endblock %}
+{% block content %}
+<div class="col-md-12">
+    <h1>{% trans "Account Inactive" %}</h1>
+    <div class="alert alert-warning" role="alert">
+        <p>{% trans "This account is inactive." %}</p>
+    </div>
+</div>
+{% endblock %}
