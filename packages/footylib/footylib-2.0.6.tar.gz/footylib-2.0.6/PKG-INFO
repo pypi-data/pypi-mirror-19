@@ -1,0 +1,41 @@
+Metadata-Version: 1.1
+Name: footylib
+Version: 2.0.6
+Summary: Get season matches for Footy.eu
+Home-page: https://github.com/wefner/footy
+Author: Oriol Fabregas
+Author-email: fabregas.oriol@gmail.com
+License: Apache-2.0
+Description: Introduction
+        ============
+        
+        Python library for footy.eu website.
+        
+        Version 1.0 is deprecated. Please see USAGE
+        
+        TODO
+        ====
+        
+        -  [X] Local team and Visiting team attribute
+        -  [X] Division reference in Team
+        -  [X] Generate calendar
+        -  [X] Look for a calendar module that support unicode
+        -  [ ] Tests..
+        
+        
+        
+        
+        History
+        -------
+        
+        0.0.1 (2016-12-16)
+        ---------------------
+        
+        * First packaged release
+        
+Keywords: footylib
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2.7
