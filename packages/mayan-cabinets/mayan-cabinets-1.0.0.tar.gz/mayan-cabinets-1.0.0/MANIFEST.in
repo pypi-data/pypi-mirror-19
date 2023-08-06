@@ -1,0 +1,2 @@
+include README.rst LICENSE HISTORY.rst
+recursive-include cabinets *.txt *.html *.css *.ico *.png *.gif *.js *.ttf *.woff
