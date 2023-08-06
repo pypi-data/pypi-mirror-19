@@ -1,0 +1,8 @@
+[console_scripts]
+fasta2homozygous = fasta2homozygous:main
+fastq2insert_size = fastq2insert_size:main
+fastq2mates = fastq2mates:main
+fastq2sspace = fastq2sspace:main
+filterReads = filterReads:main
+redundans = redundans:main
+
