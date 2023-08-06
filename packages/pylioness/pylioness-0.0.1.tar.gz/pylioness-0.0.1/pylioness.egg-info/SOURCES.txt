@@ -1,0 +1,16 @@
+MANIFEST.in
+README.rst
+requirements-dev.txt
+requirements.txt
+setup.py
+pylioness/__init__.py
+pylioness/_metadata.py
+pylioness/lioness.py
+pylioness.egg-info/PKG-INFO
+pylioness.egg-info/SOURCES.txt
+pylioness.egg-info/dependency_links.txt
+pylioness.egg-info/requires.txt
+pylioness.egg-info/top_level.txt
+tests/__init__.py
+tests/test_basic.py
+tests/test_benchmarks.py
