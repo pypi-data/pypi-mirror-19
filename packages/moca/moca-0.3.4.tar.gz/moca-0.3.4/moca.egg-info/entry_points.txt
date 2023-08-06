@@ -1,0 +1,4 @@
+
+            [console_scripts]
+            moca=scripts.mocacli:cli
+    
