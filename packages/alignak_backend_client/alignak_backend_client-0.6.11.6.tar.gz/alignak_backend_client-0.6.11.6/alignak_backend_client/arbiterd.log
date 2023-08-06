@@ -1,0 +1,846 @@
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon] -----
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon] Alignak 0.2 - arbiter daemon
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon] Copyright (c) 2015-2016: Alignak Team
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon] License: AGPL
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon] -----
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon] My configuration: 
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - server_cert=etc/certs/server.cert
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - workdir=./
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - ca_cert=
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - log_level=20
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - hard_ssl_name_check=False
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - host=0.0.0.0
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - local_log=arbiterd.log
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - spare=False
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - user=alignak
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - log_rotation_interval=1
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - use_ssl=False
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - use_local_log=True
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - human_date_format=%Y-%m-%d %H:%M:%S %Z
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - idontcareaboutsecurity=False
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - log_rotation_count=7
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - server_key=etc/certs/server.key
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - group=alignak
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - human_timestamp_log=True
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - port=7770
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - log_rotation_when=midnight
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - daemon_type=arbiter
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - max_queue_size=0
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - daemon_enabled=True
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - server_dh=
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - pidfile=arbiterd.pid
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemon]  - daemon_thread_pool_size=8
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemons.arbiterdaemon] Arbiter is in configuration check mode
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemons.arbiterdaemon] -----
+[2017-01-25 18:15:25 CET] INFO: [alignak.daemons.arbiterdaemon] Loading configuration
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] [config] opening '/usr/local/etc/alignak/alignak.cfg' configuration file
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/objects/realms/all.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/objects/commands/detailled-service-by-email.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/objects/commands/notify-service-by-email.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/objects/commands/detailled-host-by-email.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/objects/commands/notify-host-by-email.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/objects/timeperiods/none.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/objects/timeperiods/workhours.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/objects/timeperiods/us-holidays.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/objects/timeperiods/24x7.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/objects/escalations/sample.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/objects/dependencies/sample.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/templates/business-impacts.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/templates/time_templates.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/templates/generic-contact.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/templates/generic-host.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/templates/generic-service.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/readme.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/snmp/services-linux.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/snmp/commands-linux.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/snmp/services-windows.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/snmp/commands-windows.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/snmp/groups.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/snmp/templates.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/notifications/commands.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/notifications/notification-ways.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/resource.d/snmp.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/resource.d/monitoring.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/resource.d/windows-nsca.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/resource.d/windows-nrpe.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/resource.d/linux-snmp.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/resource.d/notifications.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/resource.d/wmi.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/resource.d/readme.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/resource.d/nrpe.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/resource.d/mysql.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/monitoring/commands.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/monitoring/templates.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/monitoring/services.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/wmi/commands.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/wmi/groups.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/wmi/templates.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/wmi/services.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/linux-snmp/commands.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/linux-snmp/groups.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/linux-snmp/templates.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/linux-snmp/services.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/windows-nrpe/commands.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/windows-nrpe/groups.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/windows-nrpe/hosts.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/windows-nrpe/templates.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/windows-nrpe/services.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/nrpe/services-linux.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/nrpe/services-windows.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/nrpe/commands.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/nrpe/groups.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/nrpe/templates.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/_my_passive_hosts_pack/timeperiods.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/_my_passive_hosts_pack/groups.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/_my_passive_hosts_pack/templates.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/_my_passive_hosts_pack/services.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/mysql/commands.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/mysql/groups.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/mysql/templates.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/mysql/services.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/windows-nsca/groups.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/windows-nsca/hosts.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/windows-nsca/templates.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/windows-nsca/services.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/objects/notificationways/email.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/objects/notificationways/detailled-email.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/objects/servicegroups/sample.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/objects/hostgroups/linux.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/objects/contactgroups/admins.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/objects/contactgroups/users.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/objects/hosts/localhost.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/objects/services/services.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/objects/contacts/guest.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/objects/contacts/admin.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/daemons/scheduler-master.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/daemons/receiver-master.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/daemons/poller-master.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/daemons/broker-master.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/daemons/arbiter-master.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/daemons/reactionner-master.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/daemons/North/receiver-north.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/daemons/North/broker-north.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/daemons/North/poller-north.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/daemons/North/scheduler-north.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/daemons/South/poller-south.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/daemons/South/scheduler-south.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/daemons/South/broker-south.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/modules/mod-external-commands.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/modules/mod-nsca.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/modules/mod-ws.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/modules/mod-nrpe-booster.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/modules/mod-alignak_backend_scheduler.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/modules/readme.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/modules/mod-logs.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/modules/mod-alignak_backend_arbiter.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/modules/mod-alignak_backend_broker.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/modules/mod-nsca-north.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/resource.d/paths.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/resource.d/snmp.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/resource.d/monitoring.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/resource.d/windows-nsca.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/resource.d/windows-nrpe.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/resource.d/linux-snmp.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/resource.d/notifications.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/resource.d/wmi.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/resource.d/readme.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/resource.d/nrpe.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/packs/resource.d/mysql.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/realms/North/realm.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/realms/North/readme.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/realms/North/modules/readme.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/realms/North/contacts/contacts.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/realms/North/hosts/passive-hosts.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/realms/All/realm.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/realms/All/readme.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/realms/All/contactgroups/admins.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/realms/All/contactgroups/users.cfg'
+[2017-01-25 18:15:25 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/realms/All/contacts/guest.cfg'
+[2017-01-25 18:15:26 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/realms/All/contacts/admin.cfg'
+[2017-01-25 18:15:26 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/realms/All/hosts/always_down.cfg'
+[2017-01-25 18:15:26 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/realms/All/hosts/alignak_glpi.cfg'
+[2017-01-25 18:15:26 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/realms/All/hosts/lachassagne.cfg'
+[2017-01-25 18:15:26 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/realms/All/hosts/chazay.cfg'
+[2017-01-25 18:15:26 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/realms/All/hosts/cogny.cfg'
+[2017-01-25 18:15:26 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/realms/All/hosts/alignak_webui.cfg'
+[2017-01-25 18:15:26 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/realms/All/hosts/denice.cfg'
+[2017-01-25 18:15:26 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/realms/South/realm.cfg'
+[2017-01-25 18:15:26 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/realms/South/readme.cfg'
+[2017-01-25 18:15:26 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/realms/South/contacts/contacts.cfg'
+[2017-01-25 18:15:26 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/realms/South/hosts/pi1.cfg'
+[2017-01-25 18:15:26 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/realms/South/hosts/charnay.cfg'
+[2017-01-25 18:15:26 CET] INFO: [alignak.objects.config] Processing object config file '/usr/local/etc/alignak/arbiter/realms/South/hosts/m2m.cfg'
+[2017-01-25 18:15:26 CET] INFO: [alignak.daemons.arbiterdaemon] I correctly loaded the configuration files
+[2017-01-25 18:15:26 CET] INFO: [alignak.daemons.arbiterdaemon] I found myself in the configuration: arbiter-master
+[2017-01-25 18:15:26 CET] INFO: [alignak.daemons.arbiterdaemon] I am the master Arbiter: arbiter-master
+[2017-01-25 18:15:26 CET] INFO: [alignak.stats] Sending arbiter/arbiter-master daemon statistics to: 192.168.0.17:8125, prefix: alignak-demo
+[2017-01-25 18:15:26 CET] INFO: [alignak.stats] Trying to contact StatsD server...
+[2017-01-25 18:15:26 CET] INFO: [alignak.stats] StatsD server contacted
+[2017-01-25 18:15:26 CET] INFO: [alignak.daemon] Loading modules...
+[2017-01-25 18:15:26 CET] INFO: [alignak.modulesmanager] Importing Python module 'alignak_module_backend.arbiter' for backend_arbiter...
+[2017-01-25 18:15:26 CET] INFO: [alignak.modulesmanager] Module properties: {'daemons': ['arbiter'], 'phases': ['configuration'], 'type': 'backend_arbiter', 'external': False}
+[2017-01-25 18:15:26 CET] INFO: [alignak.modulesmanager] Imported 'alignak_module_backend.arbiter' for backend_arbiter
+[2017-01-25 18:15:26 CET] INFO: [alignak.modulesmanager] Loaded Python module 'alignak_module_backend.arbiter' (backend_arbiter)
+[2017-01-25 18:15:26 CET] INFO: [alignak.module] Give an instance of alignak_module_backend.arbiter for alias: backend_arbiter
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] bypass objects loading when Arbiter is in verify mode: False
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] configuration reload check period: 5 minutes
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] actions check period: 15 seconds
+[2017-01-25 18:15:26 CET] INFO: [alignak.modulesmanager] Trying to initialize module: backend_arbiter
+[2017-01-25 18:15:26 CET] INFO: [alignak.daemon] I correctly loaded my modules: [backend_arbiter]
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] my Arbiter is in verify only mode
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] Got 3 realms
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - All
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - South
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - North
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] Got 77 commands
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - _internal_host_up
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - _echo
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - win_check_snmp_cpu
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_mysql_cluster_ndbd_running
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_mysql_slave_io_running
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_mysql_connection
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_wmi_big_processes
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_mysql_bufferpool_hitrate
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_ssh
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_mysql_qcache_hitrate
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_mysql_threads_connected
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_dhcp
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - detailled-service-by-email
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - notify-host-by-email
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_mysql_threadcache_hitrate
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - linux_check_snmp_network_usage
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_mysql_keycache_hitrate
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_wmi_physical_memory
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - win_check_snmp_alive
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_https
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_ftp
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - notify-service-by-slack
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_nrpe_version
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_mysql_slave_sql_running
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_wmi_share
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - notify-service-by-email-html
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - win_check_snmp_memory
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - linux_check_snmp_cpu
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - linux_check_snmp_memory
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_wmi_loadaverage
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - notify-host-by-xmpp
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_mysql_tmp_disk_tables
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - linux_check_snmp_disks
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_wmi_disks
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - notify-host-by-email-html
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_wmi_info
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_mysql_qcache_lowmem_prunes
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - notify-host-by-slack
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_wmi_swap
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_wmi_overall_cpu
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_mysql_open_files
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_mysql_log_waits
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - linux_check_snmp_load
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_mysql_slave_lag
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_mysql_querycache_hitrate
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_mysql_table_lock_contention
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_wmi_inactive_ts_sessions
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_mysql_tablecache_hitrate
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_mysql_uptime
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_mysql_index_usage
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_wmi_disks_io
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - notify-service-by-email
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_mysql_long_running_procs
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - notify-service-by-xmpp
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_rsync
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_wmi_eventlogs
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - win_check_snmp_network_usage
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_nrpe
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_wmi_big_process
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - detailled-host-by-email
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_mysql_bufferpool_wait_free
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_https_certificate
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_host_alive_icmp
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_host_alive
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - win_check_snmp_load
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - linux_check_snmp_alive
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_nrpe_alive
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_wmi_reboot
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_wmi_each_cpu
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_nrpe_args
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_wmi_auto_services
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_mysql_slow_queries
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - win_check_snmp_disks
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_dns
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_wmi_network
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_http
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - check_wmi_alive
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] Got 5 timeperiods
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - 24x7
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Never
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - workhours
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - us-holidays
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - north_hours
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] Got 8 contacts
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - admin
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - generic-contact
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - north-contact
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - south-contact
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - southhman
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - guest
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - northman
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - imported_admin
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] Got 5 contactgroups
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - All
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - users
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - north
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - south
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - admins
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] Got 12 hosts
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - m2m-asso.fr
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - charnay
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - localhost
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - chazay
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - alignak_glpi
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - passive-01
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - passive-02
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - always_down
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - pi1
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] Got 12 hostgroups
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - All
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - linux
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - windows-snmp
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - mysql
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - windows-nrpe
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - linux-nrpe
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - monitoring_servers
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - wmi
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - linux-snmp
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - windows-passive-hosts
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - north-hosts
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - nrpe
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] Got 236 services
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Memory
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Maintenance
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Cpu
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Nrpe-status
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Processus
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Users
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk var
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Users
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Http
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - NTP
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Opened files
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_Monitoring
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Dns
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_Management
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Dns
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - dev_ReceiptPrinter
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - nsca_cpu
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Processus
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk tmp
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk /var
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - dev_DisplayUI
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Opened files
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Zombies
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_Printing_A
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - NetworkUsage
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Load
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - VPN traffic
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - IPMI SDR
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disks
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - nsca_uptime
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Shinken Main Arbiter
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - I/O stats
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Mysql tmp tables
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk root
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - nsca_uptime
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - dev_BarcodeReader
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - nsca_memory
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - System up-to-date
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - System up-to-date
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - HttpsCertificate
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Users
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Load
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Shinken Second Web service
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Shinken Main Web service
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_ScreenSaver
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_Alarm
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Mysql threads
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Memory
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk var
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk /usr
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk root
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disks
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk /usr
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - nsca_memory
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Users
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - NTP
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Processus
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - IPMI sensors
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk /tmp
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Memory
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Memory
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk /usr
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - HttpsCertificate
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_TagReading_D
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - NetworkUsage
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_Management
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - NTP
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - RAID controller
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Load
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - dev_IOUI
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Https
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - NSCA Proxy
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Nrpe-status
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Shinken Main Receiver
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - I/O stats disk 2
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - System up-to-date
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Zombies
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk /usr
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk usr
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk /var
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk /tmp
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - RAID controller
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - dev_BluetoothReader
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Shinken Second Arbiter
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - dev_TouchUI
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Mysql long running procs
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk tmp
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Load
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Mysql tmp tables
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk tmp
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - dev_IOUI
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Shinken Second Scheduler
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Http
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - dev_CBPayment
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Cpu
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - IPMI SDR
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Memory
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_ScreenSaver
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk root
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Application
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_TagReading_C
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - IPMI sensors
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - NetworkUsage
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Nrpe-status
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk usr
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - dev_ReceiptPrinter
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Memory
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - IPMI SDR
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk /tmp
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Dns
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Mysql threads
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Memory
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - I/O stats
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_TagReading_B
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Nrpe-status
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - nsca_cpu
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Glpi Traffic
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Application
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Shinken Second Receiver
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk /tmp
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - dev_TouchUI
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Firewall routes
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_Payment_A
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - dev_CBPayment
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk 2
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk /var
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - dev_SoundUI
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Zombies
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Cpu
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Http
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk tmp
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Processus
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - CPU
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Maintenance
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_Alarm
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Opened files
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - dev_DisplayUI
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_Activity
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disks
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - System up-to-date
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Mysql connection time
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk root
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Shinken Main Scheduler
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Https
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_TagReading_A
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_Disk
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - I/O stats disk 2
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - dev_BluetoothReader
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_Session
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - CPU
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - dev_BarcodeReader
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Nrpe-status
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Cpu
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - HttpsCertificate
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - VPN switch check
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - nsca_disk
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - I/O stats disk 2
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Shinken Second Broker
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Processus
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disks
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk var
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Shinken Main Poller
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - NTP
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - RAID controller
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Mysql long running procs
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_Session
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - CPU
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - I/O stats
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Memory
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk root
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Shinken Second Reactionner
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - nsca_services
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk /var
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk usr
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Shinken Main Reactionner
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Zombies
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Https
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_Payment_A
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - dev_ContactlessReader
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_Monitoring
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk /usr
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - NetworkUsage
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Shinken Main Broker
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk /tmp
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk /tmp
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk var
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Load
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - dev_ContactReader
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Https
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Zombies
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - TCP proxy
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Users
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk /usr
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - dev_ContactlessReader
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - HttpsCertificate
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_TagReading_B
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Mysql connection time
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - IPMI sensors
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Firewall routes
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk /var
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_TagReading_D
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Load
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Firewall routes
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - GLPI proxy
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk 2
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - RAID controller
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk usr
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Shinken Second Poller
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Zombies
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Load
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Processus
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Load
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk 2
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Nrpe-status
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - dev_SoundUI
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Opened files
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - dev_ContactReader
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_Disk
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - nsca_services
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Users
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Load
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_Printing_A
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_Activity
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - nsca_disk
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - CPU
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_TagReading_C
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Load
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Http
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - IPMI SDR
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk /var
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - dev_Network
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - Disk root
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - dev_Network
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - svc_TagReading_A
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - IPMI sensors
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - I/O stats
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] Got 10 servicegroups
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - All
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - windows-snmp
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - north-services
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - windows-nrpe
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - nrpe
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - linux-snmp
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - windows-passive-services
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - linux-nrpe
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - mysql
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - wmi
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] Got 1 hostdependencies
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - 5ad9a5d11d324a2d88126c1f6a4e7127 -> 028e09300c2945fa80a0ce82dfc5e6e7
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] Got 0 hostescalations
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] Got 147 servicedependencies
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/8c7f357581ac4f41b359417af91fc15e
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/36b124d63205456886401814837f4f3e
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/f505eb7a5790420eb5e568370e8d0e83
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/a35d206654bb4211aeff8d44516cc958
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/9016ff93ec49430e88fc8fb82b7e493d
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - alignak_glpi/d91258dc3ed24f4a83254da319bdc995 -> alignak_glpi/2ee2d44e899443cf827e44d26e65dda3
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/fcb1dea8ac034a22903b2579c99f4899
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/28b08424416547ef80e103d8a70d26e3
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/f6855d78a810464eb392cbf79d7c5d03
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - alignak_glpi/d91258dc3ed24f4a83254da319bdc995 -> alignak_glpi/eb8494120bbb4520ae73fee3db88325c
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/e2ca3a9bb5854d0da8cd2dec8a62bfd3
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/aad1b010a4464db8a494446e5609a308 -> cogny/1e716c38dc7849d79827ef3ce8dc1c81
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - chazay/e534e1d27c8242729564a45002a7026d -> chazay/34f85bb054b04e139bb090b17b1f97c9
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - chazay/e534e1d27c8242729564a45002a7026d -> chazay/36372d8c28a14ef5b5518c042371b7d1
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/21efe2423cfa412583663adbd487b03c
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/ad6601e7d4b741feaed6aa41cbc6b17c
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/0a89d3cf73d04ff4bda58f4ffc040c76
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/5726cbac2e11486eb3394f709ec2ea28
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/e206ba7995e54226ba61df5723fa607a
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/89d6af3c4b314eebb06c1530b9a6241e
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - passive-01/6ce56f11278f445ebd78a82f75f05555 -> passive-01/a32cb6fa24064263a0907c28fade0185
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/90ae9abe048c4dfca3a38beb11f1f56e
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/a9cb496146ba4866a0664c31d8108a44
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/4e3455477aa04e37bd251026657810e0
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - alignak_glpi/d91258dc3ed24f4a83254da319bdc995 -> alignak_glpi/bca409e43ab140df80577746cf6eafa0
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/a43bddc20abb427d812acade65c336c1
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/a95061feb783456ea81e639c0e9229fe
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - alignak_glpi/d91258dc3ed24f4a83254da319bdc995 -> alignak_glpi/748bcd908bd74c2aad3a5250586cf5e9
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - passive-02/2e1a5ca4d9de43fdaffdf807807fae60 -> passive-02/e960bc0fa1164b18b287dc9579a72a8d
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/573bce5c0632454eba3cb0cd9c0ca35d
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/436ba178d68e445cb94fa0e9ae62f868
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - alignak_glpi/d91258dc3ed24f4a83254da319bdc995 -> alignak_glpi/a151e89ed7e2425d975ffba24065429f
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/7a0d05e559b04a4f9bfd8bdea6cafb82
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/79b9eb6cfef4494fb71785225a33207a
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/bfa1a5168aac4fddbbdcac96fa51febe
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/749a7ff15bbd4f8d97cf0f2e0b93d608
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/5faf0325fd2a48f39dc0c3d5d8076490
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - passive-01/739efa4086e44303b60c3e1125cb9ec2 -> passive-01/3910f2561e9540e092a06db087c93770
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/ee7bf08ff405480e889400fe78a0c926
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/d7c8dc46adf646faa6e0337f0a58219c
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/7f90ad0f5aa644eeb2ff100af5c1ba34
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/b3e3a9c6e2644c81868b349577a1a6cf
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/da445c210c0a4fcc9d2811d0c836350e
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/4a2017cab1934f1cb0aa26b3d910c9b5
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/4785736ac7e64486b87093b250a743fe
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - alignak_glpi/d91258dc3ed24f4a83254da319bdc995 -> alignak_glpi/80c3e84d8cfa454e9fa0079e4a208471
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - chazay/e534e1d27c8242729564a45002a7026d -> chazay/9ea36469d7cf4a1ba1b0e48fa392a4e9
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/67031e41252e4e849d2a268beafb9426
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - chazay/e534e1d27c8242729564a45002a7026d -> chazay/485758cfd13042b58e1ceab47a2f823b
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/3b1ad81550704f0a827702ae28128057
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - chazay/e534e1d27c8242729564a45002a7026d -> chazay/0f0673873f574d32a4dd7b4c2c83d5c8
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - pi1/523e6bfd36f94dfdae245bc1d37c14c2 -> pi1/8f9d4230ead44d4bb09f31c176d7233f
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - passive-01/716482c5b25e47a2bdc4797abe1b547c -> passive-01/1caa40f4a4e24465be7380957cffefc5
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - chazay/e534e1d27c8242729564a45002a7026d -> chazay/be7f884779f64229ba87f2da513a8684
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - passive-02/7b4948abd0374f099e5ef9a2c1ab3830 -> passive-02/8eb78917ccab48b286de326dd3628716
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - chazay/e534e1d27c8242729564a45002a7026d -> chazay/244590a37acb4e5b883f9d2e5245ff48
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/729782391d7f4f039ac1bd6d0ef4a993
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - passive-02/9bbbb15aa3a847c1854e0cb516c23323 -> passive-02/5f59618f11b74c0ab452f89b63b31b5b
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/19434dd8b6f34cd3b29dceb0d954cb51
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - chazay/e534e1d27c8242729564a45002a7026d -> chazay/77fedd29927342ddaaefeb71debde2b8
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - alignak_glpi/d91258dc3ed24f4a83254da319bdc995 -> alignak_glpi/c44ce819a7194332a1a4e33e9734fc8c
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/959ccbed5a9e4267b21bf794b2be8ca5
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - chazay/e534e1d27c8242729564a45002a7026d -> chazay/e853fde6743443e1b8a89386c483aa9b
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - passive-01/244da5915fa64aef98c0d2f6aa3ced2d -> passive-01/feddc119818c419d8eb41a6ec1610ab5
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/be0e7ec0726340e1a152f8ce95e3825c
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/b7f65cf9897345ea926171dd8e5e8bf9
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/733327d53dd14f4db12e0aa6f27f512d
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/d635e267cc154f85aca04c149861ad6a
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - passive-02/9972b38d681f441f84f65f746a864e09 -> passive-02/3ee000eea9a6476884f54fc387785091
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/b67e22d5be694036b0cecbd02bbbe090
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/f9105bd0dc9e4cfb9a6f967ac0073fa4
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - pi1/523e6bfd36f94dfdae245bc1d37c14c2 -> pi1/8ea4f938248e4ca9b9824a8e54c39460
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/ed53a0de6f3445488494e8458b3ff8b2
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - pi1/523e6bfd36f94dfdae245bc1d37c14c2 -> pi1/585af8667ed344a09229ba622a0e01fd
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - chazay/e534e1d27c8242729564a45002a7026d -> chazay/3f8fa758cf3541dfb93c02eca572361a
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/e3e50772c7314a65b52d35dbb9729fd1
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - passive-01/42504f35129e4617a29df2ad5bbd7014 -> passive-01/794c5ed5dc99410eb608ad0f005af252
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - passive-01/de78b97798df4803897ab7e726ef78de -> passive-01/cf57ef47077845129a9d64b67494b92b
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - pi1/523e6bfd36f94dfdae245bc1d37c14c2 -> pi1/743552320ea44ee8a7b274c175522767
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/9efdff9f9d994502aa22d8316d235f04
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/d8a9acd3f4474f7791ebf29690c0eeaf
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/6d458430c37e4cb98907178042dca9f1
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/f90548f190b84704b99be6fa5b86eb19
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/e2ebd3d974384a1ebf499ffe755c542e
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/94e2d73fddfe4538ae506fdd7b5daa32
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/aad1b010a4464db8a494446e5609a308 -> cogny/b82c2e3d598f4c85ba44214281a0dfd3
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - chazay/e534e1d27c8242729564a45002a7026d -> chazay/ae3f45d9ee05475ea7b04c2d3ac6769c
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/d955fd3ab4694698ba830d02b4858bd0
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/0ad9cb3820b74b7c9e0e770655da3610
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/b6d2761078ec4fc9ab53cf59c65b968e
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - chazay/e534e1d27c8242729564a45002a7026d -> chazay/81d2823bccb74f0fb21582ed7621d83a
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/33e3931a51a2464ebb34858222a2ead6
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - passive-02/0ac1250a8f6547929215346640a4867c -> passive-02/44b976d6b1614e9abd7e3cf2038330f9
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/f2d4d2a3123b49f6816e72a0114c9654
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/f177fd9e09574cd28a6853a333fc84e2
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/06cb02cc6c684e5198ccef6f48cc0747
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - passive-02/d50cbd47a40e40deb753d3ba8c687246 -> passive-02/0fe7d7b0569d46208dda5ee54cc946df
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/3b282d5d160c4aae9b077f48fef18b95
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/f7e2a405068d410eb5872aabdc6bc566
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - chazay/e534e1d27c8242729564a45002a7026d -> chazay/e2ce44e95c7b47269d09123d5286d735
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/2c0fa174968d4ac88592e7aa6ed3ee75
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/7816c676f1414ef4b98ada08b0ddd71b
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/8e8b315899cd4bfabffce9fc40cd9249
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/a95061feb783456ea81e639c0e9229fe -> cogny/93076e0a65194444b0ab5692784aec39
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/f266b7c22f3f418c930ea04a371044e6
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - pi1/523e6bfd36f94dfdae245bc1d37c14c2 -> pi1/047d16dabfcd4635988c254589025836
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/bf472fda1bcc43418fc96c4fdbf9b355
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/615488512b01454b9e8f60eb8659679e
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/c0bdd7ac13894692bf574e2864f1dc9f
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/d831a2a319a74f9f9088cb37947a3f2a
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - chazay/e534e1d27c8242729564a45002a7026d -> chazay/12b26246481a44b7917ccdda7121f874
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - alignak_glpi/d91258dc3ed24f4a83254da319bdc995 -> alignak_glpi/494394e8c2744af68e138f02e0103339
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/a7a89b10f0884da7a96412828bd46a8a
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/57784b9f491a4fac962b471f73fbacbf
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - chazay/e534e1d27c8242729564a45002a7026d -> chazay/5728f0365b8a4d6e88f2a5b67cf12aab
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - chazay/e534e1d27c8242729564a45002a7026d -> chazay/e33c77885f16474e81a66e8e39325d91
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - chazay/e534e1d27c8242729564a45002a7026d -> chazay/9293ddbca0b34becb1d479c3e3ac2d89
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/1cad43f854fe4703aeab00632c1d8034
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - pi1/523e6bfd36f94dfdae245bc1d37c14c2 -> pi1/972c420a62544dbf893889c15683fd7d
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/a95061feb783456ea81e639c0e9229fe -> cogny/6e5b4bb3f28d498781dfaa2a5c97b414
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/29bf2928e091418099f0d31cd53fa764
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/b1c1aea146754a4fab5581dab85bcb3b
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/043bfd5fb2a748b69b70a9166bd40244
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - chazay/e534e1d27c8242729564a45002a7026d -> chazay/4782773ee69c47cfbe68119f1e665777
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/85b05e89e0b54e3e9bdc29275c907b5d
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/c156ad7c6db04fe9bd93c74d58141f09
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - chazay/e534e1d27c8242729564a45002a7026d -> chazay/4382b306051f4941ac24596d0e2c4385
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - chazay/e534e1d27c8242729564a45002a7026d -> chazay/0ab4829628df4cce90b632aef7a3b3ce
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/f57a4997c9824ed9b2f40bdf99a8e4ba
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/1699c02c2ddf4cd983a3de832786e44d
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/8e0a585345e24294941185f79212e448
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - passive-02/0cc7098dba0c440893dc214ea5346c71 -> passive-02/7ebe78e02ebf469899640ab7584d75c7
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - chazay/e534e1d27c8242729564a45002a7026d -> chazay/ddfca4011c6b4b299624202a757ed580
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/28b373d49e514d0d8b08952f9c8e1e5c
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - pi1/523e6bfd36f94dfdae245bc1d37c14c2 -> pi1/3a31f58119b64ec1bea4bc0c7d373580
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/c60851dddbf84e2eab08f638a87de368
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - passive-01/9981fc89d2d74653b793ce435db476b7 -> passive-01/b167f15bcb3741ddb3b2bb874805f9f1
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - lachassagne/931e96ad7dfb483c871b961f45ed5212 -> lachassagne/7f0ec0e2e29e451e9ba65d31c2a81246
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/d6224463d94240798ff06979dc694a88
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - pi1/523e6bfd36f94dfdae245bc1d37c14c2 -> pi1/80c915ff473445da9d621789b4cad72e
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/065921e4da1645488dbb5ffacffa8878
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/170fbceee91e44959c69daedfab69cf2 -> cogny/ff63c65af7a64e129ad2611ffe861bf3
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - cogny/a95061feb783456ea81e639c0e9229fe -> cogny/aad1b010a4464db8a494446e5609a308
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/80130a66821b4a6a974ebbb7117a5307
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/80bfdc7b6cac4584938eedf3897ae238
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - denice/64e76694efa34540a70780710eaae7ff -> denice/f4a58b39e89946279ffcbe8936bc7e5c
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] - chazay/e534e1d27c8242729564a45002a7026d -> chazay/99481c71bf804cae863c67bae2d47cf3
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] Got 0 serviceescalations
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] backend configuration loaded in 0.728753089905 seconds
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] next configuration reload check in 300 seconds ---
+[2017-01-25 18:15:26 CET] INFO: [alignak.module.backend_arbiter] next actions check in 15 seconds ---
+[2017-01-25 18:15:26 CET] WARNING: [alignak.daemons.arbiterdaemon] Got unmanaged macromodulations objects from module backend_arbiter
+[2017-01-25 18:15:26 CET] WARNING: [alignak.daemons.arbiterdaemon] Got unmanaged escalations objects from module backend_arbiter
+[2017-01-25 18:15:26 CET] WARNING: [alignak.daemons.arbiterdaemon] Got unmanaged notificationways objects from module backend_arbiter
+[2017-01-25 18:15:26 CET] WARNING: [alignak.daemons.arbiterdaemon] Got unmanaged modules objects from module backend_arbiter
+[2017-01-25 18:15:26 CET] WARNING: [alignak.daemons.arbiterdaemon] Got unmanaged hostsextinfo objects from module backend_arbiter
+[2017-01-25 18:15:26 CET] WARNING: [alignak.daemons.arbiterdaemon] Got unmanaged resultmodulations objects from module backend_arbiter
+[2017-01-25 18:15:26 CET] WARNING: [alignak.daemons.arbiterdaemon] Got unmanaged businessimpactmodulations objects from module backend_arbiter
+[2017-01-25 18:15:26 CET] WARNING: [alignak.daemons.arbiterdaemon] Got unmanaged pollers objects from module backend_arbiter
+[2017-01-25 18:15:26 CET] WARNING: [alignak.daemons.arbiterdaemon] Got unmanaged reactionners objects from module backend_arbiter
+[2017-01-25 18:15:26 CET] WARNING: [alignak.daemons.arbiterdaemon] Got unmanaged servicesextinfo objects from module backend_arbiter
+[2017-01-25 18:15:26 CET] WARNING: [alignak.daemons.arbiterdaemon] Got unmanaged brokers objects from module backend_arbiter
+[2017-01-25 18:15:26 CET] WARNING: [alignak.daemons.arbiterdaemon] Got unmanaged arbiters objects from module backend_arbiter
+[2017-01-25 18:15:26 CET] WARNING: [alignak.daemons.arbiterdaemon] Got unmanaged checkmodulations objects from module backend_arbiter
+[2017-01-25 18:15:26 CET] WARNING: [alignak.daemons.arbiterdaemon] Got unmanaged schedulers objects from module backend_arbiter
+[2017-01-25 18:15:26 CET] WARNING: [alignak.daemons.arbiterdaemon] Got unmanaged receivers objects from module backend_arbiter
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.realm] North: (in/potential) (schedulers:1) (pollers:1/1) (reactionners:0/0) (brokers:1/1) (receivers:3/3)
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.realm] All: (in/potential) (schedulers:1) (pollers:1/1) (reactionners:1/1) (brokers:1/1) (receivers:1/1)
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.realm] South: (in/potential) (schedulers:1) (pollers:1/1) (reactionners:0/0) (brokers:1/1) (receivers:2/2)
+[2017-01-25 18:15:27 CET] WARNING: [alignak.objects.config] The following parameter(s) are not currently managed.
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] enable_predictive_service_dependency_checks
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] host_perfdata_file_processing_interval
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] use_embedded_perl_implicitly
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] use_regexp_matching: If you go some host or service definition like prod*, it will surely failed from now, sorry.
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] service_perfdata_file_processing_command
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] use_true_regexp_matching
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] enable_embedded_perl: It will surely never be managed, but it should not be useful with poller performances.
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] enable_predictive_host_dependency_checks
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] service_perfdata_file_processing_interval
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] host_perfdata_file_processing_command
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] date_format
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] auto_rescheduling_interval
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] soft_state_dependencies
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] auto_reschedule_checks
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] auto_rescheduling_window
+[2017-01-25 18:15:27 CET] WARNING: [alignak.objects.config] Unmanaged configuration statements, do you really need it?Create an issue on the Alignak repository or submit a pull request: http://www.github.com/Alignak-monitoring/alignak
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Running pre-flight check on configuration data, initial state: True
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking global parameters...
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking hosts...
+[2017-01-25 18:15:27 CET] WARNING: [alignak.objects.item] [items] Guessing the property ls_last_notification type because it is not in Host object properties
+[2017-01-25 18:15:27 CET] WARNING: [alignak.objects.item] [items] duplicate host 'localhost', from: 'alignak-backend' and '/usr/local/etc/alignak/arbiter/realms/All/hosts/alignak_webui.cfg:1', using lastly defined. You may manually set the definition_order parameter to avoid this message.
+[2017-01-25 18:15:27 CET] WARNING: [alignak.objects.config] 	hosts configuration warnings: 2, total: 2
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] 	Checked 12 hosts
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking hostgroups...
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] 	Checked 13 hostgroups
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking contacts...
+[2017-01-25 18:15:27 CET] WARNING: [alignak.objects.item] [items] duplicate contact 'guest', from: 'alignak-backend' and '/usr/local/etc/alignak/arbiter/realms/All/contacts/guest.cfg:1', using lastly defined. You may manually set the definition_order parameter to avoid this message.
+[2017-01-25 18:15:27 CET] WARNING: [alignak.objects.config] 	contacts configuration warnings: 1, total: 3
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] 	Checked 8 contacts
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking contactgroups...
+[2017-01-25 18:15:27 CET] WARNING: [alignak.objects.item] [items] duplicate contactgroup 'users', from: 'alignak-backend' and '/usr/local/etc/alignak/arbiter/realms/All/contactgroups/users.cfg:1', using lastly defined. You may manually set the definition_order parameter to avoid this message.
+[2017-01-25 18:15:27 CET] WARNING: [alignak.objects.item] [items] duplicate contactgroup 'admins', from: 'alignak-backend' and '/usr/local/etc/alignak/arbiter/realms/All/contactgroups/admins.cfg:1', using lastly defined. You may manually set the definition_order parameter to avoid this message.
+[2017-01-25 18:15:27 CET] WARNING: [alignak.objects.config] 	contactgroups configuration warnings: 2, total: 5
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] 	Checked 5 contactgroups
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking notificationways...
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] 	Checked 12 notificationways
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking escalations...
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] 	Checked 0 escalations
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking services...
+[2017-01-25 18:15:27 CET] WARNING: [alignak.objects.item] [items] duplicate service '(u'denice', u'Disk root')', from: '/usr/local/etc/alignak/arbiter/realms/All/hosts/denice.cfg:74' and 'alignak-backend', using lastly defined. You may manually set the definition_order parameter to avoid this message.
+[2017-01-25 18:15:27 CET] WARNING: [alignak.objects.item] [items] duplicate service '(u'chazay', u'Disk root')', from: '/usr/local/etc/alignak/arbiter/realms/All/hosts/chazay.cfg:75' and 'alignak-backend', using lastly defined. You may manually set the definition_order parameter to avoid this message.
+[2017-01-25 18:15:27 CET] WARNING: [alignak.objects.item] [items] duplicate service '(u'lachassagne', u'Disk root')', from: 'alignak-backend' and '/usr/local/etc/alignak/arbiter/realms/All/hosts/lachassagne.cfg:67', using lastly defined. You may manually set the definition_order parameter to avoid this message.
+[2017-01-25 18:15:27 CET] WARNING: [alignak.objects.item] [items] Guessing the property ls_last_notification type because it is not in Service object properties
+[2017-01-25 18:15:27 CET] WARNING: [alignak.objects.item] [items] duplicate service '(u'cogny', u'Disk root')', from: '/usr/local/etc/alignak/arbiter/realms/All/hosts/cogny.cfg:75' and 'alignak-backend', using lastly defined. You may manually set the definition_order parameter to avoid this message.
+[2017-01-25 18:15:27 CET] WARNING: [alignak.objects.config] 	services configuration warnings: 5, total: 10
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] 	Checked 272 services
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking servicegroups...
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] 	Checked 11 servicegroups
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking timeperiods...
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] 	Checked 6 timeperiods
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking commands...
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] 	Checked 84 commands
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking hostsextinfo...
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] 	Checked 0 hostsextinfo
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking servicesextinfo...
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] 	Checked 0 servicesextinfo
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking checkmodulations...
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] 	Checked 0 checkmodulations
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking macromodulations...
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] 	Checked 0 macromodulations
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking realms...
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] 	Checked 3 realms
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking servicedependencies...
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] 	Checked 186 servicedependencies
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking hostdependencies...
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] 	Checked 2 hostdependencies
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking resultmodulations...
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] 	Checked 0 resultmodulations
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking businessimpactmodulations...
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] 	Checked 0 businessimpactmodulations
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking arbiters...
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] 	Checked 1 arbiters
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking schedulers...
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] 	Checked 3 schedulers
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking reactionners...
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] 	Checked 1 reactionners
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking pollers...
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] 	Checked 3 pollers
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking brokers...
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] 	Checked 3 brokers
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Checking receivers...
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] 	Checked 2 receivers
+[2017-01-25 18:15:27 CET] INFO: [alignak.daemons.arbiterdaemon] Splitting hosts and services into parts
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Creating packs for realms
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Number of hosts in the realm North: 2 (distributed in 2 linked packs)
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Number of hosts in the realm All: 7 (distributed in 7 linked packs)
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Number of hosts in the realm South: 3 (distributed in 2 linked packs)
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Number of Contacts : 8
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Number of Hosts : 12
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Number of Services : 272
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Number of Commands : 84
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Total number of hosts in all realms: 12
+[2017-01-25 18:15:27 CET] INFO: [alignak.daemons.arbiterdaemon] Things look okay - No serious problems were detected during the pre-flight check
+[2017-01-25 18:15:27 CET] INFO: [alignak.daemons.arbiterdaemon] Arbiter checked the configuration
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Configuration warnings:
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Guessing the property ls_last_notification type because it is not in Host object properties
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] duplicate host 'localhost', from: 'alignak-backend' and '/usr/local/etc/alignak/arbiter/realms/All/hosts/alignak_webui.cfg:1', using lastly defined. You may manually set the definition_order parameter to avoid this message.
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] duplicate contact 'guest', from: 'alignak-backend' and '/usr/local/etc/alignak/arbiter/realms/All/contacts/guest.cfg:1', using lastly defined. You may manually set the definition_order parameter to avoid this message.
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] duplicate contactgroup 'users', from: 'alignak-backend' and '/usr/local/etc/alignak/arbiter/realms/All/contactgroups/users.cfg:1', using lastly defined. You may manually set the definition_order parameter to avoid this message.
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] duplicate contactgroup 'admins', from: 'alignak-backend' and '/usr/local/etc/alignak/arbiter/realms/All/contactgroups/admins.cfg:1', using lastly defined. You may manually set the definition_order parameter to avoid this message.
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] duplicate service '(u'denice', u'Disk root')', from: '/usr/local/etc/alignak/arbiter/realms/All/hosts/denice.cfg:74' and 'alignak-backend', using lastly defined. You may manually set the definition_order parameter to avoid this message.
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] duplicate service '(u'chazay', u'Disk root')', from: '/usr/local/etc/alignak/arbiter/realms/All/hosts/chazay.cfg:75' and 'alignak-backend', using lastly defined. You may manually set the definition_order parameter to avoid this message.
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] duplicate service '(u'lachassagne', u'Disk root')', from: 'alignak-backend' and '/usr/local/etc/alignak/arbiter/realms/All/hosts/lachassagne.cfg:67', using lastly defined. You may manually set the definition_order parameter to avoid this message.
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] Guessing the property ls_last_notification type because it is not in Service object properties
+[2017-01-25 18:15:27 CET] INFO: [alignak.objects.config] duplicate service '(u'cogny', u'Disk root')', from: '/usr/local/etc/alignak/arbiter/realms/All/hosts/cogny.cfg:75' and 'alignak-backend', using lastly defined. You may manually set the definition_order parameter to avoid this message.
