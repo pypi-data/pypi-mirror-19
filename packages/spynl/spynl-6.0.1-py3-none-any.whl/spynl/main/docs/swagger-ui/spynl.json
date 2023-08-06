@@ -1,0 +1,1659 @@
+{
+    "definitions": {},
+    "info": {
+        "description": "A list of all endpoints on this Spynl instance, with a short description on how to use them. <br/><br/><span style=\"color: grey;\">\nAll endpoints usually return application/json, unless otherwise\nspecified here or requested differently by the request.\nThey will have a \"status\" (ok|error) field and all error responses\nalso will have a \"message\" field.\n<span><br/>\nAll resource-based endpoints can be prepended by \"/tenants/&lt;tenant-ID&gt;/\",\nwhich allows to access a different tenant than the currently set tenant\n(pending that your user has the needed roles for that tenant).",
+        "title": "Spynl Endpoints",
+        "version": "6.0.1"
+    },
+    "paths": {
+        "//": {
+            "get": {
+                "description": "Get function for **test-customers**. The filter parameter can be used to select a specific set of test-customers. Returns status (ok|error), and if status=ok also a data array with actual data and meta info: limit, and skip.\n\nThe number of actual data entries returned will never be more than 10 (the spynl.mongo.max_limit for this Spynl instance). This means that there might be more data that can be retrieved using skip.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to run against MongoDB\nlimit     | int    | | the number of documents to return\nskip      | int    | | the number of documents to skip\nfields    | array  | | a list of fields to return ['field1', 'field2']\nsort      | array  | | a list of lists of fields and sort order ex. [['field', 1]]\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error \ndata      | object | the actual result of the request.\nlimit     | int | the limit used, either 10 (the spynl.mongo.max_limit for this Spynl instance), or smaller if requested\nskip      | int | number of entries to skip\n",
+                "summary": "Get data from the test-customers collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "post": {
+                "description": "View to edit a single entry of the **test-customers** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be edited.\ndata      | object | &#10004; | the edit that needs to be made. '$inc', '$mul', '$rename', '$set', '$unset', '$min', '$max' and '$currentDate' are accepted operators.\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the edit\n",
+                "summary": "Edit a single test-customers entry.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/None": {
+            "get": {
+                "description": "The index for all about-endpoints.\n####Response\nJSON keys | Content Type | Description\n--------- | ------------ | -----------\nstatus    | string | 'ok' or 'error'\nmessage   | string | Information about the available about/* endpoints.\nspynl_version | string | The version of the spynl package in this instance.\nplugins | dict | For each installed spynl plugin, the name as key and the version as value.\nlanguage  | string | The language (e.g. \"en\") served.\ntime      | string | Time in format: %Y-%m-%dT%H:%M:%S%z (the spynl.date_format for this Spynl instance)\n",
+                "show-try": true,
+                "summary": "The index for all about-endpoints.",
+                "tags": [
+                    "about"
+                ]
+            }
+        },
+        "/about/applications": {
+            "get": {
+                "description": "This endpoint gives a page with information about applications. The bold entries in the table below are translated.\n####Response (only if json=true or ACCEPT-header is application/json)\nJSON keys | Type   | Description\n--------- | ------ | -----------\nstatus    | string | 'ok' or 'error'\napplications | array  | Each item is a dictionary with entries for:\n\nkey in 'applications' | Type   | Description\n--------- | ------ | -----------\napplication | string | application id\n*name*    | string   | application name \n*locale_id* | string | the id used in the url (will be translated, so e.g. pos in English, kassa in Dutch)\npaid      | boolean  | paid application or not\ncategory  | list  | list of categories (currently only 'retail' and/or 'wholesale'\noptions | object | dictionary of paid options for the appliction. The option id is the key of a sub dictionary that contains (translated) entries for the '*name*' and the '*description*' of the option.\n",
+                "parameters": [
+                    {
+                        "description": "Return json instead of a page",
+                        "in": "query",
+                        "name": "json",
+                        "type": "boolean"
+                    }
+                ],
+                "summary": "Returns a summary of roles and acls.",
+                "tags": [
+                    "about"
+                ]
+            }
+        },
+        "/about/build": {
+            "get": {
+                "description": "\n####Response\nJSON keys | Content Type | Description\n--------- | ------------ | -----------\nstatus    | string | 'ok' or 'error'\nbuild_time| string | time in format: %Y-%m-%dT%H:%M:%S%z (the spynl.date_format for this Spynl instance)\nstart_time| string | time in format: %Y-%m-%dT%H:%M:%S%z (the spynl.date_format for this Spynl instance)\nbuild_number | string | The build number, set by Jenkins\nspynl_function| string | Which functionality this node has been spun up to fulfil\ntime      | string | time in format: %Y-%m-%dT%H:%M:%S%z (the spynl.date_format for this Spynl instance)\n",
+                "summary": "Information about the build of this instance.",
+                "tags": [
+                    "about"
+                ]
+            }
+        },
+        "/about/doc": {
+            "get": {
+                "description": "Presented as text/html (in swagger-ui). Requires 'read' permission for the 'about' resource.",
+                "summary": "All endpoints offered by this instance, with explanations.",
+                "tags": [
+                    "about"
+                ]
+            },
+            "show-try": false
+        },
+        "/about/endpoints": {
+            "get": {
+                "description": "Presented as text/html (in swagger-ui). Requires 'read' permission for the 'about' resource.",
+                "summary": "All endpoints offered by this instance, with explanations.",
+                "tags": [
+                    "about"
+                ]
+            },
+            "show-try": false
+        },
+        "/about/environment": {
+            "get": {
+                "description": "Requires 'read' permission for the 'about' resource.\n####Response\nJSON keys | Content Type | Description\n--------- | ------------ | -----------\nstatus    | string | 'ok' or 'error'\ntime      | string | time in format: %Y-%m-%dT%H:%M:%S%z (the spynl.date_format for this Spynl instance)\npython    | string | Python version\npip-installed-packages | dict | \"name\":\"version\" for each package.\n",
+                "summary": "All software packages installed by pip for this instance.",
+                "tags": [
+                    "about"
+                ]
+            }
+        },
+        "/about/ini": {
+            "get": {
+                "description": "Presented as a text/html table. Columns for name of the setting, the value in this instance, whether it is required, default value and text description.\n\nRequires 'read' permission for the 'about' resource.\n",
+                "summary": "A table of all Spynl ini settings in this instance.",
+                "tags": [
+                    "about"
+                ]
+            }
+        },
+        "/about/roles": {
+            "get": {
+                "description": "This endpoint gives a page with information about roles and what ACEs they have (what users with these roles are capable of w.r.t. resources), as well as what resources are served and what ACLs they have. The ACL returned for a resource includes any parent ACEs. The default response type is text/html, which displays two tables, one for a resource-centric view, one for a role-centric view. If you want a response in json, either set the json-paramater to true (you can try that case with the Try It Out button here) or send an HTTP ACCEPT header with the value application/json or add \".json\" to the URL.\n####Response (only if json=true or ACCEPT-header is application/json)\nJSON keys | Type   | Description\n--------- | ------ | -----------\nstatus    | string | 'ok' or 'error'\nresources | array  | Each item is a dictionary with entries for:\n-         |        | 'resource': resource name\n-         |        | 'paths': a list of paths that use the resource\n-         |        | 'plugin': the plugin it belongs to\n-         |        | 'acl': list of ACEs (including parent ACEs).\nroles     | array  | Each item is a dictionary with entries for:\n-         |        | 'role': role name\n-         |        | 'description': description of the role\n-         |        | 'type': 'tenant' or 'b2b'\n-         |        | 'resources': a dictionary with resources as keys, and each resource a dictionary with an entry for 'access' (read/write etc), and if the ACE has a filter, an entry 'filter' for that filter\n",
+                "parameters": [
+                    {
+                        "description": "Return json instead of a page",
+                        "in": "query",
+                        "name": "json",
+                        "type": "boolean"
+                    }
+                ],
+                "summary": "Returns a summary of roles and acls.",
+                "tags": [
+                    "about"
+                ]
+            }
+        },
+        "/about/schemas": {
+            "get": {
+                "description": "Schema files are read from an internal Spynl location and Presented as text/html (using docson). This endpoint requires 'read' permission for the 'about' resource. It is linked from by /about/doc when schemas are used for validations by an endpoint.\n####Parameters\nJSON keys |   Type   |    Req.     | Description\n--------- | -------- | ----------- | --------- \nschema    |   string |  &#10004;   | Name of the schema file. \n",
+                "summary": "Using docson to display any relevant JSON schemas used by Spynl.",
+                "tags": [
+                    "about"
+                ]
+            },
+            "show-try": false
+        },
+        "/about/versions": {
+            "get": {
+                "description": "Requires 'read' permission for the 'about' resource.\n####Response\nJSON keys | Content Type | Description\n--------- | ------------ | -----------\nstatus    | string | 'ok' or 'error'\nspynl_version | string | The version of this Spynl instance.\nspynl_commit  | string | The git commit id this Spynl instance.\nplugins   | dict   | {<spynl-plugin>: {<commit>: <SCM commit id>, <version>: <package version>}} for each Spynl plugin.\ntime      | string | time in format: %Y-%m-%dT%H:%M:%S%z (the spynl.date_format for this Spynl instance)\n",
+                "summary": "The changeset IDs of Spynl and all installed plugins.",
+                "tags": [
+                    "about"
+                ]
+            }
+        },
+        "/buffer/add": {
+            "post": {
+                "description": "This view adds one or more entries to the **buffer** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; |the data to be added, can also be an array to add multiple entries\naction    | string |          | used in the timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | array of new entry id's.\n",
+                "summary": "Add one or more entries to buffer.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/buffer/agg": {
+            "post": {
+                "description": "Takes a filter to use for aggregation in MongoDB. The filter type has to be [Array]. This view checks if the tenant is allowed to access the buffer collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | array  | &#10004; | filter for the MongoDB aggregation\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | result of the MongoDB aggregation\nlimit     | int | if not set by the filter the limit is set to 10 (the spynl.mongo.max_agglimit for this Spynl instance) to protect Spynl\n",
+                "summary": "Aggregate data from buffer.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/buffer/count": {
+            "get": {
+                "description": "Counts documents in the **buffer** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to select what subset to count\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ncount     | int | number of buffer\n",
+                "summary": "Counts documents in the buffer collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/buffer/edit": {
+            "post": {
+                "description": "View to edit a single entry of the **buffer** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be edited.\ndata      | object | &#10004; | the edit that needs to be made. '$inc', '$mul', '$rename', '$set', '$unset', '$min', '$max' and '$currentDate' are accepted operators.\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the edit\n",
+                "summary": "Edit a single buffer entry.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/buffer/get": {
+            "get": {
+                "description": "Get function for **buffer**. The filter parameter can be used to select a specific set of buffer. Returns status (ok|error), and if status=ok also a data array with actual data and meta info: limit, and skip.\n\nThe number of actual data entries returned will never be more than 10 (the spynl.mongo.max_limit for this Spynl instance). This means that there might be more data that can be retrieved using skip.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to run against MongoDB\nlimit     | int    | | the number of documents to return\nskip      | int    | | the number of documents to skip\nfields    | array  | | a list of fields to return ['field1', 'field2']\nsort      | array  | | a list of lists of fields and sort order ex. [['field', 1]]\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error \ndata      | object | the actual result of the request.\nlimit     | int | the limit used, either 10 (the spynl.mongo.max_limit for this Spynl instance), or smaller if requested\nskip      | int | number of entries to skip\n",
+                "summary": "Get data from the buffer collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/buffer/multi-edit": {
+            "post": {
+                "description": "Edit multiple **buffer** entries.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\njobs      | array  | &#10004; | each entry should contain a 'filter' and 'data' object. The 'filter' is to select the entries to be changed, and the 'data' contains the changes to be made. '$inc', '$mul',\n    '$rename', '$set', '$unset', '$min', '$max', '$currentDate',\n    '$push', '$pop', '$pull', '$slice' and '$addToSet' are\n    accepted operators.\n\naction    | string |          | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | some meta-data about the edit\n",
+                "summary": "Edit multiple buffer entries.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/buffer/remove": {
+            "post": {
+                "description": "Remove a document from the buffer collection. The document is selected by the filter. If the filter matches more than one document only one is deleted.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be removed.\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata['ok']| int | 1 (number of documents deleted)\n",
+                "summary": "Remove a document from buffer.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/buffer/save": {
+            "post": {
+                "description": "Save documents in the **buffer** collection, using replace_one(upsert=True).\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; | Document to be saved. Can also be an array of objects.\naction    | string | &#10004; | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the save\n",
+                "summary": "Save documents to the buffer collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/coupons/add": {
+            "post": {
+                "description": "This view adds one or more entries to the **coupons** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; |the data to be added, can also be an array to add multiple entries\naction    | string |          | used in the timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | array of new entry id's.\n",
+                "summary": "Add one or more entries to coupons.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/coupons/agg": {
+            "post": {
+                "description": "Takes a filter to use for aggregation in MongoDB. The filter type has to be [Array]. This view checks if the tenant is allowed to access the coupons collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | array  | &#10004; | filter for the MongoDB aggregation\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | result of the MongoDB aggregation\nlimit     | int | if not set by the filter the limit is set to 10 (the spynl.mongo.max_agglimit for this Spynl instance) to protect Spynl\n",
+                "summary": "Aggregate data from coupons.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/coupons/count": {
+            "get": {
+                "description": "Counts documents in the **coupons** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to select what subset to count\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ncount     | int | number of coupons\n",
+                "summary": "Counts documents in the coupons collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/coupons/edit": {
+            "post": {
+                "description": "View to edit a single entry of the **coupons** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be edited.\ndata      | object | &#10004; | the edit that needs to be made. '$inc', '$mul', '$rename', '$set', '$unset', '$min', '$max' and '$currentDate' are accepted operators.\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the edit\n",
+                "summary": "Edit a single coupons entry.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/coupons/get": {
+            "get": {
+                "description": "Get function for **coupons**. The filter parameter can be used to select a specific set of coupons. Returns status (ok|error), and if status=ok also a data array with actual data and meta info: limit, and skip.\n\nThe number of actual data entries returned will never be more than 10 (the spynl.mongo.max_limit for this Spynl instance). This means that there might be more data that can be retrieved using skip.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to run against MongoDB\nlimit     | int    | | the number of documents to return\nskip      | int    | | the number of documents to skip\nfields    | array  | | a list of fields to return ['field1', 'field2']\nsort      | array  | | a list of lists of fields and sort order ex. [['field', 1]]\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error \ndata      | object | the actual result of the request.\nlimit     | int | the limit used, either 10 (the spynl.mongo.max_limit for this Spynl instance), or smaller if requested\nskip      | int | number of entries to skip\n",
+                "summary": "Get data from the coupons collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/coupons/multi-edit": {
+            "post": {
+                "description": "Edit multiple **coupons** entries.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\njobs      | array  | &#10004; | each entry should contain a 'filter' and 'data' object. The 'filter' is to select the entries to be changed, and the 'data' contains the changes to be made. '$inc', '$mul',\n    '$rename', '$set', '$unset', '$min', '$max', '$currentDate',\n    '$push', '$pop', '$pull', '$slice' and '$addToSet' are\n    accepted operators.\n\naction    | string |          | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | some meta-data about the edit\n",
+                "summary": "Edit multiple coupons entries.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/coupons/remove": {
+            "post": {
+                "description": "Remove a document from the coupons collection. The document is selected by the filter. If the filter matches more than one document only one is deleted.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be removed.\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata['ok']| int | 1 (number of documents deleted)\n",
+                "summary": "Remove a document from coupons.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/coupons/save": {
+            "post": {
+                "description": "Save documents in the **coupons** collection, using replace_one(upsert=True).\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; | Document to be saved. Can also be an array of objects.\naction    | string | &#10004; | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the save\n",
+                "summary": "Save documents to the coupons collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/db-status": {
+            "get": {
+                "description": "Returns status 'healthy' if the database connection is ok, and status 'error' with a message if there is a problem. If the database is out, **error code 503** is given (Service Unavailable)\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | 'healthy' or 'error'\ntime      | string | time in format: %Y-%m-%dT%H:%M:%S%z (the spynl.date_format for this Spynl instance), or %Y-%m-%dT%H:%M:%S%z if spynl.date_format is not set.\nmessage   | string | information about the database connection (not present if status is healthy)\n",
+                "summary": "Returns current health of database connection.",
+                "tags": [
+                    "contact"
+                ]
+            }
+        },
+        "/devices/add": {
+            "post": {
+                "description": "This view adds one or more entries to the **devices** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; |the data to be added, can also be an array to add multiple entries\naction    | string |          | used in the timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | array of new entry id's.\n",
+                "summary": "Add one or more entries to devices.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/devices/agg": {
+            "post": {
+                "description": "Takes a filter to use for aggregation in MongoDB. The filter type has to be [Array]. This view checks if the tenant is allowed to access the devices collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | array  | &#10004; | filter for the MongoDB aggregation\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | result of the MongoDB aggregation\nlimit     | int | if not set by the filter the limit is set to 10 (the spynl.mongo.max_agglimit for this Spynl instance) to protect Spynl\n",
+                "summary": "Aggregate data from devices.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/devices/count": {
+            "get": {
+                "description": "Counts documents in the **devices** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to select what subset to count\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ncount     | int | number of devices\n",
+                "summary": "Counts documents in the devices collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/devices/edit": {
+            "post": {
+                "description": "View to edit a single entry of the **devices** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be edited.\ndata      | object | &#10004; | the edit that needs to be made. '$inc', '$mul', '$rename', '$set', '$unset', '$min', '$max' and '$currentDate' are accepted operators.\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the edit\n",
+                "summary": "Edit a single devices entry.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/devices/get": {
+            "get": {
+                "description": "Get function for **devices**. The filter parameter can be used to select a specific set of devices. Returns status (ok|error), and if status=ok also a data array with actual data and meta info: limit, and skip.\n\nThe number of actual data entries returned will never be more than 10 (the spynl.mongo.max_limit for this Spynl instance). This means that there might be more data that can be retrieved using skip.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to run against MongoDB\nlimit     | int    | | the number of documents to return\nskip      | int    | | the number of documents to skip\nfields    | array  | | a list of fields to return ['field1', 'field2']\nsort      | array  | | a list of lists of fields and sort order ex. [['field', 1]]\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error \ndata      | object | the actual result of the request.\nlimit     | int | the limit used, either 10 (the spynl.mongo.max_limit for this Spynl instance), or smaller if requested\nskip      | int | number of entries to skip\n",
+                "summary": "Get data from the devices collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/devices/multi-edit": {
+            "post": {
+                "description": "Edit multiple **devices** entries.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\njobs      | array  | &#10004; | each entry should contain a 'filter' and 'data' object. The 'filter' is to select the entries to be changed, and the 'data' contains the changes to be made. '$inc', '$mul',\n    '$rename', '$set', '$unset', '$min', '$max', '$currentDate',\n    '$push', '$pop', '$pull', '$slice' and '$addToSet' are\n    accepted operators.\n\naction    | string |          | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | some meta-data about the edit\n",
+                "summary": "Edit multiple devices entries.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/devices/new-pos-instance-id": {
+            "get": {
+                "description": "Get a new unique (for the current tenant) POS instance ID. This can be used by POS instances to maintain a session independent of the browser or the user. This is an incremental number that denotes when a new browser session of the POS is started. This number is used in the printed receipt number as the middle digit (ie. warehouse-instanceId-receipt incremental number). Example: 51-1-100 is warehouse 51, with instance id 1 and receipt number 100. Defaults to 1.\n####Response\nJSON keys    | Type   | Description\n------------ | ------ | -----------\nstatus       | string | 'ok' or 'error'\ndata         | int    | the new unique number per tenant\n",
+                "summary": "Get a new unique POS instance ID.",
+                "tags": [
+                    "pos"
+                ]
+            },
+            "show-try": true
+        },
+        "/devices/remove": {
+            "post": {
+                "description": "Remove a document from the devices collection. The document is selected by the filter. If the filter matches more than one document only one is deleted.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be removed.\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata['ok']| int | 1 (number of documents deleted)\n",
+                "summary": "Remove a document from devices.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/devices/save": {
+            "post": {
+                "description": "Save documents in the **devices** collection, using replace_one(upsert=True).\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; | Document to be saved. Can also be an array of objects.\naction    | string | &#10004; | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the save\n",
+                "summary": "Save documents to the devices collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/eos/add": {
+            "post": {
+                "description": "This view adds one or more entries to the **eos** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; |the data to be added, can also be an array to add multiple entries\naction    | string |          | used in the timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | array of new entry id's.\n",
+                "summary": "Add one or more entries to eos.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/eos/agg": {
+            "post": {
+                "description": "Takes a filter to use for aggregation in MongoDB. The filter type has to be [Array]. This view checks if the tenant is allowed to access the eos collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | array  | &#10004; | filter for the MongoDB aggregation\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | result of the MongoDB aggregation\nlimit     | int | if not set by the filter the limit is set to 10 (the spynl.mongo.max_agglimit for this Spynl instance) to protect Spynl\n",
+                "summary": "Aggregate data from eos.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/eos/count": {
+            "get": {
+                "description": "Counts documents in the **eos** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to select what subset to count\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ncount     | int | number of eos\n",
+                "summary": "Counts documents in the eos collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/eos/edit": {
+            "post": {
+                "description": "View to edit a single entry of the **eos** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be edited.\ndata      | object | &#10004; | the edit that needs to be made. '$inc', '$mul', '$rename', '$set', '$unset', '$min', '$max' and '$currentDate' are accepted operators.\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the edit\n",
+                "summary": "Edit a single eos entry.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/eos/get": {
+            "get": {
+                "description": "Get function for **eos**. The filter parameter can be used to select a specific set of eos. Returns status (ok|error), and if status=ok also a data array with actual data and meta info: limit, and skip.\n\nThe number of actual data entries returned will never be more than 10 (the spynl.mongo.max_limit for this Spynl instance). This means that there might be more data that can be retrieved using skip.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to run against MongoDB\nlimit     | int    | | the number of documents to return\nskip      | int    | | the number of documents to skip\nfields    | array  | | a list of fields to return ['field1', 'field2']\nsort      | array  | | a list of lists of fields and sort order ex. [['field', 1]]\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error \ndata      | object | the actual result of the request.\nlimit     | int | the limit used, either 10 (the spynl.mongo.max_limit for this Spynl instance), or smaller if requested\nskip      | int | number of entries to skip\n",
+                "summary": "Get data from the eos collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/eos/multi-edit": {
+            "post": {
+                "description": "Edit multiple **eos** entries.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\njobs      | array  | &#10004; | each entry should contain a 'filter' and 'data' object. The 'filter' is to select the entries to be changed, and the 'data' contains the changes to be made. '$inc', '$mul',\n    '$rename', '$set', '$unset', '$min', '$max', '$currentDate',\n    '$push', '$pop', '$pull', '$slice' and '$addToSet' are\n    accepted operators.\n\naction    | string |          | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | some meta-data about the edit\n",
+                "summary": "Edit multiple eos entries.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/eos/remove": {
+            "post": {
+                "description": "Remove a document from the eos collection. The document is selected by the filter. If the filter matches more than one document only one is deleted.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be removed.\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata['ok']| int | 1 (number of documents deleted)\n",
+                "summary": "Remove a document from eos.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/eos/save": {
+            "post": {
+                "description": "Save documents in the **eos** collection, using replace_one(upsert=True).\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; | Document to be saved. Can also be an array of objects.\naction    | string | &#10004; | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the save\n",
+                "summary": "Save documents to the eos collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/i18n/add": {
+            "post": {
+                "description": "This view adds one or more entries to the **i18n** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; |the data to be added, can also be an array to add multiple entries\naction    | string |          | used in the timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | array of new entry id's.\n",
+                "summary": "Add one or more entries to i18n.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/i18n/agg": {
+            "post": {
+                "description": "Takes a filter to use for aggregation in MongoDB. The filter type has to be [Array]. This view checks if the tenant is allowed to access the i18n collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | array  | &#10004; | filter for the MongoDB aggregation\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | result of the MongoDB aggregation\nlimit     | int | if not set by the filter the limit is set to 10 (the spynl.mongo.max_agglimit for this Spynl instance) to protect Spynl\n",
+                "summary": "Aggregate data from i18n.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/i18n/count": {
+            "get": {
+                "description": "Counts documents in the **i18n** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to select what subset to count\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ncount     | int | number of i18n\n",
+                "summary": "Counts documents in the i18n collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/i18n/edit": {
+            "post": {
+                "description": "View to edit a single entry of the **i18n** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be edited.\ndata      | object | &#10004; | the edit that needs to be made. '$inc', '$mul', '$rename', '$set', '$unset', '$min', '$max' and '$currentDate' are accepted operators.\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the edit\n",
+                "summary": "Edit a single i18n entry.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/i18n/get": {
+            "get": {
+                "description": "Get function for **i18n**. The filter parameter can be used to select a specific set of i18n. Returns status (ok|error), and if status=ok also a data array with actual data and meta info: limit, and skip.\n\nThe number of actual data entries returned will never be more than 10 (the spynl.mongo.max_limit for this Spynl instance). This means that there might be more data that can be retrieved using skip.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to run against MongoDB\nlimit     | int    | | the number of documents to return\nskip      | int    | | the number of documents to skip\nfields    | array  | | a list of fields to return ['field1', 'field2']\nsort      | array  | | a list of lists of fields and sort order ex. [['field', 1]]\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error \ndata      | object | the actual result of the request.\nlimit     | int | the limit used, either 10 (the spynl.mongo.max_limit for this Spynl instance), or smaller if requested\nskip      | int | number of entries to skip\n",
+                "summary": "Get data from the i18n collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/i18n/multi-edit": {
+            "post": {
+                "description": "Edit multiple **i18n** entries.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\njobs      | array  | &#10004; | each entry should contain a 'filter' and 'data' object. The 'filter' is to select the entries to be changed, and the 'data' contains the changes to be made. '$inc', '$mul',\n    '$rename', '$set', '$unset', '$min', '$max', '$currentDate',\n    '$push', '$pop', '$pull', '$slice' and '$addToSet' are\n    accepted operators.\n\naction    | string |          | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | some meta-data about the edit\n",
+                "summary": "Edit multiple i18n entries.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/i18n/remove": {
+            "post": {
+                "description": "Remove a document from the i18n collection. The document is selected by the filter. If the filter matches more than one document only one is deleted.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be removed.\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata['ok']| int | 1 (number of documents deleted)\n",
+                "summary": "Remove a document from i18n.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/i18n/save": {
+            "post": {
+                "description": "Save documents in the **i18n** collection, using replace_one(upsert=True).\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; | Document to be saved. Can also be an array of objects.\naction    | string | &#10004; | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the save\n",
+                "summary": "Save documents to the i18n collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/login": {
+            "post": {
+                "description": "Login to localhost (the spynl.domain for this Spynl instance). A tenant gets set for the user automatically. If a user has more than one tenant the first active tenant gets set. If a user has no active tenants they cannot login.\n####Parameters\nParameter | Type         | Req.     | Description\n--------- | ------------ | -------- | -----------\nusername  | string       | &#10004; | Either username or email address\npassword  | string       | &#10004; | User's password\nremember_me | boolean    |          | If true, user stays logged in for 30 days, otherwise session expires after 48 hours.\n####Response\nJSON keys | Type | Description\n--------- | ---- | -----------\nstatus    | string | 'ok' or 'error'\ntenants   | object | list of objects containing the _id and name of the tenants of the users (also contains inactive tenants)\n_id       | string | _id of the user\nusername  | string | username of the user\nemail     | string | emailaddress of the user\ntype      | string | type of the user's account\ncurrent_tenant | string | tenant set as current_tenant\nsid       | string | session id\n",
+                "summary": "Login a user.",
+                "tags": [
+                    "session"
+                ]
+            },
+            "show-try": false
+        },
+        "/logout": {
+            "post": {
+                "description": "Deletes the session and the cookie.",
+                "summary": "Logout the authenticated user.",
+                "tags": [
+                    "session"
+                ]
+            }
+        },
+        "/me": {
+            "get": {
+                "description": "Returns a data dict with user information, sensitive data removed. Data also contains 'current_tenant' if one has been set and the allowed tenants with their id and name.\n####Response\nJSON keys | Type | Description\n--------- | ---- | -----------\nstatus    | string | 'ok' or 'error'\nmessage   | string | error description\ndata      | object | object that contains the current user's information\n#### Validations\nIn | Schema | Apply to | Repeat\n------ | ------ | ------ | -----\nresponse|<a href=\"/about/schemas?schema=me.json\">me.json</a>|data|no\n",
+                "summary": "Info about the currently logged-in user.",
+                "tags": [
+                    "session"
+                ]
+            },
+            "validations": [
+                {
+                    "apply-to": "data",
+                    "in": "response",
+                    "schema": "me.json"
+                }
+            ]
+        },
+        "/payment_methods/add": {
+            "post": {
+                "description": "This view adds one or more entries to the **payment_methods** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; |the data to be added, can also be an array to add multiple entries\naction    | string |          | used in the timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | array of new entry id's.\n",
+                "summary": "Add one or more entries to payment_methods.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/payment_methods/agg": {
+            "post": {
+                "description": "Takes a filter to use for aggregation in MongoDB. The filter type has to be [Array]. This view checks if the tenant is allowed to access the payment_methods collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | array  | &#10004; | filter for the MongoDB aggregation\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | result of the MongoDB aggregation\nlimit     | int | if not set by the filter the limit is set to 10 (the spynl.mongo.max_agglimit for this Spynl instance) to protect Spynl\n",
+                "summary": "Aggregate data from payment_methods.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/payment_methods/count": {
+            "get": {
+                "description": "Counts documents in the **payment_methods** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to select what subset to count\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ncount     | int | number of payment_methods\n",
+                "summary": "Counts documents in the payment_methods collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/payment_methods/edit": {
+            "post": {
+                "description": "View to edit a single entry of the **payment_methods** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be edited.\ndata      | object | &#10004; | the edit that needs to be made. '$inc', '$mul', '$rename', '$set', '$unset', '$min', '$max' and '$currentDate' are accepted operators.\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the edit\n",
+                "summary": "Edit a single payment_methods entry.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/payment_methods/get": {
+            "get": {
+                "description": "Get function for **payment_methods**. The filter parameter can be used to select a specific set of payment_methods. Returns status (ok|error), and if status=ok also a data array with actual data and meta info: limit, and skip.\n\nThe number of actual data entries returned will never be more than 10 (the spynl.mongo.max_limit for this Spynl instance). This means that there might be more data that can be retrieved using skip.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to run against MongoDB\nlimit     | int    | | the number of documents to return\nskip      | int    | | the number of documents to skip\nfields    | array  | | a list of fields to return ['field1', 'field2']\nsort      | array  | | a list of lists of fields and sort order ex. [['field', 1]]\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error \ndata      | object | the actual result of the request.\nlimit     | int | the limit used, either 10 (the spynl.mongo.max_limit for this Spynl instance), or smaller if requested\nskip      | int | number of entries to skip\n",
+                "summary": "Get data from the payment_methods collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/payment_methods/multi-edit": {
+            "post": {
+                "description": "Edit multiple **payment_methods** entries.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\njobs      | array  | &#10004; | each entry should contain a 'filter' and 'data' object. The 'filter' is to select the entries to be changed, and the 'data' contains the changes to be made. '$inc', '$mul',\n    '$rename', '$set', '$unset', '$min', '$max', '$currentDate',\n    '$push', '$pop', '$pull', '$slice' and '$addToSet' are\n    accepted operators.\n\naction    | string |          | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | some meta-data about the edit\n",
+                "summary": "Edit multiple payment_methods entries.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/payment_methods/remove": {
+            "post": {
+                "description": "Remove a document from the payment_methods collection. The document is selected by the filter. If the filter matches more than one document only one is deleted.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be removed.\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata['ok']| int | 1 (number of documents deleted)\n",
+                "summary": "Remove a document from payment_methods.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/payment_methods/save": {
+            "post": {
+                "description": "Save documents in the **payment_methods** collection, using replace_one(upsert=True).\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; | Document to be saved. Can also be an array of objects.\naction    | string | &#10004; | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the save\n",
+                "summary": "Save documents to the payment_methods collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/ping": {
+            "get": {
+                "description": "Spynl tells you \"pong\" and the time.\n####Response\nJSON keys | Content Type | Description\n--------- | ------------ | -----------\nstatus    | string | 'ok' or 'error'\ntime      | string | time in format: %Y-%m-%dT%H:%M:%S%z (the spynl.date_format for this Spynl instance)\ngreeting  | string | 'pong'\n",
+                "summary": "Ping Spynl.",
+                "tags": [
+                    "contact"
+                ]
+            }
+        },
+        "/playlists/get": {
+            "get": {
+                "description": "Get function for **playlists**. The filter parameter can be used to select a specific set of playlists. Returns status (ok|error), and if status=ok also a data array with actual data and meta info: limit, and skip.\n\nThe number of actual data entries returned will never be more than 10 (the spynl.mongo.max_limit for this Spynl instance). This means that there might be more data that can be retrieved using skip.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to run against MongoDB\nlimit     | int    | | the number of documents to return\nskip      | int    | | the number of documents to skip\nfields    | array  | | a list of fields to return ['field1', 'field2']\nsort      | array  | | a list of lists of fields and sort order ex. [['field', 1]]\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error \ndata      | object | the actual result of the request.\nlimit     | int | the limit used, either 10 (the spynl.mongo.max_limit for this Spynl instance), or smaller if requested\nskip      | int | number of entries to skip\n",
+                "summary": "Get data from the playlists collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/playlists/save": {
+            "post": {
+                "description": "Save documents in the **playlists** collection, using replace_one(upsert=True).\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; | Document to be saved. Can also be an array of objects.\naction    | string | &#10004; | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the save\n",
+                "summary": "Save documents to the playlists collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_discountrules/add": {
+            "post": {
+                "description": "This view adds one or more entries to the **pos_discountrules** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; |the data to be added, can also be an array to add multiple entries\naction    | string |          | used in the timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | array of new entry id's.\n",
+                "summary": "Add one or more entries to pos_discountrules.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_discountrules/agg": {
+            "post": {
+                "description": "Takes a filter to use for aggregation in MongoDB. The filter type has to be [Array]. This view checks if the tenant is allowed to access the pos_discountrules collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | array  | &#10004; | filter for the MongoDB aggregation\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | result of the MongoDB aggregation\nlimit     | int | if not set by the filter the limit is set to 10 (the spynl.mongo.max_agglimit for this Spynl instance) to protect Spynl\n",
+                "summary": "Aggregate data from pos_discountrules.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_discountrules/count": {
+            "get": {
+                "description": "Counts documents in the **pos_discountrules** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to select what subset to count\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ncount     | int | number of pos_discountrules\n",
+                "summary": "Counts documents in the pos_discountrules collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_discountrules/edit": {
+            "post": {
+                "description": "View to edit a single entry of the **pos_discountrules** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be edited.\ndata      | object | &#10004; | the edit that needs to be made. '$inc', '$mul', '$rename', '$set', '$unset', '$min', '$max' and '$currentDate' are accepted operators.\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the edit\n",
+                "summary": "Edit a single pos_discountrules entry.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_discountrules/get": {
+            "get": {
+                "description": "Get function for **pos_discountrules**. The filter parameter can be used to select a specific set of pos_discountrules. Returns status (ok|error), and if status=ok also a data array with actual data and meta info: limit, and skip.\n\nThe number of actual data entries returned will never be more than 10 (the spynl.mongo.max_limit for this Spynl instance). This means that there might be more data that can be retrieved using skip.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to run against MongoDB\nlimit     | int    | | the number of documents to return\nskip      | int    | | the number of documents to skip\nfields    | array  | | a list of fields to return ['field1', 'field2']\nsort      | array  | | a list of lists of fields and sort order ex. [['field', 1]]\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error \ndata      | object | the actual result of the request.\nlimit     | int | the limit used, either 10 (the spynl.mongo.max_limit for this Spynl instance), or smaller if requested\nskip      | int | number of entries to skip\n",
+                "summary": "Get data from the pos_discountrules collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_discountrules/multi-edit": {
+            "post": {
+                "description": "Edit multiple **pos_discountrules** entries.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\njobs      | array  | &#10004; | each entry should contain a 'filter' and 'data' object. The 'filter' is to select the entries to be changed, and the 'data' contains the changes to be made. '$inc', '$mul',\n    '$rename', '$set', '$unset', '$min', '$max', '$currentDate',\n    '$push', '$pop', '$pull', '$slice' and '$addToSet' are\n    accepted operators.\n\naction    | string |          | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | some meta-data about the edit\n",
+                "summary": "Edit multiple pos_discountrules entries.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_discountrules/remove": {
+            "post": {
+                "description": "Remove a document from the pos_discountrules collection. The document is selected by the filter. If the filter matches more than one document only one is deleted.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be removed.\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata['ok']| int | 1 (number of documents deleted)\n",
+                "summary": "Remove a document from pos_discountrules.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_discountrules/save": {
+            "post": {
+                "description": "Save documents in the **pos_discountrules** collection, using replace_one(upsert=True).\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; | Document to be saved. Can also be an array of objects.\naction    | string | &#10004; | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the save\n",
+                "summary": "Save documents to the pos_discountrules collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_reasons/add": {
+            "post": {
+                "description": "This view adds one or more entries to the **pos_reasons** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; |the data to be added, can also be an array to add multiple entries\naction    | string |          | used in the timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | array of new entry id's.\n",
+                "summary": "Add one or more entries to pos_reasons.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_reasons/agg": {
+            "post": {
+                "description": "Takes a filter to use for aggregation in MongoDB. The filter type has to be [Array]. This view checks if the tenant is allowed to access the pos_reasons collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | array  | &#10004; | filter for the MongoDB aggregation\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | result of the MongoDB aggregation\nlimit     | int | if not set by the filter the limit is set to 10 (the spynl.mongo.max_agglimit for this Spynl instance) to protect Spynl\n",
+                "summary": "Aggregate data from pos_reasons.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_reasons/count": {
+            "get": {
+                "description": "Counts documents in the **pos_reasons** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to select what subset to count\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ncount     | int | number of pos_reasons\n",
+                "summary": "Counts documents in the pos_reasons collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_reasons/edit": {
+            "post": {
+                "description": "View to edit a single entry of the **pos_reasons** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be edited.\ndata      | object | &#10004; | the edit that needs to be made. '$inc', '$mul', '$rename', '$set', '$unset', '$min', '$max' and '$currentDate' are accepted operators.\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the edit\n",
+                "summary": "Edit a single pos_reasons entry.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_reasons/get": {
+            "get": {
+                "description": "Get function for **pos_reasons**. The filter parameter can be used to select a specific set of pos_reasons. Returns status (ok|error), and if status=ok also a data array with actual data and meta info: limit, and skip.\n\nThe number of actual data entries returned will never be more than 10 (the spynl.mongo.max_limit for this Spynl instance). This means that there might be more data that can be retrieved using skip.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to run against MongoDB\nlimit     | int    | | the number of documents to return\nskip      | int    | | the number of documents to skip\nfields    | array  | | a list of fields to return ['field1', 'field2']\nsort      | array  | | a list of lists of fields and sort order ex. [['field', 1]]\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error \ndata      | object | the actual result of the request.\nlimit     | int | the limit used, either 10 (the spynl.mongo.max_limit for this Spynl instance), or smaller if requested\nskip      | int | number of entries to skip\n",
+                "summary": "Get data from the pos_reasons collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_reasons/multi-edit": {
+            "post": {
+                "description": "Edit multiple **pos_reasons** entries.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\njobs      | array  | &#10004; | each entry should contain a 'filter' and 'data' object. The 'filter' is to select the entries to be changed, and the 'data' contains the changes to be made. '$inc', '$mul',\n    '$rename', '$set', '$unset', '$min', '$max', '$currentDate',\n    '$push', '$pop', '$pull', '$slice' and '$addToSet' are\n    accepted operators.\n\naction    | string |          | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | some meta-data about the edit\n",
+                "summary": "Edit multiple pos_reasons entries.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_reasons/remove": {
+            "post": {
+                "description": "Remove a document from the pos_reasons collection. The document is selected by the filter. If the filter matches more than one document only one is deleted.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be removed.\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata['ok']| int | 1 (number of documents deleted)\n",
+                "summary": "Remove a document from pos_reasons.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_reasons/save": {
+            "post": {
+                "description": "Save documents in the **pos_reasons** collection, using replace_one(upsert=True).\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; | Document to be saved. Can also be an array of objects.\naction    | string | &#10004; | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the save\n",
+                "summary": "Save documents to the pos_reasons collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_secondscreen/add": {
+            "post": {
+                "description": "This view adds one or more entries to the **pos_secondscreen** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; |the data to be added, can also be an array to add multiple entries\naction    | string |          | used in the timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | array of new entry id's.\n",
+                "summary": "Add one or more entries to pos_secondscreen.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_secondscreen/agg": {
+            "post": {
+                "description": "Takes a filter to use for aggregation in MongoDB. The filter type has to be [Array]. This view checks if the tenant is allowed to access the pos_secondscreen collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | array  | &#10004; | filter for the MongoDB aggregation\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | result of the MongoDB aggregation\nlimit     | int | if not set by the filter the limit is set to 10 (the spynl.mongo.max_agglimit for this Spynl instance) to protect Spynl\n",
+                "summary": "Aggregate data from pos_secondscreen.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_secondscreen/count": {
+            "get": {
+                "description": "Counts documents in the **pos_secondscreen** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to select what subset to count\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ncount     | int | number of pos_secondscreen\n",
+                "summary": "Counts documents in the pos_secondscreen collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_secondscreen/edit": {
+            "post": {
+                "description": "View to edit a single entry of the **pos_secondscreen** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be edited.\ndata      | object | &#10004; | the edit that needs to be made. '$inc', '$mul', '$rename', '$set', '$unset', '$min', '$max' and '$currentDate' are accepted operators.\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the edit\n",
+                "summary": "Edit a single pos_secondscreen entry.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_secondscreen/get": {
+            "get": {
+                "description": "Get function for **pos_secondscreen**. The filter parameter can be used to select a specific set of pos_secondscreen. Returns status (ok|error), and if status=ok also a data array with actual data and meta info: limit, and skip.\n\nThe number of actual data entries returned will never be more than 10 (the spynl.mongo.max_limit for this Spynl instance). This means that there might be more data that can be retrieved using skip.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to run against MongoDB\nlimit     | int    | | the number of documents to return\nskip      | int    | | the number of documents to skip\nfields    | array  | | a list of fields to return ['field1', 'field2']\nsort      | array  | | a list of lists of fields and sort order ex. [['field', 1]]\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error \ndata      | object | the actual result of the request.\nlimit     | int | the limit used, either 10 (the spynl.mongo.max_limit for this Spynl instance), or smaller if requested\nskip      | int | number of entries to skip\n",
+                "summary": "Get data from the pos_secondscreen collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_secondscreen/multi-edit": {
+            "post": {
+                "description": "Edit multiple **pos_secondscreen** entries.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\njobs      | array  | &#10004; | each entry should contain a 'filter' and 'data' object. The 'filter' is to select the entries to be changed, and the 'data' contains the changes to be made. '$inc', '$mul',\n    '$rename', '$set', '$unset', '$min', '$max', '$currentDate',\n    '$push', '$pop', '$pull', '$slice' and '$addToSet' are\n    accepted operators.\n\naction    | string |          | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | some meta-data about the edit\n",
+                "summary": "Edit multiple pos_secondscreen entries.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_secondscreen/remove": {
+            "post": {
+                "description": "Remove a document from the pos_secondscreen collection. The document is selected by the filter. If the filter matches more than one document only one is deleted.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be removed.\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata['ok']| int | 1 (number of documents deleted)\n",
+                "summary": "Remove a document from pos_secondscreen.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_secondscreen/save": {
+            "post": {
+                "description": "Save documents in the **pos_secondscreen** collection, using replace_one(upsert=True).\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; | Document to be saved. Can also be an array of objects.\naction    | string | &#10004; | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the save\n",
+                "summary": "Save documents to the pos_secondscreen collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_settings/add": {
+            "post": {
+                "description": "This view adds one or more entries to the **pos_settings** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; |the data to be added, can also be an array to add multiple entries\naction    | string |          | used in the timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | array of new entry id's.\n",
+                "summary": "Add one or more entries to pos_settings.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_settings/agg": {
+            "post": {
+                "description": "Takes a filter to use for aggregation in MongoDB. The filter type has to be [Array]. This view checks if the tenant is allowed to access the pos_settings collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | array  | &#10004; | filter for the MongoDB aggregation\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | result of the MongoDB aggregation\nlimit     | int | if not set by the filter the limit is set to 10 (the spynl.mongo.max_agglimit for this Spynl instance) to protect Spynl\n",
+                "summary": "Aggregate data from pos_settings.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_settings/count": {
+            "get": {
+                "description": "Counts documents in the **pos_settings** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to select what subset to count\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ncount     | int | number of pos_settings\n",
+                "summary": "Counts documents in the pos_settings collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_settings/edit": {
+            "post": {
+                "description": "View to edit a single entry of the **pos_settings** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be edited.\ndata      | object | &#10004; | the edit that needs to be made. '$inc', '$mul', '$rename', '$set', '$unset', '$min', '$max' and '$currentDate' are accepted operators.\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the edit\n",
+                "summary": "Edit a single pos_settings entry.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_settings/get": {
+            "get": {
+                "description": "Get function for **pos_settings**. The filter parameter can be used to select a specific set of pos_settings. Returns status (ok|error), and if status=ok also a data array with actual data and meta info: limit, and skip.\n\nThe number of actual data entries returned will never be more than 10 (the spynl.mongo.max_limit for this Spynl instance). This means that there might be more data that can be retrieved using skip.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to run against MongoDB\nlimit     | int    | | the number of documents to return\nskip      | int    | | the number of documents to skip\nfields    | array  | | a list of fields to return ['field1', 'field2']\nsort      | array  | | a list of lists of fields and sort order ex. [['field', 1]]\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error \ndata      | object | the actual result of the request.\nlimit     | int | the limit used, either 10 (the spynl.mongo.max_limit for this Spynl instance), or smaller if requested\nskip      | int | number of entries to skip\n",
+                "summary": "Get data from the pos_settings collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_settings/multi-edit": {
+            "post": {
+                "description": "Edit multiple **pos_settings** entries.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\njobs      | array  | &#10004; | each entry should contain a 'filter' and 'data' object. The 'filter' is to select the entries to be changed, and the 'data' contains the changes to be made. '$inc', '$mul',\n    '$rename', '$set', '$unset', '$min', '$max', '$currentDate',\n    '$push', '$pop', '$pull', '$slice' and '$addToSet' are\n    accepted operators.\n\naction    | string |          | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | some meta-data about the edit\n",
+                "summary": "Edit multiple pos_settings entries.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_settings/remove": {
+            "post": {
+                "description": "Remove a document from the pos_settings collection. The document is selected by the filter. If the filter matches more than one document only one is deleted.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be removed.\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata['ok']| int | 1 (number of documents deleted)\n",
+                "summary": "Remove a document from pos_settings.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/pos_settings/save": {
+            "post": {
+                "description": "Save documents in the **pos_settings** collection, using replace_one(upsert=True).\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; | Document to be saved. Can also be an array of objects.\naction    | string | &#10004; | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the save\n",
+                "summary": "Save documents to the pos_settings collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/reports/add": {
+            "post": {
+                "description": "This view adds one or more entries to the **reports** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; |the data to be added, can also be an array to add multiple entries\naction    | string |          | used in the timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | array of new entry id's.\n",
+                "summary": "Add one or more entries to reports.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/reports/agg": {
+            "post": {
+                "description": "Takes a filter to use for aggregation in MongoDB. The filter type has to be [Array]. This view checks if the tenant is allowed to access the reports collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | array  | &#10004; | filter for the MongoDB aggregation\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | result of the MongoDB aggregation\nlimit     | int | if not set by the filter the limit is set to 10 (the spynl.mongo.max_agglimit for this Spynl instance) to protect Spynl\n",
+                "summary": "Aggregate data from reports.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/reports/count": {
+            "get": {
+                "description": "Counts documents in the **reports** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to select what subset to count\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ncount     | int | number of reports\n",
+                "summary": "Counts documents in the reports collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/reports/edit": {
+            "post": {
+                "description": "View to edit a single entry of the **reports** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be edited.\ndata      | object | &#10004; | the edit that needs to be made. '$inc', '$mul', '$rename', '$set', '$unset', '$min', '$max' and '$currentDate' are accepted operators.\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the edit\n",
+                "summary": "Edit a single reports entry.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/reports/get": {
+            "get": {
+                "description": "Get function for **reports**. The filter parameter can be used to select a specific set of reports. Returns status (ok|error), and if status=ok also a data array with actual data and meta info: limit, and skip.\n\nThe number of actual data entries returned will never be more than 10 (the spynl.mongo.max_limit for this Spynl instance). This means that there might be more data that can be retrieved using skip.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to run against MongoDB\nlimit     | int    | | the number of documents to return\nskip      | int    | | the number of documents to skip\nfields    | array  | | a list of fields to return ['field1', 'field2']\nsort      | array  | | a list of lists of fields and sort order ex. [['field', 1]]\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error \ndata      | object | the actual result of the request.\nlimit     | int | the limit used, either 10 (the spynl.mongo.max_limit for this Spynl instance), or smaller if requested\nskip      | int | number of entries to skip\n",
+                "summary": "Get data from the reports collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/reports/multi-edit": {
+            "post": {
+                "description": "Edit multiple **reports** entries.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\njobs      | array  | &#10004; | each entry should contain a 'filter' and 'data' object. The 'filter' is to select the entries to be changed, and the 'data' contains the changes to be made. '$inc', '$mul',\n    '$rename', '$set', '$unset', '$min', '$max', '$currentDate',\n    '$push', '$pop', '$pull', '$slice' and '$addToSet' are\n    accepted operators.\n\naction    | string |          | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | some meta-data about the edit\n",
+                "summary": "Edit multiple reports entries.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/reports/remove": {
+            "post": {
+                "description": "Remove a document from the reports collection. The document is selected by the filter. If the filter matches more than one document only one is deleted.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be removed.\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata['ok']| int | 1 (number of documents deleted)\n",
+                "summary": "Remove a document from reports.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/reports/save": {
+            "post": {
+                "description": "Save documents in the **reports** collection, using replace_one(upsert=True).\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; | Document to be saved. Can also be an array of objects.\naction    | string | &#10004; | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the save\n",
+                "summary": "Save documents to the reports collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/sales/barcodes-per-customer": {
+            "post": {
+                "description": "\n####Parameters\nParameter | Type         | Req.     | Description\n--------- | ------------ | -------- | -----------\ncustomer_id  | string    | &#10004; | ID of the customer date_from | string       | &#10004; | Date from when transactions \nshould be included in the search\n####Response\nJSON keys    | Type   | Description\n------------ | ------ | -----------\nstatus       | string | 'ok' or 'error'\nmessage      | string | description of errors or success\ndata         | list   | The result of the MongoDB aggregation, sold barcodes for a specific customer since a given date until today. **price** the price of the sku **category** the category of the receipt item **nettPrice** the nett price of the sku **articleCode** the article code of the article **articleDescription** the article description of the article **brand** the brand of the sku **barcode** the barcode of the sku **color** the color of the sku **qty** the quantity being sold **sizeLabel** the size of the sku **vat** the vat number category of the sku\n",
+                "summary": "Return barcodes sold since a given date for a given customer.",
+                "tags": [
+                    "reporting"
+                ]
+            },
+            "show-try": false
+        },
+        "/sales/per-article": {
+            "post": {
+                "description": "\n####Parameters\nParameter | Type         | Req.     | Description\n--------- | ------------ | -------- | -----------\nstartDate | ISO 8601 Date string | &#10004; | period start Date\nendDate   | ISO 8601 Date string | &#10004; | period end date\nwarehouse_id   | string    | | ID of a warehouse (warehouses.wh)\n\n####Response\nJSON keys    | Type   | Description\n------------ | ------ | -----------\nstatus       | string | 'ok' or 'error'\nmessage      | string | description of errors or success\ndata         | list   | The result of the MongoDB aggregation. One dictionary per article, where: **article** describes each article (has \"code\" and \"description\"). **turnover** is the sum of qty*price per \"barcode\" receipt item for a given article.\nlimit        | int    | if not set by the filter the limit is set to 10 (the spynl.mongo.max_agglimit for this Spynl instance) to protect Spynl\n",
+                "summary": "Sales per article in a period, for one or all warehouses.",
+                "tags": [
+                    "reporting"
+                ]
+            },
+            "show-try": false
+        },
+        "/sales/per-warehouse": {
+            "post": {
+                "description": "\n####Parameters\nParameter | Type         | Req.     | Description\n--------- | ------------ | -------- | -----------\nstartDate | ISO 8601 Date string | &#10004; | period start Date\nendDate   | ISO 8601 Date string | &#10004; | period end date\n\n####Response\nJSON keys    | Type   | Description\n------------ | ------ | -----------\nstatus       | string | 'ok' or 'error'\nmessage      | string | description of errors or success\ndata         | list   | The result of the MongoDB aggregation. One dictionary per warehouse, where: **warehouse** contains information about the warehouse (\"id\" and \"name\"). **turnover** is the sum of ((totalAmount - totalDiscount) - totalDiscountCoupon) over all affected transactions.\nlimit        | int    | if not set by the filter the limit is set to 10 (the spynl.mongo.max_agglimit for this Spynl instance) to protect Spynl\n",
+                "summary": "Sales per warehouse in a period.",
+                "tags": [
+                    "reporting"
+                ]
+            },
+            "show-try": false
+        },
+        "/sales/period": {
+            "post": {
+                "description": "\n####Parameters\nParameter | Type         | Req.     | Description\n--------- | ------------ | -------- | -----------\nstartDate | ISO 8601 Date string | | period start Date, default is 48 hours ago\nendDate   | ISO 8601 Date string | | period end date, default is now\nwarehouse_id   | string    | | ID of the warehouse (warehouses.wh)\ngroup_by  | string         | | \"minute\", \"hour\", \"day\", \"month\" or \"year\". If using \"minute\", the period cannot be longer than 7 days. If group_by is not given, the most sensible grouping is chosen by the length of the period: default value is 'hour' if endDate - startDate > 1 day, 'day' if endDate - startDate > 1 month, month' if endDate - startDate > 1 year.\n\n####Response\nJSON keys    | Type   | Description\n------------ | ------ | -----------\nstatus       | string | 'ok' or 'error'\nmessage      | string | description of errors or success\ndata         | list   | The result of the MongoDB aggregation, one row per affected time interval in the period. **date** contains the time interval information in this form: {timescale:value}. Example: {\"year\": 2015, \"month\": 11, \"day\": 2}. **turnover** is the sum of ((totalAmount - totalDiscount) - totalDiscountCoupon). **grouped_by** is what was used for grouping (see group_by parameter).\nlimit        | int    | if not set by the filter the limit is set to 10 (the spynl.mongo.max_agglimit for this Spynl instance) to protect Spynl\n",
+                "summary": "Sales for a period, for one or all warehouses.",
+                "tags": [
+                    "reporting"
+                ]
+            },
+            "show-try": false
+        },
+        "/sales/summary": {
+            "post": {
+                "description": "\n####Parameters\nParameter | Type         | Req.     | Description\n--------- | ------------ | -------- | -----------\nstartDate | ISO 8601 Date string | &#10004; | period start Date\nendDate   | ISO 8601 Date string | &#10004; | period end date\nwarehouse_id   | string    | | ID of a warehouse (warehouses.wh)\n\n####Response\nJSON keys    | Type   | Description\n------------ | ------ | -----------\nstatus       | string | 'ok' or 'error'\nmessage      | string | description of errors or success\ndata         | dict   | The result of the MongoDB aggregation. **transactions** is the number of transactions in the period. **items**/**returns** are the number of overall bought/returned items. **itemsPer** is the average number of items (per transaction). **turnover** is the sum of ((totalAmount-totalDiscount) -totalDiscountCoupon) over all affected transactions. **totalPer** is the average turnover (per transaction).\nlimit        | int    | if not set by the filter the limit is set to 10 (the spynl.mongo.max_agglimit for this Spynl instance) to protect Spynl\n",
+                "summary": "Sales summary for a period, for one or all warehouses.",
+                "tags": [
+                    "reporting"
+                ]
+            },
+            "show-try": false
+        },
+        "/set-tenant": {
+            "post": {
+                "description": "Set a tenant for the user to use during this session. The only required parameter is \"id\", the tenant's ID.\n####Parameters\nParameter | Type         | Req.     | Description\n--------- | ------------ | -------- | -----------\nid        | string       | &#10004; | Tenant ID\n\n####Response\nJSON keys | Type | Description\n--------- | ---- | -----------\npermissions| object | JSON object that describes the permissions of the user for this tenant (not returned if the tenant's authorizationType is 'roles') (Note: permissions will be deprecated).\nroles | list | list of tenant roles which the user has for this tenant\ndefault_application | string | id of the default application for the user for this tenant\n",
+                "summary": "Set tenant ID for the ongoing session.",
+                "tags": [
+                    "session"
+                ]
+            },
+            "show-try": false
+        },
+        "/shifts/add": {
+            "post": {
+                "description": "This view adds one or more entries to the **shifts** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; |the data to be added, can also be an array to add multiple entries\naction    | string |          | used in the timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | array of new entry id's.\n",
+                "summary": "Add one or more entries to shifts.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/shifts/agg": {
+            "post": {
+                "description": "Takes a filter to use for aggregation in MongoDB. The filter type has to be [Array]. This view checks if the tenant is allowed to access the shifts collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | array  | &#10004; | filter for the MongoDB aggregation\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | result of the MongoDB aggregation\nlimit     | int | if not set by the filter the limit is set to 10 (the spynl.mongo.max_agglimit for this Spynl instance) to protect Spynl\n",
+                "summary": "Aggregate data from shifts.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/shifts/count": {
+            "get": {
+                "description": "Counts documents in the **shifts** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to select what subset to count\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ncount     | int | number of shifts\n",
+                "summary": "Counts documents in the shifts collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/shifts/edit": {
+            "post": {
+                "description": "View to edit a single entry of the **shifts** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be edited.\ndata      | object | &#10004; | the edit that needs to be made. '$inc', '$mul', '$rename', '$set', '$unset', '$min', '$max' and '$currentDate' are accepted operators.\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the edit\n",
+                "summary": "Edit a single shifts entry.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/shifts/get": {
+            "get": {
+                "description": "Get function for **shifts**. The filter parameter can be used to select a specific set of shifts. Returns status (ok|error), and if status=ok also a data array with actual data and meta info: limit, and skip.\n\nThe number of actual data entries returned will never be more than 10 (the spynl.mongo.max_limit for this Spynl instance). This means that there might be more data that can be retrieved using skip.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to run against MongoDB\nlimit     | int    | | the number of documents to return\nskip      | int    | | the number of documents to skip\nfields    | array  | | a list of fields to return ['field1', 'field2']\nsort      | array  | | a list of lists of fields and sort order ex. [['field', 1]]\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error \ndata      | object | the actual result of the request.\nlimit     | int | the limit used, either 10 (the spynl.mongo.max_limit for this Spynl instance), or smaller if requested\nskip      | int | number of entries to skip\n",
+                "summary": "Get data from the shifts collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/shifts/multi-edit": {
+            "post": {
+                "description": "Edit multiple **shifts** entries.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\njobs      | array  | &#10004; | each entry should contain a 'filter' and 'data' object. The 'filter' is to select the entries to be changed, and the 'data' contains the changes to be made. '$inc', '$mul',\n    '$rename', '$set', '$unset', '$min', '$max', '$currentDate',\n    '$push', '$pop', '$pull', '$slice' and '$addToSet' are\n    accepted operators.\n\naction    | string |          | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | some meta-data about the edit\n",
+                "summary": "Edit multiple shifts entries.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/shifts/remove": {
+            "post": {
+                "description": "Remove a document from the shifts collection. The document is selected by the filter. If the filter matches more than one document only one is deleted.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be removed.\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata['ok']| int | 1 (number of documents deleted)\n",
+                "summary": "Remove a document from shifts.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/shifts/save": {
+            "post": {
+                "description": "Save documents in the **shifts** collection, using replace_one(upsert=True).\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; | Document to be saved. Can also be an array of objects.\naction    | string | &#10004; | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the save\n",
+                "summary": "Save documents to the shifts collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/softwear_metadata/get": {
+            "get": {
+                "description": "Get function for **softwear_metadata**. The filter parameter can be used to select a specific set of softwear_metadata. Returns status (ok|error), and if status=ok also a data array with actual data and meta info: limit, and skip.\n\nThe number of actual data entries returned will never be more than 10 (the spynl.mongo.max_limit for this Spynl instance). This means that there might be more data that can be retrieved using skip.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to run against MongoDB\nlimit     | int    | | the number of documents to return\nskip      | int    | | the number of documents to skip\nfields    | array  | | a list of fields to return ['field1', 'field2']\nsort      | array  | | a list of lists of fields and sort order ex. [['field', 1]]\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error \ndata      | object | the actual result of the request.\nlimit     | int | the limit used, either 10 (the spynl.mongo.max_limit for this Spynl instance), or smaller if requested\nskip      | int | number of entries to skip\n",
+                "summary": "Get data from the softwear_metadata collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/spynl_sessions/count": {
+            "get": {
+                "description": "Counts documents in the **spynl_sessions** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to select what subset to count\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ncount     | int | number of spynl_sessions\n",
+                "summary": "Counts documents in the spynl_sessions collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/spynl_sessions/get": {
+            "get": {
+                "description": "Get function for **spynl_sessions**. The filter parameter can be used to select a specific set of spynl_sessions. Returns status (ok|error), and if status=ok also a data array with actual data and meta info: limit, and skip.\n\nThe number of actual data entries returned will never be more than 10 (the spynl.mongo.max_limit for this Spynl instance). This means that there might be more data that can be retrieved using skip.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to run against MongoDB\nlimit     | int    | | the number of documents to return\nskip      | int    | | the number of documents to skip\nfields    | array  | | a list of fields to return ['field1', 'field2']\nsort      | array  | | a list of lists of fields and sort order ex. [['field', 1]]\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error \ndata      | object | the actual result of the request.\nlimit     | int | the limit used, either 10 (the spynl.mongo.max_limit for this Spynl instance), or smaller if requested\nskip      | int | number of entries to skip\n",
+                "summary": "Get data from the spynl_sessions collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/templates/add": {
+            "post": {
+                "description": "This view adds one or more entries to the **templates** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; |the data to be added, can also be an array to add multiple entries\naction    | string |          | used in the timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | array of new entry id's.\n",
+                "summary": "Add one or more entries to templates.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/templates/agg": {
+            "post": {
+                "description": "Takes a filter to use for aggregation in MongoDB. The filter type has to be [Array]. This view checks if the tenant is allowed to access the templates collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | array  | &#10004; | filter for the MongoDB aggregation\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | result of the MongoDB aggregation\nlimit     | int | if not set by the filter the limit is set to 10 (the spynl.mongo.max_agglimit for this Spynl instance) to protect Spynl\n",
+                "summary": "Aggregate data from templates.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/templates/count": {
+            "get": {
+                "description": "Counts documents in the **templates** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to select what subset to count\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ncount     | int | number of templates\n",
+                "summary": "Counts documents in the templates collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/templates/edit": {
+            "post": {
+                "description": "View to edit a single entry of the **templates** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be edited.\ndata      | object | &#10004; | the edit that needs to be made. '$inc', '$mul', '$rename', '$set', '$unset', '$min', '$max' and '$currentDate' are accepted operators.\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the edit\n",
+                "summary": "Edit a single templates entry.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/templates/get": {
+            "get": {
+                "description": "Get function for **templates**. The filter parameter can be used to select a specific set of templates. Returns status (ok|error), and if status=ok also a data array with actual data and meta info: limit, and skip.\n\nThe number of actual data entries returned will never be more than 10 (the spynl.mongo.max_limit for this Spynl instance). This means that there might be more data that can be retrieved using skip.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to run against MongoDB\nlimit     | int    | | the number of documents to return\nskip      | int    | | the number of documents to skip\nfields    | array  | | a list of fields to return ['field1', 'field2']\nsort      | array  | | a list of lists of fields and sort order ex. [['field', 1]]\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error \ndata      | object | the actual result of the request.\nlimit     | int | the limit used, either 10 (the spynl.mongo.max_limit for this Spynl instance), or smaller if requested\nskip      | int | number of entries to skip\n",
+                "summary": "Get data from the templates collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/templates/multi-edit": {
+            "post": {
+                "description": "Edit multiple **templates** entries.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\njobs      | array  | &#10004; | each entry should contain a 'filter' and 'data' object. The 'filter' is to select the entries to be changed, and the 'data' contains the changes to be made. '$inc', '$mul',\n    '$rename', '$set', '$unset', '$min', '$max', '$currentDate',\n    '$push', '$pop', '$pull', '$slice' and '$addToSet' are\n    accepted operators.\n\naction    | string |          | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | some meta-data about the edit\n",
+                "summary": "Edit multiple templates entries.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/templates/remove": {
+            "post": {
+                "description": "Remove a document from the templates collection. The document is selected by the filter. If the filter matches more than one document only one is deleted.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be removed.\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata['ok']| int | 1 (number of documents deleted)\n",
+                "summary": "Remove a document from templates.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/templates/save": {
+            "post": {
+                "description": "Save documents in the **templates** collection, using replace_one(upsert=True).\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; | Document to be saved. Can also be an array of objects.\naction    | string | &#10004; | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the save\n",
+                "summary": "Save documents to the templates collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/test-customers/add": {
+            "post": {
+                "description": "This view adds one or more entries to the **test-customers** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; |the data to be added, can also be an array to add multiple entries\naction    | string |          | used in the timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | array of new entry id's.\n",
+                "summary": "Add one or more entries to test-customers.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/test-customers/agg": {
+            "post": {
+                "description": "Takes a filter to use for aggregation in MongoDB. The filter type has to be [Array]. This view checks if the tenant is allowed to access the test-customers collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | array  | &#10004; | filter for the MongoDB aggregation\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | result of the MongoDB aggregation\nlimit     | int | if not set by the filter the limit is set to 10 (the spynl.mongo.max_agglimit for this Spynl instance) to protect Spynl\n",
+                "summary": "Aggregate data from test-customers.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/test-customers/count": {
+            "get": {
+                "description": "Counts documents in the **test-customers** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to select what subset to count\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ncount     | int | number of test-customers\n",
+                "summary": "Counts documents in the test-customers collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/test-customers/edit": {
+            "post": {
+                "description": "View to edit a single entry of the **test-customers** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be edited.\ndata      | object | &#10004; | the edit that needs to be made. '$inc', '$mul', '$rename', '$set', '$unset', '$min', '$max' and '$currentDate' are accepted operators.\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the edit\n",
+                "summary": "Edit a single test-customers entry.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/test-customers/get": {
+            "get": {
+                "description": "Get function for **test-customers**. The filter parameter can be used to select a specific set of test-customers. Returns status (ok|error), and if status=ok also a data array with actual data and meta info: limit, and skip.\n\nThe number of actual data entries returned will never be more than 10 (the spynl.mongo.max_limit for this Spynl instance). This means that there might be more data that can be retrieved using skip.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to run against MongoDB\nlimit     | int    | | the number of documents to return\nskip      | int    | | the number of documents to skip\nfields    | array  | | a list of fields to return ['field1', 'field2']\nsort      | array  | | a list of lists of fields and sort order ex. [['field', 1]]\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error \ndata      | object | the actual result of the request.\nlimit     | int | the limit used, either 10 (the spynl.mongo.max_limit for this Spynl instance), or smaller if requested\nskip      | int | number of entries to skip\n",
+                "summary": "Get data from the test-customers collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/test-customers/multi-edit": {
+            "post": {
+                "description": "Edit multiple **test-customers** entries.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\njobs      | array  | &#10004; | each entry should contain a 'filter' and 'data' object. The 'filter' is to select the entries to be changed, and the 'data' contains the changes to be made. '$inc', '$mul',\n    '$rename', '$set', '$unset', '$min', '$max', '$currentDate',\n    '$push', '$pop', '$pull', '$slice' and '$addToSet' are\n    accepted operators.\n\naction    | string |          | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | some meta-data about the edit\n",
+                "summary": "Edit multiple test-customers entries.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/test-customers/remove": {
+            "post": {
+                "description": "Remove a document from the test-customers collection. The document is selected by the filter. If the filter matches more than one document only one is deleted.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be removed.\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata['ok']| int | 1 (number of documents deleted)\n",
+                "summary": "Remove a document from test-customers.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/test-customers/save": {
+            "post": {
+                "description": "Save documents in the **test-customers** collection, using replace_one(upsert=True).\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; | Document to be saved. Can also be an array of objects.\naction    | string | &#10004; | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the save\n",
+                "summary": "Save documents to the test-customers collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/test-large/add": {
+            "post": {
+                "description": "This view adds one or more entries to the **test-large** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; |the data to be added, can also be an array to add multiple entries\naction    | string |          | used in the timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | array of new entry id's.\n",
+                "summary": "Add one or more entries to test-large.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/test-large/agg": {
+            "post": {
+                "description": "Takes a filter to use for aggregation in MongoDB. The filter type has to be [Array]. This view checks if the tenant is allowed to access the test-large collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | array  | &#10004; | filter for the MongoDB aggregation\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | result of the MongoDB aggregation\nlimit     | int | if not set by the filter the limit is set to 10 (the spynl.mongo.max_agglimit for this Spynl instance) to protect Spynl\n",
+                "summary": "Aggregate data from test-large.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/test-large/count": {
+            "get": {
+                "description": "Counts documents in the **test-large** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to select what subset to count\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ncount     | int | number of test-large\n",
+                "summary": "Counts documents in the test-large collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/test-large/edit": {
+            "post": {
+                "description": "View to edit a single entry of the **test-large** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be edited.\ndata      | object | &#10004; | the edit that needs to be made. '$inc', '$mul', '$rename', '$set', '$unset', '$min', '$max' and '$currentDate' are accepted operators.\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the edit\n",
+                "summary": "Edit a single test-large entry.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/test-large/get": {
+            "get": {
+                "description": "Get function for **test-large**. The filter parameter can be used to select a specific set of test-large. Returns status (ok|error), and if status=ok also a data array with actual data and meta info: limit, and skip.\n\nThe number of actual data entries returned will never be more than 10 (the spynl.mongo.max_limit for this Spynl instance). This means that there might be more data that can be retrieved using skip.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to run against MongoDB\nlimit     | int    | | the number of documents to return\nskip      | int    | | the number of documents to skip\nfields    | array  | | a list of fields to return ['field1', 'field2']\nsort      | array  | | a list of lists of fields and sort order ex. [['field', 1]]\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error \ndata      | object | the actual result of the request.\nlimit     | int | the limit used, either 10 (the spynl.mongo.max_limit for this Spynl instance), or smaller if requested\nskip      | int | number of entries to skip\n",
+                "summary": "Get data from the test-large collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/test-large/multi-edit": {
+            "post": {
+                "description": "Edit multiple **test-large** entries.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\njobs      | array  | &#10004; | each entry should contain a 'filter' and 'data' object. The 'filter' is to select the entries to be changed, and the 'data' contains the changes to be made. '$inc', '$mul',\n    '$rename', '$set', '$unset', '$min', '$max', '$currentDate',\n    '$push', '$pop', '$pull', '$slice' and '$addToSet' are\n    accepted operators.\n\naction    | string |          | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | some meta-data about the edit\n",
+                "summary": "Edit multiple test-large entries.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/test-large/remove": {
+            "post": {
+                "description": "Remove a document from the test-large collection. The document is selected by the filter. If the filter matches more than one document only one is deleted.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be removed.\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata['ok']| int | 1 (number of documents deleted)\n",
+                "summary": "Remove a document from test-large.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/test-large/save": {
+            "post": {
+                "description": "Save documents in the **test-large** collection, using replace_one(upsert=True).\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; | Document to be saved. Can also be an array of objects.\naction    | string | &#10004; | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the save\n",
+                "summary": "Save documents to the test-large collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/test/add": {
+            "post": {
+                "description": "This view adds one or more entries to the **test** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; |the data to be added, can also be an array to add multiple entries\naction    | string |          | used in the timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | array of new entry id's.\n",
+                "summary": "Add one or more entries to test.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/test/agg": {
+            "post": {
+                "description": "Takes a filter to use for aggregation in MongoDB. The filter type has to be [Array]. This view checks if the tenant is allowed to access the test collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | array  | &#10004; | filter for the MongoDB aggregation\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | result of the MongoDB aggregation\nlimit     | int | if not set by the filter the limit is set to 10 (the spynl.mongo.max_agglimit for this Spynl instance) to protect Spynl\n",
+                "summary": "Aggregate data from test.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/test/count": {
+            "get": {
+                "description": "Counts documents in the **test** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to select what subset to count\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ncount     | int | number of test\n",
+                "summary": "Counts documents in the test collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/test/edit": {
+            "post": {
+                "description": "View to edit a single entry of the **test** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be edited.\ndata      | object | &#10004; | the edit that needs to be made. '$inc', '$mul', '$rename', '$set', '$unset', '$min', '$max' and '$currentDate' are accepted operators.\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the edit\n",
+                "summary": "Edit a single test entry.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/test/get": {
+            "get": {
+                "description": "Get function for **test**. The filter parameter can be used to select a specific set of test. Returns status (ok|error), and if status=ok also a data array with actual data and meta info: limit, and skip.\n\nThe number of actual data entries returned will never be more than 10 (the spynl.mongo.max_limit for this Spynl instance). This means that there might be more data that can be retrieved using skip.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to run against MongoDB\nlimit     | int    | | the number of documents to return\nskip      | int    | | the number of documents to skip\nfields    | array  | | a list of fields to return ['field1', 'field2']\nsort      | array  | | a list of lists of fields and sort order ex. [['field', 1]]\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error \ndata      | object | the actual result of the request.\nlimit     | int | the limit used, either 10 (the spynl.mongo.max_limit for this Spynl instance), or smaller if requested\nskip      | int | number of entries to skip\n",
+                "summary": "Get data from the test collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/test/multi-edit": {
+            "post": {
+                "description": "Edit multiple **test** entries.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\njobs      | array  | &#10004; | each entry should contain a 'filter' and 'data' object. The 'filter' is to select the entries to be changed, and the 'data' contains the changes to be made. '$inc', '$mul',\n    '$rename', '$set', '$unset', '$min', '$max', '$currentDate',\n    '$push', '$pop', '$pull', '$slice' and '$addToSet' are\n    accepted operators.\n\naction    | string |          | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | some meta-data about the edit\n",
+                "summary": "Edit multiple test entries.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/test/remove": {
+            "post": {
+                "description": "Remove a document from the test collection. The document is selected by the filter. If the filter matches more than one document only one is deleted.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | &#10004; | filter to select the entry to be removed.\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata['ok']| int | 1 (number of documents deleted)\n",
+                "summary": "Remove a document from test.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/test/save": {
+            "post": {
+                "description": "Save documents in the **test** collection, using replace_one(upsert=True).\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; | Document to be saved. Can also be an array of objects.\naction    | string | &#10004; | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the save\n",
+                "summary": "Save documents to the test collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/time": {
+            "get": {
+                "description": "Spynl tells you its server time and what it believes to be your local time if you are logged in.\n####Response\nJSON keys | Content Type | Description\n--------- | ------------ | -----------\nstatus    | string | 'ok' or 'error'\nserver_time | string | server time in format: %Y-%m-%dT%H:%M:%S%z (the spynl.date_format for this Spynl instance)\nlocal_time  | string | local user time in format: %Y-%m-%dT%H:%M:%S%z (the spynl.date_format for this Spynl instance)\ntz        | string | local time zone, e.g. Europe/Amsterdam\n",
+                "summary": "Get the Spynl time.",
+                "tags": [
+                    "contact"
+                ]
+            }
+        },
+        "/user_sessions/add": {
+            "post": {
+                "description": "This view adds one or more entries to the **user_sessions** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; |the data to be added, can also be an array to add multiple entries\naction    | string |          | used in the timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | array | array of new entry id's.\n",
+                "summary": "Add one or more entries to user_sessions.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/user_sessions/agg": {
+            "post": {
+                "description": "Takes a filter to use for aggregation in MongoDB. The filter type has to be [Array]. This view checks if the tenant is allowed to access the user_sessions collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | array  | &#10004; | filter for the MongoDB aggregation\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | result of the MongoDB aggregation\nlimit     | int | if not set by the filter the limit is set to 10 (the spynl.mongo.max_agglimit for this Spynl instance) to protect Spynl\n",
+                "summary": "Aggregate data from user_sessions.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/user_sessions/count": {
+            "get": {
+                "description": "Counts documents in the **user_sessions** collection.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to select what subset to count\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ncount     | int | number of user_sessions\n",
+                "summary": "Counts documents in the user_sessions collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/user_sessions/get": {
+            "get": {
+                "description": "Get function for **user_sessions**. The filter parameter can be used to select a specific set of user_sessions. Returns status (ok|error), and if status=ok also a data array with actual data and meta info: limit, and skip.\n\nThe number of actual data entries returned will never be more than 10 (the spynl.mongo.max_limit for this Spynl instance). This means that there might be more data that can be retrieved using skip.\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\nfilter    | object | | the query to run against MongoDB\nlimit     | int    | | the number of documents to return\nskip      | int    | | the number of documents to skip\nfields    | array  | | a list of fields to return ['field1', 'field2']\nsort      | array  | | a list of lists of fields and sort order ex. [['field', 1]]\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error \ndata      | object | the actual result of the request.\nlimit     | int | the limit used, either 10 (the spynl.mongo.max_limit for this Spynl instance), or smaller if requested\nskip      | int | number of entries to skip\n",
+                "summary": "Get data from the user_sessions collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/user_sessions/save": {
+            "post": {
+                "description": "Save documents in the **user_sessions** collection, using replace_one(upsert=True).\n####Parameters\nParameter | Type   | Req.     | Description\n--------- | ------ | -------- | -----------\ndata      | object (array) | &#10004; | Document to be saved. Can also be an array of objects.\naction    | string | &#10004; | used in the \"created\" or \"modified\" timestamp of a document to show what the last action was performed on the document, this string will be included in all entries added. (None by default)\n\n####Response\nJSON keys | Type | Description\n--------- | ------------ | -----------\nstatus    | string | ok or error\ndata      | object | some meta-data about the save\n",
+                "summary": "Save documents to the user_sessions collection.",
+                "tags": [
+                    "data"
+                ]
+            },
+            "show-try": false
+        },
+        "/validate-session": {
+            "post": {
+                "description": "If you have a valid session for this Spynl instance, then the response will have status='ok', otherwise status='error' (meaning you are not authenticated). The only required parameter is \"sid\", the session ID. It will be sent from cookies automatically by browsers.\n####Response\nJSON keys | Type | Description\n--------- | ---- | -----------\nstatus    | string | 'ok' or 'error'\nsid       | string | session ID\nmessage   | string | error description\n",
+                "summary": "Check if session is valid or not.",
+                "tags": [
+                    "session"
+                ]
+            }
+        }
+    },
+    "swagger": "2.0"
+}
