@@ -1,0 +1,11 @@
+{
+    "provider": {
+        "class": "web3.providers.rpc.HTTPProvider",
+        "settings": {
+            "endpoint_uri": "https://mainnet.infura.io"
+        }
+    },
+    "eth": {
+        "default_account": "0x0000000000000000000000000000000000000001"
+    }
+}
