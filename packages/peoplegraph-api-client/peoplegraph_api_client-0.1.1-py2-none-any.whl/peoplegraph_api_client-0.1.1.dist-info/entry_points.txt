@@ -1,0 +1,3 @@
+[console_scripts]
+peoplegraph = peoplegraph_api_client.main:main
+

@@ -1,0 +1,56 @@
+Metadata-Version: 2.0
+Name: peoplegraph-api-client
+Version: 0.1.1
+Summary: Peoplegraph api client
+Home-page: https://github.com/deep-compute/peoplegraph-api-client
+Author: Deep Compute, LLC
+Author-email: contact@deepcompute.com
+License: MIT License
+Download-URL: https://github.com/deep-compute/peoplegraph-api-client/tarball/0.1.1
+Keywords: peoplegraph
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: python-dateutil
+Requires-Dist: requests (>=2.11)
+
+peoplegraph-api-client |Build Status|
+=====================================
+
+API client for deep-compute's peoplegraph product
+http://www.deepcompute.com/peoplegraph/
+
+Installation
+============
+
+::
+
+    pip install peoplegraph-api-client
+
+Usage
+=====
+
+Grab your api secret key from
+http://www.deepcompute.com/peoplegraph/settings
+
+.. code:: bash
+
+    peoplegraph -H "http://www.deepcompute.com" -u "<username>" -s "<api-secret-key>" -n "John Doe" --wait
+
+If you have a webserver that accepts POST requests, you can give
+peoplegraph a callback, to which it will POST the result.
+
+.. code:: bash
+
+    peoplegraph -H "http://www.deepcompute.com" -u "<username>" -s "<api-secret-key>" -n "John Doe" --callback "http://www.myserver.com"
+
+.. |Build Status| image:: https://travis-ci.org/deep-compute/peoplegraph-api-client.svg?branch=master
+   :target: https://travis-ci.org/deep-compute/peoplegraph-api-client
+
+
