@@ -1,0 +1,75 @@
+#!/usr/bin/env python
+
+__author__ = "Subhav Pradhan"
+
+import psutil
+import csv
+import time
+import os, sys
+import argparse, ConfigParser
+from chariot_runtime_libs import get_logger
+
+def monitor(dmPID, nmPID, outputFile):
+    dmCPU = 0
+    nmCPU = 0
+    dmMemory = 0
+    nmMemory = 0
+    sent = 0
+    recv = 0
+    
+    dmProcess = psutil.Process(dmPID)
+    dmCPU = dmProcess.cpu_percent()
+    dmMemory = (dmProcess.memory_info()[0])/float(2 ** 20) #MB
+
+    nmProcess = psutil.Process(nmPID)
+    nmCPU = nmProcess.cpu_percent()
+    nmMemory = (nmProcess.memory_info()[0])/float(2 ** 20) #MB
+
+    networkBandwidth = psutil.net_io_counters(pernic=True)["eth0"]
+    sent = (networkBandwidth.bytes_sent)    #Bytes
+    recv = (networkBandwidth.bytes_recv)    #Bytes
+
+    with open(outputFile, "ab") as f:
+        writer = csv.writer(f)
+        writer.writerow([(dmCPU + nmCPU), (dmMemory + nmMemory), sent, recv])
+        f.close()
+
+def main():
+    argParser = argparse.ArgumentParser()
+
+    argParser.add_argument("-d",
+                           "--dmPID",
+                           help="Deployment Manager PID.")
+    
+    argParser.add_argument("-n",
+                           "--nmPID",
+                           help="Node Membership PID.")
+
+    argParser.add_argument("-o",
+                           "--outputFile",
+                           help="Name of output CSV file.")
+
+    args = argParser.parse_args()
+
+    if (args.dmPID is None or args.nmPID is None or args.outputFile is None):
+        logger.info ("PIDs of DeploymentManager and NodeMembership, and output CSV file must be provided.")
+        argParser.print_help()
+        argParser.exit()
+
+    logger.info ("Using DeploymentManager PID: " + args.dmPID)
+    logger.info ("Using NodeMembership PID: " + args.nmPID)
+    logger.info ("Using output file: " + args.outputFile)
+
+    # If given output file does not exist, create one. 
+    if (not os.path.isfile(args.outputFile)):
+        f = open(args.outputFile, "w+")
+        f.close()    
+    
+    while 1:
+        monitor(int(args.dmPID), int(args.nmPID), args.outputFile)
+        time.sleep(1)
+
+if __name__ == '__main__':
+    global logger
+    logger = get_logger("chariot-rm")
+    main()

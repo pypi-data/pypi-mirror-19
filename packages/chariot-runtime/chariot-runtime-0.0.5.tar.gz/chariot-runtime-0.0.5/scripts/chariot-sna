@@ -1,0 +1,159 @@
+#!/usr/bin/env python
+
+__author__ = "Subhav Pradhan"
+
+import sys
+import argparse, ConfigParser
+from pymongo import MongoClient
+from chariot_runtime_libs import Serialize, invoke_management_engine, get_logger
+
+def execute_action():
+    client = MongoClient("localhost")
+    db = client["ConfigSpace"]
+    nColl = db["Nodes"]
+
+    if START_ACTION:
+        logger.info ("STARTING node: " + NODE_NAME)
+
+        # Create object to store in database.
+        nodeToAdd = dict()
+        nodeToAdd["name"] = NODE_NAME
+        nodeToAdd["nodeTemplate"] = NODE_TEMPLATE
+        nodeToAdd["status"] = "ACTIVE"
+
+        interfaceToAdd = dict()
+        interfaceToAdd["name"] = ""
+        interfaceToAdd["address"] = "127.0.0.1:"+NODE_PORT
+        interfaceToAdd["network"] = ""
+
+        nodeToAdd["interfaces"] = list()
+        nodeToAdd["interfaces"].append(interfaceToAdd)
+
+        nodeToAdd["processes"] = list()
+
+        # NOTE: Update used with upsert instead of insert because
+        # we might be adding node that had previously failed or
+        # been removed.
+        nColl.update({"name":NODE_NAME}, nodeToAdd, upsert = True)
+
+        # Check if any application already exists. If there are
+        # applications then it means that the node join has to
+        # be treated as hardware update and therefore the solver
+        # should be invoked. If there are no applications then
+        # this node is addition is happening at system initialization
+        # time so do not invoke the solver.
+        systemInitialization = True
+
+        if "GoalDescriptions" in db.collection_names():
+            gdColl = db["GoalDescriptions"]
+            if gdColl.count() != 0:
+                systemInitialization = False
+
+        if not systemInitialization:
+            # Using localhost as management engine address since that will always
+            # be the case for simulation.
+            invoke_management_engine("localhost", "localhost", True)
+    elif STOP_ACTION:
+        logger.info ("STOPPING node: " + NODE_NAME)
+
+        # Mark node faulty.
+        nColl.update({"name":NODE_NAME, "status":"ACTIVE"},
+                     {"$set": {"status":"FAULTY"}})
+
+        # Store names of affected component instances.
+        findResults = nColl.find({"name":NODE_NAME, "status":"FAULTY"})
+        failedComponentInstances = list()
+
+        for findResult in findResults:
+            node = Serialize(**findResult)
+            for p in node.processes:
+                process = Serialize(**p)
+                for c in process.components:
+                    component = Serialize(**c)
+                    failedComponentInstances.append(component.name)
+
+        # Update ComponentInstances collection using above collected information.
+        ciColl = db["ComponentInstances"]
+        for compInst in failedComponentInstances:
+            ciColl.update({"name":compInst},
+                          {"$set":{"status":"FAULTY"}})
+
+        # Pull all processes.
+        nColl.update({"name":NODE_NAME, "status":"FAULTY"},
+                     {"$pull":{"processes":{"name":{"$ne":"null"}}}})
+
+        # Using localhost as management engine address since that will always
+        # be the case for simulation.
+        invoke_management_engine("localhost", "localhost", False)
+
+def main():
+    global NODE_NAME
+    global NODE_TEMPLATE
+    global NODE_PORT
+    global START_ACTION
+    global STOP_ACTION
+    
+    NODE_NAME = None
+    NODE_TEMPLATE = None
+    NODE_PORT = None
+    START_ACTION = False
+    STOP_ACTION = False
+    
+    argParser = argparse.ArgumentParser()
+
+    argParser.add_argument("-n",
+                           "--nodeName",
+                           help="Name to the node being simulated.")
+    
+    argParser.add_argument("-t",
+                           "--nodeTemplate",
+                           help="Template of the node being simulated.")
+
+    argParser.add_argument("-p",
+                           "--nodePort",
+                           help="Port of the node being simulated. Simulated nodes in same physical machine so unique ports required.")
+    
+    argParser.add_argument("-a",
+                           "--action",
+                           help="Simulation action which can either be start or stop.")
+
+    args = argParser.parse_args()
+
+    if (args.action is None):
+        logger.info ("Simulation action must be provided.")
+        argParser.print_help()
+        argParser.exit()
+
+    if (args.action != "start" and args.action != "stop"):
+        logger.info ("Simulation action must either be start or stop.")
+        argParser.print_help()
+        argParser.exit()
+    
+    if (args.action == "start"):
+        START_ACTION = True
+        logger.info ("Simulating start action.")
+        if (args.nodeName is None or args.nodeTemplate is None or args.nodePort is None):
+            logger.info ("Start action requires node name, node template, and port.")
+            argParser.print_help()
+            argParser.exit()
+        else:
+            NODE_NAME = args.nodeName
+            NODE_TEMPLATE = args.nodeTemplate
+            NODE_PORT = args.nodePort
+            logger.info ("Using node name: " + NODE_NAME + " template: " + NODE_TEMPLATE + " port: " + NODE_PORT)
+    else:
+        STOP_ACTION = True
+        logger.info ("Simulating stop action.")
+        if (args.nodeName is None):
+            logger.info ("Stop action requires node name.")
+        else:
+            NODE_NAME = args.nodeName
+            logger.info ("Using node name: " + NODE_NAME)
+
+    # Add action affects to the database.
+    execute_action()
+
+if __name__ == '__main__':
+    global logger
+    logger = get_logger("chariot-sna")
+    main()

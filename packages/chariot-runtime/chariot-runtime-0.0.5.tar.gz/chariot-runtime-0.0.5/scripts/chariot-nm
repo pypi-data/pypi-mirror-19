@@ -1,0 +1,127 @@
+#!/usr/bin/env python
+
+__author__="Subhav Pradhan, Shweta Khare"
+
+import os, sys, time
+import argparse, ConfigParser
+import netifaces, socket
+import json
+from kazoo.client import KazooClient, KazooState
+from kazoo.exceptions import NodeExistsError
+from chariot_runtime_libs import get_logger
+
+def connection_state_listener(state):
+    if state == KazooState.LOST:
+        logger.error ("Connection to server lost!")
+        sys.exit()
+    elif state == KazooState.SUSPENDED:
+        logger.error ("Connection to server has been suspended!")
+        sys.exit()
+
+def main():
+    argParser = argparse.ArgumentParser()
+
+    argParser.add_argument("-c",
+                           "--configFile",
+                           help="CHARIOT configuration file to use.")
+
+    args = argParser.parse_args()
+    
+    nodeName = None
+    nodeTemplate = None
+    interface = None
+    network = None
+    monitoringServer = None
+
+    if args.configFile is None:
+        logger.info ("Configuration file not provided.")
+        argParser.print_help()
+        argParser.exit()
+    else:
+        if (os.path.isfile(args.configFile)):
+            logger.info ("Using configuration file: " + args.configFile)
+            configParser = ConfigParser.ConfigParser()
+            configParser.read(args.configFile)
+   
+            try:
+                nodeName = configParser.get("Base", "NodeName")
+                logger.info ("Using node name: " + nodeName)
+            except ConfigParser.NoOptionError, ConfigParser.NoSectionError:
+                nodeName = socket.gethostname()
+                logger.info ("Node name cannot be extracted from configuration file. Using: " + nodeName)
+            
+            try:
+                nodeTemplate = configParser.get("Base", "NodeTemplate")
+                logger.info ("Using node template: " + nodeTemplate)
+            except ConfigParser.NoOptionError, ConfigParser.NoSectionError:
+                logger.error ("Node template cannot be extracted from configuration file.")
+                sys.exit()
+
+            try:
+                interface = configParser.get("Base", "Interface")
+                logger.info ("Using interface: " + interface)
+            except ConfigParser.NoOptionError, ConfigParser.NoSectionError:
+                logger.error ("Interface cannot be extracted from configuration file.")
+                sys.exit()
+            
+            try:
+                network = configParser.get("Base", "Network")
+                logger.info ("Using network: " + network)
+            except ConfigParser.NoOptionError, ConfigParser.NoSectionError:
+                logger.error ("Network cannot be extracted from configuration file.")
+                sys.exit()
+            
+            try:
+                monitoringServer = configParser.get("Services", "MonitoringServer")
+                logger.info ("Using monitoring server: " + monitoringServer)
+            except ConfigParser.NoOptionError, ConfigParser.NoSectionError:
+                monitoringServer = "localhost"
+                logger.info ("Monitoring server cannot be extracted from configuration file. Using: " + monitoringServer)
+    
+    # Get IP address associated with given interface name.
+    addrs = netifaces.ifaddresses(interface)
+    afinet = addrs[netifaces.AF_INET]
+    ipaddress = afinet[0]['addr']
+    
+    # Connect to ZooKeeper server residing at a known IP.
+    # Set session timeout to 5 seconds; so a failure will
+    # be detected in <= 5 seconds.
+    zkClient = KazooClient(hosts=(monitoringServer+":2181"), timeout=5.0)
+
+    # Add connection state listener to know the state
+    # of connection between this client and ZooKeeper
+    # server. 
+    zkClient.add_listener(connection_state_listener)
+    
+    # Start ZooKeeper client/server connection.
+    zkClient.start()
+        
+    # Create root group membership znode if it doesn't
+    # already exist. 
+    zkClient.ensure_path("/group-membership")
+    
+    # Create node-specific ephemeral znode under above created 
+    # root node.
+    node_info = {}
+    node_info["name"] = nodeName
+    node_info["nodeTemplate"] = nodeTemplate
+    node_info["interface"] = interface
+    node_info["network"] = network
+    node_info["address"] = ipaddress
+    node_info_json = json.dumps(node_info)
+    
+    try:
+        zkClient.create("/group-membership/"+ nodeName, node_info_json, ephemeral=True)
+    except NodeExistsError:
+        logger.error ("Node with name: " + nodeName + " already exists!")
+        sys.exit()
+
+    # Endless loop to ensure client is alive in order
+    # to keep associated (ephemeral) znode alive.
+    while True:
+        time.sleep(5)
+
+if __name__=='__main__':
+    global logger
+    logger = get_logger("chariot-nm")
+    main()
