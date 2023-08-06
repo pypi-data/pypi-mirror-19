@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: spec-list-pp
+Version: 1.0.2
+Summary: Simple set of additional operations on lists via a Python class
+Home-page: UNKNOWN
+Author: Petr Pavlu
+Author-email: ppavlu@cisco.com
+License: MIT
+Description: Sample Python class adding few enhancements to list handling operations.
+        It is used mainly for practicing Python code/app packaging.
+Keywords: list operations enhancement
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.4
