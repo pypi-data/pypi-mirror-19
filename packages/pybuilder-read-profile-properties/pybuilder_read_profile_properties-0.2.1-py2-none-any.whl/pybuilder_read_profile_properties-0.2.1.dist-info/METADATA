@@ -1,0 +1,26 @@
+Metadata-Version: 2.0
+Name: pybuilder-read-profile-properties
+Version: 0.2.1
+Summary: PyBuilder Read Profile Properties Plugin
+Home-page: https://github.com/AlexeySanko/pybuilder_read_profile_properties
+Author: Alexey Sanko
+Author-email: alexeycount@gmail.com
+License: Apache License, Version 2.0
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: PyYAML
+
+Please visit https://github.com/AlexeySanko/pybuilder_read_profile_properties for more information!
+
+
