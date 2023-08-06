@@ -1,0 +1,29 @@
+Metadata-Version: 1.1
+Name: testdocker
+Version: 0.2.3
+Summary: Testing for docker containers
+Home-page: https://github.com/joeblackwaslike/testdocker
+Author: Joe Black
+Author-email: joeblack949@gmail.com
+License: Apache 2.0
+Download-URL: https://github.com/joeblackwaslike/testdocker/tarball/0.2.3
+Description: testdocker
+        ~~~~~~~~
+        
+        Maintainer: Joe Black <joeblack949@gmail.com>
+        
+        Repository: https://www.github.com/joeblackwaslike/testdocker
+        
+        Description
+        -----------
+        
+        Unit Testing for docker containers.
+        
+Keywords: docker,docker-compose,testing
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3 :: Only
