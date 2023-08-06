@@ -1,0 +1,8 @@
+future
+mapkit>=1.1.0
+psycopg2
+python-dateutil
+pytz
+requests
+sqlalchemy>=0.7
+timezonefinder
