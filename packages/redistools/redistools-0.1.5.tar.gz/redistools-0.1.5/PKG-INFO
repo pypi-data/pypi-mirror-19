@@ -1,0 +1,39 @@
+Metadata-Version: 1.1
+Name: redistools
+Version: 0.1.5
+Summary: A Redis tools provide python's Lock RLock Semaphore BoundedSemaphore Condition Event Barrier and Queue cross process.
+Home-page: https://github.com/wwqgtxx/RedisTools
+Author: wwqgtxx
+Author-email: wwqgtxx@gmail.com
+License: GNU General Public License v3 (GPLv3)
+Description: RedisTools
+        =================
+        A Redis tools provide python's Lock RLock Semaphore BoundedSemaphore Condition Event Barrier and Queue cross process
+        
+        Quickstart
+        ----------
+        Install the library with ``pip install redistools``.
+        Import the collections from the top-level ``redistools`` package.
+        
+        .. code-block:: python
+        
+            from redistools import RedisManager as Manager
+            manager = Manager()
+            
+        
+        Then use it as a standard multiprocessing.Manager <https://docs.python.org/3/library/multiprocessing.html#multiprocessing.managers.SyncManager>
+        
+        Notice: We didn't provide ``Array`` and ``Value``  in ``RedisManager``
+        
+        © 2016-? wwqgtxx
+        
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Database
