@@ -1,0 +1,44 @@
+Metadata-Version: 2.0
+Name: sparsereg
+Version: 0.1.0
+Summary: Modern sparse linear regression
+Home-page: https://github.com/ohjeah/sparsereg
+Author: Markus Quade
+Author-email: info@markusqua.de
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: numpy
+Requires-Dist: scikit-learn
+Requires-Dist: symfeat
+
+
+sparsereg
+=========
+
+.. image:: https://travis-ci.org/Ohjeah/sparsereg.svg?branch=master
+    :target: https://travis-ci.org/Ohjeah/sparsereg
+.. image:: https://badge.fury.io/py/sparsereg.svg
+    :target: https://badge.fury.io/py/sparsereg
+
+**sparsereg** is a collection of modern sparse (regularized) linear regression algorithms.
+
+
+Features
+--------
+-
+
+Installation
+------------
+
+``pip install sparsereg``
+
+
+Usage
+-----
+
+.. code-block:: python
+
+
