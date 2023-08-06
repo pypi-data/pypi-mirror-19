@@ -1,0 +1,9 @@
+psycopg2>=2.5
+django>=1.9
+djangorestframework>=3.4
+
+[test]
+pytest
+pytest-cov
+flake8
+pyyaml
