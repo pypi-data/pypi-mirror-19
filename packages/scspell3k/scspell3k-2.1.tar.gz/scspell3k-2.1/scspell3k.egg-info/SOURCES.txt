@@ -1,0 +1,17 @@
+COPYING.txt
+MANIFEST.in
+README.rst
+SCOWL-LICENSE.txt
+__main__.py
+setup.py
+scspell/__init__.py
+scspell/__main__.py
+scspell/_corpus.py
+scspell/_portable.py
+scspell/_util.py
+scspell/data/dictionary.txt
+scspell3k.egg-info/PKG-INFO
+scspell3k.egg-info/SOURCES.txt
+scspell3k.egg-info/dependency_links.txt
+scspell3k.egg-info/entry_points.txt
+scspell3k.egg-info/top_level.txt

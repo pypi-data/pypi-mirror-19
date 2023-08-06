@@ -1,0 +1,10 @@
+include __main__.py README.rst COPYING.txt SCOWL-LICENSE.txt MANIFEST.in
+graft scspell
+global-exclude __pycache__ *.pyc
+exclude Makefile
+exclude test.cram
+exclude tox.ini
+exclude tests
+recursive-exclude tests *
+exclude .scspell
+recursive-exclude .scspell *
