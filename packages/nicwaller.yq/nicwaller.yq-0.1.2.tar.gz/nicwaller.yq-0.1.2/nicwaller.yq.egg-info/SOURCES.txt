@@ -1,0 +1,12 @@
+MANIFEST.in
+README.rst
+setup.py
+nicwaller.yq.egg-info/PKG-INFO
+nicwaller.yq.egg-info/SOURCES.txt
+nicwaller.yq.egg-info/dependency_links.txt
+nicwaller.yq.egg-info/entry_points.txt
+nicwaller.yq.egg-info/requires.txt
+nicwaller.yq.egg-info/top_level.txt
+yq/VERSION
+yq/__init__.py
+yq/yq.py
