@@ -1,0 +1,28 @@
+Metadata-Version: 2.0
+Name: pympress
+Version: 1.0
+Summary: A simple dual-screen PDF reader designed for presentations
+Home-page: https://github.com/Cimbali/pympress/
+Author: Cimbali, Thomas Jost, Christof Rath, Epithumia
+Author-email: me@cimba.li
+License: GPLv2
+Download-URL: https://github.com/Cimbali/pympress/releases/latest
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: X11 Applications :: GTK
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)
+Classifier: Natural Language :: English
+Classifier: Natural Language :: French
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Multimedia :: Graphics :: Presentation
+Classifier: Topic :: Multimedia :: Graphics :: Viewers
+Requires-Dist: python-vlc
+
+UNKNOWN
+
+
