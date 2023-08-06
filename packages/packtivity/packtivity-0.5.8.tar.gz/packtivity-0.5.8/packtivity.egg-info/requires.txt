@@ -1,0 +1,13 @@
+requests[security]
+jsonschema
+jsonref
+pyyaml
+functools32
+click
+jq
+jsonpointer
+psutil
+yadage-schemas
+
+[celery]
+celery
