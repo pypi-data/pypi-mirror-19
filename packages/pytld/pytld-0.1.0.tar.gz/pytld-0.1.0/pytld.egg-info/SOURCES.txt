@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README
+setup.cfg
+setup.py
+pytld/__init__.py
+pytld/__init__.pyc
+pytld/cli.py
+pytld/effective_tld_names.dat.txt
+pytld.egg-info/PKG-INFO
+pytld.egg-info/SOURCES.txt
+pytld.egg-info/dependency_links.txt
+pytld.egg-info/entry_points.txt
+pytld.egg-info/requires.txt
+pytld.egg-info/top_level.txt
+tests/__init__.py
+tests/test_tld.py
