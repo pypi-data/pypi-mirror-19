@@ -1,0 +1,11 @@
+setup.cfg
+setup.py
+serial_cog/__init__.py
+serial_cog/registrar.py
+serial_cog.egg-info/PKG-INFO
+serial_cog.egg-info/SOURCES.txt
+serial_cog.egg-info/dependency_links.txt
+serial_cog.egg-info/requires.txt
+serial_cog.egg-info/top_level.txt
+serial_cog/modules/__init__.py
+serial_cog/modules/serial_module.py
