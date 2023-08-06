@@ -1,0 +1,13 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+obur/__init__.py
+obur/cli.py
+obur/conf.py
+obur.egg-info/PKG-INFO
+obur.egg-info/SOURCES.txt
+obur.egg-info/dependency_links.txt
+obur.egg-info/entry_points.txt
+obur.egg-info/requires.txt
+obur.egg-info/top_level.txt
