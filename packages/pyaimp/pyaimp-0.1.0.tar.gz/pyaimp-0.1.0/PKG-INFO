@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: pyaimp
+Version: 0.1.0
+Summary: AIMP remote API wrapper for Python
+Home-page: https://github.com/EpocDotFr/pyaimp
+Author: Maxime "Epoc" G.
+Author-email: contact.nospam@epoc.nospam.fr
+License: DBAD
+Download-URL: https://github.com/EpocDotFr/pyaimp/archive/pyaimp-0.1.0.tar.gz
+Description: Everything you need to know is located `here <https://epocdotfr.github.io/pyaimp/>`_.
+Keywords: aimp remote api wrapper client
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Operating System :: Microsoft :: Windows
