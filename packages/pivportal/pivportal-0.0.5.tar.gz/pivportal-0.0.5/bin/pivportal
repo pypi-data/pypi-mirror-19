@@ -1,0 +1,8 @@
+#!/usr/bin/env python
+from pivportal.cli import Cli
+import sys
+
+if __name__ == "__main__":
+    cli = Cli()
+    cli.run()
+    sys.exit(0)

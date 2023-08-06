@@ -1,0 +1,27 @@
+<div id="actions">
+    <toaster-container></toaster-container>
+    <h2>Authentication Requests</h2>
+    <table id="auth_request_list">
+        <tr>
+            <th>username</th>
+            <th>IP</th>
+            <th>RequestID</th>
+            <th>Authorize Yes/No</th>
+        </tr>
+        <tr ng-repeat="item in auth_requests track by item.requestid">
+            <td>
+                {{item.username}}
+            </td>
+            <td>
+                {{item.client_ip}}
+            </td>
+            <td>
+                {{item.requestid}}
+            </td>
+            <td>
+                <a ng-click="authorize_request(item.username, item.requestid, item.client_ip, true)" href="">yes!</a> /
+                <a ng-click="authorize_request(item.username, item.requestid, item.client_ip, false)" href="">no!</a>
+            </td>
+        </tr>
+    </table>
+</div>
