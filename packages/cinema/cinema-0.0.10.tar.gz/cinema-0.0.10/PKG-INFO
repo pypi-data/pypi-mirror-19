@@ -1,0 +1,67 @@
+Metadata-Version: 1.1
+Name: cinema
+Version: 0.0.10
+Summary: Everything about Cinema!
+Home-page: https://github.com/meysammahfouzi/cinema
+Author: Meysam Mahfouzi, Majid Hajiloo
+Author-email: maysam.mahfouzi@gmail.com, majid.hajiloo@gmail.com
+License: MIT
+Download-URL: https://github.com/meysammahfouzi/cinema/tarball/0.0.10
+Description: .. image:: https://travis-ci.org/meysammahfouzi/cinema.svg?branch=master
+            :target: https://travis-ci.org/meysammahfouzi/cinema
+        .. image:: https://coveralls.io/repos/github/meysammahfouzi/cinema/badge.svg?branch=master
+            :target: https://coveralls.io/github/meysammahfouzi/cinema?branch=master
+        
+        Cinema
+        ------
+        This python scripts retrieves all the information of a movie given its title.
+        The following web sites are used to retrieve the rating of movies:
+        
+        - IMDB 
+        - RogerEbert 
+        - Metacritic
+        
+        Currently only IMDB is supported but the support for the rest will be added soon.
+        
+        Installation
+        ------------
+            pip install cinema
+        
+        or locally:
+        
+            python setup.py install
+        
+        Usage:
+        ------
+        After installing the package, you can use the following command to retrieve the information of a movie.
+        Note that you do not need to specify the movie's exact name.
+        
+            watch-movie {MOVIE_NAME}
+        
+        Example:
+        
+            watch-movie 'a separation'
+        
+        or  
+        
+            watch-movie 'redemption'
+        
+        In case there are multiple versions of a movie, you can specify the production year too:
+        
+            watch-movie 'The Lord of the Rings' 2002
+Keywords: movie,rating,imdb,film,cinema,actor,metascore,tomatometer
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
