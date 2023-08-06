@@ -1,0 +1,13 @@
+setup.py
+arduino_cog/__init__.py
+arduino_cog/registrar.py
+arduino_cog.egg-info/PKG-INFO
+arduino_cog.egg-info/SOURCES.txt
+arduino_cog.egg-info/dependency_links.txt
+arduino_cog.egg-info/requires.txt
+arduino_cog.egg-info/top_level.txt
+arduino_cog/modules/__init__.py
+arduino_cog/modules/arduino_altitude_module.py
+arduino_cog/modules/arduino_heading_module.py
+arduino_cog/modules/arduino_location_module.py
+arduino_cog/modules/arduino_module.py
