@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+
+{% load mezzanine_tags comment_tags keyword_tags rating_tags i18n disqus_tags %}
+
+{% block meta_title %}{{ portfolio_post.meta_title }}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+{% keywords_for portfolio_post as tags %}
+{% for tag in tags %}{% if not forloop.first %}, {% endif %}{{ tag }}{% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+{{ portfolio_post.description }}
+{% endmetablock %}{% endblock %}
+
+{% block main %}
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-8 col-md-push-2">
+                <div class="row">
+                    <div class="col-xs-12">
+                        {% editable portfolio_post.title %}
+                        <h1>{{ portfolio_post.title }}</h1>
+                        {% endeditable %}
+                    </div>
+                    
+                    <!--<div class="col-xs-6">
+                        <p>{% blocktrans with sometime=portfolio_post.publish_date|timesince %}{{ sometime }} ago{% endblocktrans %}</p>
+                    </div>-->
+
+                    {% block portfolio_post_detail_sharebuttons %}
+                    <div class="col-xs-6 col-xs-push-6 text-right">
+                        <div class="addthis_inline_share_toolbox_iyiz"></div>
+                        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-585c56a4963644a1"></script>
+                    </div>
+                    {% endblock %}
+                </div>
+                <div class="row">
+                    {% block portfolio_post_detail_content %}
+                    <div class="col-xs-6">
+                    {% editable portfolio_post.content %}
+                    {{ portfolio_post.content|richtext_filters|safe }}
+                    {% endeditable %}
+                    </div>
+                    {% endblock %}
+                        
+                    {% block portfolio_post_detail_gallery %}
+                    <div class="col-xs-6">
+                        <div class="row popup-gallery">
+                            {% block portfolio_post_detail_featured_image %}
+                            {% if settings.BLOG_USE_FEATURED_IMAGE and portfolio_post.featured_image %}
+                            <div class="col-xs-6">
+                                <a href="{{ MEDIA_URL }}{{portfolio_post.featured_image}}" title="The Cleaner">
+                                    <img class="img-responsive img-main" src="{{ MEDIA_URL }}{% thumbnail portfolio_post.featured_image 200 200 %}">
+                                </a>
+                            </div>
+                            {% endif %}
+                            {% endblock %}
+                                
+                            {% block portfolio_post_detail_images %}
+                            {% if portfolio_post.images %}
+                            <div class="col-xs-6">
+                                {% for image in portfolio_post.images.all %}
+                                <a href="{{ MEDIA_URL }}{{image.file}}" title="The Cleaner">
+                                    <img class="img-responsive img-main" src="{{ MEDIA_URL }}{% thumbnail image.file 200 200 %}">
+                                </a>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            {% endblock %}
+                        </div>
+                    </div>
+                    {% endblock %}
+                </div>
+                <div class="row">
+                    <!--{% block portfolio_post_detail_author %}
+                    <div class="col-xs-12">
+                        {% trans "Posted by" %}:
+                        {% with portfolio_post.user as author %}
+                        <a href="{% url "portfolio_post_list_author" author %}">{{ author.get_full_name|default:author.username }}</a>
+                        {% endwith %}
+                    </div>
+                    {% endblock %}-->
+                    
+                    {% block portfolio_post_detail_categories %}
+                    {% with portfolio_post.categories.all as categories %}
+                    {% if categories %}
+                    <div class="col-xs-12">
+                        {% trans "Categories" %}
+                        {% for category in categories %}
+                        <a href="{% url "portfolio_post_list_category" category.slug %}">{{ category }}</a>{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% endwith %}
+                    {% endblock %}
+                    
+                    {% block portfolio_post_detail_keywords %}
+                    {% keywords_for portfolio_post as tags %}
+                    {% if tags %}
+                    <div class="col-xs-12">
+                        {% spaceless %}
+                        <ul class="list-inline tags">
+                            <li>{% trans "Tags" %}:</li>
+                            {% for tag in tags %}
+                            <li><a href="{% url "portfolio_post_list_tag" tag.slug %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endspaceless %}
+                    </div>
+                    {% endif %}
+                    {% endblock %}
+                    
+                    <!--{% block portfolio_post_detail_rating %}
+                    <div class="col-xs-12">
+                        <div class="panel panel-default rating">
+                            <div class="panel-body">
+                            {% rating_for portfolio_post %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endblock %}-->
+                    
+                    {% block portfolio_post_previous_next %}
+                    <div class="col-xs-12">
+                        <ul class="pager">
+                        {% with portfolio_post.get_previous_by_publish_date as previous %}
+                        {% if previous %}
+                        <li class="previous">
+                            <a href="{{ previous.get_absolute_url }}">&larr; {{ previous }}</a>
+                        </li>
+                        {% endif %}
+                        {% endwith %}
+                        {% with portfolio_post.get_next_by_publish_date as next %}
+                        {% if next %}
+                        <li class="next">
+                            <a href="{{ next.get_absolute_url }}">{{ next }} &rarr;</a>
+                        </li>
+                        {% endif %}
+                        {% endwith %}
+                        </ul>
+                    </div>
+                    {% endblock %}
+                        
+                    {% block portfolio_post_detail_related_posts %}
+                    {% if related_posts %}
+                    <div class="col-xs-12">
+                        <h2>{% trans 'Related posts' %}</h2>
+                        <ul class="list-unstyled">
+                            {% for post in related_posts %}
+                            <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    {% endblock %}
+                    
+                    {% block portfolio_post_detail_comments %}
+                    {% if portfolio_post.allow_comments %}
+                    {% comments_for portfolio_post %}
+                    {% endif %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
