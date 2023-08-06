@@ -1,0 +1,22 @@
+CHANGES
+=======
+
+0.0.2
+-----
+
+* set user-agent on requests
+* resolve local URLs with escapes, hash, query correctly
+* TODO: test self
+* add some TODO
+
+0.0.1
+-----
+
+* universal wheel
+* a bit in the README
+* test notebook
+* add plugin
+* add requirements
+* ignore pbr files
+* init package
+* Initial commit
