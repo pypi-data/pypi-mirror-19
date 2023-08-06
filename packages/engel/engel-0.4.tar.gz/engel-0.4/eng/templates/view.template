@@ -1,0 +1,10 @@
+from engel import View
+from engel.widgets import Title
+
+
+class {{ viewCamelCase }}(View):
+
+    title = "{{ viewTitle }}"
+
+    def build(self):
+        Title(id='main-title', text="{{ viewCamelCase }} works!", parent=self.root)
