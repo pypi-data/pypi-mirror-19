@@ -1,0 +1,3 @@
+include lib_fabric_dreamhost/templates/.bash_profile
+include lib_fabric_dreamhost/templates/newrelic.ini
+include lib_fabric_dreamhost/templates/passenger_wsgi.py

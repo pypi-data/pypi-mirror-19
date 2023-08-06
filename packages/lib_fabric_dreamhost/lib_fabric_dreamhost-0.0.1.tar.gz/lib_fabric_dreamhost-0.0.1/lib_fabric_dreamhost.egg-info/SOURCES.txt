@@ -1,0 +1,16 @@
+MANIFEST.in
+setup.cfg
+setup.py
+lib_fabric_dreamhost/__init__.py
+lib_fabric_dreamhost/bootstrap.py
+lib_fabric_dreamhost/deploy.py
+lib_fabric_dreamhost/helpers.py
+lib_fabric_dreamhost.egg-info/PKG-INFO
+lib_fabric_dreamhost.egg-info/SOURCES.txt
+lib_fabric_dreamhost.egg-info/dependency_links.txt
+lib_fabric_dreamhost.egg-info/not-zip-safe
+lib_fabric_dreamhost.egg-info/requires.txt
+lib_fabric_dreamhost.egg-info/top_level.txt
+lib_fabric_dreamhost/templates/.bash_profile
+lib_fabric_dreamhost/templates/newrelic.ini
+lib_fabric_dreamhost/templates/passenger_wsgi.py
