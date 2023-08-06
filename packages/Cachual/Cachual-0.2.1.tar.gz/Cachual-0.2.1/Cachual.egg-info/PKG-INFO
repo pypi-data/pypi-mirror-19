@@ -1,0 +1,29 @@
+Metadata-Version: 1.1
+Name: Cachual
+Version: 0.2.1
+Summary: Simple annotation-based caching for your functions
+Home-page: https://github.com/bal2ag/cachual
+Author: Alex Landau
+Author-email: balexlandau@gmail.com
+License: BSD
+Description: 
+        Cachual
+        -------
+        
+        Cachual is a simple library that makes it easy to cache the return values from
+        your python functions with an annotation::
+        
+            cache = RedisCache()
+            
+            @cache.cached(ttl=900)
+            def is_user_valid(user_id):
+                ...
+        
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
