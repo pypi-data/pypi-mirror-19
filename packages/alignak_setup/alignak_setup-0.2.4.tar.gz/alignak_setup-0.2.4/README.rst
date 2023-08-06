@@ -1,0 +1,140 @@
+Alignak setup utilities
+=======================
+
+*Utility functions to build checks packages setup.*
+
+
+This package is deprecated and should not be used anymore for the installation of the alignak checks packs and modules !
+-------------
+
+
+
+Release notes
+-------------
+
+    **Version 0.2.2:**
+    * allow installing from Python 2.6 (no more exit on Python > 2.6)
+    * parse all files in the `ALIGNAKETC` sub-directory for Alignak variables
+
+    **Version 0.1.2:**
+
+    * first published version
+
+
+Installation
+------------
+
+To install the package from PyPI:
+::
+
+   pip install alignak-setup
+
+
+Packager features
+-----------------
+
+This module implements interesting features for the Alignak packager:
+
+File parsing
+~~~~~~~~~~~~
+
+If your Alignak checks package or module needs to adapt configuration files to the real system Alignak setup, you can define a sub-directory named `ALIGNAKETC`. The content of this sub-directory will be copied (during installation process...) in the real Alignak *etc* directory of the target system.
+
+In addition, all the files in this sub-directory will be included in the `to_be_parsed_files` list. The default setup process parses this list of file to replace variables with their real value found in the current Alignak installation. See the result of the `get_alignak_cfg` function for this list of variables
+
+The most usual need for this is to get the real Alignak configuration or log directory. If it exists, in your package, a file named *ALIGNAKETC/arbiter/modules/mod-example.cfg* and if this file contains::
+
+    ## Module:      example
+    ## Loaded by:   Broker
+
+    define module {
+        module_alias            example
+        python_name             alignak_module_example
+
+        # Log filename
+        log_file               ALIGNAKLOG/my_logs.log
+
+        # Extra configuration
+        cfg_file               ALIGNAKETC/arbiter/modules/my_conf.cfg
+    }
+
+ this file will be copied to */usr/local/etc/alignak/arbiter/modules/mod-example.cfg* and its content will be parsed to replace Alignak variables. The result will be::
+
+    ## Module:      example
+    ## Loaded by:   Broker
+
+    define module {
+        module_alias            example
+        python_name             alignak_module_example
+
+        # Log filename
+        log_file               /usr/local/var/log/alignak/my_logs.log
+
+        # Extra configuration
+        cfg_file               /usr/local/etc/alignak/arbiter/modules/my_conf.cfg
+    }
+
+
+
+
+File replacement and backup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+As a default behaviour, the files to be installed that are already existing will not be replaced.
+
+To change the default behaviour, you can set an environment variable: `ALIGNAK_SETUP_REPLACE`. If this variable exists, the former existing files will be replaced with the new package files.
+
+If you set an environment variable: `ALIGNAK_SETUP_BACKUP`. The replaced files will be backed-up with an installation date timestamp. This to avoid deleting former configuration files...
+
+
+Documentation
+-------------
+
+This package contains utility functions to be used in the *setup.py* installation scripts of Alignak checks packages.
+
+**Note** that the default *setup.py* do not need to be changed because it implements a default behavior suitable for almost any Alignak checks package or module installer.
+
+get_alignak_cfg
+~~~~~~~~~~~~~~~
+This function gets the locally installed Alignak directories to be used. It returns a dictionary containing the main Alignak installation information.
+::
+
+    alignak_cfg = {
+        'ALIGNAKETC': '/usr/local/etc/alignak',
+        'ALIGNAKVAR': '/usr/local/var/lib/alignak',
+        'ALIGNAKBIN': '/usr/local/bin',
+        'ALIGNAKRUN': '/usr/local/var/run/alignak',
+        'ALIGNAKLOG': '/usr/local/var/log/alignak',
+        'ALIGNAKLIB': '/usr/local/var/libexec/alignak',
+        'ALIGNAKUSER': 'alignak',
+        'ALIGNAKGROUP': 'alignak'
+    }
+
+
+get_files
+~~~~~~~~~
+This function returns the list of files concerned by the installation process. The result is a tuple containing:
+
+    - `data_files`, a list of the data files detected in the current package. Each item in this list is formatted as Python setup.py expects for its data_files variable (eg. local package file, target file)
+    - `to_be_parsed_files`, an array of files that will be parsed for Alignak variables. Each item in this list is a tuple with target directory and file name.
+    - `to_be_installed_files`, an array of files that will be installed. Each item in this list is a tuple with target directory and file name.
+
+When calling this function for the setup of an Alignak module, you must specify the *module* parameter when calling the function.
+
+If the module has a sub-directory named `ALIGNAKETC`, the content of this sub-directory will be copied (during installation process...) in the real Alignak *etc* directory of the target system. All the files in this sub-directory will also be included in the `to_be_parsed_files` list.
+
+get_to_be_installed_files
+~~~~~~~~~~~~~~~~~~~~~~~~~
+This function returns the list of the files that will be really copied during the installation process.
+
+As a default behaviour, the files to be installed that are already existing will not be replaced. The default behaviour can be changed thanks to the environment variables: `ALIGNAK_SETUP_REPLACE` and `ALIGNAK_SETUP_BACKUP`.
+
+parse_files
+~~~~~~~~~~~
+This function iterates the provided list of files and replace the foud Alignak variables by their real value. This is very useful to update a default script or macro with the real Alignak installation existing on the target system.
+
+Bugs, issues and contributing
+-----------------------------
+
+Contributions to this project are welcome and encouraged ... issues in the `project repository <https://github.com/alignak-monitoring-contrib/alignak-setup/issues>`_ are the common way to raise an information.
+

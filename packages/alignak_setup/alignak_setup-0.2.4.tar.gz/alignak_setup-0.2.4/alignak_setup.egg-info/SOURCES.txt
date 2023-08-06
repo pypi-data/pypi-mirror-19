@@ -1,0 +1,11 @@
+MANIFEST.in
+README.rst
+setup.py
+version.py
+alignak_setup/__init__.py
+alignak_setup/tools.py
+alignak_setup.egg-info/PKG-INFO
+alignak_setup.egg-info/SOURCES.txt
+alignak_setup.egg-info/dependency_links.txt
+alignak_setup.egg-info/not-zip-safe
+alignak_setup.egg-info/top_level.txt
