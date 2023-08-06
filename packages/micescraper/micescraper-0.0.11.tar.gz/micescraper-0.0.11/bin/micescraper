@@ -1,0 +1,47 @@
+#!/usr/bin/env python2.7
+
+try:
+  activate_this = './bin/activate_this.py'
+  execfile(activate_this, dict(__file__=activate_this))
+except:
+  pass
+
+
+import os
+import click
+from micescraper import scrape_applicant_id, scrape_listApplicants
+
+@click.command()
+@click.argument("username")
+@click.argument("password")
+@click.option("--url", help="URL of applicant list page", default=None)
+@click.option("--cid", help="Candidate id", default=None)
+@click.option("--outdir", help="output directory", default="downloads")
+@click.option("--apponly", "-a", is_flag=True, help="Only download consolidated pdf.  Else downloads individual documents.", default=False)
+@click.option("--skipifexists", "-s", is_flag=True, help="If consolidated PDF exists, then skip applicant", default=False)
+def main(username, password, url, cid, outdir, apponly, skipifexists):
+  """
+  Will download pdfs into ./downloads/ in the current dir
+  Args:
+
+    MICE username
+
+    MICE password
+  """
+  try:
+      os.makedirs(outdir)
+  except:
+      pass
+  kwargs = dict(
+    apponly=apponly, 
+    skipifexists=skipifexists
+  )
+  if url is not None:
+    scrape_listApplicants(url, username, password, outdir, **kwargs)
+  if cid is not None:
+    scrape_applicant_id(cid, username, password, outdir, **kwargs)
+  
+
+if __name__ == '__main__':
+  main()
+
