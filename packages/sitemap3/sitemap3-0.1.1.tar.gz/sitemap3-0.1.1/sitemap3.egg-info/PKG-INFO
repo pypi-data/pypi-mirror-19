@@ -1,0 +1,55 @@
+Metadata-Version: 1.1
+Name: sitemap3
+Version: 0.1.1
+Summary: An async command line utility for generating a sitemap within a text file
+Home-page: https://github.com/konstantinfarrell/sitemap3
+Author: Konstantin Farrell
+Author-email: konstantinfarrell@gmail.com
+License: MIT
+Description: [![Build Status](https://travis-ci.org/konstantinfarrell/sitemap3.svg?branch=develop)](https://travis-ci.org/konstantinfarrell/sitemap3)
+        [![Coverage Status](https://coveralls.io/repos/github/konstantinfarrell/sitemap3/badge.svg?branch=develop)](https://coveralls.io/github/konstantinfarrell/sitemap3?branch=develop)
+        
+        # Sitemap3
+        
+        Sitemap3 is an async sitemap generation utility written in Python 3.5.
+        It currently generates a list of urls and either outputs them or writes them to a file.
+        
+        ## Install
+        
+            pip install sitemap3
+        
+        or
+        
+            git clone git@github.com:konstantinfarrell/sitemap3.git
+            cd sitemap3
+            python setup.py install
+        
+        Don't forget a virtualenv
+        
+        ## Usage
+        
+        From the shell
+        
+            sitemap --u <url>
+            sitemap --u <url> --w <output>
+        
+        Within a script
+        
+            from sitemap import sitemap
+        
+            url = 'https://konstantinfarrell.github.io'
+            results = sitemap(url)
+        
+        ## TODO
+        
+        - Add xml support
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Utilities
+Classifier: Topic :: Internet
