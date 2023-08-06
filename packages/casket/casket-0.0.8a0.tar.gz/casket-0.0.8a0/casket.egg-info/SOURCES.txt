@@ -1,0 +1,17 @@
+setup.cfg
+setup.py
+casket/__init__.py
+casket/callback.py
+casket/db.py
+casket/experiment.py
+casket/git.py
+casket/sftp_storage.py
+casket/utils.py
+casket.egg-info/PKG-INFO
+casket.egg-info/SOURCES.txt
+casket.egg-info/dependency_links.txt
+casket.egg-info/requires.txt
+casket.egg-info/top_level.txt
+casket/nlp_utils/__init__.py
+casket/nlp_utils/corpus.py
+casket/nlp_utils/indexer.py
