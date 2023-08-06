@@ -1,0 +1,7 @@
+Sphinx
+sphinx_rtd_theme
+tox>=2.0.0
+mock
+pytest
+pytest-cache
+python-vagrant>=0.5.0
