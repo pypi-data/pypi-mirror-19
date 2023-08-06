@@ -1,0 +1,27 @@
+Metadata-Version: 1.1
+Name: spec_checker
+Version: 0.0.2
+Summary: Tool for checking textual requirement/design specifications
+Home-page: https://github.com/ftrader/spec_checker
+Author: freetrader
+Author-email: freetrader@tuta.io
+License: AGPLv3+
+Description: This tool checks textual requirement/design specifications
+        like the one being developed at:
+        https://github.com/BTCfork/bitcoinfork-collaborative-spec 
+        for consistency.
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Documentation
+Classifier: Topic :: Software Development :: Quality Assurance
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Installation/Setup
+Classifier: Topic :: System :: Software Distribution

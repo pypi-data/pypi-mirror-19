@@ -1,0 +1,3 @@
+[console_scripts]
+spec-checker = spec_checker.main:entry_point
+
