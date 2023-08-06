@@ -1,0 +1,3 @@
+[console_scripts]
+queue_hlatype_status = queue_hlatype_status.__main__:main
+
