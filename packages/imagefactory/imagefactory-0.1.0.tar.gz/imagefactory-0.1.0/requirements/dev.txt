@@ -1,0 +1,11 @@
+pip
+wheel
+watchdog
+flake8
+cryptography
+PyYAML
+
+bumpversion
+#versioneer
+check-manifest
+twine

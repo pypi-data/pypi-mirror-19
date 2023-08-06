@@ -1,0 +1,15 @@
+
+include AUTHORS.rst
+
+include CONTRIBUTING.rst
+include HISTORY.rst
+include LICENSE
+include README.rst
+
+recursive-include requirements *
+recursive-include imagefactory *
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+
+recursive-include docs *
+recursive-exclude docs/_build *

@@ -1,0 +1,6 @@
+## Testing
+tox
+pytest
+coverage
+pytest-cov
+hypothesis
