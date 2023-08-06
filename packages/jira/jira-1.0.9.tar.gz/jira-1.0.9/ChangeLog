@@ -1,0 +1,260 @@
+CHANGES
+=======
+
+1.0.9
+-----
+
+* Fixed missing .egg_base in source distribution
+* Enabled codecov.io and hidden coveralls.io
+
+1.0.8
+-----
+
+* travis.yml cleanup
+* Printing the version
+* Enabled builds on all branches
+* Removed hardcoded version from setup.cfg
+* tests: made project re-creation less likely to fail
+* Changed delete version to return json response
+* Added 401 return code to retriable ones due to Atlassian Cloud weird responses
+* Fixed travis config as travis-after-all is now embeded into tox-travis
+* tests: made fixtures and tests less likely to fail
+* Enabled py36 for Travis
+* tests: marked test_delete_project as xfail
+* api: add_user_to_group can now return False on failures
+* Enabled py36 target on travis
+* Adopted used of tox-travis
+* tests: marking test_add_user_to_group as xfail to unexpected API response
+* tests: kill_websudo to be ignored on cloud deployment
+* Enabled @flaky for all test classes
+* Addressed flaky Travis parallel test execution by adding a retry mechanism
+* linting fixes
+* Enabled flakey for problematic tests
+* travis concurrency fixes
+* Improved travis build stability
+* properly import input function from six. see #316
+* Design fixes for bulk create support
+* Support for bulk issue creation
+* Add support for delete_attachment
+* When search_issues() should return json maxResults is ignored
+* README: Fix formatting and tweak wording of the Development section
+* Fixed #256 - documented branches
+* Fix for issue #294 - Can't fetch all sprints
+* jira cloud has migrated attachments to a more restrictive to a persnickety web service that demands correct Accept headers.  It currently return a HTTP 406 error.  This change resolves the issue
+* Removing deprecated Agile-related methods
+* Do not fail when a searched issue has no fields
+* Adopted pbr and hacking
+* Small typo fix in incompleted_issues method
+* Resize images in README.rst
+* Fixed Citrix Logo image URL
+* Job id prefix (jid) is now using travis numbers, shoudl work for PRs too
+
+1.0.7
+-----
+
+* Fixed test execution
+* Fix sphinx documentation not rendered correctly
+* flake8 fix for FileNotFoundError and added gitreview file
+* Use context processor for opening files
+* made kerberos mutual auth optional as not all servers support this
+* We shouldn't create files unless we're told to do so
+* params object for _fetch_pages should not contain maxResults
+* Removed tlslite requirement completly
+* Temporarly removed gitchangelog and enabled s3 upload of artefacts
+* tried to preinstall requirements on travis
+* Downgrated wheel version requirement
+* Fixed detection of package name and version for Travis
+* Updated requirements
+* Adding a test for #214
+* Fixes #214
+* Moved more build logic into Makefile
+* Removed partial init of JiraTestManager as this breaks a lot of tests
+* Added named parameter to skip test project creation
+* Fixed delete_project and added tests for it
+* removed cloud options from backup methods in favor of checking for deploymentType in server_info.  Also made backup_download a bit more efficient by using streaming.  Fixes Issue #234
+* removed cloud options from backup methods in favor of checking for deploymentType in server_info.  Also made backup_download a bit more efficient by using streaming
+* Configured to use autopep8 as a module in order to work with venvs
+* Removed Python 2.6
+* Assured that we use stdout/stderr capture and a flake8 fix
+* add ability to use request session proxy functionality
+* Do not check for a newer version of the software by default
+* Change http://pypi.python.org to https://pypi.python.org
+* Fixes to get 'python setup.py develop' working
+* Do not use Make for running tests, seems to cause timeout
+* Fix mock data setup
+* Fix tox errors for py2.7
+* Improve auto-generated changelog
+* Resolves issue #221, 'Allow for deactivating users'
+* Added template_name parameter to create_project to be able to specify template directly, and fix issues where function cannot find suitable project name
+* Fix #194 Exception AttributeError: "'NoneType' object has no attribute 'version_info'"
+* Delete Issue Link Bug Fix
+* Fix #157
+* Add documentation for attachments
+* Add documentation for watchers
+* Added docset building to the documentation build
+* Adopted django versioning implementaion
+* Added virtualenv usage to Makefile
+* Sorted the project name duplication error with the tests
+* Simplified setup Exception code in tests
+* Attempt to keep py26 compatibility
+* Log JiraError details on console for Travis
+* Removed requests-kerberos requirements as it was breaking docs
+* Fixed assert in test_search_users_maxresults
+* updated and moved requirements into one place
+* ci maintenance
+* Added requires.io badge
+* Resolved #137 by removing the check for project key from the client app
+* Update index.rst
+* Switched to local travis_after_all.py
+* flake8 fixes
+* travis: Remove `on` inside afte_deploy as is not supported
+* Fixed two broken tests and many other warnings
+* Attempt to fix travis publishing and the missing URLs for the uploaded releases. Also should start uploading dev release to pypitest
+* Allows us to call delete_project() with Project object instance
+* Experimental change for testing error handling
+* Fixed linting and enabled build of develop branch pn travis
+* Fix #170 : use default 'hidden' email address when Jira server setting for showing email is hidden
+* Added docs badge
+* Make the sections numbered again
+* Add section headers for each class in the API docs
+* Split up documentation into multiple pages
+* flake8 fixes (lots)
+* Adds move_to_backlog from the agile API
+* add missing issues report methods
+* used to get xml in response to backup progress, now getting json
+* added functionality for backing up from Cloud version
+* Auto-generating release notes
+* Auto-generating release notes
+* Auto-generating release notes
+* Tried to make release 1.0.6
+* Improved release.sh
+
+1.0.5
+-----
+
+* Auto-generating release notes
+
+1.0.4
+-----
+
+* Auto-generating release notes
+* Auto-generating release notes
+* Auto-generating release notes
+* Auto-generating release notes
+* Auto-generating release notes
+* Auto-generating release notes
+* Auto-generating release notes
+* Auto-generating release notes
+* remove wrong parameter in release.sh
+* test rsa key
+* Changed linkId to id for consistency
+* Correcting tabs vs spaces
+* Adding functionality to allow deletion of issue links
+* Adds support for Kerberos auth
+* Updated PyCharm logo as they also removed the old one when they rebranded it
+* Configured minimal versions for pep8 related packages
+* fixed the version check for invalid request
+* Logged the initial JSON response for templates when they do not contain the expected format. This should help us identify what happens while running tests on Travis
+* changed api version calls to use "latest" instead of 2
+* resolves issue where incompleted_issues() was failing for missing key; 'incompletedIssues' corrected to 'issuesNotCompletedInCurrentSprint'
+* Should fix the inconsistent failures with watchers tests
+* Swiched back to the use of logging module directly instead of a variable
+* Implemented a special retry mechanism for serverInfo REST call in order to workaround bug https://jira.atlassian.com/browse/JRA-59676
+* Repaired delete_project() as it seems not to be working on JIRA 6.x
+* Fixed few others broken unittests
+* Reworked the way we log warnings and errors, now we use the named logger "jira"
+* Removed duplicate python versions from setup.py
+* Removed pypi version badge as is useless
+* More unittest fixes, now they should finally pass after months of having many of them broken
+* Implemented __eq__ for Version resource
+* Fixed many of the broken unittests. Disabled some uneeded logging for running unittests
+* Badge cleanup
+* Request JSON payloads to avoid the problem described in https://jira.atlassian.com/browse/JRA-38551
+* assign_issue() now returns errors
+* Linting plus initial work on enabling local testing using the atlassian-sdk
+* (Minor) Fix UniversalResourceTests.test_pickling_resource() - Work with the raw dict instead of pickling the whole resource and running into issues with PropertyHolder
+* (#158) Fix initialisation of resources.Issue when raw is passed in
+* Fix conflict markers from merge
+* clean up string detection: string_types
+* remove superfluous self parameter
+* Exclude tests working with users - not understood why they fail now
+* Skip tests that rely on specifics of the standard Jira if a non-standard Jira is used
+* Add correct treatment of "issuetype" parameter
+* Fix whitespace and allow for python3
+* Fix call of Resource._get_url()
+* Adapt project template search to new structure
+* Fixed problems found during tests execution
+* Fixed bugs found in new JIRA API
+* Added option for ignoring existing users on user_add
+* Add new option 'agile_rest_path', which may be used to select new public JIRA Agile API
+* Small improvements
+* Added JIRA._fetch_pages function and used it in all functions using pagination and extended ResultList class
+* bump version
+* cover python 3.5
+* py3 compatible string test
+* redundant if test in split
+* test for clauseNames presence
+* items for py3 compat
+* Added type hints to Issue class
+* Update release.sh
+* Fix setup.py's setup_requires and requirements.txt
+* Move optional filemagic line to requirements-opt
+* Do not try to recover if we're not going to do the retry
+* Do not run prerelease as part of the standard test run. Instead run it after inside after_success
+* Restore missing delay in ResilientClient and & implement exponentional backoff
+* gh-global-rank field is obsolete
+* Ensure JIRA class has _rank field
+
+1.0.3
+-----
+
+* Fix #93: ability to retrieve custom fields by their JQL names
+* Websudo fix when used with .netrc files
+* Added support for the type parameter on create_project, as this is required for JIRA 7
+* Moved JIRAError to exceptions
+* moved raise_on_error to resilientsession
+* documentation improvements, fixed one test
+* fixed #123 by enabling change of sprint state
+* removed dead code
+* HOTFIX in test; pass two elements into set properly
+* Fix typo
+* Add __hash__ and __eq__ methods to User class to allow user objects to be added to a Set correctly
+* Fixup: Correctly cope with Requests object truthiness..
+* Bugfixes for ResilientSession retry logic
+* Issue 118 Add ability to send email notification when creating a new user
+* Python > 3.1 do not need `ordereddict` package
+* Change test to use simple regex
+* Update self.issue_1.key to self.issue_1
+* Update test and assert to use arrays
+* Fix typo with assigning false boolean
+* Add unit test for adding issue to sprint
+* Refactor method of retrieving custom field info
+* Issue 112 - sendEmail kwarg doesn't work when calling add_user method
+* Fix typo in list comprehension
+* Minor fixes to jirashell issues #100, #102, and #66, and tweaks fix from d5856742771890ad18165197f6bc7eb3ff8cd086. The oauth_dance and print_tokens options specified in jirashell.ini configuration file are now correctly parsed as boolean values and OAuth with pre-authenticated access_token and access_token_secret (skipping oauth_dance) is fixed. OAuth options are now minimally validated for completeness, so #66 is fixed, allowing for basic_auth without causing issue #102 as the merged commit d5856742771890ad18165197f6bc7eb3ff8cd086 did previously
+* Fixed #88 so now groups are returned as a sorted list of strings
+* Fix issue #100 - The problem is that 'oauth_dance' should be an optional option argument, if it is not set, or if it is set to false, a valid use case still exists where OAuth should be used if the user supplies access_token and access_token_secret through command line or configuration file options. This would be the case if the user had already authenticated externally with OAuth and had valid, authenticated tokens to pass to jirashell
+
+1.0.1
+-----
+
+* Attempt to fully automate the release and tagging of git based on what is released
+* Attempt to fully automate the release and tagging of git based on what is released
+
+0.50
+----
+
+* Enabled new travis builders as we do not need sudo. Fixed iteritems() which doesn't work anymore with py34. Increased version to v0.50
+
+0.49
+----
+
+* Attempt to fix the unittest and to eliminate warnings from the test executions
+* Fix jirashell.py for non-oauth authentication
+* Don't always set oauth flag, to prevent oauth mode from always being enabled, even if basic auth is requested
+* Minor change to cause a new build to be triggered
+
+0.48.1
+------
+
+* Bumping patch version number to 0.48.1

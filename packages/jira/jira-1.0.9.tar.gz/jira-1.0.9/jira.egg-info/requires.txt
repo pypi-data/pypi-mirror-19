@@ -1,0 +1,13 @@
+pbr
+requests-oauthlib>=0.6.1
+requests>=2.10.0
+requests_toolbelt
+setuptools>=20.10.1
+six>=1.10.0
+defusedxml
+
+[:(python_version < '3.1')]
+ordereddict
+
+[:(python_version < '3.2')]
+argparse
