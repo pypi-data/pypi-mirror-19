@@ -1,0 +1,42 @@
+Metadata-Version: 1.1
+Name: aure
+Version: 0.0.1
+Summary: util for auto reload failed shell command
+Home-page: https://github.com/shidenggui/aure
+Author: shidenggui
+Author-email: longlyshidenggui@gmail.com
+License: BSD
+Description: 
+        aure
+        ===============
+        
+        *  util for auto reload failed shell command Edit
+        
+        
+        Installation
+        --------------
+        
+        pip install aure
+        
+        Upgrade
+        ---------------
+        
+            pip install aure --upgrade
+        
+        Quick Start
+        --------------
+        
+        ::
+            aure your shell command
+        
+        
+Keywords: shell autoreload
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: License :: OSI Approved :: BSD License
