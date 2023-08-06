@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2016-09-29 10:38+0000\n"
+"PO-Revision-Date: 2016-11-16 11:21+0100\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: de\n"
+"Language-Name: German\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de\n"
+"X-Generator: Poedit 1.8.8\n"
+
+#: ../vocabularies.py:20
+msgid "Contacts"
+msgstr "Kontakte"
+
+#: ../browser/subtyper.py:83
+msgid "Contacts actions disabled"
+msgstr "Kontakte Aktionen deaktiviert"
+
+#: ../browser/subtyper.py:77
+msgid "Contacts actions enabled"
+msgstr "Kontakte Aktionen aktiv"
+
+#: ../browser/actions/delete.py:15
+msgid "Delete selected contacts"
+msgstr "Ausgewählte Kontakte löschen"
+
+#: ../browser/actions/delete.py:75
+msgid "Delete this contact"
+msgstr "Diesen Kontakt löschen"
+
+#: ../profiles/default/actions.xml
+msgid "Disable actions"
+msgstr "Aktionen deaktivieren"
+
+#: ../profiles/default/actions.xml
+msgid "Enable actions"
+msgstr "Aktionen aktivieren"
+
+#: ../browser/actions/excelexport.py:7
+msgid "Excel export"
+msgstr "Exportieren in Excel"
+
+#: ../vocabularies.py:19
+msgid "Organizations"
+msgstr "Organisationen"
+
+#: ../vocabularies.py:21
+msgid "Persons"
+msgstr "Personen"
+
+#: ../browser/actions/batchactions.pt:15
+msgid "Select all"
+msgstr "Alle auswählen"
+
+#: ../browser/actions/delete.py:46
+msgid "Unauthorized: ${path}"
+msgstr "Nicht autorisiert: ${path}"
+
+#: ../browser/actions/batchactions.pt:15
+msgid "Unselect all"
+msgstr "„Auswahl alle“ aufheben"
+
+#. Default: "Are you sure you want to remove $num selected content(s) ?"
+#: ../browser/actions/delete.py:23
+msgid "confirm_delete_selection"
+msgstr "Sollen $num ausgewählte Inhalt(e) wirklich entfernt werden?"
+
+#. Default: "There is no contact matching your criteria."
+#: ../browser/preview-items.pt:42
+msgid "help_no_result"
+msgstr "Zu den gesuchten Kriterien konnte kein Kontakt gefunden werden."
+
+#. Default: "${num} object(s) were not deleted : ${fails}"
+#: ../browser/actions/delete.py:60
+msgid "msg_objects_delete_failed"
+msgstr "${num} Objekt(e) wurden nicht gelöscht: ${fails}"
+
+#. Default: "${num} object(s) deleted"
+#: ../browser/actions/delete.py:54
+msgid "msg_objects_deleted"
+msgstr "${num} Objekt(e) gelöscht"
+
+#. Default: "Selected contacts: ${num}"
+#: ../browser/actions/batchactions.pt:28
+msgid "selected_contacts_num"
+msgstr "Ausgewählte Kontakte: ${num}"
