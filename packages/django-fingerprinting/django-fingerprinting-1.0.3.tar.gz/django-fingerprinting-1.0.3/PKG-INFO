@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: django-fingerprinting
+Version: 1.0.3
+Summary: Replace names of static files and resources that are accessed from templates
+Home-page: https://github.com/sheepsy90/django-fingerprinting
+Author: Sheepsy90 <sheepsy90@gmail.com>
+Author-email: UNKNOWN
+License: see LICENCE
+Description: UNKNOWN
+Keywords: django staticfiles
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Utilities
+Requires: Django
