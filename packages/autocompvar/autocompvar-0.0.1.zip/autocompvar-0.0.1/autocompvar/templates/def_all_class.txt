@@ -1,0 +1,7 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from autocompvar.base import Base
+{% for class_def in class_def_list %}
+{{ class_def.code }}
+{%  endfor %}
