@@ -1,0 +1,36 @@
+Metadata-Version: 1.1
+Name: edkit-server
+Version: 0.3.1
+Summary: edkit server package for local usage
+Home-page: https://github.com/edkit/edkit-server
+Author: Romain Picard
+Author-email: romain.picard@oakbits.com
+License: MIT
+Description: 
+        # edKit Server
+        
+        This is the server component of edKit.
+        
+        # start
+        
+        install dependencies:
+        
+            pip3 install numpy
+            pip3 install scipy
+        
+        install edkit-server:
+        
+            pip3 install edkit-server
+        
+        start the server:
+        
+            edkit-server
+        
+        you can then use the web app from you browser on port 8080
+        
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Debuggers

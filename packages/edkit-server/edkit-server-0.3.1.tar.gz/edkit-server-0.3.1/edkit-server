@@ -1,0 +1,11 @@
+#!/usr/bin/env python
+
+import os
+
+import edkit_server
+
+if __name__ == '__main__':
+    crossbar_path = os.path.dirname(edkit_server.__file__) + '/.crossbar'
+    cmd = 'crossbar start --cbdir ' + crossbar_path
+    print(cmd)
+    os.system(cmd)

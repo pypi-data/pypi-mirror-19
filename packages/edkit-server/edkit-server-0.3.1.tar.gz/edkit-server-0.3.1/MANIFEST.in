@@ -1,0 +1,4 @@
+include LICENSE.txt
+include edkit_server/edleak/edleak-class.pickle
+recursive-include edkit_server/web *
+recursive-include edkit_server/.crossbar config.json
