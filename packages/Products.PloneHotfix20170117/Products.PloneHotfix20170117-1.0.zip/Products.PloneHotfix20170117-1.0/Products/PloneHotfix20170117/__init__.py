@@ -1,0 +1,35 @@
+import logging
+
+logger = logging.getLogger('Products.PloneHotfix20170117')
+
+# First import any current CMFPlone patches.
+try:
+    from Products.CMFPlone import patches  # noqa
+except:
+    pass
+
+# General hotfixes for all.
+hotfixes = [
+    'zmi',
+]
+
+try:
+    str.format
+    unicode.format
+except AttributeError:
+    # Python 2.4 has no format method so it needs no fix.
+    pass
+else:
+    hotfixes.append('strformat')
+
+# Apply the fixes
+for hotfix in hotfixes:
+    try:
+        __import__('Products.PloneHotfix20170117.%s' % hotfix)
+        logger.info('Applied %s patch' % hotfix)
+    except:
+        logger.warn('Could not apply %s' % hotfix)
+if not hotfixes:
+    logger.info('No hotfixes were needed.')
+else:
+    logger.info('Hotfix installed')
