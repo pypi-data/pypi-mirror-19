@@ -1,0 +1,6 @@
+wishbone>=2.2.0
+nltk
+validators
+
+[testing]
+pytest
