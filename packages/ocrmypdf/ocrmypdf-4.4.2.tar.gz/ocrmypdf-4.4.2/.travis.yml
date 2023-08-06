@@ -1,0 +1,55 @@
+sudo: required
+dist: trusty
+language: python
+cache:
+  pip: true
+  directories:
+  - packages
+  - tests/cache
+
+python:
+- '3.4'
+- '3.5'
+- '3.6'
+
+os:
+- linux
+
+before_cache:
+- rm -f $HOME/.cache/pip/log/debug.log
+
+before_install:
+- sudo add-apt-repository ppa:vshn/ghostscript -y
+- sudo add-apt-repository ppa:heyarje/libav-11 -y
+- sudo apt-get update -qq
+- sudo apt-get install -y ghostscript tesseract-ocr tesseract-ocr-deu tesseract-ocr-eng
+  tesseract-ocr-fra qpdf poppler-utils libavformat56 libavcodec56 libavutil54 libffi-dev
+- pip install --upgrade pip
+- mkdir -p packages
+- "[ -f packages/unpaper_6.1-1.deb ] || wget -q https://dl.dropboxusercontent.com/u/28971240/unpaper_6.1-1.deb
+  -O packages/unpaper_6.1-1.deb"
+- sudo dpkg -i packages/unpaper_6.1-1.deb
+
+install:
+- pip install .
+- pip install -r requirements.txt -r test_requirements.txt
+
+script:
+- mv ocrmypdf dont_import_this_ocrmypdf
+- pytest
+- mv dont_import_this_ocrmypdf ocrmypdf
+
+# See https://www.appneta.com/blog/pypi-deployment-with-travis-ci/ for
+# steps to set up testpypi deploy for untagged builds if desired
+
+deploy:
+  provider: pypi
+  user: ocrmypdf-travis
+  password:
+    secure: DTFOmmNL6olA0+yXvp4u9jXZlZeqrJsJ0526jzqf4a3gZ6jnGTq5UI6WzRsslSyoMMfXKtHQebqHM6ogSgCZinyZ3ufHJo8fn9brxbEc2gsiWkbj5o3bGwdWMT1vNNE7XW0VCpw87rZ1EEwjl4FJHFudMlPR1yfU5+uq0k0PACo=
+  distributions: "sdist bdist_wheel"
+  on:
+    branch: master
+    tags: true
+    condition: $TRAVIS_PYTHON_VERSION = "3.6"
+  skip_upload_docs: true
