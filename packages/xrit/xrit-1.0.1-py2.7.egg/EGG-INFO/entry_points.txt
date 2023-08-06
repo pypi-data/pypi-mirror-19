@@ -1,0 +1,5 @@
+[console_scripts]
+xritcat = xrit:catExecutable
+xritdump = xrit:dumpDataExecutable
+xritparse = xrit:parseFileExecutable
+
