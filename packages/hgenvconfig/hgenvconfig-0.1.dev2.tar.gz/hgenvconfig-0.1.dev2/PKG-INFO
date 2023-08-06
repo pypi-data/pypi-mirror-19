@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: hgenvconfig
+Version: 0.1.dev2
+Summary: A Mercurial enxtension to pass config options via an environment variable.
+Home-page: http://bitbucket.org/seanfarley/hgenvconfig/
+Author: Sean Farley
+Author-email: sean@farley.io
+License: GPLv2+
+Description: UNKNOWN
+Keywords: hg mercurial
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
