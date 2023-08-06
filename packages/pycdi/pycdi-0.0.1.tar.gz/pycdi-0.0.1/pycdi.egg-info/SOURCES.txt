@@ -1,0 +1,15 @@
+README.rst
+setup.py
+pycdi/__init__.py
+pycdi/core.py
+pycdi/shortcuts.py
+pycdi/utils.py
+pycdi.egg-info/PKG-INFO
+pycdi.egg-info/SOURCES.txt
+pycdi.egg-info/dependency_links.txt
+pycdi.egg-info/top_level.txt
+tests/unit/__init__.py
+tests/unit/test_cdi.py
+tests/unit/test_examples.py
+tests/unit/test_interface.py
+tests/unit/test_singleton.py
