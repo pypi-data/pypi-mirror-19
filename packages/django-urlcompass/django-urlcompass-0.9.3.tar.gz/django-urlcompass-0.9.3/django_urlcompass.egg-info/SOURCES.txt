@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.rst
+__init__.py
+setup.py
+django_urlcompass.egg-info/PKG-INFO
+django_urlcompass.egg-info/SOURCES.txt
+django_urlcompass.egg-info/dependency_links.txt
+django_urlcompass.egg-info/top_level.txt
+urlcompass/__init__.py
+urlcompass/templates/urlcompass/urlcompass.html
+urlcompass/templatetags/__init__.py
+urlcompass/templatetags/urlcompass.py
+urlcompass/templatetags/__pycache__/__init__.cpython-35.pyc
+urlcompass/templatetags/__pycache__/urlcompass.cpython-35.pyc
