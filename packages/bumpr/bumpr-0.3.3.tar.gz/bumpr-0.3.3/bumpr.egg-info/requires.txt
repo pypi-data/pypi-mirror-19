@@ -1,0 +1,13 @@
+
+[doc]
+sphinx
+
+[qa]
+pytest-cov
+coverage
+flake8
+
+[test]
+mock
+pytest
+pytest-catchlog
