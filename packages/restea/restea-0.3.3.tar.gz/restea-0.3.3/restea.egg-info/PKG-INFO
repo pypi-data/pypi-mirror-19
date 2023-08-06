@@ -1,0 +1,37 @@
+Metadata-Version: 1.1
+Name: restea
+Version: 0.3.3
+Summary: Simple RESTful server toolkit
+Home-page: https://github.com/bodbdigr/restea
+Author: Walery Jadlowski
+Author-email: bodb.digr@gmail.com
+License: MIT
+Description: **************************************
+        ResTea: Simple RESTful server toolkit
+        **************************************
+        
+        Restea is a RESTful server toolkit aimed to be simple, fast and framework
+        agnostic. It abstracts out the mapping between HTTP methods and functions,
+        data passing between client and server and validation. It doesn't bound to
+        any ORM etc.
+        
+        .. image:: https://api.travis-ci.org/bodbdigr/restea.svg
+           :target: https://travis-ci.org/bodbdigr/restea
+           :alt: Travis CI status
+        
+        .. image:: https://coveralls.io/repos/bodbdigr/restea/badge.svg
+           :target: https://coveralls.io/r/bodbdigr/restea
+           :alt: Coveralls status
+        
+Keywords: rest,restful,restea
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Internet :: WWW/HTTP
