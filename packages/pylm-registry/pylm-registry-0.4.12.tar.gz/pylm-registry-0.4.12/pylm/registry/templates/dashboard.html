@@ -1,0 +1,29 @@
+<html>
+  <body>
+  <h1>Dashboard!</h1>
+  <p><a href="/logout">Log out</a></p>
+    <p>{{ user.name }}</p>
+    <p>{{ user.key }}</p>
+  <h2>Clusters</h2>
+  {% if user.clusters %}
+  <ul>
+      {% for cluster in user.clusters %}
+      <li><a href="/view_cluster?cluster={{ cluster.key }}">
+          {{ cluster.key }}</a></li>
+      {% end %}
+  </ul>
+  {% end %}
+  <p><a href="/new_cluster">Create cluster</a></p>
+  {% if user.admin %}
+    <h2>User Admin</h2>
+  {% if users %}
+  <ul>
+      {% for u in users %}
+      <li>{{ u.name }}</li>
+      {% end %}
+  </ul>
+  {% end %}
+  <p><a href="/new_user">Create user</a></p>
+  {% end %}
+  </body>
+</html>
