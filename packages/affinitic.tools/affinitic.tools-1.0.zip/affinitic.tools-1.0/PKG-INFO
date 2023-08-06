@@ -1,0 +1,46 @@
+Metadata-Version: 1.1
+Name: affinitic.tools
+Version: 1.0
+Summary: Bunch of python tools
+Home-page: https://github.com/affinitic/affinitic.tools
+Author: Affinitic
+Author-email: info@affinitic.be
+License: GPL
+Description: ===============
+        affinitic.tools
+        ===============
+        
+        This package contains multiple python tools.
+        
+        
+        License
+        -------
+        
+        The project is licensed under the GPLv2.
+        
+        
+        Credits
+        -------
+        
+        This package was developed by `Affinitic team <https://github.com/affinitic>`_.
+        
+        .. image:: http://www.affinitic.be/affinitic_logo.png
+           :alt: Affinitic website
+           :target: http://www.affinitic.be
+        
+        ``affinitic.tools`` is licensed under GNU General Public License, version 2.
+        
+        Changelog
+        =========
+        
+        1.0 (2017-01-09)
+        ----------------
+        
+        - Initial release
+          [mpeeters]
+        
+Keywords: affinitic tools
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

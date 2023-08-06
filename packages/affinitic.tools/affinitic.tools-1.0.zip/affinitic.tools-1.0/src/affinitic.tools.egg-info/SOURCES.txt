@@ -1,0 +1,16 @@
+CHANGES.rst
+MANIFEST.in
+README.rst
+setup.py
+docs/LICENSE.GPL
+src/affinitic/__init__.py
+src/affinitic.tools.egg-info/PKG-INFO
+src/affinitic.tools.egg-info/SOURCES.txt
+src/affinitic.tools.egg-info/dependency_links.txt
+src/affinitic.tools.egg-info/namespace_packages.txt
+src/affinitic.tools.egg-info/not-zip-safe
+src/affinitic.tools.egg-info/requires.txt
+src/affinitic.tools.egg-info/top_level.txt
+src/affinitic/tools/__init__.py
+src/affinitic/tools/api.py
+src/affinitic/tools/utils.py
