@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        socl=socialize.router:init
+    
