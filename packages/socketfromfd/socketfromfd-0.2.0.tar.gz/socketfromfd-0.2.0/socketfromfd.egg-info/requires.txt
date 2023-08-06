@@ -1,0 +1,12 @@
+
+[test]
+coverage
+pytest
+
+[test_docs]
+docutils
+markdown
+
+[test_pep8]
+flake8
+pep8-naming
