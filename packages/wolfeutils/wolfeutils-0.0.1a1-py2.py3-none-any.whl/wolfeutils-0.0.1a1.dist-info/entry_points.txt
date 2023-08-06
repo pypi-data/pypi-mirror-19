@@ -1,0 +1,5 @@
+[console_scripts]
+createPanseqFasta = wolfeutils.cli:labelNewickCli
+labelTree = wolfeutils.cli:labelNewickCli
+pgapBasicAnalysis = wolfeutils.cli:pgapBasicAnalysisCli
+
