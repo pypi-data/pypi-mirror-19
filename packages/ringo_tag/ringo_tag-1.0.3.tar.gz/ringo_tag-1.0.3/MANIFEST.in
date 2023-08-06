@@ -1,0 +1,2 @@
+recursive-include ringo_tag/locale *.po *.pot
+recursive-include ringo_tag *.json *.xml
