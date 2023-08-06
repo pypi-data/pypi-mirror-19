@@ -1,0 +1,16 @@
+setup.cfg
+setup.py
+gandlf/__init__.py
+gandlf/callbacks.py
+gandlf/losses.py
+gandlf/models.py
+gandlf/similarities.py
+gandlf.egg-info/PKG-INFO
+gandlf.egg-info/SOURCES.txt
+gandlf.egg-info/dependency_links.txt
+gandlf.egg-info/requires.txt
+gandlf.egg-info/top_level.txt
+gandlf/layers/__init__.py
+gandlf/layers/attention.py
+gandlf/layers/core.py
+gandlf/layers/wrappers.py
