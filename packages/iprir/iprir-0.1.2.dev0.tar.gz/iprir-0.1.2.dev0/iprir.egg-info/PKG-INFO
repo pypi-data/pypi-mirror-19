@@ -1,0 +1,35 @@
+Metadata-Version: 1.1
+Name: iprir
+Version: 0.1.2.dev0
+Summary: Retrieve, store and query information about Regional Internet Registries
+Home-page: https://github.com/account-login/iprir
+Author: account-login
+Author-email: UNKNOWN
+License: MIT
+Description: iprir
+        =====
+        
+        Retrieve, store and query information about Regional Internet Registries
+        
+        |Build_Status| |codecov| |PyPI_Version| |Python_Version|
+        
+        .. |Build_Status| image:: https://travis-ci.org/account-login/iprir.svg?branch=master
+           :target: https://travis-ci.org/account-login/iprir
+        .. |codecov| image:: https://codecov.io/gh/account-login/iprir/branch/master/graph/badge.svg
+           :target: https://codecov.io/gh/account-login/iprir
+        .. |PyPI_Version| image:: https://badge.fury.io/py/iprir.svg
+           :target: https://badge.fury.io/py/iprir
+        .. |Python_Version| image:: https://img.shields.io/pypi/pyversions/iprir.svg
+           :target: https://badge.fury.io/py/iprir
+        
+Keywords: IP RIR
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Internet
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
