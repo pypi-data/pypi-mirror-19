@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+rcli/__init__.py
+rcli/autodetect.py
+rcli/dispatcher.py
+rcli/display.py
+rcli/exceptions.py
+rcli.egg-info/PKG-INFO
+rcli.egg-info/SOURCES.txt
+rcli.egg-info/dependency_links.txt
+rcli.egg-info/entry_points.txt
+rcli.egg-info/requires.txt
+rcli.egg-info/top_level.txt
