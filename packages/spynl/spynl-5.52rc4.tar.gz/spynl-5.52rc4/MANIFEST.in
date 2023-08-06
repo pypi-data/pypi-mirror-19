@@ -1,0 +1,4 @@
+include *.py *.txt *.cfg *.rst
+recursive-include spynl
+recursive-include cli
+recursive-exclude spynl/tests *

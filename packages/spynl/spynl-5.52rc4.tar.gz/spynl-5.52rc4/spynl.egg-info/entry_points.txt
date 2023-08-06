@@ -1,0 +1,6 @@
+[console_scripts]
+spynl = spynl.cli.spynlcli:program.run
+
+[paste.app_factory]
+main = spynl.main:main
+
