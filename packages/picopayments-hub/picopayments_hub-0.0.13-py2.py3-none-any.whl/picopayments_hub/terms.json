@@ -1,0 +1,30 @@
+{
+    "MAINNET": {
+        "XCP": {
+            "deposit_max": 0,
+            "deposit_min": 0,
+            "deposit_ratio": 1.0,
+            "expire_max": 0,
+            "expire_min": 0,
+            "sync_fee": 1
+        },
+        "SJCX": {
+            "deposit_max": 0,
+            "deposit_min": 0,
+            "deposit_ratio": 1.0,
+            "expire_max": 0,
+            "expire_min": 0,
+            "sync_fee": 1
+        }
+    },
+    "TESTNET": {
+        "XCP": {
+            "deposit_max": 0,
+            "deposit_min": 0,
+            "deposit_ratio": 1.0,
+            "expire_max": 0,
+            "expire_min": 0,
+            "sync_fee": 1
+        }
+    }
+}
