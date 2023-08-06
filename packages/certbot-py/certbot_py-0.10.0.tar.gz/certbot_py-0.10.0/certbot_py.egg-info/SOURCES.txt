@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+certbot_py/__init__.py
+certbot_py/client.py
+certbot_py.egg-info/PKG-INFO
+certbot_py.egg-info/SOURCES.txt
+certbot_py.egg-info/dependency_links.txt
+certbot_py.egg-info/entry_points.txt
+certbot_py.egg-info/requires.txt
+certbot_py.egg-info/top_level.txt

@@ -1,0 +1,3 @@
+[console_scripts]
+certbot_py = certbot_py.client:main
+
