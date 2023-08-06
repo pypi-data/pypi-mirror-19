@@ -1,0 +1,18 @@
+A basic configuration file parser module for Python. Is's GPL3 licensed.
+It is a simple function which takes a file path a dictionary of rules 
+(regex based) an optional key value separator (default is '='), an optional 
+character to identify lines which start with a comment (default '#'), 
+and returns a dictionary containing parsed data. 
+No sections or others things are required. 
+The eventually rised exceptions contain error line number.
+
+Usage example:
+
+"
+import basicconfigparser
+
+rules = {'min': r'[1-3][0-9]',
+         'max': r'/.*?'}
+
+data = basicconfigparser.parse('/path/to/test/config', rules, '=', '#')
+"

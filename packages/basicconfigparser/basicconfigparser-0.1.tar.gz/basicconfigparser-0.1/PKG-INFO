@@ -1,0 +1,14 @@
+Metadata-Version: 1.1
+Name: basicconfigparser
+Version: 0.1
+Summary: A basic configuration file parser module for Python. 
+Home-page: https://github.com/phr4nz/basicconfigparser
+Author: Francesco Palumbo
+Author-email: franzopal@gmail.com
+License: GPL3
+Description: A basic configuration file parser module for Python. It is a simple function which takes a file path a dictionary of rules (regex based) an optional key value separator (default is '='), an optional character to identify lines which start with a comment (default '#'), and returns a dictionary containing parsed data. No sections or others things are required. The eventually rised exceptions contain error line number.
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
