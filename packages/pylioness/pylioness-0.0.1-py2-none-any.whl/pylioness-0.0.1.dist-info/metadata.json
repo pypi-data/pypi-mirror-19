@@ -1,0 +1,1 @@
+{"extensions": {"python.details": {"document_names": {"description": "DESCRIPTION.rst"}}}, "extras": [], "generator": "bdist_wheel (0.29.0)", "metadata_version": "2.0", "name": "pylioness", "run_requires": [{"requires": ["pyblake2 (>=0.9.3)", "pycrypto (>=2.6.1)", "pycryptodomex (>=3.4.3)"]}], "summary": "python lioness block cipher", "version": "0.0.1"}

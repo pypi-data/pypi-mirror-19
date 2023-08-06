@@ -1,0 +1,14 @@
+Home-page: https://github.com/applied-mixnetworks/pylioness
+Author: David Stainton
+Author-email: dawuud@riseup.net
+License: GPL3
+Description: UNKNOWN
+Keywords: python,cryptography
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Topic :: Security :: Cryptography
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5

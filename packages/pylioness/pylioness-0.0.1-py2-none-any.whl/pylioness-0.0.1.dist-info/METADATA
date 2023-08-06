@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: pylioness
+Version: 0.0.1
+Summary:     python lioness block cipher
+Requires-Dist: pyblake2 (>=0.9.3)
+Requires-Dist: pycrypto (>=2.6.1)
+Requires-Dist: pycryptodomex (>=3.4.3)
+
+Home-page: https://github.com/applied-mixnetworks/pylioness
+Author: David Stainton
+Author-email: dawuud@riseup.net
+License: GPL3
+Description: UNKNOWN
+Keywords: python,cryptography
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Topic :: Security :: Cryptography
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
