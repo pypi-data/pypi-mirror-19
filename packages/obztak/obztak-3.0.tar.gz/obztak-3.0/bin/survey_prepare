@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+"""
+"""
+import os
+import logging
+
+from obztak import get_survey
+from obztak.survey import parser
+from obztak.factory import survey_factory
+
+def main():
+    args = parser().parse_args()
+
+    logging.info("Preparing survey: '%s'"%get_survey())
+    survey = survey_factory()
+    return survey.survey_prepare(args)
+
+if __name__ == "__main__":
+    fields = main()
