@@ -1,0 +1,625 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Aeternus Atterratio <atterratio@gmail.com>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-08 05:00+0300\n"
+"PO-Revision-Date: 2017-02-08 04:19+0300\n"
+"Last-Translator: Aeternus Atterratio <atterratio@gmail.com>\n"
+"Language-Team: русский <atterratio@gmail.com>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Gtranslator 2.91.7\n"
+
+#: cmsplugin_yandex_maps/cms_plugins.py:15
+#: cmsplugin_yandex_maps/cms_plugins.py:16 cmsplugin_yandex_maps/models.py:90
+#: cmsplugin_yandex_maps/models.py:225 cmsplugin_yandex_maps/models.py:226
+#: cmsplugin_yandex_maps/models.py:254 cmsplugin_yandex_maps/models.py:258
+#: cmsplugin_yandex_maps/models.py:259
+msgid "Placemark"
+msgid_plural "Placemarks"
+msgstr[0] "Маркер"
+msgstr[1] "Маркеры"
+msgstr[2] "Маркер"
+msgstr[3] "Маркер"
+
+#: cmsplugin_yandex_maps/cms_plugins.py:27
+msgid "Text"
+msgstr "Текст"
+
+#: cmsplugin_yandex_maps/cms_plugins.py:28
+msgid "Rich text"
+msgstr "Расширенный текст"
+
+#: cmsplugin_yandex_maps/cms_plugins.py:30
+msgid "Icon"
+msgstr "Значёк"
+
+#: cmsplugin_yandex_maps/cms_plugins.py:55
+msgid "Yandex Maps Plugin"
+msgstr "Яндекс.Карты"
+
+#: cmsplugin_yandex_maps/cms_plugins.py:59 cmsplugin_yandex_maps/models.py:60
+msgid "Sizing"
+msgstr "Размер"
+
+#: cmsplugin_yandex_maps/cms_plugins.py:64 cmsplugin_yandex_maps/models.py:35
+msgid "Clusterisation"
+msgstr "Кластеризация"
+
+#: cmsplugin_yandex_maps/cms_plugins.py:67
+msgid "Placement"
+msgstr "Размещение"
+
+#: cmsplugin_yandex_maps/cms_plugins.py:71
+msgid "Advanced"
+msgstr "Дополнительно"
+
+#: cmsplugin_yandex_maps/cms_plugins.py:80
+#: cmsplugin_yandex_maps/cms_plugins.py:81 cmsplugin_yandex_maps/models.py:112
+#: cmsplugin_yandex_maps/models.py:113 cmsplugin_yandex_maps/models.py:253
+msgid "Yandex Maps"
+msgstr "Яндекс.Карты"
+
+#: cmsplugin_yandex_maps/forms.py:10 cmsplugin_yandex_maps/models.py:51
+msgid "Zoom"
+msgstr "Увеличение"
+
+#: cmsplugin_yandex_maps/forms.py:11 cmsplugin_yandex_maps/models.py:52
+msgid "Minimum zoom"
+msgstr "Минимальное увеличение"
+
+#: cmsplugin_yandex_maps/forms.py:12 cmsplugin_yandex_maps/models.py:53
+msgid "Maximum zoom"
+msgstr "Миксимальное увеличение"
+
+#: cmsplugin_yandex_maps/forms.py:14 cmsplugin_yandex_maps/forms.py:67
+#: cmsplugin_yandex_maps/models.py:54 cmsplugin_yandex_maps/models.py:149
+msgid "Latitude"
+msgstr "Широта"
+
+#: cmsplugin_yandex_maps/forms.py:15 cmsplugin_yandex_maps/forms.py:69
+#: cmsplugin_yandex_maps/models.py:55 cmsplugin_yandex_maps/models.py:150
+msgid "Longitude"
+msgstr "Долгота"
+
+#: cmsplugin_yandex_maps/forms.py:17 cmsplugin_yandex_maps/models.py:61
+msgid "Width"
+msgstr "Ширина"
+
+#: cmsplugin_yandex_maps/forms.py:18 cmsplugin_yandex_maps/models.py:62
+msgid "Height"
+msgstr "Высота"
+
+#: cmsplugin_yandex_maps/forms.py:19 cmsplugin_yandex_maps/models.py:68
+msgid "jQuery selector"
+msgstr "jQuery селектор"
+
+#: cmsplugin_yandex_maps/forms.py:49
+msgid "To create route need at least two placemarks"
+msgstr "Для создания маршрута нужно по меньшей мере два маркера"
+
+#: cmsplugin_yandex_maps/forms.py:72 cmsplugin_yandex_maps/models.py:176
+msgid "Icon width"
+msgstr "Ширина изображения"
+
+#: cmsplugin_yandex_maps/forms.py:73 cmsplugin_yandex_maps/models.py:177
+msgid "Icon height"
+msgstr "Высота изображения"
+
+#: cmsplugin_yandex_maps/forms.py:74 cmsplugin_yandex_maps/models.py:178
+msgid "Icon offset horizontal"
+msgstr "Смещение по горизонтали"
+
+#: cmsplugin_yandex_maps/forms.py:75 cmsplugin_yandex_maps/models.py:179
+msgid "Icon offset vertical"
+msgstr "Смещение по вертикали"
+
+#: cmsplugin_yandex_maps/forms.py:76 cmsplugin_yandex_maps/models.py:180
+msgid "Icon content offset horizontal"
+msgstr "Смещение заголовка по горизонтали"
+
+#: cmsplugin_yandex_maps/forms.py:77 cmsplugin_yandex_maps/models.py:181
+msgid "Icon content offset vertical"
+msgstr "Смещение заголовка по вертикали"
+
+#: cmsplugin_yandex_maps/forms.py:79 cmsplugin_yandex_maps/models.py:186
+msgid "Balloon header"
+msgstr "Заголовок всплывающего сообщения"
+
+#: cmsplugin_yandex_maps/forms.py:80 cmsplugin_yandex_maps/forms.py:84
+#: cmsplugin_yandex_maps/models.py:187 cmsplugin_yandex_maps/models.py:191
+msgid "Can use some html, please be careful!"
+msgstr "Можно использовать html, но будте осторожны!"
+
+#: cmsplugin_yandex_maps/forms.py:81 cmsplugin_yandex_maps/models.py:188
+msgid "Balloon body"
+msgstr "Тело всплывающего сообщения"
+
+#: cmsplugin_yandex_maps/forms.py:82 cmsplugin_yandex_maps/models.py:189
+msgid "Replace \"Balloon content\". Can use some html, please be careful!"
+msgstr ""
+"Заменяет \"Всплывающее сообщение\". Можно использовать html, но будте "
+"осторожны!"
+
+#: cmsplugin_yandex_maps/forms.py:83 cmsplugin_yandex_maps/models.py:190
+msgid "Balloon footer"
+msgstr "Нижний колонтитул"
+
+#: cmsplugin_yandex_maps/forms.py:113
+msgid "Image required"
+msgstr "Изображение необходимо"
+
+#: cmsplugin_yandex_maps/models.py:15
+msgid "Blue"
+msgstr "Голубой"
+
+#: cmsplugin_yandex_maps/models.py:15
+msgid "Red"
+msgstr "Красный"
+
+#: cmsplugin_yandex_maps/models.py:15
+msgid "Dark orange"
+msgstr "Тёмно-ораньжевый"
+
+#: cmsplugin_yandex_maps/models.py:15
+msgid "Night"
+msgstr "Ночи"
+
+#: cmsplugin_yandex_maps/models.py:16
+msgid "DarkBlue"
+msgstr "Синий"
+
+#: cmsplugin_yandex_maps/models.py:16
+msgid "Pink"
+msgstr "Розовый"
+
+#: cmsplugin_yandex_maps/models.py:16
+msgid "Gray"
+msgstr "Серый"
+
+#: cmsplugin_yandex_maps/models.py:16
+msgid "Brown"
+msgstr "Коричневый"
+
+#: cmsplugin_yandex_maps/models.py:17
+msgid "Dark green"
+msgstr "Тёмно-зелёный"
+
+#: cmsplugin_yandex_maps/models.py:17
+msgid "Violet"
+msgstr "Фиалковый"
+
+#: cmsplugin_yandex_maps/models.py:17
+msgid "Black"
+msgstr "Чёрный"
+
+#: cmsplugin_yandex_maps/models.py:17
+msgid "Yellow"
+msgstr "Жёлтый"
+
+#: cmsplugin_yandex_maps/models.py:18
+msgid "Green"
+msgstr "Зелёный"
+
+#: cmsplugin_yandex_maps/models.py:18
+msgid "Orange"
+msgstr "Ораньжевый"
+
+#: cmsplugin_yandex_maps/models.py:18
+msgid "Light blue"
+msgstr "Светло-голубой"
+
+#: cmsplugin_yandex_maps/models.py:18
+msgid "Olive"
+msgstr "Оливковый"
+
+#: cmsplugin_yandex_maps/models.py:26
+msgid "Map title"
+msgstr "Заголовок карты"
+
+#: cmsplugin_yandex_maps/models.py:27
+msgid "Scheme"
+msgstr "Схема"
+
+#: cmsplugin_yandex_maps/models.py:28
+msgid "Satellite"
+msgstr "Спутник"
+
+#: cmsplugin_yandex_maps/models.py:29
+msgid "Hybryd"
+msgstr "Гибрид"
+
+#: cmsplugin_yandex_maps/models.py:30
+msgid "Initial type"
+msgstr "Начальный слой"
+
+#: cmsplugin_yandex_maps/models.py:32
+msgid "Create route"
+msgstr "Проложить маршрут"
+
+#: cmsplugin_yandex_maps/models.py:33
+msgid "Create route between points (unstable)"
+msgstr "Проложить маршрут между точками (нестабильно)"
+
+#: cmsplugin_yandex_maps/models.py:36
+msgid "Disable cluster click zoom"
+msgstr "Отключить зум по клику"
+
+#: cmsplugin_yandex_maps/models.py:37 cmsplugin_yandex_maps/models.py:154
+msgid "Default"
+msgstr "По умолчанию"
+
+#: cmsplugin_yandex_maps/models.py:37
+msgid "Inverted"
+msgstr "Инвертированный"
+
+#: cmsplugin_yandex_maps/models.py:38
+msgid "Cluster icon"
+msgstr "Значёк кластера"
+
+#: cmsplugin_yandex_maps/models.py:40
+msgid "Cluster icon color"
+msgstr "Цвет значка кластера"
+
+#: cmsplugin_yandex_maps/models.py:47
+msgid "Language"
+msgstr "Язык"
+
+#: cmsplugin_yandex_maps/models.py:49
+msgid "Auto placement"
+msgstr "Автопозицирнироваение"
+
+#: cmsplugin_yandex_maps/models.py:50
+msgid "Automatically find the center and zoom"
+msgstr "Автоматически вычислить центр карты и увеличение"
+
+#: cmsplugin_yandex_maps/models.py:57
+msgid "Keep aspect"
+msgstr "Сохранять соотношение сторон"
+
+#: cmsplugin_yandex_maps/models.py:58
+msgid "Static"
+msgstr "Статичный"
+
+#: cmsplugin_yandex_maps/models.py:59
+msgctxt "Like automatisation"
+msgid "Auto"
+msgstr "Aвтоматически"
+
+#: cmsplugin_yandex_maps/models.py:64 cmsplugin_yandex_maps/models.py:77
+msgid "jQuery event"
+msgstr "jQuery событие"
+
+#: cmsplugin_yandex_maps/models.py:65
+msgid "Size update method"
+msgstr "Метод отслеживания изменения размера"
+
+#: cmsplugin_yandex_maps/models.py:67
+msgid ""
+"MutationObserver may be slow,not all events work, enable only if work not "
+"proper with hidden object"
+msgstr ""
+"MutationObserver может быть медленным, не все события работают, включать "
+"только если некоректно отображается в скрытых эллементах"
+
+#: cmsplugin_yandex_maps/models.py:79
+msgid "Behaviors"
+msgstr "Поведения"
+
+#: cmsplugin_yandex_maps/models.py:81 cmsplugin_yandex_maps/models.py:85
+msgid ""
+"Sorry for the Russian, I'm too lazy and just copied the description from the "
+"documentation"
+msgstr "Просто скопировал документацию"
+
+#: cmsplugin_yandex_maps/models.py:83
+msgid "Controls"
+msgstr "Управляющие эллементы"
+
+#: cmsplugin_yandex_maps/models.py:87
+msgid "CSS classes"
+msgstr "CSS классы"
+
+#: cmsplugin_yandex_maps/models.py:118
+msgid "Behavior"
+msgstr "Поведение"
+
+#: cmsplugin_yandex_maps/models.py:119 cmsplugin_yandex_maps/models.py:128
+msgid "Description"
+msgstr "Описание"
+
+#: cmsplugin_yandex_maps/models.py:127
+msgid "Control"
+msgstr "Управление"
+
+#: cmsplugin_yandex_maps/models.py:145
+msgid "Title"
+msgstr "Заголовок"
+
+#: cmsplugin_yandex_maps/models.py:147
+msgid "Auto coordinates"
+msgstr "Автоматические координаты"
+
+#: cmsplugin_yandex_maps/models.py:148
+msgid "Place"
+msgstr "Место"
+
+#: cmsplugin_yandex_maps/models.py:152
+msgid "Marker icon color"
+msgstr "Цвет маркера"
+
+#: cmsplugin_yandex_maps/models.py:154
+msgid "Stretchy"
+msgstr "Растягивающийся"
+
+#: cmsplugin_yandex_maps/models.py:154
+msgid "Doted"
+msgstr "С точкой"
+
+#: cmsplugin_yandex_maps/models.py:155
+msgid "With glif"
+msgstr "Со значком"
+
+#: cmsplugin_yandex_maps/models.py:155
+msgid "Image"
+msgstr "Изоображение"
+
+#: cmsplugin_yandex_maps/models.py:156
+msgid "Marker icon style"
+msgstr "Стиль маркера"
+
+#: cmsplugin_yandex_maps/models.py:157
+msgid "Circle icon"
+msgstr "Круглый маркер"
+
+#: cmsplugin_yandex_maps/models.py:158
+msgid "Caption"
+msgstr "С подписью"
+
+#: cmsplugin_yandex_maps/models.py:159
+msgid "Home"
+msgstr "Дом"
+
+#: cmsplugin_yandex_maps/models.py:159
+msgid "Airport"
+msgstr "Аэропорт"
+
+#: cmsplugin_yandex_maps/models.py:159
+msgid "Bar"
+msgstr "Бар"
+
+#: cmsplugin_yandex_maps/models.py:159
+msgid "Food"
+msgstr "Еда"
+
+#: cmsplugin_yandex_maps/models.py:160
+msgid "Cinema"
+msgstr "Кино"
+
+#: cmsplugin_yandex_maps/models.py:160
+msgid "Mass Transit"
+msgstr "Общественный транспорт"
+
+#: cmsplugin_yandex_maps/models.py:160
+msgid "Toilet"
+msgstr "Туалет"
+
+#: cmsplugin_yandex_maps/models.py:160
+msgid "Beach"
+msgstr "Пляж"
+
+#: cmsplugin_yandex_maps/models.py:161
+msgid "Zoo"
+msgstr "Зоопарк"
+
+#: cmsplugin_yandex_maps/models.py:161
+msgid "Underpass"
+msgstr "Подземный переход"
+
+#: cmsplugin_yandex_maps/models.py:161
+msgid "Run"
+msgstr "Бег"
+
+#: cmsplugin_yandex_maps/models.py:161
+msgid "Bicycle"
+msgstr "Велосипед"
+
+#: cmsplugin_yandex_maps/models.py:161
+msgid "Bicycle2"
+msgstr "Велосипед2"
+
+#: cmsplugin_yandex_maps/models.py:162
+msgid "Garden"
+msgstr "Сад"
+
+#: cmsplugin_yandex_maps/models.py:162
+msgid "Observation"
+msgstr "Точка обзора"
+
+#: cmsplugin_yandex_maps/models.py:162
+msgid "Entertainment"
+msgstr "Развлечения"
+
+#: cmsplugin_yandex_maps/models.py:163
+msgid "Family"
+msgstr "Семья"
+
+#: cmsplugin_yandex_maps/models.py:163
+msgid "Theater"
+msgstr "Театр"
+
+#: cmsplugin_yandex_maps/models.py:163
+msgid "Book"
+msgstr "Книга"
+
+#: cmsplugin_yandex_maps/models.py:163
+msgid "Waterway"
+msgstr "Форватер"
+
+#: cmsplugin_yandex_maps/models.py:164
+msgid "Repair Shop"
+msgstr "Магазин инструментов"
+
+#: cmsplugin_yandex_maps/models.py:164
+msgid "Post"
+msgstr "Почта"
+
+#: cmsplugin_yandex_maps/models.py:164
+msgid "Water Park"
+msgstr "Аквапарк"
+
+#: cmsplugin_yandex_maps/models.py:164
+msgid "Worship"
+msgstr "Церковь"
+
+#: cmsplugin_yandex_maps/models.py:165
+msgid "Fashion"
+msgstr "Мода"
+
+#: cmsplugin_yandex_maps/models.py:165
+msgid "Waste"
+msgstr "Мусор"
+
+#: cmsplugin_yandex_maps/models.py:165
+msgid "Money"
+msgstr "Деньги"
+
+#: cmsplugin_yandex_maps/models.py:165
+msgid "Hydro"
+msgstr "Фонтан"
+
+#: cmsplugin_yandex_maps/models.py:166
+msgid "Science"
+msgstr "Наука"
+
+#: cmsplugin_yandex_maps/models.py:166
+msgctxt "Like Car"
+msgid "Auto"
+msgstr "Автомобиль"
+
+#: cmsplugin_yandex_maps/models.py:166
+msgid "Shopping"
+msgstr "Шопинг"
+
+#: cmsplugin_yandex_maps/models.py:166
+msgid "Sport"
+msgstr "Спорт"
+
+#: cmsplugin_yandex_maps/models.py:167
+msgid "Video"
+msgstr "Видео"
+
+#: cmsplugin_yandex_maps/models.py:167
+msgid "Railway"
+msgstr "Ж/Д"
+
+#: cmsplugin_yandex_maps/models.py:167
+msgid "Park"
+msgstr "Парк"
+
+#: cmsplugin_yandex_maps/models.py:167
+msgid "Pocket"
+msgstr "Портфель"
+
+#: cmsplugin_yandex_maps/models.py:168
+msgid "Night Club"
+msgstr "Ночной Клуб"
+
+#: cmsplugin_yandex_maps/models.py:168
+msgid "Pool"
+msgstr "Бассейн"
+
+#: cmsplugin_yandex_maps/models.py:168
+msgid "Medical"
+msgstr "Медецина"
+
+#: cmsplugin_yandex_maps/models.py:168
+msgid "Vegetation"
+msgstr "Растительность"
+
+#: cmsplugin_yandex_maps/models.py:169
+msgid "Government"
+msgstr "Правительство"
+
+#: cmsplugin_yandex_maps/models.py:169
+msgid "Circus"
+msgstr "Цирк"
+
+#: cmsplugin_yandex_maps/models.py:169
+msgid "Rapid Transit"
+msgstr "Скоростной поезд"
+
+#: cmsplugin_yandex_maps/models.py:169
+msgid "Education"
+msgstr "Образование"
+
+#: cmsplugin_yandex_maps/models.py:170
+msgid "Mountain"
+msgstr "Гора"
+
+#: cmsplugin_yandex_maps/models.py:170
+msgid "Car Wash"
+msgstr "Автомойка"
+
+#: cmsplugin_yandex_maps/models.py:170
+msgid "Factory"
+msgstr "Фабрика"
+
+#: cmsplugin_yandex_maps/models.py:170
+msgid "Court"
+msgstr "Суд"
+
+#: cmsplugin_yandex_maps/models.py:171
+msgid "Hotel"
+msgstr "Отель"
+
+#: cmsplugin_yandex_maps/models.py:171
+msgid "Christian"
+msgstr "Крест"
+
+#: cmsplugin_yandex_maps/models.py:171
+msgid "Laundry"
+msgstr "Прачечная"
+
+#: cmsplugin_yandex_maps/models.py:171
+msgid "Souvenirs"
+msgstr "Сувениры"
+
+#: cmsplugin_yandex_maps/models.py:172
+msgid "Dog"
+msgstr "Собака"
+
+#: cmsplugin_yandex_maps/models.py:172
+msgid "Leisure"
+msgstr "Досуг"
+
+#: cmsplugin_yandex_maps/models.py:173
+msgid "Icon glif"
+msgstr "Значёк маркера"
+
+#: cmsplugin_yandex_maps/models.py:174
+msgid "Icon image"
+msgstr "Изображение маркера"
+
+#: cmsplugin_yandex_maps/models.py:183
+msgid "Placemark hint"
+msgstr "Подсказка маркера"
+
+#: cmsplugin_yandex_maps/models.py:185
+msgid "Balloon content"
+msgstr "Всплывающее сообщение"
+
+#~| msgid "Placemark"
+#~| msgid_plural "Placemarks"
+#~ msgid "Placemarks"
+#~ msgstr "Маркеры"
