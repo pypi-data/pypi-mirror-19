@@ -1,0 +1,11 @@
+MANIFEST.in
+setup.py
+nb2mail/__init__.py
+nb2mail.egg-info/PKG-INFO
+nb2mail.egg-info/SOURCES.txt
+nb2mail.egg-info/dependency_links.txt
+nb2mail.egg-info/entry_points.txt
+nb2mail.egg-info/not-zip-safe
+nb2mail.egg-info/requires.txt
+nb2mail.egg-info/top_level.txt
+nb2mail/templates/mail.tpl

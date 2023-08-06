@@ -1,0 +1,6 @@
+[nbconvert.exporters]
+mail = nb2mail:MailExporter
+
+[nbconvert.postprocessors]
+sendmail = nb2mail:SendMailPostProcessor
+
