@@ -1,0 +1,74 @@
+CHANGES
+=======
+
+0.0.12
+------
+
+* add pulling other hacks with @hacks.on_top_of
+* allow stealing using annotation syntax
+
+0.0.11
+------
+
+* Allow specifying no, one, or multiple hook names
+
+0.0.10
+------
+
+* Allow hacks.use('my.module:deeply.buried.hack')
+
+0.0.8
+-----
+
+* Add @hacks.before and @hacks.after wrappers
+
+0.0.7
+-----
+
+* Convert hacks to directory to unconfuse pbr
+
+0.0.6
+-----
+
+* Add a way better README.md with a proper demo
+* add .landscape.yml; limit landscape.io to python 3
+
+0.0.5
+-----
+
+* Add __on_enter__ and __on_exit__ hooks for hacks
+
+0.0.4
+-----
+
+* add a test that alters via class with @hacks.around
+* Reimplement using mutants
+* Fixed stale link to tests in README.md
+
+0.0.3
+-----
+
+* bump python to >=3.3 for inspect.signature
+* revert to py<3.5 non-named Frameinfo tuples
+* insignificant changes to test_hacks_stealing.py
+* hacks.stealing to ease frameinfo and locals access
+* tests: use a single mutating Duck instance
+* move tests to tests/
+* rename friendly_callable to friendly
+* Make monkeypatching test more readable
+
+0.0.2
+-----
+
+* Require Python >=3.2, fix travis
+* Update gitignore
+* Add new illustrative test: monkeypatching stdout
+* Add installation instructions to README.md
+* use inspect.get_members(...)
+
+0.0.1
+-----
+
+* CI: add pypi deployment section in .travis.yml
+* Add requirements.txt
+* Initial commit of hacks
