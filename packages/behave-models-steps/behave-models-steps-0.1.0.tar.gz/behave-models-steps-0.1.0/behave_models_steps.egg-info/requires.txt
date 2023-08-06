@@ -1,0 +1,11 @@
+behave>=1.2.4
+behave-web-api==1.0.6
+bottle==0.12.9
+Faker==0.7.3
+freezegun==0.3.8
+inflect==0.2.5
+inflection==0.3.1
+nose==1.3.7
+ordereddict==1.1
+requests>=2.0.0
+SQLAlchemy==1.0.15
