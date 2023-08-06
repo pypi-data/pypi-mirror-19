@@ -1,0 +1,3 @@
+[console_scripts]
+sai = SimpleAudioIndexer.__main__:Main
+
