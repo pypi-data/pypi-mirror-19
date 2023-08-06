@@ -1,0 +1,13 @@
+README.rst
+setup.py
+nuio/__init__.py
+nuio.egg-info/PKG-INFO
+nuio.egg-info/SOURCES.txt
+nuio.egg-info/dependency_links.txt
+nuio.egg-info/top_level.txt
+nuio/input/__init__.py
+nuio/input/base.py
+nuio/input/terminal.py
+nuio/output/__init__.py
+nuio/output/base.py
+nuio/output/terminal.py
