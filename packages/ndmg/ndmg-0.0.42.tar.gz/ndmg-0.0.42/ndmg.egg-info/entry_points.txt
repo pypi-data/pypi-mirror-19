@@ -1,0 +1,4 @@
+[console_scripts]
+ndmg_bids = ndmg.scripts.ndmg_bids:main
+ndmg_pipeline = ndmg.scripts.ndmg_pipeline:main
+
