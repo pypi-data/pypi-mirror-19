@@ -1,0 +1,25 @@
+Metadata-Version: 1.1
+Name: xrdmon
+Version: 0.1.dev3
+Summary: monitor for XRootD servers
+Home-page: https://github.com/maxfischer2781/alice-xrootd-monitor
+Author: Max Fischer
+Author-email: max.fischer@kit.edu
+License: UNKNOWN
+Description: UNKNOWN
+Keywords: monitoring monalisa apmon hep
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: System :: Monitoring
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
