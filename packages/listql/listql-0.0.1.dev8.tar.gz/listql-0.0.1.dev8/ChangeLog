@@ -1,0 +1,12 @@
+CHANGES
+=======
+
+* Fix reference link
+* Add build and coverage badges
+* Add travis-ci configuration
+* Fix spelling error
+* Refactor
+* Add support for py34 and py35
+* Rename module name to lisq
+* Add .gitignore
+* extracted from botnus

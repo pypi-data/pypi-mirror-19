@@ -1,0 +1,31 @@
+Metadata-Version: 1.1
+Name: listql
+Version: 0.0.1.dev8
+Summary: Query list like database
+Home-page: https://github.com/yujunz/listql
+Author: Yujun Zhang
+Author-email: zhangyujun@gmail.com
+License: MIT
+Description: Listql
+        ======
+        
+        List query library
+        ------------------
+        
+        |Build Status| |Coverage Status|
+        
+        Query list like relational database
+        
+        .. |Build Status| image:: https://travis-ci.org/yujunz/listql.svg?branch=master
+            :target: https://travis-ci.org/yujunz/listql
+        .. |Coverage Status| image:: https://codecov.io/gh/yujunz/listql/branch/master/graph/badge.svg
+            :target: https://codecov.io/gh/yujunz/listql
+        
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
