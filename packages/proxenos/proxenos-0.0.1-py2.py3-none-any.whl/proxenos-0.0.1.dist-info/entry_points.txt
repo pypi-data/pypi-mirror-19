@@ -1,0 +1,6 @@
+[console_scripts]
+proxenos = proxenos.cli:main
+
+[proxenos.mapper]
+consul = proxenos.mappers.consul:ConsulClusterMapper [consul]
+
