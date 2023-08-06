@@ -1,0 +1,30 @@
+Metadata-Version: 1.1
+Name: idigbio-media-appliance
+Version: 2.5.1
+Summary: iDigBio Media Appliance
+Home-page: http://github.com/idigbio/idigbio-media-appliance
+Author: Alex
+Author-email: hompso
+License: MIT
+Description: idigbio-media-appliance
+        =======================
+        iDigBio Media Appliance v2
+        
+        The iDigBio Media Appliance was formerly known as the iDigBio Ingestion Tool or Image upload tool.
+        
+        This new iDigBio Media Appliance has been generalized to handle additional media types and is not limited to images.
+        
+        The media appliance should work on 64 bit linux and OSX, and on 32 and 64 bit windows.
+        
+        Python 3.5 is *required* for OSX installs. Python 3.5 is recommended (Anaconda install packaging is provided in the releases) for all platforms, but python 2.7 should work on linux and windows platforms.
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
