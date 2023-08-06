@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: Markdown-Tracker
+Version: 0.1.1
+Summary: Tools for tracking Markdown & Taskpaper files
+Home-page: https://github.com/jykim/mdt
+Author: Jin Young Kim
+Author-email: lifidea@gmail.com
+License: MIT
+Keywords: markdown statistics
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Text Processing :: Linguistic
+Requires-Dist: numpy
+Requires-Dist: pandas
+
+This package is hosted at https://github.com/jykim/mdt
+
+Feedback is welcome, please submit a pull request or email lifidea@gmail.com.
+
+
