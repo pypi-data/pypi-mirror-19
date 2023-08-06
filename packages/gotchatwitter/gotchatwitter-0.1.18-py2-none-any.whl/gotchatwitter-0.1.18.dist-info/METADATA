@@ -1,0 +1,18 @@
+Metadata-Version: 2.0
+Name: gotchatwitter
+Version: 0.1.18
+Summary: Crawling twitter in Python
+Home-page: https://github.com/PhantomKidding/GotchaTwitter
+Author: cchen224
+Author-email: phantomkidding@gmail.com
+License: MIT License
+Keywords: twitter,python,crawler,web-scraping,advanced search
+Platform: any
+Requires-Dist: bs4
+Requires-Dist: lxml
+Requires-Dist: requestsplus
+Requires-Dist: tqdm
+
+UNKNOWN
+
+
