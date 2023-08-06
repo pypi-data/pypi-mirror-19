@@ -1,0 +1,139 @@
+2010-01-22  Phil Budne <phil@ultimate.com>
+	Changed #! to python from python2.5
+	Improved module docstring
+	Moved HTML tags out of _JAVASCRIPT_CODE
+	Added EXTRA_JAVASCRIPT_CODE
+	Fixed download URL
+	Released to PyPI as version 0.9.1
+
+2009-08-05  Phil Budne <phil@ultimate.com>
+	pick pylint
+	turn {Session,Stateless}Auth into {Session,Stateless}AuthMixin
+	pass title to StatelessAuthMixin
+	released to PyPI as version 0.9
+
+2009-08-04  Phil Budne <phil@ultimate.com>
+	add optional title argument
+
+2009-08-01  Phil Budne <phil@ultimate.com>
+	tweak an error message, a comment, a docstring
+
+2009-07-19  Phil Budne <phil@ultimate.com>
+	add PWFile class, with backwards compatibility
+
+2009-07-19  Phil Budne <phil@ultimate.com>
+	setup.py add #name to url
+
+2009-07-17  Phil Budne <phil@ultimate.com>
+	add text-align: center to msg, head classes, remove from elements
+
+2009-07-10  Phil Budne <phil@ultimate.com>
+	Add Hidden{Session,Cookie}Auth
+	Add PWAuth -> CookieAuth, HiddenAuth
+	Add SessionAuth, SatelessAuth mixins
+
+2009-07-08  Phil Budne <phil@ultimate.com>
+	setup.py: fix download_url
+	released to PyPI as version 0.8
+
+2009-07-03 Phil Budne <phil@ultimate.com>
+	cleaned up docstring
+	setup.py extracts descr, long_descr from docstring
+
+2009-06-26 Phil Budne <phil@ultimate.com>
+	use window.onload event for username field focus
+
+2009-06-23 Phil Budne <phil@ultimate.com>
+	use update() for cookie_attrs
+
+2009-06-20 Phil Budne <phil@ultimate.com>
+	have setup.py use cgiauth.__doc__
+		for long description - idea from waffle
+	add name for logout form button: "cgiauth_logout"
+	add comments about keep_blank_values=True
+	set max-age to zero, expires to -1 in clear_cookie()
+
+2009-06-20 Phil Budne <phil@ultimate.com>
+	picked pylint (score 9.56)
+	move pwfile check into CookieAuth
+	add "need salt" check
+	add __version__ to cgiauth.py; import from setup.py!
+	put __version__ in footer
+	use dollar-Id for __revision__
+	released to PyPI as version 0.7
+
+2009-06-19 Phil Budne <phil@ultimate.com>
+	MAJOR SECURITY FIX!
+	Don't present form if JavaScript not enabled
+		was sending password in the clear!!!
+	Made Login button a plain button (avoid return submitting)
+	Don't display form if cookies disabled
+	Renamed js mhp to make_hashed_password
+	Try to prevent browsers from remembering password
+	Implemented crunch() -- total output for demo is ~4500 bytes
+	Added fatal_http(); check for missing or unprotected session dir
+	Try prodding client to send Basic auth: may be useless
+		(unless we can get our hands on the client returned header)
+	BasicAuth now takes "name" param
+
+2009-06-15 Phil Budne <phil@ultimate.com>
+	added cookie_attrs arguments; application can add cookie attributes
+	put default styling in EXTRA_HEAD
+
+2009-06-12 Phil Budne <phil@ultimate.com>
+	picked some pylint
+
+2009-06-12 Phil Budne <phil@ultimate.com>
+	update to version 0.6
+	fixed setup.py download_url
+	added extend arguments (in seconds); defaults to off
+	added stateless cookie extension
+	many internal cleanups
+	added check_login_logout(), make_cookie(), set_cookie()
+	clear_cookie() outputs header
+	added options "extra" areas to LOGIN_FORM:
+	      EXTRA_HEAD, EXTRA_BODY_TOP, EXTRA_BODY_BOT
+	      EXTRA_ROWS, EXTRA_HIDDEN
+	      FOOTER
+	use <style> for colors/formatting in LOGIN_FORM
+	Add test type row w/ radio buttons to cgi_test()
+
+2009-06-09 Phil Budne <phil@ultimate.com>
+	fixed logout_button
+	report missing password file in cgi_test()
+
+2009-06-08 Phil Budne <phil@ultimate.com>
+	add logging
+	pylint picking (score 9.57)
+
+2009-06-07 Phil Budne <phil@ultimate.com>
+	update to version 0.5
+	include SCRIPT_NAME in logout_url()
+	add logout_button(), LOGOUT_FIELD
+	renamed LOGIN_FORMAT to LOGIN_TEMPLATE, made a member of CookieAuth
+	split out JAVASCRIPT_CODE
+	force initial focus on username field
+	merge all JavaScript
+	output Content-Type, more tags in cgi_test()
+	split out fetch/store methods for SessionCookieAuth
+	have test display HTTP_COOKIES
+
+2009-06-07 Phil Budne <phil@ultimate.com>
+	update to version 0.4
+	pull up getfirst('user') in check_login_form()
+	include PATH_INFO in logout_url()
+
+2009-06-07 Phil Budne <phil@ultimate.com>
+	update to version 0.3
+	fix file command line creation of first password
+		(can't make hash until salt created!)
+	tuck SessionCookie extend test in
+
+2009-06-07 Phil Budne <phil@ultimate.com>
+	update to version 0.2
+	API CHANGE: no longer output "Content-Type: " header on success
+	add MANIFEST.in
+	created CHANGELOG!
+
+2009-06-06 Phil Budne <phil@ultimate.com>
+	released to PyPI as 0.1

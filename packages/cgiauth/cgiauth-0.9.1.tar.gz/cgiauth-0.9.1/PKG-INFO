@@ -1,0 +1,39 @@
+Metadata-Version: 1.1
+Name: cgiauth
+Version: 0.9.1
+Summary: Framework free Authentication Methods for CGI scripts
+Home-page: http://www.ultimate.com/phil/python/#cgiauth
+Author: Phil Budne
+Author-email: phil@ultimate.com
+License: GPL
+Download-URL: http://www.ultimate.com/phil/python/download/cgiauth-0.9.1.tar.gz
+Description: Includes the following classes:
+        
+                * `BasicAuth' which depends on web server "Basic" authentication
+                * Cookie based classes `SessionCookieAuth' and `StatelessCookieAuth'
+                * Hidden field based classes `SessionHiddenAuth' and
+                  `StatelessHiddenAuth'
+        
+        The Cookie and Hidden classes use JavaScript/SHA1 hashing to avoid
+        sending passwords as clear text.
+        
+        Class constructor must be called BEFORE HTTP headers are output.
+        All Authentication object constructors either return (possibly having
+        output cookie headers) or exit (having output a login form, or error
+        message).
+        
+        cgiauth.py functions as a test if invoked as a CGI script, and as a
+        password file creator if invoked from the command line.
+        
+        Developed/tested under Python 2.5
+        
+Platform: Any
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.5
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: JavaScript
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content :: CGI Tools/Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
