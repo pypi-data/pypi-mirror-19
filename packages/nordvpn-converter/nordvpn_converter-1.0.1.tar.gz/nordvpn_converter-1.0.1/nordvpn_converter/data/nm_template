@@ -1,0 +1,25 @@
+[connection]
+id={{ NAME }}
+uuid={{ UUID }}
+type=vpn
+permissions=user:{{ USERNAME }}:;
+autoconnect=false
+
+[vpn]
+service-type=org.freedesktop.NetworkManager.openvpn
+ta-dir={{ TA_DIRECTION }}
+connection-type=password
+password-flags=1
+remote={{ REMOTE_IP }}
+cipher={{ CIPHER }}
+comp-lzo=yes
+username={{ VPN_USERNAME }}
+ca={{ CA_CRT }}
+ta={{ TLS_KEY }}
+
+[ipv6]
+method=auto
+ip6-privacy=0
+
+[ipv4]
+method=auto
