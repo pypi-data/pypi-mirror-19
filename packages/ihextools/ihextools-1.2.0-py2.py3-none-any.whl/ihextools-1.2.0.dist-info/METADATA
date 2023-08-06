@@ -1,0 +1,33 @@
+Metadata-Version: 2.0
+Name: ihextools
+Version: 1.2.0
+Summary: Simple Intel hex library
+Home-page: https://github.com/keyme/ihextools
+Author: Jeff Ciesielski
+Author-email: jeff.ciesielski@key.me
+License: MIT
+Keywords: ihex
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: MIT License
+
+#ihextools
+
+
+## Description
+
+
+ihextools is a simple library to deal with intel hex files.
+
+It was written to facilitate the manipulation of ihex files for microcontrollers,
+and thus only implements a subset of the specification
+(DATA/EOF/Extended Linear address)
+
+
+## Installation
+
+Simply run: python setup.py install
+
+
+
