@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/style.css">
+        <link rel="stylesheet" href="/static/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/checkboxes.css">
+        <script type="text/javascript" src="https://yastatic.net/jquery/3.1.0/jquery.min.js"></script>
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <script type="text/javascript">
+            function WizardWebSocket() {
+                $("#message").text = '';
+                if ("WebSocket" in window) {
+                    var ws = new WebSocket("ws://localhost:9998/wizard");
+                    var config = {};
+                    config.duration = document.getElementById("duration").value;
+                    config.jobname = document.getElementById("jobname").value;
+                    config.version = document.getElementById("version").value;
+                    config.app = document.getElementById("app").value;
+                    config.devicename = document.getElementById("devicename").value;
+                    config.events = document.getElementById('events').checked;
+                    config.upload = document.getElementById('upload').checked;
+                    config.binary = document.getElementById('binary').checked;
+
+                    json_cfg = JSON.stringify(config);
+
+                    ws.onopen = function() {
+                        $("#message").append('Opened new connection to wizard...<br>');
+                        // Web Socket is connected, send data using send()
+                        ws.send(json_cfg);
+                    };
+                    ws.onmessage = function (evt) {
+                        var received_msg = JSON.parse(evt.data);
+                        if (received_msg.type == 'message') {
+                            $("#message").append('<li>' + received_msg.message + '</li>');
+                        }
+                        else {
+                            $("#debug").append('<li>'+received_msg.message+'</li>');
+                        }
+                    };
+                    ws.onclose = function() {
+                        // websocket is closed.
+                        $("#message").append('Connection to wizard closed...<br>');
+                    };
+                }
+                else {
+                    // The browser doesn't support WebSocket
+                    alert("WebSocket NOT supported by your Browser!");
+                }
+            }
+        </script>
+        
+    </head>
+    <body>
+        <div class="container bgcont center-block">
+            <div class="row">
+                <div id="configs" class="col-md-5">
+                    <div class="row">
+                        <input id="duration" name="duration" type="text" label="duration">
+                        <label for="duration">Длительность теста</label>
+                    </div>
+                    <div class="row">
+                        <input id="events" name="events" type="checkbox" label="events">
+                        <label for="events">Записывать эвенты с телефона?</label>
+                    </div>
+                    <div class="row">
+                        <input id="binary" name="binary" type="checkbox" label="binary">
+                        <label for="binary">Прошивка коробочки 10kHz? (Не трогайте, если не знаете что это)</label>
+                    </div>
+                    <div class="row">
+                        <input id="upload" name="upload" type="checkbox" label="upload" checked>
+                        <label for="upload">Залить логи в Лунапарк?</label>
+                    </div>
+                    <div class="row">
+                        <button onclick="WizardWebSocket();" class="btn btn-primary btn-lg">Run Wizard</button>
+                    </div>
+                    <h2>Информация о тесте</h2>
+                    <div class="row">
+                        <input id="jobname" name="jobname" type="text" label="jobname">
+                        <label for="jobname">Имя теста</label>
+                    </div>
+                    <div class="row">
+                        <input id="version" name="version" type="text" label="version">
+                        <label for="version">Версия</label>
+                    </div>
+                    <div class="row">
+                        <input id="app" name="app" type="text" label="app">
+                        <label for="app">Имя приложения</label>
+                    </div>
+                    <div class="row">
+                        <input id="devicename" name="devicename" type="text" label="devicename">
+                        <label for="devicename">Телефон</label>
+                    </div>
+                </div>
+                <div id="message" class="panel panel-info col-md-7 pre-scrollable" style="max-height: 50%;">
+                    <!-- output messages here -->
+                </div>
+            </div>
+            <div class="footer navbar-fixed-bottom panel panel-warning pre-scrollable" style="max-height: 50%;">
+                <div id="debug" class="col-md-12">
+                    <!-- debug message here --> Console output:
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
