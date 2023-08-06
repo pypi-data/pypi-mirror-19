@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: genrp
+Version: 0.0.1.dev2
+Summary: Scalable 1D Gaussian Processes
+Home-page: https://github.com/dfm/genrp
+Author: Daniel Foreman-Mackey
+Author-email: foreman.mackey@gmail.com
+License: MIT
+Description: .. image:: https://raw.github.com/dfm/ess/master/python/demo.png
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
