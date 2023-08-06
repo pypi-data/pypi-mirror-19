@@ -1,0 +1,58 @@
+Metadata-Version: 2.0
+Name: win10toast
+Version: 0.2
+Summary: An easy-to-use Python library for displaying Windows 10 Toast Notifications
+Home-page: https://github.com/jithurjacob/Windows-10-Toast-Notifications
+Author: Jithu R Jacob
+Author-email: jithurjacob@gmail.com
+License: BSD
+Download-URL: https://github.com/jithurjacob/Windows-10-Toast-Notifications/tarball/0.1
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Utilities
+Classifier: Operating System :: Microsoft
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: License :: OSI Approved :: BSD License
+Requires-Dist: pywin32
+Requires-Dist: setuptools
+
+
+# Windows 10 Toast Notifications
+
+An easy-to-use Python library for displaying Windows 10 Toast Notifications which is useful for Windows GUI development.
+
+
+![o7ja4 1](https://cloud.githubusercontent.com/assets/7101452/19763806/75f71ba4-9c5d-11e6-9f16-d0d4bf43e63e.png)
+
+
+
+## Installation
+
+```
+pip install win10toast
+```
+
+## Requirements
+
+### Installation of pywin32
+```
+pywin32
+setuptools
+```
+
+Easiest way to install pywin32 is using executable installer published at [https://sourceforge.net/projects/pywin32/files/pywin32/](https://sourceforge.net/projects/pywin32/files/pywin32/)
+
+## Example
+
+```
+from win10toast import ToastNotifier
+toaster = ToastNotifier()
+toaster.show_toast("Hello World!!!",
+              "Python is 10 seconds awsm!",
+              icon_path="custom.ico",
+              duration=10)
+toaster.show_toast("Hello World!!!",
+             "Python is awsm by default!")
+```
+
+
