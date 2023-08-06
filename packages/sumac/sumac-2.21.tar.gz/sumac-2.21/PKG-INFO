@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: sumac
+Version: 2.21
+Summary: SUMAC: Supermatrix Constructor
+Home-page: https://github.com/wf8/sumac
+Author: Will Freyman
+Author-email: freyman@berkeley.edu
+License: GPLv3
+Description: SUMAC (Supermatrix Constructor) is a Python package to data-mine GenBank, construct phylogenetic supermatrices, and assess the phylogenetic decisiveness of a matrix given the pattern of missing sequence data.
+Keywords: phylogenetics supermatrix genbank
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Programming Language :: Python :: 2.7
