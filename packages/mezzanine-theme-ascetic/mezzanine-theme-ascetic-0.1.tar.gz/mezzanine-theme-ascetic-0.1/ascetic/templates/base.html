@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}">
+{% load pages_tags mezzanine_tags i18n staticfiles %}
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
+    <meta name="description" content="{% block meta_description %}{% endblock %}">
+    <meta name="author" content="">
+    <title>{% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}</title>
+    <link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
+
+    {% ifinstalled mezzanine.blog %}
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{% url "blog_post_feed" "rss" %}">
+    <link rel="alternate" type="application/atom+xml" title="Atom" href="{% url "blog_post_feed" "atom" %}">
+    {% endifinstalled %}
+
+    {% compress css %}
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/magnific-popup.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    {% endcompress %}
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    {% compress js %}
+    <script src="{% static "js/jquery.min.js" %}"></script>
+    {% endcompress %}
+</head>
+
+<body id="page-top">
+
+    <nav class="navbar navbar-default">
+        <div class="container">
+        
+            <div class="navbar-header">
+                <a class="navbar-brand page-scroll" href="#page-top">Ascetic</a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-main">
+                <div class="navbar-form navbar-right">
+                  <div class="form-group">
+    {% nevercache %}
+                    {% include "includes/language_selector.html" %}
+    {% endnevercache %}
+                  </div>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="#">Feedbacks</a>
+                    </li>
+                    <li>
+                        <a href="#">Blog</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!--
+    {% nevercache %}
+    {% include "includes/language_selector.html" %}-->
+    <!--{% include "includes/user_panel.html" %}
+    {% include "blog/includes/filter_panel.html" %}-->
+    <!--
+    {% endnevercache %}
+    -->
+    <!---->
+    {% block main %}{% endblock %}
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-push-3 links">
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                        <li>
+                            <a href="#">Portfolio</a>
+                        </li>
+                        <li>
+                            <a href="#">Feedbacks</a>
+                        </li>
+                        <li>
+                            <a href="#">Blog</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-sm-push-3">
+                    <ul class="list-inline social">
+                        <li>
+                            <a href="https://twitter.com/IanLunn/" target="_blank"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/IanLunn/" target="_blank"><i class="fa fa-github"></i></a>
+                        </li>
+                        <li class="rss">
+                            <a href="https://uk.linkedin.com/in/ianlunn/" target="_blank"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-sm-pull-9 copyrights">
+                    <span>&copy; 2016 Ilya Zhukov</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    {% compress js %}
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/jquery.magnific-popup.min.js" %}"></script>
+    <script src="{% static "js/script.js" %}"></script>
+    {% block footer_js %}
+    {% include "includes/footer_scripts.html" %}
+    {% endblock %}
+    {% endcompress %}
+</body>
+</html>

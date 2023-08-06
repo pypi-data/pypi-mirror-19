@@ -1,0 +1,31 @@
+Metadata-Version: 1.0
+Name: mezzanine-theme-ascetic
+Version: 0.1
+Summary: Minimalistic Bootstrap template for Django/Mezzanine
+Home-page: https://github.com/izhukov1992/mezzanine-theme-ascetic
+Author: Ilya Zhukov
+Author-email: izhukov1992@gmail.com
+License: BSD License
+Description: # Mezzanine Theme Ascetic
+        
+        Minimalistic Bootstrap theme for Django/Mezzanine.
+        
+        ## Installation
+        
+        `pip install mezzanine-theme-ascetic`
+        
+        ## Usage
+        
+        It is recommended to place the themes as high as possible, to make sure all the app templates are overridden.
+        
+            INSTALLED_APPS = (
+                'ascetic,
+                ...
+            )
+        
+        ##External Links
+        
+        * Django: www.djangoproject.com
+        * Mezzanine: www.mezzanine.jupo.org
+        * Mezzanine www.izhukov.herokuapp.com
+Platform: UNKNOWN

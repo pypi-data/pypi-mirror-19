@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% load i18n mezzanine_tags portfolio_tags keyword_tags disqus_tags %}
+
+{% block meta_title %}{% if page %}{{ page.meta_title }}{% else %}{% trans "Portfolio" %}{% endif %}{% endblock %}
+
+{% block meta_keywords %}
+{% metablock %}
+{% keywords_for page as keywords %}
+{% for keyword in keywords %}
+    {% if not forloop.first %}, {% endif %}
+    {{ keyword }}
+{% endfor %}
+{% endmetablock %}
+{% endblock %}
+
+{% block meta_description %}
+{% metablock %}
+{{ page.description }}
+{% endmetablock %}
+{% endblock %}
+
+{% block main %}
+<section>
+    <div class="container">
+        <div class="row">
+            {% for portfolio_post in portfolio_posts.object_list %}
+            <div class="col-xs-12 col-ms-6 col-md-3">
+                <a class="item" href="{{ portfolio_post.get_absolute_url }}" title="{{ portfolio_post.title }}">                
+                    {% if settings.BLOG_USE_FEATURED_IMAGE and portfolio_post.featured_image %}
+                    {% block portfolio_post_list_post_featured_image %}
+                    <img class="img-responsive" src="{{ MEDIA_URL }}{% thumbnail portfolio_post.featured_image 435 255 %}">
+                    {% endblock %}
+                    {% endif %}
+                    <div>
+                        {% block portfolio_post_list_post_title %}
+                        <h4>{{ portfolio_post.title }}</h4>
+                        {% endblock %}
+                        {% block portfolio_post_list_post_metainfo %}
+                        {% with portfolio_post.categories.all as categories %}
+                        {% if categories %}
+                        <p>
+                            {% for category in categories %}
+                            {{ category }}{% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        </p>
+                        {% endif %}
+                        {% endwith %}
+                        {% endblock %}
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% pagination_for portfolio_posts %}
+{% endblock %}

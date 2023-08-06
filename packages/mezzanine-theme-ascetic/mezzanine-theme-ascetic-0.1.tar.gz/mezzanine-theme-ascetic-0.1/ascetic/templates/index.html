@@ -1,0 +1,77 @@
+{% extends "pages/page.html" %}
+
+{% load mezzanine_tags portfolio_tags blog_tags keyword_tags i18n %}
+
+{% block main %}
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h1>Full-stack Web Development</h1>
+                <ul class="list-inline-responsive">
+                    <li><h4>Back-end</h4></li>
+                    <li><h4>Front-end</h4></li>
+                    <li><h4>Testing</h4></li>
+                    <li><h4>Optimization</h4></li>
+                    <li><h4>Deployment</h4></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="title text-center">
+                    <h2>Latest works</h2>
+                </div>
+            </div>
+            {% portfolio_recent_posts 3 as recent_posts %}
+            {% if recent_posts %}
+            {% for recent_post in recent_posts %}
+            <div class="col-xs-12 col-ms-6 col-md-3">
+                <a class="item" href="{{ recent_post.get_absolute_url }}" title="{{ recent_post.title }}">
+                    {% if recent_post.featured_image %}
+                    <img class="img-responsive" src="{{ MEDIA_URL }}{% thumbnail recent_post.featured_image 435 255 %}">
+                    {% endif %}
+                    <div>
+                        <h4>{{ recent_post.title }}</h4>
+                        <p>{{ recent_post.description|safe }}</p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="title text-center">
+                    <h2>Latest posts</h2>
+                </div>
+            </div>
+            {% blog_recent_posts 3 as recent_posts %}
+            {% if recent_posts %}
+            {% for recent_post in recent_posts %}
+            <div class="col-xs-12 col-ms-6 col-md-3">
+                <a class="item" href="{{ recent_post.get_absolute_url }}" title="{{ recent_post.title }}">
+                    {% if recent_post.featured_image %}
+                    <img class="img-responsive" src="{{ MEDIA_URL }}{% thumbnail recent_post.featured_image 435 255 %}">
+                    {% endif %}
+                    <div>
+                        <h4>{{ recent_post.title }}</h4>
+                        <p>{{ recent_post.description|safe }}</p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</section>
+{{ block.super }}
+{% endblock %}

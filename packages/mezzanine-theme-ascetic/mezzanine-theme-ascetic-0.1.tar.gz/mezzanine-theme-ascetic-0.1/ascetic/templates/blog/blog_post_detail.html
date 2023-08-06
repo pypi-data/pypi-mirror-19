@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% load mezzanine_tags comment_tags keyword_tags rating_tags i18n disqus_tags %}
+
+{% block meta_title %}{{ blog_post.meta_title }}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+{% keywords_for blog_post as tags %}
+{% for tag in tags %}{% if not forloop.first %}, {% endif %}{{ tag }}{% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+{{ blog_post.description }}
+{% endmetablock %}{% endblock %}
+
+{% block main %}
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-8 col-md-push-2">
+                <div class="row">
+                    <div class="col-xs-12">
+                        {% editable blog_post.title %}
+                        <h1>{{ blog_post.title }}</h1>
+                        {% endeditable %}
+                    </div>
+                    
+                    <div class="col-xs-6">
+                        <p>{% blocktrans with sometime=blog_post.publish_date|timesince %}{{ sometime }} ago{% endblocktrans %}</p>
+                    </div>
+                    
+                    {% block blog_post_detail_sharebuttons %}
+                    <div class="col-xs-6 text-right">
+                        <div class="addthis_inline_share_toolbox_iyiz"></div>
+                        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-585c56a4963644a1"></script>
+                    </div>
+                    {% endblock %}
+                </div>
+                <div class="row">
+                    {% block blog_post_detail_featured_image %}
+                    {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
+                    <div class="col-xs-12">
+                        <img class="img-responsive img-main" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 600 0 %}">
+                    </div>
+                    {% endif %}
+                    {% endblock %}
+                    
+                    {% block blog_post_detail_content %}
+                    <div class="col-xs-12">
+                        {% editable blog_post.content %}
+                        {{ blog_post.content|richtext_filters|safe }}
+                        {% endeditable %}
+                    </div>
+                    {% endblock %}
+                </div>
+                <div class="row">
+                    <!--{% block blog_post_detail_author %}
+                    <div class="col-xs-12">
+                        {% trans "Posted by" %}:
+                        {% with blog_post.user as author %}
+                        <a href="{% url "blog_post_list_author" author %}">{{ author.get_full_name|default:author.username }}</a>
+                        {% endwith %}
+                    </div>
+                    {% endblock %}-->
+                    
+                    {% block blog_post_detail_categories %}
+                    {% with blog_post.categories.all as categories %}
+                    {% if categories %}
+                    <div class="col-xs-12">
+                        {% trans "Categories" %}
+                        {% for category in categories %}
+                        <a href="{% url "blog_post_list_category" category.slug %}">{{ category }}</a>{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% endwith %}
+                    {% endblock %}
+                    
+                    {% block blog_post_detail_keywords %}
+                    {% keywords_for blog_post as tags %}
+                    {% if tags %}
+                    <div class="col-xs-12">
+                        {% spaceless %}
+                        <ul class="list-inline tags">
+                            <li>{% trans "Tags" %}:</li>
+                            {% for tag in tags %}
+                            <li><a href="{% url "blog_post_list_tag" tag.slug %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endspaceless %}
+                    </div>
+                    {% endif %}
+                    {% endblock %}
+                    
+                    <!--{% block blog_post_detail_rating %}
+                    <div class="col-xs-12">
+                        <div class="panel panel-default rating">
+                            <div class="panel-body">
+                            {% rating_for blog_post %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endblock %}-->
+                    
+                    {% block blog_post_detail_previous_next %}
+                    <div class="col-xs-12">
+                        <ul class="pager">
+                        {% with blog_post.get_previous_by_publish_date as previous %}
+                        {% if previous %}
+                        <li class="previous">
+                            <a href="{{ previous.get_absolute_url }}">&larr; {{ previous }}</a>
+                        </li>
+                        {% endif %}
+                        {% endwith %}
+                        {% with blog_post.get_next_by_publish_date as next %}
+                        {% if next %}
+                        <li class="next">
+                            <a href="{{ next.get_absolute_url }}">{{ next }} &rarr;</a>
+                        </li>
+                        {% endif %}
+                        {% endwith %}
+                        </ul>
+                    </div>
+                    {% endblock %}
+                    
+                    {% block blog_post_detail_related_posts %}
+                    <div class="col-xs-12">
+                        {% if related_posts %}
+                        <h2>{% trans 'Related posts' %}</h2>
+                        <ul class="list-unstyled">
+                            {% for post in related_posts %}
+                            <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                    {% endblock %}
+                    
+                    {% block blog_post_detail_comments %}
+                    {% if blog_post.allow_comments %}
+                    {% comments_for blog_post %}
+                    {% endif %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
