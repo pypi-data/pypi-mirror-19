@@ -1,0 +1,3 @@
+[console_scripts]
+rancher-gen = rancher_gen.cli:main
+
