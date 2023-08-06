@@ -1,0 +1,6 @@
+[console_scripts]
+slam = slam.cli:main
+
+[slam_plugins]
+dynamodb_tables = slam.plugins.dynamodb
+

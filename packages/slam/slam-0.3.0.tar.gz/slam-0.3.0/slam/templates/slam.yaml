@@ -1,0 +1,50 @@
+---
+# slam configuration file
+
+# the name and description of the project
+name: "{{name}}"
+description: "{{description}}"
+
+# the deployment type
+# currently, only "wsgi" is supported
+type: wsgi
+
+# WSGI server details
+wsgi:
+  module: "{{module}}"
+  app: "{{app}}"
+
+# location of the requirements file for the project
+requirements: "{{requirements}}"
+
+# the name of the development stage
+devstage: "{{devstage}}"
+
+# environment variables common to all stages
+# add any variables in this section as "key: value" pairs
+environment:
+
+# environment variables specific to each stage
+# add or remove stages by editing the entries in this section
+stage_environments:
+  {% for stage in stages %}
+  {{stage}}:
+      {% if stage == devstage %}
+      log: true
+      {% else %}
+      log: false
+      {% endif %}
+      variables:
+          # define stage specific variables here as "key: value" pairs
+  {% endfor %}
+
+# AWS specific options
+aws:
+  # S3 bucket where lambda packages are stored
+  s3_bucket: "{{bucket}}"
+
+  # timeout in seconds for the lambda function
+  lambda_timeout: {{timeout}}
+
+  # memory in MB for the lambda function
+  lambda_memory: {{memory}}
