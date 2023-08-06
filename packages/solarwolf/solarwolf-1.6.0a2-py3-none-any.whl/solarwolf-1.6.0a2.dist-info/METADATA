@@ -1,0 +1,21 @@
+Metadata-Version: 2.0
+Name: solarwolf
+Version: 1.6.0a2
+Summary: SolarWolf is an action/arcade game written entirely in Python.
+Home-page: https://github.com/pygame/solarwolf
+Author: Rene Dudfield
+Author-email: renesd@gmail.com
+License: LGPL
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries :: pygame
+Classifier: Topic :: Games/Entertainment :: Arcade
+Requires-Dist: pygame
+
+SolarWolf is an action/arcade game written entirely in Python.
+
+
