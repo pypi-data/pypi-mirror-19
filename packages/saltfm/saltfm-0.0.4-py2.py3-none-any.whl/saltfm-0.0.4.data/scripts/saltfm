@@ -1,0 +1,46 @@
+#!/Users/hvn/me/saltfm/env/bin/python
+# -*- coding: utf-8 -*-
+
+import argparse
+import sys
+
+import saltfm
+from saltfm.config import config
+
+
+def main():
+    argp = argparse.ArgumentParser()
+    subparsers = argp.add_subparsers(
+            title='subcommands',
+            description='valid subcommands',
+            help='additional help'
+    )
+
+    downloadp = subparsers.add_parser('download', help='Download formula')
+    downloadp.add_argument('formula', type=str, default='')
+
+    installp = subparsers.add_parser('install', help='Install formula')
+    installp.add_argument('formula', type=str, default='')
+
+    managep = subparsers.add_parser('manage', help='Manage all configured formulas')
+
+    args = argp.parse_args()
+
+    if 'download' in sys.argv and args.formula:
+        saltfm.download(args.formula)
+        return
+    elif 'install' in sys.argv and args.formula:
+        saltfm.install(args.formula)
+        return
+    elif 'manage' in sys.argv:
+        repos = config['repos']
+        for repo in repos:
+            saltfm.install(**repo)
+
+        import os
+        for d in os.listdir(saltfm.CACHE_DIR):
+            print os.listdir(os.path.join(saltfm.CACHE_DIR, d))
+
+
+if __name__ == "__main__":
+    main()
