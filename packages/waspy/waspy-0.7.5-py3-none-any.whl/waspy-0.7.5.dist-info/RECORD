@@ -1,0 +1,16 @@
+waspy/__init__.py,sha256=CJ7hD42ykg4WDb53Attf8RvJOgTg6RvD1EVIzF5z52U,150
+waspy/app.py,sha256=YzuBusgg8gsMqCU5AhPHvdP7Fr5cNAK8PUonH5R5B7w,4672
+waspy/client.py,sha256=QRcMAcYE4BNwHxUj9S6BsWB4TnUD05i0J1wD1H1qpbg,3568
+waspy/configuration.py,sha256=aCDz33tDgTETN5a8zjTzqPfM86g_sImjOezZjI3grJw,2739
+waspy/router.py,sha256=ifuPtOf_F_EpLlMjMWy0TNDwvyo7p06p-3v4uVM1eAQ,5078
+waspy/webtypes.py,sha256=7i18taySlC0aCfF-CveobnhMLBtapdt-wSpB5EAs990,5302
+waspy/transports/__init__.py,sha256=iqJiV-xZl8sg7K6WkvS7-V910n4zOFwSNRt82CISWMI,152
+waspy/transports/httptransport.py,sha256=azmuFpBsWeUQw5uzTg6f193AVjuZeYfgGoVV0cpf8cs,7352
+waspy/transports/rabbitmqtransport.py,sha256=G4ovzrb7uWNJFYEjSTo_sQNwwi4qpDKzo2y7-tlVcbA,5215
+waspy/transports/transportabc.py,sha256=_dZhDwOMpRvbDW4_jHB3n4RRn-SS2bBRNIrF16pkqto,2138
+waspy-0.7.5.dist-info/DESCRIPTION.rst,sha256=YTnr2yciee-gUsRQ_W2rggIYsWPtC0IZ5RTaCmqiKwI,1514
+waspy-0.7.5.dist-info/METADATA,sha256=XU9DWMsNO4BJig9_4i1i6au1ndooxS_S9MugnTtgFzE,2200
+waspy-0.7.5.dist-info/RECORD,,
+waspy-0.7.5.dist-info/WHEEL,sha256=rNo05PbNqwnXiIHFsYm0m22u4Zm6YJtugFG2THx4w3g,92
+waspy-0.7.5.dist-info/metadata.json,sha256=SKWo5PxBG24VdxLTVFX7hMReoPPJdJp5t37RdNUo2VU,878
+waspy-0.7.5.dist-info/top_level.txt,sha256=kX1Y5oiCta0yD8fMrFGL5q0v9k-_2hvpmCxIeZfjb5c,6
