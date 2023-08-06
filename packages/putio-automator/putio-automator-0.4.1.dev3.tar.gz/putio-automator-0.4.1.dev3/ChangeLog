@@ -1,0 +1,81 @@
+CHANGES
+=======
+
+* Docker convenience tasks
+* Change CMD to ENTRYPOINT
+
+0.4.0
+-----
+
+* Documentation and makefile changes
+* Better configuration for docker, build from local, not git
+* Use branch
+* Docker changes
+
+0.3.1
+-----
+
+* update putio.py dependency (#6)
+* More docs
+* Fix oauth register link
+
+0.3.0
+-----
+
+* Various Changes
+* Add `forget` task for forgetting previously downloaded files
+* Add parent_id to torrents_watch and torrents_add
+
+0.2.0
+-----
+
+* Add parent_id to files tasks, so you can operate within specific folders on put.io
+* Updated manage.py
+* Remove cruft
+* Remove IFTTT footer
+* Auto deploy experiment
+* UPNP
+* Add hook server
+* Testing push
+
+0.1.0
+-----
+
+* Add more reading material
+* Various changes
+* Make cancel_transfers_by_status command name a bit more explicit (also stop collision with possible cancel by ID later)
+* Various changes for transfers
+* Add readme for files_list
+* Rename LICENCE to LICENSE
+* Add MIT licence
+* Formatting in readme
+* Update README and ops files
+* Rationalize logger usage
+* Merged changed
+* Change logging somewhat, add asctime
+* Add files_list command
+* Add chunk size to the call
+* Small bugfix
+* Start testing
+* Delete torrent after watch adds a transfer
+* Blush
+* Improve readme formatting
+* Improve readme formatting
+* Improve readme formatting
+* More cleanup
+* Cleanup readme
+* Embellish readme
+* Add custom version of putio.py which includes cancel method, cleanup download handling interval issues
+* Add custom version of putio.py which includes cancel method, cleanup download handling interval issues
+* Download to incomplete, and move to downloads to avoid incomplete files being moved by another application
+* Change the order of things, cleanup the transfers list (limited)
+* Refine readme
+* Swap add torrents and download files, so you can get them sooner
+* Add initial torrents upload with record
+* Fix files download to use timed retry and use threaded notifier for pyinotify
+* Add supervisor config
+* Automator, not automater
+* Embellish doc
+* Add a bit more info for Sickrage
+* Doh, add run instructions
+* Initial version
