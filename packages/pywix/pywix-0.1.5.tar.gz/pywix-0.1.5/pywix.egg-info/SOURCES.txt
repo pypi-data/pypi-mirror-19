@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+versioneer.py
+pywix/__init__.py
+pywix/_version.py
+pywix/wix_download.py
+pywix.egg-info/PKG-INFO
+pywix.egg-info/SOURCES.txt
+pywix.egg-info/dependency_links.txt
+pywix.egg-info/requires.txt
+pywix.egg-info/top_level.txt
