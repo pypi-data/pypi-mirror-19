@@ -1,0 +1,50 @@
+Metadata-Version: 1.1
+Name: jacquard-split
+Version: 0.3.1
+Summary: Split testing server
+Home-page: https://github.com/prophile/jacquard
+Author: Alistair Lynn
+Author-email: alistair@alynn.co.uk
+License: MIT
+Description: jacquard
+        ========
+        
+        .. image:: https://badge.fury.io/py/jacquard-split.svg
+            :target: https://badge.fury.io/py/jacquard-split
+        
+        .. image:: https://circleci.com/gh/prophile/jacquard.svg?style=shield
+            :target: https://circleci.com/gh/prophile/jacquard
+        
+        .. image:: https://readthedocs.org/projects/jacquard-split/badge/?version=latest
+            :target: http://jacquard-split.readthedocs.io/en/latest/
+        
+        Split-testing server.
+        
+        Installation
+        ------------
+        
+        Jacquard can be installed through `pip`:
+        
+        .. code:: bash
+        
+            pip install jacquard-split
+        
+        Alternatively it can be built from `GitHub <https://github.com/prophile/jacquard>`_.
+        
+        Documentation
+        -------------
+        
+        Full documentation is available in `ReadTheDocs <http://jacquard-split.readthedocs.io/en/latest/>`_.
+        
+Keywords: ab-testing,e-commerce,experiments,jacquard,metrics,redis,science,split-testing,testing,zucchini
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Office/Business
