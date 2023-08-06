@@ -1,0 +1,24 @@
+body{
+    font-size:1.2em;
+}
+.element-list li{
+    word-wrap:break-word;
+}
+.list-group a {
+  mix-blend-mode: multiply;
+}
+
+.time{
+    display:block;
+    float:right;
+    color:gray;
+    font-size:0.8em
+}
+
+.path{
+    word-wrap:break-word;
+}
+
+.sha1{
+    text-decoration:underline;
+}
