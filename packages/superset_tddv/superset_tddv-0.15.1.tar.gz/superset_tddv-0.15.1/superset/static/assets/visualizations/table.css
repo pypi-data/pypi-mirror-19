@@ -1,0 +1,38 @@
+.slice-grid .widget.table .slice_container {
+    overflow: auto !important;
+}
+
+.widget.table table {
+    margin: 0px !important;
+}
+
+.widget.table td.filtered {
+    background-color: #005a63;
+    color: white;
+}
+
+.widget.table tr>th {
+    padding: 1px 5px !important;
+    font-size: small !important;
+}
+
+.widget.table tr>td {
+    padding: 1px 5px !important;
+    font-size: small !important;
+}
+table.table thead th.sorting:after, table.table thead th.sorting_asc:after, table.table thead th.sorting_desc:after {
+    top: 0px;
+}
+.dialogcontainter{height:400px; width:400px; border:1px solid #14495f; position:absolute; font-size:13px;} 
+.dialogtitle{height:26px; width:auto; background-color: #00A699;} 
+.dialogtitleinfo{float:left;height:20px; margin-top:2px; margin-left:10px;line-height:20px; vertical-align:middle; color:#FFFFFF; font-weight:bold; } 
+.dialogtitleico{float:right; height:20px; width:21px; margin-top:2px; margin-right:5px;text-align:center; line-height:20px; vertical-align:middle; background-image:url('/static/assets/images/close.p.gif');background-position:-21px 0px} 
+.dialogbody{ padding:10px; width:auto; background-color: #FFFFFF;} 
+.dialogbottom{ 
+bottom:1px; right:1px;cursor:nw-resize; 
+position:absolute; 
+background-image:url('/static/assets/images/close.p.gif'); 
+background-position:-42px -10px; 
+width:10px; 
+height:10px; 
+font-size:0;}
