@@ -1,0 +1,65 @@
+Metadata-Version: 1.1
+Name: radontea
+Version: 0.1.9
+Summary: Collection of algorithms to compute the inverse Radon transform
+Home-page: https://github.com/RI-imaging/radontea
+Author: Paul Müller
+Author-email: paul.mueller@biotec.tu-dresden.de
+License: BSD (3 clause)
+Description: radontea
+        ========
+        
+        |PyPI Version| |Build Status| |Coverage Status|
+        
+        Algorithms to compute the inverse Radon trannsform (e.g. SART, backprojection, Fourier interpolation).
+        
+        
+        Documentation
+        -------------
+        The documentation is available `here <http://RI-imaging.github.io/radontea/>`__.
+        
+        
+        Installation
+        ------------
+        The package can be installed from the Python package index.
+        
+        ::
+        
+            pip install radontea
+        
+        
+        Usage
+        -----
+        For a general idea of use cases, execute radontea as a package
+        (matplotlib needs to be installed):
+        
+        ::
+        
+            python -m radontea
+        
+        
+        Testing
+        -------
+        Some functionalities of the module are tested with
+        
+        ::
+        
+            python setup.py test
+        
+        
+        
+        .. |PyPI Version| image:: http://img.shields.io/pypi/v/radontea.svg
+           :target: https://pypi.python.org/pypi/radontea
+        .. |Build Status| image:: http://img.shields.io/travis/RI-imaging/radontea.svg
+           :target: https://travis-ci.org/RI-imaging/radontea
+        .. |Coverage Status| image:: https://img.shields.io/coveralls/RI-imaging/radontea.svg
+           :target: https://coveralls.io/r/RI-imaging/radontea
+        
+        
+Keywords: tomography,ct,radon,computerized tomography,optical projection tomography
+Platform: ALL
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Intended Audience :: Science/Research
