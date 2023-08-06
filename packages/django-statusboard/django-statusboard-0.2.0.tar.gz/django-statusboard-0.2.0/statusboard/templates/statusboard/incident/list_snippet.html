@@ -1,0 +1,40 @@
+{% load humanize %}
+{% load statusboard_extras %}
+
+{% for incident in incidents %}
+{% ifchanged incident.modified.date %}
+<div class="page-header">
+    <h3>{{ incident.modified|date:"DATE_FORMAT" }}</h3>
+</div>
+{% endifchanged %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        {% if incident.service %}
+        <span class="label label-default">{{ incident.service.name }}</span>
+        {% endif %}
+        <strong>{{ incident.name }}</strong>
+        {% if perms.statusboard.delete_incident %}
+        <small><a href="{% url 'statusboard:incident:delete' pk=incident.id %}">delete</a></small>
+        {% endif %}
+        {% if perms.statusboard.edit_incident %}
+        <small><a href="{% url 'statusboard:incident:edit' pk=incident.id %}">edit</a></small>
+        {% endif %}
+        <br/><small class="timeinfo">occurred <abbr title="{{ incident.occurred|date:"r" }}">{{ incident.occurred|naturaltime }}</abbr></small>
+    </div>
+    <ul class="list-group">
+        {% for update in incident.updates_by_ctime %}
+        <li class="list-group-item">
+            <div class="row">
+                <strong class="col-xs-4 col-md-2">{{ update.get_status_display }}</strong>
+                <div class="col-xs-8 col-md-10">
+                    <span>{{ update.description|linebreaksbr }}</span>
+                    <br/><small class="timeinfo">last update <abbr title="{{ update.modified|date:"r" }}">{{ update.modified|naturaltime }}</abbr></small>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    <div class="panel-footer">
+    </div>
+</div>
+{% endfor %}
