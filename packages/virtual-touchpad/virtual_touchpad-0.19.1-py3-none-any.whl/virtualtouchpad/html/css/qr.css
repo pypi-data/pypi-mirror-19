@@ -1,0 +1,11 @@
+.qr > * a {
+    font-family: monospace;
+    font-size: 12pt;
+}
+
+.qr > svg {
+    stroke: white;
+    stroke-linecap: inherit;
+    stroke-linejoin: inherit;
+    stroke-width: 1;
+}
