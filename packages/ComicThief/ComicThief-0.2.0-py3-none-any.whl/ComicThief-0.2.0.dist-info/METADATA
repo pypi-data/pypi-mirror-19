@@ -1,0 +1,29 @@
+Metadata-Version: 2.0
+Name: ComicThief
+Version: 0.2.0
+Summary: Comic Books Scraper. Easy download comics and make .cbz files.
+Home-page: https://github.com/nuncjo/comicthief
+Author: Nuncjo
+Author-email: zoreander@gmail.com
+License: MIT
+Platform: Windows
+Platform: MacOS
+Platform: Unix
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: lxml
+Requires-Dist: requests
+Requires-Dist: tqdm
+
+UNKNOWN
+
+
