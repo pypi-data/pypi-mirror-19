@@ -1,0 +1,25 @@
+{-# LANGUAGE FlexibleContexts #-}
+
+import Data.Conduit
+import Data.CSV.Conduit
+import Data.Vector
+import Data.ByteString
+import Data.Text.Encoding
+import Data.Text.Read
+import Data.Either
+import qualified Data.Text as T
+
+readCSV :: FilePath -> IO [ByteString]
+readCSV file = do
+    -- curl -O https://bitbucket.org/hyllos/effectus-python/raw/2e0954599c97d2b7211807df1076800b7187ced4/effectus/csv/wkzs.csv
+    v <- readCSVFile defCSVSettings file :: IO (Vector (Row ByteString))
+    -- v is like [["56.56145325"],["99.42876163"], ..
+    pure $ Prelude.map (Prelude.head) $ toList v
+
+getValues file = rights . fmap convert <$> readCSV file
+  where
+    convert s = case double (decodeUtf8 s) of
+        Right (d, t) | T.null t -> Right d
+        _             -> Left "myError" -- merijin: alternatively just return a "default" here and the number above, to remove "rights" entirely
+
+
