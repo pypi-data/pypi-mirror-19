@@ -1,0 +1,12 @@
+syntax: glob
+*.pyc
+*.pyo
+*.kpf
+*.komodoproject
+*~
+
+syntax: re
+^build$
+^dist$
+\.egg-info/
+^MANIFEST$

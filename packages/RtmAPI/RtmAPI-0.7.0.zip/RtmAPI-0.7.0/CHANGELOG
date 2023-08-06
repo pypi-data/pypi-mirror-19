@@ -1,0 +1,24 @@
+The changelog lists new feature only. Bugfixes and bugfix releases are 
+omitted (see the repository for those information).
+
+RtmAPI 0.7
+  * support for API ver 2.0
+
+RtmAPI 0.6
+  * support for nested lists (deleted lists of getList)
+
+RtmAPI 0.5
+  * support for Python 3
+
+RtmAPI 0.4
+  * support parameters being None
+
+RtmAPI 0.3
+  * revised access to lists (breaks compatibility with older releases)
+  * support for complete API
+
+RtmAPI 0.2
+  * support for web application authentication
+
+RtmAPI 0.1
+  * initial release
