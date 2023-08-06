@@ -1,0 +1,23 @@
+Metadata-Version: 1.0
+Name: kimo
+Version: 0.0.29
+Summary: Finds owner processes of mysql queries.
+Home-page: https://github.com/muraty/kimo
+Author: Omer Murat Yildirim
+Author-email: omermuratyildirim@gmail.com
+License: BSD License
+Description: kimo
+        ====
+        
+        Installation
+        ------------
+        
+        ::
+        
+         pip install kimo
+        
+        Usage
+        -----
+        
+Keywords: kimo mysql query monitor diagnostic
+Platform: UNKNOWN
