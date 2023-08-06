@@ -1,0 +1,32 @@
+Metadata-Version: 2.0
+Name: behave-models-steps
+Version: 0.1.1
+Summary: Provides testing for Flask-SQLAlchemy models with Behave
+Home-page: UNKNOWN
+Author: Victor Anjos, Tristan Monger
+Author-email: va@deeplearni.ng
+License: MIT
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Testing
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: behave (>=1.2.4)
+Requires-Dist: behave-web-api (==1.0.6)
+Requires-Dist: bottle (==0.12.9)
+Requires-Dist: Faker (==0.7.3)
+Requires-Dist: freezegun (==0.3.8)
+Requires-Dist: inflect (==0.2.5)
+Requires-Dist: inflection (==0.3.1)
+Requires-Dist: nose (==1.3.7)
+Requires-Dist: ordereddict (==1.1)
+Requires-Dist: requests (>=2.0.0)
+Requires-Dist: SQLAlchemy (==1.0.15)
+
+UNKNOWN
+
+
