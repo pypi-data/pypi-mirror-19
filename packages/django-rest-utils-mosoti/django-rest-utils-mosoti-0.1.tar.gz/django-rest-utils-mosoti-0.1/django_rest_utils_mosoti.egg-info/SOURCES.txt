@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+django_rest_utils_mosoti.egg-info/PKG-INFO
+django_rest_utils_mosoti.egg-info/SOURCES.txt
+django_rest_utils_mosoti.egg-info/dependency_links.txt
+django_rest_utils_mosoti.egg-info/top_level.txt
+rest_utils/__init__.py
+rest_utils/admin.py
+rest_utils/apps.py
+rest_utils/models.py
+rest_utils/renderers.py
+rest_utils/tests.py
+rest_utils/views.py
+rest_utils/migrations/__init__.py

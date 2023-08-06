@@ -1,0 +1,42 @@
+Metadata-Version: 1.1
+Name: django-rest-utils-mosoti
+Version: 0.1
+Summary: A simple Django REST app that provides reusable utils for the django REST project.
+Home-page: https://github.com/morfat/rest_utils
+Author: Morfat Mosoti 
+Author-email: morfatmosoti@gmail.com
+License: MIT License
+Description: =====
+        rest_utils
+        =====
+        
+        rest_utils is a simple Django app tha that provides resusable utils for a django rest project.
+        
+        Detailed documentation is in the "docs" directory.
+        
+        Quick start
+        -----------
+        
+        1. Add "rest_utils" to your INSTALLED_APPS setting like this::
+        
+            INSTALLED_APPS = [
+                ...
+                'rest_utils',
+            ]
+        
+        2. Use the resusables in views, and renderers.py files in your project.
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.10
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
