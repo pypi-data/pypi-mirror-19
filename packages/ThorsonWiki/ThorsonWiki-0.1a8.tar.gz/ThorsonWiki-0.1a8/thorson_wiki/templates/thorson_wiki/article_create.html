@@ -1,0 +1,30 @@
+{% extends 'thorson_wiki/base.html' %}
+
+{% load i18n %}
+
+{% block content %}
+
+<h1>{% trans "Create new article" %}</h1>
+
+<hr/>
+
+<form action="{% url namespace_|add:":article_create" %}"
+      method="post">
+  {% csrf_token %}
+  {% include "thorson_wiki/_update_form.html" %}
+</form>
+
+{% endblock %}
+
+{% block jsfooter %}
+<script type="text/javascript">
+$(function() {
+  $('.form-tooltip').tooltip();
+});
+
+$('.form-tabs').click(function (e) {
+  e.preventDefault();
+  $(this).tab('show');
+});
+</script>
+{% endblock %}
