@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+bootstrap_submenu/__init__.py
+bootstrap_submenu/static/submenu/bootstrap-submenu.js
+bootstrap_submenu/static/submenu/bootstrap-submenu.min.css
+bootstrap_submenu/templatetags/__init__.py
+bootstrap_submenu/templatetags/bootstrap_submenu.py
+django_bootstrap_submenu.egg-info/PKG-INFO
+django_bootstrap_submenu.egg-info/SOURCES.txt
+django_bootstrap_submenu.egg-info/dependency_links.txt
+django_bootstrap_submenu.egg-info/not-zip-safe
+django_bootstrap_submenu.egg-info/requires.txt
+django_bootstrap_submenu.egg-info/top_level.txt
