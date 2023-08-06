@@ -1,0 +1,34 @@
+{% extends "thorson_wiki/base.html" %}
+
+{% load i18n staticfiles %}
+
+{% block addstyles %}
+<link href="{% static "thorson_wiki/css/article.css" %}"
+      rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<div class="alert alert-warning">
+
+  <p class="article-delete-warning">
+  <span class="glyphicon glyphicon-exclamation-sign"></span>
+  {% blocktrans with title=article.title %}
+  Are you sure you want to delete the article '{{ title }}'?
+  {% endblocktrans %}
+  </p>
+
+  <form method="post"
+        action="{% url namespace_|add:":article_delete" article.slug %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-warning">
+      {% trans "Yes (delete the article)" %}
+    </button>
+    <a href="{% url namespace_|add:":article" article.slug %}"
+       class="btn btn-info">
+      {% trans "No (return to article)" %}
+    </a>
+  </form>
+</div>
+
+{% endblock %}
