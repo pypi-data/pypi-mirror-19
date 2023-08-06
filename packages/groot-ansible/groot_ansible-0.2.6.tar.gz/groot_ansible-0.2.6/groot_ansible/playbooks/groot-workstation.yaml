@@ -1,0 +1,25 @@
+#
+# Playbook to ensure ros is installed and up to date. This includes:
+#
+# - the ros repository
+# - ros-<rosdistro>-base
+# - rosdep
+# - any other ros packages the user may have installed
+#
+---
+- name: Workstation
+  hosts:
+    - localhost
+
+  # Public Variables
+  # vars:
+  # - ros_release: kinetic
+
+  roles:
+  - role: ubuntu
+  - role: kubuntu
+  - role: git
+  - role: chrome
+  - role: drive
+  - role: powerline
+  - role: groot/workstation
