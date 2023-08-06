@@ -1,0 +1,11 @@
+pip
+bumpversion
+flake8>=3.2.1
+tox
+coverage
+Sphinx
+PyYAML
+pytest
+mock
+codecov
+pytest-cov
