@@ -1,0 +1,5 @@
+[console_scripts]
+zyre-chat = pyzyre.client:main
+zyre-gateway = pyzyre.gateway:main
+zyre-proxy = pyzyre.proxy:main
+
