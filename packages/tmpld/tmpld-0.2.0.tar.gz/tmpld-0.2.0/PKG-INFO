@@ -1,0 +1,25 @@
+Metadata-Version: 1.1
+Name: tmpld
+Version: 0.2.0
+Summary: Render templates in docker entrypoint scripts.
+Home-page: https://github.com/joeblackwaslike/tmpld
+Author: Joe Black
+Author-email: joeblack949@gmail.com
+License: Apache 2.0
+Download-URL: https://github.com/joeblackwaslike/tmpld/tarball/0.2.0
+Description: tmpld
+        ~~~~~
+        
+        Jinja2 templating on steroids for docker containers.
+        
+        [todo]
+        
+Keywords: kubernetes,clustering,entrypoint,entrypoints,docker,template,templates
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Internet :: WWW/HTTP
