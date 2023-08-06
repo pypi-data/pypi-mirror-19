@@ -1,0 +1,17 @@
+language: python
+python:
+- '3.5'
+before_install:
+- pip install pep8
+script:
+- py.test
+deploy:
+  provider: pypi
+  user: pbrooks
+  password:
+    secure: ypDlLh9IDpv5nf4wpdrMVQPLfG6iZJDZSytZBtVaRAjlK8+mupIuj0/wiaJO6ARbj4j3TvGTPat9HL2BpQLF98mmVsQYj3ivkU0o+4d/Agglj8PDjDDPtWWXpVJQxfx3Xex8+4bgmhV6TChQcWvx9YO8DRFaa8UybzoXa1Fah/oAYqjvlxy11ctpweZVEHZIrpFvqZHaOGA7LOUduy+6ThjpFElWIgcYG+PxFh1WUgVIhI5JGQK1cm8y8VUsaGkPVgBcWK7BLLoK7wB9HrA03Bevqts5Mn442DldYgW/HO5SyWQPNmG/grktu0P2VHnBaeTbc2j/nc325nC+yytYiZUiinr00SK5wG8BTJqNoelSoUaSgAXl/hYTLBN1K1s1DBgpFHM+/to8/5v48nD3l1Ey0HajuIRuoQSuGNqndZT4S2Yx+SCpTd8uCqIvOEXhsjXxKyDDaT20af2eoc8e7TN3zh/pw9Sf3LKcKQMsXGpfWTEe92xiivxBWXzUqhEHsupfFDb6ATZPRm4Lg71dKZg4i6DBG3oBhSSSGJXKeEMQ7CapJdZjN73R8KdmfNRKozwqJRYldr1JY3FrEg+V5A+JPQ+dIpuNvdhpxh4O7X/V2CFTqrUUGbQfru6iZeDCegA+5xBV12GGfGPrjQcuf+JiaPnpbBgD0tbb1OUhpkk=
+  on:
+    tags: true
+    distributions: sdist bdist_wheel
+    repo: sealevelresearch/timeseries
+    branch: master
