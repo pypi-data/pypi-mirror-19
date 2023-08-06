@@ -1,0 +1,1 @@
+exports.translation.catalog={"texts": {"Virtual Touchpad ${application.version}": "Virtual Touchpad ${application.version}", "To connect you mobile device, scan this QR code:": "F\u00f6r att ansluta din mobila enhet, skanna denna QR-kod:"}, "plural": "n != 1", "code": "sv"}
