@@ -1,0 +1,20 @@
+cycler>=0.10.0            # via matplotlib
+dsargparse>=0.3.0
+matplotlib>=1.5.3
+numpy>=1.11.3             # via matplotlib
+pyparsing>=2.1.10         # via matplotlib
+python-dateutil>=2.6.0    # via matplotlib
+pytz>=2016.10             # via matplotlib
+six>=1.10.0               # via cycler, python-dateutil
+
+[fraud-eagle]
+rgmining-fraud-eagle
+
+[fraudar]
+rgmining-fraudar
+
+[ria]
+rgmining-ria
+
+[rsd]
+rgmining-rds
