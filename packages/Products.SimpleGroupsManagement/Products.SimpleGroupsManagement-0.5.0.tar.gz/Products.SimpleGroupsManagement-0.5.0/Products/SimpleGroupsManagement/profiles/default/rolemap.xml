@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<rolemap>
+
+  <permissions>
+    <permission name="Use Simple Groups Management"
+                acquire="True">
+      <role name="Site Administrator"/>
+      <role name="Member"/>
+    </permission>
+
+    <permission name="Manage Simple Groups Management"
+                acquire="False">
+      <role name="Site Administrator"/>
+      <role name="Manager"/>
+    </permission>
+  </permissions>
+
+</rolemap>
