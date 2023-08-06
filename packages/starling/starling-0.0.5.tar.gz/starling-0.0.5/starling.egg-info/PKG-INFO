@@ -1,0 +1,33 @@
+Metadata-Version: 1.1
+Name: starling
+Version: 0.0.5
+Summary: The Starling Python package contains code that might be useful when implementing services in Python
+Home-page: https://github.com/geoneric/starling
+Author: Kor de Jong
+Author-email: k.dejong@geoneric.eu
+License: MIT License
+Description: Starling
+        ========
+        Goodies for implementing services
+        
+        
+        More information about Starling:
+        
+        |                  |                                           |
+        | -----------------|------------------------------------------ |
+        | Documentation    | http://starling.readthedocs.io/en/latest/ |
+        | Python package   | https://pypi.python.org/pypi/starling     |
+        
+Keywords: Starling,microservice,service,Flask
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Unix
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Internet :: WWW/HTTP :: HTTP Servers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
