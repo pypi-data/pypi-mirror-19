@@ -1,0 +1,6 @@
+setuptools
+plone.app.z3cform
+
+[test]
+z3c.form[test]
+plone.app.testing
