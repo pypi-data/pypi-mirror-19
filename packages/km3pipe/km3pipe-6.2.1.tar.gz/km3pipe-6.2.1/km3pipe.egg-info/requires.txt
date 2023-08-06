@@ -1,0 +1,14 @@
+cython
+docopt
+matplotlib==2.0.0rc2
+mock
+numpy<=1.11
+pandas
+pytz
+scipy
+six
+tables
+tornado
+urwid
+websocket-client
+statsmodels
