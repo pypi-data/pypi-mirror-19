@@ -1,0 +1,3 @@
+include *.rst LICENSE
+include instaread/templates/*
+recursive-include instaread/read_assets *

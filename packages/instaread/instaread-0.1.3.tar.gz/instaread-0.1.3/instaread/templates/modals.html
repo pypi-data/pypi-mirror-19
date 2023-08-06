@@ -1,0 +1,100 @@
+<!-- Modals -->
+<div id="modal_backer" class="modal_backer"></div>
+{{speed_read}} {{article_text}}
+</div>
+<div class="wpm-container speed_controls_ui">
+    <div id="wpmLabel" class="wpm-label">350 words per minute</div>
+    <div class="wpm-control">
+        <div class="wpm-icon ipicon ipicon-slower"></div>
+        <input type="range" class="wpm-slider" id="wpmControl" min="250" value="350" max="650" step="10">
+        <div class="wpm-icon ipicon ipicon-faster"></div>
+    </div>
+</div>
+<div id="speedEndState" class="speed_endstate_ui" style="display: none">
+    <div class="premium_bar" id="speedPremiumBar">
+        You have <span id="speedArticlesLeft"></span> articles left this month. Get unlimited speed reading and more with <a href="https://www.instapaper.com/premium">Instapaper Premium</a>!
+    </div>
+    <div class="clearfix">
+        <div class="col-md-4 col-sm-4 row-same-height speed-stats ">
+            <div>
+                <img class="stats-img" src="./read_files/endstate_words.png">
+                <br>
+                <span id="speedWordsRead"></span> Words Read
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4 row-same-height speed-stats">
+            <div>
+                <img class="stats-img" src="./read_files/endstate_spent.png">
+                <br>
+                <span id="speedTimeSpent"></span> Spent
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4 row-same-height speed-stats">
+            <div>
+                <img class="stats-img" src="./read_files/endstate_time_saved.png">
+                <br>
+                <span id="speedTimeSaved"></span> Saved
+                <div class="total-saved">Total Time Saved: <span id="speedTotalTimeSaved"></span></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div id="highlight_create_popover" class="highlight_popover clearfix  " style="top: 580.562px;">
+    <a id="highlight_create" class="highlight_button highlight_left_button">
+        <span class="ipicon ipicon-highlights-dark"></span>
+    </a>
+    <a id="note_create" class="highlight_button highlight_right_button">
+        <span class="ipicon ipicon-note-create"></span>
+    </a>
+    <div class="highlight_arrow"></div>
+</div>
+<div id="highlight_delete_popover" class="highlight_popover">
+    <a class="highlight_button highlight_left_button highlight_right_button">
+        <span class="ipicon ipicon-delete-dark"></span> Remove Note
+    </a>
+    <div class="highlight_arrow"></div>
+</div>
+<a id="highlight_limit_modal_launcher" class="open_modal hidden" data-modal="highlight_limit_modal"></a>
+<div id="highlight_limit_modal" class="modal modal_highlight_limit">
+    <div class="modal_name">Upgrade to Premium</div>
+    <div class="modal_close js_galog" data-bins="read,subscription_close">✕</div>
+    <div class="modal_group">
+        <div>Sorry! You've exceeded your limit of 5 free notes per month. Upgrade to Premium for...</div>
+        <div class="premium_features clearfix">
+            <span class="premium_row">
+<div class="premium_feature clearfix">
+<div class="premium_img premium_img_search"></div>
+<div class="text">
+<div class="title">Full-Text Search</div>
+<div class="description">Search through all of the articles you've saved to Instapaper, even ones you've archived.</div>
+</div>
+</div>
+<div class="premium_feature clearfix">
+<div class="premium_img premium_img_notes"></div>
+<div class="text">
+<div class="title">Unlimited Notes</div>
+<div class="description">Never worry about the 5-note monthly limit again.</div>
+</div>
+</div>
+</span>
+<span class="premium_row">
+    <div class="premium_feature clearfix">
+    <div class="premium_img premium_img_playlist"></div>
+    <div class="text">
+    <div class="title">Text-to-Speech Playlists</div>
+    <div class="description">
+    Create a playlist of saved articles, turn up the volume, and relax. <span class="premium_mobile">(iOS &amp; Android only)</span>
+            </div>
+        </div>
+    </div>
+    <div class="premium_feature clearfix">
+        <div class="premium_img premium_img_speed"></div>
+        <div class="text">
+            <div class="title">Speed Reading</div>
+            <div class="description">
+                Get the full speed reading experience with unlimited usage.
+            </div>
+        </div>
+    </div>
+</span>
