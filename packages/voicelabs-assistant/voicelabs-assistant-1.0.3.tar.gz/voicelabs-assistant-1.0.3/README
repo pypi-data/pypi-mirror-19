@@ -1,0 +1,40 @@
+--------------------
+--------------------
+
+# Install the package
+
+you can install the package locally in the current folder by using the following command:
+
+#from test PIP repo
+pip install -t ./ -i https://testpypi.python.org/pypi voicelabs-assistant
+
+#from main public PIP repo
+pip install -t ./ voicelabs-assistant
+
+--------------------
+--------------------
+
+## SDK usage:
+
+#import sdk
+from voicelabs import  VoiceInsights
+
+#instantiate SDK object globally. You only need one object.
+appToken = '<YOUR APP TOKEN>'   
+vi = VoiceInsights(appToken)
+
+#track your events. Example Flask implementation
+@app.route('/intent', methods = ['POST'])
+def api_intent_handler():
+
+    req_json = request.get_json()
+    data = req_json['originalRequest']['data']
+    intentName = req_json['result']['metadata']['intentName']
+    ...
+    #tts string could be plain text or a valid SSML
+    tts = "Here is my response to the user"
+    ...
+    resp = vi.track( intentName, data, tts )
+    
+--------------------
+--------------------
