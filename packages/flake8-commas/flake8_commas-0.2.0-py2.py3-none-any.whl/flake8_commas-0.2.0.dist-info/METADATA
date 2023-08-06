@@ -1,0 +1,49 @@
+Metadata-Version: 2.0
+Name: flake8-commas
+Version: 0.2.0
+Summary: Flake8 lint for trailing commas.
+Home-page: https://github.com/flake8-commas/flake8-commas/
+Author: Thomas Grainger
+Author-email: flake8-commas@graingert.co.uk
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Quality Assurance
+Requires-Dist: pep8
+
+Flake8 Extension to enforce trailing commas.
+============================================
+
+Usage
+-----
+
+If you are using flake8 it's as easy as:
+
+.. code:: shell
+
+    pip install flake8-commas
+
+Now you can avoid those annoying merge conflicts on dictionary and list diffs.
+
+
+0.2.0 (2017-01-13)
+------------------
+
+- First version of flake8-commas with changelog
+- Fix HTML readme render on PyPI.
+- Support various parenth_form edge cases.
+- Merge from flake8-trailing-commas
+
+
