@@ -1,0 +1,12 @@
+setup.cfg
+setup.py
+data/__init__.py
+data/deserializers.py
+data/models.py
+fan_duel.egg-info/PKG-INFO
+fan_duel.egg-info/SOURCES.txt
+fan_duel.egg-info/dependency_links.txt
+fan_duel.egg-info/requires.txt
+fan_duel.egg-info/top_level.txt
+utilities/__init__.py
+utilities/builders.py
