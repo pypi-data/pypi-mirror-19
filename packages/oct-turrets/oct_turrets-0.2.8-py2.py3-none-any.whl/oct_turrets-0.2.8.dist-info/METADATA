@@ -1,0 +1,21 @@
+Metadata-Version: 2.0
+Name: oct-turrets
+Version: 0.2.8
+Summary: Client tester part for oct
+Home-page: UNKNOWN
+Author: Emmanuel Valette
+Author-email: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: pyzmq
+Requires-Dist: six
+
+UNKNOWN
+
+
