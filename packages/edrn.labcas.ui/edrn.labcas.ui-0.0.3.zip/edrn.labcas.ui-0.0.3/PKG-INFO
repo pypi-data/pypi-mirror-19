@@ -1,0 +1,134 @@
+Metadata-Version: 1.1
+Name: edrn.labcas.ui
+Version: 0.0.3
+Summary: User interface for LabCAS, for EDRN
+Home-page: https://github.com/EDRN/edrn.labcas.ui
+Author: Sean Kelly
+Author-email: sean.kelly@jpl.nasa.gov
+License: ALv2
+Description: **************
+        edrn.labcas.ui
+        **************
+        
+        User interface for the Early Detection Research Network (EDRN_) Laboratory
+        Catalog and Archive System (LabCAS_).  Developed by the EDRN Informatics Center
+        (IC_), operated by the Jet Propulsion Laboratory (JPL_), which itself is
+        operated by the California Institute of Technology (CalTech_).
+        
+        .. _EDRN: http://edrn.nci.nih.gov/
+        .. _LabCAS: http://cancer.jpl.nasa.gov/documents/applications/laboratory-catalog-and-archive-service-labcas
+        .. _IC: http://cancer.jpl.nasa.gov/
+        .. _JPL: http://www.jpl.nasa.gov/
+        .. _CalTech: http://www.caltech.edu/
+        
+        
+        
+        Installation
+        ============
+        
+        Download the src
+        Add [versions]
+        Run buildout
+        Fix cronjob
+        Run initial cron
+        
+        Maybe when tagging a release we do both setup.py and [versions]?
+        
+        
+        Changelog
+        =========
+        
+        What follows is a history of changes from release to release.  Where issue IDs
+        are listed below, you can find out more about them by visiting the issue
+        tracker at https://oodt.jpl.nasa.gov/jira/browse/CA.
+        
+        
+        0.0.3 — Yes I Would Care to Make a Release
+        ------------------------------------------
+        
+        • CA-1475, LabCAS backend changes caused issues for UI
+        • CA-1475, Permissions in LabCAS UI
+        • CA-1474, Double collections/collections path in LabCAS UI
+        • CA-1473, Remove pre-staged files from aborted uploads
+        • CA-1472, Differentiate between upload and non-upload workflows
+        • CA-1471, Use workflow's CollectionName to select the staging directory
+          instead of asking for a target collection
+        • CA-1422, Support browsing of collections / datasets / files
+        • CA-1451, Display more human collection names
+        • CA-1452, Use "DownloadId" to download files
+        • CA-1457, Expose Data Upload on top-level page
+        • CA-1458, Upload to sub-directory
+        • CA-1461, Workflow invocation should not be hard-coded
+        
+        
+        0.0.2 — TBD
+        -----------
+        
+        • CA-1381, Increase the number of files displayed by LabCAS UI
+        • CA-1382, Support for NIST dataset ID generation
+        • CA-1384, Use pull-downs for menus with many choices
+        • CA-1386, UI should respect the order of the field values (won't fix)
+        • CA-1387, Labcas Upload UI does not send the ProtocolId
+        • CA-1391, Cannot run UnivColoLungImage workflow on labcas-dev
+        • CA-1392, CA-1393, Support rich text
+        • CA-1394, LabCAS UI should generate dataset IDs
+        • CA-1395, Change "NormalizationMethod" to "Method"
+        • CA-1399, Remove HTML tags around DatasetDescription
+        • CA-1403, Implement QAState=public in LabCAS UI
+        • CA-1404, Chrome date input issue
+        • CA-1405, Move Upload button to the top
+        • CA-1408, URL to PI leads back to dataset, but with a "#" at the end
+        • CA-1409, Collaborative Group URLs work only for two collaborative groups
+        
+        
+        0.0.1 — Jackie
+        --------------
+        
+        • CA-1332, fixed RNA sequence upload
+        • CA-1333, added fields for booleans and URIs.
+        • CA-1345, "Date" and "ProtocolID" fields not appearing in LabCAS UI
+        • CA-1343, LabCAS UI should display images inline and not force the browser to
+          download them
+        • CA-1346, Double metadata entries
+        • CA-1357, People and protocols not updating
+        • CA-1354, Don't prompt for both Protocol Name and Protocol ID, but display
+          both after uploading
+        • CA-1356, Collaborative group metadata field is plain text, should be
+          restricted values
+        • CA-1355, "OwnerGroup" should be check boxes, not a free text field
+        • CA-1358, On dataset list change "Product" in table header to "Dataset"
+        • CA-1359, Add a N/A option to Collaborative Group
+        • CA-1360, Change name of "Owner Group" to something like "Share data with…"
+        • CA-1362, Show all groups; default to groups of which you are a mamber
+        • CA-1363, Disable upload button if you're not a member of any group, and add
+          a contact notice
+        • CA-1366, Help text when hovering over "Share Data with…" is weird
+        • CA-1373, "Share data with…" field too error-prone
+        • CA-1364, Who is currently logged in
+        • CA-1365, No logout button
+        • CA-1368, Data may not be immediately available
+        • CA-1374, Make "Generic LabCAS Dataset" the first workflow and rename it to
+          "Standard LabCAS Dataset"
+        • CA-1377, Must distribute Plupload because of GPL
+        • CA-1361, LabCAS UI no longer overrides title & description for "OwnerGroup"
+        
+        
+        0.0.0 — Unreleased
+        ------------------
+        
+        • CA-1331, Release to operations
+        
+        
+Keywords: web edrn cancer biomarkers lab laboratory catalog archive
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Pyramid
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
