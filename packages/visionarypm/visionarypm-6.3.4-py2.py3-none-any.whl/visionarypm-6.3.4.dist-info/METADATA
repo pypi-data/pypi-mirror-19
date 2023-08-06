@@ -1,0 +1,18 @@
+Metadata-Version: 2.0
+Name: visionarypm
+Version: 6.3.4
+Summary: A smarter password manager.
+Home-page: https://github.com/spaceshuttl/visionary
+Author: libeclipse
+Author-email: libeclipse@gmail.com
+License: CC BY 4.0
+Keywords: password,manager,visionary,visionarypm,vpm
+Platform: UNKNOWN
+Requires-Dist: colorama
+Requires-Dist: pyperclip
+Requires-Dist: requests
+Requires-Dist: scrypt
+
+Manages your passwords without storing anything.
+
+
