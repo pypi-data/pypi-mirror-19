@@ -1,0 +1,3 @@
+[console_scripts]
+versioneye_slack = versioneye_slack.versioneye_slack:run
+
