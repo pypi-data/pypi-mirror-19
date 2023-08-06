@@ -1,0 +1,36 @@
+li.listItem{
+	list-style: none;
+}
+
+div.text.select{
+	text-decoration:underline;
+}
+
+#root ul{
+	margin-bottom: 0rem;
+    padding-left: 30px;
+}
+
+dd>a.view-button {
+    border: 1px solid #1631bc;
+    background: #1631bc url(../../css/default-theme/images/ui-bg_highlight-soft_65_1631bc_1x100.png) 50% 50% repeat-x;
+    font-weight: bold;
+    color: #FFF;
+    padding: 0.1em 0.6em;
+}
+
+dd.active>a.view-button {
+    border: 1px solid #1631bc;
+    background: #1631bc url(../../css/default-theme/images/ui-bg_highlight-soft_65_1631bc_1x100.png) 50% 50% repeat-x;
+    font-weight: bold;
+    color: #FFF;
+    padding: 0.1em 0.6em;
+}
+
+dd>a.view-button:hover {
+    border: 1px solid #ffcc22;
+    background: #ffcc22 url(../../css/default-theme/images/ui-bg_glass_75_eaecf9_1x400.png) 50% 50% repeat-x;
+    font-weight: bold;
+    color: #1631bc;
+    padding: 0.1em 0.6em;
+}
