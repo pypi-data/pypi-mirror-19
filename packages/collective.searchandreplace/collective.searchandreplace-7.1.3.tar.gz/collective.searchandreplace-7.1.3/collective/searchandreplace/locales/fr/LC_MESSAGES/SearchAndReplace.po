@@ -1,0 +1,178 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2016-07-19 16:34+0000\n"
+"PO-Revision-Date: 2016-03-23 14:48+0100\n"
+"Last-Translator: Gagaro <gagaro42@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: fr\n"
+"Language-Name: French\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: SearchAndReplace\n"
+"Language: fr\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: ./browser/searchreplacetable.pt:13
+msgid "Affected Content"
+msgstr "Contenu Affecté"
+
+#: ./browser/searchreplacetable.pt:33
+msgid "After"
+msgstr "Après"
+
+#: ./browser/searchreplacetable.pt:32
+msgid "Before"
+msgstr "Avant"
+
+#: ./browser/searchreplaceform.py:57
+msgid "Check the box for a case sensitive search."
+msgstr "Cochez la case pour une recherche sensible à la casse."
+
+#: ./browser/searchreplaceform.py:28
+msgid "Enter the text to find."
+msgstr "Entrez le texte à rechercher"
+
+#: ./browser/searchreplaceform.py:33
+msgid "Enter the text to replace the original text with."
+msgstr "Entrez le texte qui remplacera le texte original."
+
+#: ./browser/searchreplaceform.py:62
+msgid "Fast search"
+msgstr "Recherche rapide"
+
+#: ./browser/searchreplaceform.py:27
+msgid "Find What"
+msgstr "Rechercher"
+
+#: ./interfaces.py:32
+msgid "If checked, only the enabled types are searched, otherwise all types are searched."
+msgstr "Si coché, uniquement les types activés seront recherchés, sinon, tout les types sont recherchés."
+
+#. Default: "If checked, this will recursively search through any selected folders and their children, replacing at each level."
+#: ./browser/searchreplaceform.py:48
+msgid "If checked, this will recursively search through any selected folders and their children, replacing at each level."
+msgstr "Si coché, la recherche sera faite récursivement à travers tous les dossiers et leurs enfants, remplacant à chaque niveau."
+
+#: ./configure.zcml:28
+msgid "Installs the collective.searchandreplace package"
+msgstr "Installe le paquet collective.searchandreplace"
+
+#: ./browser/searchreplacetable.pt:31
+msgid "Line"
+msgstr "Ligne"
+
+#: ./interfaces.py:40
+msgid "List of types that are searched."
+msgstr "Liste des types qui seront recherchés."
+
+#: ./browser/searchreplaceform.py:56
+msgid "Match Case"
+msgstr "Sensible à la casse"
+
+#: ./browser/searchreplaceform.py:37
+msgid "Maximum Number of Results"
+msgstr "Nombre de Résultats Maximum"
+
+#: ./browser/searchreplaceform.py:38
+msgid "Maximum number of results to show. Warning: this has no effect on how many found texts are replaced when you use the Replace button directly without using the Preview."
+msgstr "Nombre de Résultats Maximum à afficher. Attention : cela n'a aucun effet sur le nombre de texte remplacé lorsque vous utilisez le bouton Remplacer directement sans utiliser l'Aperçu."
+
+#: ./interfaces.py:61
+msgid "Maximum text characters"
+msgstr "Caratères de texte maximum"
+
+#: ./browser/searchreplacetable.pt:30
+msgid "Path"
+msgstr "Chemin"
+
+#: ./browser/searchreplaceform.py:94
+msgid "Preview"
+msgstr "Aperçu"
+
+#: ./browser/searchreplaceform.py:101
+msgid "Replace"
+msgstr "Remplacer"
+
+#: ./browser/searchreplaceform.py:32
+msgid "Replace With"
+msgstr "Remplacer par"
+
+#: ./searchreplaceutility.py:156
+msgid "Replaced: ${old} -> ${new}"
+msgstr "Remplacé: ${old} -> ${new}"
+
+#: ./browser/searchreplaceform.py:146
+msgid "Reset"
+msgstr "Reset"
+
+#: ./interfaces.py:31
+msgid "Restrict the enabled types."
+msgstr "Restreindre les types activés."
+
+#: ./browser/searchreplaceform.py:47
+msgid "Search Subfolders"
+msgstr "Rechercher dans les sous-dossiers"
+
+#: ./browser/searchreplaceform.py:90
+msgid "Search and Replace"
+msgstr "Rechercher et Remplacer"
+
+#: ./browser/controlpanel.py:16
+#: ./profiles/default/controlpanel.xml
+msgid "Search and Replace settings"
+msgstr "Paramètre de Rechercher et Remplacer"
+
+#. Default: "Search and Replace text"
+#: ./profiles/default/actions.xml
+msgid "Search and Replace text"
+msgstr "Rechercher et Remplacer du texte"
+
+#: ./browser/pageform.pt:50
+msgid "Search and replace in parent folder"
+msgstr "Rechercher et remplacer dans le dossier parent"
+
+#: ./browser/searchreplaceform.py:91
+msgid "Search and replace text found in documents."
+msgstr "Recherche et remplace le texte trouvé dans les documents."
+
+#: ./browser/searchreplaceform.py:127
+msgid "Search text replaced in ${replaced} of ${items} instance(s)."
+msgstr "Texte recherché remplacé dans ${replaced} de ${items} instance(s)."
+
+#: ./browser/searchreplaceform.py:142
+msgid "Search text replaced in all ${items} instance(s)."
+msgstr "Texte recherché remplacé dans toutes les ${items} instance(s)."
+
+#. Default: "Search/Replace"
+#: ./profiles/default/actions.xml
+msgid "Search/Replace"
+msgstr "Rechercher/Remplacer"
+
+#: ./browser/searchreplacetable.pt:20
+msgid "Select all items"
+msgstr "Tous selectionner"
+
+#: ./interfaces.py:62
+msgid "The maximum number of characters to show before and after the found text."
+msgstr "Le nombre maximum de caratères à afficher avant et après le texte trouvé."
+
+#: ./browser/searchreplaceform.py:63
+msgid "Use the catalog to search, just like the search form does. This only finds keywords, not html tags. You might have some text fields that are not found this way, so if not checked, you may find more content, but it will be slower. Regardless of this setting, when at least one match is found, text in all text fields may be replaced."
+msgstr "Utilise le catalogue pour rechercher, comme le formulaire de recherche fait. Cela permet uniquement de trouver des mots-clés, et non des tags HTML. Vous pouvez avoir certain champs texte qui ne seront pas trouvé de cette facon, vous pourrez donc trouver plus de contenu si non coché, mais cela sera plus lent. Peut-importe ce paramètre, une fois une occurence trouvée, les textes de tous les champs texte pourront être remplacé."
+
+#: ./interfaces.py:41
+msgid "When 'Restrict the enable types' is checked, only the selected types are searched. Otherwise this list is ignored."
+msgstr "Quand 'Restreindre les types activés' est coché, uniquement les types séléctionnés seront recherchés. Sinon, la liste est ignoré."
+
+#: ./configure.zcml:28
+msgid "collective.searchandreplace"
+msgstr ""
+
+#. Default: "Affected content"
+#: ./browser/searchreplacetable.pt:16
+msgid "summary_affected_content"
+msgstr "Contenu Affecté"

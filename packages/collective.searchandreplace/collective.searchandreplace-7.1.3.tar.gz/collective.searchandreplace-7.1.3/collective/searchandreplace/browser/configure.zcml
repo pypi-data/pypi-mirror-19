@@ -1,0 +1,36 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  xmlns:plone="http://namespaces.plone.org/plone"
+  i18n_domain="SearchAndReplace">
+
+  <include package="Products.CMFCore" file="permissions.zcml" />
+
+  <plone:static
+      directory="resources"
+      name="collective.searchandreplace"
+      type="theme"
+      />
+
+  <browser:page
+     name="searchreplaceform"
+     for="*"
+     class=".searchreplaceform.SearchReplaceForm"
+     permission="collective.searchandreplace.UseSearchAndReplace"
+     />
+
+  <browser:page
+     name="searchreplacetable"
+     for="*"
+     class=".searchreplacetable.SearchReplaceTable"
+     template="searchreplacetable.pt"
+     permission="collective.searchandreplace.UseSearchAndReplace"
+     />
+
+  <browser:page
+      name="searchreplace-controlpanel"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      permission="cmf.ManagePortal"
+      class=".controlpanel.SearchReplaceControlPanelView"
+      />
+
+</configure>
