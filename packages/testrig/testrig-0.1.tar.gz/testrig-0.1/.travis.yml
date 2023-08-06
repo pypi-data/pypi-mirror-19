@@ -1,0 +1,88 @@
+# After changing this file, check it on:
+#   http://lint.travis-ci.org/
+language: python
+sudo: false
+matrix:
+  include:
+    - python: 2.7
+      env:
+        - MODULE=numba
+        - LLVM_CONFIG=llvm-config-3.8
+      addons:
+        apt:
+          sources:
+          - ubuntu-toolchain-r-test
+          - llvm-toolchain-precise
+          - llvm-toolchain-precise-3.8
+          packages:
+          - libatlas-dev
+          - libatlas-base-dev
+          - liblapack-dev
+          - gfortran
+          - libgmp-dev
+          - libmpfr-dev
+          - ccache
+          - llvm-3.8-dev
+          - libedit-dev
+          - gcc-4.9
+          - g++-4.9
+      before_script:
+        - mkdir -p $HOME/bin
+        - ln -s /usr/bin/gcc-4.9 $HOME/bin/gcc
+        - ln -s /usr/bin/g++-4.9 $HOME/bin/g++
+        - export PATH=$HOME/bin:$PATH
+    - python: 2.7
+      env:
+        - MODULE=scipy
+    #- python: 2.7
+    #  env:
+    #    - MODULE=pandas
+    - python: 2.7
+      env:
+        - MODULE=sklearn
+    - python: 2.7
+      env:
+        - MODULE=astropy
+    #- python: 2.7
+    #  env:
+    #    - MODULE=matplotlib
+    #- python: 2.7
+    #  env:
+    #    - MODULE=statsmodels
+    #- python: 2.7
+    #  env:
+    #    - MODULE=skimage
+addons:
+  apt:
+    packages:
+    - libatlas-dev
+    - libatlas-base-dev
+    - liblapack-dev
+    - gfortran
+    - libgmp-dev
+    - libmpfr-dev
+    - ccache
+cache:
+  directories:
+    - $HOME/.ccache
+    - $HOME/.f90cache
+    - $HOME/.cache/pip
+install:
+  - |
+    set -e
+    tar xzf ci/f90cache-0.96.tar.gz
+    pushd f90cache-0.96
+    patch -p1 < ../ci/f90cache.patch
+    ./configure --prefix=$HOME/f90cache
+    make install
+    ln -s $HOME/f90cache/bin/f90cache $HOME/f90cache/bin/gfortran
+    popd
+  - export PATH=$HOME/f90cache/bin:$PATH
+  - pip install virtualenv
+script:
+  - |
+    BRANCH=`python ci/latest-maintenance-branch.py https://github.com/numpy/numpy.git`
+    sed -e "s#numpy@master#numpy@$BRANCH#" < testrig.ini > run.ini
+  - python run.py -g --config=run.ini $MODULE
+notifications:
+  email: false
