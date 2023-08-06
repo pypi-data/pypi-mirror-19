@@ -1,0 +1,50 @@
+Metadata-Version: 2.0
+Name: unitexlemmatizer
+Version: 1.0.0
+Summary: A simple lemmatizer based on Unitex word lists
+Home-page: https://github.com/erickrf/unitex-lemmatizer
+Author: Erick Fonseca
+Author-email: erickrfonseca@gmail.com
+License: MIT
+Keywords: nlp,lemmatizer
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+
+Unitex Lemmatizer
+=================
+
+This is a simple module for lemmatization based on the Unitex inflected word
+list. As such, it needs a Unitex vocabulary file in order to work properly.
+
+So far, I've only worked with Portuguese, with the
+`DELAF_PB file <http://www.nilc.icmc.usp.br/nilc/projects/unitex-pb/web/dicionarios.html>`_
+provided by NILC.
+
+Usage
+-----
+
+In order to use the Unitex Lemmatizer, you need to tell it where the word list
+is:
+
+.. code-block:: python
+
+    >>> import unitexlemmatizer as ul
+    >>> ul.load_unitex_dictionary('/path/to/delaf.dic')
+
+Then, you can call the ``get_lemma`` function passing the inflected word and its
+part of speech tag (from the `Universal Dependencies <http://universaldependencies.org>`_
+tagset).
+
+.. code-block:: python
+
+    >>> ul.get_lemma('corpora', 'noun')
+    'corpus'
+
+
+
