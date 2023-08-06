@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>brokerlso package &#8212; brokerlso 0.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="brokerlso 0.0.1 documentation" href="index.html" />
+    <link rel="up" title="modules" href="modules.html" />
+    <link rel="prev" title="modules" href="modules.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="brokerlso-package">
+<h1>brokerlso package<a class="headerlink" href="#brokerlso-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-brokerlso.qmfv2">
+<span id="brokerlso-qmfv2-module"></span><h2>brokerlso.qmfv2 module<a class="headerlink" href="#module-brokerlso.qmfv2" title="Permalink to this headline">¶</a></h2>
+<p>Command messages for Qpid Management Framework (QMF) version 2</p>
+<dl class="class">
+<dt id="brokerlso.qmfv2.RequestCmd">
+<em class="property">class </em><code class="descclassname">brokerlso.qmfv2.</code><code class="descname">RequestCmd</code><a class="reference internal" href="_modules/brokerlso/qmfv2.html#RequestCmd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#brokerlso.qmfv2.RequestCmd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Craft QMFv2 command messages</p>
+<dl class="method">
+<dt id="brokerlso.qmfv2.RequestCmd.create_binding">
+<code class="descname">create_binding</code><span class="sig-paren">(</span><em>name</em>, <em>strict=True</em>, <em>auto_delete=False</em>, <em>auto_delete_timeout=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/brokerlso/qmfv2.html#RequestCmd.create_binding"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#brokerlso.qmfv2.RequestCmd.create_binding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create message content and properties to create binding with QMFv2</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Name of binding to create in format &#8220;exchange/queue/key&#8221;</li>
+<li><strong>strict</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; Whether command should fail when unrecognized properties are provided
+Not used by QMFv2
+Default: True</li>
+<li><strong>auto_delete</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; Whether exchange should be auto deleted
+Default: False</li>
+<li><strong>auto_delete_timeout</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Timeout in seconds for auto deleting exchange
+Default: 10</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Tuple containing content and method properties</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="brokerlso.qmfv2.RequestCmd.create_exchange">
+<code class="descname">create_exchange</code><span class="sig-paren">(</span><em>name</em>, <em>type_='fanout'</em>, <em>strict=True</em>, <em>auto_delete=False</em>, <em>auto_delete_timeout=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/brokerlso/qmfv2.html#RequestCmd.create_exchange"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#brokerlso.qmfv2.RequestCmd.create_exchange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create message content and properties to create exchange with QMFv2</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Name of exchange to create</li>
+<li><strong>type</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Type of exchange to create
+Possible values are: direct, fanout, topic?</li>
+<li><strong>strict</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; Whether command should fail when unrecognized properties are provided
+Not used by QMFv2
+Default: True</li>
+<li><strong>auto_delete</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; Whether exchange should be auto deleted
+Default: False</li>
+<li><strong>auto_delete_timeout</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Timeout in seconds for auto deleting exchange
+Default: 10</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Tuple containing content and method properties</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="brokerlso.qmfv2.RequestCmd.create_queue">
+<code class="descname">create_queue</code><span class="sig-paren">(</span><em>name</em>, <em>strict=True</em>, <em>auto_delete=False</em>, <em>auto_delete_timeout=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/brokerlso/qmfv2.html#RequestCmd.create_queue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#brokerlso.qmfv2.RequestCmd.create_queue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create message content and properties to create queue with QMFv2</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Name of queue to create</li>
+<li><strong>strict</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; Whether command should fail when unrecognized properties are provided
+Not used by QMFv2
+Default: True</li>
+<li><strong>auto_delete</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; Whether queue should be auto deleted
+Default: False</li>
+<li><strong>auto_delete_timeout</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Timeout in seconds for auto deleting queue
+Default: 10</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Tuple containing content and method properties</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="brokerlso.qmfv2.RequestCmd.delete_binding">
+<code class="descname">delete_binding</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/brokerlso/qmfv2.html#RequestCmd.delete_binding"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#brokerlso.qmfv2.RequestCmd.delete_binding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create message content and properties to delete exchange with QMFv2</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Name of exchange to delete in format &#8220;exchange/queue/key&#8221;</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Tuple containing content and method properties</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="brokerlso.qmfv2.RequestCmd.delete_exchange">
+<code class="descname">delete_exchange</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/brokerlso/qmfv2.html#RequestCmd.delete_exchange"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#brokerlso.qmfv2.RequestCmd.delete_exchange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create message content and properties to delete exchange with QMFv2</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Name of exchange to delete</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Tuple containing content and method properties</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="brokerlso.qmfv2.RequestCmd.delete_queue">
+<code class="descname">delete_queue</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/brokerlso/qmfv2.html#RequestCmd.delete_queue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#brokerlso.qmfv2.RequestCmd.delete_queue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create message content and properties to delete queue with QMFv2</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Name of queue to delete</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Tuple containing content and method properties</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="brokerlso.qmfv2.RequestCmd.list_exchanges">
+<code class="descname">list_exchanges</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/brokerlso/qmfv2.html#RequestCmd.list_exchanges"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#brokerlso.qmfv2.RequestCmd.list_exchanges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create message content and properties to list all exchanges with QMFv2</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Tuple containing content and query properties</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="brokerlso.qmfv2.RequestCmd.list_queues">
+<code class="descname">list_queues</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/brokerlso/qmfv2.html#RequestCmd.list_queues"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#brokerlso.qmfv2.RequestCmd.list_queues" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create message content and properties to list all queues with QMFv2</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Tuple containing content and query properties</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-brokerlso">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-brokerlso" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">brokerlso package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-brokerlso.qmfv2">brokerlso.qmfv2 module</a></li>
+<li><a class="reference internal" href="#module-brokerlso">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">modules</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">modules</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/brokerlso.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Hamza Sheikh.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/brokerlso.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

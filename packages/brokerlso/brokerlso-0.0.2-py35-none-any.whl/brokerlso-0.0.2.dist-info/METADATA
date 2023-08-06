@@ -1,0 +1,25 @@
+Metadata-Version: 2.0
+Name: brokerlso
+Version: 0.0.2
+Summary: A small Python library to craft command messages for Apache Qpid Broker.
+Home-page: https://github.com/codeghar/brokerlso
+Author: Hamza Sheikh
+Author-email: code@codeghar.com
+License: MIT
+Keywords: broker messaging amqp
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Provides-Extra: docs
+Requires-Dist: sphinx; extra == 'docs'
+
+brokerlso
+=========
+
+A small Python library to craft command messages for Apache Qpid Broker.
+
+
