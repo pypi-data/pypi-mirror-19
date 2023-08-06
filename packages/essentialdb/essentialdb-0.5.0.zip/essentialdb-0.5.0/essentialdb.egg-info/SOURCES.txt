@@ -1,0 +1,16 @@
+README.rst
+setup.cfg
+setup.py
+essentialdb/__init__.py
+essentialdb/essential_collection.py
+essentialdb/essential_index.py
+essentialdb/essential_oid.py
+essentialdb/essential_serializer.py
+essentialdb/essentialdb.py
+essentialdb/keys.py
+essentialdb/query_filter.py
+essentialdb.egg-info/PKG-INFO
+essentialdb.egg-info/SOURCES.txt
+essentialdb.egg-info/dependency_links.txt
+essentialdb.egg-info/requires.txt
+essentialdb.egg-info/top_level.txt
