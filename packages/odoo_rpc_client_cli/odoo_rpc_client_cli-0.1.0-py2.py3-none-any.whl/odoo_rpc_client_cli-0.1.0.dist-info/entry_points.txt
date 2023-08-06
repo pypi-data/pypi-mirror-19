@@ -1,0 +1,3 @@
+[console_scripts]
+odoo-rpc-client-cli = odoo_rpc_client_cli.cli:main
+
