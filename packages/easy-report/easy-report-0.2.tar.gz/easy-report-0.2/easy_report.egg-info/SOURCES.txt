@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+docs/.gitkeep
+easy_report.egg-info/PKG-INFO
+easy_report.egg-info/SOURCES.txt
+easy_report.egg-info/dependency_links.txt
+easy_report.egg-info/requires.txt
+easy_report.egg-info/top_level.txt
+utils/__init__.py
+utils/types.py
