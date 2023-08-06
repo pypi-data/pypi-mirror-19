@@ -1,0 +1,26 @@
+CHANGES
+=======
+
+1.0.0
+-----
+
+* Changed name of cpc_uuid config option to cpc_object_id
+* Updated help text for common DPM config options
+
+0.1.1
+-----
+
+* Fix an issue where no test coverage report is created
+* remove obsolete default test
+* Tests for testing config
+* renamed register_opts method
+* Rename default testcase
+* Make config a python package
+* tox: don't check upper constraints
+
+0.1.0
+-----
+
+* Add common dpm config
+* Inital cookiecutter commit
+* Added .gitreview
