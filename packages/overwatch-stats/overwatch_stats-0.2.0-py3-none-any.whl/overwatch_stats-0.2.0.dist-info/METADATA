@@ -1,0 +1,24 @@
+Metadata-Version: 2.0
+Name: overwatch-stats
+Version: 0.2.0
+Summary: A library to query a player's overwatch stats from Battle.net
+Home-page: https://github.com/hyeon0145/overwatch-stats
+Author: Jonghwan Hyeon
+Author-email: hyeon0145@gmail.com
+License: WTFPL
+Keywords: overwatch stats
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Games/Entertainment :: First Person Shooters
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: inflect
+Requires-Dist: lxml
+Requires-Dist: requests
+
+UNKNOWN
+
+
