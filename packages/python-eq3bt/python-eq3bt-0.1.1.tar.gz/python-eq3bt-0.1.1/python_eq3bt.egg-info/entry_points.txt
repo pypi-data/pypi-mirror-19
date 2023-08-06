@@ -1,0 +1,3 @@
+[console_scripts]
+eq3cli = utils.eq3cli:cli
+
