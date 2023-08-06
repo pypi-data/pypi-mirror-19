@@ -1,0 +1,600 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Code &mdash; cykdtree 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="cykdtree 0.1 documentation" href="index.html" />
+    <link rel="prev" title="Installation" href="install.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="install.html" title="Installation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">cykdtree 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-cykdtree">
+<span id="code"></span><h1>Code<a class="headerlink" href="#module-cykdtree" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="cykdtree.PyKDTree">
+<em class="property">class </em><code class="descclassname">cykdtree.</code><code class="descname">PyKDTree</code><a class="headerlink" href="#cykdtree.PyKDTree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a KDTree for a set of points.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pts</strong> (<em>np.ndarray of double</em>) &#8211; (n,m) array of n coordinates in a
+m-dimensional domain.</li>
+<li><strong>left_edge</strong> (<em>np.ndarray of double</em>) &#8211; (m,) domain minimum in each dimension.</li>
+<li><strong>right_edge</strong> (<em>np.ndarray of double</em>) &#8211; (m,) domain maximum in each dimension.</li>
+<li><strong>periodic</strong> (<em>bool or np.ndarray of bool, optional</em>) &#8211; Truth of the domain
+periodicity overall (if bool), or in each dimension (if np.ndarray).
+Defaults to <cite>False</cite>.</li>
+<li><strong>leafsize</strong> (<em>int, optional</em>) &#8211; The maximum number of points that should be in
+a leaf. Defaults to 10000.</li>
+<li><strong>nleaves</strong> (<em>int, optional</em>) &#8211; The number of leaves that should be in the
+resulting tree. If greater than 0, leafsize is adjusted to produce a
+tree with 2**(ceil(log2(nleaves))) leaves. Defaults to 0.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; If <cite>leafsize &lt; 2</cite>. This currectly segfaults.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="cykdtree.PyKDTree.npts">
+<code class="descname">npts</code><a class="headerlink" href="#cykdtree.PyKDTree.npts" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>uint64</em> &#8211; Number of points in the tree.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cykdtree.PyKDTree.ndim">
+<code class="descname">ndim</code><a class="headerlink" href="#cykdtree.PyKDTree.ndim" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>uint32</em> &#8211; Number of dimensions points occupy.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cykdtree.PyKDTree.num_leaves">
+<code class="descname">num_leaves</code><a class="headerlink" href="#cykdtree.PyKDTree.num_leaves" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>uint32</em> &#8211; Number of leaves in the tree.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cykdtree.PyKDTree.leafsize">
+<code class="descname">leafsize</code><a class="headerlink" href="#cykdtree.PyKDTree.leafsize" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>uint32</em> &#8211; Maximum number of points a leaf can have.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cykdtree.PyKDTree.leaves">
+<code class="descname">leaves</code><a class="headerlink" href="#cykdtree.PyKDTree.leaves" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of <cite>cykdtree.PyNode</cite> &#8211; Tree leaves.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cykdtree.PyKDTree.idx">
+<code class="descname">idx</code><a class="headerlink" href="#cykdtree.PyKDTree.idx" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>np.ndarray of uint64</em> &#8211; Indices sorting the points by leaf.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cykdtree.PyKDTree.left_edge">
+<code class="descname">left_edge</code><a class="headerlink" href="#cykdtree.PyKDTree.left_edge" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>np.ndarray of double</em> &#8211; (m,) domain minimum in each dimension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cykdtree.PyKDTree.right_edge">
+<code class="descname">right_edge</code><a class="headerlink" href="#cykdtree.PyKDTree.right_edge" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>np.ndarray of double</em> &#8211; (m,) domain maximum in each dimension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cykdtree.PyKDTree.domain_width">
+<code class="descname">domain_width</code><a class="headerlink" href="#cykdtree.PyKDTree.domain_width" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>np.ndarray of double</em> &#8211; (m,) domain width in each dimension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cykdtree.PyKDTree.periodic">
+<code class="descname">periodic</code><a class="headerlink" href="#cykdtree.PyKDTree.periodic" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>np.ndarray of bool</em> &#8211; Truth of domain periodicity in each
+dimension.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cykdtree.PyKDTree.get">
+<code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cykdtree.PyKDTree.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the leaf containing a given position.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pos</strong> (<em>np.ndarray of double</em>) &#8211; Coordinates.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Leaf containing <cite>pos</cite>.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#cykdtree.PyNode" title="cykdtree.PyNode"><code class="xref py py-class docutils literal"><span class="pre">cykdtree.PyNode</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; If pos is not contained withing the KDTree.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cykdtree.PyKDTree.get_neighbor_ids">
+<code class="descname">get_neighbor_ids</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cykdtree.PyKDTree.get_neighbor_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the IDs of leaves containing &amp; neighboring a given position.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pos</strong> (<em>np.ndarray of double</em>) &#8211; Coordinates.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Leaves containing/neighboring <cite>pos</cite>.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray of uint32</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; If pos is not contained withing the KDTree.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cykdtree.PyKDTree.leaf_idx">
+<code class="descname">leaf_idx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cykdtree.PyKDTree.leaf_idx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get array of indices for points in a leaf.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>leafid</strong> (<em>np.uint32_t</em>) &#8211; Unique index of the leaf in question.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Indices of points belonging to leaf.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray of np.uint64_t</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cykdtree.PyNode">
+<em class="property">class </em><code class="descclassname">cykdtree.</code><code class="descname">PyNode</code><a class="headerlink" href="#cykdtree.PyNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>A container for leaf info.</p>
+<dl class="attribute">
+<dt id="cykdtree.PyNode.npts">
+<code class="descname">npts</code><a class="headerlink" href="#cykdtree.PyNode.npts" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>np.uint64_t</em> &#8211; Number of points in this node.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cykdtree.PyNode.ndim">
+<code class="descname">ndim</code><a class="headerlink" href="#cykdtree.PyNode.ndim" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>np.uint32_t</em> &#8211; Number of dimensions in domain.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cykdtree.PyNode.num_leaves">
+<code class="descname">num_leaves</code><a class="headerlink" href="#cykdtree.PyNode.num_leaves" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>np.uint32_t</em> &#8211; Number of leaves in the tree containing this
+node.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cykdtree.PyNode.start_idx">
+<code class="descname">start_idx</code><a class="headerlink" href="#cykdtree.PyNode.start_idx" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>np.uint64_t</em> &#8211; Index where indices for this node begin.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cykdtree.PyNode.stop_idx">
+<code class="descname">stop_idx</code><a class="headerlink" href="#cykdtree.PyNode.stop_idx" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>np.uint64_t</em> &#8211; One passed the end of indices for this node.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cykdtree.PyNode.left_edge">
+<code class="descname">left_edge</code><a class="headerlink" href="#cykdtree.PyNode.left_edge" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>np.ndarray of float64</em> &#8211; Minimum bounds of this node in each
+dimension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cykdtree.PyNode.right_edge">
+<code class="descname">right_edge</code><a class="headerlink" href="#cykdtree.PyNode.right_edge" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>np.ndarray of float64</em> &#8211; Maximum bounds of this node in each
+dimension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cykdtree.PyNode.periodic_left">
+<code class="descname">periodic_left</code><a class="headerlink" href="#cykdtree.PyNode.periodic_left" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>np.ndarray of bool</em> &#8211; Periodicity of minimum bounds.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cykdtree.PyNode.periodic_right">
+<code class="descname">periodic_right</code><a class="headerlink" href="#cykdtree.PyNode.periodic_right" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>np.ndarray of bool</em> &#8211; Periodicity of maximum bounds.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cykdtree.PyNode.domain_width">
+<code class="descname">domain_width</code><a class="headerlink" href="#cykdtree.PyNode.domain_width" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>np.ndarray of float64</em> &#8211; Width of the total domain in each
+dimension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cykdtree.PyNode.left_neighbors">
+<code class="descname">left_neighbors</code><a class="headerlink" href="#cykdtree.PyNode.left_neighbors" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>list of lists</em> &#8211; Indices of neighbor leaves at the
+minimum bounds in each dimension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cykdtree.PyNode.right_neighbors">
+<code class="descname">right_neighbors</code><a class="headerlink" href="#cykdtree.PyNode.right_neighbors" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>list of lists</em> &#8211; Indices of neighbor leaves at the
+maximum bounds in each dimension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cykdtree.PyNode.neighbors">
+<code class="descname">neighbors</code><a class="headerlink" href="#cykdtree.PyNode.neighbors" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>list of int</em> &#8211; Indices of all neighboring leaves including this
+leaf.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cykdtree.PyNode.slice">
+<code class="descname">slice</code><a class="headerlink" href="#cykdtree.PyNode.slice" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>slice</em> &#8211; Slice of kdtree indices contained by this node.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><code class="descclassname">cykdtree.</code><code class="descname">PyKDTree</code></dt>
+<dd><p>Construct a KDTree for a set of points.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pts</strong> (<em>np.ndarray of double</em>) &#8211; (n,m) array of n coordinates in a
+m-dimensional domain.</li>
+<li><strong>left_edge</strong> (<em>np.ndarray of double</em>) &#8211; (m,) domain minimum in each dimension.</li>
+<li><strong>right_edge</strong> (<em>np.ndarray of double</em>) &#8211; (m,) domain maximum in each dimension.</li>
+<li><strong>periodic</strong> (<em>bool or np.ndarray of bool, optional</em>) &#8211; Truth of the domain
+periodicity overall (if bool), or in each dimension (if np.ndarray).
+Defaults to <cite>False</cite>.</li>
+<li><strong>leafsize</strong> (<em>int, optional</em>) &#8211; The maximum number of points that should be in
+a leaf. Defaults to 10000.</li>
+<li><strong>nleaves</strong> (<em>int, optional</em>) &#8211; The number of leaves that should be in the
+resulting tree. If greater than 0, leafsize is adjusted to produce a
+tree with 2**(ceil(log2(nleaves))) leaves. Defaults to 0.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; If <cite>leafsize &lt; 2</cite>. This currectly segfaults.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt>
+<code class="descname">npts</code></dt>
+<dd><p><em>uint64</em> &#8211; Number of points in the tree.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">ndim</code></dt>
+<dd><p><em>uint32</em> &#8211; Number of dimensions points occupy.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">num_leaves</code></dt>
+<dd><p><em>uint32</em> &#8211; Number of leaves in the tree.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">leafsize</code></dt>
+<dd><p><em>uint32</em> &#8211; Maximum number of points a leaf can have.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">leaves</code></dt>
+<dd><p>list of <cite>cykdtree.PyNode</cite> &#8211; Tree leaves.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">idx</code></dt>
+<dd><p><em>np.ndarray of uint64</em> &#8211; Indices sorting the points by leaf.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">left_edge</code></dt>
+<dd><p><em>np.ndarray of double</em> &#8211; (m,) domain minimum in each dimension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">right_edge</code></dt>
+<dd><p><em>np.ndarray of double</em> &#8211; (m,) domain maximum in each dimension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">domain_width</code></dt>
+<dd><p><em>np.ndarray of double</em> &#8211; (m,) domain width in each dimension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">periodic</code></dt>
+<dd><p><em>np.ndarray of bool</em> &#8211; Truth of domain periodicity in each
+dimension.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Return the leaf containing a given position.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pos</strong> (<em>np.ndarray of double</em>) &#8211; Coordinates.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Leaf containing <cite>pos</cite>.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#cykdtree.PyNode" title="cykdtree.PyNode"><code class="xref py py-class docutils literal"><span class="pre">cykdtree.PyNode</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; If pos is not contained withing the KDTree.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">get_neighbor_ids</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Return the IDs of leaves containing &amp; neighboring a given position.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pos</strong> (<em>np.ndarray of double</em>) &#8211; Coordinates.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Leaves containing/neighboring <cite>pos</cite>.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray of uint32</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; If pos is not contained withing the KDTree.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">leaf_idx</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Get array of indices for points in a leaf.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>leafid</strong> (<em>np.uint32_t</em>) &#8211; Unique index of the leaf in question.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Indices of points belonging to leaf.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray of np.uint64_t</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><code class="descclassname">cykdtree.</code><code class="descname">PyNode</code></dt>
+<dd><p>A container for leaf info.</p>
+<dl class="attribute">
+<dt>
+<code class="descname">npts</code></dt>
+<dd><p><em>np.uint64_t</em> &#8211; Number of points in this node.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">ndim</code></dt>
+<dd><p><em>np.uint32_t</em> &#8211; Number of dimensions in domain.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">num_leaves</code></dt>
+<dd><p><em>np.uint32_t</em> &#8211; Number of leaves in the tree containing this
+node.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">start_idx</code></dt>
+<dd><p><em>np.uint64_t</em> &#8211; Index where indices for this node begin.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">stop_idx</code></dt>
+<dd><p><em>np.uint64_t</em> &#8211; One passed the end of indices for this node.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">left_edge</code></dt>
+<dd><p><em>np.ndarray of float64</em> &#8211; Minimum bounds of this node in each
+dimension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">right_edge</code></dt>
+<dd><p><em>np.ndarray of float64</em> &#8211; Maximum bounds of this node in each
+dimension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">periodic_left</code></dt>
+<dd><p><em>np.ndarray of bool</em> &#8211; Periodicity of minimum bounds.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">periodic_right</code></dt>
+<dd><p><em>np.ndarray of bool</em> &#8211; Periodicity of maximum bounds.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">domain_width</code></dt>
+<dd><p><em>np.ndarray of float64</em> &#8211; Width of the total domain in each
+dimension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">left_neighbors</code></dt>
+<dd><p><em>list of lists</em> &#8211; Indices of neighbor leaves at the
+minimum bounds in each dimension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">right_neighbors</code></dt>
+<dd><p><em>list of lists</em> &#8211; Indices of neighbor leaves at the
+maximum bounds in each dimension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">neighbors</code></dt>
+<dd><p><em>list of int</em> &#8211; Indices of all neighboring leaves including this
+leaf.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">slice</code></dt>
+<dd><p><em>slice</em> &#8211; Slice of kdtree indices contained by this node.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="install.html"
+                        title="previous chapter">Installation</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/code.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Meagan Lang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.3</a>
+      
+      |
+      <a href="_sources/code.txt"
+          rel="nofollow">Page source</a></li>
+    </div>
+
+    
+
+    
+  </body>
+</html>
