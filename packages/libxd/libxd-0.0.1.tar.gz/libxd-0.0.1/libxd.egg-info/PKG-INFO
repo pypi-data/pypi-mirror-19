@@ -1,0 +1,25 @@
+Metadata-Version: 1.1
+Name: libxd
+Version: 0.0.1
+Summary: Personal Python package for some useful functions
+Home-page: https://github.com/libxd/libxd.git
+Author: libxd
+Author-email: lihsing@hotmail.com
+License: MIT
+Description: # libxd
+        
+        ## 函数列表
+        
+        ### 1. 给出文件路径获得去掉了扩展名的文件名
+        
+        ```python
+        from libxd.io import FileUtils
+        
+        path = '/path/to/index.html'
+        FileUtils.file_name(path)  # result is index
+        ```
+Keywords: libxd
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7

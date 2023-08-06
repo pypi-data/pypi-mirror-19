@@ -1,0 +1,12 @@
+setup.py
+libxd/__init__.py
+libxd/io.py
+libxd.egg-info/PKG-INFO
+libxd.egg-info/SOURCES.txt
+libxd.egg-info/dependency_links.txt
+libxd.egg-info/entry_points.txt
+libxd.egg-info/not-zip-safe
+libxd.egg-info/top_level.txt
+tests/__init__.py
+tests/io/__init__.py
+tests/io/test_file_utils.py
