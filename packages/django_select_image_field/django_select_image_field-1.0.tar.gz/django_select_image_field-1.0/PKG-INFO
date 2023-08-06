@@ -1,0 +1,25 @@
+Metadata-Version: 1.1
+Name: django_select_image_field
+Version: 1.0
+Summary: A select-image field for django , using msdropdown(jquery)
+Home-page: https://github.com/shaklev/django_select_image_field
+Author: Aleksandar Shaklev
+Author-email: saklevaleksandar@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/shaklev/django_select_image_field/tarball/0.1
+Description: UNKNOWN
+Keywords: django,django-fields,django-forms,django-widgets
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.8
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
