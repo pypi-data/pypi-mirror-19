@@ -1,0 +1,13 @@
+MANIFEST.in
+README.rst
+setup.py
+docs/index.rst
+docs/package_reference.rst
+docs/walkthrough.rst
+rampedpyrox/__init__.py
+rampedpyrox.egg-info/PKG-INFO
+rampedpyrox.egg-info/SOURCES.txt
+rampedpyrox.egg-info/dependency_links.txt
+rampedpyrox.egg-info/not-zip-safe
+rampedpyrox.egg-info/requires.txt
+rampedpyrox.egg-info/top_level.txt
