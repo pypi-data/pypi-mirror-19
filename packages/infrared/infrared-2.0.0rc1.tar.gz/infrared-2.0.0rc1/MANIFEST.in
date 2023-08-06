@@ -1,0 +1,5 @@
+prune tests
+prune docs
+graft plugins
+recursive-exclude plugins *.retry
+include requirements.txt
