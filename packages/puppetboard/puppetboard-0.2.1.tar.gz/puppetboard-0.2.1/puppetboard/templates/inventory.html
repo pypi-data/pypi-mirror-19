@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="ui fluid icon input hide" style="margin-bottom:20px">
+  <input autofocus="autofocus" class="filter-table" placeholder="Type here to filter...">
+</div>
+<table class='ui compact very basic sortable table'>
+  <thead>
+    <tr>
+      {% for head in headers %}
+      <th{% if loop.index == 1 %} class="default-sort"{% endif %}>{{head}}</th>
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody class="searchable">
+    {% for node, facts in fact_data.iteritems() %}
+    <tr>
+      {% for name in fact_names %}
+      <td><a href="{{url_for('node', env=current_env, node_name=node)}}">{{facts.get(name, 'undef')}}</a></td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}
