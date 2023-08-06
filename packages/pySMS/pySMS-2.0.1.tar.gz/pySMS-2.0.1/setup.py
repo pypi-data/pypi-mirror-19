@@ -1,0 +1,27 @@
+from setuptools import setup
+
+setup(name='pySMS',version= '2.0.1',
+      description='ZSMS Python Tools',
+      author='Ian Doarn',
+      author_email='ian.doarn@zimmerbiomet.com',
+            packages=['pySMS',
+                'pySMS.utils',
+                'pySMS.utils.logic',
+                'pySMS.data',
+                'pySMS.googledrive',
+                'pySMS.pgsql',
+                'pySMS.pgsql.sql',
+                'pySMS.excel',
+                'pySMS.excel.ui',
+                'pySMS.ui',
+                'pySMS.req',
+                'pySMS.html',
+                'pySMS.html.pathdata',
+                'pySMS.html.pathdata.json'],
+      package_data={'pySMS.html.pathdata.json': ['*.json'],
+                    'pySMS.html.googledrive': ['*.json'],
+                    'pySMS.html': ['*.html'],
+                    'pySMS.pgsql.sql': ['*.sql'],
+                    'pySMS.data': ['*.json.gz', '*.gz'],
+                    'pySMS': ['*.exe']}
+       )
