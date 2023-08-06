@@ -1,0 +1,79 @@
+Metadata-Version: 1.1
+Name: awh
+Version: 0.2.0
+Summary: Webhook creator and deployer
+Home-page: https://gitlab.com/mgoral/awh
+Author: Michał Góral
+Author-email: dev@mgoral.org
+License: MIT
+Description: = AnyWebHook
+        
+        AnyWebhook (*awh*) is Python/WSGI webhook listener and handler. It simplifies
+        writing and acting upon incoming webhooks.
+        
+        Awh splits webhook handling into _validating_ and _executing_. You must register
+        both validator and executor to handle webhooks. These are simple functions which
+        accept a request parameter containing incoming request data. Additionaly they
+        receive a dictionary which is filled with arbitrary data by response manipulator
+        (a function decorated with `@app.app` decorator). Many validators and executors
+        (for many different webhooks) can be registered. Any validator returning `True`
+        marks webhook as correct.
+        
+        You can also affect application's response by registering a separate function
+        accepting incoming request and to-be-modified response parameter.
+        
+        Simple application would look like this:
+        
+        [[example-app]]
+        [source,python]
+        ----
+        import json
+        import subprocess
+        
+        from awh import Awh
+        from awh.operate import require, jsonpath
+        
+        app = Awh()
+        
+        @app.validator('foo')
+        def valid(request, data_dict):
+            payload = request.get_data(as_text=True)
+            j = json.loads(payload)
+        
+            # validate incoming json somehow
+            require(jsonpath(j, 'password')[0].value == 'secretpass')
+            require(data_dict.get('foo') == 'bar')
+            return True
+        
+        
+        @app.executor('foo')
+        def execute(request, data_dict):
+            subprocess.call('deploy-app')
+        
+        
+        @app.app
+        def myapp(request, response, data_dict):
+            response.status_code = 404
+            data_dict['foo'] == 'bar'
+        ----
+        
+        For additional examples, see link:tests/apps[tests/apps].
+        
+        == Deployment
+        
+        In <<example-app>>, `app` is a WSGI application, which implements its interface
+        (i.e. a function accepting `environ` and `start_response` parameters). You
+        should point it to your WSGI server.
+        
+Platform: linux
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: System :: Networking
+Classifier: Topic :: System :: Networking :: Monitoring
+Classifier: Topic :: System :: Systems Administration

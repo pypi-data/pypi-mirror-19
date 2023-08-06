@@ -1,0 +1,14 @@
+= AnyWebHook 0.1.0
+
+== New features
+
+* Initial release
+
+* Implemented decorator- and function- interfaces
+
+* Helper functions for checking jsonpath, comparing digest and writing checks on
+  incoming webhooks.
+
+* Script (`awh-validate`) for validating raw HTTP requests
+
+* example applications for Github and GOGS
