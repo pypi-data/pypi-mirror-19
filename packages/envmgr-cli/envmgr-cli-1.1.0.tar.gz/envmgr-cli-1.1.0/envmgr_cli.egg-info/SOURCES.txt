@@ -1,0 +1,15 @@
+LICENSE.txt
+MANIFEST.in
+NOTICE.txt
+setup.cfg
+setup.py
+envmgr/__init__.py
+envmgr/cli.py
+envmgr/commands/__init__.py
+envmgr/commands/asg.py
+envmgr/commands/base.py
+envmgr/commands/deploy.py
+envmgr/commands/get.py
+envmgr/commands/publish.py
+envmgr/commands/service.py
+envmgr/commands/toggle.py
