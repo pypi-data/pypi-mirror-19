@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.py
+mytsgraph/__init__.py
+mytsgraph.egg-info/PKG-INFO
+mytsgraph.egg-info/SOURCES.txt
+mytsgraph.egg-info/dependency_links.txt
+mytsgraph.egg-info/entry_points.txt
+mytsgraph.egg-info/requires.txt
+mytsgraph.egg-info/top_level.txt
+tests/__init__.py
+tests/tests.py

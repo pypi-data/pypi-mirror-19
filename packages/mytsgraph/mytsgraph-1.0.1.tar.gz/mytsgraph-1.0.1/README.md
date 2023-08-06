@@ -1,0 +1,81 @@
+# MySQL Table Space Graphing
+
+![Build Status](https://travis-ci.org/dalenys/mytsgraph.svg?branch=master)
+
+#### Table of contents
+
+1. [Overview] (#overview)
+2. [Usage] (#usage)
+3. [Notices] (#notices)
+4. [Installation] (#installation)
+5. [Development] (#development)
+
+## Overview
+This program put in statsd (graphite stack) some metrics about your database
+and table space consumption.
+
+For all your databases/tables, you will have
+
+- data_length: size of the table
+- index_length: size of the index
+- data_free: free space in table space
+- row_count: the (approximative) number of rows
+
+## Usage
+
+```
+usage: mytsgraph [-h] --config CONFIG
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --config CONFIG, -c CONFIG
+                        Configuration file
+
+```
+
+## Notices
+BE CAREFUL:
+ - It could be very slow (especially on heavy loaded servers or servers with a
+   huge databases/tables count.
+ You surely want to run this tool on a slave instead of a master
+
+## Installation [pypi link](https://pypi.python.org/pypi/mytsgraph/)
+
+To install it with a [Python virtualenv](http://docs.python-guide.org/en/latest/dev/virtualenvs/)
+(recommended):
+
+```
+$> virtualenv myenv
+$> source myenv/bin/activate
+(myenv) $> pip install mytsgraph
+(myenv) $> mysql-monitor -h
+```
+
+Or on your system, without virtualenv:
+
+```
+$> pip install mytsgraph
+$> mysql-monitor -h
+```
+
+## Retention policy
+
+I suggest to use a not fine grained retention since this script should be used
+only a few time a day. Something like this should be enough:
+
+```
+[mytsgraph]
+pattern = database.*
+retentions = 4h:3y
+```
+
+## Development
+
+To start hacking on the project, run:
+
+```
+$> virtualenv myenv
+$> source myenv/bin/activate
+(myenv) $> pip install -e .
+(myenv) $> mytsgraph -h
+```
