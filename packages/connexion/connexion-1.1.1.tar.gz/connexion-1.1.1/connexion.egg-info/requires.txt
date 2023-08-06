@@ -1,0 +1,14 @@
+clickclick>=1.2
+flask>=0.10.1
+jsonschema>=2.5.1
+PyYAML>=3.11
+requests>=2.9.1
+six>=1.9
+strict-rfc3339>=0.6
+swagger-spec-validator>=2.0.2
+
+[tests]
+decorator
+mock
+pytest
+pytest-cov
