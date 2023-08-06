@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+UNLICENSE
+setup.py
+nlnormaliz/__init__.py
+nlnormaliz/__main__.py
+nlnormaliz/normaliz.py
+nlnormaliz.egg-info/PKG-INFO
+nlnormaliz.egg-info/SOURCES.txt
+nlnormaliz.egg-info/dependency_links.txt
+nlnormaliz.egg-info/entry_points.txt
+nlnormaliz.egg-info/requires.txt
+nlnormaliz.egg-info/top_level.txt
