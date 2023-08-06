@@ -1,0 +1,10 @@
+
+shaft-admin.js:
+  output: gen/shaft/admin.js
+  contents:
+      - ShaftAdmin/js/admin.js
+
+shaft-admin.css:
+  output: gen/shaft/admin.css
+  contents:
+      - ShaftAdmin/css/admin.css

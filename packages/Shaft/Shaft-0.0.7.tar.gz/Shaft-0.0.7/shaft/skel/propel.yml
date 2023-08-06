@@ -1,0 +1,79 @@
+###############################################################################
+#                                   Propel
+#
+# A deploy config file to deploy Shaft apps
+#
+# Go to `https://github.com/mardix/propel` for more info and config options
+#
+# How to run?
+#
+# After `pip install propel` on the production applicationr, you can run the following
+# commands:
+#
+#   'propel -w' on the hosting applicationr to launch a web application
+#   'propel -k $worker-name' on the hosting applicationr to launch a worker application by name
+#   'propel -s $script-name' on the hosting applicationr to execute a script by name
+#
+###############################################################################
+
+
+# Virtualenv
+virtualenv:
+  name: ""  # Required - The name of the virtual environment
+
+# WEB: list of dict of web sites/application to deploy
+web:
+  -
+    name: ""  # Required - The site name
+    application: "application:app"
+    environment: app="{project_name}:production"
+
+    # Nginx related config
+    nginx:
+      aliases:
+        "/static": "apps/{project_name}/static"
+        "/uploads": "apps/var/uploads"
+
+# SCRIPTS: A dict of all scripts to execute
+scripts:
+
+  # Scripts to before anything else
+  before_all:
+    -
+      command: "shaft setup"
+      environment: app="{project_name}:production"
+
+
+  # Scripts to run when undeploying
+  undeploy:
+    - command: ""
+
+# WORKERS: Run custom script or app in the background using supervisor
+workers:
+
+  # Tasks:
+  tasks:
+    -
+      name: "worker-task-1"
+      command: "" # shaft cmd
+      environment: app="{project_name}:production"
+
+### END OF PROPEL
+
+
+################################################################################
+# Shaft specific config
+# ------------------------------------------------------------------------------
+# From command line
+# - shaft deploy
+#
+# contain a k/v store of remote/hosts to push application to
+# Require local git and remote git for push to work
+deploy-remotes:
+  # remote name containing list of git hosts
+  # > shaft deploy -r web
+  web:
+    - ssh://user@host:/path.git
+
+
+
