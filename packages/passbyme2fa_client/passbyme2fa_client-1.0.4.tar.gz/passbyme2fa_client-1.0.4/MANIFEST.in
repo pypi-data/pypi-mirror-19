@@ -1,0 +1,4 @@
+include README.rst
+include LICENSE-MIT
+include test/auth.pem
+include passbyme2fa_client/truststore.pem
