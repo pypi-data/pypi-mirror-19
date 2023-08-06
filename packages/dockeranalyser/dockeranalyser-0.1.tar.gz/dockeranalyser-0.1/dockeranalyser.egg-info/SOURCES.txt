@@ -1,0 +1,11 @@
+MANIFEST.in
+README.rst
+setup.py
+cli/__init__.py
+cli/config.ini
+cli/dockeranalyser.py
+cli/core/__init__.py
+cli/core/monitor.py
+cli/core/mycompose.py
+cli/core/starter.py
+cli/core/utils.py
