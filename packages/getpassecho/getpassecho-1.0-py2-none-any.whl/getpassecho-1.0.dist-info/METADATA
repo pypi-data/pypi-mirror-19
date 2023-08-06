@@ -1,0 +1,26 @@
+Metadata-Version: 2.0
+Name: getpassecho
+Version: 1.0
+Summary: getpass with an echo char
+Home-page: UNKNOWN
+Author: Kurt Spindler
+Author-email: kespindler@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+
+getpassecho
+===========
+
+getpassecho is library to echo a character on password input. Currently
+only python2.
+
+::
+
+    import getpassecho
+
+    passwd = getpassecho()
+    print('Your password is %s.' % repr(passwd))
+
+    Password: \*\*\*\* Your password is 'blue'.
+
+
