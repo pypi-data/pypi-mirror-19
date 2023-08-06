@@ -1,0 +1,16 @@
+Metadata-Version: 2.0
+Name: vcapi
+Version: 1.0.1a2
+Summary: Python API wrapper for Veracode's API
+Home-page: https://github.com/AnthonyLozano/vcapi
+Author: Anthony Lozano
+Author-email: amlozano1@gmail.com
+License: UNKNOWN
+Keywords: veracode,api,wrapper
+Platform: UNKNOWN
+Requires-Dist: click (>=6.6)
+Requires-Dist: requests (>=2.11.1)
+
+UNKNOWN
+
+
