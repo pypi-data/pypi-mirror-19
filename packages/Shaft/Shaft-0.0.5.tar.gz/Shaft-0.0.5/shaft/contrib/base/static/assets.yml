@@ -1,0 +1,42 @@
+
+jquery.js:
+  output: gen/jquery.js
+  contents:
+      - Shaft/vendor/jquery/jquery.min.js
+
+bootstrap.js:
+  output: gen/bootstrap.js
+  contents:
+    - Shaft/vendor/bootstrap/js/bootstrap.min.js
+
+bootstrap.css:
+  output: gen/bootstrap.css
+  contents:
+    - Shaft/vendor/bootstrap/js/bootstrap.min.js
+
+global.js:
+  output: gen/global.js
+  contents:
+      - Shaft/vendor/bootstrap/js/bootstrap.min.js
+      #- Shaft/authomatic/authomatic.js
+      - Shaft/vendor/moment/moment.js
+      - Shaft/vendor/moment-timezone/moment-timezone.js
+      - Shaft/vendor/jquery-lazy/jquery.lazy.min.js
+      - Shaft/jquery-oembed/jquery.oembed.js
+      - Shaft/vendor/jssocials/jssocials.js
+      - Shaft/vendor/js-cookie/js.cookie.js
+      - Shaft/vendor/jquery-form-validator/jquery.form-validator.min.js
+      - Shaft/vendor/eonasdan-bootstrap-datetimepicker/bootstrap-datetimepicker.min.js
+      - Shaft/lib/js/shaft.js
+
+global.css:
+  output: gen/global.css
+  contents:
+      - Shaft/vendor/bootstrap/css/bootstrap.min.css
+      - Shaft/vendor/bootstrap-social/bootstrap-social.css
+      - Shaft/jquery-oembed/jquery.oembed.css
+      - Shaft/vendor/jssocials/jssocials.css
+      - Shaft/vendor/jssocials/jssocials-theme-flat.css
+      - Shaft/vendor/eonasdan-bootstrap-datetimepicker/bootstrap-datetimepicker.min.css
+      - Shaft/lib/css/shaft.css
+

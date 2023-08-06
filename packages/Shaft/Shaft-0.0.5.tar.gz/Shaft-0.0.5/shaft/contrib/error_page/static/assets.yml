@@ -1,0 +1,5 @@
+
+shaft-error.css:
+  output: gen/shaft/error.css
+  contents:
+      - ErrorPage/css/error_page.css
