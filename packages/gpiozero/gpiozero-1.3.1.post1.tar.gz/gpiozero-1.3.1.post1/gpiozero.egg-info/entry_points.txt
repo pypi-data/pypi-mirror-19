@@ -1,0 +1,8 @@
+[gpiozero_pin_factories]
+MockPWMPin = gpiozero.pins.mock:MockPWMPin
+MockPin = gpiozero.pins.mock:MockPin
+NativePin = gpiozero.pins.native:NativePin
+PiGPIOPin = gpiozero.pins.pigpiod:PiGPIOPin
+RPIOPin = gpiozero.pins.rpio:RPIOPin
+RPiGPIOPin = gpiozero.pins.rpigpio:RPiGPIOPin
+
