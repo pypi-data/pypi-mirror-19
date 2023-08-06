@@ -1,0 +1,17 @@
+Metadata-Version: 2.0
+Name: KissAnime-Downloader
+Version: 0.1
+Summary: Download anime episodes from KissAnime
+Home-page: https://github.com/Abdullah2993/KissAnime-Downloader
+Author: Abdullah Saleem
+Author-email: a.saleem2993@gmail.com
+License: MIT
+Keywords: kissanime,download,downloader,anime,video
+Platform: UNKNOWN
+Requires-Dist: beautifulsoup4
+Requires-Dist: cfscrape
+Requires-Dist: wget
+
+UNKNOWN
+
+
