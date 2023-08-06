@@ -1,0 +1,63 @@
+Metadata-Version: 1.1
+Name: pyqos
+Version: 0.2.1
+Summary: Framework that helps setting a QoS on Linux
+Home-page: https://github.com/Anthony25/pyqos
+Author: Anthony25 <Anthony Ruhier>
+Author-email: anthony.ruhier@gmail.com
+License: Simplified BSD
+Description: QoS framework for Python and Linux
+        ==================================
+        
+        When setting a QoS with TC with a shell script, the syntax is not easy to read.
+        This framework helps you to set all your rules easily, in a hierarchical way.
+        
+        Documentation: https://pyqos.readthedocs.org/en/dev/
+        
+        Dependencies
+        ------------
+          * python 3.4 (it certainly works with prior versions, just not tested)
+        
+        
+        Example
+        -------
+        
+        There is an example about how using the framework in the `example` folder.
+        
+        
+        Contributors
+        ------------
+        
+         * [Anthony Ruhier](https://github.com/Anthony25)
+         * [Thomas Gagneret](https://github.com/tgagneret)
+        
+        
+        Special thanks
+        --------------
+         * [Flask Project:](https://github.com/mitsuhiko/flask) Some parts about the
+            application and configuration were inspired a lot from it.
+        
+        
+        Readings about tc
+        -----------------
+        
+         * http://wiki.linuxwall.info/doku.php/en:ressources:dossiers:networking:traffic_control
+           : General explanations about QoS and tc
+         * http://luxik.cdi.cz/~devik/qos/htb/manual/userg.htm : Details about htb
+         * http://joekane.eu/cisco-rate-limit-burst-explained/ : Details about burst
+           and cburst and how to define it.
+        
+        
+        License
+        -------
+        
+        Tool under the BSD license. Do not hesitate to report bugs, ask me some
+        questions or do some pull request if you want to !
+        
+Keywords: networking qos linux development
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: System :: Networking
+Classifier: License :: OSI Approved :: BSD License
