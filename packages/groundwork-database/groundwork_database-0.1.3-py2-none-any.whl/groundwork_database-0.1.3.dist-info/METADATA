@@ -1,0 +1,33 @@
+Metadata-Version: 2.0
+Name: groundwork-database
+Version: 0.1.3
+Summary: Package for hosting groundwork apps and plugins like gwsql_app or gwsql_plugin.
+Home-page: http://groundwork-database.readthedocs.org
+Author: useblocks
+Author-email: info@useblocks.com
+License: MIT license
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Environment :: Plugins
+Classifier: Topic :: Database
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: groundwork
+Requires-Dist: sqlalchemy
+Requires-Dist: sphinx
+Requires-Dist: gitpython
+
+groundwork-database
+===================
+
+
