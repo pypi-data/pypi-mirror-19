@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Racine du fichier, id et source sont optionnels, le name correspond au titre -->
+<personnage xmlns="fr:unistra:di:archive:pathfinder:v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="fr:unistra:di:archive:pathfinder:v1 pathfinder_v1.xsd"
+    id="1" source="pathfinder" name="document récapitulatif du personnage 1 de pathfinder">
+    <!-- Affiche le sous-titre de l'état civil -->
+    <etat-civil name="son état civil">
+        <!-- Affichage de clés/valeurs -->
+        <nom>Sombre-crâne</nom>
+        <age name="son âge">20</age>
+        <!-- Nouveau bloc avec un sous-titre -->
+        <classes name="classes et niveaux">
+            <!-- Ici on affiche le sous-titre de name -->
+            <classe name="Première classe">
+                <nom>Barbare</nom>
+                <niveau>3</niveau>
+            </classe>
+            <!-- Ici name est vide, donc ça affiche un titre vide -->
+            <classe name="">
+                <nom>Prêtre combattant</nom>
+                <niveau>1</niveau>
+            </classe>
+            <!-- Lorsqu'il n'y a pas d'attribut name, on affiche le nom du tag. Ici classe -->
+            <classe>
+                <nom>Moine</nom>
+                <niveau></niveau>
+            </classe>
+        </classes>
+    </etat-civil>
+    <quetes style="title" name="Quêtes en cours" />
+    <!-- Element de style tableau -->
+    <armes style="table" name="Liste des armes">
+        <arme>
+            <nom>cimeterre</nom>
+            <type>à deux mains</type>
+            <portee name="portée">3</portee>
+            <degat name="dégât">7</degat>
+            <element name="élément">feu</element>
+            <rarete name="rareté">épique</rarete>
+            <prix>1000</prix>
+            <qualite name="qualité">très bonne</qualite>
+        </arme>
+        <arme>
+            <nom>arc</nom>
+            <type>à distance</type>
+            <portee>8</portee>
+            <degat>2</degat>
+            <element>glace</element>
+            <rarete>simple</rarete>
+            <prix>100</prix>
+            <qualite>mauvaise</qualite>
+        </arme>
+        <arme>
+            <nom>épée</nom>
+            <type>à une main</type>
+            <portee>5</portee>
+            <degat>3</degat>
+            <element>terre</element>
+            <rarete>rare</rarete>
+            <prix>500</prix>
+            <qualite>moyenne</qualite>
+        </arme>
+    </armes>
+    <familier>
+        <nom>ronron</nom>
+        <type>sanglier</type>
+    </familier>
+</personnage>
