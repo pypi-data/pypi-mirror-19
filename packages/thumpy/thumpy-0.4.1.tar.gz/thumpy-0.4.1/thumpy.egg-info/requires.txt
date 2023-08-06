@@ -1,0 +1,5 @@
+pillow==3.2.0
+boto>=2.45.0
+gevent>=1.2.0
+pyyaml>=3.10
+six>=1.10.0
