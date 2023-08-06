@@ -1,0 +1,153 @@
+# gPrime
+
+[![Build Status](https://travis-ci.org/GenealogyCollective/gprime.svg?branch=master)](https://travis-ci.org/GenealogyCollective/gprime) [![codecov](https://codecov.io/gh/GenealogyCollective/gprime/branch/master/graph/badge.svg)](https://codecov.io/gh/GenealogyCollective/gprime)
+
+gPrime is a web-based application for genealogy. It uses the Gramps API for data, reports, import/export, etc.
+
+* Designed for collaboration and large databases
+* Multi-user, password protected
+* Support IIIF Image Server API - http://iiif.io/api/image/2.1/
+
+Additional Information
+----------------------
+
+* Blog - https://genealogycollective.wordpress.com/
+* Mailing list - https://groups.google.com/forum/#!forum/genealogycollective
+* Documentation - https://github.com/GenealogyCollective/gprime/tree/master/docs#gprime-documentation
+
+Requirements
+------------
+
+* Python3
+
+Python package dependencies:
+
+* tornado
+* PIL
+* simplejson
+* passlib
+* meta
+
+Installation
+-------------
+
+On Windows and Mac, perhaps the easiest method of using gPrime is to start with an [Anaconda Python3 environment](https://www.continuum.io/downloads).
+
+Released version installation:
+
+```
+pip install gprime
+```
+
+Or you can install from github sources:
+
+```
+git clone --depth 1 https://github.com/GenealogyCollective/gprime
+cd gprime
+```
+Once you have the source files, you can:
+
+```
+pip install . --user -U
+```
+
+(--user installs into user space, not global space. -U updates gPrime and dependencies. Leave off --user and use Adminstrative install method (sudo) to install for everyone. Optionally, you can run gPrime from this directory. See below.)
+
+
+Getting Started
+---------------
+
+In all of the following commands, --site-dir is required.
+
+To run gPrime, you need to do two things:
+
+1. Create a site directory
+2. Create at least one user and password
+
+To create a site directory, provide a name for the tree, and give the site-dir directory:
+
+```
+gprime --site-dir="family_tree" --create="My Family Tree" 
+```
+
+Then, you need at least one user (as an example, we use "demo" as the username):
+
+```
+gprime --site-dir="family_tree" --add-user=demo
+Password: (does not show any characters as you type)
+```
+
+Importing Data
+--------------
+
+Optionally, you may now want to also import some data (gPrime supports Gramps XML, GEDCOM, and JSON import formats):
+
+```
+gprime --site-dir="family_tree" --import-file="FamilyTree.gramps"
+```
+
+The site-directory has a folder named "media" for all of the images and other documents. You can copy them here, or, in the previous example, make ~/family_tree/media link to your media folder.
+
+Running
+-------
+
+You can run gprime directly from either the github-downloaded directory, or from the installed version.
+
+Installed version:
+
+```
+gprime --site-dir="family_tree"
+```
+
+To gPrime without installing it (you may need to use python3):
+
+```
+export PYTHONPATH=/path/to/gprime-source-dir
+python -m gprime.app --site-dir="family_tree"
+```
+
+Options:
+------------
+
+* --site-dir=/PATH/TO/FOLDER - The directory of the gPrime site directory (required)
+* --sitename="Site Name" - Name to use for the site (optional, "gPrime" is default)
+* --create=TREE-NAME - Create a site directory (given by --site-dir) and family tree database with TREE-NAME
+* --add-user=USERNAME - Add a username and password; prompts for password if --password not given
+* --remove-user=USERNAME - Remove a user's username and password from "SITE-DIR/passwd" file
+* --change-password=USERNAME - Change a user's password; prompts for password if --password not given
+* --password=PASSWORD - Use with --change-password, or --add-user (this option is not recommended)
+* --import-file=FILENAME - Import a Gramps-supported file type (.ged, .gramps, .json, etc.)
+* --config-file=FILE - A config file of these options (optional); alternatively, will use SITE-DIR/config.cfg if one
+* --port=PORT-NUMBER - Port to listen on (8000 is default)
+* --hostname=LOCALHOST - Hostname to listen on ("localhost" is default)
+* --prefix=/PATH - a URL prefix (e.g., /PATH/person/ )
+* --server=True|False - Start the server? Default is True
+* --open-browser=True|False - open a web browser on startup?
+* --debug=True|False - Use to see additional debugging information; useful for development (auto-restarts server on code change)
+* --xsrf=True/False - Use cross-site request forgery protection (recommended)
+* --help - List additional options and details
+
+Rather than having to list all of these options on a command-line, you can put them in the SITE-DIR/config.cfg file:
+
+```
+### This is the contents of file SITE-DIR/config.cfg.
+### Note that hyphens in option names are converted to underscores.
+
+port     = 8001
+site_dir = "My_Family_Tree_Folder"
+prefix   = "/jones"
+sitename = "Jerry's"
+```
+
+Common variations
+-----------------
+
+```
+gprime --help
+gprime --site-dir="family_tree_folder" --create="Smith Family"
+gprime --site-dir="family_tree_folder" --import-file="myinfo.gramps"
+gprime --site-dir="family_tree_folder" --add-user=demo --password=demo
+gprime --site-dir="family_tree_folder"
+```
+
+
