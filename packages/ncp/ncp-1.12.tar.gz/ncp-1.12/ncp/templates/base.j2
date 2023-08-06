@@ -1,0 +1,91 @@
+#user  nobody;
+worker_processes  auto;
+
+error_log  /var/log/nginx/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+
+pid        /run/nginx.pid;
+
+
+worker_rlimit_nofile 65535;
+
+events {
+    use epoll;
+    worker_connections 65535;
+}
+
+
+http {
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log /var/log/nginx/access.log  main;
+    sendfile on;
+    tcp_nopush on;
+    tcp_nodelay on;
+    keepalive_timeout  65;
+    proxy_next_upstream http_502 http_503;
+    gzip on;
+    large_client_header_buffers 4 16k;
+    client_max_body_size 300m; 
+    client_body_buffer_size 256k;
+    client_header_timeout 3m;
+    client_body_timeout 3m;
+    client_body_temp_path /var/tmp/nginx;
+    send_timeout 600s;
+    proxy_connect_timeout 600s;
+    proxy_read_timeout 600s;
+    proxy_send_timeout 600s;
+    proxy_buffer_size 64k;
+    proxy_buffers 4 32k;
+    proxy_busy_buffers_size 64k;
+    proxy_temp_file_write_size 64k;
+    proxy_ignore_client_abort on;
+    include mime.types;
+    default_type application/octet-stream;
+#    limit_req_zone $binary_remote_addr zone=allips:10m rate=20r/s;
+#    limit_conn_zone $binary_remote_addr zone=perip:10m;
+    proxy_cache_path /data/nginx/cache   levels=1:2  keys_zone=cache_zone:100m use_temp_path=off  inactive=1d max_size=10g;
+
+    server {
+        listen       80;
+        server_name  localhost;
+
+        location  /ngx_status {
+                stub_status on;
+                access_log  off;
+                allow 127.0.0.1;
+                deny all;
+        }
+
+        location /fs/ {            
+            proxy_pass      http://fs/;
+            proxy_redirect  off;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_next_upstream http_502 http_504 error timeout invalid_header;
+            proxy_cache cache_zone;
+            proxy_cache_valid 200 304 12h;
+            proxy_cache_key $uri$is_args$args; 
+            expires 30d;
+        }
+    }
+
+    server {
+        listen       443;
+        server_name _;
+        ssl on;
+        ssl_certificate lingyi365.crt;
+        ssl_certificate_key lingyi365.key;
+#        limit_req zone=allips burst=5 nodelay;
+#        limit_conn  perip 10;"
+        {% block location443 %}
+        {% endblock %}
+    }
+    {% block upstream %}
+    {% endblock %}
+}
+
