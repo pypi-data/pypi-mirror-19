@@ -1,0 +1,11 @@
+README.rst
+setup.cfg
+setup.py
+aws_nmap.egg-info/PKG-INFO
+aws_nmap.egg-info/SOURCES.txt
+aws_nmap.egg-info/dependency_links.txt
+aws_nmap.egg-info/requires.txt
+aws_nmap.egg-info/top_level.txt
+awsnmap/__init__.py
+awsnmap/clidriver.py
+bin/aws-nmap
