@@ -1,0 +1,11 @@
+setup.py
+django_sentry_400_middleware/__init__.py
+django_sentry_400_middleware/middleware.py
+django_sentry_400_middleware/settings.py
+django_sentry_400_middleware.egg-info/PKG-INFO
+django_sentry_400_middleware.egg-info/SOURCES.txt
+django_sentry_400_middleware.egg-info/dependency_links.txt
+django_sentry_400_middleware.egg-info/requires.txt
+django_sentry_400_middleware.egg-info/top_level.txt
+tests/__init__.py
+tests/test_middleware.py
