@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: xdocs
+Version: 0.2.7
+Summary: Documentation drives developing.
+Home-page: https://github.com/gaojiuli/XDocs
+Author: gaojiuli
+Author-email: gaojiuli@gmail.com
+License: MIT
+Description: XDocs is a fast and simple documentation generator that's geared towards building project documentation. Documentation source files are written in YAML, and configured with a single YAML configuration file.
+Platform: any
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Web Environment
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Documentation
+Classifier: Topic :: Text Processing
