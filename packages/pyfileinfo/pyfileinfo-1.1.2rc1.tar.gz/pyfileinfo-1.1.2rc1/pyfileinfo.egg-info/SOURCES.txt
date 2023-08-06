@@ -1,0 +1,13 @@
+.version
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+pyfileinfo/__init__.py
+pyfileinfo/pyfileinfo.py
+pyfileinfo.egg-info/PKG-INFO
+pyfileinfo.egg-info/SOURCES.txt
+pyfileinfo.egg-info/dependency_links.txt
+pyfileinfo.egg-info/not-zip-safe
+pyfileinfo.egg-info/requires.txt
+pyfileinfo.egg-info/top_level.txt
