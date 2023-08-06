@@ -1,0 +1,44 @@
+model:
+    - id:
+        verbose: id
+    - username:
+        verbose: 用户名
+        max_length: 20
+        min_length: 10
+    - password:
+        verbose: 密码
+
+action:
+    list:
+      args:
+      - search
+      - limit
+      - offset
+      - ordering
+      return:
+      - id
+      - username
+    retrieve:
+      return:
+      - id
+      - username
+      - email
+    create:
+      send:
+      - username
+      - password
+      return:
+      - id
+      - username
+    replace:
+      send:
+      - id
+      - username
+      - email
+      return: []
+    update:
+      send:
+      - password
+      return: []
+    destroy:
+      return: []
