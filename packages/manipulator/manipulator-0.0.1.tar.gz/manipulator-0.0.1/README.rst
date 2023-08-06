@@ -1,0 +1,73 @@
+manipulator
+=============
+
+Python data manipulation made braindead.
+
+Installation
+------------
+
+::
+
+  pip install manipulator
+
+Usage
+-----
+
+``manipulator`` mainly exposes three functions, ``get``, ``update``, and ``set``.
+``get`` retrieves data, ``update`` transforms it based on its form, and ``set``
+transforms it by simply resetting. Transformations can be applied in place or
+on a copy. The default is in place, because copying is expensive. If you want a
+copy of the data, set the keyword argument ``in_place`` to ``True``.
+
+It uses a query "language" not unlike CSS, albeit much, much simpler. The only
+two entities in this "language" are IDs—denoted by ``#``—and Classes—denoted by
+``.``. IDs are unique, whereas Classes are collections of all leaf values that
+conform.
+
+A few motivating examples (a more exhaustive list can be found in the ``test`` directory):
+
+.. code-block:: python
+
+    import manipulator
+
+    manipulator.get({"k": [1, [2], 3]}, "#k #1 #0")
+    # => 2 (note how list indices are coerced into integers)
+
+    manipulator.get([{"k": "v"}, {"k": "v2", "k2": "v3"}], ".k")
+    # => ["v", "v2"]
+
+    manipulator.get([{"k": "v"},
+                     {"k": {
+                        "a": [{"k": 10}, {"k": 11}]
+                      }
+                     }], ".k #1 #a .k")
+    # => [10, 11]
+
+    manipulator.set({"k": [1, [2], 3]}, "#k #1 #0", 3)
+    # => {"k": [1, [3], 3]} (in place)
+
+    manipulator.set({"k": [1, [2], 3]}, "#k #1 #0", 3, in_place=False)
+    # => {"k": [1, [3], 3]} (will create a copy of the data)
+
+    manipulator.set([{"k": "v"},
+                     {"k": {
+                        "a": [{"k": 10}, {"k": 11}]
+                      }
+                     }], ".k #1 #a .k", 100)
+    # => [{"k": "v"}, {"k": {"a": [{"k": 100}, {"k": 100}]}}]
+
+    manipulator.update({"k": [1, [2], 3]}, "#k #1 #0", lambda x: x-1)
+    # => {"k": [1, [1], 3]} (in place, use in_place=False to copy)
+
+    manipulator.set([{"k": "v"},
+                     {"k": {
+                        "a": [{"k": 10}, {"k": 11}]
+                      }
+                     }], ".k #1 #a .k", lambda x: x+1)
+    # => [{"k": "v"}, {"k": {"a": [{"k": 11}, {"k": 12}]}}]
+
+
+That is all.
+
+
+Have fun!
