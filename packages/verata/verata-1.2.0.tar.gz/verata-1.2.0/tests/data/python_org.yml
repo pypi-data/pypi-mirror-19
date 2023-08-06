@@ -1,0 +1,18 @@
+---
+name: Python Org scrapper
+description: Just scrape it for testing
+site_root: https://www.python.org
+start_page: /blogs
+cookies:
+  some_name: some_value
+headers:
+  "User-agent": "Mozilla/5.0"
+pages:
+  - name: Blog
+    link_pattern: /blog%
+    mappings: 
+      - name: title
+        path: h3[class="event-title"]/a
+mappings:
+  - name: title
+    path: h3[class="event-title"]/a
