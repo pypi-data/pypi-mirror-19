@@ -1,0 +1,12 @@
+setup.py
+anipy/__init__.py
+anipy/core.py
+anipy/exception.py
+anipy/utils.py
+anipy.egg-info/PKG-INFO
+anipy.egg-info/SOURCES.txt
+anipy.egg-info/dependency_links.txt
+anipy.egg-info/not-zip-safe
+anipy.egg-info/requires.txt
+anipy.egg-info/top_level.txt
+test/testCore.py
