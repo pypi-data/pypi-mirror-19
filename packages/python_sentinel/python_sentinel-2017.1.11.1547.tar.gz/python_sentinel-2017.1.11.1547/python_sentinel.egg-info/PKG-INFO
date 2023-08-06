@@ -1,0 +1,35 @@
+Metadata-Version: 1.0
+Name: python-sentinel
+Version: 2017.1.11.1547
+Summary: motion detection and alerts
+Home-page: https://github.com/wdbm/sentinel
+Author: Will Breaden Madden
+Author-email: wbm@protonmail.ch
+License: GPLv3
+Description: sentinel
+        ========
+        
+        This program is a security monitoring program that uses video to detect
+        motion, that records motion video and attempts to communicate alerts if
+        an e-mail address is specified.
+        
+        setup
+        =====
+        
+        .. code:: bash
+        
+            sudo apt-get install mailutils
+            sudo pip install python_sentinel
+        
+        usage
+        =====
+        
+        .. code:: bash
+        
+            ./sentinel.py --help
+        
+        .. code:: bash
+        
+            ./sentinel.py --email="mulder@fbi.g0v"
+        
+Platform: UNKNOWN
