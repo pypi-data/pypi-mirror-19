@@ -1,0 +1,6 @@
+[console_scripts]
+lluv = lluv:console
+lluv-cli = lluv:cli
+lluv-simple_cli = lluv:simple_cli
+lluv-tui = lluv:tui
+
