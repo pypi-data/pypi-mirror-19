@@ -1,0 +1,15 @@
+setup.cfg
+setup.py
+taigacli/__init__.py
+taigacli/cli.py
+taigacli/config.py
+taigacli/content.py
+taigacli/headers.py
+taigacli/safe.py
+taigacli/style.py
+taigacli.egg-info/PKG-INFO
+taigacli.egg-info/SOURCES.txt
+taigacli.egg-info/dependency_links.txt
+taigacli.egg-info/entry_points.txt
+taigacli.egg-info/requires.txt
+taigacli.egg-info/top_level.txt
