@@ -1,0 +1,3 @@
+[console_scripts]
+clique = clique.app.__main__:app.run
+
