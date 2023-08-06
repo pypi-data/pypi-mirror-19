@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flow-definition plugin="workflow-job">
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" plugin="workflow-cps">
+    <scm class="hudson.plugins.git.GitSCM">
+      <configVersion>2</configVersion>
+      <userRemoteConfigs>
+        <hudson.plugins.git.UserRemoteConfig>
+          <name>origin</name>
+          <refspec>+refs/heads/*:refs/remotes/origin/*</refspec>
+          <url>/local/repo</url>
+        </hudson.plugins.git.UserRemoteConfig>
+      </userRemoteConfigs>
+      <branches>
+        <hudson.plugins.git.BranchSpec>
+          <name>*/maser</name>
+        </hudson.plugins.git.BranchSpec>
+      </branches>
+      <disableSubmodules>false</disableSubmodules>
+      <recursiveSubmodules>false</recursiveSubmodules>
+      <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+      <remotePoll>false</remotePoll>
+      <gitTool>Default</gitTool>
+      <submoduleCfg class="list"/>
+      <reference/>
+      <gitConfigName/>
+      <gitConfigEmail/>
+      <extensions>
+        <hudson.plugins.git.extensions.impl.RelativeTargetDirectory>
+          <relativeTargetDir>repo</relativeTargetDir>
+        </hudson.plugins.git.extensions.impl.RelativeTargetDirectory>
+        <hudson.plugins.git.extensions.impl.LocalBranch>
+          <localBranch>master</localBranch>
+        </hudson.plugins.git.extensions.impl.LocalBranch>
+      </extensions>
+    </scm>
+    <scriptPath>repo/Jenkinsfile</scriptPath>
+  </definition>
+  <actions/>
+  <description>&lt;!-- Managed by Jenkins Job Builder --&gt;</description>
+  <keepDependencies>false</keepDependencies>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <concurrentBuild>false</concurrentBuild>
+  <canRoam>true</canRoam>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <publishers/>
+  <buildWrappers/>
+</flow-definition>

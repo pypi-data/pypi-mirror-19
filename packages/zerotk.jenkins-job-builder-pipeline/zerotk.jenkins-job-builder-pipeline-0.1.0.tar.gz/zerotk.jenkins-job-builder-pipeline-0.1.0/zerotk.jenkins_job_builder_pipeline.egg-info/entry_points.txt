@@ -1,0 +1,6 @@
+[jenkins_jobs.modules]
+pipeline = jjb_pipeline.definition:Pipeline
+
+[jenkins_jobs.projects]
+pipeline = jjb_pipeline.project_pipeline:Pipeline
+
