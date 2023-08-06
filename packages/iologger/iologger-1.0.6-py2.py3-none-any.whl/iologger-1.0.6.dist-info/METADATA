@@ -1,0 +1,66 @@
+Metadata-Version: 1.2
+Name: iologger
+Version: 1.0.6
+Summary: Decorator which logs the wrapped function/method.
+Home-page: https://gitlab.com/cw-andrews/IOLogger
+License: UNKNOWN
+Author: cw-andrews
+Author-email: cwandrews.oh@gmail.com
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: appdirs (>=1.4.0)
+Requires-Dist: boltons (>=17.0.0)
+Requires-Dist: colorama (>=0.3.7)
+Requires-Dist: hypothesis (>=3.6.1)
+Requires-Dist: Logbook (>=1.0.0)
+Requires-Dist: norman-join (>=1.0.4)
+Requires-Dist: packaging (>=16.8)
+Requires-Dist: py (>=1.4.32)
+Requires-Dist: pyparsing (>=2.1.10)
+Requires-Dist: pytest (>=3.0.6)
+Requires-Dist: six (>=1.10.0)
+
+============
+IOLogger
+============
+Decorator which logs the wrapped function/method.
+
+    The following are logged:
+
+        1. name of the function called
+        2. arg(s) passed for the function called (if any)
+        3. kwarg(s) passed for the function called (if any)
+        4. execution time of the function called (in seconds)
+
+        * also catches and logs any **exceptions** raised *gracefully*.
+
+**Quick Installation:**
+
+``pip install iologger``
+
+**Simply attach to your functions/methods:**
+```
+from iologger import iologger
+
+
+@iologger
+def sample_function(simple_arg: str, simple_kwarg: str='yes') -> str:
+    return simple_arg + " " + simple_kwarg
+```
+
+**Just setup your logging handler and it will start working:**
+```
+>>> from sys import stdout
+...
+... from logbook import StreamHandler
+...
+... stdout_handler = StreamHandler(stdout)
+... stdout_handler.push_application()
+...
+>>> sample_function("test-string", simple_kwarg="no")
+
+[2017-01-29 18:48:50.170606] DEBUG: IOL - sample_function: Starting...
+[2017-01-29 18:48:50.171035] DEBUG: IOL - sample_function: passed args/kwargs = {'args': ('test-string',), 'kwargs': {'simple_kwarg': 'no'}}
+[2017-01-29 18:48:50.171197] DEBUG: IOL - sample_function: returned: 'test-string no'
+[2017-01-29 18:48:50.171319] INFO: IOL - sample_function: ...Finished (3.3e-06 seconds)
+```
+
