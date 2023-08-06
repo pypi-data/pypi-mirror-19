@@ -1,0 +1,15 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+accessstats/__init__.py
+accessstats/client.py
+accessstatsapi.egg-info/PKG-INFO
+accessstatsapi.egg-info/SOURCES.txt
+accessstatsapi.egg-info/dependency_links.txt
+accessstatsapi.egg-info/requires.txt
+accessstatsapi.egg-info/top_level.txt
+tests/__init__.py
+tests/test_accessstats.py
+tests/custom_queries_templates/0000-0000.json
+tests/custom_queries_templates/0000-0000_invalid.json
