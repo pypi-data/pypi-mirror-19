@@ -1,0 +1,3 @@
+[console_scripts]
+trabbuild = trabbuild.__init__:main
+
