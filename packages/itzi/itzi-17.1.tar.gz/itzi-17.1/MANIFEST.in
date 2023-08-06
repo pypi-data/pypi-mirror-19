@@ -1,0 +1,4 @@
+include LICENSE
+include RELEASE.rst
+recursive-include itzi/data *
+recursive-include itzi/data/colortable *.txt
