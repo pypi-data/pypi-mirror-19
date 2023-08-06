@@ -1,0 +1,15 @@
+setup.py
+htrc/__init__.py
+htrc/__main__.py
+htrc.egg-info/PKG-INFO
+htrc.egg-info/SOURCES.txt
+htrc.egg-info/dependency_links.txt
+htrc.egg-info/entry_points.txt
+htrc.egg-info/not-zip-safe
+htrc.egg-info/requires.txt
+htrc.egg-info/top_level.txt
+htrc/metadata/__init__.py
+htrc/util/__init__.py
+htrc/util/resolve.py
+htrc/volumes/__init__.py
+htrc/workset/__init__.py
