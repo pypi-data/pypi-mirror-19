@@ -1,0 +1,8 @@
+{
+    "resource": "epsrc.archer",
+    "username" : "octocat",
+    "project" : "cd5432",
+    "runtime" : "20",
+    "cleanup" : "False",
+    "cores" : "32"
+}
