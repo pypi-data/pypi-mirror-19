@@ -1,0 +1,8 @@
+<h1>Previous Searches</h1>
+<div class="list-group">
+  <tal:block tal:repeat="search searches">
+    <a href="#" class="list-group-item">
+      ${search.term}
+    </a>
+  </tal:block>
+</div>

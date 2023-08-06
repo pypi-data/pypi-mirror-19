@@ -1,0 +1,32 @@
+<!-- kotti_history enabled -->
+<script type="text/javascript" tal:condition="timeout">
+  var kotti_history = {
+    "timeout": ${timeout}
+  };
+
+
+
+  $(document).ready(function(){
+      setTimeout(function(){
+          $.post("./history", function(data){
+              console.log(data.message);
+          });
+      }, kotti_history.timeout);
+
+
+
+
+  });
+
+</script>
+
+<script tal:condition="'@@search-results/'">
+    $(document).ready(function(){
+        var term = "${request.params.get('search-term', '')}";
+        if(term != ''){
+            $.post(kotti_context_url + "@@save-search", {term: term}, function(data){
+                console.log(data);
+            });
+        }
+    });
+</script>

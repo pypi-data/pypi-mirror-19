@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      metal:use-macro="api.macro('kotti:templates/view/master.pt')">
+
+  <article metal:fill-slot="content"
+           class="content history-view"
+           i18n:domain="kotti_history">
+
+
+      <h1>History</h1>
+      <table class="table">
+            <thead>
+                  <tr>
+                        <th>Page</th>
+                        <th>No. Views</th>
+                        <th>Last Viewed</th>
+                  </tr>
+            </thead>
+            <tbody>
+                  <tr tal:repeat="item history">
+                        <td><a href="${item.url}">${item.title}</a></td>
+                        <td>${item.num_views}</td>
+                        <td>${item.date_last_viewed.strftime("%A, %d. %B %Y %I:%M%p")}
+                  </tr>
+            </tbody>
+      </table>
+
+
+  </article>
+</html>
