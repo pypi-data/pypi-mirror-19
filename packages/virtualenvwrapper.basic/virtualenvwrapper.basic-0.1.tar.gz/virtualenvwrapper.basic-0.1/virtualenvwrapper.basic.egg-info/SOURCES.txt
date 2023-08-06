@@ -1,0 +1,12 @@
+MANIFEST.in
+README
+setup.py
+virtualenvwrapper/__init__.py
+virtualenvwrapper/basic_project.py
+virtualenvwrapper.basic.egg-info/PKG-INFO
+virtualenvwrapper.basic.egg-info/SOURCES.txt
+virtualenvwrapper.basic.egg-info/dependency_links.txt
+virtualenvwrapper.basic.egg-info/entry_points.txt
+virtualenvwrapper.basic.egg-info/namespace_packages.txt
+virtualenvwrapper.basic.egg-info/not-zip-safe
+virtualenvwrapper.basic.egg-info/top_level.txt
