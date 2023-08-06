@@ -1,0 +1,9 @@
+sudo: false
+
+language: node_js
+nodejs: 6
+
+script: npm run build
+
+notifications:
+  email: false
