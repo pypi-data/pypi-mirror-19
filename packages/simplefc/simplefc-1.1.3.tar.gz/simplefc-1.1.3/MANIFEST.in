@@ -1,0 +1,7 @@
+exclude .gitignore
+include README.rst
+include setup.cfg
+include README.md
+exclude .git
+exclude todo.txt
+exclude simplefc/dbpath.txt
