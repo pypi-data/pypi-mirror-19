@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: gdbgui
+Version: 0.7
+Summary: browser-based gdb frontend using Flask and JavaScript to visually debug C, C++, Go, or Rust
+Home-page: https://github.com/cs01/gdbgui
+Author: Chad Smith
+Author-email: chadsmith27@gmail.com
+License: BSD
+Description: UNKNOWN
+Keywords: gdb,python,machine-interface,parse,frontend,flask,browser,gui,c,c++,go,rust
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
