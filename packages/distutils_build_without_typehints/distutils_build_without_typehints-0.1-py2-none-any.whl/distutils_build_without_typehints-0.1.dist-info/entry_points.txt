@@ -1,0 +1,2 @@
+[distutils.commands]
+build_without_typehints = distutils_build_without_typehints.build_without_typehints:build_without_typehints
