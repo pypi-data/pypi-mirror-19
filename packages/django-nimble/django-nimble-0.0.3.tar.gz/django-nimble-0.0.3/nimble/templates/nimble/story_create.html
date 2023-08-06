@@ -1,0 +1,21 @@
+{% extends "nimble/base.html" %}
+{% load bootstrap3 %}
+{% load static %}
+
+{% block scripts %}
+<script src="{% static 'nimble/js/all_toggles_on.js' %}"></script>
+{% endblock %}
+
+{% block title %}{{ object.name }}{% endblock %}
+
+{% block content %}
+    <h2>New {{ story_type }} {{ object.name }} <span style="font-size: 0.7em;"><a name="API" href="{{ api_url }}">{% bootstrap_icon "console" %}</a></span></h2>
+    <form action="" method="post" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            {% include "nimble/includes/save.html" %}
+        {% endbuttons %}
+    </form>
+    {{ form.media }}
+{% endblock %}
