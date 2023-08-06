@@ -1,0 +1,14 @@
+setup.cfg
+setup.py
+Flask_Assistant.egg-info/PKG-INFO
+Flask_Assistant.egg-info/SOURCES.txt
+Flask_Assistant.egg-info/dependency_links.txt
+Flask_Assistant.egg-info/not-zip-safe
+Flask_Assistant.egg-info/requires.txt
+Flask_Assistant.egg-info/top_level.txt
+flask_assistant/__init__.py
+flask_assistant/api-ai.py
+flask_assistant/core.py
+flask_assistant/manager.py
+flask_assistant/response.py
+flask_assistant/schema_models.py
