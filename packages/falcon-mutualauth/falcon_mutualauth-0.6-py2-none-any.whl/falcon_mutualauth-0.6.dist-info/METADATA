@@ -1,0 +1,18 @@
+Metadata-Version: 2.0
+Name: falcon-mutualauth
+Version: 0.6
+Summary: Mutual TLS authentication for Falcon
+Home-page: UNKNOWN
+Author: Rackspace
+Author-email: UNKNOWN
+License: Apache 2.0
+Platform: UNKNOWN
+Requires-Dist: falcon
+Requires-Dist: structlog
+Requires-Dist: twisted
+Requires-Dist: pyopenssl
+Requires-Dist: service-identity
+
+UNKNOWN
+
+
