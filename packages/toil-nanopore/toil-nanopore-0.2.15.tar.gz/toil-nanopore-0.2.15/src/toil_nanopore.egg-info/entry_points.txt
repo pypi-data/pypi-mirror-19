@@ -1,0 +1,3 @@
+[console_scripts]
+toil-nanopore = toil_nanopore.toil_nanopore_pipeline:main
+
