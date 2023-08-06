@@ -1,0 +1,11 @@
+tornado >= 4.2
+schematics >= 1.0.2
+scales >= 1.0.8
+
+[futures]
+futures == 2.2.0
+
+[test]
+mock
+pytest
+pytest-cov
