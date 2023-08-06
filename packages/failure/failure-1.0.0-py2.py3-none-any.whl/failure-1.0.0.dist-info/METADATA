@@ -1,0 +1,48 @@
+Metadata-Version: 2.0
+Name: failure
+Version: 1.0.0
+Summary: Failure remoting, serialization, deserialization library.
+Home-page: UNKNOWN
+Author: OpenStack
+Author-email: openstack-dev@lists.openstack.org
+License: UNKNOWN
+Keywords: exceptions,failures,serialization
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Software Development :: Libraries
+Requires-Dist: pbr (>=1.6)
+Requires-Dist: six (>=1.9.0)
+Requires-Dist: jsonschema (<3.0.0,>=2.0.0,!=2.5.0)
+Requires-Dist: oslo.utils (>=3.21.0)
+
+Failure
+=======
+
+
+.. image:: https://travis-ci.org/harlowja/failure.png?branch=master
+   :target: https://travis-ci.org/harlowja/failure
+
+Overview
+--------
+
+A tiny library to provide the following::
+
+    Failure objects encapsulate exception information so that they can be
+    re-used later to re-raise, inspect, examine, log, print, serialize,
+    deserialize...
+
+It also provides helpers to make using (or creating) the above easier.
+
+
+
