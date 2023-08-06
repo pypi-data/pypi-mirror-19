@@ -1,0 +1,12 @@
+README.rst
+setup.cfg
+setup.py
+ArgParseInator.egg-info/PKG-INFO
+ArgParseInator.egg-info/SOURCES.txt
+ArgParseInator.egg-info/dependency_links.txt
+ArgParseInator.egg-info/top_level.txt
+argparseinator/__init__.py
+argparseinator/__main__.py
+argparseinator/exceptions.py
+argparseinator/sphinx_extensions.py
+argparseinator/utils.py
