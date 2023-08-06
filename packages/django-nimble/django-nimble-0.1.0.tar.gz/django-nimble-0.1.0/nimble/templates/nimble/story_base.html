@@ -1,0 +1,22 @@
+{% extends "nimble/base.html" %}
+{% load bootstrap3 %}
+
+{% block title %}{{ object.name }}{% endblock %}
+
+{% block content %}
+    <h2>{{ object.typename }} {{ object.name }} <span style="font-size: 0.7em;"><a name="API" href="{{ object.api_url }}">{% bootstrap_icon "console" %}</a></span></h2>
+    <label class="control-label">Author</label>
+    <div id="author" class="form-control"><span class="glyphicon glyphicon-lock"></span> {{object.author.get_full_name}}</div>
+    <div>
+        <ul class="nav nav-tabs">
+            <li role="presentation" {% if active_tab == "details" %}class="active"{% endif %}>
+                <a id="details_link" href="{% url 'story_detail' ident=object.ident pk=object.id %}">Details</a>
+            </li>
+            <li role="presentation" {% if active_tab == "history" %}class="active"{% endif %}>
+                <a id="history_link" href="{% url 'story_history' ident=object.ident pk=object.id %}">History</a>
+            </li>
+        </ul>
+    </div>
+    {% block details %}
+    {% endblock %}
+{% endblock %}

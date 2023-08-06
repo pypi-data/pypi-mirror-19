@@ -1,0 +1,13 @@
+{% extends "nimble/story_base.html" %}
+{% load bootstrap3 %}
+
+{% block details %}
+    <!-- History Loaded -->
+    {% for change in history %}
+        <h3>{{ change.title }}</h3>
+        {% for k, v in change.table.items %}
+            <h4>{{ k }}</h4>
+            {{ v }}
+        {% endfor %}
+    {% endfor %}
+{% endblock %}
