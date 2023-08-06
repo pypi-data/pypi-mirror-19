@@ -1,0 +1,50 @@
+Metadata-Version: 1.1
+Name: awscfncli
+Version: 0.1a0
+Summary: AWS CloudFormation CLI
+Home-page: https://github.com/Kotaimen/awscfncli
+Author: Kotaimen, Ray
+Author-email: kotaimen.c@gmail.com, gliese.q@gmail.com
+License: MIT
+Description: 
+        
+        AWS CloudFormation CLI
+        **********************
+        
+        Introduction
+        ============
+        
+        ``awscfncli`` is a simple CLI tool that helps you manage AWS CloudFormation stacks.
+        
+        Features:
+        
+        * awscli a-like CLI interface.
+        * Simple YAML stack configuration file.
+        * Tracking stack events in the CLI.
+        
+        Usage::
+        
+            cfn COMMAND SUBCOMMAND STACK_CONFIG [ARGS]...
+        
+        To view a list of available subcommands, type::
+        
+            cfn COMMAND --help
+        
+        To view help of a particular subcommand, type::
+        
+            cfn COMMAND SUBCOMMAND --help
+        
+        
+Keywords: awscfncli aws cloudformation development
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Classifier: Natural Language :: English
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
