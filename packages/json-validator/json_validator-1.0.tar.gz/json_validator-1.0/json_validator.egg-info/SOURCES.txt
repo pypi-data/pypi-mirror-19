@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+json_validator/__init__.py
+json_validator/extractor.py
+json_validator/validator.py
+json_validator.egg-info/PKG-INFO
+json_validator.egg-info/SOURCES.txt
+json_validator.egg-info/dependency_links.txt
+json_validator.egg-info/requires.txt
+json_validator.egg-info/top_level.txt
