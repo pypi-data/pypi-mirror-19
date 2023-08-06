@@ -1,0 +1,15 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "enum": [
+        "other",
+        "diploma",
+        "bachelor",
+        "laurea",
+        "master",
+        "phd",
+        "habilitation",
+        "thesis"
+    ],
+    "title": "Degree type",
+    "type": "string"
+}
