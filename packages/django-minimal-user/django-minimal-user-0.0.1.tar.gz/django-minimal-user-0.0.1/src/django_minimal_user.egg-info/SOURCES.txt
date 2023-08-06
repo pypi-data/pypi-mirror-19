@@ -1,0 +1,14 @@
+README.rst
+setup.py
+src/django_minimal_user.egg-info/PKG-INFO
+src/django_minimal_user.egg-info/SOURCES.txt
+src/django_minimal_user.egg-info/dependency_links.txt
+src/django_minimal_user.egg-info/requires.txt
+src/django_minimal_user.egg-info/top_level.txt
+src/minimal_user/__init__.py
+src/minimal_user/admin.py
+src/minimal_user/managers.py
+src/minimal_user/models.py
+src/minimal_user/serializers.py
+src/minimal_user/migrations/0001_initial.py
+src/minimal_user/migrations/__init__.py
