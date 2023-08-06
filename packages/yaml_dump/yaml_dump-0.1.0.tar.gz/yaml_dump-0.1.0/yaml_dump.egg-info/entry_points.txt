@@ -1,0 +1,3 @@
+[console_scripts]
+yaml_dump = yaml_dump.cli:main
+
