@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: richtypo
+Version: 0.2.1
+Summary: The only web typograph that don't make a mess out of your text. Russian and English supported.
+Home-page: https://github.com/f213/richtypo.py
+Author: Fedor Borshev
+Author-email: f@f213.in
+License: MIT
+Description: UNKNOWN
+Keywords: typography,spaces,nbsp,russian,markdown
+Platform: UNKNOWN
+Classifier: Topic :: Text Processing :: Filters
+Classifier: Topic :: Text Processing :: Markup :: HTML
+Classifier: Intended Audience :: Developers
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Natural Language :: Russian
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Framework :: Django
+Classifier: Framework :: Flask
+Classifier: License :: OSI Approved :: MIT License

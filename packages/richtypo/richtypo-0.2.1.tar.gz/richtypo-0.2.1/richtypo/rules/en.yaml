@@ -1,0 +1,45 @@
+hanging_pretexts:
+  pattern: '(?<=\b)(to|from|for|at|on|of|so)\s+'
+  flags:
+    - I
+  replacement: '\1_'
+  specs:
+    - "From russia with love|From_russia with love"
+    - "From 2 to 3|From_2 to_3"
+
+hanging_articles:
+  pattern: '(?<=\b)(a|an|the)\s+'
+  flags:
+    - I
+  replacement: '\1_'
+  specs:
+    - "The master of puppets|The_master of puppets"
+    - "With an elevator|With an_elevator"
+
+hanging_pronouns:
+  pattern: '(?<=\b)(i|me|my|mine|you|your|yours|hi|him|his|she|her|hers|it|its|we|us|our|ours|they|them|their|theirs)\s+'
+  flags:
+    - I
+  replacement: '\1_'
+  specs:
+    - "By her Magesty|By her_Magesty"
+    - "Its food is in the can|Its_food is in the can"
+
+hanging_to_be:
+  pattern: '(?<=\b)(be|am|are|were|was|been|i.m)\s+'
+  flags:
+    - I
+  replacement: '\1_'
+  specs:
+    - "I am the greatest!|I am_the greatest!"
+    - "I'm the greatest!|I'm_the greatest!"
+
+hanging_numbers:
+  pattern: '(?<=\b)(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|\w+teen|twenty|thirty|fourty|fifty|sixty|seventy|eighty|ninety)\s+'
+  flags:
+    - I
+  replacement: '\1_'
+  specs:
+    - "One sheep|One_sheep"
+    - "Fifteen sheeps|Fifteen_sheeps"
+    - "One hundred and twenty one sheeps|One_hundred and twenty_one_sheeps"
