@@ -1,0 +1,6 @@
+[console_scripts]
+manage = app.scripts.manage:execute
+
+[gui_scripts]
+
+
