@@ -1,0 +1,9 @@
+tuf>=0.10.0
+python-dxf>=4.0.1
+fasteners>=0.14.1
+tqdm>=4.10.0
+cryptography>=1.5
+pytimeparse>=1.1.5
+decorator>=4.0.10
+iso8601>=0.1.11
+pycrypto>=2.6.1
