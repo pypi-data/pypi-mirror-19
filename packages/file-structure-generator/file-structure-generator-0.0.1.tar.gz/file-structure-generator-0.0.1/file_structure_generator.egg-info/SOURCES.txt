@@ -1,0 +1,12 @@
+setup.cfg
+setup.py
+file_structure_generator.egg-info/PKG-INFO
+file_structure_generator.egg-info/SOURCES.txt
+file_structure_generator.egg-info/dependency_links.txt
+file_structure_generator.egg-info/entry_points.txt
+file_structure_generator.egg-info/top_level.txt
+src/__init__.py
+src/__main__.py
+src/app.py
+src/structure_config.py
+src/structure_generator.py
