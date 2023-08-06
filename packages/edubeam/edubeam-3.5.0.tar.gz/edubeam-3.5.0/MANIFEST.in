@@ -1,0 +1,18 @@
+# This file works only for $ python setup.py sdist, which creates *.tar.gz, necessary for uploading to PyPI.
+# It is also necessary to specify package_data in setup.py which tells what will be installed from *.tar.gz
+# It is strongly advised to remove built and dist directories before new build
+
+# A typical workflow
+# $ python setup.py install       test your installation locally as it would be downloaded from PyPI server
+# $ python setup.py install --user test your installation locally as a user, installs under /home/user/.local/lib/
+# $ python setup.py sdist         creates an archive on local computer
+# $ python setup.py register      registers to PyPI server
+# $ python setup.py sdist upload  creates an archive on local computer and upload to PyPI server
+
+include edubeam/userGuide/EduBeam-userGuide.pdf
+include edubeam/splash.png
+include edubeam/examples/ex01.xml edubeam/examples/ex02.xml edubeam/examples/ex03.xml
+
+#prune edubeam/manual/modelovani_2D_prutove_konstrukce_v_EduBeamu.pdf
+
+
