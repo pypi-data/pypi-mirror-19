@@ -1,0 +1,68 @@
+Metadata-Version: 1.1
+Name: limix-genetics
+Version: 0.1.4
+Summary: Genetic-related tools for Limix.
+Home-page: https://github.com/glimix/limix-genetics
+Author: Limix Developers
+Author-email: horta@ebi.ac.uk
+License: MIT
+Description: limix-genetics
+        ==============
+        
+        |PyPIl| |PyPIv| |Documentation Status|
+        
+        Genetic-related tools for Limix.
+        
+        Install
+        -------
+        
+        The recommended way of installing it is via
+        `conda <http://conda.pydata.org/docs/index.html>`__
+        
+        .. code:: bash
+        
+            conda install -c conda-forge limix-genetics
+        
+        An alternative way would be via pip
+        
+        .. code:: bash
+        
+            pip install limix-genetics
+        
+        Refer to
+        `documentation <http://limix-genetics.readthedocs.io/en/latest/>`__ for
+        more information.
+        
+        Running the tests
+        -----------------
+        
+        After installation, you can test it
+        
+        ::
+        
+            python -c "import limix_genetics; limix_genetics.test()"
+        
+        as long as you have `pytest <http://docs.pytest.org/en/latest/>`__.
+        
+        Authors
+        -------
+        
+        -  **Danilo Horta** - https://github.com/Horta
+        
+        License
+        -------
+        
+        This project is licensed under the MIT License - see the
+        `LICENSE <LICENSE>`__ file for details
+        
+        .. |PyPIl| image:: https://img.shields.io/pypi/l/limix-genetics.svg?style=flat-square
+           :target: https://pypi.python.org/pypi/limix-genetics/
+        .. |PyPIv| image:: https://img.shields.io/pypi/v/limix-genetics.svg?style=flat-square
+           :target: https://pypi.python.org/pypi/limix-genetics/
+        .. |Documentation Status| image:: https://readthedocs.org/projects/limix-genetics/badge/?style=flat-square&version=latest
+           :target: https://limix-genetics.readthedocs.io/en/latest/
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
