@@ -1,0 +1,8 @@
+nameko>=2.0.0
+py2neo>=3.0.0
+
+[dev]
+coverage==4.3.4
+flake8==3.2.1
+pylint==1.6.5
+pytest==3.0.6
