@@ -1,0 +1,26 @@
+Metadata-Version: 1.1
+Name: trackvia
+Version: 1.1.0
+Summary: A Python SDK for interacting with the TrackVia API.
+Home-page: https://github.com/Trackvia/API-Python-SDK
+Author: TrackVia Engineering
+Author-email: support@trackvia.com
+License: UNKNOWN
+Description: A Python SDK for interacting with the TrackVia public API.  
+        ==========================================================
+        This library provides a client for interacting with the TrackVia(https://www.trackvia.com) public API.
+        
+        Usage information can be found in the source repository at https://github.com/Trackvia/API-Python-SDK.
+        
+Keywords: trackvia api
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
