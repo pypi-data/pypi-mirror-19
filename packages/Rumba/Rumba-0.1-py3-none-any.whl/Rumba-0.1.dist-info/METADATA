@@ -1,0 +1,17 @@
+Metadata-Version: 2.0
+Name: Rumba
+Version: 0.1
+Summary: Rumba measurement framework for RINA
+Home-page: https://gitlab.com/arcfire/rumba
+Author: Sander Vrijders
+Author-email: sander.vrijders@intec.ugent.be
+License: LGPL
+Keywords: rina measurement testbed
+Platform: UNKNOWN
+Requires-Dist: paramiko
+Requires-Dist: wheel
+
+# measurement-framework
+Part of ARCFIRE 2020, WP3 work package.
+
+

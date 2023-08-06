@@ -1,0 +1,17 @@
+Rumba-0.1.dist-info/DESCRIPTION.rst,sha256=wTRZDfbzs8E38uyB8e7y1BjkWUn9ik94DYXUkkqyuZ8,66
+Rumba-0.1.dist-info/METADATA,sha256=BNGmVEuzIjtfvam8BYwJkDhfXMDbYVHd6s1LBgDWX2w,385
+Rumba-0.1.dist-info/RECORD,,
+Rumba-0.1.dist-info/WHEEL,sha256=dXGL5yz26tu5uNsUy9EBoBYhrvMYqmFH9Vm82OQUT-8,95
+Rumba-0.1.dist-info/metadata.json,sha256=mSuG86RUvt0SGvA6lyk-mj4lML2MTaq1_CaY8acUPMA,545
+Rumba-0.1.dist-info/top_level.txt,sha256=HWVpLLqtQ8LfmFVuIaxpRmXNRxw3htTy4sVJXKcKtK4,6
+rumba/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+rumba/model.py,sha256=5KLd23uoNrVNiF0uhm8ireAOQ6Gkj-LeD55bey4BmJE,7073
+rumba/ssh_support.py,sha256=4g81pVw0rVFyXHYLZ9-SAqV7H-1ATRRh3O7e2p3IU7I,5332
+rumba/prototypes/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+rumba/prototypes/irati.py,sha256=VkryFa7LvcAJELgtprXpRzwp9dpxqCw-yrNTxXMxcAY,1838
+rumba/prototypes/ouroboros.py,sha256=9jyCLbtm-uJfPmba-p0CZVEZviB0mFKFhxo73eSTIPU,2152
+rumba/prototypes/rlite.py,sha256=jGl3ZXLaYJf2Z-U2hsYaiTwVWE3Srt-uHCWB_I7m81Q,1937
+rumba/testbeds/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+rumba/testbeds/emulab.py,sha256=Ty1vjkkWuhMZSPzBx86xJr-bczfGvANlqyivfQST-M8,8429
+rumba/testbeds/faketestbed.py,sha256=LExE8PBYu6hHHZc_AgO_lgooI1CQ26ZsMIYqID-bdmU,1189
+rumba/testbeds/jfed.py,sha256=gC5dpsBUU1Hc5ntXdsCMCogjJzhnrKXUJq6egANf_Lk,6619
