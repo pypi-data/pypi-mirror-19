@@ -1,0 +1,14 @@
+setup.py
+TracDocs.egg-info/PKG-INFO
+TracDocs.egg-info/SOURCES.txt
+TracDocs.egg-info/dependency_links.txt
+TracDocs.egg-info/entry_points.txt
+TracDocs.egg-info/top_level.txt
+tracdocs/__init__.py
+tracdocs/web_ui.py
+tracdocs/htdocs/common.css
+tracdocs/htdocs/docutils.css
+tracdocs/htdocs/prettify.css
+tracdocs/htdocs/prettify.js
+tracdocs/htdocs/prettify.min.js
+tracdocs/templates/docs.html
