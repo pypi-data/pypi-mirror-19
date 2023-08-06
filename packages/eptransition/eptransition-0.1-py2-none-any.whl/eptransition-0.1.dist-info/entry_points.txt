@@ -1,0 +1,3 @@
+[console_scripts]
+eptransition = eptransition.driver:drive_from_cmdline
+
