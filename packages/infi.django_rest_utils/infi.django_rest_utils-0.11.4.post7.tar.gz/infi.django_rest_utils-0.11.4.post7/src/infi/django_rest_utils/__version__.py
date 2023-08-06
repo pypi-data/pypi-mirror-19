@@ -1,0 +1,11 @@
+__version__ = "0.11.4.post7"
+__git_commiter_name__ = "Itai Shirav"
+__git_commiter_email__ = "itais@infinidat.com"
+__git_branch__ = u'develop'
+__git_remote_tracking_branch__ = u'origin/develop'
+__git_remote_url__ = u'git@git.infinidat.com:host-opensource/infi.django_rest_utils.git'
+__git_head_hash__ = '6104f2b867acaea5a9db5cc2e046a0778bf5c99c'
+__git_head_subject__ = u'SPTL-1113 LargeQuerySetPaginator does not use approximation due to partitioning'
+__git_head_message__ = u''
+__git_dirty_diff__ = u''
+__git_commit_date__ = '2017-01-08 14:00:46'
