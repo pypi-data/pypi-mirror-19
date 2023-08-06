@@ -1,0 +1,4 @@
+[console_scripts]
+sdc-firewall = silentdune_client.sdc_firewall:run
+sdc-install = silentdune_client.sdc_install:run
+
