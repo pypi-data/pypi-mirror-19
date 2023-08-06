@@ -1,0 +1,16 @@
+Metadata-Version: 2.0
+Name: easyRedisCache
+Version: 0.11
+Summary: Easy lock secured cache for redis
+Home-page: https://github.com/InfinityMod/easyRedisCache
+Author: David Ziegler
+Author-email: webmaster@SpreadPost.de
+License: BSD
+Keywords: cache,lock,memcached,redis
+Platform: UNKNOWN
+Requires-Dist: redis
+Requires-Dist: sherlock
+
+UNKNOWN
+
+
