@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: ssht
+Version: 0.7.1a1
+Summary: SSH client wrapper for easily connecting to hosts
+Home-page: http://github.com/hkraal/ssht
+Author: Henk Kraal
+Author-email: hkraal@users.noreply.github.com
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: System :: Shells
+Classifier: Topic :: Utilities
