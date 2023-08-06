@@ -1,0 +1,27 @@
+Metadata-Version: 1.0
+Name: fio-area
+Version: 0.0.1
+Summary: Fiona CLI plugin to calculate areas
+Home-page: https://github.com/mapbox/fio-area
+Author: Damon Burgett
+Author-email: damon@mapbox.com
+License: BSD
+Description: fio-area
+        ========
+        
+        ::
+        
+            Usage: fio area [OPTIONS] FEATURES...
+        
+            Options:
+              -s, --summary               Output summary statistics only
+              --calc-crs TEXT             Projection to calculate area in
+                                          [DEFAULT=ESRI:52009]
+              --sequence / --no-sequence  Write a LF-delimited sequence of texts
+                                          containing individual objects or write a single
+                                          JSON text containing a feature collection object
+                                          (the default).
+              --help                      Show this message and exit.
+        
+Keywords: fiona
+Platform: UNKNOWN
