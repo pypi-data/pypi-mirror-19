@@ -1,0 +1,13 @@
+setup.py
+redisearch/__init__.py
+redisearch/auto_complete.py
+redisearch/client.py
+redisearch/document.py
+redisearch/query.py
+redisearch/result.py
+redisearch.egg-info/PKG-INFO
+redisearch.egg-info/SOURCES.txt
+redisearch.egg-info/dependency_links.txt
+redisearch.egg-info/requires.txt
+redisearch.egg-info/top_level.txt
+test/test.py
