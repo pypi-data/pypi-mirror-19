@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: yacbv
+Version: 0.2.0
+Summary: Yet another class based views for Django
+Home-page: https://github.com/Alkemic/yaCBV
+Author: Daniel Czuba
+Author-email: dc@danielczuba.pl
+License: MIT
+Description: # yaCBV
+        Yet another class based views for Django
+        
+Keywords: django,cbv,class based views
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
