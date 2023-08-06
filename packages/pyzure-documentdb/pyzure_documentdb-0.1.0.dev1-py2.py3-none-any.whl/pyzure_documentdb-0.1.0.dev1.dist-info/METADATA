@@ -1,0 +1,18 @@
+Metadata-Version: 2.0
+Name: pyzure-documentdb
+Version: 0.1.0.dev1
+Summary: a python wrapper for the python client of Azure DocumentDB
+Home-page: https://github.com/dgkim5360/pyzure-documentdb
+Author: Don Kim
+Author-email: dgkim5360@gmail.com
+License: MIT
+Keywords: azure documentdb
+Platform: UNKNOWN
+Requires-Dist: pydocumentdb
+
+Pyzure-DocumentDB
+=================
+
+A python wrapper for the python client of Azure DocumentDB
+
+
