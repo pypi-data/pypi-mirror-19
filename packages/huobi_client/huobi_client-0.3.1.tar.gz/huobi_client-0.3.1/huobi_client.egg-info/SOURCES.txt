@@ -1,0 +1,15 @@
+setup.py
+bin/huobi
+huobi_client/__init__.py
+huobi_client/client.py
+huobi_client/streaming_client.py
+huobi_client.egg-info/PKG-INFO
+huobi_client.egg-info/SOURCES.txt
+huobi_client.egg-info/dependency_links.txt
+huobi_client.egg-info/requires.txt
+huobi_client.egg-info/top_level.txt
+huobi_client/socketIO_client/__init__.py
+huobi_client/socketIO_client/exceptions.py
+huobi_client/socketIO_client/symmetries.py
+huobi_client/socketIO_client/tests.py
+huobi_client/socketIO_client/transports.py
