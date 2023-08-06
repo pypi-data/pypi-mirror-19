@@ -1,0 +1,9 @@
+sos>=0.9.3.1
+ptable
+msgpack-python
+pyyaml
+pandas>=0.18.0
+rpy2>=2.7.8
+sympy
+numexpr
+numpy
