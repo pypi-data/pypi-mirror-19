@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+zone2gandi/__init__.py
+zone2gandi/__main__.py
+zone2gandi/bootstrap.py
+zone2gandi/zone2gandi.py
+zone2gandi.egg-info/PKG-INFO
+zone2gandi.egg-info/SOURCES.txt
+zone2gandi.egg-info/dependency_links.txt
+zone2gandi.egg-info/entry_points.txt
+zone2gandi.egg-info/requires.txt
+zone2gandi.egg-info/top_level.txt

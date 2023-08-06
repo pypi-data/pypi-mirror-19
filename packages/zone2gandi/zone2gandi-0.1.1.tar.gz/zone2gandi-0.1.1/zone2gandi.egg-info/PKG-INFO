@@ -1,0 +1,31 @@
+Metadata-Version: 1.0
+Name: zone2gandi
+Version: 0.1.1
+Summary: Utility to push zone files up to Gandi DNS.
+Home-page: https://gitlab.com/lyda/zone2gandi
+Author: Kevin Lyda
+Author-email: kevin@ie.suberic.net
+License: UNKNOWN
+Description: zone2gandi
+        ==========
+        
+        This is a tool for pushing simple zone files (skip the SOA and NS
+        records) up to Gandi.
+        
+        Install by running: pip install zone2gandi
+        
+        Getting API Credentials
+        ~~~~~~~~~~~~~~~~~~~~~~~
+        
+        http://doc.rpc.gandi.net/
+        
+        Config
+        ~~~~~~
+        
+        The config file needs to be in the current directory and look like this:
+        
+        .. code:: yaml
+          apiendpoint: 'https://rpc.ote.gandi.net/xmlrpc/'
+          apikey: 'm4ljWR8zQdSQUMhE03GJCv5p'
+        
+Platform: UNKNOWN
