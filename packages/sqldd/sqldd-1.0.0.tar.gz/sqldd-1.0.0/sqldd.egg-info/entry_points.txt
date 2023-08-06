@@ -1,0 +1,3 @@
+[console_scripts]
+sqldd = sql_data_dependency.command_line:main
+
