@@ -1,0 +1,15 @@
+MANIFEST.in
+setup.cfg
+setup.py
+smsReceiver/__init__.py
+smsReceiver/example.py
+smsReceiver/setup.py
+smsReceiver.egg-info/PKG-INFO
+smsReceiver.egg-info/SOURCES.txt
+smsReceiver.egg-info/dependency_links.txt
+smsReceiver.egg-info/requires.txt
+smsReceiver.egg-info/top_level.txt
+smsReceiver/numberGen/__init__.py
+smsReceiver/numberGen/countryCode.json
+smsReceiver/numberGen/hs3x.py
+smsReceiver/numberGen/ireceivesmsonline.py
