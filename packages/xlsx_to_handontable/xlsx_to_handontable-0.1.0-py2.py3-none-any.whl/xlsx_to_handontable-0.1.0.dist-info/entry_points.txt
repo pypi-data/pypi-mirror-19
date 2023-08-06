@@ -1,0 +1,3 @@
+[console_scripts]
+xlsx_to_handontable = xlsx_to_handontable.cli:main
+
