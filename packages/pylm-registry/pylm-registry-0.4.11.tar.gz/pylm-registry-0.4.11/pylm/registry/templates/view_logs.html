@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Logs</title>
+</head>
+<body>
+<p><a href="/view_cluster?cluster={{ cluster }}">cluster</a></p>
+<h1>Logs</h1>
+{% if logs %}
+{% for log in logs %}
+<div style="font-family:Monospace">{{ log['when'] }}| {{ log['text'] }}<br/>
+{% end %}
+{% end %}
+</body>
+</html>
