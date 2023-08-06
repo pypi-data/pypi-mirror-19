@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.rst
+requirements.txt
+setup.cfg
+setup.py
+uvsnap/__init__.py
+uvsnap/classes.py
+uvsnap/cmd.py
+uvsnap/constants.py
+uvsnap.egg-info/PKG-INFO
+uvsnap.egg-info/SOURCES.txt
+uvsnap.egg-info/dependency_links.txt
+uvsnap.egg-info/entry_points.txt
+uvsnap.egg-info/not-zip-safe
+uvsnap.egg-info/requires.txt
+uvsnap.egg-info/top_level.txt
