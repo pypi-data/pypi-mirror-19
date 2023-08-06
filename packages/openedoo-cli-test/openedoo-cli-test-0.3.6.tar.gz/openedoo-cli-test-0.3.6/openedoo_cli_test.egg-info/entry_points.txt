@@ -1,0 +1,3 @@
+[console_scripts]
+openedoo-cli-test = openedoo_cli.command:main
+
