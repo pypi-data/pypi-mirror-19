@@ -1,0 +1,6 @@
+[console_scripts]
+wildfly-py = wildfly.__main__:main
+
+[setuptools.installation]
+eggsecutable = wildfly.__main__:main
+
