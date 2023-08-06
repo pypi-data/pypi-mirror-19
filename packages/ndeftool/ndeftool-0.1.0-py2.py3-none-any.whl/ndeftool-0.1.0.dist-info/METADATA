@@ -1,0 +1,56 @@
+Metadata-Version: 2.0
+Name: ndeftool
+Version: 0.1.0
+Summary: Create or inspect NFC Data Exchange Format messages.
+Home-page: https://github.com/nfcpy/ndeftool/
+Author: Stephen Tiedemann
+Author-email: stephen.tiedemann@gmail.com
+License: ISC
+Keywords: ndef,nfc
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: click
+Requires-Dist: ndeflib
+Requires-Dist: python-magic
+
+=====================================
+Create, modify and print NDEF Records
+=====================================
+
+.. image:: https://readthedocs.org/projects/ndeftool/badge/?version=latest
+   :target: http://ndeftool.readthedocs.io/en/latest/?badge=latest
+   :alt: Latest Documentation
+
+.. image:: https://travis-ci.org/nfcpy/ndeftool.svg?branch=master
+   :target: https://travis-ci.org/nfcpy/ndeftool
+   :alt: Build Status
+
+.. image:: https://codecov.io/gh/nfcpy/ndeftool/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/nfcpy/ndeftool
+   :alt: Code Coverage
+
+The ``ndeftool`` is a command line utility to create or inspect NFC
+Data Exchange Format (NDEF) records and messages, released under the
+`ISC <http://choosealicense.com/licenses/isc/>`_ license.
+
+The ``ndeftool`` documentation can be found on `Read the Docs
+<https://ndeftool.readthedocs.io/>`_ and the code on `GitHub
+<https://github.com/nfcpy/ndeftool>`_. It is `continously tested
+<https://travis-ci.org/nfcpy/ndeftool>`_ for Python 2.7 and 3.5 with
+the aim for close to complete `test coverage
+<https://codecov.io/gh/nfcpy/ndeftool>`_.
+
+
