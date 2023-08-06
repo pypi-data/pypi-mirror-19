@@ -1,0 +1,70 @@
+Metadata-Version: 1.1
+Name: cine
+Version: 0.1
+Summary: Calculate infrared pumping rates by solar radiation
+Home-page: https://github.com/migueldvb/chirp
+Author: Miguel de Val-Borro
+Author-email: miguel.deval@gmail.com
+License: UNKNOWN
+Description: IR pumping fluorescence coefficients
+        ====================================
+        
+        irpumpy is a tool for calculating infrared pumping coefficients that are useful
+        for modeling cometary spectra.  One of the main mechanisms for molecular
+        excitation in comets is the fluorescence by the solar radiation.
+        
+        
+        Dependencies
+        ------------
+        
+        This code requires the standard scientific Python packages (numpy, scipy, and
+        pandas) and astroquery to access HITRAN and Lamda databases.
+        
+        
+        Downloading HITRAN data
+        -----------------------
+        
+        To download the molecular data irpumpy uses the `astroquery.hitran` and
+        `astroquery.lamda` tools.  Set the ``HITRAN_DATA`` environment variable
+        (otherwise, the default ``~/.hitran`` will be used),
+        
+        
+        Pumping coefficients for methanol
+        ---------------------------------
+        
+            print(len(matched))
+        
+        This should print ``652`` as of 2016-10-14.
+        
+        
+        Pumping coefficients for ortho-water
+        ------------------------------------
+        
+        The EB catalog doesn't include RA and Dec columns so to cross-match it takes
+        one extra step:::
+        
+            import pandas as pd
+            from gaia_kepler import data, tgas_match
+        
+            kic = data.KICatalog().df
+            ebs = pd.merge(data.EBCatalog().df, kic[["kepid", "ra", "dec"]], on="kepid")
+            matched = tgas_match(ebs)
+        
+            print(len(matched))
+        
+        This should print ``325``.
+        
+        
+        License
+        -------
+        
+        Copyright 2016 Miguel de Val-Borro
+        
+        irpumpy is free software made available under the MIT License.
+        For details see the LICENSE file.
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python
