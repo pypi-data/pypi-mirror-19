@@ -1,0 +1,217 @@
+######################################################################
+# ncmonrc : ncmon configuration file 
+# Written by Francesco Palumbo aka phranz
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#######################################################################
+
+
+
+
+# Every opened tag must be closed, and newlines are REQUIRED:
+# every tag(open|close) and every option MUST NOT be placed on
+# the same line!
+
+# Example:
+# <bar>
+#   bar options go here
+#   <entry>
+#       entry options go here
+#       <alert>
+#           alert option here
+#       </alert>
+#   </entry>
+#   ...
+# </bar>
+
+# There is a limit on the number of bars and entries (and alerts)
+# which can be created: at most 10 bars, at most 20 entries per bar,
+# and at most 5 alerts per entry. Each entry is displayed
+# as (TEXT:COMMAND OUTPUT). Font type (normal|bold) and
+# colors (bg,fg) of a bar can be overridden by entries ones.
+
+# Some actions can be performed by pressing certain keys: (quotes EXCLUDED)
+#   'c'     randomly change colors (entries have the same colors of bars)
+#   'C'     randomly change colors (each entry has its own random color)
+#   'r'     reload the program (reparses the config file)
+#   'q'     quits
+
+# Obviously, some fields are mandatory, like 'text', 'command', 'delay'.
+
+# It is possible to set up alerts which will
+# trigger if some condition is encountered:
+#
+# 
+# <alert> 
+#    bg = [color]
+#    fg = [color]
+#    font = [normal|bold]
+#    cmpvalue = [operator][cmpvalue]
+#    action = [command]
+#    stop_action = [command]
+#    action_every = [integer] (between 1 and 4000)
+#    repeat = [integer] (between 1 and 4000) (0 = forever, not recommended)
+# </alert>
+#
+# alert operators are: (quotes EXCLUDED) 
+#    '>'     command output is greater than [cmpvalue]
+#    '<'     command output is lesser than [cmpvalue]
+#    '='     command output is equal to [cmpvalue]
+#    '|'     command output contains [cmpvalue] (as substring)
+#
+# Example: (without quotes)
+# 
+# 'cmpvalue = =CLOSED'     triggers alert if command output is equal to 'CLOSED' 
+# 'cmpvalue = >80.0'       triggers alert if command output is greater than '80.0'
+# 'cmpvalue = |dB'         triggers alert if command output contains the substring 'dB'
+#
+# (NOTE) comparison depends on [cmpvalue] ; if [cmpvalue] is a digit,
+# then it is converted to float and compared, otherwise string comparison apply.
+#
+# Every alert condition can trigger an action.
+# If, for a single entry, there are multiple alerts which are active
+# at the same time, displaying of colors will 
+# take place in a round robin fashion (at every second).
+#
+# Examples: (without single quotes)
+# 
+# 'action = espeak "Warning!" &>/dev/null &'
+# 'repeat = 6'
+# 'action_every = 3
+# 'stop_action = echo "all done" >> mylog'
+#          
+# Launch espeak command specified by 'action' when the alert triggers, 
+# 'repeat' (if alert condition is still true) action 6 times (each action after 'action_every' seconds are elapsed.
+# When alert condition is false, launch command specified by 'stop_action' (no repeat for stop_action).
+# Don't forget to add '&' at the of the action and suppress output '&>/dev/null'
+
+
+
+##### NOTE: all options which comes before the first bar are considered 'global' options! #####
+
+#### fifo path (this is a global option), if named pipe doesn't exist, it
+#### will be created
+
+#fifo = /path/to/my/fifo
+
+# first bar
+<bar>
+    #### all options must placed "above" subtags ####
+    
+    ## font type: default is normal
+    font = bold
+
+    ## background and foreground colors: default is white on black
+    ## if "random" is given, a random color will be used.
+    bg = blue
+    fg = white
+
+    # first entry
+    <entry>
+        ## text to display: is mandatory
+        text = Kernel:
+
+        ## text to display in case of null output
+        default = UnknowVersion
+
+        ## command to execute: is mandatory
+        command = uname -r
+
+        ## run command (update) every "delay" seconds
+        delay = 2
+    </entry>
+
+    # second entry
+    <entry>
+        text = CPU governor: 
+        command = cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+        delay = 2
+
+        ## if the string 'governor' is read from named pipe, updates entry instantly
+        #event = governor
+    </entry>
+
+    # third entry
+    <entry>
+        text = Temp: 
+        command = acpi -t | cut -d' ' -f4
+        delay = 4
+
+        ## First alert
+        <alert>
+            ## alert if output is greater than 80.0
+            cmpvalue = >80.0
+    
+            ## alert colors 
+            bg = red
+            fg = white
+    
+            ## when alert triggers, launch espeak command, and repeat 5 times (each after 3 seconds)
+        
+            action_every = 3
+            repeat = 5
+            action = espeak "Warning! CPU is hot!" &>/dev/null &
+        </alert>
+
+        ## Second alert
+        <alert>
+            ## alert if output is less than 30.0
+            cmpvalue = <30.0
+
+            ##  alert colors
+            bg = magenta
+            fg = white
+        </alert>
+    </entry>
+
+    <entry>
+        text = Volume: 
+        command = amixer get Master | awk '/dB/ { print $4$5$6 }'
+        delay = 2
+
+        #event = audio
+
+        ## alert
+        <alert>
+            ## alert if output contains substring "off"
+            cmpvalue = |off
+
+            # If no colors are specified, invert colors (entry colors)
+        
+        </alert>
+    </entry>
+
+    <entry>
+        text = Battery: 
+        command = acpi | cut -d' ' -f4
+        delay=20
+    </entry>
+</bar>
+
+<bar>
+    bg = cyan
+    fg = blue
+
+    <entry>
+        text = eth0 MAC address:
+        command = ifconfig eth0 | awk '/ether/ { print $2 }'
+        delay = 20
+    </entry>
+
+    <entry>
+        text = eth0 IP address:
+        command = ifconfig eth0 | awk '/inet/ { print $2 }'
+        delay = 20
+    </entry>
+</bar>

@@ -1,0 +1,59 @@
+.TH "ncmon" "1" 
+.SH "NAME"
+.B  ncmon (ncurses monitor)
+
+.SH SYNOPSIS
+.B ncmon [-f <config>][-h] 
+
+.B ncmon
+is a customizable ncurses system monitor (written in Python). ncmon is licensed under the terms of the GNU General Public License v3. You should have received a copy of the GNU General Public License along with this program (see LICENSE); if not see
+.I http://www.gnu.org/licenses/
+
+.SH DESCRIPTION
+.B ncmon
+needs a configuration file; default one is located at 
+.I ~/.ncmonrc 
+but it is possible to specify another one using 
+.I -f 
+option. I wrote this little program to get multiple info bars on multiple tmux panes (without the need to annidate sessions etc.), so it probably should be more useful if used within a terminal multiplexer such as tmux or screen, although it could be used as standalone. The program is most probably not well written and not efficient and so on, because the project is just born and, last but not least, i'am a newbie. I will really appreciate all advices one could give to me, thanks in advance.
+The syntax of configuration file is (i hope) clearly explained into the configuration example that ships with the program tarball (specifically the file is 
+.I ncmonrc.sample
+, and it should be found at 
+.I /usr/share/doc/ncmon-$VERSION/ 
+also)
+ 
+
+.SH FEATURES
+
+.B ncmon 
+will simply display some bars (max 10 bars) which will contain some entries (max 20 entries per bar). Entries are a sort of (text, output) elements: 'text' is the fixed string, the 'label', and 'output' is the output produced by a command provided by the user. Each bar has its own colors (background and foreground); by default, each entry inherits the colors and the font type (normal|bold) of the bar to which it belongs, but there is the possibility to override these attributes. Depending on the output value (for each entry), it is possible to compare this value with another one provided by the user to trigger an 'alert' (max 5 alerts per entry). By default, alerts invert the colors of entries every second, but customizing the alert colors is also possible; in addition, every alert supports custom actions to be performed once it triggers (or just when it "stops"). 
+.B ncmon
+can also read from a named pipe in order to update an entry instantly (this is useful, for example, to instantly display volume variations). Some actions are performed by pressing specific keys (see next section). See the 
+.I ncmonrc.sample 
+file for all the details.
+
+.SH KEYS
+
+.TP
+.B c
+randomly change colors (entries have the same colors of bars)
+.TP
+.B C
+randomly change colors (each entry has its own random color)
+.TP
+.B r
+reload the program (reparsing the configuration file)
+.TP
+.B q
+quit
+
+
+.SH CONTACTS
+.I franzodev@gmail.com
+
+.SH AUTHOR
+Francesco Palumbo aka phranz
+
+.SH LICENSE
+GNU General Public License v3
+.B GPL v3
