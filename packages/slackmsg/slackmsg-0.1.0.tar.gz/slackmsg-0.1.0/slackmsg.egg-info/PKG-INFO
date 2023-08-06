@@ -1,0 +1,12 @@
+Metadata-Version: 1.1
+Name: slackmsg
+Version: 0.1.0
+Summary: A SlackClient wrapper command line tool
+Home-page: https://github.com/pitchdiesel/slackmsg
+Author: Gabriela Dombrowski
+Author-email: gabdombrowski@gmail.com
+License: MIT
+Description: Slack messaging CLI tool.
+Keywords: slack slackclient wrapper command line interface
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
