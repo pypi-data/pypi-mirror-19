@@ -1,0 +1,4 @@
+[console_scripts]
+send_request = VestaService.request_process_mesg:main
+send_annotation = VestaService.annotations_dispatcher:main
+
