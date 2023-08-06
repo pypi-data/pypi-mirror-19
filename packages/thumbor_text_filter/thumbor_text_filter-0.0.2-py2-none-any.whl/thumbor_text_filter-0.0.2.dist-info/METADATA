@@ -1,0 +1,34 @@
+Metadata-Version: 2.0
+Name: thumbor-text-filter
+Version: 0.0.2
+Summary: Text filter for thumbor.
+Home-page: UNKNOWN
+Author: Wongnai.com
+Author-email: tanapoln@wongnai.com
+License: MIT
+Keywords: thumbor filter
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: pillow
+Provides-Extra: tests
+Requires-Dist: colorama; extra == 'tests'
+Requires-Dist: coverage; extra == 'tests'
+Requires-Dist: coveralls; extra == 'tests'
+Requires-Dist: ipdb; extra == 'tests'
+Requires-Dist: mock; extra == 'tests'
+Requires-Dist: nose; extra == 'tests'
+Requires-Dist: numpy; extra == 'tests'
+Requires-Dist: preggy; extra == 'tests'
+Requires-Dist: yanc; extra == 'tests'
+
+Text filter for thumbor.
+
+

@@ -1,0 +1,3 @@
+Text filter for thumbor.
+
+
