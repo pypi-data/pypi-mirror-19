@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>INDEX ITEMS</title>
+</head>
+<body>
+    <form method="post" action="{% url "shopcart:checkout" %}">
+        {% csrf_token %}
+        {{ items_form.as_p }}
+        <input name="" class="text" type="submit" value="Proceed to checkout">
+    </form>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>INVOICE TO PAY</title>
+</head>
+<body>
+    <h2>Thanks for shopping at shopcart</h2>
+    <h3>Your Invoice:</h3>
+    <p>Total PAYABLE: {{ payable_amt }}</p>
+    <a href="{% url "shopcart:start" %}">Click to return home</a>
+</body>
+</html>
