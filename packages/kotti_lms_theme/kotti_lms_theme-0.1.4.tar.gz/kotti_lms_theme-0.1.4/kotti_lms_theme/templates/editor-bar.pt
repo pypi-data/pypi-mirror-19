@@ -1,0 +1,38 @@
+<nav class="navbar-default navbar-static-side blunav" role="navigation" tal:define="disable_context_links disable_context_links | False">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header blunav" tal:condition="request.user is not None">
+                <div tal:replace="api.render_template('kotti:templates/user-nav-bar.pt')" />
+            </li>
+
+
+        <tal:condition tal:condition="api.has_permission('edit')">
+          <li tal:replace="api.render_view('workflow-dropdown')" />
+        </tal:condition>
+
+        <li>
+          <a href="${api.url()}" i18n:translate="">
+            <i class="fa fa-eye-large"></i>
+            <span class="nav-label">View</span>
+          </a>
+        </li>
+
+        <tal:condition tal:condition="not disable_context_links">
+          <div tal:replace="api.render_template('kotti_lms_theme:templates/side_menu_links.pt', links=api.edit_links)">
+        </tal:condition>
+
+        <tal:condition tal:condition="not disable_context_links">
+          <tal:condition tal:condition="api.has_permission('edit')">
+            <ul tal:replace="api.render_view('actions-dropdown')" />
+          </tal:condition>
+          <tal:condition tal:condition="api.has_permission('add')">
+            <li class="divider-vertical"></li>
+            <ul tal:replace="api.render_view('add-dropdown')" />
+          </tal:condition>
+        </tal:condition>
+        
+        <div tal:replace="api.render_template('kotti_lms_theme:templates/side_menu_links.pt', links=api.SIDE_NAV_MENU)">
+
+        </ul>
+    </div>
+</nav>
