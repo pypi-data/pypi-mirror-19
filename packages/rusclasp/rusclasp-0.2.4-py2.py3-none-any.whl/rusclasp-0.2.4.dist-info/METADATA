@@ -1,0 +1,50 @@
+Metadata-Version: 2.0
+Name: rusclasp
+Version: 0.2.4
+Summary: Clause splitter for Russian language.
+Home-page: https://github.com/gree-gorey/rusclasp/
+Author: Grigory Ignatyev
+Author-email: ignatyeff.g@gmail.com
+License: MIT license
+Keywords: clause segmentation nlp russian
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: Russian
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Text Processing :: Linguistic
+Requires: treetaggerwrapper
+Requires-Dist: treetaggerwrapper
+
+rusclasp
+========
+
+Clause splitter for Russian language.
+
+.. image:: https://readthedocs.org/projects/rusclasp/badge/?version=latest
+  :target: http://rusclasp.readthedocs.io/ru/latest/
+  :alt: Documentation Status
+.. image:: https://badge.fury.io/py/rusclasp.svg
+   :target: https://badge.fury.io/py/rusclasp
+.. image:: https://img.shields.io/pypi/wheel/Django.svg?maxAge=2592000
+  :target: https://pypi.python.org/pypi/rusclasp
+.. image:: https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000
+  :target: https://github.com/gree-gorey/rusclasp/blob/master/LICENCE.md
+.. image:: https://zenodo.org/badge/19768/gree-gorey/rusclasp.svg
+  :target: https://zenodo.org/badge/latestdoi/19768/gree-gorey/rusclasp
+
+|
+
+* changelog: https://github.com/gree-gorey/rusclasp/blob/master/CHANGES.rst
+* source code: github_
+* bug tracker: https://github.com/gree-gorey/rusclasp/issues
+
+.. _github: https://github.com/gree-gorey/rusclasp
+
