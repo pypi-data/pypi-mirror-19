@@ -1,0 +1,4 @@
+This is a Python library for transitioning EnergyPlus input files between versions.  The tool includes a command line
+application called "eptransition" that performs transition functionality as well as being called from Python itself.
+
+
