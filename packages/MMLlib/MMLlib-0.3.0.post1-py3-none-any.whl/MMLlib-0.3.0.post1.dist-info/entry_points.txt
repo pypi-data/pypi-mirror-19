@@ -1,0 +1,4 @@
+[console_scripts]
+mml2musicxml = mmllib.cmds:mml2musicxml
+mmllint = mmllib.cmds:mmllint
+
