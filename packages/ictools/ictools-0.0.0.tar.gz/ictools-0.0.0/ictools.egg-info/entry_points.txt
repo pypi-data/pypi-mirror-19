@@ -1,0 +1,3 @@
+[console_scripts]
+scan-hipchat-room = ictools.hipchat:scan_room
+
