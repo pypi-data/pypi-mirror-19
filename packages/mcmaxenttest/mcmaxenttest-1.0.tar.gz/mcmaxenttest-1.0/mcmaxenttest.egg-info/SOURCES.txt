@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.rst
+demo_mcmaxenttest
+setup.cfg
+setup.py
+mcmaxenttest/__init__.py
+mcmaxenttest/mcmaxenttest.py
+mcmaxenttest.egg-info/PKG-INFO
+mcmaxenttest.egg-info/SOURCES.txt
+mcmaxenttest.egg-info/dependency_links.txt
+mcmaxenttest.egg-info/requires.txt
+mcmaxenttest.egg-info/top_level.txt
