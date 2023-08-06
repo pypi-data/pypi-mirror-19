@@ -1,0 +1,11 @@
+setup.py
+TracSQL.egg-info/PKG-INFO
+TracSQL.egg-info/SOURCES.txt
+TracSQL.egg-info/dependency_links.txt
+TracSQL.egg-info/entry_points.txt
+TracSQL.egg-info/top_level.txt
+tracsql/__init__.py
+tracsql/web_ui.py
+tracsql/htdocs/common.css
+tracsql/templates/schema.html
+tracsql/templates/sql.html
