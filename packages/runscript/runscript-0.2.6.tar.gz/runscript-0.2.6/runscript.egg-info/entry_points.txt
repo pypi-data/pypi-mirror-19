@@ -1,0 +1,3 @@
+[console_scripts]
+run = runscript.cli:process_command_line
+
