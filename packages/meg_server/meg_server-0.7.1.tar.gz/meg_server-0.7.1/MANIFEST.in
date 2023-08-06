@@ -1,0 +1,4 @@
+include LICENSE
+recursive-include meg *.py
+recursive-include meg *.yml
+include MANIFEST.in
