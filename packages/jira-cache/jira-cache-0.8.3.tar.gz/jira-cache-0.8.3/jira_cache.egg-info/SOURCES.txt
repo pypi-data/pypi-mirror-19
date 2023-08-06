@@ -1,0 +1,10 @@
+MANIFEST.in
+README.rst
+setup.py
+jira_cache/__init__.py
+jira_cache/cache.py
+jira_cache.egg-info/PKG-INFO
+jira_cache.egg-info/SOURCES.txt
+jira_cache.egg-info/dependency_links.txt
+jira_cache.egg-info/requires.txt
+jira_cache.egg-info/top_level.txt
