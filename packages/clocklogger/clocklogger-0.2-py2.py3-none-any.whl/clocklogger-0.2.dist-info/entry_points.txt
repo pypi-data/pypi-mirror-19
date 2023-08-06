@@ -1,0 +1,4 @@
+[console_scripts]
+clocklogger = clocklogger.logger:main
+weatherlogger = clocklogger.weatherlogger:main
+
