@@ -1,0 +1,52 @@
+Metadata-Version: 2.0
+Name: flake8-trailing-commas
+Version: 0.1.3
+Summary: Flake8 lint for trailing commas.
+Home-page: https://github.com/graingert/flake8-trailing-commas/
+Author: Trevor Creech
+Author-email: trevor@trevorcreech.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Quality Assurance
+Requires-Dist: pep8
+
+Moved to https://pypi.python.org/pypi/flake8-commas
+
+
+0.1.3 (2017-01-13)
+------------------
+
+- Deprecated.
+
+
+0.1.2 (2017-01-13)
+------------------
+
+- Fix HTML readme render on PyPI.
+
+
+0.1.1 (2017-01-13)
+------------------
+
+- Support various parenth_form edge cases.
+
+
+0.1.0 (2017-01-13)
+------------------
+
+- First version of flake8-trailing-commas that can be installed from PyPI
+
+
