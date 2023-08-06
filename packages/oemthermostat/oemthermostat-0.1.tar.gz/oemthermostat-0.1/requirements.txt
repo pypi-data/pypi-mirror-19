@@ -1,0 +1,8 @@
+# Dev/Deployment
+sphinx>=1.5
+sphinx_rtd_theme
+pytest
+coverage
+pypi-publisher
+requests
+sphinx-automodapi
