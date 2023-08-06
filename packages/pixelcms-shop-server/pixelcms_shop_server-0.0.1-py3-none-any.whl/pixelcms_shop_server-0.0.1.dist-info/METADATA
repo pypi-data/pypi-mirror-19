@@ -1,0 +1,27 @@
+Metadata-Version: 2.0
+Name: pixelcms-shop-server
+Version: 0.0.1
+Summary: Server part of ecommerce module for PixelCMS.
+Home-page: UNKNOWN
+Author: Michał Werner
+Author-email: michal@hurtowniapixeli.pl
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Framework :: Django
+Requires-Dist: django-ipware (>=1.1.6,<2)
+Requires-Dist: django-mptt (>=0.8.6,<1)
+Requires-Dist: django-nested-admin (<4,>=3.0.12)
+Requires-Dist: hashids (>=1.1.0,<2)
+Requires-Dist: pixelcms-server (>=0.4.0,<1)
+
+UNKNOWN
+
+
