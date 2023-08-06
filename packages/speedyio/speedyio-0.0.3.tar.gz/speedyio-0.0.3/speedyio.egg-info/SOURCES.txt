@@ -1,0 +1,13 @@
+setup.cfg
+setup.py
+speedyio/__init__.py
+speedyio/errors.py
+speedyio.egg-info/PKG-INFO
+speedyio.egg-info/SOURCES.txt
+speedyio.egg-info/dependency_links.txt
+speedyio.egg-info/top_level.txt
+speedyio/basic/__init__.py
+speedyio/basic/askfor.py
+speedyio/basic/chooseone.py
+speedyio/entities/__init__.py
+speedyio/entities/selectable_item.py
