@@ -1,0 +1,18 @@
+environment config
+==================
+
+This extension is a utility to pass ``--config`` options via the ``HGCONFIG``
+environment variable. The use-case is for servers that need to set this once
+then pass it around to child processes (e.g. hooks) and other helpers that
+don't necessarily invoke ``hg`` via the command-line.
+
+install
+-------
+
+Enable envconfig like any mercurial extension: download the source code to a
+local directory, and add that directory to your ``.hgrc``:
+
+Example config::
+
+  [extensions]
+  envconfig = path/to/hgenvconfig/hgext
