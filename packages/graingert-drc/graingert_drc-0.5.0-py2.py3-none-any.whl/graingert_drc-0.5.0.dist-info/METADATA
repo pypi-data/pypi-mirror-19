@@ -1,0 +1,51 @@
+Metadata-Version: 2.0
+Name: graingert-drc
+Version: 0.5.0
+Summary: Temporary fork of client for Docker Registry V1 and V2
+Home-page: https://github.com/yodle/docker-registry-client
+Author: John Downs
+Author-email: john.downs@yodle.com
+License: Apache License 2.0
+Keywords: docker docker-registry REST
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: System :: Software Distribution
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: ecdsa (>=0.13.0,<0.14.0)
+Requires-Dist: jws (<0.2.0,>=0.1.3)
+Requires-Dist: requests (<3.0.0,>=2.4.3)
+
+Docker Registry Client
+======================
+
+|Build Status|
+
+*Description*
+
+A Python REST client for the Docker Registry
+
+It's useful for automating image tagging and untagging
+
+.. |Build Status| image:: https://travis-ci.org/yodle/docker-registry-client.svg?branch=master
+   :target: https://travis-ci.org/yodle/docker-registry-client
+
+Alternatives
+------------
+
+* `python-dxf <https://pypi.python.org/pypi/python-dxf>`_ (only supports V2)
+
+
+0.5.0 (2017-01-11)
+------------------
+
+- First version of docker-registry-client with changelog
+- Support get and push manifest on protocol v2, schema v1.
+  (`Issue #33 <https://github.com/yodle/docker-registry-client/pull/33>`_)
+
+
