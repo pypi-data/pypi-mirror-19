@@ -1,0 +1,14 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+update_SDK_on_pypi.md
+mobagel_python_sdk.egg-info/PKG-INFO
+mobagel_python_sdk.egg-info/SOURCES.txt
+mobagel_python_sdk.egg-info/dependency_links.txt
+mobagel_python_sdk.egg-info/requires.txt
+mobagel_python_sdk.egg-info/top_level.txt
+pybagel/BagelExceptions.py
+pybagel/MoBagelClient.py
+pybagel/__init__.py
