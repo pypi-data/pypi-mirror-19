@@ -1,0 +1,99 @@
+Metadata-Version: 1.1
+Name: openweathermap-cli
+Version: 1.0.1
+Summary: A openweathermap command line program in Python.
+Home-page: https://github.com/aziezahmed/openweathermap-cli
+Author: Aziez Ahmed Chawdhary
+Author-email: aziezahmed@gmail.com
+License: UNLICENSE
+Description: openweathermap-cli
+        ==================
+        
+        *A command line application for displaying weather details, written in Python.*
+        
+        Getting Started
+        ---------------
+        
+        Prerequisites
+        ~~~~~~~~~~~~~
+        
+        -  `Python`_
+        
+        Installing
+        ~~~~~~~~~~
+        
+        Openweathermap-cli is on `PyPi`_ so it can be installed with pip.
+        
+        .. code-block:: bash
+        
+            $ pip install openweathermap-cli
+        
+        Using openweathermap-cli
+        ~~~~~~~~~~~~~~~~~~~~~~~~
+        
+        .. code-block:: bash
+        
+            Usage:
+              weather today
+              weather location [--set=<location>]
+              weather -h | --help
+              weather --version
+        
+        Set your location
+        
+        .. code-block:: bash
+        
+            $ weather location --set=<location>
+        
+        Get today's weather forecast
+        
+        .. code-block:: bash
+        
+            $ weather today
+        
+        Example
+        ~~~~~~~
+        
+        Set the location to London and get today's weather details
+        
+        .. code-block:: bash
+        
+            $ weather location --set=London,uk
+            $ weather today
+        
+        Built With
+        ----------
+        
+        -  `skele-cli`_
+        -  `Open Weather Map`_
+        
+        Authors
+        -------
+        
+        -  `Aziez Ahmed Chawdhary`_
+        
+        License
+        -------
+        
+        This project is licensed under the MIT License
+        
+        .. _Open Weather Map: http://openweathermap.org/
+        .. _Python: https://www.python.org
+        .. _PyPi: https://pypi.python.org/pypi
+        .. _skele-cli: https://github.com/rdegges/skele-cli
+        .. _Aziez Ahmed Chawdhary: https://github.com/aziezahmed
+        
+Keywords: cli
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Utilities
+Classifier: License :: Public Domain
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
