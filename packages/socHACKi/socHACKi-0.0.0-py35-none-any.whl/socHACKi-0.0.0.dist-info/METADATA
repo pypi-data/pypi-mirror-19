@@ -1,0 +1,16 @@
+Metadata-Version: 2.0
+Name: socHACKi
+Version: 0.0.0
+Summary: Imports the full socHACKi Library
+Home-page: https://github.com/jsochacki/socHACKi
+Author: John Sochacki
+Author-email: johnsochacki@hotmail.com
+License: BSD
+Keywords: Type Conversion,Pandas,Visio
+Platform: UNKNOWN
+Requires-Dist: pandas (>=0.18.1)
+Requires-Dist: tabulate
+
+Imports the full socHACKi Library
+
+
