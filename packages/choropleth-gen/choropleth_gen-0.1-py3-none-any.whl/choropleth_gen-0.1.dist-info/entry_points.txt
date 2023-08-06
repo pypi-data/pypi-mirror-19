@@ -1,0 +1,4 @@
+[console_scripts]
+gen_greyscale_choropleth = choropleth_gen.gen_greyscale_choropleth:main
+gen_spectral_choropleth = choropleth_gen.gen_spectral_choropleth:main
+
