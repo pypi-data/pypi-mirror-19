@@ -1,0 +1,10 @@
+six
+pbr>=1.8
+requests>=2.10.0
+decorator
+tabulate
+progressbar2
+click
+click-spinner>=0.1.5
+click-repl
+stomp.py
