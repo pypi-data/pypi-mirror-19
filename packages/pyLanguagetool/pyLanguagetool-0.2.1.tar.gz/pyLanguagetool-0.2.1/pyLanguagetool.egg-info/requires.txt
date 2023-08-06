@@ -1,0 +1,8 @@
+colorama>=0.3.7
+configargparse>=0.11.0
+requests>=2.13.0
+
+[dev]
+pytest
+docutils
+pygments
