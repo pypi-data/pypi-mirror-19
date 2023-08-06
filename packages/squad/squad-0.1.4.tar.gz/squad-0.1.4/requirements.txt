@@ -1,0 +1,5 @@
+Django>=1.10
+sqlparse
+python_dateutil
+gunicorn
+whitenoise
