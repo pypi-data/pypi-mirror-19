@@ -1,0 +1,45 @@
+{% extends 'base.j2' %}
+{% macro genericLocation(name) %}
+        location {{ name|format_sub_dir }} {         
+                proxy_pass      http://{{ name }}/;
+                proxy_redirect  off;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+{%- endmacro %}
+{% macro fsLocation(name) %}
+        location {{ name|format_sub_dir }}  {           
+                proxy_pass      http://{{ name }}/;
+                proxy_redirect  off;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_next_upstream http_502 http_504 error timeout invalid_header;
+                proxy_cache cache_zone;
+                proxy_cache_valid 200 304 12h;
+                proxy_cache_key $uri$is_args$args; 
+                expires 30d;
+        }
+{%- endmacro %}
+{% macro upstream(name, value) -%}
+   
+{%- endmacro %}
+{% block location443 %}
+    {%- for k in data -%}    
+        {% if k == 'fs' -%}        
+            {{ fsLocation(k) }}
+        {%- else -%}
+            {{ genericLocation(k) }}
+        {%- endif -%}
+    {%- endfor %}
+{% endblock %}
+{% block upstream %}
+    {% for k in data %} 
+    upstream {{ k }} {
+        {%- for address in data[k] %}
+            server {{ address }};
+        {%- endfor %}
+    }  
+    {%- endfor %}
+{% endblock %}
