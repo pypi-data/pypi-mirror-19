@@ -1,0 +1,32 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "additionalProperties": false,
+    "properties": {
+        "date": {
+            "type": "string"
+        },
+        "email": {
+            "type": "string"
+        },
+        "method": {
+            "type": "string"
+        },
+        "orcid": {
+            "pattern": "^\\d{4}-\\d{4}-\\d{4}-\\d{3}[0-9X]$",
+            "type": "string"
+        },
+        "source": {
+            "enum": [
+                "submitter",
+                "oai",
+                "batchuploader",
+                "hepcrawl"
+            ],
+            "type": "string"
+        },
+        "submission_number": {
+            "type": "string"
+        }
+    },
+    "type": "object"
+}

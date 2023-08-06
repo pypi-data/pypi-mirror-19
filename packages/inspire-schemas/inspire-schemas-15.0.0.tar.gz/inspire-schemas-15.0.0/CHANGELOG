@@ -1,0 +1,237 @@
+* 15.0.0 "Micha Moskovic <michamos@gmail.com>"
+    MAJOR 62b466d6: Merge pull request #78 from michamos/schema_15
+    MINOR f90cb1b9: hep: restore medium for isbns instead of material
+    MINOR ecbc17d2: hep: require document_type and titles
+    MINOR e750faa0: hep: legacy_identifier for accelerator_experiments
+    MINOR a4946a58: schemas: enum for acquisition_source
+
+* 14.0.2 "Samuele Kaplun <Samuele.Kaplun@cern.ch>"
+    MINOR 9837610c: Merge pull request #80 from kaplun/revert-thesis
+    MINOR 8ab1de8b: Revert "elements: add thesis to degree_type"
+
+* 14.0.1 "Samuele Kaplun <Samuele.Kaplun@cern.ch>"
+    MINOR c2095079: Merge pull request #79 from inspirehep/fix_degree_type
+    MINOR 2b9decf2: elements: add thesis to degree_type
+
+* 14.0.0 "Micha Moskovic <michamos@gmail.com>"
+    MAJOR 128a6455: Merge pull request #77 from michamos/require_arxiv_category
+    MINOR 153c4211: hep: require at least one arXiv category
+
+* 13.1.0 "Samuele Kaplun <Samuele.Kaplun@cern.ch>"
+    FEATURE 932e1d62: Merge pull request #76 from michamos/hidden_reports
+    MINOR 344dedf5: hep: add hidden report numbers
+
+* 13.0.0 "Micha Moskovic <michamos@gmail.com>"
+    MAJOR 61bdd1f7: Merge pull request #75 from michamos/kill_collections
+    MINOR db9c72f3: schemas: kill collections
+
+* 12.0.0 "Samuele Kaplun <Samuele.Kaplun@cern.ch>"
+    MAJOR 6ba3bbb5: Merge pull request #74 from michamos/refactor_things
+    MINOR ef2614f3: schemas: use sourced_value element in all schemas
+    MINOR e1821cf7: hep: introduce sourced_value element
+    MINOR e4c06d53: schemas: public/private notes everywhere
+    MINOR 3dd70859: schemas: disallow additional properties
+
+* 11.0.3 "Samuele Kaplun <Samuele.Kaplun@cern.ch>"
+    MINOR e3acdc1c: Merge pull request #71 from kaplun/enums
+    MINOR 5891273d: hep: minor enum fixes
+
+* 11.0.2 "Samuele Kaplun <Samuele.Kaplun@cern.ch>"
+    MINOR 59a91185: Merge pull request #70 from
+              david-caro/add_tests_to_get_schema_path
+    MINOR e38df459: utils.get_schema_path: add tests and refactor
+
+* 11.0.1 "Samuele Kaplun <samuele.kaplun@cern.ch>"
+    MINOR 036a5994: utils: get_schema_path() extension
+
+* 11.0.0 "Samuele Kaplun <samuele.kaplun@cern.ch>"
+    MAJOR 420ff651: schemas: add noAdditionalProperties everywhere
+    FIXED ISSUES: https://github.com/inspirehep/inspire-schemas/issues/26
+
+* 10.0.2 "Samuele Kaplun <samuele.kaplun@cern.ch>"
+    MINOR cd5ae141: Revert "schemas: add noAdditionalProperties everywhere"
+
+* 10.0.1 "Samuele Kaplun <Samuele.Kaplun@cern.ch>"
+    MINOR 2edde9c5: Merge pull request #69 from kaplun/improvements
+    MINOR 8dffea5f: schemas: add noAdditionalProperties everywhere
+    FIXED ISSUES: https://github.com/inspirehep/inspire-schemas/issues/26
+
+* 10.0.0 "Samuele Kaplun <Samuele.Kaplun@cern.ch>"
+    MAJOR 948d5b95: Merge pull request #68 from kaplun/improvements
+    MINOR bc724dd2: hep: better hidden notes
+    MINOR 40ce8601: Stricter regexp
+    MINOR 22484999: hep: tiny improvements
+    MINOR 6289cca9: hep: centralizing source
+    MINOR d37cf3f7: hep: publication_info improvements
+    MINOR ff7428e6: hep: thesis -> thesis_info
+    MINOR b171b8c3: hep: external_system_identifiers
+    FIXED ISSUES: https://github.com/inspirehep/inspire-schemas/issues/42,
+              https://github.com/inspirehep/inspire-schemas/issues/43
+    MINOR 60b9db8f: tests: regenerated tests
+    MINOR 2917de84: tests: improved patterns generation in tests
+    MINOR 64e58f10: hep: clear document_type
+    FIXED ISSUES: https://github.com/inspirehep/inspire-schemas/issues/31
+    MINOR 0faabce9: hep: isbn format
+
+* 9.0.0 "Micha Moskovic <michamos@gmail.com>"
+    MAJOR f9169f0b: hep: thesis_supervisors superseded by inspire_roles
+    FIXED ISSUES: https://github.com/inspirehep/inspire-schemas/issues/60
+
+* 8.0.0 "Samuele Kaplun <Samuele.Kaplun@cern.ch>"
+    MAJOR ec1cb438: Merge pull request #66 from kaplun/keywords
+    MINOR 55b4397d: hep: merge classification_number into keywords
+    FIXED ISSUES: https://github.com/inspirehep/inspire-schemas/issues/52
+
+* 7.0.1 "Samuele Kaplun <samuele.kaplun@cern.ch>"
+    MINOR ee9f3b4d: .gitignore: add backup files
+
+* 7.0.0 "Samuele Kaplun <samuele.kaplun@cern.ch>"
+    MAJOR c116beb8: hep: finalize author structure
+
+* 6.0.1 "Samuele Kaplun <Samuele.Kaplun@cern.ch>"
+    MINOR 95e436f0: Merge pull request #56 from kaplun/fix-arxiv
+    MINOR cd08b845: hep: fix arXiv eprint regexp
+
+* 6.0.0 "Micha Moskovic <michamos@gmail.com>"
+    MAJOR c99b876b: hep: number_of_pages instead of page_nr
+
+* 5.0.0 "Micha Moskovic <michamos@gmail.com>"
+    MAJOR ad697459: hep: pluralize collaboration
+    FIXED ISSUES: https://github.com/inspirehep/inspire-schemas/issues/59
+
+* 4.0.6 "Javier Martin Montull <javier.martin.montull@cern.ch>"
+    MINOR 48a39315: Merge pull request #55 from
+              jmartinm/54-authors-missing-fields
+    MINOR 44b9ed60: authors: add missing schema fields
+    FIXED ISSUES: https://github.com/inspirehep/inspire-schemas/issues/54
+
+* 4.0.5 "Javier Martin Montull <javier.martin.montull@cern.ch>"
+    MINOR f598431a: Merge pull request #53 from jmartinm/remove-oneof
+    MINOR 6e325dff: Remove oneOf from schemas
+
+* 4.0.4 "Jacopo Notarstefano <jacopo.notarstefano@gmail.com>"
+    MINOR 001ce415: Merge pull request #51 from jacquerie/add-institution-ids
+    MINOR ab5eac0d: schemas: add ids to institutions
+
+* 4.0.3 "Jacopo Notarstefano <jacopo.notarstefano@gmail.com>"
+    MINOR 4f69cba0: Merge pull request #50 from jacquerie/integrate-pr-25
+    MINOR fe5390c5: docs: add small note about version pinning
+
+* 4.0.2 "Jacopo Notarstefano <jacopo.notarstefano@gmail.com>"
+    MINOR 1294f798: Merge pull request #49 from
+              jacquerie/revert-add-ids-to-institutions
+    MINOR 49109f97: schemas: revert add ids to institutions
+
+* 4.0.1 "Jacopo Notarstefano <jacopo.notarstefano@gmail.com>"
+    MINOR c0c5a210: Merge pull request #48 from jacquerie/add-institution-ids
+    MINOR c7499b0b: schemas: add ids to institutions
+
+* 4.0.0 "David Caro <david@dcaro.es>"
+    MAJOR 5c05db15: Merge pull request #47 from
+              rikirenz/arxiv-inspire-ext-categ
+    MINOR 1d9da4d5: Refactor field_categories field
+    MINOR 87cdea88: scripts: remove relative path in JSON_schema
+    MINOR 04f2fc67: refactor external_field_categories field
+
+* 3.0.0 "David Caro <david@dcaro.es>"
+    MAJOR 041fa934: Merge pull request #44 from rikirenz/move-category-field
+    MINOR 1d9da4d5: Refactor field_categories field
+    MINOR 87cdea88: scripts: remove relative path in JSON_schema
+    MINOR dd57da68: Change enum external_field values to lowercase
+
+* 2.0.2 "Samuele Kaplun <Samuele.Kaplun@cern.ch>"
+    MINOR 5ae232a5: Merge pull request #38 from kaplun/pr/16
+    MINOR a5b26d93: schemas: add missing types
+
+* 2.0.1 "David Caro <david@dcaro.es>"
+    MINOR 8d840a6c: Merge pull request #40 from david-caro/version_bump
+    MINOR c4c3744a: docs: minor lowercase change
+
+* 2.0.0 "Jacopo Notarstefano <jacopo.notarstefano@gmail.com>"
+    MAJOR 65274823: Merge pull request #36 from
+              jacquerie/readd-schema-and-control-number
+    MINOR b5d4a302: hep: add $schema and control_number
+
+* 1.1.5 "Jacopo Notarstefano <jacopo.notarstefano@gmail.com>"
+    MINOR 4319ec74: Merge pull request #35 from
+              jacquerie/revert-schema-and-control-number
+    MINOR 5b40d7a7: hep: revert $schema and control_number
+
+* 1.1.4 "Javier Martin Montull <javier.martin.montull@cern.ch>"
+    MINOR b4be9d9b: Merge pull request #32 from jmartinm/revert-email-hepnames
+    MINOR 2855ecb1: authors: reintroduce old_emails
+
+* 1.1.3 "Javier Martin Montull <javier.martin.montull@cern.ch>"
+    MINOR d3f132c7: Merge pull request #34 from zzacharo/schema_modification
+    MINOR 55b64dce: hep: Insertion of fields `$schema` and `control_number` in
+              hep.json.
+
+* 1.1.2 "David Caro <david@dcaro.es>"
+    MINOR e9d92954: Merge pull request #28 from david-caro/deploy_only_py27
+    MINOR 973ca792: packaging: deploy only the 2.7 version
+
+* 1.1.1 "David Caro <david@dcaro.es>"
+    MINOR 697345b5: Merge pull request #24 from
+              david-caro/use_distutils_autosemver
+    MINOR a61d77de: packaging: use autosemver through distutils
+
+* 1.1.0 "David Caro <david@dcaro.es>"
+    FEATURE b8261f49: Merge pull request #22 from david-caro/move_to_autosemver
+    MINOR 7308a194: packaging: move to autosemver
+
+* 1.0.0 "David Caro <david@dcaro.es>"
+    MAJOR b2e2232d: Merge pull request #23 from david-caro/workflow_fixes
+    MINOR 71f73307: tests: add prettify check
+    MINOR f8796895: global: Add prettify script
+    MINOR 8c016f3a: hep_schema: known categories are now enums
+
+* 0.2.2 "David Caro <david@dcaro.es>"
+    MINOR 043810cf: Merge pull request #21 from lowks/patch-1
+    MINOR d252f424: Update setup.py
+
+* 0.2.1 "Jacopo Notarstefano <jacopo.notarstefano@gmail.com>"
+    MINOR cb12a61d: Merge pull request #20 from
+              jacquerie/add-missing-parenthesis
+    MINOR cc62a446: scripts: add missing parenthesis
+
+* 0.2.0 "Jacopo Notarstefano <jacopo.notarstefano@gmail.com>"
+    FEATURE 9d310bb8: Merge pull request #19 from jacquerie/integrate-pr-11
+    MINOR 82f4b0d6: tests: add newline at EOF to all fixtures
+    MINOR e793d3fc: schemas: add new_record field to all schemas
+
+* 0.1.2 "Jacopo Notarstefano <jacopo.notarstefano@gmail.com>"
+    MINOR b21fede3: Merge pull request #14 from jacquerie/add-coveralls
+    MINOR 5c7e7d5d: travis: add missing coveralls dependency
+
+* 0.1.1 "Jacopo Notarstefano <jacopo.notarstefano@gmail.com>"
+    MINOR f9008343: Merge pull request #13 from
+              jacquerie/make-generate-example-records-work-out-of-the-box
+    MINOR c04c88f7: scripts: fix generate_example_records
+    FIXED ISSUES: https://github.com/inspirehep/inspire-schemas/issues/12
+
+* 0.1.0 "Jacopo Notarstefano <jacopo.notarstefano@gmail.com>"
+    FEATURE 7e6b9070: Merge pull request #6 from
+              jacquerie/add-acquisition-source
+    MINOR e70c70d4: schemas: add acquisition_source to authors
+
+* 0.0.5 "David Caro <david@dcaro.es>"
+    MINOR 1df3d26f: Merge pull request #2 from david-caro/add_validate
+    MINOR 83b90818: errors: Create separated module for the exceptions
+    MINOR 8e5d6794: tests: Adapt for python2 and 3
+    MINOR df7e6819: packaging: fix missing files on bdist/sdist
+    MINOR 9450019a: packaging: Pull deps on install
+
+* 0.0.4 "David Caro <david@dcaro.es>"
+    MINOR 72b5d38a: Merge pull request #4 from david-caro/docs_fixes
+    MINOR 0ca1acba: docs: Minor fixes
+
+* 0.0.3 "David Caro <david@dcaro.es>"
+    MINOR 7571025e: Merge pull request #3 from david-caro/docstests
+    MINOR 4d32cc74: docs: Fixed packaging issues
+
+* 0.0.2 "David Caro <david@dcaro.es>"
+    MINOR 86810e0a: Merge pull request #1 from david-caro/first_commit
+    MINOR 19679eae: global: schemas and basic packaging
+
+* 0.0.1 "David Caro <david@dcaro.es>"
+    MINOR 78652298: global: first commit
