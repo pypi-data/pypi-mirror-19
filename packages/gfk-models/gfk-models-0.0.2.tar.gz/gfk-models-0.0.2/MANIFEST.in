@@ -1,0 +1,13 @@
+include LICENSE
+include README.rst
+
+recursive-include gfk/like/static *
+recursive-include gfk/like/templates *
+
+recursive-include gfk/qna/static *
+recursive-include gfk/qna/templates *
+
+recursive-include gfk/review/static *
+recursive-include gfk/review/templates *
+
+recursive-include docs *
