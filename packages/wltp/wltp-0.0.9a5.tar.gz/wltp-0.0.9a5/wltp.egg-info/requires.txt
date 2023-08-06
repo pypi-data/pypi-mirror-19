@@ -1,0 +1,12 @@
+six
+jsonschema>=2.5
+numpy
+pandas
+matplotlib
+Pillow
+xlwings
+
+[:python_version == "2.7"]
+mock
+
+[wltpdb]
