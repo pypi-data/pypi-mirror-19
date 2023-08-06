@@ -1,0 +1,3 @@
+[console_scripts]
+abc-server = visserver.server:run_app
+
