@@ -1,0 +1,12 @@
+<configure
+    xmlns:zope="http://namespaces.zope.org/zope"
+    xmlns:p01="http://namespaces.zope.org/p01">
+
+  <!-- p01.dashboard -->
+  <p01:cdnZRTResource
+      name="p01.dashboard.css"
+      file="css/p01.dashboard.css"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+</configure>

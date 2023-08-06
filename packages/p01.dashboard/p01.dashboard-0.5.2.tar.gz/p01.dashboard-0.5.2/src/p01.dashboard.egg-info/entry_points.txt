@@ -1,0 +1,6 @@
+[console_scripts]
+circus = p01.dashboard.wsgi.circus:main
+
+[paste.server_factory]
+gevent = p01.dashboard.wsgi.server:server_factory
+

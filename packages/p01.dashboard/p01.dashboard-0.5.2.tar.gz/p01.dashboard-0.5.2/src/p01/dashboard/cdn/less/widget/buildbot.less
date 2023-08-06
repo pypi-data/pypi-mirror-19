@@ -1,0 +1,59 @@
+/*---[ p01.dashboard/buildbot.less ]-----------------------------------------------*/
+// variables
+@import "../variables.less";
+
+.buildbot {
+    background-color: @widget-buildbot-bg;
+    vertical-align: top;
+    .title {
+        color: @widget-buildbot-title-color;
+    }
+    ul {
+        text-align: left;
+        color: @widget-buildbot-color;
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        list-style: none;
+        list-style-type: none;
+        margin: 0 0 5px 0;
+    }
+    .label {
+        color: @widget-buildbot-label-color;
+    }
+    .value {
+        float: right;
+        margin-left: 12px;
+        font-weight: 600;
+        color: @widget-buildbot-value-color;
+    }
+    .success .label,
+    .success .value {
+        color: @widget-buildbot-success-color;
+    }
+    .warning .label,
+    .warning .value {
+        color: @widget-buildbot-warning-color;
+    }
+    .failure .label,
+    .failure .value {
+        color: @widget-buildbot-failure-color;
+    }
+    .exception .label,
+    .exception .value {
+        color: @widget-buildbot-exception-color;
+    }
+    .skipped .label,
+    .skipped .value {
+        color: @widget-buildbot-skipped-color;
+    }
+    .retry .label,
+    .retry .value {
+        color: @widget-buildbot-retry-color;
+    }
+    .pending .label,
+    .pending .value {
+        color: @widget-buildbot-pending-color;
+    }
+}

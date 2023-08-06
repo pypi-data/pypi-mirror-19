@@ -1,0 +1,32 @@
+=======
+CHANGES
+=======
+
+0.5.2 (2017-01-24)
+------------------
+
+- bugfix: check existence of _scheduler before calling stop on them
+
+- switch default maintainAspectRatio to false for ChartJS widget
+
+- cleanup ISampler interfaces, remove _enqueue method from interface. It's up
+  to the developer hwo to implement the enqueue concept
+
+- update MANIFEST.in, used check-manifest for define include pattern
+
+
+0.5.1 (2017-01-07)
+------------------
+
+- feature: added Rickshaw graph widget. You can use this widget with
+  data-type="Graph"
+
+- feature: added stream data to global stream collection. This will ensure,
+  that the widgets get initial data and doesn't have to wait till the first
+  timout expires
+
+
+0.5.0 (2017-01-05)
+------------------
+
+- initial release

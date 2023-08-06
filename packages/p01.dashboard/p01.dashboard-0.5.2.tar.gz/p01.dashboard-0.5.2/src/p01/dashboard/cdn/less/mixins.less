@@ -1,0 +1,46 @@
+/*---[ p01.dashboard mixins ]-------------------------------------------------------*/
+
+// grid rows
+.calc-grid-row(@index) {
+    // calulate grid column width etc.
+    &[data-height='@{index}'] {
+        height: percentage((@index / @grid-rows));
+    }
+    &[data-y='@{index}'] {
+        top: percentage((@index / @grid-columns));
+    }
+}
+
+.make-grid-rows(@index) when (@index >= 0) {
+    // make grid grid
+    .calc-grid-row(@index);
+    // next iteration
+    .make-grid-rows((@index - 1));
+}
+
+
+// grid columns
+.calc-grid-column(@index) {
+    &[data-width='@{index}'] {
+        width: percentage((@index / @grid-columns));
+        // .grid--item-content {
+        //     width: percentage((@index / @grid-columns));
+        // }
+    }
+    &[data-x='@{index}'] {
+        left: percentage((@index / @grid-columns));
+    }
+    &[data-min-width='@{index}'] {
+        min-width: percentage((@index / @grid-columns));
+    }
+    &[data-max-width='@{index}'] {
+        max-width: percentage((@index / @grid-columns));
+    }
+}
+
+.make-grid-columns(@index) when (@index >= 0) {
+    // make grid grid
+    .calc-grid-column(@index);
+    // next iteration
+    .make-grid-columns((@index - 1));
+}

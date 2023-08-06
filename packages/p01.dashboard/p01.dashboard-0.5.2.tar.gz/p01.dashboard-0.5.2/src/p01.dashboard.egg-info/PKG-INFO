@@ -1,0 +1,56 @@
+Metadata-Version: 1.1
+Name: p01.dashboard
+Version: 0.5.2
+Summary: Data sampler library used for build a dashboard server
+Home-page: http://pypi.python.org/pypi/p01.dashboard
+Author: Roger Ineichen, Projekt01 GmbH
+Author-email: dev@projekt01.ch
+License: ZPL 2.1
+Description: This package provides the core libraries used for build a dashboard server like
+        known from dashing. See xdashboard for a sample dashboard server implementation.
+        
+        
+        =======
+        CHANGES
+        =======
+        
+        0.5.2 (2017-01-24)
+        ------------------
+        
+        - bugfix: check existence of _scheduler before calling stop on them
+        
+        - switch default maintainAspectRatio to false for ChartJS widget
+        
+        - cleanup ISampler interfaces, remove _enqueue method from interface. It's up
+          to the developer hwo to implement the enqueue concept
+        
+        - update MANIFEST.in, used check-manifest for define include pattern
+        
+        
+        0.5.1 (2017-01-07)
+        ------------------
+        
+        - feature: added Rickshaw graph widget. You can use this widget with
+          data-type="Graph"
+        
+        - feature: added stream data to global stream collection. This will ensure,
+          that the widgets get initial data and doesn't have to wait till the first
+          timout expires
+        
+        
+        0.5.0 (2017-01-05)
+        ------------------
+        
+        - initial release
+        
+Keywords: zope3 z3c dashbord data sampler
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Zope Public License
+Classifier: Programming Language :: Python
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Framework :: Zope3

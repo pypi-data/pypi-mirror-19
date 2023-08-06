@@ -1,0 +1,10 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:p01="http://namespaces.zope.org/p01"
+    i18n_domain="p01.dashboard">
+
+  <include file="css.zcml" />
+  <include file="js.zcml" />
+  <include file="min.zcml" />
+
+</configure>

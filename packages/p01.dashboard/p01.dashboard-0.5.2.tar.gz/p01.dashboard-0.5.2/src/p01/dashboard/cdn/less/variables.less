@@ -1,0 +1,125 @@
+// p01.dashboard variables.less
+
+@font-awasome-path:        '../fonts/';
+
+// colors
+// -------------------------
+
+@black:                               #000000;
+@darker:                              #191919;
+@dark:                                #262626;
+@gray:                                #404040;
+@gray-light:                          lighten(@black, 30%);
+@gray-lighter:                        lighten(@black, 50%);
+@lighter:                             lighten(@black, 60%);
+@light:                               #F7F7F7;
+@white:                               white;
+
+@red:                                 #B20000;
+@orange:                              #FD9911;
+@green:                               #468C00;
+@green-light:                         #36D900;
+@blue:                                #265CFF;
+@blue-light:                          #73B9FF;
+
+@body-bg:                             @black;
+
+// grid
+@grid-rows:                          12;
+@grid-columns:                       12;
+@grid-vertical-margin:               8px;
+@grid-bg:                            @darker;
+@grid-item-bg:                       @grid-bg;
+@grid-item-margin:                   0;
+@grid-item-padding:                  1px;
+@grid-item-content-color:            @light;
+@grid-item-content-bg:               @dark;
+@grid-item-content-margin:           4px;
+@grid-item-content-padding:          4px;
+
+@grid-background-font-color:          lighten(@widget-bg, 25%);
+@grid-background-font-size:           175px;
+
+// fonts
+@widget-title-font-size:              24px;
+@widget-font-size:                    12px;
+@widget-info-font-size:               9px;
+@widget-updated-font-size:            8px;
+
+// widget colors
+@widget-color:                        lighten(@blue, 60%);
+@widget-title-color:                  @lighter;
+@widget-label-color:                  lighten(@gray, 50%);
+@widget-value-color:                  lighten(@gray, 50%);
+@widget-info-color:                   @lighter;
+@widget-updated-color:                @gray-light;
+@widget-bg:                           @dark;
+
+
+// Buildbot widget colors
+@widget-buildbot-color:               @widget-color;
+@widget-buildbot-label-color:         @widget-label-color;
+@widget-buildbot-value-color:         @widget-value-color;
+@widget-buildbot-title-color:         @widget-title-color;
+@widget-buildbot-success-color:       @green;
+@widget-buildbot-warning-color:       @green;
+@widget-buildbot-failure-color:       @red;
+@widget-buildbot-exception-color:     @red;
+@widget-buildbot-skipped-color:       @orange;
+@widget-buildbot-retry-color:         @orange;
+@widget-buildbot-pending-color:       @orange;
+@widget-buildbot-bg:                  @widget-bg;
+
+
+// Clock widget colors
+@widget-clock-date-font-size:         24px;
+@widget-clock-time-font-size:         48px;
+@widget-clock-info-font-size:         @widget-info-font-size;
+@widget-clock-location-font-size:     24px;
+@widget-clock-color:                  @widget-color;
+@widget-clock-date-color:             @gray;
+@widget-clock-time-color:             @blue;
+@widget-xerror-info-color:            @widget-info-color;
+@widget-clock-location-color:         @gray;
+@widget-clock-bg:                     @widget-bg;
+
+
+// Gauge widget
+@widget-gauge-bg:                     @widget-bg;
+
+
+// Graph widget
+@widget-graph-bg:                     @widget-bg;
+@widget-graph-tick-color:             @white;
+@widget-graph-value-font-size:        40px;
+
+
+// knob widget
+@widget-knob-bg:                      @widget-bg;
+
+
+// List widget colors
+@widget-list-color:                   @widget-color;
+@widget-list-label-color:             @widget-label-color;
+@widget-list-value-color:             @widget-value-color;
+@widget-list-title-color:             @widget-title-color;
+@widget-list-success-color:           @green;
+@widget-list-error-color:             @red;
+@widget-list-bg:                      @widget-bg;
+
+
+// Text widget
+@widget-text-title-color:             @widget-title-color;
+@widget-text-color:                   @widget-color;
+@widget-text-font-size:               22px;
+@widget-text-bg:                      @widget-bg;
+
+
+// XError widget colors
+@widget-xerror-color:                 @widget-color;
+@widget-xerror-label-color:           @widget-label-color;
+@widget-xerror-value-color:           @widget-value-color;
+@widget-xerror-title-color:           @widget-title-color;
+@widget-xerror-success-color:         @green;
+@widget-xerror-error-color:           @red;
+@widget-xerror-bg:                    @widget-bg;

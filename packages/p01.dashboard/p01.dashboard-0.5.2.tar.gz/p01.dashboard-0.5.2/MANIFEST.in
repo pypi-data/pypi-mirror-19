@@ -1,0 +1,17 @@
+global-include *.txt
+include *.txt
+include *.py
+include buildout.cfg
+include minify.cfg
+recursive-include src *.css
+recursive-include src *.eot
+recursive-include src *.js
+recursive-include src *.less
+recursive-include src *.map
+recursive-include src *.otf
+recursive-include src *.svg
+recursive-include src *.ttf
+recursive-include src *.woff
+recursive-include src *.woff2
+recursive-include src *.xpp
+recursive-include src *.zcml

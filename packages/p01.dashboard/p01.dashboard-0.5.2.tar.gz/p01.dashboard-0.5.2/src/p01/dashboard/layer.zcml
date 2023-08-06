@@ -1,0 +1,10 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope">
+
+  <!-- core layer -->
+  <interface
+      interface="p01.dashboard.layer.IDashboardLayer"
+      type="zope.publisher.interfaces.browser.IBrowserSkinType"
+      />
+
+</configure>

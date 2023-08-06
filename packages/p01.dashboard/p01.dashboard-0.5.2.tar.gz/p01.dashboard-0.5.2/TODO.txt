@@ -1,0 +1,19 @@
+====
+TODO
+====
+
+- graphite
+
+  - setup graphite proxy view
+
+  - add graphite sampler
+
+  - add graphite widget
+
+- samplers
+
+  - add sampler base classes with relevant data format for each widget
+
+- testing
+
+  - add tests

@@ -1,0 +1,87 @@
+<configure
+    xmlns:zope="http://namespaces.zope.org/zope"
+    xmlns:p01="http://namespaces.zope.org/p01">
+
+  <!-- eventsource -->
+  <p01:cdnResource
+      name="eventsource.js"
+      file="js/eventsource-0.9.7.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+  <!-- transparency -->
+  <p01:cdnResource
+      name="transparency.js"
+      file="js/transparency-0.11.0.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+  <!-- lodash -->
+  <p01:cdnResource
+      name="lodash.js"
+      file="js/lodash-4.17.4.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+  <!-- jsface -->
+  <p01:cdnResource
+      name="jsface.js"
+      file="js/jsface-2.4.8.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+  <!-- jquery -->
+  <p01:cdnResource
+      name="jquery.js"
+      file="js/jquery-1.12.0.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+  <!-- d3 (v3 used by rickshaw) -->
+  <p01:cdnResource
+      name="d3.v3.js"
+      file="js/d3-3.5.17.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+  <!-- rickshaw -->
+  <p01:cdnResource
+      name="rickshaw.js"
+      file="js/rickshaw-1.6.0.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+  <!-- chart -->
+  <p01:cdnResource
+      name="chart.js"
+      file="js/chart-2.4.0.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+  <p01:cdnResource
+      name="chart.bundle.js"
+      file="js/chart.bundle-2.4.0.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+  <!-- justgauge -->
+  <p01:cdnResource
+      name="justgauge.js"
+      file="js/justgauge-1.2.9.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+  <!-- jquery.knob -->
+  <p01:cdnResource
+      name="jquery.knob.js"
+      file="js/jquery.knob-1.2.13.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+  <!-- p01.dashboard -->
+  <p01:cdnResource
+      name="p01.dashboard.js"
+      file="js/p01.dashboard.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+</configure>

@@ -1,0 +1,24 @@
+<configure
+    xmlns:zope="http://namespaces.zope.org/zope"
+    xmlns="http://namespaces.zope.org/browser"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    i18n_domain="p01.dashboard">
+
+  <!-- SSEResult result -->
+  <zope:class class=".events.SSEResult">
+    <allow interface="p01.dashboard.interfaces.ISSEResult" />
+  </zope:class>
+
+  <!-- default event channel
+       Register your own views, define a channel name in the view class
+       and use this channel name as channel option in your javascript
+       Dashoard.setup method -->
+  <page
+      name="events"
+      for="p01.dashboard.interfaces.IDashboardAware"
+      class=".events.Events"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      permission="p01:dashboard:ViewDashboard"
+      />
+
+</configure>

@@ -1,0 +1,23 @@
+/*---[ p01.dashboard/buildbot.less ]-----------------------------------------------*/
+// variables
+@import "../variables.less";
+
+.grid-item-content {
+    color: @widget-color;
+    background-color: @widget-bg;
+    .title {
+        color: @widget-title-color;
+        font-size: @widget-title-font-size;
+    }
+    .info {
+        color: @widget-info-color;
+        font-size: @widget-info-font-size;
+    }
+    .updated {
+        color: @widget-updated-color;
+        font-size: @widget-updated-font-size;
+        position: absolute;
+        bottom: 0;
+        right: 5px;
+    }
+}

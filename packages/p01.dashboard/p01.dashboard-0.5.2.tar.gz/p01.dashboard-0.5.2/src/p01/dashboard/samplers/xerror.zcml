@@ -1,0 +1,40 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:p01="http://namespaces.zope.org/p01"
+    i18n_domain="p01.dashboard">
+
+  <!-- xerror -->
+  <class class=".xerror.XErrorSampler">
+    <require
+        permission="p01:dashboard:ViewDashboard"
+        interface="p01.dashboard.interfaces.ISampler"
+        />
+  </class>
+
+  <!-- configure your own xerror sampler with your xerror server url
+       in a xerror.py file like:
+
+            XERROR = 'https://error.sample.tld'
+            PROJECTS = ['demo', 'demo.release']
+            sampler = p01.dashboard.sampler.xerror.XErrorSampler(XERROR,
+                PROJECTS, interval=60)
+
+       and configure your sampler like:
+
+            <utility
+                name="xerror"
+                provides="p01.dashboard.interfaces.ISampler"
+                component=".xerror.sampler"
+                />
+
+       and include a widget like:
+
+
+            <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+              <div data-id="xerror" data-view="XError" data-unordered="true"
+                   data-title="XError" data-moreinfo="# xerror status"></div>
+            </li>
+
+  -->
+
+</configure>

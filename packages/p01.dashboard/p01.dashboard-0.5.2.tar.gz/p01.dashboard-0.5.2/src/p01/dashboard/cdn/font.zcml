@@ -1,0 +1,11 @@
+<configure
+    xmlns:zope="http://namespaces.zope.org/zope"
+    xmlns:p01="http://namespaces.zope.org/p01">
+
+  <p01:cdnDirectory
+      name="font"
+      directory="font"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+</configure>
