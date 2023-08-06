@@ -1,0 +1,25 @@
+Metadata-Version: 1.1
+Name: meme-get
+Version: 1.0.1b1
+Summary: Get memes
+Home-page: https://github.com/memegen/meme_get
+Author: Jingnan Shi
+Author-email: jshi@g.hmc.edu
+License: MIT
+Description: meme-get
+        ==========
+        
+        Get memes
+        
+Keywords: meme,client,download
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Utilities
