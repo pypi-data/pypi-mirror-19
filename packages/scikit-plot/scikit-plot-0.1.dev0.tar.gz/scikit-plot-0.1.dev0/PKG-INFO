@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: scikit-plot
+Version: 0.1.dev0
+Summary: An intuitive library to add plotting functionality to scikit-learn objects.
+Home-page: https://github.com/reiinakano/scikit-plot
+Author: Reiichiro Nakano
+Author-email: reiichiro.s.nakano@gmail.com
+License: MIT License
+Description: Scikit-plot is an intuitive library to add plotting functionality to scikit-learn objects.
+Platform: any
+Classifier: Programming Language :: Python
+Classifier: Natural Language :: English
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
