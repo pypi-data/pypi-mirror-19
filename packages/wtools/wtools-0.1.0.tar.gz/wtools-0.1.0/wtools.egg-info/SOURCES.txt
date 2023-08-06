@@ -1,0 +1,16 @@
+CHANGES
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+wtools/__init__.py
+wtools/deps.py
+wtools/indent.py
+wtools/recurse.py
+wtools/wcc.py
+wtools/weclipse.py
+wtools/wmake.py
+wtools.egg-info/PKG-INFO
+wtools.egg-info/SOURCES.txt
+wtools.egg-info/dependency_links.txt
+wtools.egg-info/top_level.txt
