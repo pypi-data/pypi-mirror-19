@@ -1,0 +1,67 @@
+Metadata-Version: 1.1
+Name: snimar-thumbnails
+Version: 1.0.1
+Summary: Generate thumbnails for the SNIMar local catalogues
+Home-page: https://bitbucket.org/ipma/snimar_thumbnails
+Author: Pedro Dias
+Author-email: pedro.dias@ipma.pt
+License: MIT
+Description: # SNIMar Thumbnails
+        
+        Biblioteca utilizada para gerar os thumbnails dos catálogos locais.
+        
+        ## Exemplo
+        
+        ```python
+        
+        import thumbnails
+        
+        bbox = thumbnails.bbox.LonLatBoundingBox(-12.8, 34, -1.2, 44.8)
+        url = 'http://mapas.ipma.pt/mapserv?map=/var/www/maps/forecasts/meteorology/arome_pt_2_t2m.map'
+        storage = '/tmp/thumbs/'
+        thumbnail_width = 200
+        thumbnail_height = 150
+        
+        # Simple example
+        generator = thumbnails.generator.ThumbnailGenerator(bbox, thumbnail_width, thumbnail_height)
+        generator.generate(url, storage, layers=['arome_pt_2_t2m_00_003'])
+        
+        # Example using authentication
+        generator = thumbnails.generator.ThumbnailGenerator(bbox, thumbnail_width, thumbnail_height)
+        generator.generate(url, storage, layers=['arome_pt_2_t2m_00_003'], username='username', password='password')
+        
+        ```
+        
+        ## O que a biblioteca faz
+        
+        * Cria um thumbnail em formato PNG a partir de uma bounding box, de um URL de um
+        serviço WMS, utilizando uma localização temporária em file system para criar o
+        produto final.
+        
+        * Utilização de HTTP BasicAuthentication para criação de thumbnails de serviços que necessitem
+        de autenticação.
+        
+        ## O que a biblioteca não faz
+        
+        * Se o storage indicado não existir em file system, a excepção não é apanhada dentro da
+        biblioteca.
+        
+        * Se o url indicado não responder, a excepção não é apanhada pela biblioteca.
+        
+        * Sempre que ocorre uma excepção na utilização da biblioteca, não é garantido que os recursos
+        temporários criados por esta sejam apagados. Devido a isto é recomendada a utilização de
+        locais temporários como `/tmp` como storage.
+        
+        * _Bounding boxes_ nulas, i.e., (0, 0, 0, 0) são transformadas em um thumbnail
+        que engloba todo o globo.
+        
+        * _Bounding boxes_ de dimensões superiores ao contra domínio da projecção EPSG 3857
+        são transformadas em bounding boxes que englobam todo o globo.
+        
+Keywords: snimar,thumbnails
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
