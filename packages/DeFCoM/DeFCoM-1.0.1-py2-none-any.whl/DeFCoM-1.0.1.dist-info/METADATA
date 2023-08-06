@@ -1,0 +1,20 @@
+Metadata-Version: 2.0
+Name: DeFCoM
+Version: 1.0.1
+Summary: A supervised learning genomic footprinter
+Home-page: https://bitbucket.org/bryancquach/defcom
+Author: Bryan Quach
+Author-email: bryancquach@gmail.com
+License: PSF
+Keywords: defcom genomics footprinter footprinting
+Platform: UNKNOWN
+Requires-Dist: Cython (>0.20.0)
+Requires-Dist: docutils (>=0.3)
+Requires-Dist: numpy (>=0.18)
+Requires-Dist: pysam (>=0.9)
+Requires-Dist: scikit-learn (>=0.16)
+Requires-Dist: scipy (>=0.14)
+
+UNKNOWN
+
+
