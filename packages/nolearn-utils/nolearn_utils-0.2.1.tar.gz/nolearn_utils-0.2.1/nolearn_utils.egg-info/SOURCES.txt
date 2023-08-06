@@ -1,0 +1,15 @@
+setup.cfg
+setup.py
+examples/__init__.py
+examples/cifar10/__init__.py
+examples/cifar10/train.py
+nolearn_utils/__init__.py
+nolearn_utils/hooks.py
+nolearn_utils/image_utils.py
+nolearn_utils/iterators.py
+nolearn_utils.egg-info/PKG-INFO
+nolearn_utils.egg-info/SOURCES.txt
+nolearn_utils.egg-info/dependency_links.txt
+nolearn_utils.egg-info/not-zip-safe
+nolearn_utils.egg-info/requires.txt
+nolearn_utils.egg-info/top_level.txt
