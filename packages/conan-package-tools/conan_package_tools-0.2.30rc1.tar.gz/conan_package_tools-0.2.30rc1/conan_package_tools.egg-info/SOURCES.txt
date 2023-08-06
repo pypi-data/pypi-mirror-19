@@ -1,0 +1,17 @@
+setup.py
+conan/__init__.py
+conan/conan_json_packager.py
+conan/log.py
+conan/packager.py
+conan/requirements.txt
+conan/build_info/__init__.py
+conan/build_info/command.py
+conan/build_info/conan_build_info.py
+conan_package_tools.egg-info/PKG-INFO
+conan_package_tools.egg-info/SOURCES.txt
+conan_package_tools.egg-info/dependency_links.txt
+conan_package_tools.egg-info/entry_points.txt
+conan_package_tools.egg-info/requires.txt
+conan_package_tools.egg-info/top_level.txt
+test/__init__.py
+test/app_tests.py
