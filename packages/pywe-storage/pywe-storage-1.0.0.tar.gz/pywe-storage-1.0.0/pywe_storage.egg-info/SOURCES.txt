@@ -1,0 +1,14 @@
+README.rst
+setup.cfg
+setup.py
+pywe_storage/__init__.py
+pywe_storage/basestorage.py
+pywe_storage/memcachedstorage.py
+pywe_storage/memorystorage.py
+pywe_storage/redisstorage.py
+pywe_storage/shovestorage.py
+pywe_storage.egg-info/PKG-INFO
+pywe_storage.egg-info/SOURCES.txt
+pywe_storage.egg-info/dependency_links.txt
+pywe_storage.egg-info/requires.txt
+pywe_storage.egg-info/top_level.txt
