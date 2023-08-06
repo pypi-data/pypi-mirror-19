@@ -1,0 +1,13 @@
+setuptools
+deform >= 2.0a1
+humanize
+pyramid
+pyramid_beaker
+pyramid_chameleon
+pyramid_debugtoolbar
+pyramid_ldap
+rdflib
+solrpy
+waitress
+zope.component
+zope.interface
