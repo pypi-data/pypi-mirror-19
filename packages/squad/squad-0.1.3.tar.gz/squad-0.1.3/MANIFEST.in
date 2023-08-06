@@ -1,0 +1,13 @@
+include Dockerfile
+include Procfile
+include COPYING
+include requirements*.txt
+include manage.py
+
+include           squad/core/management/commands/import_data.rst
+recursive-include squad/frontend/static/ *
+recursive-include squad/frontend/static/squad/ *
+recursive-include squad/frontend/static/chartjs/ *
+recursive-include squad/frontend/templates/ *
+recursive-include test/ *.py *.json *.csv *.log
+recursive-include scripts/ *
