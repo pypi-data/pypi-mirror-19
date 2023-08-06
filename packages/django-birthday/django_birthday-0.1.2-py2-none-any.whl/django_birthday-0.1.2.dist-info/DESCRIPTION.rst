@@ -1,0 +1,3 @@
+Please refer to `the documentation <http://django-birthday.rtfd.org/>`_.
+
+
