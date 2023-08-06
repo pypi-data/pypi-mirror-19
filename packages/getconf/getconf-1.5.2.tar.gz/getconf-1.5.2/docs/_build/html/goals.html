@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Goals &mdash; getconf 1.5.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="getconf 1.5.1 documentation" href="index.html"/>
+        <link rel="next" title="ChangeLog" href="changelog.html"/>
+        <link rel="prev" title="Advanced use" href="advanced.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> getconf
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">getconf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Goals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-problem">The problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-approach">The approach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-options">Other options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">ChangeLog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">getconf</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Goals</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/goals.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="goals">
+<h1>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal"><span class="pre">getconf</span></code> aims to solve a specific problem: provide a simple way to load settings in a platform-typical manner.</p>
+<div class="section" id="the-problem">
+<h2>The problem<a class="headerlink" href="#the-problem" title="Permalink to this headline">¶</a></h2>
+<p>Daemons and centralized applications need to fetch some platform-specific configuration to run:</p>
+<ul class="simple">
+<li>Mode of operation (debug vs. production vs. packaging)</li>
+<li>Address of remote services (databases, other servers, ...)</li>
+<li>Credentials</li>
+</ul>
+<p>Beyond those required settings, an application needs to configure its behavior (timeouts, retries, languages, ...).</p>
+<p>Various solutions exist:</p>
+<ul class="simple">
+<li>Command line flags</li>
+<li>Environment variables</li>
+<li>Files in <code class="docutils literal"><span class="pre">/etc</span></code></li>
+</ul>
+</div>
+<div class="section" id="the-approach">
+<h2>The approach<a class="headerlink" href="#the-approach" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">getconf</span></code> has been designed to provide the following features:</p>
+<dl class="docutils">
+<dt>Readability:</dt>
+<dd><ul class="first last simple">
+<li>All options can be defined in a single file</li>
+<li>The provided values are typechecked (<code class="docutils literal"><span class="pre">int</span></code>, <code class="docutils literal"><span class="pre">float</span></code>, ...)</li>
+<li>All settings can have a default</li>
+</ul>
+</dd>
+<dt>Development:</dt>
+<dd><ul class="first last simple">
+<li>If I checkout the code and execute my program&#8217;s entry point, it should be able to start</li>
+<li>If my local setup is slightly different from the default (non-standard DB port, ...),
+I just have to put a simple <code class="docutils literal"><span class="pre">local_settings.ini</span></code> file in the current directory</li>
+</ul>
+</dd>
+<dt>Continuous integration:</dt>
+<dd>The continuous integration server just needs to set a few well-defined environment variables
+to point the program to the test databases, servers, ...</dd>
+<dt>Production:</dt>
+<dd><ul class="first last simple">
+<li>In a could-like setup, I can use facilities provided by my platform to set the appropriate environment variables</li>
+<li>In a simpler, dedicated server setup, the application can also be configured with files in <code class="docutils literal"><span class="pre">/etc</span></code></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="other-options">
+<h2>Other options<a class="headerlink" href="#other-options" title="Permalink to this headline">¶</a></h2>
+<p>While desiging <code class="docutils literal"><span class="pre">getconf</span></code>, we looked at other options:</p>
+<dl class="docutils">
+<dt>Define everything in files</dt>
+<dd><ul class="first last simple">
+<li>This makes it difficult to override a single setting (where should the file be?)</li>
+<li>Not compatible with env-based cloud platforms</li>
+<li>dev and prod often have very different configurations, but flat files don&#8217;t provide a simple switch to set those defaults</li>
+</ul>
+</dd>
+<dt>Define everything in the environment</dt>
+<dd>Requires a prod-like setup for starting local servers, with files listing the environment variables</dd>
+<dt>Load a single file, which <code class="docutils literal"><span class="pre">includes</span></code> others</dt>
+<dd><ul class="first last simple">
+<li>Quickly turns into a maze of &#8220;local includes dev includes base&#8221;</li>
+<li>Hard to see where a setting is defined</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="changelog.html" class="btn btn-neutral float-right" title="ChangeLog" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="advanced.html" class="btn btn-neutral" title="Advanced use" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Polyconseil.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.5.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

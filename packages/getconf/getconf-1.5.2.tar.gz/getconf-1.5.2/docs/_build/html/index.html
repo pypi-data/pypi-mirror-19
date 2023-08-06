@@ -1,0 +1,386 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>getconf &mdash; getconf 1.5.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="getconf 1.5.1 documentation" href="#"/>
+        <link rel="next" title="Reference" href="reference.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> getconf
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">getconf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goals.html">Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">ChangeLog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">getconf</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>getconf</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getconf">
+<h1>getconf<a class="headerlink" href="#getconf" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="docutils literal"><span class="pre">getconf</span></code> project provides simple configuration helpers for Python programs.</p>
+<p>It provides a simple API to read from various configuration files and environment variables:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">getconf</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">getconf</span><span class="o">.</span><span class="n">ConfigGetter</span><span class="p">(</span><span class="s1">&#39;myproj&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;/etc/myproj.conf&#39;</span><span class="p">])</span>
+<span class="n">db_host</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;db.host&#39;</span><span class="p">,</span> <span class="s1">&#39;localhost&#39;</span><span class="p">)</span>
+<span class="n">db_port</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">getint</span><span class="p">(</span><span class="s1">&#39;db.port&#39;</span><span class="p">,</span> <span class="mi">5432</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Beyond this API, getconf aims at unifying configuration setup across development and production systems,
+respecting the standard procedures in each system:</p>
+<ul class="simple">
+<li>Allow userspace configuration on development systems</li>
+<li>Allow multiple different configurations for continuous integration systems</li>
+<li>Use standard configuration space in <code class="docutils literal"><span class="pre">/etc</span></code> on traditional production servers</li>
+<li>Handle environment-based configuration for cloud-based platforms</li>
+</ul>
+<p><code class="docutils literal"><span class="pre">getconf</span></code> v1.6 onwards supports 2.7, 3.3, 3.4, 3.5 and is distributed under the two-clause BSD license.
+The latest version of <code class="docutils literal"><span class="pre">getconf</span></code> to support Python 2.6 is v1.5.1.</p>
+<div class="section" id="links">
+<h2>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Package on <a class="reference external" href="http://pypi.python.org/">PyPI</a>: <a class="reference external" href="http://pypi.python.org/pypi/getconf/">http://pypi.python.org/pypi/getconf/</a></li>
+<li>Doc on <a class="reference external" href="http://readthedocs.org/">ReadTheDocs</a>: <a class="reference external" href="http://readthedocs.org/docs/getconf/">http://readthedocs.org/docs/getconf/</a></li>
+<li>Source on <a class="reference external" href="http://github.com/">GitHub</a>: <a class="reference external" href="http://github.com/Polyconseil/getconf/">http://github.com/Polyconseil/getconf/</a></li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Intall the package from <a class="reference external" href="http://pypi.python.org/">PyPI</a>, using pip:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>pip install getconf
+</pre></div>
+</div>
+<p>Or from GitHub:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>git clone git://github.com/Polyconseil/getconf
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">getconf</span></code> has no external dependancy beyond Python.</p>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Please refer to the full doc for <a class="reference internal" href="reference.html"><span class="doc">reference</span></a> and
+<a class="reference internal" href="advanced.html"><span class="doc">advanced usage</span></a>.</p>
+</div>
+<p>All configuration values are accessed through the <code class="docutils literal"><span class="pre">getconf.ConfigGetter</span></code> object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">getconf</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">getconf</span><span class="o">.</span><span class="n">ConfigGetter</span><span class="p">(</span><span class="s1">&#39;myproj&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;/etc/myproj/settings.ini&#39;</span><span class="p">,</span> <span class="s1">&#39;./local_settings.ini&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The above line declares:</p>
+<ul class="simple">
+<li>Use the <code class="docutils literal"><span class="pre">myproj</span></code> namespace (explained later; this is mostly used for environment-based configuration, as a prefix for environment variables)</li>
+<li>Look, in turn, at <code class="docutils literal"><span class="pre">/etc/myproj/settings.ini</span></code> (for production) and <code class="docutils literal"><span class="pre">./local_settings.ini</span></code> (for development); the latter overriding the former.</li>
+</ul>
+<p>Once the <code class="docutils literal"><span class="pre">getconf.ConfigGetter</span></code> has been configured, it can be used to retrieve settings:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">debug</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">getbool</span><span class="p">(</span><span class="s1">&#39;debug&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+<span class="n">db_host</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;db.host&#39;</span><span class="p">,</span> <span class="s1">&#39;localhost&#39;</span><span class="p">)</span>
+<span class="n">db_port</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">getint</span><span class="p">(</span><span class="s1">&#39;db.port&#39;</span><span class="p">,</span> <span class="mi">5432</span><span class="p">)</span>
+<span class="n">allowed_hosts</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">getlist</span><span class="p">(</span><span class="s1">&#39;django.allowed_hosts&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>All settings have a type (default is text), and accept a default value.
+They use namespaces (think &#8216;sections&#8217;) for easier reading.</p>
+<p>With the above setup, <code class="docutils literal"><span class="pre">getconf</span></code> will try to provide <code class="docutils literal"><span class="pre">db.host</span></code> by inspecting
+the following options in order (it stops at the first defined value):</p>
+<ul class="simple">
+<li>From the environment variable <code class="docutils literal"><span class="pre">MYPROJ_DB_HOST</span></code>, if defined</li>
+<li>From the <code class="docutils literal"><span class="pre">host</span></code> key in the <code class="docutils literal"><span class="pre">[db]</span></code> section of <code class="docutils literal"><span class="pre">./local_settings.ini</span></code></li>
+<li>From the <code class="docutils literal"><span class="pre">host</span></code> key in the <code class="docutils literal"><span class="pre">[db]</span></code> section of <code class="docutils literal"><span class="pre">/etc/myproj/settings.ini</span></code></li>
+<li>From the default provided value, <code class="docutils literal"><span class="pre">'localhost'</span></code></li>
+</ul>
+</div>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt><strong>Env-based configuration files</strong></dt>
+<dd>An extra configuration file/directory/glob can be provided through <code class="docutils literal"><span class="pre">MYPROJ_CONFIG</span></code>;
+it takes precedence over other files</dd>
+<dt><strong>Default options</strong></dt>
+<dd><p class="first">An extra dictionary can be provided as <code class="docutils literal"><span class="pre">ConfigGetter(defaults=some_dict)</span></code>;
+it is used after configuration files and environment variables.</p>
+<p>It should be a dict mapping a section name to a dict of <code class="docutils literal"><span class="pre">key</span> <span class="pre">=&gt;</span> <span class="pre">value</span></code>:</p>
+<div class="last highlight-pycon"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="n">ConfigGetter</span><span class="p">(</span><span class="s1">&#39;myproj&#39;</span><span class="p">,</span> <span class="n">defaults</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;db&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;host&#39;</span><span class="p">:</span> <span class="s1">&#39;localhost&#39;</span><span class="p">}})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;db.host&#39;</span><span class="p">)</span>
+<span class="go">&#39;localhost&#39;</span>
+</pre></div>
+</div>
+</dd>
+<dt><strong>Typed getters</strong></dt>
+<dd><p class="first"><code class="docutils literal"><span class="pre">getconf</span></code> can convert options into a few standard types:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">getbool</span><span class="p">(</span><span class="s1">&#39;db.enabled&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">getint</span><span class="p">(</span><span class="s1">&#39;db.port&#39;</span><span class="p">,</span> <span class="mi">5432</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">getlist</span><span class="p">(</span><span class="s1">&#39;db.tables&#39;</span><span class="p">)</span>  <span class="c1"># Expects a comma-separated list</span>
+<span class="n">config</span><span class="o">.</span><span class="n">getfloat</span><span class="p">(</span><span class="s1">&#39;db.auto_vacuum_scale_factor&#39;</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="concepts">
+<h2>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">getconf</span></code> relies on a few key concepts:</p>
+<dl class="docutils">
+<dt><strong>namespace</strong></dt>
+<dd><p class="first">Each <code class="docutils literal"><span class="pre">ConfigGetter</span></code> works within a specific namespace (its first argument).</p>
+<p class="last">Its goal is to avoid mistakes while reading the environment:
+with <code class="docutils literal"><span class="pre">ConfigGetter(namespace='myproj')</span></code>, only environment variables
+beginning with <code class="docutils literal"><span class="pre">MYPROJ_</span></code> will be read</p>
+</dd>
+<dt><strong>Sections</strong></dt>
+<dd><p class="first">The configuration options for a project often grow quite a lot;
+to restrict complexity, <code class="docutils literal"><span class="pre">getconf</span></code> splits values into sections,
+similar to Python&#8217;s <code class="docutils literal"><span class="pre">configparser</span></code> module.</p>
+<p>Section are handled differently depending on the actual configuration
+source:</p>
+<ul class="last simple">
+<li><code class="docutils literal"><span class="pre">section.key</span></code> is mapped to <code class="docutils literal"><span class="pre">MYPROJ_SECTION_KEY</span></code> for environment variables</li>
+<li><code class="docutils literal"><span class="pre">section.key</span></code> is mapped to <code class="docutils literal"><span class="pre">[section]</span> <span class="pre">key</span> <span class="pre">=</span></code> in configuration files</li>
+<li><code class="docutils literal"><span class="pre">section.key</span></code> is mapped to <code class="docutils literal"><span class="pre">defaults['section']['key']</span></code> in the defaults dict.</li>
+</ul>
+</dd>
+<dt><strong>Default section</strong></dt>
+<dd><p class="first">Some settings are actually &#8220;globals&#8221; for a projet.
+This is handled by unset section names:</p>
+<ul class="last simple">
+<li><code class="docutils literal"><span class="pre">key</span></code> is mapped to <code class="docutils literal"><span class="pre">MYPROJ_KEY</span></code> for environment variables</li>
+<li><code class="docutils literal"><span class="pre">key</span></code> is mapped to <code class="docutils literal"><span class="pre">[DEFAULT]</span> <span class="pre">key</span> <span class="pre">=</span></code> in configuration files</li>
+<li><code class="docutils literal"><span class="pre">key</span></code> is mapped to <code class="docutils literal"><span class="pre">defaults['DEFAULT']['key']</span></code> in the defaults dict.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="contents">
+<h2>Contents:<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">getconf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#the-configgetter-class">The <code class="docutils literal"><span class="pre">ConfigGetter</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#recommanded-layout">Recommanded layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#defaults">Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#configuration-files-in-a-folder">Configuration files in a folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#precedency">Precedency</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="goals.html">Goals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="goals.html#the-problem">The problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="goals.html#the-approach">The approach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="goals.html#other-options">Other options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">ChangeLog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">1.5.1 (2016-12-15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">1.5.0 (2016-05-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">1.4.1 (2015-08-28)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">1.4.0 (2015-08-27)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id5">1.3.0 (2015-04-14)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id6">1.2.1 (2014-10-24)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id7">1.2.0 (2014-10-20)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id8">1.1.0 (2014-08-18)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id9">1.0.1 (2014-04-13)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id10">1.0.0 (2014-04-12)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="reference.html" class="btn btn-neutral float-right" title="Reference" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Polyconseil.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.5.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

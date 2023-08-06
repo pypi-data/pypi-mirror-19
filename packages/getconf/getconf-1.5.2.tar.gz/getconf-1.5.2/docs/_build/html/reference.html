@@ -1,0 +1,421 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Reference &mdash; getconf 1.5.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="getconf 1.5.1 documentation" href="index.html"/>
+        <link rel="next" title="Advanced use" href="advanced.html"/>
+        <link rel="prev" title="getconf" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> getconf
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">getconf</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-configgetter-class">The <code class="docutils literal"><span class="pre">ConfigGetter</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goals.html">Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">ChangeLog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">getconf</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Reference</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/reference.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-getconf">
+<span id="reference"></span><h1>Reference<a class="headerlink" href="#module-getconf" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-configgetter-class">
+<h2>The <code class="docutils literal"><span class="pre">ConfigGetter</span></code> class<a class="headerlink" href="#the-configgetter-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="getconf.ConfigGetter">
+<em class="property">class </em><code class="descclassname">getconf.</code><code class="descname">ConfigGetter</code><span class="sig-paren">(</span><em>namespace, config_files=[config_file_path, ...], defaults={'section':{'key': 'value', ...}, ...}</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/getconf/base.html#ConfigGetter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#getconf.ConfigGetter" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class works as a proxy around both <code class="xref py py-attr docutils literal"><span class="pre">os.environ</span></code> and INI configuration files.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>namespace</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The namespace for all configuration entry lookups.
+If an environment variable of <code class="docutils literal"><span class="pre">&lt;NAMESPACE&gt;_CONFIG</span></code> is set, the file at that path
+will be loaded.</li>
+<li><strong>config_files</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><em>list</em></a>) &#8211; List of ini-style configuration files to use.
+Each item may either be the path to a simple file, or to a directory
+(if the path ends with a &#8216;/&#8217;) or a glob pattern (which will select all the files
+matching the pattern according to the rules used by the shell).
+Each directory path will be replaced by the list of
+its directly contained files, in alphabetical order, excluding those whose name
+starts with a &#8216;.&#8217;.
+Provided configuration files are read in the order their name was provided,
+each overriding the next ones&#8217; values. <code class="docutils literal"><span class="pre">&lt;NAMESPACE&gt;_CONFIG</span></code> takes precedence over
+all <code class="docutils literal"><span class="pre">config_files</span></code> contents.</li>
+<li><strong>defaults</strong> (<a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)"><em>dict</em></a>) &#8211; Dictionary of defaults values that are fetch with the lowest priority.
+The value for &#8216;section.key&#8217; will be looked up at <code class="docutils literal"><span class="pre">defaults['section']['key']</span></code>.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="getconf.ConfigGetter.getstr">
+<code class="descname">getstr</code><span class="sig-paren">(</span><em>key</em><span class="optional">[</span>, <em>default=''</em><span class="optional">]</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/getconf/base.html#ConfigGetter.getstr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#getconf.ConfigGetter.getstr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a key from available environments.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The name of the field to use.</li>
+<li><strong>default</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The default value (string) for the field; optional</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The <code class="docutils literal"><span class="pre">key</span></code> param accepts two formats:</p>
+<ul class="last simple">
+<li><code class="docutils literal"><span class="pre">'foo.bar'</span></code>, mapped to section <code class="docutils literal"><span class="pre">'foo'</span></code>, key <code class="docutils literal"><span class="pre">'bar'</span></code></li>
+<li><code class="docutils literal"><span class="pre">'foo'</span></code>, mapped to section <code class="docutils literal"><span class="pre">''</span></code>, key <code class="docutils literal"><span class="pre">'bar'</span></code></li>
+</ul>
+</div>
+<p>This looks, in order, at:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">&lt;NAMESPACE&gt;_&lt;SECTION&gt;_&lt;KEY&gt;</span></code> if <code class="docutils literal"><span class="pre">section</span></code> is set, <code class="docutils literal"><span class="pre">&lt;NAMESPACE&gt;_&lt;KEY&gt;</span></code> otherwise</li>
+<li>The <code class="docutils literal"><span class="pre">&lt;key&gt;</span></code> entry of the <code class="docutils literal"><span class="pre">&lt;section&gt;</span></code> section of the file given in <code class="docutils literal"><span class="pre">&lt;NAMESPACE&gt;_CONFIG</span></code></li>
+<li>The <code class="docutils literal"><span class="pre">&lt;key&gt;</span></code> entry of the <code class="docutils literal"><span class="pre">&lt;section&gt;</span></code> section of each file given in <code class="docutils literal"><span class="pre">config_files</span></code></li>
+<li>The <code class="docutils literal"><span class="pre">default</span></code> value</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="getconf.ConfigGetter.getlist">
+<code class="descname">getlist</code><span class="sig-paren">(</span><em>key</em><span class="optional">[</span>, <em>default=()</em><span class="optional">]</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/getconf/base.html#ConfigGetter.getlist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#getconf.ConfigGetter.getlist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a key from available configuration sources, and parse it as a list.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The default value has the same syntax as expected values, e.g <code class="docutils literal"><span class="pre">foo,bar,baz</span></code>.
+It is <strong>not</strong> a list.</p>
+</div>
+<p>It splits the value on commas, and return stripped non-empty values:</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;foo,bar, baz,,&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">getter</span><span class="o">.</span><span class="n">getlist</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="go">[&#39;foo&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">getter</span><span class="o">.</span><span class="n">getlist</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="go">[&#39;foo&#39;, &#39;bar&#39;, &#39;baz&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="getconf.ConfigGetter.getbool">
+<code class="descname">getbool</code><span class="sig-paren">(</span><em>key</em><span class="optional">[</span>, <em>default=False</em><span class="optional">]</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/getconf/base.html#ConfigGetter.getbool"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#getconf.ConfigGetter.getbool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a key from available configuration sources, and parse it as a boolean.</p>
+<p>The following values are considered as <code class="docutils literal"><span class="pre">True</span></code> : <code class="docutils literal"><span class="pre">'on'</span></code>, <code class="docutils literal"><span class="pre">'yes'</span></code>, <code class="docutils literal"><span class="pre">'true'</span></code>, <code class="docutils literal"><span class="pre">'1'</span></code>.
+Case variations of those values also count as <code class="docutils literal"><span class="pre">True</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="getconf.ConfigGetter.getint">
+<code class="descname">getint</code><span class="sig-paren">(</span><em>key</em><span class="optional">[</span>, <em>default=0</em><span class="optional">]</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/getconf/base.html#ConfigGetter.getint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#getconf.ConfigGetter.getint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a key from available configuration sources, and parse it as an integer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="getconf.ConfigGetter.getfloat">
+<code class="descname">getfloat</code><span class="sig-paren">(</span><em>key</em><span class="optional">[</span>, <em>default=0.0</em><span class="optional">]</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/getconf/base.html#ConfigGetter.getfloat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#getconf.ConfigGetter.getfloat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a key from available configuration sources, and parse it as a floating point number.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="getconf.ConfigGetter.get_section">
+<code class="descname">get_section</code><span class="sig-paren">(</span><em>section_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/getconf/base.html#ConfigGetter.get_section"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#getconf.ConfigGetter.get_section" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a dict-like proxy over a configuration section.
+This is intended to avoid polluting <code class="docutils literal"><span class="pre">settings.py</span></code> with a bunch of
+<code class="docutils literal"><span class="pre">FOO</span> <span class="pre">=</span> <span class="pre">config.get('bar.foo');</span> <span class="pre">BAR</span> <span class="pre">=</span> <span class="pre">config.get('bar.bar')</span></code> commands.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The returned object only supports the <code class="docutils literal"><span class="pre">__getitem__</span></code> side of dicts
+(e.g. <code class="docutils literal"><span class="pre">section_config['foo']</span></code> will work, <code class="docutils literal"><span class="pre">'foo'</span> <span class="pre">in</span> <span class="pre">section_config</span></code> won&#8217;t)</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="getconf.ConfigGetter.get_ini_template">
+<code class="descname">get_ini_template</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/getconf/base.html#ConfigGetter.get_ini_template"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#getconf.ConfigGetter.get_ini_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return INI like commented content equivalent to the default values.</p>
+<p>For example:</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">getter</span><span class="o">.</span><span class="n">getlist</span><span class="p">(</span><span class="s1">&#39;section.bar&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">])</span>
+<span class="go">[&#39;a&#39;, &#39;b&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">getter</span><span class="o">.</span><span class="n">getbool</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;Set foo to True to enable the Truth&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">get_ini_template</span><span class="p">())</span>
+<span class="go">[DEFAULT]</span>
+<span class="go">; NAMESPACE_FOO - type=bool - Set foo to True to enable the Truth</span>
+<span class="go">;foo = on</span>
+
+<span class="go">[section]</span>
+<span class="go">; NAMESPACE_SECTION_BAR - type=list</span>
+<span class="go">;bar = a, b</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This template is generated based on the <cite>getxxxx</cite> calls performed on the
+ConfigGetter. If some calls are optional, the corresponding options might
+not be present in the <cite>get_ini_template</cite> return value.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>With the following setup:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># test_config.py</span>
+<span class="kn">import</span> <span class="nn">getconf</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">getconf</span><span class="o">.</span><span class="n">ConfigGetter</span><span class="p">(</span><span class="s1">&#39;getconf&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;/etc/getconf/example.ini&#39;</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Env: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">config</span><span class="o">.</span><span class="n">getstr</span><span class="p">(</span><span class="s1">&#39;env&#39;</span><span class="p">,</span> <span class="s1">&#39;dev&#39;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;DB: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">config</span><span class="o">.</span><span class="n">getstr</span><span class="p">(</span><span class="s1">&#39;db.host&#39;</span><span class="p">,</span> <span class="s1">&#39;localhost&#39;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Debug: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">config</span><span class="o">.</span><span class="n">getbool</span><span class="p">(</span><span class="s1">&#39;dev.debug&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="c1"># /etc/getconf/example.ini</span>
+<span class="k">[DEFAULT]</span>
+<span class="na">env</span> <span class="o">=</span> <span class="s">example</span>
+
+<span class="k">[db]</span>
+<span class="na">host</span> <span class="o">=</span> <span class="s">foo.example.net</span>
+</pre></div>
+</div>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="c1"># /etc/getconf/production.ini</span>
+<span class="k">[DEFAULT]</span>
+<span class="na">env</span> <span class="o">=</span> <span class="s">prod</span>
+
+<span class="k">[db]</span>
+<span class="na">host</span> <span class="o">=</span> <span class="s">prod.example.net</span>
+</pre></div>
+</div>
+<p>We get the following outputs:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># Default setup</span>
+$ python test_config.py
+Env: example
+DB: foo.example.net
+Debug: False
+
+<span class="c1"># Override &#39;env&#39;</span>
+$ <span class="nv">GETCONF_ENV</span><span class="o">=</span>alt python test_config.py
+Env: alt
+DB: foo.example.net
+Debug: False
+
+<span class="c1"># Override &#39;dev.debug&#39;</span>
+$ <span class="nv">GETCONF_DEV_DEBUG</span><span class="o">=</span>on python test_config.py
+Env: example
+DB: foo.example.net
+Debug: True
+
+<span class="c1"># Read from an alternate configuration file</span>
+$ <span class="nv">GETCONF_CONFIG</span><span class="o">=</span>/etc/getconf/production.ini python test_config.py
+Env: prod
+DB: prod.example.net
+Debug: False
+
+<span class="c1"># Mix it up</span>
+$ <span class="nv">GETCONF_DEV_DEBUG</span><span class="o">=</span>on <span class="nv">GETCONF_CONFIG</span><span class="o">=</span>/etc/getconf/production python test_config.py
+Env: prod
+DB: prod.example.net
+Debug: True
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="advanced.html" class="btn btn-neutral float-right" title="Advanced use" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="getconf" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Polyconseil.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.5.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
