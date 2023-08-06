@@ -1,0 +1,10 @@
+setup.py
+bin/pa-es-coupler.py
+ncc_pa_elasticsearch.egg-info/PKG-INFO
+ncc_pa_elasticsearch.egg-info/SOURCES.txt
+ncc_pa_elasticsearch.egg-info/dependency_links.txt
+ncc_pa_elasticsearch.egg-info/requires.txt
+ncc_pa_elasticsearch.egg-info/top_level.txt
+pa_elasticsearch/__init__.py
+pa_elasticsearch/coupler.py
+pa_elasticsearch/tagdb.py
