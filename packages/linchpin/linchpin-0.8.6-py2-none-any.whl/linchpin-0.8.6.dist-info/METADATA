@@ -1,0 +1,43 @@
+Metadata-Version: 2.0
+Name: linchpin
+Version: 0.8.6
+Summary: Ansible based multi cloud orchestrator
+Home-page: http://linch-pin.readthedocs.io/
+Author: samvaran kashyap rallabandi
+Author-email: samvaran.kashyap@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: Babel
+Requires-Dist: MarkupSafe
+Requires-Dist: ansible (==2.2.1)
+Requires-Dist: apache-libcloud (>=0.20.1)
+Requires-Dist: beaker-client (==23.3)
+Requires-Dist: boto (>=2.40.0)
+Requires-Dist: click
+Requires-Dist: coverage
+Requires-Dist: docutils
+Requires-Dist: enum34 (>=1.1.6)
+Requires-Dist: functools32
+Requires-Dist: idna (>=2.1)
+Requires-Dist: imagesize
+Requires-Dist: ipaddress (>=1.0.16)
+Requires-Dist: jinja2 (==2.8)
+Requires-Dist: jsonschema (>=2.5.1)
+Requires-Dist: mock
+Requires-Dist: ndg-httpsclient
+Requires-Dist: nose
+Requires-Dist: pyasn1 (>=0.1.9)
+Requires-Dist: pycparser (>=2.14)
+Requires-Dist: pyopenssl
+Requires-Dist: python-openstackclient
+Requires-Dist: pytz
+Requires-Dist: setuptools (>=17.1)
+Requires-Dist: shade (>=1.9.0)
+Requires-Dist: six (>=1.10.0)
+Requires-Dist: sphinx (>=1.4.4)
+Requires-Dist: sphinx-rtd-theme
+Requires-Dist: tabulate
+
+UNKNOWN
+
+
