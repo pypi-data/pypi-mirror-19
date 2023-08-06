@@ -1,0 +1,21 @@
+[![Build Status](https://travis-ci.org/ttoleung/HKO-python.svg?branch=master)](https://travis-ci.org/ttoleung/HKO-python)
+
+# hkobservatory
+Return a weather object based on weather reported by HK Observatory
+
+# Quick Start Guide
+
+~~~python
+import hkop
+
+hko = hkop.HKO()
+print ("The weather today is %s" % hko.weather)
+~~~
+
+produce the following result:
+
+~~~
+The weather today is light shower
+~~~
+
+
