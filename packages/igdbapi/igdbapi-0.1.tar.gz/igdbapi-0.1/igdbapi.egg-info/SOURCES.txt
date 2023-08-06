@@ -1,0 +1,13 @@
+setup.cfg
+setup.py
+igdbapi/__init__.py
+igdbapi/core.py
+igdbapi/decorators.py
+igdbapi/errors.py
+igdbapi/games.py
+igdbapi.egg-info/PKG-INFO
+igdbapi.egg-info/SOURCES.txt
+igdbapi.egg-info/dependency_links.txt
+igdbapi.egg-info/not-zip-safe
+igdbapi.egg-info/requires.txt
+igdbapi.egg-info/top_level.txt
