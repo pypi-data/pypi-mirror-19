@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{package_name}}</title>
+    </head>
+    <body>
+        <h1>{{package_name}}</h1>
+        <p>Generated on {{date}}.</p>
+        <ul>
+            {% for version in versions %}
+                <li><a href="{{version.url}}">{{version.filename}}</a></li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
