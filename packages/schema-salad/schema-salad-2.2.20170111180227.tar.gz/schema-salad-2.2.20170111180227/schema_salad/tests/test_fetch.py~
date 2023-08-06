@@ -1,0 +1,13 @@
+import unittest
+import schema_salad.ref_resolver
+import schema_salad.main
+import schema_salad.schema
+from schema_salad.jsonld_context import makerdf
+from pkg_resources import Requirement, resource_filename, ResolutionError  # type: ignore
+import rdflib
+import ruamel.yaml as yaml
+import json
+import os
+
+class TestFetcher(unittest.TestCase):
+    def test_schemas(self):
