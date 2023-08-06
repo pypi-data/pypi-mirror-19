@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+README.rst
+requirements.txt
+setup.py
+webkin/__init__.py
+webkin/config.py
+webkin/scaffold.py
+webkin/send_email.py
+webkin/webkin.py
+webkin.egg-info/PKG-INFO
+webkin.egg-info/SOURCES.txt
+webkin.egg-info/dependency_links.txt
+webkin.egg-info/entry_points.txt
+webkin.egg-info/requires.txt
+webkin.egg-info/top_level.txt
