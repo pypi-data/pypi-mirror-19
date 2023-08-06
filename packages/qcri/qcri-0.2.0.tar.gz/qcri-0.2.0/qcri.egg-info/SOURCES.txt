@@ -1,0 +1,17 @@
+setup.py
+qcri/__init__.py
+qcri/main.py
+qcri.egg-info/PKG-INFO
+qcri.egg-info/SOURCES.txt
+qcri.egg-info/dependency_links.txt
+qcri.egg-info/entry_points.txt
+qcri.egg-info/requires.txt
+qcri.egg-info/top_level.txt
+qcri/application/__init__.py
+qcri/application/gui.py
+qcri/application/importer.py
+qcri/application/qualitycenter.py
+qcri/parsers/__init__.py
+qcri/parsers/robotframework.py
+qcri/parsers/seleniumtestresults.py
+qcri/parsers/uftrunreport.py
