@@ -1,0 +1,3 @@
+[console_scripts]
+queue_bqsr_status = queue_bqsr_status.__main__:main
+
