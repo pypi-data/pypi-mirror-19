@@ -1,0 +1,12 @@
+MANIFEST.in
+setup.cfg
+setup.py
+versioneer.py
+ultrachronic/__init__.py
+ultrachronic/_version.py
+ultrachronic/ultrachronic.py
+ultrachronic.egg-info/PKG-INFO
+ultrachronic.egg-info/SOURCES.txt
+ultrachronic.egg-info/dependency_links.txt
+ultrachronic.egg-info/requires.txt
+ultrachronic.egg-info/top_level.txt
