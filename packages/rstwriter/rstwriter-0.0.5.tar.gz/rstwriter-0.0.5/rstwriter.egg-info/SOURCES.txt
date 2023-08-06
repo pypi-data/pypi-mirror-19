@@ -1,0 +1,11 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+rstwriter/__init__.py
+rstwriter/rstwriter.py
+rstwriter.egg-info/PKG-INFO
+rstwriter.egg-info/SOURCES.txt
+rstwriter.egg-info/dependency_links.txt
+rstwriter.egg-info/requires.txt
+rstwriter.egg-info/top_level.txt
