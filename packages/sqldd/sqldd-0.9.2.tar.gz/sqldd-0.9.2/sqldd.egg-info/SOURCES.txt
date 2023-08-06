@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+bin/sqldd
+sql_data_dependency/__init__.py
+sql_data_dependency/sqldd.py
+sqldd.egg-info/PKG-INFO
+sqldd.egg-info/SOURCES.txt
+sqldd.egg-info/dependency_links.txt
+sqldd.egg-info/not-zip-safe
+sqldd.egg-info/requires.txt
+sqldd.egg-info/top_level.txt
