@@ -1,0 +1,16 @@
+README.rst
+setup.py
+SyGMa.egg-info/PKG-INFO
+SyGMa.egg-info/SOURCES.txt
+SyGMa.egg-info/dependency_links.txt
+SyGMa.egg-info/entry_points.txt
+SyGMa.egg-info/requires.txt
+SyGMa.egg-info/top_level.txt
+sygma/__init__.py
+sygma/ruleset.py
+sygma/scenario.py
+sygma/tree.py
+sygma/treenode.py
+sygma/rules/phase1.txt
+sygma/rules/phase2.txt
+sygma/script/__init__.py
