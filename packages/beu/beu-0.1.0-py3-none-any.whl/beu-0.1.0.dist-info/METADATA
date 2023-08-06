@@ -1,0 +1,28 @@
+Metadata-Version: 2.0
+Name: beu
+Version: 0.1.0
+Summary: Beginner Express .:. Back End .:. Big Example .:. Brainstorm Effectively
+Home-page: https://github.com/kenjyco/beu
+Author: Ken
+Author-email: kenjyco@gmail.com
+License: MIT
+Download-URL: https://github.com/kenjyco/beu/tarball/v0.1.0
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Intended Audience :: Developers
+Requires-Dist: beautifulsoup4 (==4.5.1)
+Requires-Dist: click
+Requires-Dist: input-helper
+Requires-Dist: lxml (==3.7.2)
+Requires-Dist: mocp
+Requires-Dist: redis-helper
+Requires-Dist: requests (==2.12.4)
+Requires-Dist: youtube-dl
+
+UNKNOWN
+
+
