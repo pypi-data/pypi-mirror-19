@@ -1,0 +1,51 @@
+Metadata-Version: 2.0
+Name: python-kingbirdclient
+Version: 0.1.0
+Summary: Python client for Kingbird
+Home-page: http://www.openstack.org/
+Author: OpenStack
+Author-email: openstack-dev@lists.openstack.org
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: PyYAML (>=3.10.0)
+Requires-Dist: cliff (>=2.3.0)
+Requires-Dist: osc-lib (>=1.2.0)
+Requires-Dist: osprofiler (>=1.4.0)
+Requires-Dist: pbr (>=1.8)
+Requires-Dist: python-keystoneclient (>=3.8.0)
+Requires-Dist: requests (!=2.12.2,>=2.10.0)
+Requires-Dist: six (>=1.9.0)
+
+===============================
+python-kingbirdclient
+===============================
+
+Python client for Kingbird
+
+This is a client library for Kingbird built on the Kingbird API. It
+provides a Python API (the ``kingbirdclient`` module) and a command-line tool
+(``kingbird``).
+
+* Free software: Apache license
+* Documentation: http://docs.openstack.org/developer/python-kingbirdclient
+* Source: http://git.openstack.org/cgit/openstack/python-kingbirdclient
+* Bugs: http://bugs.launchpad.net/python-kingbirdclient
+
+Features
+--------
+
+* TODO
+
+
+
