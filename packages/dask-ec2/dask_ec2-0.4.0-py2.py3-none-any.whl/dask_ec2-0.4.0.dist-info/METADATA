@@ -1,0 +1,18 @@
+Metadata-Version: 2.0
+Name: dask-ec2
+Version: 0.4.0
+Summary: Dask EC2
+Home-page: https://github.com/dask/dask-ec2
+Author: Daniel Rodriguez
+Author-email: UNKNOWN
+License: Apache 2.0
+Platform: UNKNOWN
+Requires-Dist: boto3
+Requires-Dist: click
+Requires-Dist: paramiko
+Requires-Dist: pyyaml
+Requires-Dist: six
+
+Dask EC2
+
+
