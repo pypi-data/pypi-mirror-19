@@ -1,0 +1,15 @@
+# pyDownloader
+
+## Description
+
+The pyDownloader module was designed to download files via every known protocols and usable by other python 
+modules / applications. A usage example is someone want's to create a web page where he inputs a URL and let a machine
+handle the download to a storage array.
+
+Everyone is free to participate on this module's development.
+
+## Implemented modules
+- HTTP
+- HTTPS
+- SFTP
+- FTP
