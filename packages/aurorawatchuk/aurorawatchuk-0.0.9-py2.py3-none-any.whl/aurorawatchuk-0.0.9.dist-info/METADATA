@@ -1,0 +1,48 @@
+Metadata-Version: 2.0
+Name: aurorawatchuk
+Version: 0.0.9
+Summary: Python interface to the AuroraWatch UK API.
+Home-page: https://github.com/stevemarple/python-aurorawatchuk
+Author: Steve Marple
+Author-email: s.marple@lancaster.ac.uk
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: atomiccreate
+Requires-Dist: lxml
+Requires-Dist: requests
+Requires-Dist: six
+
+aurorawatchuk
+=============
+
+Python interface to the AuroraWatch UK API.
+
+
+
+
+
+Credits
+=======
+
+"aurorawatchuk" is written and maintained by Steve Marple.
+
+
+Contributors
+------------
+
+Please append your name here when you submit your first pull request.
+
+
