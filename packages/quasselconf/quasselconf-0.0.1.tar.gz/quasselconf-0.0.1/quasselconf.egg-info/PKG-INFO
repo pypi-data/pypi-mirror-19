@@ -1,0 +1,90 @@
+Metadata-Version: 1.1
+Name: quasselconf
+Version: 0.0.1
+Summary: Tool to read and write quassel configuration files.
+Home-page: https://gitlab.com/TC01/quasselconf/
+Author: Ben Rosser
+Author-email: rosser.bjr@gmail.com
+License: MIT
+Description: # quasselconf
+        
+        This is a simple Python 3 application that uses PyQt5 to read (and, in the future, write)
+        Quassel configuration files.
+        
+        Quassel stores QVariants encoded as a string / bytestream in its configuration files, most
+        notably to store the database connection data. As a result, this information can only
+        be accessed and modified by quassel itself. This program is an attempt to make reading
+        and modifying those files much easier.
+        
+        Currently, all this program does is dump the specified quassel config file to terminal
+        with all QVariants (or other objects) replaced by their string representation. That
+        translates the following configuration file:
+        
+        ```
+        [Config]
+        Version=1
+        
+        [Core]
+        CoreState=@Variant(\0\0\0\b\0\0\0\x2\0\0\0 \0\x43\0o\0r\0\x65\0S\0t\0\x61\0t\0\x65\0V\0\x65\0r\0s\0i\0o\0n\0\0\0\x2\0\0\0\x1\0\0\0\x1c\0\x41\0\x63\0t\0i\0v\0\x65\0S\0\x65\0s\0s\0i\0o\0n\0s\0\0\0\t\0\0\0\x1\0\0\0\x7f\0\0\0\aUserId\0\0\0\0\x1)
+        StorageSettings=@Variant(\0\0\0\b\0\0\0\x1\0\0\0\xe\0\x42\0\x61\0\x63\0k\0\x65\0n\0\x64\0\0\0\n\0\0\0\f\0S\0Q\0L\0i\0t\0\x65)
+        ```
+        
+        To the much more human-friendly output of:
+        
+        ```
+        [Config]
+        Version=1
+        
+        [Core]
+        CoreState={}
+        StorageSettings={'Backend': 'SQLite'}
+        ```
+        
+        ## Installation
+        
+        quasselconf can be installed as a Python module. It only has one external dependency,
+        which is PyQt5.
+        
+        On systems with pip, it can be installed as follows:
+        
+        ```
+        pip install quasselconf
+        ```
+        
+        ## Usage
+        
+        quasselconf's command line interface is currently extremely primitive (as is the tool itself).
+        It currently takes two arguments:
+        
+        * ```-c [/path/to/config/dir```: Much like quassel itself, you can specify the location of the
+        quassel configuration directory. *Unlike* quassel, the default is assumed to be /var/lib/quassel,
+        as that is usually where core configuration is to be found on most (Linux) systems.
+        
+        * ```-t [core|client|mono]```: With this flag, you can specify which quassel config file will
+        be read. The default is "core". ("mono" refers to the monolithic client with configuration file
+        quassel.conf). 
+        
+        The specified config file will be parsed and printed to standard output. In the future,
+        quasselconf will probably support reading in a human readable configuration file from
+        standard input and write the correct form to standard output.
+        
+        ## Credits / License
+        
+        quasselconf was developed by Ben Rosser and is released under the MIT license.
+        
+Keywords: quassel irc
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: Internet
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
