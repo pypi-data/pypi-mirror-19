@@ -1,0 +1,6 @@
+*.sw*
+*.pyc*
+*.egg-info
+.cache
+prof
+.coverage
