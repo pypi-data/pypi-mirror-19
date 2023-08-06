@@ -1,0 +1,3 @@
+[console_scripts]
+aws-console = aws_console.main:main
+
