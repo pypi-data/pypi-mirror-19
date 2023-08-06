@@ -1,0 +1,12 @@
+README.rst
+setup.cfg
+setup.py
+DStore_MySQL.egg-info/PKG-INFO
+DStore_MySQL.egg-info/SOURCES.txt
+DStore_MySQL.egg-info/dependency_links.txt
+DStore_MySQL.egg-info/not-zip-safe
+DStore_MySQL.egg-info/requires.txt
+DStore_MySQL.egg-info/top_level.txt
+dstore_mysql/MySQLStore.py
+dstore_mysql/SQL.py
+dstore_mysql/__init__.py
