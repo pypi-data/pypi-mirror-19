@@ -1,0 +1,49 @@
+AMEBA: Advanced MEtabolic Branchpoint Analysis
+Copyright 2012 Rene Rex (r.rex@tu-bs.de)
+Licensed under the terms of the GNU General Public License 
+
+Installation
+------------
+
+ 1. Install the following packages using the package manager of your
+    distribution - e.g. under Debian/Ubuntu:
+    sudo apt-get install gcc python2.7 python2.7-dev python-pip python-numpy libgraphviz-dev graphviz
+    
+    Please note that AMEBA requires at least Python in version 2.7 to work properly.
+
+ 2. Download (http://metano.tu-bs.de) and install metano:
+    sudo pip install metano-*.tar.gz
+    Note: If you intend to use all features of metano (e.g. flux balance
+    analysis), you need to follow the installation instructions of metano.
+
+ 3. Download (http://metano.tu-bs.de/ameba) and install AMEBA:
+    sudo pip install ameba-*.tar.gz
+
+
+Usage
+-----
+
+For an explanation of all command line options type:
+ameba -h
+
+A working example can be found in the ameba example folder in the dist-packages
+location of your python installation. In the case of Ubuntu 12.04 this is:
+
+/usr/local/lib/python2.7/dist-packages/ameba/example/
+
+Alternatively, you can find the examples in the ameba archive file (under
+src/example).
+
+The example folder contains the reaction file (rea_Ecoli_iAF1260_bigg.txt) of
+the iAF1260 model of E. coli (Feist et al, 2007) and the corresponding parameter
+file for an aerobic glucose scenario (para_Ecoli_iAF1260_bigg.txt) in the metano
+format. Furthermore, we provide a precomputed solution calculated by the FBA
+implementation of metano (flux__Ecoli_iAF1260_bigg.txt). The file bpa.ini
+contains display options for ameba, which you may want to adjusted to your
+needs. After changing to the example folder AMEBA can be started at the node of
+the metabolite chorismate by typing:
+
+ameba -r rea_Ecoli_iAF1260_bigg.txt -s flux__Ecoli_iAF1260_bigg.txt -c bpa.ini -n chorismate[C_c]
+
+Now, you can navigate through the metabolic network by clicking on any node in the GUI.
+

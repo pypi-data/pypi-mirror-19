@@ -1,0 +1,17 @@
+README
+setup.py
+ameba.egg-info/PKG-INFO
+ameba.egg-info/SOURCES.txt
+ameba.egg-info/dependency_links.txt
+ameba.egg-info/entry_points.txt
+ameba.egg-info/requires.txt
+ameba.egg-info/top_level.txt
+src/__init__.py
+src/ameba.py
+src/gpl.txt
+src/xdot.py
+src/example/bpa.ini
+src/example/example.sh
+src/example/flux__Ecoli_iAF1260_bigg.txt
+src/example/para_Ecoli_iAF1260_bigg.txt
+src/example/rea_Ecoli_iAF1260_bigg.txt
