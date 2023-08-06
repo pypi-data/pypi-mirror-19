@@ -1,0 +1,39 @@
+Metadata-Version: 1.0
+Name: mirte
+Version: 0.1.8
+Summary: Runtime module framework
+Home-page: http://github.com/bwesterb/mirte/
+Author: Bas Westerbaan
+Author-email: bas@westerbaan.name
+License: UNKNOWN
+Description: mirte
+        =====
+        
+        ``mirte`` is a runtime module framework for Python --- it allows you to write
+        your application in modules and knit them together at runtime.
+        
+        Installation
+        ------------
+        
+        ::
+        
+            $ pip install mirte
+        
+        
+        mirte Changelog
+        ===============
+        
+        0.1.8 (2017-01-29)
+        ------------------
+        
+        - Python 3 support
+        - PEP8
+        
+        
+        0.1.7 (2016-07-17)
+        ------------------
+        
+        - Use zest.releaser
+        - Add stub README
+        
+Platform: UNKNOWN
