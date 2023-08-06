@@ -1,0 +1,43 @@
+Metadata-Version: 1.1
+Name: gopher
+Version: 0.1.4
+Summary: Download randomized gopher image (png) from gopherize.me
+Home-page: https://github.com/taxpon/gopher
+Author: Takuro Wada
+Author-email: taxpon@gmail.com
+License: MIT
+Description: Gopher
+        ======
+        
+        Download randomly generated gopher image from `gopherize.me <https://gopherize.me>`_.
+        
+        Install
+        -------
+        .. code-block:: bash
+        
+            pip install gopher
+        
+        
+        Usage
+        -----
+        
+        .. code-block:: bash
+        
+            Usage: gopher.py [OPTIONS]
+        
+            Options:
+              -o, --output TEXT  Output file name (png).
+              -w, --overwrite    Overwrite if the same name file already exists.
+              --help             Show this message and exit.
+        
+        
+        LICENSE
+        -------
+        MIT
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: Topic :: Utilities
+Classifier: Environment :: Console
