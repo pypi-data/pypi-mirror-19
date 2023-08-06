@@ -1,0 +1,9 @@
+[console_scripts]
+vci = vcs_extras.vci:main
+
+[vcs_extras.vci.commands]
+add = vcs_extras.vci.commands.add:description
+del = vcs_extras.vci.commands.del:description
+find = vcs_extras.vci.commands.find:description
+list = vcs_extras.vci.commands.list:description
+
