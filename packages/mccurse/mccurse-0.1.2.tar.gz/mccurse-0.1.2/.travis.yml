@@ -1,0 +1,11 @@
+# Travis CI configuration file
+language: python
+python:
+    - "3.5"
+# Cannot use [test], pyfakefs not yet released…
+install: "pip install -r requirements.txt; pip install -e ."
+script: "pytest"
+branches:
+    except:
+        # disable branches beginning with 'draft-
+        - /^draft-/
