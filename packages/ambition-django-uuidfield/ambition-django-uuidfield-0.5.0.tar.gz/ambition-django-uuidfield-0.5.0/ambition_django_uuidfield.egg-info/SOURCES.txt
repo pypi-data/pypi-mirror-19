@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+ambition_django_uuidfield.egg-info/PKG-INFO
+ambition_django_uuidfield.egg-info/SOURCES.txt
+ambition_django_uuidfield.egg-info/dependency_links.txt
+ambition_django_uuidfield.egg-info/not-zip-safe
+ambition_django_uuidfield.egg-info/pbr.json
+ambition_django_uuidfield.egg-info/requires.txt
+ambition_django_uuidfield.egg-info/top_level.txt
+uuidfield/__init__.py
+uuidfield/fields.py
+uuidfield/models.py
+uuidfield/tests/__init__.py
+uuidfield/tests/models.py
+uuidfield/tests/tests.py
