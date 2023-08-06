@@ -1,0 +1,166 @@
+Metadata-Version: 1.1
+Name: challenge.uccs
+Version: 1.0.0a0
+Summary: Running baseline experiments and evaluations for the IJCB 2017 UCCS challenge
+Home-page: https://bitbucket.org/vastlab/challenge.uccs
+Author: Manuel Gunther
+Author-email: siebenkopf@googlemail.com
+License: BSD
+Description: UCCS Face Detection and Recognition Challenge
+        =============================================
+        
+        This package implements the baseline algorithms and evaluation for part 2 and 3 of the face recognition challenge.
+        This package relies on the signal processing and machine learning library Bob_.
+        For installation instructions and requirements of Bob_, please refer to the Bob_ web page.
+        
+        .. note::
+           Due to limitations of Bob_, this package will run only under Linux and MacOS operating systems.
+           Particularly, it will not work under any version of Microsoft Windows, and maybe not under some other exotic operating systems.
+           If you experience problems with the installation, we would suggest to run the experiments in a virtual environment, e.g., using `Oracle's VirtualBox`_.
+           On request, we will generate a virtual image with this package pre-installed.
+        
+        
+        Dataset
+        -------
+        
+        This package does not include the original image and protocol files for the competition.
+        Please register on the `Competition web page <http://...>`__ and download the UCCS dataset from there.
+        
+        
+        Installation
+        ------------
+        
+        The installation of this package follows the Buildout_ structure.
+        After installing Bob_ and extracting this package, please run the following command lines to install this package:
+        
+          $ python bootstrap-buildout.py
+          ...
+          $ ./bin/buildout
+          ...
+        
+        The installation procedure automatically generates executable files inside the ``bin`` directory, which can be used to run the baseline algorithms or to evaluate the baselines (and your) algorithm.
+        
+        Running the Baselines
+        ---------------------
+        
+        There are two scripts to run the baseline, one for each part.
+        
+        Face Detection
+        ~~~~~~~~~~~~~~
+        
+        The first script is a face detection script, which will detect the faces in the validation (and test) set.
+        The baseline face detector simply uses Bob_'s built-in face detector `bob.ip.facedetect`_, which is neither optimized for blurry faces nor for profiles.
+        
+        You can call the face detector baseline script using:
+        
+          $ ./bin/baseline_detector.py
+        
+        Please refer to ``$ ./bin/baseline_detector.py -h`` for possible options.
+        Here is a subset of options that you might want/need to use/change:
+        
+          ``--data-directory``: Specify the directory, where you have downloaded the UCCS dataset into
+        
+          ``--result-file``: The file to write the detection results into; this will be in the required format
+        
+          ``--verbose``: Increase the verbosity of the script; using ``--verbose --verbose`` or ``-vv`` is recommended; ``-vvv`` will write more information
+        
+          ``--debug``: Run only over the specified number of images; for debug purposes only
+        
+          ``--display``: Display the detected bounding boxes and the ground truth; for debug purposes only
+        
+          ``--parallel``: Run in the given number of parallel processes; can speed up the processing tremendously
+        
+        On a machine with 32 cores, a good command line for the full baseline experiment would be:
+        
+          $ ./bin/baseline_detector.py --data-directory YOUR-DATA-DIRECTORY -vv --parallel 32
+        
+        To run a small-scale experiment, i.e., to display the detected faces on 20 images, a good command line might be:
+        
+          $ ./bin/baseline_detector.py --data-directory YOUR-DATA-DIRECTORY -vvv --display --debug 20
+        
+        .. note::
+           The ``--display`` option requires Matplotlib_ to be installed and set up properly.
+           Display does not work properly in parallel mode.
+        
+        Face Recognition
+        ~~~~~~~~~~~~~~~~
+        
+        For face recognition, we simply adopt a PCA+LDA pipeline on top of LBPHS features.
+        The PCA+LDA projection matrix is estimated from the faces in the training set.
+        For each person, the images of the training set build one class.
+        Open-set recognition is performed by using all training faces of unknown identities in a separate class.
+        
+        First, the faces in the training images are re-detected, to assure that the bounding boxes of training and test images have similar content.
+        Then, the faces are rescaled and cropped to a resolution of 64x80 pixels.
+        Afterwards, LPBHS features are extracted from these images, and a PCA+LDA projection matrix is computed.
+        All training features are projected into the PCA+LDA subspace.
+        For each identity (including the unknown identity ``-1``), the average of the projected features is stored as a template.
+        
+        During testing, in each image all faces are detected, cropped, and LBPHS features are extracted.
+        Those probe features are projected into the same PCA+LDA subspace, and compared to all templates using Euclidean distance.
+        For each detected face, the 10 identities with the smallest distances are obtained -- if identity ``-1`` is included, all less similar images are not considered anymore.
+        These scores are written into the score file in the desired format.
+        
+        You can call the face recognition baseline script using:
+        
+          $ ./bin/baseline_recognizer.py
+        
+        Please refer to ``$ ./bin/baseline_recognizer.py -h`` for possible options.
+        Here is a subset of options that you might want/need to use/change:
+        
+          ``--data-directory``: Specify the directory, where you have downloaded the UCCS dataset into
+        
+          ``--result-file``: The file to write the recognition results into; this will be in the required format
+        
+          ``--verbose``: Increase the verbosity of the script; using ``--verbose --verbose`` or ``-vv`` is recommended; ``-vvv`` will write more information
+        
+          ``--temp-dir``: Specify the directory, where temporary files are stored; these files will be computed only once and reloaded if present
+        
+          ``--force``: Ignore existing temporary files and always recompute everything
+        
+          ``--debug``: Run only over the specified number of identities; for debug purposes only; will modify file names of temporary files and result file
+        
+          ``--display``: Display the detected bounding boxes and the ground truth; for debug purposes only
+        
+          ``--parallel``: Run in the given number of parallel processes; can speed up the processing tremendously
+        
+        On a machine with 32 cores, a good command line would be:
+        
+          $ ./bin/baseline_recognizer.py --data-directory YOUR-DATA-DIRECTORY -vv --parallel 32
+        
+        .. warning::
+           The processing, particularly the face detection, will take a long runtime.
+           Even with 32 parallel processes, several hours of processing will be required.
+        
+        .. note::
+           During training image detection, you will observe several warnings of faces not being detected.
+           This is normal as the face detector was designed to detect frontal faces only.
+        
+        Evaluation
+        ----------
+        
+        The provided evaluation scripts will be usable to evaluate the validation set only, not the test set.
+        You can use the evaluation scripts for two purposes:
+        
+        1. To plot the baseline results in comparison to your results.
+        2. To make sure that your score file is in the desired format.
+        
+        If you are unable to run the baseline experiments on your machine, we provide the score files for the validation set on the `competition website`_.
+        
+        
+        
+        
+        .. _bob: http://www.idiap.ch/software/bob
+        .. _oracle's virtualbox: https://www.virtualbox.org
+        .. _matplotlib: http://matplotlib.org
+        .. _buildout: http://www.buildout.org
+        .. _bob.ip.facedetect: http:/pythonhosted.org/bob.ip.facedetect
+        .. _competition website: http://vast.uccs.edu/Opensetface
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
