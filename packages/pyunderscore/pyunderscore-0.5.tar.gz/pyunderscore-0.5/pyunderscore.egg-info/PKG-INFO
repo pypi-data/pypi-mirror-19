@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: pyunderscore
+Version: 0.5
+Summary: Python port of underscore.js library
+Home-page: https://github.com/ankitml/underscore
+Author: Ankit Mittal
+Author-email: ankitml@gmail.com
+License: MIT License
+Description: Underscore is a python library that provides a whole mess of useful functional programming helpers without extending any built-in objects. 
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
