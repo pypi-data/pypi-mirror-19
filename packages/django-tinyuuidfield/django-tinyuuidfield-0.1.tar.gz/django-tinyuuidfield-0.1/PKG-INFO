@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: django-tinyuuidfield
+Version: 0.1
+Summary: Tiny UUIDField for Django. In case you want unique uuid for urls. Flexible length.
+Home-page: https://github.com/martsime/django-tinyuuidfield
+Author: Martin Simensen
+Author-email: simensen94@gmail.com
+License: BSD licence, see LICENCE file
+Description: Tiny UUIDField for Django. In case you want unique uuid for urls. Flexible length.
+Platform: UNKNOWN
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
