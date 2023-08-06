@@ -1,0 +1,14 @@
+# Testing
+green
+coverage
+flake8
+check-manifest
+
+# Upload to PyPi
+wheel
+twine
+bumpversion
+
+# Documentation
+Sphinx
+sphinx_rtd_theme
