@@ -1,0 +1,4 @@
+[console_scripts]
+pylm-registry = pylm.registry.application:main
+pylm-runner = pylm.registry.runner:main
+
