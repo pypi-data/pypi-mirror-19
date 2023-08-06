@@ -1,0 +1,59 @@
+build: off
+
+environment:
+  matrix:
+    - PYTHON_VERSION: 2.7
+      MINICONDA: C:\Miniconda
+      PYTHON_ARCH: "32"
+    - PYTHON_VERSION: 2.7
+      MINICONDA: C:\Miniconda-x64
+      PYTHON_ARCH: "64"
+    - PYTHON_VERSION: 3.4
+      MINICONDA: C:\Miniconda3
+      PYTHON_ARCH: "32"
+    - PYTHON_VERSION: 3.4
+      MINICONDA: C:\Miniconda3-x64
+      PYTHON_ARCH: "64"
+    - PYTHON_VERSION: 3.5
+      MINICONDA: C:\Miniconda35
+      PYTHON_ARCH: "32"
+    - PYTHON_VERSION: 3.5
+      MINICONDA: C:\Miniconda35-x64
+      PYTHON_ARCH: "64"
+
+
+init:
+  - "ECHO %PYTHON_VERSION% %MINICONDA%"
+
+install:
+  - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%"
+  - conda config --set always_yes yes --set changeps1 no
+  - conda update -q conda
+  - conda info -a
+  - conda install --yes conda-build
+  - conda config --add channels https://conda.anaconda.org/omnia
+  - conda config --add channels https://conda.anaconda.org/qttesting
+  - "conda create -q -n test-environment python=%PYTHON_VERSION% numpy scipy algopy pytest pyqt=4 matplotlib pip"
+
+  - activate test-environment
+  - pip install coverage
+  - pip install hypothesis
+  - python setup.py install
+
+test_script:
+  - coverage run --source=numdifftools setup.py test
+
+after_test:
+  # If tests are successful, create binary packages for the project.
+  - python setup.py bdist_wheel"
+  - python setup.py bdist_wininst"
+  # - python setup.py bdist_msi"
+  - ps: "ls dist"
+
+artifacts:
+  # Archive the generated packages in the ci.appveyor.com build report.
+  - path: dist\*
+
+#on_success:
+#  - TODO: upload the content of dist/*.whl to a public wheelhouse
+#
