@@ -1,0 +1,1 @@
+from . solr import Recipe
