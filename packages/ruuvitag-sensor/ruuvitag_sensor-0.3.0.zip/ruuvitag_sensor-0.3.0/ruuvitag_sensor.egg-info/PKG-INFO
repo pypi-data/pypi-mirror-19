@@ -1,0 +1,185 @@
+Metadata-Version: 1.1
+Name: ruuvitag-sensor
+Version: 0.3.0
+Summary: Find RuuviTag sensor beacons and get data from selected sensor and decode data from eddystone url
+Home-page: https://github.com/ttu/ruuvitag-sensor
+Author: Tomi Tuhkanen
+Author-email: tomi.tuhkanen@iki.fi
+License: MIT
+Download-URL: https://github.com/ttu/ruuvitag-sensor/tarball/0.3.0
+Description: RuuviTag Sensor Python Package
+        ==============================
+        
+        |Codeship Status for ttu/ruuvitag-sensor|
+        
+        RuuviTag Sensor is a Python library for communicating with `RuuviTag BLE
+        Sensor Beacon <http://ruuvitag.com/>`__ and for decoding sensord data
+        from broadcasted eddystone-url.
+        
+        Requirements
+        ~~~~~~~~~~~~
+        
+        -  RuuviTag with Weather Station firmware
+        
+           -  Setup `guide <https://ruu.vi/setup/>`__
+        
+        -  Python 2.7 and 3
+        -  Linux
+        
+           -  Package's Windows and OSX supports are only for testing and url
+              decoding
+        
+        -  Bluez
+        
+           -  ``sudo apt-get install bluez bluez-hcidump``
+        
+        -  Superuser rights
+        
+           -  Package uses internally hciconf, hcitool and hcidump, which
+              require superuser rights
+        
+        Installation
+        ~~~~~~~~~~~~
+        
+        Install latest released version
+        
+        .. code:: sh
+        
+            $ pip install ruuvitag_sensor
+        
+        Install latest developement version
+        
+        .. code:: sh
+        
+            $ pip install git+https://github.com/ttu/ruuvitag-sensor
+            # Or clone this repository and install locally
+            $ pip install -e .
+        
+        Usage
+        ~~~~~
+        
+        RuuviTag sensors can be identified using MAC addresses.
+        
+        Find sensors
+        ''''''''''''
+        
+        .. code:: python
+        
+            from ruuvitag_sensor.ruuvi import RuuviTagSensor
+        
+            sensors = RuuviTagSensor.find_ruuvitags()
+            # find_ruuvitags function will print the mac address and the state of a sensor when it is found
+            # find_ruuvitags function returns same information in a dictionary
+        
+        Get data from sensor
+        ''''''''''''''''''''
+        
+        .. code:: python
+        
+            from ruuvitag_sensor.ruuvi import RuuviTagSensor
+        
+            sensor = RuuviTagSensor('AA:2C:6A:1E:59:3D')
+        
+            # update state from the device
+            state = sensor.update()
+        
+            # get latest state (does not get it from the device)
+            state = sensor.state
+        
+            print(state)
+        
+        Get data for specified sensors
+        ''''''''''''''''''''''''''''''
+        
+        .. code:: python
+        
+            from ruuvitag_sensor.ruuvi import RuuviTagSensor
+        
+            # List of macs of sensors which data will be collected
+            macs = ['AA:2C:6A:1E:59:3D', 'CC:2C:6A:1E:59:3D']
+            # get_data_for_sensors will look data for the duration of timeout_in_sec
+            timeout_in_sec = 4
+        
+            datas = RuuviTagSensor.get_data_for_sensors(macs, timeout_in_sec)
+        
+            # Dictionary will have lates data for each sensor
+            print(datas['AA:2C:6A:1E:59:3D'])
+            print(datas['CC:2C:6A:1E:59:3D'])
+        
+        Parse data
+        ''''''''''
+        
+        .. code:: python
+        
+            from ruuvitag_sensor.ruuvi import RuuviTagSensor
+            from ruuvitag_sensor.url_decoder import UrlDecoder
+        
+            full_data = '043E2A0201030157168974A5F41E0201060303AAFE1616AAFE10EE037275752E76692341412C3E672B49246AB9'
+            data = full_data[26:]
+        
+            encoded = RuuviTagSensor.convert_data(data)
+        
+            sensor_data = UrlDecoder().decode_data(encoded)
+        
+            print(sensor_data)
+        
+        Command line
+        ''''''''''''
+        
+        ::
+        
+            $ python ruuvitag_sensor -h
+        
+            usage: ruuvitag_sensor [-h] [-g MAC_ADDRESS] [-f] [--version]
+        
+            optional arguments:
+              -h, --help            show this help message and exit
+              -g MAC_ADDRESS, --get MAC_ADDRESS
+                                    Get data
+              -f, --find            Find broadcasting RuuviTags
+              --version             show program's version number and exit
+        
+        Tests
+        -----
+        
+        Tests use unittest.mock library, so Python 3.3. or newer is required.
+        
+        Run with nosetests
+        
+        .. code:: sh
+        
+            $ pip install nose
+            $ nosetests
+        
+        Run with setup
+        
+        .. code:: sh
+        
+            $ python setup.py test
+        
+        Examples
+        --------
+        
+        Examples are in examples directory.
+        
+        Change log
+        ----------
+        
+        `Change Log <CHANGELOG.md>`__
+        
+        License
+        -------
+        
+        Licensed under the `MIT <LICENSE>`__ License.
+        
+        .. |Codeship Status for ttu/ruuvitag-sensor| image:: https://codeship.com/projects/5d8139b0-52ae-0134-2889-02adab5d782c/status?branch=master
+           :target: https://codeship.com/projects/171611
+        
+Keywords: RuuviTag BLE
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
