@@ -1,0 +1,10 @@
+MANIFEST.in
+README.md
+setup.py
+rasplivestation/__init__.py
+rasplivestation/clienttoRasp.py
+rasplivestation/livestreamerLaunching.py
+rasplivestation.egg-info/PKG-INFO
+rasplivestation.egg-info/SOURCES.txt
+rasplivestation.egg-info/dependency_links.txt
+rasplivestation.egg-info/top_level.txt
