@@ -1,0 +1,10 @@
+How to use?
+===========
+
+
+You can import ``lodash`` from ``js.lodash`` and ``need`` it where you want
+these resources to be included on a page::
+
+  >>> from js.lodash import lodash
+  >>> lodash.need()
+
