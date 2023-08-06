@@ -1,0 +1,27 @@
+Metadata-Version: 2.0
+Name: quickplots
+Version: 2.1.0
+Summary: A simple plotting library
+Home-page: https://quickplots.readthedocs.io
+Author: Sam Ireland
+Author-email: mail@samireland.com
+License: MIT
+Keywords: charts graphs data
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.0
+Classifier: Programming Language :: Python :: 3.1
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: numerus
+Requires-Dist: omnicanvas (>=0.3)
+
+An object-oriented plotting library for Python, with simplicity as its principal aim.
+
+
