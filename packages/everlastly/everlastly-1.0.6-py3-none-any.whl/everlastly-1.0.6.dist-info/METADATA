@@ -1,0 +1,20 @@
+Metadata-Version: 2.0
+Name: everlastly
+Version: 1.0.6
+Summary: Everlastly API wrapper
+Home-page: https://github.com/Everlastly-team/python
+Author: Emelyanenko Kirill
+Author-email: kirill@everlastly.com
+License: MIT
+Keywords: everlastly blockchain notarization
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: requests
+
+Wrapper for Everlastly API. Allows to create trusted timestamp for any data. Async version in async_everlastly module.
+
+
