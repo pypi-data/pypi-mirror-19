@@ -1,0 +1,3 @@
+[console_scripts]
+repovise = repovisor.__main__:main
+
