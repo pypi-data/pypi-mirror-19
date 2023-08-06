@@ -1,0 +1,56 @@
+/* TOC */
+
+.toctitle {
+  text-align: center;
+  width: 100%;
+  font-weight: bolder;
+}
+
+.toc {
+  border: 1px solid #aaa;
+  background-color: #f9f9f9;
+  display: table;
+  padding: 7px;
+  padding-right: 20px;
+  margin-bottom: 10px;
+}
+
+.toc ol ol {
+  padding-left: 15px;
+}
+
+/* Article contents */
+
+.article-contents th {
+  background-color: #F2F2F2;
+}
+
+.article-contents td, th, thead {
+  padding: 5px;
+  border: 1px solid #000;
+}
+
+th {
+  text-align: left;
+}
+
+.article-contents table {
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+/* Delete page */
+
+.article-delete-warning {
+  margin-bottom: 5px !important;
+}
+
+/* Search pages */
+
+.highlighted {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f8f2f4;
+  border-radius: 4px;
+}

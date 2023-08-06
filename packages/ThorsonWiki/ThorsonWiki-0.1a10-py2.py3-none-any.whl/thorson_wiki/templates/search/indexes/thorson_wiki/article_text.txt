@@ -1,0 +1,5 @@
+{% load wikitags %}
+
+{{ object.title }}
+
+{{ object.content|markdown:object.namespace }} 

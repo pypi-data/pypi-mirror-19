@@ -1,0 +1,49 @@
+{% load i18n %}
+
+<div class="row tab-row">
+  <div class="col-md-6 col-md-offset-3">
+    <ul class="nav nav-pills" role="tablist">
+      <li role="presentation" class="active">
+        <a href="#standard"
+           class="form-tabs"
+           aria-controls="standard"
+           role="tab"
+           data-toggle="tab">
+          {% trans "Normal article" %}
+        </a>
+      </li>
+      <li role="presentation">
+        <a href="#redirect"
+           class="form-tabs"
+           aria-controls="redirect"
+           role="tab"
+           data-toggle="tab">
+          {%trans "Redirect" %}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+{% include "thorson_wiki/_text_field.html" with field=form.title %}
+{% include "thorson_wiki/_text_field.html" with field=form.namespace %}
+
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="standard">
+{% include "thorson_wiki/_text_field.html" with field=form.content %}
+{% include "thorson_wiki/_text_field.html" with field=form.read_permissions %}
+{% include "thorson_wiki/_text_field.html" with field=form.edit_permissions %}
+{% include "thorson_wiki/_check_field.html" with field=form.public %}
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="redirect">
+{% include "thorson_wiki/_text_field.html" with field=form.redirect %}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <button type="submit" class="btn btn-primary pull-right">
+      {% trans "Submit" %}
+    </button>
+  </div>
+</div>
