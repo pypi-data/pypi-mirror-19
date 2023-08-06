@@ -1,0 +1,5 @@
+#!python
+
+import clashchimeras.find
+
+clashchimeras.find.main()

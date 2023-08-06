@@ -1,0 +1,5 @@
+#!python
+
+import clashchimeras.align
+
+clashchimeras.align.main()

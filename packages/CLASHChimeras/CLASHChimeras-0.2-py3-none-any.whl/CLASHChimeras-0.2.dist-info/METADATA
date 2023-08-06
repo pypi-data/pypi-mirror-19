@@ -1,0 +1,36 @@
+Metadata-Version: 2.0
+Name: CLASHChimeras
+Version: 0.2
+Summary: Python package to find chimeras in CRAC/CLASH and HITS-CLIP datasets
+Home-page: https://github.com/kashyapchhatbar/CLASHChimeras
+Author: Kashyap Chhatbar
+Author-email: kashyap.c@ed.ac.uk
+License: MIT
+Keywords: clash chimeras hybrids hits-clip bioinformatics
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Dist: alabaster
+Requires-Dist: ansicolors (>=1.0.2)
+Requires-Dist: beautifulsoup4 (>=4.3.2)
+Requires-Dist: biopython (>=1.65)
+Requires-Dist: coloredlogs (>=1.0.1)
+Requires-Dist: ftputil (>=2.2)
+Requires-Dist: pandas (>=0.16)
+Requires-Dist: progress (>=1.2)
+Requires-Dist: pyfaidx (>=0.3.4)
+Requires-Dist: requests (>=2.7.0)
+Requires-Dist: sphinx-argparse
+Requires-Dist: tabulate (>=0.7.5)
+
+UNKNOWN
+
+
