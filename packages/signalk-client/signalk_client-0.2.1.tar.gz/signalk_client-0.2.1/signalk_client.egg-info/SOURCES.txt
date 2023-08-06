@@ -1,0 +1,17 @@
+setup.py
+signalk_client/__init__.py
+signalk_client/client.py
+signalk_client/data.py
+signalk_client/datum.py
+signalk_client/vessel.py
+signalk_client/zeroconf.py
+signalk_client.egg-info/PKG-INFO
+signalk_client.egg-info/SOURCES.txt
+signalk_client.egg-info/dependency_links.txt
+signalk_client.egg-info/requires.txt
+signalk_client.egg-info/top_level.txt
+signalk_client/include/meta.json
+tests/__init__.py
+tests/data.py
+tests/datum.py
+tests/vessel.py
