@@ -1,0 +1,24 @@
+CHANGES
+=======
+
+0.0.7
+-----
+
+* Make sure we support Tempest 12.0.0 tag still
+
+0.0.6
+-----
+
+* Incrementing semver to 0.0.6 for next release
+* Adding support for Tempest tag 12.0.0 as well as >=12.1.0 until we deprecate use of 12.0.0
+* Slight changes based on review
+* Adding Test for SignUp
+
+0.0.5
+-----
+
+* Add requirement for an 'admin' role to bypass email and get tokens
+* Import more tempest.lib, remove NYI tests
+* Updating readme and renaming main class
+* Invite user implemented
+* Tempest cookiecutter plugin - Initial commit
