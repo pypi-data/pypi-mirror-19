@@ -1,0 +1,3 @@
+[console_scripts]
+dothub = dothub.__main__:main
+
