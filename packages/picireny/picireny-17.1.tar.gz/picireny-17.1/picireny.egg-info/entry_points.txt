@@ -1,0 +1,4 @@
+[console_scripts]
+picireny = picireny.cli:execute
+picireny-install-antlr4 = picireny.antlr4.install:execute
+
