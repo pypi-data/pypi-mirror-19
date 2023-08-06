@@ -1,0 +1,47 @@
+Metadata-Version: 1.1
+Name: drf-coupons
+Version: 1.0
+Summary: A django-rest-framework application that provides many varieties of coupons
+Home-page: https://github.com/pstrinkle/drf-coupons
+Author: Patrick Trinkle
+Author-email: patrick@1shoe.net
+License: Apache 2.0
+Description: 
+        DRF Coupons
+        -----------
+        
+        A django-rest-framework application that provides many varieties of coupons
+        
+        Detailed documentation is in the README.md file.
+        
+        Quick start
+        -----------
+        
+        1. Add "coupons" to your INSTALLED_APPS setting like this::
+        
+            INSTALLED_APPS = [
+                ...
+                'coupons',
+            ]
+        
+        2. Include the coupons URLconf in your project urls.py like this::
+        
+            url(r'^', include('coupons.urls')),
+        
+        3. Run ``python manage.py migrate`` to create the polls models.
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
