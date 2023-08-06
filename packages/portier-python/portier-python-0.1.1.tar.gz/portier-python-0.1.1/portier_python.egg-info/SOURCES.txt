@@ -1,0 +1,16 @@
+CHANGELOG.rst
+CONTRIBUTORS.rst
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+tox.ini
+portier/__init__.py
+portier/client.py
+portier/utils.py
+portier_python.egg-info/PKG-INFO
+portier_python.egg-info/SOURCES.txt
+portier_python.egg-info/dependency_links.txt
+portier_python.egg-info/not-zip-safe
+portier_python.egg-info/requires.txt
+portier_python.egg-info/top_level.txt
