@@ -1,0 +1,33 @@
+Metadata-Version: 1.1
+Name: pytivity
+Version: 0.0.3
+Summary: Pytivity is a python3 command line manager for your KDE activities.
+Home-page: https://github.com/Ovvovy/pytivity
+Author: Quentin Dawans <python@quentindawans.com>, 
+Author-email: python@quentindawans.com
+License: MIT
+Description: # Pytivity
+        
+        Pytivity is a python3 command line manager for your KDE activities.
+        
+        ## Basic usage
+        
+        It enables you to easily create, update, delete, start, stop or activate an activity from the command line.
+        
+        ```bash
+        pytivity create/update/delete/start/stop/activate {name}
+        ```
+        
+        You can also set commands to be run when an activity get started, stopped, activated or deactivated.
+        
+        ```bash
+        pytivity create {name} --activated {command} --deactivated {command} --started {command} --stopped {command}
+        ```
+        
+Keywords: kde,activity
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Environment :: Console
