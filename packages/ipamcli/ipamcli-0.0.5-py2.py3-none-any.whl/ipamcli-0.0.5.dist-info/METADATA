@@ -1,0 +1,50 @@
+Metadata-Version: 2.0
+Name: ipamcli
+Version: 0.0.5
+Summary: Command line interface to NOC IPAM module.
+Home-page: https://github.com/verdel/ipamcli
+Author: Vadim Aleksandrov
+Author-email: valeksandrov@me.com
+License: MIT
+Keywords: ipamcli
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: PyYAML
+Requires-Dist: click
+Requires-Dist: netaddr
+Requires-Dist: requests (>=2.0)
+Requires-Dist: tabulate
+Provides-Extra: test
+Requires-Dist: responses; extra == 'test'
+
+===============================
+NOC IPAM CLI
+===============================
+
+It is a simple NOC IPAM CLI HTTP client that uses Python requests module. 
+
+Features
+--------
+
+Usage
+-----
+
+
+
+History
+-------
+
+ (2016-06-02)
+---------------------
+
+* Development Started.
+

@@ -1,0 +1,17 @@
+ipamcli/__init__.py,sha256=fUTSxicQqYmfIIQBibHtyMD4JRtCe4eRB1BFaDkzPjU,66
+ipamcli/cli.py,sha256=PFbOMFp2J75bylqVP-VZjUJf_PC7jvwR2ihqKwWBTSk,1951
+ipamcli/commands/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ipamcli/commands/cmd_add.py,sha256=0zwfbU07zhv9nUHw_eU75LhS53Ql07F0J4VwSjmEd7o,3470
+ipamcli/commands/cmd_edit.py,sha256=fGC4D-tY-l5bPdU4KNUj_Gdvqxt90PhUiEfAgQG0vdQ,3874
+ipamcli/commands/cmd_multiadd.py,sha256=v1jZD1YVpaxkF20pCjGxvAERoGqbv-YGIFtOxsoJpEA,2565
+ipamcli/commands/cmd_remove.py,sha256=QwaJ0zPjOMuMXf4A8Wwf4bIGJATMhK0i-e8E1mhuTqg,3324
+ipamcli/commands/cmd_search.py,sha256=4E8gAq1pyATdlIvKd6Q3O_I8VM4e6XRSe7ZxU3zod00,5353
+ipamcli/commands/cmd_show.py,sha256=ax-Mot3M4BtfH_CSpNlJy_qXTov5z0paXL7xwEBzRtU,2005
+ipamcli/commands/tools.py,sha256=r71aWrUoT5aOsfh9oGGDMFi8WLoIJKeRC4Ow3GXB2fQ,7154
+ipamcli-0.0.5.dist-info/DESCRIPTION.rst,sha256=YmnndXXvEhHZDGAkHXmo5bfWYbP8MHsm3r0pmdmEdm0,266
+ipamcli-0.0.5.dist-info/METADATA,sha256=O5AxiG8d-eTSlok7lmqzIsXSNvKTpG1FSxr7ZCwuIls,1188
+ipamcli-0.0.5.dist-info/RECORD,,
+ipamcli-0.0.5.dist-info/WHEEL,sha256=o2k-Qa-RMNIJmUdIc7KU6VWR_ErNRbWNlxDIpl7lm34,110
+ipamcli-0.0.5.dist-info/entry_points.txt,sha256=8PqcidjBN152RARexMltKEzaOClYGcxzoOIrHy0-Vpw,45
+ipamcli-0.0.5.dist-info/metadata.json,sha256=C2NVm2AjAMGQ3Msd8uq7t8qJ0LwB0noMkS-yQMgmygM,1159
+ipamcli-0.0.5.dist-info/top_level.txt,sha256=m8GO6nasBXt6FuttlwtE01U2bfee5cc5de71tKPf7Vk,8
