@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite name="nosetests" tests="1" errors="1" failures="0" skip="0"><testcase classname="nose.failure.Failure" name="runTest" time="0.001"><error type="exceptions.ImportError" message="No module named integration"><![CDATA[Traceback (most recent call last):
+  File "d:\python27\lib\unittest\case.py", line 329, in run
+    testMethod()
+  File "d:\python27\lib\site-packages\nose\loader.py", line 402, in loadTestsFromName
+    module = resolve_name(addr.module)
+  File "d:\python27\lib\site-packages\nose\util.py", line 311, in resolve_name
+    module = __import__('.'.join(parts_copy))
+ImportError: No module named integration
+]]></error></testcase></testsuite>
