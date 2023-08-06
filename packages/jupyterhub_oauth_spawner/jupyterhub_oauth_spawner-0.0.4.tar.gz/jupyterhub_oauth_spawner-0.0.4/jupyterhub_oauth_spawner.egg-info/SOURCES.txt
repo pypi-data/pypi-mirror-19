@@ -1,0 +1,10 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+jupyterhub_oauth_spawner/__version__.py
+jupyterhub_oauth_spawner/oauth_spawner.py
+jupyterhub_oauth_spawner.egg-info/PKG-INFO
+jupyterhub_oauth_spawner.egg-info/SOURCES.txt
+jupyterhub_oauth_spawner.egg-info/dependency_links.txt
+jupyterhub_oauth_spawner.egg-info/top_level.txt
