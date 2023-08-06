@@ -1,0 +1,22 @@
+bscearth.utils is a package with shared code and tools for various BSC-ES department projects.
+
+Get involved or contact us:
+
+    GitLab:	        https://earth.bsc.es/gitlab/ces/bscearth.utils
+    Mailing List:	ces@bsc.es
+
+
+HOW TO DEPLOY/SETUP
+===================
+
+- bscearth.utils has been tested:
+
+  with the following Operating Systems:
+   * Linux Debian
+   * Linux OpenSUSE
+
+- Install bscearth.utils
+   > pip install bscearth.utils
+  or download, unpack and "python setup.py install"
+
+Check the bscearth.utils documentation provided in the 'docs' folder of the package, in PDF format.
