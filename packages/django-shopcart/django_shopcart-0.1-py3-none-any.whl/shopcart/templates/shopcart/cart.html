@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CHECKOUT</title>
+</head>
+<body>
+    <p>Selected Items: </p>
+    {% for key, val in itemlist.items %}
+        {% if key != 'sum'%}
+        <p>{{ key }} -- {{ val }}</p>
+        {% endif %}
+    {% endfor %}
+
+    <h1>Total Amount payable: {{ itemlist.sum }}</h1>
+    <form action="{% url "shopcart:invoice"%}" method="post">
+        {% csrf_token %}
+        <!-- this input tag is hidden, cause I still have'nt figured out how to pass
+        the data from one non-form html page to another non-form html page -->
+        <input name="hidden_pay_amt" class="text" type="hidden" value="{{ itemlist.sum }}">
+        <input value="Generate Invoice" type="submit" class="text" name="">
+    </form>
+</body>
+</html>
