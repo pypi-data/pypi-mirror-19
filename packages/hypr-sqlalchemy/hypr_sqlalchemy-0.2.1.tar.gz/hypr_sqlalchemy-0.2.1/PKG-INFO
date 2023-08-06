@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: hypr_sqlalchemy
+Version: 0.2.1
+Summary: An extension to add supprt for SQLAlchemy to Hypr.
+Home-page: https://project-hypr.github.io/sqlalchemy
+Author: Morgan Delahaye-Prat
+Author-email: mdp@sillog.net
+License: BSD
+Description: UNKNOWN
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
