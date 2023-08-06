@@ -1,0 +1,12 @@
+.gitignore
+LICENSE
+README.rst
+setup.py
+cmpreqs/__init__.py
+cmpreqs/compare_requirements.py
+compare_requirements.egg-info/PKG-INFO
+compare_requirements.egg-info/SOURCES.txt
+compare_requirements.egg-info/dependency_links.txt
+compare_requirements.egg-info/not-zip-safe
+compare_requirements.egg-info/top_level.txt
+scripts/cmpreqs
