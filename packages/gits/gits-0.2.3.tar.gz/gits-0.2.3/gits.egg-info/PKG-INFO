@@ -1,0 +1,46 @@
+Metadata-Version: 1.0
+Name: gits
+Version: 0.2.3
+Summary: Gits package
+Home-page: https://github.com/Tolstoyevsky/gits.git
+Author: Evgeny Golyshev
+Author-email: Evgeny Golyshev <eugulixes@gmail.com>
+License: http://www.apache.org/licenses/LICENSE-2.0
+Description: |build| |pypi| |npm|
+        
+        Gits
+        ====
+        
+        Gits is a web-based terminal emulator. The project is based on
+        completely reworked source code of
+        `Ajaxterm <https://github.com/antonylesuisse/qweb/tree/master/ajaxterm>`__.
+        It understands only Linux console escape and control sequences so far.
+        The main goal of the project is to be used in
+        `OpenStack <https://openstack.org>`__ one day.
+        
+        Documentation
+        -------------
+        
+        Documentation and links to additional resources are available at
+        http://gits.readthedocs.io/en/latest/.
+        
+        Authors
+        -------
+        
+        See
+        `AUTHORS <https://github.com/tolstoyevsky/gits/blob/master/AUTHORS.md>`__.
+        
+        Licensing
+        ---------
+        
+        Gits is available under the `Apache License, Version
+        2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>`__.
+        
+        .. |build| image:: https://travis-ci.org/tolstoyevsky/gits.svg?branch=master
+           :target: https://travis-ci.org/tolstoyevsky/gits
+        .. |pypi| image:: https://badge.fury.io/py/gits.svg
+           :target: https://badge.fury.io/py/gits
+        .. |npm| image:: https://badge.fury.io/js/gits-client.svg
+           :target: https://badge.fury.io/js/gits-client
+        
+Platform: UNKNOWN
