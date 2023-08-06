@@ -1,0 +1,98 @@
+Metadata-Version: 1.1
+Name: jobarchitect
+Version: 0.1.0
+Summary: Tools for batching jobs and dealing with file paths
+Home-page: https://github.com/JIC-CSB/jobarchitect
+Author: Tjelvar Olsson
+Author-email: tjelvar.olsson@jic.ac.uk
+License: MIT
+Download-URL: https://github.com/JIC-CSB/jobarchitect/tarball/0.1.0
+Description: README
+        ======
+        
+        Overview
+        ~~~~~~~~
+        
+        This tool is intended to automate generation of scripts to run analysis on data sets. To use it, you will need a data set that has been created (or annotated) with `dtool <https://github.com/JIC-CSB/dtool>`_.
+        
+        Installation
+        ~~~~~~~~~~~~
+        
+        To install the jobarchitect package.
+        
+        .. code-block:: none
+        
+            $ cd jobarchitect
+            $ python setup.py install
+        
+        
+        Use
+        ~~~
+        
+        To generate bash scripts for data analysis, first create a job template, e.g.:
+        
+        .. code-block:: none
+        
+            $ echo "echo {input_file} > {output_file}" > job.tmpl
+        
+        Then an example dataset:
+        
+        .. code-block:: none
+        
+            $ datatool new dataset
+            project_name [project_name]:
+            dataset_name [dataset_name]: example_dataset
+            ...
+        
+            $ echo "My example data" > example_dataset/data/my_file.txt
+            $ datatool manifest update example_dataset/
+        
+        Create an output directory:
+        
+        .. code-block:: none
+        
+            $ mkdir output
+        
+        Then you can generate analysis run scripts with:
+        
+        .. code-block:: none
+        
+            $ sketchjob job.tmpl example_dataset/ output/
+            #!/bin/bash
+            _analyse_by_ids   --program_template="echo {input_file} > {output_file}"   --input_dataset_path=example_dataset/   --output_root=output/   e4c73fa7c34b76499ac13fc5c335fa007e9c3e8f
+        
+        Try the script with:
+        
+        .. code-block:: none
+        
+            $ sketchjob job.tmpl example_dataset/ output/ > run.sh
+            $ bash run.sh
+            $ cat output/my_file.txt
+            /Users/hartleym/scratch/example_dataset/data/my_file.txt
+        
+        Working with Docker
+        ~~~~~~~~~~~~~~~~~~~
+        
+        Building a Docker image
+        ^^^^^^^^^^^^^^^^^^^^^^^
+        
+        For the tests to pass, you will need to build an example Docker image, which you do with the provided script:
+        
+        .. code-block:: none
+        
+            $ bash build_docker_image.sh
+        
+        Running code with the Docker backend
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        
+        By inspecting the script and associcated Docker file, you can get an idea of how to build Docker images that can be used with the jobarchitect Docker backend, e.g:
+        
+        .. code-block:: none
+        
+            $ sketchjob job.tmpl example_dataset/ output/ --backend=docker --image-name=jicscicomp/jobarchitect
+        
+            #!/bin/bash
+            IMAGE_NAME=jicscicomp/jobarchitect
+            docker run    --rm    -v example_dataset/:/input_dataset:ro    -v output/:/output    $IMAGE_NAME    _analyse_by_ids      --program_template "echo {input_file} > {output_file}"      --input_dataset_path=/input_dataset      --output_root=/output      e4c73fa7c34b76499ac13fc5c335fa007e9c3e8f
+        
+Platform: UNKNOWN
