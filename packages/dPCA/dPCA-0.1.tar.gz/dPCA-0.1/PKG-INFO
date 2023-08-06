@@ -1,0 +1,13 @@
+Metadata-Version: 1.1
+Name: dPCA
+Version: 0.1
+Summary: Implements Demixed Principal Components Analysis
+Home-page: https://github.com/machenslab/dPCA/
+Author: Wieland Brendel
+Author-email: wieland.brendel@neuro.fchampalimaud.org
+License: MIT
+Download-URL: https://github.com/machenslab/dPCA/
+Description: Implements Demixed Principal Components Analysis
+Platform: UNKNOWN
+Requires: sklearn
+Requires: numexpr
