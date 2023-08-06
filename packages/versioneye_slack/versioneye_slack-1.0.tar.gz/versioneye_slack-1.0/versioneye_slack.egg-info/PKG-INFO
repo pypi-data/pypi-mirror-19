@@ -1,0 +1,29 @@
+Metadata-Version: 1.1
+Name: versioneye-slack
+Version: 1.0
+Summary: Send notifications from versioneye to slack channel Edit
+Home-page: https://github.com/Sharpek/versioneye-slack
+Author: Marcin Baran
+Author-email: sharpek@sharpek.net
+License: MIT
+Description: # versioneye-slack
+        Send notifications from versioneye to slack channel
+        
+        # How to use it:
+        
+        ```bash
+        versioneye_slack --versioneye-key={versioneye-key} --slack-channel="{publish channel}" --slack-hook='{registered slack hook url}'
+        ```
+        
+        To get slack hook url you have to visit: https://slack.com/apps/build and select Incoming WebHooks
+        
+Keywords: versioneye slack
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
