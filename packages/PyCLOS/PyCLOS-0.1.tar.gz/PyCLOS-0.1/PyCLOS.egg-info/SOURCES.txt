@@ -1,0 +1,17 @@
+MANIFEST.in
+README.rst
+setup.py
+PyCLOS.egg-info/PKG-INFO
+PyCLOS.egg-info/SOURCES.txt
+PyCLOS.egg-info/dependency_links.txt
+PyCLOS.egg-info/requires.txt
+PyCLOS.egg-info/top_level.txt
+PyCLOS.egg-info/zip-safe
+py_clos/__init__.py
+py_clos/base.py
+py_clos/cache.py
+py_clos/combinations.py
+py_clos/decorators.py
+py_clos/hy.hy
+py_clos/specializers.py
+py_clos/util.py
