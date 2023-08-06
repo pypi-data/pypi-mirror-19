@@ -1,0 +1,6 @@
+include README.rst
+recursive-include corlab_theme *.conf
+recursive-include corlab_theme *.html
+recursive-include corlab_theme *.css
+recursive-include corlab_theme *.svg
+recursive-include corlab_theme *.js
