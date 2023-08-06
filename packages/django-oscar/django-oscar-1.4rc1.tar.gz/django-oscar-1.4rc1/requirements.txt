@@ -1,0 +1,32 @@
+# These requirements are only necessary when developing on Oscar.
+
+# development
+Werkzeug==0.11.15
+django-debug-toolbar==1.6
+django-extensions==1.7.6
+
+# Sandbox
+Pillow==4.0.0
+Whoosh==2.7.4
+django-environ==0.4.1
+django-redis==4.7.0
+pysolr==3.6.0
+redis==2.10.5
+requests==2.13.0
+uWSGI==2.0.14
+whitenoise==3.3.0
+
+# Linting
+flake8==3.2.1
+flake8-debugger==1.4.0
+flake8-blind-except==0.1.1
+isort==4.2.5
+
+# Helpers
+pyprof2calltree==1.4.0
+ipdb==0.10.2
+ipython==5.2.2
+transifex-client==0.12.3
+
+# Country data
+pycountry==17.1.8
