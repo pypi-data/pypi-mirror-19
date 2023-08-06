@@ -1,0 +1,19 @@
+Metadata-Version: 2.0
+Name: listpad
+Version: 0.0.0
+Summary: Pad nested lists.
+Home-page: https://github.com/raviqqe/listpad/
+Author: Yota Toyama
+Author-email: raviqqe@gmail.com
+License: Public Domain
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: Public Domain
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Utilities
+
+# list-padder.py
+Padding library for nested lists
+
+
