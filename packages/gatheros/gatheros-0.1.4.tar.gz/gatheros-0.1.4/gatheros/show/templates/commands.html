@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<title> Commands </title>
+
+		<script type="text/javascript" src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+
+		<link title="no title" media="all" charset="utf-8" href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+	</head>
+
+
+
+	<body>
+
+		<h3 border="1"> {{ title }} </h3>
+		{% for comm in commList %}
+		<!-- Command ID: '{{ comm[0] }}' -->
+			{% if comm[1]['show'] %}
+
+				<div> {{ comm[1]['description'] }}</div> 
+
+				<table border="1" width="100%">
+				<tr>
+					<td>
+						<pre style="white-space: pre-wrap; word-wrap: break-word;">{{ comm[1]['command'] }}</pre>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+					{% if comm[1]['response'] %}
+					<pre class="collapse in" style="white-space: pre-wrap; word-wrap: break-word;">{{ comm[1]['response'] }}</pre>
+					{% endif %}
+					</td>
+				</tr>
+				</table>
+
+				<br><br>
+			{% endif %} {# ['show'] #}
+		{% endfor %}
+
+	</body>
+</html>
