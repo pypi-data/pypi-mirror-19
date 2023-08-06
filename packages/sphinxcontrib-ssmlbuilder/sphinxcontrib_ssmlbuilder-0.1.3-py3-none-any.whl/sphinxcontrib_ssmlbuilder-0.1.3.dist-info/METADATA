@@ -1,0 +1,30 @@
+Metadata-Version: 2.0
+Name: sphinxcontrib-ssmlbuilder
+Version: 0.1.3
+Summary: Sphinx "SSMLBuilder" extension
+Home-page: https://github.com/shibukawa/sphinxcontrib-ssmlbuilder
+Author: Yoshiki Shibukawa
+Author-email: yoshiki@shibu.jp
+License: BSD
+Download-URL: http://pypi.python.org/pypi/sphinxcontrib-ssmlbuilder
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Framework :: Sphinx :: Extension
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Documentation
+Classifier: Topic :: Utilities
+Requires-Dist: Sphinx (>=1.5)
+Requires-Dist: awscli (>=1.11.41)
+Requires-Dist: boto3 (>=1.4.4)
+
+
+This package contains the Amazon Polly adaptor Sphinx extension.
+
+This builder generates SSML files and kick AWS Polly API and creates MP3 files.
+
+
