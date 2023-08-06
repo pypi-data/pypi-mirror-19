@@ -1,0 +1,27 @@
+Metadata-Version: 2.0
+Name: kmers
+Version: 0.1.1
+Summary: Bioinformatic k-mer analysis
+Home-page: https://github.com/synedraacus/kmers
+Author: A.A. Morozov
+Author-email: morozov@lin.irk.ru
+License: MIT
+Keywords: bioinformatics kmers classification
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Dist: biopython
+
+Calculating k-mer distributions of (sets of) sequences, classifying sequences and calculating distances
+
+
