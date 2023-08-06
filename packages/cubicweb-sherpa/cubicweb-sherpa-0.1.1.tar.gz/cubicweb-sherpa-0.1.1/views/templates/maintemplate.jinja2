@@ -1,0 +1,73 @@
+<body>
+  <nav class="navbar navbar-default navbar-sherpa" role="banner">
+    <div class="container-fluid">
+      <div class="col-md-2 hidden-xs hidden-sm">
+        <a href="{{ base_url }}"><img src="{{ data_url }}images/logo_SIAF.png" class="logoSIAF" /></a>
+      </div>
+      <div class="col-md-7 col-xs-8">
+        <a href="/">
+          <div class="logoSHERPA">
+            <img src="{{ data_url }}images/logo_SHERPA_2.png" class="img-responsive"/>
+          </div>
+          <div class="textSHERPA">
+            <h1>Service H&eacute;berg&eacute; pour la R&eacute;daction de Profils d&#39;Archivage</h1>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-3 col-xs-4">
+        {{ right_header_component }}
+      </div>
+    </div>
+  </nav>
+  {% if breadcrumbs %}
+  <nav role="navigation" class="breadcrumbs_wrapper">
+    <div class="col-md-offset-2">
+      {{ breadcrumbs }}
+    </div>
+  </nav>
+  {% endif %}
+  <div id="{{page_id}}" class="container-fluid" role="main">
+    <aside id="aside-main-left" class="col-md-2 cwjs-aside">
+      <div class="panel panel-default contextFreeBox facet_filterbox" id="facet_filterbox">
+        <div class="panel-heading">
+          <div class="panel-title">Navigation</div>
+        </div>
+        <div class="panel-body">
+          <ul class="list-unstyled">
+            {% for page in side_box.navigation_Link %}
+            <li class="facetvalue"><a href='{{ page.url }}'> {{ page.label }}</a></li>
+            {% endfor %}
+            <hr />
+            {% for page in side_box.goTo_links %}
+            <li class="facetvalue"><a href='{{ page.url }}'> {{ page.label }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="panel panel-default contextFreeBox facet_filterbox" id="facet_filterbox">
+        <div class="panel-heading">
+          <div class="panel-title">Resources</div>
+        </div>
+        <div class="panel-body">
+          <ul class="list-unstyled">
+            {% for resource in side_box.resources %}
+            <li class="facetvalue"><a href='{{ resource.url }}'> {{ resource.label }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {{ left_boxes }}
+    </aside>
+    <div class="col-md-10 page-content">
+      {{ page_content }}
+    </div>
+  </div>
+  <div class="container-fluid">
+    <footer role="contentinfo" id="pagefooter">
+      <div id="copyright">
+        <span>{{ footer.copyright }}</span> |
+        <span><a href="{{ footer.contact.url }}">contact</a></span>
+      </div>
+    </footer>
+  </div>
+</body>

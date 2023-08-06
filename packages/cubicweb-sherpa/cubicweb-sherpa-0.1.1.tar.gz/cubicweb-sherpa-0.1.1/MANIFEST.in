@@ -1,0 +1,9 @@
+include *.py
+include */*.py
+include tox.ini
+include doc/Makefile doc/conf.py doc/*.rst
+include views/templates/*.jinja2
+recursive-include data *.gif *.png *.ico *.css *.js *.otf *.ttf *.txt
+recursive-include i18n *.po
+
+prune docker
