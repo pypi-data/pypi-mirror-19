@@ -1,0 +1,46 @@
+Metadata-Version: 1.1
+Name: pco-tools
+Version: 1.0.0
+Summary: A Python module for loading PCO CamWare images
+Home-page: https://github.com/henne-s/pco-tools
+Author: Hendrik Soehnholz
+Author-email: henne-s@gmx.de
+License: Apache 2.0
+Description: 
+        PCO Tools
+        =========
+        
+        A Python module to read images that have been recorded using a PCO camera and
+        the software PCO CamWare.
+        
+        Tested cameras
+        --------------
+        
+        * SensiCam qe
+        
+        The module should also work for other PCO cameras.
+        
+        Examples
+        --------
+        
+        Load an image and show it using matplotlib::
+        
+            from pco_tools import pco_reader as pco
+            import matplotlib.pyplot as plt
+            
+            img = pco.load('myimage.b16')
+            plt.imshow(img)
+        
+Keywords: pco camera image
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
