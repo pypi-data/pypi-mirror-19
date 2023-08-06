@@ -1,0 +1,62 @@
+Metadata-Version: 1.1
+Name: subfiles
+Version: 1.0.2
+Summary: A command line program to generate list of file subextensions.
+Home-page: https://github.com/mindey/subfiles
+Author: Mindey
+Author-email: mindey@qq.com
+License: UNLICENSE
+Description: .. image:: https://raw.githubusercontent.com/mindey/subfiles/master/misc/subfiles.png
+            :alt: Subfiles Illustration
+            :width: 100%
+            :align: center
+        
+        subfiles-cli
+        ============
+        
+        *A command line program to generate .subfiles*
+        
+        Purpose
+        -------
+        
+        Extracts file subtypes to create or append all found subtypes in a project
+        to a single file, e.g., .subfiles
+        
+        Usage
+        -----
+        
+        Set up::
+        
+            $ pip install subfiles
+        
+        In any project, or directory, run::
+        
+            $ subfiles init > .subfiles
+        
+        This will output ``.subfiles`` with all different file sub-extensions* in the project.
+        
+        * sub-extension: a file extension with a second dot, e.g. sub-extension of file:
+        ``hello.new.txt`` is ``.new.txt``.
+        
+        Development reminder
+        ====================
+        
+        To publish new version on PyPI::
+        
+            $ python setup.py sdist bdist_wheel
+            $ twine upload dist/*
+        
+Keywords: cli
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Utilities
+Classifier: License :: Public Domain
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
