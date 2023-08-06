@@ -1,0 +1,4 @@
+[console_scripts]
+kamaki = kamaki.cli:run_one_cmd
+kamaki-shell = kamaki.cli:run_shell
+
