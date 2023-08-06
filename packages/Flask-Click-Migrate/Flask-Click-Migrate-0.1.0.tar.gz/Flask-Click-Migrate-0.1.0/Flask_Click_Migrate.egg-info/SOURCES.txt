@@ -1,0 +1,13 @@
+setup.cfg
+setup.py
+Flask_Click_Migrate.egg-info/PKG-INFO
+Flask_Click_Migrate.egg-info/SOURCES.txt
+Flask_Click_Migrate.egg-info/dependency_links.txt
+Flask_Click_Migrate.egg-info/requires.txt
+Flask_Click_Migrate.egg-info/top_level.txt
+flask_click_migrate/__init__.py
+flask_click_migrate/commands.py
+flask_click_migrate/config.py
+flask_click_migrate/group.py
+flask_click_migrate/migrate.py
+flask_click_migrate/utils.py
