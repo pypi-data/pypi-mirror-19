@@ -1,0 +1,20 @@
+{% from 'macros.j2' import write_prefix_list %}
+
+# ---------------------------------------------------------
+# RPSL
+
+{% for as_set in as_sets %}
+# {{ as_set.name }}
+define AS_SET_{{ as_set.id }}_asns = [
+{{ "\t" -}}
+{%	for asn in as_set.asns %}
+{{-		asn -}}
+{%		if not loop.last %}, {% endif %}
+{%		if loop.index % 5 == 0 %}{{ "\n\t" }}{% endif %}
+{%	endfor %}
+
+];
+define AS_SET_{{ as_set.id }}_prefixes = [
+{{ write_prefix_list(as_set.prefixes, True) }}
+];
+{% endfor %}

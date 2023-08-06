@@ -1,0 +1,105 @@
+#!/usr/bin/env python
+
+# Copyright (C) 2017 Pier Carlo Chiodi
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import argparse
+import logging
+import sys
+
+from pierky.arouteserver.commands import *
+from pierky.arouteserver.errors import ARouteServerError
+from pierky.arouteserver.version import __version__, COPYRIGHT_YEAR
+
+def main():
+
+    parser = argparse.ArgumentParser(
+        description="A Router Server v{}: a tool to automatically "
+                    "build route servers configuration.".format(
+                        __version__
+                    ),
+        epilog="Copyright (c) {} - Pier Carlo Chiodi - "
+               "https://pierky.com".format(COPYRIGHT_YEAR)
+    )
+
+    subparsers = parser.add_subparsers(
+        title="commands",
+        help="Run 'arouteserver <command> -h' for more details.",
+        dest="command")
+    subparsers.required = True
+
+    sub_parser = subparsers.add_parser(
+        "setup",
+        help="Perform the setup of the system by copying "
+             "configuration files and templates in the proper "
+             "directories. Confirmation before each action will "
+             "be asked.")
+    SetupCommand.add_arguments(sub_parser)
+
+    sub_parser = subparsers.add_parser(
+        "build",
+        help="Build route server configuration.")
+
+    BuildCommand.add_arguments(sub_parser)
+
+    sub_parser = subparsers.add_parser(
+        "clients-from-peeringdb",
+        help="Build a list of clients and their AS-SET on the basis "
+             "of PeeringDB records.")
+
+    ClientsFromPeeringDBCommand.add_arguments(sub_parser)
+
+    sub_parser = subparsers.add_parser(
+        "init-scenario",
+        help="Initialize a new live test scenario by copying "
+             "files from the skeleton example.")
+
+    InitScenarioCommand.add_arguments(sub_parser)
+
+    args = parser.parse_args()
+
+    if args.command == "setup":
+        cmd_class = SetupCommand
+    elif args.command == "build":
+        cmd_class = BuildCommand
+    elif args.command == "clients-from-peeringdb":
+        cmd_class = ClientsFromPeeringDBCommand
+    elif args.command == "init-scenario":
+        cmd_class = InitScenarioCommand
+    else:
+        raise NotImplementedError("Command unknown: {}".format(args.command))
+
+    cmd = cmd_class(args)
+    return cmd.run()
+
+try:
+    if main():
+        sys.exit(0)
+    else:
+        sys.exit(1)
+except ARouteServerError as e:
+    if str(e):
+        logging.error("Error: {}".format(str(e)))
+    sys.exit(1)
+except Exception as e:
+    logging.error(
+        "An unexpected error occurred: {}\n"
+        "\n"
+        "Please consider reporting it here, "
+        "including the following traceback and some "
+        "hints on how to reproduce it: "
+        "https://github.com/pierky/arouteserver/issues\n\n".format(str(e)),
+        exc_info=True)
+    sys.exit(1)
