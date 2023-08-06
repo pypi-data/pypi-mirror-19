@@ -1,0 +1,10 @@
+Django>=1.8
+asgiref>=1.0.0
+daphne>=1.0.0
+
+[tests]
+coverage
+mock
+tox
+flake8>=2.0,<3.0
+isort
