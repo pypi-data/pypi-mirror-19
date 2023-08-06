@@ -1,0 +1,13 @@
+#
+# Playbook with personal customisations to the basic development environment.
+#
+---
+- include: workstation.yaml
+
+- name: Groot Workstation
+  hosts:
+    - localhost
+
+  roles:
+  - role: kubuntu
+  - role: groot/workstation

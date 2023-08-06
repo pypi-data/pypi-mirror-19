@@ -1,0 +1,23 @@
+#################################################################################################
+# Packages
+#################################################################################################
+
+language_packages    : [language-selector-gnome]
+
+# all except groot-eclipse-neon-amd64 - it's super slow
+snorriheim_packages  : [groot-eclipse-preferences, groot-icons,
+                        groot-mediterranean-themes, groot-wallpapers, python-ckx-tools,
+                        python-groot-tools, python-vci
+                        ]
+
+local_drive          : /mnt/mervin
+
+google_drive_path    : "{{ local_drive }}/drive"
+
+#################################################################################################
+# Worksapces
+#################################################################################################
+
+vci_path             : "{{ local_drive }}/workspaces"
+vci_index            : "https://raw.githubusercontent.com/stonier/repos_index/devel/kinetic.yaml"
+vci_workspaces       : [bob, latex, reveal]
