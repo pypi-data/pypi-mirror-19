@@ -1,0 +1,10 @@
+numpy
+scipy
+scikit-learn
+
+[alldeps]
+numpy
+scipy
+scikit-learn
+matplotlib>=1.5
+munkres
