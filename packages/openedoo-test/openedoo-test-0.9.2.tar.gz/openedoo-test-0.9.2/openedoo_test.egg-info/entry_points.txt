@@ -1,0 +1,3 @@
+[console_scripts]
+openedoo-test = openedoo.core.libs.command:main
+
