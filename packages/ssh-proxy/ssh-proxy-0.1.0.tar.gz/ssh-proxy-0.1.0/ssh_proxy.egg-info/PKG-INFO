@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: ssh-proxy
+Version: 0.1.0
+Summary: Run a SOCKS proxy over an SSH dynamic forwarding connection
+Home-page: https://acroz.github.io
+Author: Andrew Crozier
+Author-email: wacrozier@gmail.com
+License: MIT
+Description: SSH Proxy
+        =========
+        
+        A simple tool for temporarily configuring a SOCKS proxy over an SSH dynamic
+        forwarding connection.
+        
+Keywords: ssh socks proxy
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
