@@ -1,0 +1,49 @@
+Metadata-Version: 2.0
+Name: hkobservatory
+Version: 1.0.6
+Summary: A weather object based on data from Hong Kong Observatory
+Home-page: https://github.com/ttoleung/hkobservatory
+Author: Terry Leung
+Author-email: ttoleung@gmail.com
+License: TL
+Keywords: hongkong observatory weather
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Provides-Extra: dev
+Requires-Dist: check-manifest; extra == 'dev'
+Provides-Extra: test
+Requires-Dist: coverage; extra == 'test'
+
+[![Build Status](https://travis-ci.org/ttoleung/hkobservatory.svg?branch=master)](https://travis-ci.org/ttoleung/hkobservatory)
+
+# hkobservatory
+Return a weather object based on weather reported by HK Observatory
+
+# Installation
+We recommend installation using pip
+~~~
+pip install hkobservatory
+~~~
+
+# Quick Start Guide
+~~~python
+import hkobservatory
+
+my_weather = hkobservatory.weather()
+print ("The weather today is %s" % my_weather.condition())
+~~~
+
+produce the following result:
+
+~~~
+The weather today is light shower
+~~~
+
+
