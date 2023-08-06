@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+bin/cine
+cine/__init__.py
+cine/fluorescence.py
+cine.egg-info/PKG-INFO
+cine.egg-info/SOURCES.txt
+cine.egg-info/dependency_links.txt
+cine.egg-info/requires.txt
+cine.egg-info/top_level.txt
