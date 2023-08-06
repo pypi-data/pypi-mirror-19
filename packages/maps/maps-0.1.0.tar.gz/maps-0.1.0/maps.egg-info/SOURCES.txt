@@ -1,0 +1,15 @@
+setup.py
+maps.egg-info/PKG-INFO
+maps.egg-info/SOURCES.txt
+maps.egg-info/dependency_links.txt
+maps.egg-info/top_level.txt
+namedmaps/__init__.py
+namedmaps/fixedkeymap.py
+namedmaps/nameddict.py
+namedmaps/namedfixedkeymap.py
+namedmaps/namedfrozenmap.py
+namedmaps/utils.py
+test/test_EditMap.py
+test/test_NamedEditMap.py
+test/test_NamedMap.py
+test/test_validation.py
