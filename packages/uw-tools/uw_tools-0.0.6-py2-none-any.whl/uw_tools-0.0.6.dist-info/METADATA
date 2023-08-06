@@ -1,0 +1,18 @@
+Metadata-Version: 2.0
+Name: uw-tools
+Version: 0.0.6
+Summary: A collection of useful scripts
+Home-page: https://github.org/unfoldingWord-dev/uw_tools
+Author: unfoldingWord
+Author-email: phillip_hopper@wycliffeassociates.org
+License: MIT
+Keywords: unfoldingWord python tools
+Platform: UNKNOWN
+Requires: pygithub
+Requires: pyparsing
+
+A collection of Python scripts that have proven useful and have been reused.
+
+As the files are moved from their original location into this project, we are trying to make sure they are compatible
+with both Python 2.7 and 3.5.
+
