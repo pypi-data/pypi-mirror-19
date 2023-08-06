@@ -1,0 +1,13 @@
+setup.py
+android_cog/__init__.py
+android_cog/registrar.py
+android_cog.egg-info/PKG-INFO
+android_cog.egg-info/SOURCES.txt
+android_cog.egg-info/dependency_links.txt
+android_cog.egg-info/requires.txt
+android_cog.egg-info/top_level.txt
+android_cog/commands/__init__.py
+android_cog/commands/android_battery_command.py
+android_cog/modules/__init__.py
+android_cog/modules/android_battery_module.py
+android_cog/modules/android_module.py
