@@ -1,0 +1,49 @@
+Metadata-Version: 1.1
+Name: sphinx-refdoc
+Version: 0.0.10
+Summary: Reference documentation generator for sphinx
+Home-page: UNKNOWN
+Author: Mateusz 'novo' Klos
+Author-email: novopl@gmail.com
+License: MIT
+Description: 
+        About
+        =====
+        
+        **sphinx-refdoc** is a python reference documentation generator for Sphinx.
+        
+        
+        Installation
+        ============
+        
+        .. code-block:: shell
+        
+            $ pip install sphinx-refdoc
+        
+        
+        Contributing
+        ============
+        
+        Setting up development repo
+        ---------------------------
+        
+        .. code-block:: shell
+        
+            $ git clone git@github.com:novopl/sphinx-refdoc.git
+            $ cd sphinx-refdoc
+            $ virtualenv env
+            $ source ./env/bin/activate
+            $ ./devinit.sh
+        
+        
+        .. toctree::
+            :maxdepth: 3
+        
+            docs/ref/index
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Topic :: Utilities
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: MIT License
