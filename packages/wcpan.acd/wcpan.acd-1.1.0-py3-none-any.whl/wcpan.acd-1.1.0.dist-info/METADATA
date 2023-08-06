@@ -1,0 +1,19 @@
+Metadata-Version: 2.0
+Name: wcpan.acd
+Version: 1.1.0
+Summary: UNKNOWN
+Home-page: https://github.com/legnaleurc/wcpan.acd
+Author: Wei-Cheng Pan
+Author-email: legnaleurc@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: acdcli
+Requires-Dist: tornado
+Requires-Dist: wcpan.logger
+Requires-Dist: wcpan.worker
+
+UNKNOWN
+
+
