@@ -1,0 +1,11 @@
+click
+pyamg
+scipy
+scikit-image
+
+[development]
+cython>=0.23.0
+benchmark
+
+[test]
+pytest

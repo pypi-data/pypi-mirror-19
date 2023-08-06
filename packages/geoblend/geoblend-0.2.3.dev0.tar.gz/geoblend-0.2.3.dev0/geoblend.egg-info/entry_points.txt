@@ -1,0 +1,4 @@
+
+      [console_scripts]
+      geoblend=geoblend.scripts.cli:geoblend
+      
