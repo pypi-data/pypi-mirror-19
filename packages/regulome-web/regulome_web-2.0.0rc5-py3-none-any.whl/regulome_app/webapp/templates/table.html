@@ -1,0 +1,156 @@
+{% block table %}
+        <div class="container">
+            <!-- Download button -->
+            {% if messages['downloads']['sites'] != 'disabled' or messages['downloads']['snps'] != 'disabled' or messages['downloads']['expression'] != 'disabled' %}
+                <!-- Show the button -->
+                <div class="row" style="margin: 30px;">
+                    <div class="col-md-10 col-md-offset-1 text-center">
+                        <div id="buttons_table">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-download-alt"></span>&nbsp; <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li class="{{ messages['downloads']['sites'] }}"><a id="download_table" href="#">Sites</a></li>
+                                    <li class="{{ messages['downloads']['snps'] }}"><a id="download_snps" href="#">SNPs</a></li>
+                                    <li class="{{ messages['downloads']['expression'] }}"><a id="download_expression" href="#">RNA expression</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+            <!-- Table of sites -->
+            {% if messages['downloads']['sites'] == 'disabled' %}
+                <!-- warnings -->
+                <div id="message_table_div" class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <strong>Warning! </strong><span id="alert_message">There isn't any regulatory element in this region</span>
+                        </div>
+                    </div>
+                </div>
+            {%- else -%}
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <table class="table table-striped">
+                            <caption> Table of the coordinates of the regulatory sites </caption>
+                            <thead>
+                                <tr>
+                                    <th>Site</th>
+                                    <th>Chromosome</th>
+                                    <th>Start</th>
+                                    <th>End</th>
+                                    {% if 'tfs' in messages['table_tfbs'][0] %}
+                                        <th>TFs</th>
+                                    {% endif %}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for line in messages['table_tfbs'] %}
+                                    <tr>
+                                        <td style="background-color: rgb{{ line['color'] }}; font-weight: bolder; color: {{ line['font_color'] }};">
+                                            {{ line['group'] }}
+                                        </td>
+                                        <td>{{ line['chromosome'] }}</td>
+                                        <td>{{ line['start'] }}</td>
+                                        <td>{{ line['end'] }}</td>
+                                        {% if 'tfs' in line %}
+                                            <td>{{ line['tfs'] }}</td>
+                                        {% endif %}
+                                    </tr>
+                                {% endfor -%}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            {%- endif -%}
+            <br>
+            <!-- Table of SNPs -->
+            {% if messages['downloads']['snps'] == 'disabled' %}
+                <!-- warnings -->
+                <div id="message_table_div" class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <strong>Warning! </strong><span id="alert_message">There are no SNPs in this region</span>
+                        </div>
+                    </div>
+                </div>
+            {%- else -%}
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <table class="table table-striped">
+                            <caption> Table of the ten most significant {{ messages['table_snp'][0]['dataset'] }} SNPs </caption>
+                            <thead>
+                                <tr>
+                                    <th>SNP</th>
+                                    <th>Chromosome</th>
+                                    <th>Position</th>
+                                    <th>P-Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for line in messages['table_snp'] %}
+                                    <tr>
+                                        <td style="background-color: rgb{{ line['color'] }}; font-weight: bolder; color: {{ line['font_color'] }};">
+                                            {{ line['snp_id'] }}
+                                        </td>
+                                        <td>{{ line['chromosome'] }}</td>
+                                        <td>{{ line['position'] }}</td>
+                                        <td>{{ line['p_value'] }}</td>
+                                    </tr>
+                                {% endfor -%}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            {%- endif -%}
+            <br>
+            <!-- Table of Expression -->
+            {% if messages['downloads']['expression'] == 'disabled' %}
+                <!-- warnings -->
+                <div id="message_table_div" class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <strong>Warning! </strong><span id="alert_message">There isn't any gene in this region</span>
+                        </div>
+                    </div>
+                </div>
+            {%- else -%}
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <table class="table table-striped">
+                            <caption> Table of RNA gene expression in adult pancreatic islets </caption>
+                            <thead>
+                                <tr>
+                                    <th>Gene Symbol</th>
+                                    <th>Gene ID (UCSC)</th>
+                                    <th>Chromosome</th>
+                                    <th>Start</th>
+                                    <th>End</th>
+                                    <th>Expression (RPKM)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for line in messages['table_expression'] %}
+                                    <tr>
+                                        <td style="background-color: rgb{{ line['color'] }}; font-weight: bolder; color: {{ line['font_color'] }};">
+                                            {{ line['gene'] }}
+                                        </td>
+                                        <td>{{ line['ucsc_id'] }}</td>
+                                        <td>{{ line['chromosome'] }}</td>
+                                        <td>{{ line['start'] }}</td>
+                                        <td>{{ line['end'] }}</td>
+                                        <td>{{ line['expression'] }}</td>
+                                    </tr>
+                                {% endfor -%}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            {%- endif -%}
+        </div> <!-- end of main_table -->
+{% endblock %}
+
