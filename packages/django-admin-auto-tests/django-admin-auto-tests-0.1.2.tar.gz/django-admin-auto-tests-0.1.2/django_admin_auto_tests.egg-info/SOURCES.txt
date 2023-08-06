@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+admin_auto_tests/__init__.py
+admin_auto_tests/test_model.py
+admin_auto_tests/utils.py
+django_admin_auto_tests.egg-info/PKG-INFO
+django_admin_auto_tests.egg-info/SOURCES.txt
+django_admin_auto_tests.egg-info/dependency_links.txt
+django_admin_auto_tests.egg-info/not-zip-safe
+django_admin_auto_tests.egg-info/top_level.txt
