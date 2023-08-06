@@ -1,0 +1,176 @@
+       ul {
+           list-style-type: none;
+           overflow: hidden;
+           background-color: transparent;
+           margin-top: 13px;
+       }
+
+       li {
+           display: inline;
+           color: #000000;
+       }
+
+       li a {
+           display: inline;
+           color: black;
+           text-align: center;
+           text-decoration: none;
+           font-family: "Avenir Next Condensed";
+           padding: 20px;
+       }
+       /*    Nav Bar Styling*/
+
+       .NavMinWidth {
+           min-width: 800px;
+       }
+
+       .NavPaddingRight {
+           left: 10px;
+       }
+
+       .NavBarAlignment {
+           display: inline-flex;
+           float: left;
+           padding-top: 54px;
+           padding-left: 100px;
+       }
+
+       .NavImg {
+           width: 300px;
+           height: auto;
+           position: relative;
+       }
+
+       .NavDivs {
+           display: inline-block;
+       }
+
+       /*.navbar {
+           -webkit-box-shadow: 0 6px 0px -0px #999;
+           -moz-box-shadow: 0 8px 6px -6px #999;
+           box-shadow: 0 8px 6px -6px #999;
+       }*/
+       /* the rest of your styling */
+       /*slideshow Styling*/
+
+       .pushMeOver {
+           float: right;
+       }
+       /*Date Image Styling*/
+
+       .dateimg {
+           width: 120px;
+           height: auto;
+           padding-top: 100px;
+           float: right;
+
+       }
+       /*Page 1 Styling*/
+
+       .Page1Class {
+           margin-top: 150px;
+           margin-left: 90px;
+           width: 15px;
+           height: auto;
+           float: left;
+       }
+       /*JumboTron Font Style*/
+
+       .JumboTronFont {
+           font-family: "Century SchoolBook";
+       }
+
+       .jumboTronImage {
+           width: 1080px;
+           padding-bottom: 30px;
+           height: auto;
+           float: right;
+           position: relative;
+           top: 35px;
+           left: -100px;
+       }
+       /*Changing the Background Image*/
+       /*.jumbotron {
+       background-image: url("/img/jumbotron_bg.jpg");
+       background-size: cover;
+    }*/
+       /*Home Page Image Styles*/
+
+       .bigImage {
+           width: 800px;
+           height: auto;
+           position: relative;
+           left: 100px;
+       }
+
+       .bigImageDiv {
+           top: 167px;
+       }
+
+       .smallImage {
+           /*margin-right: 300px;*/
+           height: auto;
+           top: 1010px;
+           left: 70px;
+           position: absolute;
+       }
+
+       .HomeLine {
+           height: auto;
+           position: absolute;
+           width: 300px;
+           top: 655px;
+           left: 360px;
+       }
+
+       .readmore {
+           position: absolute;
+           width: 300px;
+           top: 630px;
+           left: 550px;
+       }
+
+       .whiteSquareForCaption {
+           height: auto;
+           position: absolute;
+           width: 300px;
+           top: 435px;
+           left: 300px;
+       }
+
+       .titleToTheTextBox {
+           height: auto;
+           position: absolute;
+           width: 300px;
+           top: 390px;
+           left: 345px;
+           font-family: "Palatino";
+           font-size: 20pt;
+       }
+
+       .smallerTitleToTheTextBox {
+           height: auto;
+           position: absolute;
+           width: 300px;
+           top: 410px;
+           left: 355px;
+           font-family: "Didot";
+           font-size: 20pt;
+       }
+       .textBox {
+           height: auto;
+           position: absolute;
+           width: 300px;
+           top: 455px;
+           left: 345px;
+           font-family: "Avenir Next";
+       }
+       .padding{
+         padding-left: 200px;
+       }
+
+
+       /*blogMainPageStyling*/
+       .textAlign{
+         text-align: inherit;
+       }
