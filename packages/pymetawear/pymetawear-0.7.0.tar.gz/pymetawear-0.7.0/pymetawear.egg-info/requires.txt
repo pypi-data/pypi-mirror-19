@@ -1,0 +1,5 @@
+pygatt[GATTTOOL]>=3.0.0
+pexpect>=4.2.0
+
+[pybluez]
+pybluez[ble]>=0.22
