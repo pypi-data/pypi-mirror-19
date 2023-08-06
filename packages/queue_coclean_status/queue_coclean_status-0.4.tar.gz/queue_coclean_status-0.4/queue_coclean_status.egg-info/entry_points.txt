@@ -1,0 +1,3 @@
+[console_scripts]
+queue_coclean_status = queue_coclean_status.__main__:main
+
