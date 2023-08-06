@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: spark-access-pp
+Version: 1.0.2
+Summary: Simple Cisco Spark interaction via a Python class
+Home-page: UNKNOWN
+Author: Petr Pavlu
+Author-email: ppavlu@cisco.com
+License: MIT
+Description: Sample Python class providing basic interaction with Cisco Spark.
+        It is used mainly for practicing Python code/app packaging.
+        
+Keywords: ciscospark basic interaction
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.4

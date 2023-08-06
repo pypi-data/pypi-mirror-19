@@ -1,0 +1,10 @@
+MANIFEST.in
+README.txt
+setup.py
+spark_access_pp.egg-info/PKG-INFO
+spark_access_pp.egg-info/SOURCES.txt
+spark_access_pp.egg-info/dependency_links.txt
+spark_access_pp.egg-info/requires.txt
+spark_access_pp.egg-info/top_level.txt
+sparkaccess/__init__.py
+sparkaccess/sparkaccessbasics.py
