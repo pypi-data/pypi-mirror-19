@@ -1,0 +1,15 @@
+CHANGES.rst
+MANIFEST.in
+README.rst
+setup.py
+webit/__init__.py
+webit/__main__.py
+webit/webit
+webit/webit.bat
+webit/webit.py
+webit/wsgi.py
+webit.egg-info/PKG-INFO
+webit.egg-info/SOURCES.txt
+webit.egg-info/dependency_links.txt
+webit.egg-info/not-zip-safe
+webit.egg-info/top_level.txt
