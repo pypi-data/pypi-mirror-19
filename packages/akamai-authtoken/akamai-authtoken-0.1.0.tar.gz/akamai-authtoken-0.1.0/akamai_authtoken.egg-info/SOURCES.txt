@@ -1,0 +1,13 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+akamai/__init__.py
+akamai/authtoken/__init__.py
+akamai/authtoken/authtoken.py
+akamai_authtoken.egg-info/PKG-INFO
+akamai_authtoken.egg-info/SOURCES.txt
+akamai_authtoken.egg-info/dependency_links.txt
+akamai_authtoken.egg-info/namespace_packages.txt
+akamai_authtoken.egg-info/top_level.txt
+test/test_authtoken.py
