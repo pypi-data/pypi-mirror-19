@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+kubewait/__init__.py
+kubewait/cli.py
+kubewait.egg-info/PKG-INFO
+kubewait.egg-info/SOURCES.txt
+kubewait.egg-info/dependency_links.txt
+kubewait.egg-info/entry_points.txt
+kubewait.egg-info/not-zip-safe
+kubewait.egg-info/requires.txt
+kubewait.egg-info/top_level.txt
+test/__init__.py
