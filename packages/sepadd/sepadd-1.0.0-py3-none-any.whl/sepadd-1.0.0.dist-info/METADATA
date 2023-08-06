@@ -1,0 +1,47 @@
+Metadata-Version: 2.0
+Name: sepadd
+Version: 1.0.0
+Summary: Python SEPA Direct Debit XML implementation
+Home-page: https://github.com/raphaelm/python-sepadd
+Author: Raphael Michel
+Author-email: mail@raphaelmichel.de
+License: MIT License
+Keywords: xml banking sepa
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Other Audience
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+
+sepadd -- SEPA Direct Debit XML
+===============================
+
+.. image:: https://travis-ci.org/raphaelm/python-sepadd.svg?branch=master
+   :target: https://travis-ci.org/raphaelm/python-sepadd
+
+This is a python implementation to generate SEPA direct debit XML files.
+
+For now, this is basically a properly packaged, python 3 tested version 
+of the `PySepaDD`_ implementation that was released by The Congressus under the MIT license.
+Thanks for your work!
+
+Limitations
+-----------
+
+* Currently, only SEPA PAIN.008.001.02 is supported.
+
+Credits and License
+-------------------
+
+Maintainer: Raphael Michel <mail@raphaelmichel.de>
+
+Original Author: Congressus
+
+License: MIT
+
+.. _PySepaDD: https://github.com/congressus/PySepaDD
+
+
