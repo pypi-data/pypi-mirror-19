@@ -1,0 +1,13 @@
+README.rst
+setup.py
+django_rest_tables.egg-info/PKG-INFO
+django_rest_tables.egg-info/SOURCES.txt
+django_rest_tables.egg-info/dependency_links.txt
+django_rest_tables.egg-info/not-zip-safe
+django_rest_tables.egg-info/top_level.txt
+rest_tables/__init__.py
+rest_tables/columns.py
+rest_tables/tables.py
+rest_tables/templatetags/__init__.py
+rest_tables/templatetags/angular_utils.py
+rest_tables/templatetags/rest_tables.py
