@@ -1,0 +1,49 @@
+Metadata-Version: 1.1
+Name: yaml-dump
+Version: 0.3.0
+Summary: Sane default for YAML dump
+Home-page: https://bitbucket.com/fingul/yaml_dump
+Author: Fingul
+Author-email: fingul@gmail.com
+License: MIT license
+Description: # yaml dump
+        
+        * Unicode as utf8
+        * Keep order of OrderedDict
+        
+        # INSTALL
+        
+            pip install yaml_dump 
+        
+        # USAGE
+        
+            from yaml_dump import yaml_dump
+            print(yaml_dump(dict(a=1,b=[1,2,3],c="한글")))
+        
+        # EXAMPLE OUTPUT
+        
+            a: 1
+            b:
+            - 1
+            - 2
+            - 3
+            c: 한글
+        
+        
+        
+        =======
+        History
+        =======
+        
+        0.1.0 (2017-01-11)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: yaml_dump
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.5
