@@ -1,0 +1,4 @@
+recursive-include cubicweb_saem_ref/data *.gif *.jpg *.png *.ico *.css *.js *.xml
+recursive-include cubicweb_saem_ref/i18n *.po
+recursive-include cubicweb_saem_ref/migration/data *
+recursive-include doc Makefile *.rst

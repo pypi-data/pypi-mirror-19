@@ -1,0 +1,15 @@
+cubicweb-skos >= 1.0.0
+cubicweb-seda >= 0.5.1
+cubicweb-relationwidget >= 0.3.3
+cubicweb-prov
+cubicweb-squareui
+psycopg2
+cubicweb-oaipmh >= 0.3.0
+cubicweb[pyramid] >= 3.24.0
+cubicweb-signedrequest
+cubicweb-compound >= 0.3.0
+pytz
+python-dateutil
+rdflib >= 4.1
+cubicweb-eac
+cubicweb-vtimeline
