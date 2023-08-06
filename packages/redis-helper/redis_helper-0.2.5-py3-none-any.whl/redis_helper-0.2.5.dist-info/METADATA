@@ -1,0 +1,25 @@
+Metadata-Version: 2.0
+Name: redis-helper
+Version: 0.2.5
+Summary: Easily store, index, and modify Python dicts in Redis (with flexible searching)
+Home-page: https://github.com/kenjyco/redis-helper
+Author: Ken
+Author-email: kenjyco@gmail.com
+License: MIT
+Download-URL: https://github.com/kenjyco/redis-helper/tarball/v0.2.5
+Keywords: redis,dictionary,secondary index,events,model,log,data
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Intended Audience :: Developers
+Requires-Dist: hiredis (==0.2.0)
+Requires-Dist: pytz
+Requires-Dist: redis (==2.10.5)
+Requires-Dist: ujson (==1.35)
+
+UNKNOWN
+
+
