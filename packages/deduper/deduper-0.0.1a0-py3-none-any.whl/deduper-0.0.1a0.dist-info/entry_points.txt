@@ -1,0 +1,4 @@
+[console_scripts]
+deduper = gen_ofids:main
+hasher = gen_hashes:main
+
