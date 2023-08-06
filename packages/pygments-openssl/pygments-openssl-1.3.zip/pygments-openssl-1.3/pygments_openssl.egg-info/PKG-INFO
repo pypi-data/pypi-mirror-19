@@ -1,0 +1,96 @@
+Metadata-Version: 1.1
+Name: pygments-openssl
+Version: 1.3
+Summary: Syntax coloring for OpenSSL configuration files
+Home-page: https://github.com/stefanholek/pygments-openssl
+Author: Stefan H. Holek
+Author-email: stefan@epy.co.at
+License: BSD-2-Clause
+Description: ================
+        pygments-openssl
+        ================
+        ------------------------------------------------
+        Syntax coloring for OpenSSL configuration files
+        ------------------------------------------------
+        
+        Overview
+        ========
+        
+        This package provides a Pygments_ lexer for OpenSSL_ configuration files.
+        The lexer is published as an entry point and Pygments will pick it up
+        automatically.
+        
+        You can use the ``openssl`` language with Pygments::
+        
+            $ pygmentize -l openssl /etc/openssl/openssl.cnf
+        
+        In Sphinx_ documents the lexer is selected with the ``highlight`` directive::
+        
+            .. highlight:: openssl
+        
+        .. _OpenSSL: https://www.openssl.org/docs/man1.1.0/apps/config.html
+        .. _Pygments: http://pygments.org/
+        .. _Sphinx: http://sphinx-doc.org/
+        
+        Installation
+        ============
+        
+        Use your favorite installer to install pygments-openssl into the same
+        Python enviroment you have installed Pygments. For example::
+        
+            $ pip install pygments-openssl
+        
+        To verify the installation run::
+        
+            $ pygmentize -L lexer | grep -i openssl
+            * openssl:
+                OpenSSL (filenames *.cnf, *.conf)
+        
+        
+        Changelog
+        =========
+        
+        1.3 - 2017-02-05
+        ----------------
+        
+        * Add a LICENSE file.
+          [stefan]
+        
+        * Add a test suite and fix two minor whitespace lexing issues.
+          [stefan]
+        
+        1.2 - 2013-11-21
+        ----------------
+        
+        * Update documentation.
+          [stefan]
+        
+        1.1 - 2012-10-12
+        ----------------
+        
+        * Detect and color line continuations.
+          [stefan]
+        
+        1.0 - 2012-10-10
+        ----------------
+        
+        * Initial release.
+          [stefan]
+        
+Keywords: sphinx pygments openssl conf lexer openssl.cnf
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Plugins
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.1
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
