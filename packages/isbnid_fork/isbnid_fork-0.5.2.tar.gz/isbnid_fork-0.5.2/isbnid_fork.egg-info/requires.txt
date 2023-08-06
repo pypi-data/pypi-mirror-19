@@ -1,0 +1,5 @@
+autosemver~=0.2
+
+[tests]
+pytest-pep8>=1.0.6
+pytest>=3.0.4
