@@ -1,0 +1,530 @@
+# parser.py
+
+#/***************************************************************************
+# *   Copyright (C) 2016-2017 Daniel Mueller (deso@posteo.net)              *
+# *                                                                         *
+# *   This program is free software: you can redistribute it and/or modify  *
+# *   it under the terms of the GNU General Public License as published by  *
+# *   the Free Software Foundation, either version 3 of the License, or     *
+# *   (at your option) any later version.                                   *
+# *                                                                         *
+# *   This program is distributed in the hope that it will be useful,       *
+# *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+# *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+# *   GNU General Public License for more details.                          *
+# *                                                                         *
+# *   You should have received a copy of the GNU General Public License     *
+# *   along with this program.  If not, see <http://www.gnu.org/licenses/>. *
+# ***************************************************************************/
+
+"""Interception functionality for argparse's ArgumentParser class."""
+
+from argparse import (
+  Action,
+  ArgumentParser,
+  FileType,
+  REMAINDER,
+  SUPPRESS,
+)
+from collections import (
+  namedtuple,
+)
+from contextlib import (
+  contextmanager,
+)
+from functools import (
+  partial,
+)
+from os import (
+  curdir,
+  sep,
+  walk,
+)
+from os.path import (
+  dirname,
+  join,
+)
+from itertools import (
+  chain,
+)
+from sys import (
+  argv,
+  maxsize,
+)
+
+
+COMPLETE_OPTION = "--_complete"
+
+
+class ParserError(BaseException):
+  """Internal exception type raised by a parser during a complete operation."""
+  pass
+
+
+def noCompletion(parser, values, word):
+  """An argument completer yielding no completions."""
+  return tuple()
+
+
+def completePath(parser, values, word):
+  """Attempt completion of a path."""
+  # Note that in case there is no trailing separator ("/") the return
+  # value of dirname will be the empty string. We rely on this behavior
+  # because join("", x) is x.
+  top = dirname(word)
+
+  # TODO: We may want to give clients some possibilities to influence
+  #       the output. For instance, it would be nice to pass in accepted
+  #       extensions or whether or not directories/files should be
+  #       included/excluded.
+  for _, directories, files in walk(top if top else curdir):
+    for file_ in map(lambda x: join(top, x), files):
+      if file_.startswith(word):
+        yield file_
+
+    for dir_ in map(lambda x: join(top, x), directories):
+      if dir_.startswith(word):
+        yield dir_ + sep
+
+    # We are only interested in one level of the directory tree starting
+    # from 'top'.
+    break
+
+
+class Argument(namedtuple("Argument", ["min_", "max_", "comp"])):
+  """A tuple describing arguments."""
+  def __new__(cls, min_=0, max_=0, comp=noCompletion):
+    """Overwrite class creation to provide proper default arguments."""
+    return super().__new__(cls, min_, max_, comp)
+
+
+  def decrement(self):
+    """Retrieve a new tuple with the min_ and max_ value decremented by one."""
+    return Argument(self.min_ - 1, self.max_ - 1, self.comp)
+
+
+class Arguments(namedtuple("Arguments", ["positionals", "keywords"])):
+  """A tuple describing possible program options."""
+  def __new__(cls, positionals=None, keywords=None):
+    """Overwrite class creation to provide proper default arguments."""
+    if positionals is None:
+      positionals = []
+    if keywords is None:
+      keywords = {}
+
+    return super().__new__(cls, positionals, keywords)
+
+
+def escapeDoubleDash(args, index=0):
+  """Escape all '--' strings in the array."""
+  first = args[:index]
+  second = map(lambda x: x.replace(r"--", r"\--"), args[index:])
+  return chain(first, second)
+
+
+def unescapeDoubleDash(args):
+  """Unescape all escaped '--' strings in the array."""
+  return map(lambda x: x.replace(r"\--", r"--"), args)
+
+
+def complete(parser, values, arguments, words):
+  """Complete the last word in the given list of words."""
+  def getPositional():
+    """Retrieve the positional argument at 'pos_idx'."""
+    if pos_idx < len(arguments.positionals):
+      return arguments.positionals[pos_idx]
+    else:
+      return Argument()
+
+  # Without loss of generality, we attempt completing the last word in
+  # the list of words. The assumption here is that only context before
+  # this word matters, so everything found afterwards is irrelevant and
+  # must be removed by the caller.
+  *words, to_complete = words
+  # The index to the next parser-level positional argument.
+  pos_idx = 0
+  # The parser-level positional arguments for the given argument.
+  pos = getPositional()
+  # The minimum and maximum keyword-level positional arguments.
+  key = Argument()
+
+  for word in words:
+    # Try matching any keyword arguments. They take precedence over
+    # positional arguments below.
+    if word in arguments.keywords:
+      value = arguments.keywords[word]
+      key = Argument()
+      if isinstance(value, Arguments):
+        arguments = value
+        pos_idx = 0
+        pos = getPositional()
+      elif isinstance(value, Argument):
+        key = value
+    # Try matching it as a positional. Keyword argument positionals
+    # take precedence over parser level ones.
+    elif key.max_ > 0:
+      key = key.decrement()
+    elif pos.max_ > 0:
+      pos = pos.decrement()
+      if pos.max_ == 0:
+        pos_idx += 1
+        pos = getPositional()
+    else:
+      for pos_idx in range(pos_idx + 1, len(arguments.positionals)):
+        pos = getPositional()
+        if pos.max_ > 0:
+          pos = pos.decrement()
+          break
+      else:
+        # We were unable to find a matching positional argument.
+        return
+
+  if pos.max_ > 0:
+    yield from pos.comp(parser, values, to_complete)
+
+  if key.max_ > 0:
+    yield from key.comp(parser, values, to_complete)
+
+  # If there are open keyword-level positional arguments then we
+  # should not start completion of keyword arguments.
+  if key.min_ <= 0:
+    for word in arguments.keywords:
+      if word.startswith(to_complete):
+        yield word
+
+
+def decodeNargs(nargs):
+  """Decode the nargs value as accepted by the ArgumentParser's add_argument method."""
+  if nargs == "*" or nargs == REMAINDER:
+    # Any number of arguments.
+    return 0, maxsize
+  elif nargs == "?":
+    # Zero or one argument.
+    return 0, 1
+  elif nargs == "+":
+    # More than zero arguments.
+    return 1, maxsize
+  elif nargs is None:
+    # In some scenarios (custom actions; probably others as well) the
+    # nargs value might be None. The behavior in this case is to require
+    # a single argument (similar to the default store action).
+    return 1, 1
+  else:
+    # A specific number of arguments.
+    assert isinstance(nargs, int), nargs
+    return nargs, nargs
+
+
+def decodeAction(action):
+  """Decode the number of arguments for an action."""
+  lookup = {
+    # An action of None is the default and is equal to the "store"
+    # action, both of which default to a single argument.
+    None: 1,
+    "store": 1,
+    "store_const": 0,
+    "store_true": 0,
+    "store_false": 0,
+    "append": 1,
+    "append_const": 0,
+    "count": 0,
+    "help": 0,
+    "version": 0,
+  }
+
+  try:
+    return decodeNargs(lookup[action])
+  except KeyError:
+    # We must be dealing with an action object/class or an object
+    # implementing the same interface. Any such object must have a
+    # public 'nargs' member.
+    # TODO: We assume we got passed in an object but a class is equally
+    #       valid. It is unclear how we would deal with the latter.
+    return decodeNargs(action.nargs)
+
+
+@contextmanager
+def sandbox(parser):
+  """Temporarily overwrite a ArgumentsParser's error and exit method."""
+  def exitFn(status=0, message=None):
+    """A replacement for ArgumentsParser's exit method."""
+    raise ParserError()
+
+  def errorFn(message):
+    """A replacement for ArgumentsParser's error method."""
+    raise ParserError()
+
+  exit_ = parser.exit
+  error = parser.error
+
+  parser.exit = exitFn
+  parser.error = errorFn
+  try:
+    yield
+  finally:
+    parser.error = error
+    parser.exit = exit_
+
+
+class CompleteAction(Action):
+  """An action used for completing command line arguments."""
+  def __call__(self, parser, namespace, values, option_string=None):
+    """Invoke the action to attempt to complete a command line argument."""
+    values = list(unescapeDoubleDash(values))
+
+    # The values array we got passed in here contains all arguments as
+    # they were passed in to the --_complete option, in our case, the
+    # word index ($COMP_CWORD) and words as parsed by the shell
+    # ($COMP_WORDS[@]). The first word in the words array is typically
+    # the Python script invoked. It might not be if the script was
+    # invoked by indirectly by passing it as an argument to the
+    # interpreter.
+    index, script, *words = values
+    index = int(index)
+
+    parser.complete(words[:index])
+
+
+class CompletingArgumentParser(ArgumentParser):
+  """A ArgumentParser derivate with argument completion support."""
+  _ESCAPED = "__escaped"
+
+
+  def __init__(self, *args, prefix_chars=None, fromfile_prefix_chars=None,
+               arguments=None, **kwargs):
+    """Create an argument parser with argument completion support."""
+    assert prefix_chars is None, ("The prefix_chars argument is not "
+                                  "supported. Got %s." % prefix_chars)
+    assert fromfile_prefix_chars is None, ("The fromfile_prefix_chars "
+                                           "argument is not supported. "
+                                           "Got %s." % fromfile_prefix_chars)
+
+    if arguments is None:
+      self._arguments = Arguments()
+    else:
+      self._arguments = arguments
+
+    # Note that in case the add_help option is true the argment parser
+    # will add two arguments -h/--help. Because it uses the add_argument
+    # method to do so there is nothing to do special from our side.
+    super().__init__(*args, **kwargs)
+
+    self.add_argument(
+      COMPLETE_OPTION, action=CompleteAction, complete=False,
+      default=SUPPRESS, nargs=REMAINDER, help=SUPPRESS,
+    )
+
+
+  def _addCompletion(self, arg, choices=None, completer=None, **kwargs):
+    """Register a completion for the given argument."""
+    def completeChoice(parser, values, word, choices):
+      """Attempt completion of a word from the given choices."""
+      # Choices that are non-strings are allowed. For instance, integers
+      # are valid candidates and understood by the ArgumentParser.
+      # At the end of the day, however, everything we emit is a string,
+      # so work with strings here.
+      for choice in map(str, choices):
+        if choice.startswith(word):
+          yield choice
+
+    # We only fall back to interpreting the action to deduce the
+    # argument count if no nargs parameter is given.
+    if "nargs" in kwargs:
+      cur_min_, cur_max_ = decodeNargs(kwargs["nargs"])
+    elif "action" in kwargs:
+      cur_min_, cur_max_ = decodeAction(kwargs["action"])
+    else:
+      # If no action is given the store action expecting a single
+      # argument is the default.
+      cur_min_, cur_max_ = (1, 1)
+
+    if choices is not None:
+      # The 'completer' argument and 'choices' are mutually exclusive.
+      assert completer is None
+      completer = partial(completeChoice, choices=choices)
+
+    if "type" in kwargs:
+      if isinstance(kwargs["type"], FileType):
+        assert completer is None
+        completer = completePath
+
+    if completer is None:
+      completer = noCompletion
+
+    argument = Argument(cur_min_, cur_max_, completer)
+    keyword = arg.startswith("-")
+    if keyword:
+      # We are dealing with a keyword argument.
+      self._arguments.keywords[arg] = argument
+    else:
+      # We are dealing with a positional argument.
+      self._arguments.positionals.append(argument)
+
+
+  def _addArgument(self, *args, complete=True, **kwargs):
+    """Add completions for an argument to the parser."""
+    if complete:
+      for arg in args:
+        self._addCompletion(arg, **kwargs)
+
+
+  def add_argument(self, *args, complete=True, completer=None, **kwargs):
+    """Add an argument to the parser."""
+    self._addArgument(*args, complete=complete, completer=completer, **kwargs)
+    return super().add_argument(*args, **kwargs)
+
+
+  def _skipMultiEscape(function):
+    """A decorator used to avoid multiple escape operations by recursive invocations."""
+    def wrapper(self, *args, **kwargs):
+      """Wrapper function potentially skipping an invocation on CompletingArgumentParser."""
+      if hasattr(self, self._ESCAPED):
+        # In case the __escaped member exists we must have executed the
+        # wrapper code of parse_args/parse_known_args in
+        # CompletingArgumentParser already. We do not want to invoke it
+        # multiple times, so directly forward the call to the parent
+        # class.
+        super_ = super(CompletingArgumentParser, self)
+        return getattr(super_, function.__name__)(*args, **kwargs)
+      else:
+        return function(self, *args, **kwargs)
+
+    return wrapper
+
+
+  def _parseArgs(self, parse_func, args=None, namespace=None):
+    """Parse a list of arguments."""
+    @contextmanager
+    def escaped(parser):
+      """A context manager for setting the __escaped member."""
+      setattr(parser, self._ESCAPED, None)
+      try:
+        yield
+      finally:
+        delattr(parser, self._ESCAPED)
+
+    if args is None:
+      args = argv[1:]
+
+    # Unfortunately, any '--' argument is interpreted by the
+    # ArgumentParser causing it to treat all follow up arguments as
+    # positional ones. This behavior is undesired for the --_complete
+    # option where '--' is a valid prefix of an argument to complete and
+    # so we escape it here (and unescape it later).
+    # Alternatively, we could use two other approaches:
+    # 1) Pass in the entire line instead of a pre-split list of words as
+    #    provided by the $COMP_WORDS shell variable. The downside here
+    #    is that we would manually need to perform argument
+    #    parsing/splitting here (which is what we want to avoid, even in
+    #    the face of the shlex module).
+    # 2) Do not pass in arguments to --_complete but rather treat
+    #    everything else as positional arguments. With this approach we
+    #    have to find a way to define those (optional!) positional
+    #    arguments but also to pass them in to the CompleteAction.
+    try:
+      # TODO: This approach likely breaks assignments, e.g.,
+      #       --_complete="${COMP_WORDS[@]}"
+      index = args.index(COMPLETE_OPTION) + 1
+      args = list(escapeDoubleDash(args, index=index))
+    except ValueError:
+      pass
+
+    # Note that argparse's parse_args may be implemented by means of
+    # parse_known_args. If that is the case, we would effectively be
+    # escaping the arguments twice because we get invoked again. To
+    # avoid this case, we have some machinery in place to detect such a
+    # recursive invocation and forward the call directly to the parent
+    # class.
+    with escaped(self):
+      return parse_func(args=args, namespace=namespace)
+
+
+  @_skipMultiEscape
+  def parse_args(self, args=None, namespace=None):
+    """Parse a list of arguments."""
+    return self._parseArgs(super().parse_args, args, namespace)
+
+
+  @_skipMultiEscape
+  def parse_known_args(self, args=None, namespace=None):
+    """Parse all known arguments from a list of arguments."""
+    return self._parseArgs(super().parse_known_args, args, namespace)
+
+
+  def add_subparsers(self, *args, **kwargs):
+    """Add subparsers to the argument parser."""
+    def addParser(add_parser, name, *args, **kwargs):
+      """A replacement method for the add_parser method."""
+      sub_arguments = Arguments()
+      self._arguments.keywords[name] = sub_arguments
+
+      # Invoke the original add_parser function. We need to do that
+      # because this function takes care of handling special keyword
+      # arguments such as 'help' which must not be passed through to our
+      # argument parser directly.
+      return add_parser(name, *args, arguments=sub_arguments, **kwargs)
+
+    assert "parser_class" not in kwargs, ("parser_class argument not supported. "
+                                          "Got %s." % kwargs["parser_class"])
+
+    # We create the subparsers object as would be done by a "real"
+    # ArgumentParser but also overwrite the add_parser method.
+    subparsers = super().add_subparsers(*args, parser_class=CompletingArgumentParser, **kwargs)
+
+    add_parser = subparsers.add_parser
+    subparsers.add_parser = lambda *a, **k: addParser(add_parser, *a, **k)
+
+    return subparsers
+
+
+  def _addGroup(self, add_func, *args, **kwargs):
+    """Add an argument group to an argument parser."""
+    def addArgument(add_argument, *args, complete=True, completer=None,
+                    **kwargs):
+      """A replacement method for the add_argument method."""
+      self._addArgument(*args, complete=complete, completer=completer, **kwargs)
+      return add_argument(*args, **kwargs)
+
+    group = add_func(*args, **kwargs)
+
+    add_argument = group.add_argument
+    group.add_argument = lambda *a, **k: addArgument(add_argument, *a, **k)
+    return group
+
+
+  def add_argument_group(self, *args, **kwargs):
+    """Add a named argument group to an argument parser."""
+    return self._addGroup(super().add_argument_group, *args, **kwargs)
+
+
+  def add_mutually_exclusive_group(self, *args, **kwargs):
+    """Add a group to the argument parser whose options are mutually exclusive."""
+    return self._addGroup(super().add_mutually_exclusive_group, *args, **kwargs)
+
+
+  def complete(self, words):
+    """Complete the last word in a list of words representing arguments."""
+    # The approach we take here is to print all completions (separated
+    # by a new line symbol) and then exit. The latter step is rather
+    # clumsy but then no better solution that requires no additional
+    # work on the client side was found.
+    try:
+      # We do not want clients invoking a parser and causing a failure
+      # to unconditionally exit the program and printing an error or the
+      # usage of the program, so we replace the methods causing trouble
+      # with benign ones temporarily.
+      with sandbox(self):
+        completions = list(complete(self, words, self.arguments, words))
+    except ParserError:
+      self.exit(1)
+
+    if len(completions) > 0:
+      print("\n".join(map(str, completions)))
+
+    self.exit(0 if len(completions) > 0 else 1)
+
+
+  @property
+  def arguments(self):
+    """Retrieve the arguments."""
+    return self._arguments

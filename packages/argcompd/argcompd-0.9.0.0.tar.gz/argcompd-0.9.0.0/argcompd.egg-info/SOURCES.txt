@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+README.rst
+setup.py
+argcompd.egg-info/PKG-INFO
+argcompd.egg-info/SOURCES.txt
+argcompd.egg-info/dependency_links.txt
+argcompd.egg-info/namespace_packages.txt
+argcompd.egg-info/not-zip-safe
+argcompd.egg-info/top_level.txt
+src/deso/argcomp/__init__.py
+src/deso/argcomp/__meta__.py
+src/deso/argcomp/parser.py
+src/deso/argcomp/test/__init__.py
+src/deso/argcomp/test/testCompletingArgumentParser.py
