@@ -1,0 +1,21 @@
+#--*- Makefile -*--------------------------------------------------------------
+#$Author: andrius $
+#$Revision: 4681 $
+#$Date: 2016-07-04 11:18:09 +0000 (Mon, 04 Jul 2016) $
+#$URL: svn://www.crystallography.net/cod-tools/trunk/Makelocal-manpages $
+#------------------------------------------------------------------------------
+MAN_DIR = doc/man
+
+MAN_FILES = ${CODTOOLS_SCRIPTS:scripts/%=${MAN_DIR}/%.1}
+
+man: ${MAN_FILES}
+
+all: man
+
+${MAN_DIR}/%.1: scripts/%
+	-tools/help2man $< --bugs-email ${AUTHOR_EMAIL} > $@
+
+clean-man:
+	rm -f ${MAN_FILES}
+
+distclean: clean-man

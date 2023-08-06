@@ -1,0 +1,21 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#------------------------------------------------------------------------------
+#$Author: andrius $
+#$Revision: 4850 $
+#$URL: svn://www.crystallography.net/cod-tools/trunk/src/components/pycodcif/tests/scripts/cif_parser_test $
+#$Date: 2017-01-31 08:15:38 +0000 (Tue, 31 Jan 2017) $
+#$Id: cif_parser_test 4850 2017-01-31 08:15:38Z andrius $
+#------------------------------------------------------------------------------
+#*
+#  Test driver for pycodcif module.
+#**
+import sys
+from pycodcif import parse
+
+filename = sys.argv.pop()
+options = {}
+for arg in sys.argv[1:]:
+    options[arg] = 1
+
+parse( filename, options )
