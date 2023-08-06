@@ -1,0 +1,16 @@
+morepath
+blinker
+
+[docs]
+sphinx
+docutils
+
+[pypi]
+pypandoc
+twine
+
+[test]
+pytest
+coverage
+pytest-cov
+webtest
