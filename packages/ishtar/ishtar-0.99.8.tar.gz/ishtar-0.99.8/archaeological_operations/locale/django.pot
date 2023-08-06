@@ -1,0 +1,1457 @@
+# Ishtar po translation.
+# Copyright (C) 2010-2015
+# This file is distributed under the same license as the Ishtar package.
+# Étienne Loks <etienne.loks at peacefrogs net>, 2010-2015.
+# Étienne Loks <etienne.loks@iggdrasil.net>, 2015. #zanata
+# Valérie-Emma Leroux <emma@iggdrasil.net>, 2016. #zanata
+# Étienne Loks <etienne.loks@iggdrasil.net>, 2016. #zanata
+# Valérie-Emma Leroux <emma@iggdrasil.net>, 2017. #zanata
+msgid ""
+msgstr ""
+
+#: forms.py:69 forms.py:371 forms.py:1009 forms.py:1031 forms.py:1035
+#: models.py:1217 templates/ishtar/sheet_operation.html:144
+#: templates/ishtar/blocks/window_tables/parcels.html:10
+msgid "Parcels"
+msgstr ""
+
+#: forms.py:72 forms.py:205 forms.py:985 models.py:1203
+#: templates/ishtar/blocks/window_tables/parcels.html:7
+#: templates/ishtar/dashboards/dashboard_operation.html:432
+#: templates/ishtar/dashboards/dashboard_operation.html:446
+#: templates/ishtar/dashboards/dashboard_operation.html:687
+#: templates/ishtar/dashboards/dashboard_operation.html:701
+msgid "Town"
+msgstr ""
+
+#: forms.py:74 forms.py:455 forms.py:752 forms.py:1255 models.py:274
+#: models.py:1009 models.py:1201
+#: templates/ishtar/blocks/window_tables/parcels.html:8
+msgid "Year"
+msgstr ""
+
+#: forms.py:77 models.py:1204
+#: templates/ishtar/blocks/window_tables/parcels.html:9
+msgid "Section"
+msgstr ""
+
+#: forms.py:80 models.py:1206
+msgid "Parcel number"
+msgstr ""
+
+#: forms.py:82 models.py:1208 models.py:1225 models.py:1274
+msgid "Public domain"
+msgstr ""
+
+#: forms.py:126
+msgid "Town section is required."
+msgstr ""
+
+#: forms.py:162
+msgid "public domain"
+msgstr ""
+
+#: forms.py:169
+msgid "Current parcels"
+msgstr ""
+
+#: forms.py:171
+msgid "Deleted parcels"
+msgstr ""
+
+#: forms.py:208
+msgid "Full text input"
+msgstr ""
+
+#: forms.py:210
+msgid "example: \"2013: XD:1 to 13,24,33 to 39, YD:24\" or \"AB:24,AC:42\""
+msgstr ""
+
+#: forms.py:365
+msgid "There are identical parcels."
+msgstr ""
+
+#: forms.py:380
+msgid "Relation type"
+msgstr ""
+
+#: forms.py:383 ishtar_menu.py:30 models.py:369 models.py:830 models.py:860
+#: models.py:888 models.py:991 models.py:1200 wizards.py:344 wizards.py:355
+#: templates/ishtar/sheet_operation.html:4
+msgid "Operation"
+msgstr ""
+
+#: forms.py:403
+msgid ":"
+msgstr ""
+
+#: forms.py:411 forms.py:605 forms.py:1220
+msgid "You should select an operation."
+msgstr ""
+
+#: forms.py:415
+msgid "You should select a relation type."
+msgstr ""
+
+#: forms.py:445
+msgid "Current relations"
+msgstr ""
+
+#: forms.py:447
+msgid "Deleted relations"
+msgstr ""
+
+#: forms.py:451 templates/ishtar/sheet_operation.html:83
+msgid "Relations"
+msgstr ""
+
+#: forms.py:456 forms.py:1226 models.py:275
+msgid "Numeric reference"
+msgstr ""
+
+#: forms.py:462 forms.py:1266
+msgid "Parcel (section/number/public domain)"
+msgstr ""
+
+#: forms.py:465 forms.py:1269 models.py:831
+#: templates/ishtar/dashboards/dashboard_operation.html:390
+#: templates/ishtar/dashboards/dashboard_operation.html:411
+#: templates/ishtar/dashboards/dashboard_operation.html:643
+#: templates/ishtar/dashboards/dashboard_operation.html:664
+#: templates/ishtar/dashboards/dashboard_operation.html:666
+msgid "Department"
+msgstr ""
+
+#: forms.py:466 forms.py:1097 models.py:85
+#: templates/ishtar/blocks/window_tables/archaeologicalsites.html:8
+msgid "Name"
+msgstr ""
+
+#: forms.py:468 forms.py:672 forms.py:750 forms.py:1232 models.py:282
+msgid "Operation type"
+msgstr ""
+
+#: forms.py:470
+msgid "Is open?"
+msgstr ""
+
+#: forms.py:478 forms.py:782 models.py:271
+msgid "In charge"
+msgstr ""
+
+#: forms.py:485 models.py:985
+msgid "Scientist in charge"
+msgstr ""
+
+#: forms.py:487 forms.py:674 forms.py:772 models.py:269
+msgid "Operator"
+msgstr ""
+
+#: forms.py:496 forms.py:1102 models.py:89 models.py:284
+#: templates/ishtar/blocks/window_tables/archaeologicalsites.html:10
+msgid "Remains"
+msgstr ""
+
+#: forms.py:497 forms.py:1080 forms.py:1099 models.py:87 models.py:290
+#: templates/ishtar/blocks/window_tables/archaeologicalsites.html:9
+msgid "Periods"
+msgstr ""
+
+#: forms.py:498
+msgid "Started before"
+msgstr ""
+
+#: forms.py:500
+msgid "Started after"
+msgstr ""
+
+#: forms.py:502
+msgid "Ended before"
+msgstr ""
+
+#: forms.py:504
+msgid "Ended after"
+msgstr ""
+
+#: forms.py:507
+msgid "Search within relations"
+msgstr ""
+
+#: forms.py:509 forms.py:837
+msgid "Comment"
+msgstr ""
+
+#: forms.py:510
+msgid "Abstract (full text search)"
+msgstr ""
+
+#: forms.py:512 forms.py:840 models.py:338
+msgid "Comment about scientific documentation"
+msgstr ""
+
+#: forms.py:513 forms.py:842 models.py:350
+msgid "Record quality"
+msgstr ""
+
+#: forms.py:514 forms.py:807 models.py:302
+msgid "Report processing"
+msgstr ""
+
+#: forms.py:516 forms.py:845 models.py:345
+msgid "Virtual operation"
+msgstr ""
+
+#: forms.py:518 forms.py:1142 forms.py:1146 models.py:93
+msgid "Archaeological site"
+msgstr ""
+
+#: forms.py:524 forms.py:1273
+msgid "Created by"
+msgstr ""
+
+#: forms.py:530 forms.py:1279
+msgid "Modified by"
+msgstr ""
+
+#: forms.py:537
+msgid "Documentation deadline before"
+msgstr ""
+
+#: forms.py:539
+msgid "Documentation deadline after"
+msgstr ""
+
+#: forms.py:541 forms.py:830 models.py:357
+msgid "Documentation received"
+msgstr ""
+
+#: forms.py:543
+msgid "Finds deadline before"
+msgstr ""
+
+#: forms.py:545
+msgid "Finds deadline after"
+msgstr ""
+
+#: forms.py:547 forms.py:835 models.py:361
+msgid "Finds received"
+msgstr ""
+
+#: forms.py:592 forms.py:1218 views.py:168
+msgid "Operation search"
+msgstr ""
+
+#: forms.py:636
+msgid "Associated file"
+msgstr ""
+
+#: forms.py:640 forms.py:933 models.py:497 models.py:887 models.py:996
+#: wizards.py:80
+msgid "Archaeological file"
+msgstr ""
+
+#: forms.py:647 forms.py:649 models.py:352
+msgid "Abstract"
+msgstr ""
+
+#: forms.py:652
+msgid "months"
+msgstr ""
+
+#: forms.py:652
+msgid "years"
+msgstr ""
+
+#: forms.py:654 models.py:255
+msgid "Creation date"
+msgstr ""
+
+#: forms.py:655
+msgid "Start of field work"
+msgstr ""
+
+#: forms.py:657
+msgid "All"
+msgstr ""
+
+#: forms.py:658
+msgid "Preventive"
+msgstr ""
+
+#: forms.py:659
+msgid "Research"
+msgstr ""
+
+#: forms.py:663
+msgid "Slicing"
+msgstr ""
+
+#: forms.py:666
+msgid "Department detail"
+msgstr ""
+
+#: forms.py:668
+msgid "Date get from"
+msgstr ""
+
+#: forms.py:670
+msgid "Preventive/Research"
+msgstr ""
+
+#: forms.py:676
+msgid "Date after"
+msgstr ""
+
+#: forms.py:678
+msgid "Date before"
+msgstr ""
+
+#: forms.py:680
+msgid "With reports"
+msgstr ""
+
+#: forms.py:681
+msgid "With finds"
+msgstr ""
+
+#: forms.py:733 forms.py:1327 templates/ishtar/sheet_administrativeact.html:20
+#: templates/ishtar/sheet_operation.html:24
+msgid "General"
+msgstr ""
+
+#: forms.py:748 models.py:335
+msgid "Generic name"
+msgstr ""
+
+#: forms.py:757 models.py:304
+msgid "Old code"
+msgstr ""
+
+#: forms.py:760
+msgid "Head scientist"
+msgstr ""
+
+#: forms.py:779 models.py:334
+msgid "Operator reference"
+msgstr ""
+
+#: forms.py:793
+msgid "Total surface (m2)"
+msgstr ""
+
+#: forms.py:800 models.py:53 models.py:258 models.py:1399
+msgid "Start date"
+msgstr ""
+
+#: forms.py:802 models.py:260
+msgid "Excavation end date"
+msgstr ""
+
+#: forms.py:805 models.py:261
+msgid "Report delivery date"
+msgstr ""
+
+#: forms.py:827 models.py:354
+msgid "Deadline for submission of the documentation"
+msgstr ""
+
+#: forms.py:832 models.py:359
+msgid "Deadline for submission of the finds"
+msgstr ""
+
+#: forms.py:847
+msgid "Image"
+msgstr ""
+
+#: forms.py:848
+#, python-format
+msgid ""
+"<p>Heavy images are resized to: %(width)dx%(height)d (ratio is preserved).</"
+"p>"
+msgstr ""
+
+#: forms.py:886
+msgid ""
+"If you want to set an excavation end date you have to provide a start date."
+msgstr ""
+
+#: forms.py:891
+msgid "The excavation end date cannot be before the start date."
+msgstr ""
+
+#: forms.py:919
+#, python-format
+msgid ""
+"Operation code already exists for year: %(year)d - use a value bigger than "
+"%(last_val)d"
+msgstr ""
+
+#: forms.py:923
+msgid "Bad operation code"
+msgstr ""
+
+#: forms.py:929 models.py:512
+msgid "Operation code"
+msgstr ""
+
+#: forms.py:955
+msgid "Preventive informations - excavation"
+msgstr ""
+
+#: forms.py:956 models.py:288
+#: templates/ishtar/dashboards/dashboard_operation.html:701
+msgid "Cost (euros)"
+msgstr ""
+
+#: forms.py:957 models.py:293
+msgid "Scheduled man-days"
+msgstr ""
+
+#: forms.py:959 models.py:296
+msgid "Optional man-days"
+msgstr ""
+
+#: forms.py:961 models.py:299
+msgid "Effective man-days"
+msgstr ""
+
+#: forms.py:971
+msgid "Preventive informations - diagnostic"
+msgstr ""
+
+#: forms.py:974 models.py:318
+msgid "Prescription on zoning"
+msgstr ""
+
+#: forms.py:976 models.py:321
+msgid "Prescription on large area"
+msgstr ""
+
+#: forms.py:979 models.py:323
+msgid "Prescription on geoarchaeological context"
+msgstr ""
+
+#: forms.py:983 forms.py:1005 models.py:286 models.py:1019
+msgid "Towns"
+msgstr ""
+
+#: forms.py:1012 models.py:1216 models.py:1397
+msgid "Parcel"
+msgstr ""
+
+#: forms.py:1064 models.py:45
+msgid "Remain types"
+msgstr ""
+
+#: forms.py:1068 models.py:44
+msgid "Remain type"
+msgstr ""
+
+#: forms.py:1084 templates/ishtar/sheet_operation.html:164
+#: templates/ishtar/sheet_operation.html:195
+msgid "Period"
+msgstr ""
+
+#: forms.py:1096 models.py:84
+msgid "Reference"
+msgstr ""
+
+#: forms.py:1125
+msgid "This reference already exists."
+msgstr ""
+
+#: forms.py:1157 models.py:94 models.py:342
+#: templates/ishtar/sheet_operation.html:94
+msgid "Archaeological sites"
+msgstr ""
+
+#: forms.py:1161
+msgid "Associated archaeological sites"
+msgstr ""
+
+#: forms.py:1167 ishtar_menu.py:34 ishtar_menu.py:64 ishtar_menu.py:93
+msgid "Search"
+msgstr ""
+
+#: forms.py:1172
+msgid "Would you like to close this operation?"
+msgstr ""
+
+#: forms.py:1177
+msgid "Would you like to delete this operation?"
+msgstr ""
+
+#: forms.py:1186 forms.py:1256 forms.py:1392 models.py:862 models.py:976
+msgid "Index"
+msgstr ""
+
+#: forms.py:1212
+#, python-format
+msgid ""
+"Index already exists for operation: %(operation)s - use a value bigger than "
+"%(last_val)d"
+msgstr ""
+
+#: forms.py:1224
+msgid "Operation's year"
+msgstr ""
+
+#: forms.py:1231
+msgid "Operation's town"
+msgstr ""
+
+#: forms.py:1244
+msgid "Documentation search"
+msgstr ""
+
+#: forms.py:1246
+msgid "You should select a document."
+msgstr ""
+
+#: forms.py:1263 forms.py:1330 models.py:901 models.py:970
+msgid "Act type"
+msgstr ""
+
+#: forms.py:1264 forms.py:1462
+msgid "Indexed?"
+msgstr ""
+
+#: forms.py:1270 forms.py:1335 models.py:1010
+#: templates/ishtar/blocks/window_tables/administrativacts.html:10
+msgid "Object"
+msgstr ""
+
+#: forms.py:1307 views.py:329
+msgid "Administrative act search"
+msgstr ""
+
+#: forms.py:1322 forms.py:1420 forms.py:1487
+msgid "You should select an administrative act."
+msgstr ""
+
+#: forms.py:1338 models.py:1007
+msgid "Signature date"
+msgstr ""
+
+#: forms.py:1380
+#, python-format
+msgid ""
+"This index already exists for year: %(year)d - use a value bigger than "
+"%(last_val)d"
+msgstr ""
+
+#: forms.py:1384
+msgid "Bad index"
+msgstr ""
+
+#: forms.py:1397
+msgid "Would you like to delete this administrative act?"
+msgstr ""
+
+#: forms.py:1402
+msgid "Template"
+msgstr ""
+
+#: forms.py:1426 forms.py:1430
+msgid "This document is not intended for this type of act."
+msgstr ""
+
+#: forms.py:1448
+msgid "Doc generation"
+msgstr ""
+
+#: forms.py:1450
+msgid "Generate the associated doc?"
+msgstr ""
+
+#: forms.py:1471 ishtar_menu.py:123 views.py:382
+msgctxt "admin act register"
+msgid "Register"
+msgstr ""
+
+#: ishtar_menu.py:39 ishtar_menu.py:70 ishtar_menu.py:98
+msgid "Creation"
+msgstr ""
+
+#: ishtar_menu.py:44 ishtar_menu.py:75 ishtar_menu.py:103
+msgid "Modification"
+msgstr ""
+
+#: ishtar_menu.py:49
+msgid "Closing"
+msgstr ""
+
+#: ishtar_menu.py:53 ishtar_menu.py:80 ishtar_menu.py:108
+msgid "Deletion"
+msgstr ""
+
+#: ishtar_menu.py:59 models.py:1026
+#: templates/ishtar/sheet_administrativeact.html:4
+msgid "Administrative act"
+msgstr ""
+
+#: ishtar_menu.py:85
+msgid "Documents"
+msgstr ""
+
+#: ishtar_menu.py:90
+msgid "Documentation"
+msgstr ""
+
+#: ishtar_menu.py:117
+msgid "Administrative Act"
+msgstr ""
+
+#: ishtar_menu.py:131
+msgid "Dashboard"
+msgstr ""
+
+#: ishtar_menu.py:135
+msgid "General informations"
+msgstr ""
+
+#: ishtar_menu.py:139 models.py:370
+#: templates/ishtar/dashboards/dashboard_operation.html:8
+msgid "Operations"
+msgstr ""
+
+#: models.py:52 models.py:70 models.py:1861
+msgid "Order"
+msgstr ""
+
+#: models.py:54 models.py:1400
+msgid "End date"
+msgstr ""
+
+#: models.py:55
+msgid "Parent period"
+msgstr ""
+
+#: models.py:59
+msgid "Type Period"
+msgstr ""
+
+#: models.py:60
+msgid "Types Period"
+msgstr ""
+
+#: models.py:73
+msgid "Type of report state"
+msgstr ""
+
+#: models.py:74
+msgid "Types of report state"
+msgstr ""
+
+#: models.py:97
+msgid "Can view all Archaeological sites"
+msgstr ""
+
+#: models.py:99
+msgid "Can view own Archaeological site"
+msgstr ""
+
+#: models.py:101
+msgid "Can add own Archaeological site"
+msgstr ""
+
+#: models.py:103
+msgid "Can change own Archaeological site"
+msgstr ""
+
+#: models.py:105
+msgid "Can delete own Archaeological site"
+msgstr ""
+
+#: models.py:142
+msgid "Not documented"
+msgstr ""
+
+#: models.py:143
+msgid "Arbitrary"
+msgstr ""
+
+#: models.py:144
+msgid "Reliable"
+msgstr ""
+
+#: models.py:233
+msgid "Year - Index"
+msgstr ""
+
+#: models.py:234
+msgid "Associated file (label)"
+msgstr ""
+
+#: models.py:235
+msgid "Operator name"
+msgstr ""
+
+#: models.py:236
+msgid "Scientist (full name)"
+msgstr ""
+
+#: models.py:237
+msgid "Associated file (external ID)"
+msgstr ""
+
+#: models.py:238
+msgid "Scientist (title)"
+msgstr ""
+
+#: models.py:239
+msgid "Scientist (surname)"
+msgstr ""
+
+#: models.py:240
+msgid "Scientist (name)"
+msgstr ""
+
+#: models.py:241
+msgid "Scientist - Organization (name)"
+msgstr ""
+
+#: models.py:242
+msgid "In charge (title)"
+msgstr ""
+
+#: models.py:243
+msgid "In charge (surname)"
+msgstr ""
+
+#: models.py:244
+msgid "In charge (name)"
+msgstr ""
+
+#: models.py:245
+msgid "In charge - Organization (name)"
+msgstr ""
+
+#: models.py:250
+msgid "Archaeological sites (reference)"
+msgstr ""
+
+#: models.py:257
+msgid "Closing date"
+msgstr ""
+
+#: models.py:264
+msgid "In charge scientist"
+msgstr ""
+
+#: models.py:279 models.py:1196
+msgid "File"
+msgstr ""
+
+#: models.py:283
+msgid "Surface (m2)"
+msgstr ""
+
+#: models.py:336
+msgid "General comment"
+msgstr ""
+
+#: models.py:339
+msgid "Cached name"
+msgstr ""
+
+#: models.py:347
+msgid ""
+"If checked, it means that this operation have not been officialy registered."
+msgstr ""
+
+#: models.py:363
+msgid "Point"
+msgstr ""
+
+#: models.py:364
+msgid "Multi polygon"
+msgstr ""
+
+#: models.py:372
+msgid "Can view all Operations"
+msgstr ""
+
+#: models.py:373
+msgid "Can view own Operation"
+msgstr ""
+
+#: models.py:374
+msgid "Can add own Operation"
+msgstr ""
+
+#: models.py:375
+msgid "Can change own Operation"
+msgstr ""
+
+#: models.py:376
+msgid "Can delete own Operation"
+msgstr ""
+
+#: models.py:377
+msgid "Can close Operation"
+msgstr ""
+
+#: models.py:406
+msgid "OPE"
+msgstr ""
+
+#: models.py:466
+msgid "Intercommunal"
+msgstr ""
+
+#: models.py:498
+msgid "Code patriarche"
+msgstr ""
+
+#: models.py:538
+msgid "This operation code already exists for this year"
+msgstr ""
+
+#: models.py:563
+msgid "Number of parcels"
+msgstr ""
+
+#: models.py:581
+msgid "Number of administrative acts"
+msgstr ""
+
+#: models.py:589
+msgid "Number of indexed administrative acts"
+msgstr ""
+
+#: models.py:597
+msgid "Number of context records"
+msgstr ""
+
+#: models.py:633
+msgid "Number of finds"
+msgstr ""
+
+#: models.py:678
+msgid "No type"
+msgstr ""
+
+#: models.py:709
+msgid "Number of sources"
+msgstr ""
+
+#: models.py:751 templates/ishtar/dashboards/dashboard_operation.html:309
+#: templates/ishtar/dashboards/dashboard_operation.html:575
+#: templates/ishtar/dashboards/dashboard_operation.html:611
+msgid "Mean"
+msgstr ""
+
+#: models.py:801
+msgid "Inverse relation"
+msgstr ""
+
+#: models.py:805
+msgid "Operation relation type"
+msgstr ""
+
+#: models.py:806
+msgid "Operation relation types"
+msgstr ""
+
+#: models.py:819
+msgid "Operation record relation"
+msgstr ""
+
+#: models.py:820
+msgid "Operation record relations"
+msgstr ""
+
+#: models.py:866
+msgid "Operation documentation"
+msgstr ""
+
+#: models.py:867
+msgid "Operation documentations"
+msgstr ""
+
+#: models.py:870
+msgid "Can view all Operation sources"
+msgstr ""
+
+#: models.py:872
+msgid "Can view own Operation source"
+msgstr ""
+
+#: models.py:874
+msgid "Can add own Operation source"
+msgstr ""
+
+#: models.py:876
+msgid "Can change own Operation source"
+msgstr ""
+
+#: models.py:878
+msgid "Can delete own Operation source"
+msgstr ""
+
+#: models.py:889 models.py:1001
+msgid "Treatment request"
+msgstr ""
+
+#: models.py:890 models.py:1006
+msgid "Treatment"
+msgstr ""
+
+#: models.py:892
+msgid "Intended to"
+msgstr ""
+
+#: models.py:894
+msgid "Code"
+msgstr ""
+
+#: models.py:897
+msgid "Associated template"
+msgstr ""
+
+#: models.py:898
+msgid "Indexed"
+msgstr ""
+
+#: models.py:902
+msgid "Act types"
+msgstr ""
+
+#: models.py:974
+msgid "Person in charge of the operation"
+msgstr ""
+
+#: models.py:980
+msgid "Archaeological preventive operator"
+msgstr ""
+
+#: models.py:988
+msgid "Signatory"
+msgstr ""
+
+#: models.py:1016
+msgid "Departments"
+msgstr ""
+
+#: models.py:1017
+msgid "Cached values get from associated departments"
+msgstr ""
+
+#: models.py:1020
+msgid "Cached values get from associated towns"
+msgstr ""
+
+#: models.py:1027 templates/ishtar/sheet_operation.html:102
+#: templates/ishtar/sheet_operation.html:138
+msgid "Administrative acts"
+msgstr ""
+
+#: models.py:1030
+msgid "Can view all Administrative acts"
+msgstr ""
+
+#: models.py:1032
+msgid "Can view own Administrative act"
+msgstr ""
+
+#: models.py:1034
+msgid "Can add own Administrative act"
+msgstr ""
+
+#: models.py:1036
+msgid "Can change own Administrative act"
+msgstr ""
+
+#: models.py:1038
+msgid "Can delete own Administrative act"
+msgstr ""
+
+#: models.py:1047
+#: templates/ishtar/blocks/window_tables/administrativacts.html:7
+#: templates/ishtar/blocks/window_tables/archaeologicalsites.html:7
+msgid "Ref."
+msgstr ""
+
+#: models.py:1141
+msgid "This index already exists for this year"
+msgstr ""
+
+#: models.py:1209
+msgid "External ID"
+msgstr ""
+
+#: models.py:1212
+msgid "External ID is set automatically"
+msgstr ""
+
+#: models.py:1213
+msgid "Address - Locality"
+msgstr ""
+
+#: models.py:1395
+msgid "Owner"
+msgstr ""
+
+#: models.py:1403
+msgid "Parcel owner"
+msgstr ""
+
+#: models.py:1404
+msgid "Parcel owners"
+msgstr ""
+
+#: models.py:1430
+msgid "Recorded"
+msgstr ""
+
+#: models.py:1431
+msgid "Effective"
+msgstr ""
+
+#: models.py:1432
+msgid "Active"
+msgstr ""
+
+#: models.py:1433
+msgid "Field completed"
+msgstr ""
+
+#: models.py:1434
+msgid "Associated report"
+msgstr ""
+
+#: models.py:1435
+msgid "Closed"
+msgstr ""
+
+#: models.py:1436
+msgid "Documented and closed"
+msgstr ""
+
+#: models.py:1862
+msgid "Is preventive"
+msgstr ""
+
+#: models.py:1865
+msgid "Operation type old"
+msgstr ""
+
+#: models.py:1866
+msgid "Operation types old"
+msgstr ""
+
+#: views.py:214
+msgid "New operation"
+msgstr ""
+
+#: views.py:233
+msgid "Operation modification"
+msgstr ""
+
+#: views.py:276
+msgid "Operation closing"
+msgstr ""
+
+#: views.py:287
+msgid "Operation deletion"
+msgstr ""
+
+#: views.py:292
+msgid "Operation: source search"
+msgstr ""
+
+#: views.py:300
+msgid "Operation: source creation"
+msgstr ""
+
+#: views.py:308
+msgid "Operation: source modification"
+msgstr ""
+
+#: views.py:323
+msgid "Operation: source deletion"
+msgstr ""
+
+#: views.py:342
+msgid "Operation: new administrative act"
+msgstr ""
+
+#: views.py:352
+msgid "Operation: administrative act modification"
+msgstr ""
+
+#: views.py:376
+msgid "Operation: administrative act deletion"
+msgstr ""
+
+#: widgets.py:55
+msgid "Add"
+msgstr ""
+
+#: wizards.py:203
+msgid ""
+"Warning: No Archaeological File is provided. If you have forget it return to "
+"the first step."
+msgstr ""
+
+#: templates/ishtar/sheet_administrativeact.html:36
+#: templates/ishtar/sheet_operation.html:38
+msgid "Surface:"
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:14
+msgid "This operation is virtual."
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:17
+msgid "Patriarche OA code not yet recorded!"
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:27
+msgid "Last modification date:"
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:34
+msgid "State:"
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:34
+msgid "Active file"
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:35
+msgid "Closed operation"
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:36
+msgid "Closing date:"
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:36
+msgid "by"
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:39
+msgid "Cost:"
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:40
+msgid "Duration:"
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:40
+msgid "Day"
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:73
+msgid "Localisation"
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:98
+msgid "Associated parcels"
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:106
+msgid "Document from this operation"
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:112
+#: templates/ishtar/sheet_operation.html:149
+msgid "Context records"
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:116
+msgid "Context record relations"
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:121
+msgid "Documents from associated context records"
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:126
+#: templates/ishtar/sheet_operation.html:172
+msgid "Finds"
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:131
+msgid "Documents from associated finds"
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:136
+msgid "Statistics"
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:156
+#: templates/ishtar/sheet_operation.html:210
+#: templates/ishtar/blocks/window_tables/administrativacts.html:8
+msgid "Type"
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:156
+#: templates/ishtar/sheet_operation.html:164
+#: templates/ishtar/sheet_operation.html:179
+#: templates/ishtar/sheet_operation.html:187
+#: templates/ishtar/sheet_operation.html:195
+#: templates/ishtar/sheet_operation.html:210
+#: templates/ishtar/dashboards/dashboard_operation.html:18
+#: templates/ishtar/dashboards/dashboard_operation.html:164
+#: templates/ishtar/dashboards/dashboard_operation.html:432
+#: templates/ishtar/dashboards/dashboard_operation.html:463
+#: templates/ishtar/dashboards/dashboard_operation.html:687
+msgid "Number"
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:179
+msgid "Material type"
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:187
+msgid "Object type"
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:203
+msgid "Sources"
+msgstr ""
+
+#: templates/ishtar/sheet_operation.html:219
+msgid "Finds by context records"
+msgstr ""
+
+#: templates/ishtar/sheet_operationsource.html:4
+msgid "Operation source"
+msgstr ""
+
+#: templates/ishtar/blocks/window_tables/administrativacts.html:9
+msgid "Date"
+msgstr ""
+
+#: templates/ishtar/blocks/window_tables/administrativacts.html:20
+msgid "No administrative act associated"
+msgstr ""
+
+#: templates/ishtar/blocks/window_tables/archaeologicalsites.html:20
+msgid "No archaeological site associated"
+msgstr ""
+
+#: templates/ishtar/blocks/window_tables/parcels.html:22
+msgid "No parcel"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:11
+msgid "Global informations"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:14
+#: templates/ishtar/dashboards/dashboard_operation.html:160
+#: templates/ishtar/dashboards/dashboard_operation.html:459
+msgid "total"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:18
+#: templates/ishtar/dashboards/dashboard_operation.html:32
+#: templates/ishtar/dashboards/dashboard_operation.html:164
+#: templates/ishtar/dashboards/dashboard_operation.html:254
+#: templates/ishtar/dashboards/dashboard_operation.html:463
+#: templates/ishtar/dashboards/dashboard_operation.html:517
+msgid "Status"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:28
+msgid "area by type of operation"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:32
+msgid "Area (ha)"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:42
+msgid "by types"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:48
+#: templates/ishtar/dashboards/dashboard_operation.html:70
+#: templates/ishtar/dashboards/dashboard_operation.html:92
+#: templates/ishtar/dashboards/dashboard_operation.html:139
+#: templates/ishtar/dashboards/dashboard_operation.html:180
+#: templates/ishtar/dashboards/dashboard_operation.html:202
+#: templates/ishtar/dashboards/dashboard_operation.html:369
+#: templates/ishtar/dashboards/dashboard_operation.html:479
+#: templates/ishtar/dashboards/dashboard_operation.html:499
+#: templates/ishtar/dashboards/dashboard_operation.html:623
+msgid "State"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:64
+#: templates/ishtar/dashboards/dashboard_operation.html:174
+#: templates/ishtar/dashboards/dashboard_operation.html:473
+msgid "by year"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:86
+#: templates/ishtar/dashboards/dashboard_operation.html:196
+#: templates/ishtar/dashboards/dashboard_operation.html:493
+msgid "by realisation year"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:108
+msgid "effective operation by type and year"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:133
+msgid "by realisation month"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:156
+msgid "Survey informations"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:218
+msgid "current year"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:225
+#: templates/ishtar/dashboards/dashboard_operation.html:240
+#: templates/ishtar/dashboards/dashboard_operation.html:257
+#: templates/ishtar/dashboards/dashboard_operation.html:274
+#: templates/ishtar/dashboards/dashboard_operation.html:415
+#: templates/ishtar/dashboards/dashboard_operation.html:520
+#: templates/ishtar/dashboards/dashboard_operation.html:537
+msgid "Area"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:228
+#: templates/ishtar/dashboards/dashboard_operation.html:240
+#: templates/ishtar/dashboards/dashboard_operation.html:260
+#: templates/ishtar/dashboards/dashboard_operation.html:274
+#: templates/ishtar/dashboards/dashboard_operation.html:523
+#: templates/ishtar/dashboards/dashboard_operation.html:537
+msgid "Man-day"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:231
+#: templates/ishtar/dashboards/dashboard_operation.html:240
+#: templates/ishtar/dashboards/dashboard_operation.html:263
+#: templates/ishtar/dashboards/dashboard_operation.html:274
+#: templates/ishtar/dashboards/dashboard_operation.html:526
+#: templates/ishtar/dashboards/dashboard_operation.html:537
+msgid "Man-day/hectare"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:234
+msgid "Man-day/hectare for effective operations (current year):"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:236
+msgid "organizations (current year)"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:250
+#: templates/ishtar/dashboards/dashboard_operation.html:513
+msgid "current realisation year"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:267
+#: templates/ishtar/dashboards/dashboard_operation.html:530
+msgid "Man-day/hectare for effective operations (current realisation year):"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:270
+#: templates/ishtar/dashboards/dashboard_operation.html:533
+msgid "organizations (current realisation year)"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:283
+#: templates/ishtar/dashboards/dashboard_operation.html:547
+msgid "area by organization by year"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:292
+#: templates/ishtar/dashboards/dashboard_operation.html:555
+#: templates/ishtar/dashboards/dashboard_operation.html:590
+msgid "Organization"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:315
+msgid "effective operations areas (ha)"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:327
+#: templates/ishtar/dashboards/dashboard_operation.html:392
+#: templates/ishtar/dashboards/dashboard_operation.html:412
+#: templates/ishtar/dashboards/dashboard_operation.html:569
+#: templates/ishtar/dashboards/dashboard_operation.html:605
+#: templates/ishtar/dashboards/dashboard_operation.html:645
+#: templates/ishtar/dashboards/dashboard_operation.html:667
+msgid "Sum"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:332
+#: templates/ishtar/dashboards/dashboard_operation.html:356
+msgid "Average"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:338
+msgid "man-days/hectare by year"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:350
+msgid "Man-Days/hectare"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:363
+#: templates/ishtar/dashboards/dashboard_operation.html:617
+msgid "by month"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:384
+#: templates/ishtar/dashboards/dashboard_operation.html:637
+msgid "by department"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:405
+#: templates/ishtar/dashboards/dashboard_operation.html:658
+msgid "effective operation by department"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:415
+#: templates/ishtar/dashboards/dashboard_operation.html:670
+msgid "Nb."
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:428
+#: templates/ishtar/dashboards/dashboard_operation.html:683
+msgid "main towns by number"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:442
+msgid "main towns by surface"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:446
+msgid "Total surface (ha)"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:456
+msgid "Excavation informations"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:581
+msgid "area by organization by realisation year"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:670
+msgid "Cost"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:670
+msgid "FNAP cost"
+msgstr ""
+
+#: templates/ishtar/dashboards/dashboard_operation.html:697
+msgid "main towns by cost"
+msgstr ""
+
+#: templates/ishtar/wizard/wizard_adminact_deletion.html:6
+msgid "This act is indexed!"
+msgstr ""

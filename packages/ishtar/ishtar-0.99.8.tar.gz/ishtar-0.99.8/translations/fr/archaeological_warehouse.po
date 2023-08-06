@@ -1,0 +1,323 @@
+# Ishtar po translation.
+# Copyright (C) 2010-2011
+# This file is distributed under the same license as the Ishtar package.
+# Étienne Loks <etienne.loks at peacefrogs net>, 2010-2011.
+# Valérie-Emma Leroux <emma@iggdrasil.net>, 2016. #zanata
+# Valérie-Emma Leroux <emma@iggdrasil.net>, 2017. #zanata
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"PO-Revision-Date: 2017-02-02 10:17-0500\n"
+"Last-Translator: Valérie-Emma Leroux <emma@iggdrasil.net>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=n>1;\n"
+"X-Generator: Zanata 3.9.6\n"
+
+#: forms.py:35 forms.py:91 ishtar_menu.py:40 models.py:63 models.py:103
+#: templates/ishtar/sheet_warehouse.html:4
+msgid "Warehouse"
+msgstr "Dépôt"
+
+#: forms.py:44 forms.py:49 models.py:280
+msgid "Division"
+msgstr "Division"
+
+#: forms.py:51 models.py:127
+msgid "Order"
+msgstr "Ordre"
+
+#: forms.py:62 models.py:53
+msgid "Divisions"
+msgstr "Divisions"
+
+#: forms.py:66 forms.py:95 models.py:45 models.py:100
+msgid "Name"
+msgstr "Nom"
+
+#: forms.py:67 forms.py:97 models.py:36 models.py:47
+msgid "Warehouse type"
+msgstr "Type de dépôt"
+
+#: forms.py:68 forms.py:114
+msgid "Town"
+msgstr "Commune"
+
+#: forms.py:79 views.py:98
+msgid "Warehouse search"
+msgstr "Rechercher un dépôt"
+
+#: forms.py:100 models.py:50
+msgid "Person in charge"
+msgstr "Responsable"
+
+#: forms.py:106 forms.py:168 models.py:51 models.py:180
+msgid "Comment"
+msgstr "Commentaires"
+
+#: forms.py:108
+msgid "Address"
+msgstr "Adresse"
+
+#: forms.py:110
+msgid "Address complement"
+msgstr "Complément d'adresse"
+
+#: forms.py:112
+msgid "Postal code"
+msgstr "Code postal"
+
+#: forms.py:115
+msgid "Country"
+msgstr "Pays"
+
+#: forms.py:117
+msgid "Phone"
+msgstr "Téléphone"
+
+#: forms.py:118
+msgid "Mobile phone"
+msgstr "Téléphone mobile"
+
+#: forms.py:145 forms.py:146
+msgid "Would you like to delete this warehouse?"
+msgstr "Voulez-vous supprimer ce dépôt ?"
+
+#: forms.py:150 models.py:191 models.py:278
+#: templates/ishtar/sheet_container.html:4
+msgid "Container"
+msgstr "Contenant"
+
+#: forms.py:154 forms.py:221 models.py:142
+msgid "Ref."
+msgstr "Réf."
+
+#: forms.py:155 forms.py:220 models.py:145 models.py:178
+msgid "Container type"
+msgstr "Type de contenant"
+
+#: forms.py:157
+msgid "Current location (warehouse)"
+msgstr "Lieu actuel (dépôt)"
+
+#: forms.py:163 models.py:175
+msgid "Responsible warehouse"
+msgstr "Dépôt responsable"
+
+#: forms.py:195
+msgid "Index"
+msgstr "Index"
+
+#: forms.py:213
+msgid "This ID already exists for this warehouse."
+msgstr "Cet identifiant existe déjà pour ce dépôt."
+
+#: forms.py:231 forms.py:237 views.py:131
+msgid "Container search"
+msgstr "Rechercher un contenant"
+
+#: forms.py:233 forms.py:239
+msgid "You should select a container."
+msgstr "Vous devez sélectionner un contenant."
+
+#: forms.py:234
+msgid "Add a new container"
+msgstr "Ajouter un nouveau contenant"
+
+#: forms.py:244 ishtar_menu.py:36 views.py:93
+msgid "Packaging"
+msgstr "Conditionnement"
+
+#: forms.py:250
+msgid "Packager"
+msgstr "Personne assurant le conditionnement"
+
+#: forms.py:256
+msgid "Date"
+msgstr "Date"
+
+#: forms.py:260
+msgid "Packaged finds"
+msgstr "Mobilier conditionné"
+
+#: forms.py:264 models.py:181
+msgid "Localisation"
+msgstr "Localisation"
+
+#: forms.py:288 forms.py:289
+msgid "Would you like to delete this container?"
+msgstr "Voulez-vous supprimer ce contenant ?"
+
+#: ishtar_menu.py:32
+msgid "Treatment"
+msgstr "Traitement"
+
+#: ishtar_menu.py:44 ishtar_menu.py:59
+msgid "Search"
+msgstr "Recherche"
+
+#: ishtar_menu.py:47 ishtar_menu.py:62
+msgid "Creation"
+msgstr "Ajout"
+
+#: ishtar_menu.py:50 ishtar_menu.py:65
+msgid "Modification"
+msgstr "Modification"
+
+#: ishtar_menu.py:53 ishtar_menu.py:68
+msgid "Deletion"
+msgstr "Suppression"
+
+#: ishtar_menu.py:57 models.py:192 templates/ishtar/sheet_warehouse.html:17
+msgid "Containers"
+msgstr "Contenants"
+
+#: models.py:37
+msgid "Warehouse types"
+msgstr "Types de dépôts"
+
+#: models.py:56 models.py:186
+msgid "External ID"
+msgstr "ID externe"
+
+#: models.py:58 models.py:188
+msgid "External ID is set automatically"
+msgstr "L'ID externe est attribué automatiquement"
+
+#: models.py:64
+msgid "Warehouses"
+msgstr "Dépôts"
+
+#: models.py:66
+msgid "Can view all Warehouses"
+msgstr "Peut voir tous les Dépôts"
+
+#: models.py:67
+msgid "Can view own Warehouse"
+msgstr "Peut voir son propre Dépôt"
+
+#: models.py:68
+msgid "Can add own Warehouse"
+msgstr "Peut ajouter son propre Dépôt"
+
+#: models.py:69
+msgid "Can change own Warehouse"
+msgstr "Peut modifier son propre Dépôt"
+
+#: models.py:70
+msgid "Can delete own Warehouse"
+msgstr "Peut supprimer son propre Dépôt"
+
+#: models.py:102
+msgid "Description"
+msgstr "Description"
+
+#: models.py:107 models.py:108
+msgid "Collection"
+msgstr "Collection"
+
+#: models.py:117
+msgid "Warehouse division"
+msgstr "Division de dépôt"
+
+#: models.py:118
+msgid "Warehouse divisions"
+msgstr "Divisions de dépôt"
+
+#: models.py:138
+msgid "Length (mm)"
+msgstr "Longueur (mm)"
+
+#: models.py:139
+msgid "Width (mm)"
+msgstr "Largeur (mm)"
+
+#: models.py:140
+msgid "Height (mm)"
+msgstr "Hauteur (mm)"
+
+#: models.py:141
+msgid "Volume (l)"
+msgstr "Volume (l)"
+
+#: models.py:146
+msgid "Container types"
+msgstr "Types de contenant"
+
+#: models.py:164
+msgid "Location - index"
+msgstr "Lieu - index"
+
+#: models.py:165
+msgid "Precise localisation"
+msgstr "Localisation précise"
+
+#: models.py:166
+msgid "Type"
+msgstr "Type"
+
+#: models.py:172
+msgid "Location (warehouse)"
+msgstr "Lieu (dépôt)"
+
+#: models.py:179
+msgid "Container ref."
+msgstr "Réf. du contenant"
+
+#: models.py:183
+msgid "Cached location"
+msgstr "Lieu - en cache"
+
+#: models.py:281
+msgid "Reference"
+msgstr "Référence"
+
+#: models.py:284
+msgid "Container localisation"
+msgstr "Localisation de contenant"
+
+#: models.py:285
+msgid "Container localisations"
+msgstr "Localisations de contenant"
+
+#: views.py:110
+msgid "Warehouse creation"
+msgstr "Ajouter un dépôt"
+
+#: views.py:119
+msgid "Warehouse modification"
+msgstr "Modifier un dépôt"
+
+#: views.py:126
+msgid "Warehouse deletion"
+msgstr "Supprimer un dépôt"
+
+#: views.py:142
+msgid "Container creation"
+msgstr "Ajouter un contenant"
+
+#: views.py:151
+msgid "Container modification"
+msgstr "Modifier un contenant"
+
+#: views.py:158
+msgid "Container deletion"
+msgstr "Supprimer un contenant"
+
+#: templates/ishtar/sheet_container.html:19
+msgid "Content"
+msgstr "Contenu"
+
+#: templates/ishtar/sheet_warehouse.html:22
+msgid "Attached containers"
+msgstr "Contenants associés"
+
+#: templates/ishtar/wizard/wizard_containerlocalisation.html:5
+msgid ""
+"No division set for this warehouse. Define it to localise container in this "
+"warehouse."
+msgstr ""
+"Pas de division configurée pour ce dépôt. Définissez une division pour "
+"localiser un contenant dans ce dépôt."
