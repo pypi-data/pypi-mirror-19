@@ -1,0 +1,11 @@
+setup.cfg
+setup.py
+naming/__init__.py
+naming.egg-info/PKG-INFO
+naming.egg-info/SOURCES.txt
+naming.egg-info/dependency_links.txt
+naming.egg-info/top_level.txt
+naming/model/__init__.py
+naming/model/base.py
+naming/model/file.py
+naming/model/pipe.py
