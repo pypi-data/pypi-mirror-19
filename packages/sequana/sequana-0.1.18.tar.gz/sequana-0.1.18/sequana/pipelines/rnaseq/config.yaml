@@ -1,0 +1,146 @@
+# ============================================================================
+# Config file for RNA-seq
+#
+# ==========================================[ Sections for the users ]========
+#
+# One of input_directory, input_pattern and input_samples must be provided
+# If input_directory provided, use it otherwise if input_pattern provided,
+# use it, otherwise use input_samples.
+# If input_extension provided, use it otherwise assume fastq.gz
+# ============================================================================
+input_directory: "%(input_directory)s"
+input_pattern: "%(input_pattern)s"
+input_extension: "%(input_extension)s"
+# =========================================== Sections for the users
+
+# list of your input file
+input_samples:
+    file1: "%(file1)s"
+    file2: "%(file2)s"
+
+# if files are required for a pipeline and are within sequana or should
+# # be downloaded before the pipeline provide them in this section
+# # Note that sequana and url fields are followed by itemised files or links
+# using
+# # the front dashes
+requirements:
+    - phiX174.fa
+    - Institut_Pasteur.png
+
+# =========================================== Sections related to external tools
+fastqc:
+    options: "--nogroup"
+
+##################################################################
+#       MAPPING SECTION
+#     Don't forgot to fill sequencing information
+##################################################################
+sequencing:
+    platform: "Illumina"
+    instrument: "Hiseq2500"
+    flowcell: "H35CTBCXY"
+
+genome:
+  dir: /pasteur/projets/specific/PF2_ngs/protected/Genomes/hg19
+  version: hg19
+  do: yes
+
+star_mapping:
+    do: yes
+    ## if index is already computed
+    prefix_index: /pasteur/projets/specific/PF2_ngs/protected/starGenomes/cryptNeo
+    ref: /pasteur/projets/specific/PF2_ngs/protected/starGenomes/cryptNeo.fa
+    options: ""
+    threads: 4
+    ram: 30
+
+tophat_mapping:
+    do: no
+    prefix_index: /pasteur/projets/specific/PF2_ngs/protected/bowtie_genomes/cryptNeo
+    options: "--no-coverage-search "
+    threads: 4
+
+bowtie1_mapping_ref:
+    do: no
+    prefix_index: /pasteur/projets/specific/PF2_ngs/protected/bowtie_genomes/cryptNeo
+    options: "--chunkmbs 400 -a --best -q -e50 "
+    threads: 4
+
+bowtie2_mapping:
+    do: no
+    prefix_index: /pasteur/projets/specific/PF2_ngs/protected/bowtie2_genomes/cryptNeo
+    #options: "--dovetail --no-mixed --no-discordant " for paired-end data
+    options: ""
+    threads: 4
+
+
+bowtie1_mapping_rna:
+    do: yes
+    prefix_index: /pasteur/projets/specific/PF2_ngs/protected/bowtie_genomes/cryptNeo_rRNA
+    options: ""
+    threads: 4
+
+# example of options: "-t exon -g gene_id" for gtf file
+feature_counts:
+    gff: /pasteur/projets/specific/PF2_ngs/protected/annotation/gff_data/cryptNeo.gff
+    #options: "-t exon -g gene_id"
+    options: "-t gene -g ID"
+    threads: 2
+
+fastq_screen:
+    conf: "/pasteur/projets/specific/PF2_ngs/protected/bowtie2_genomes/fastq_screen.conf"
+
+#################################################################
+# Quality trimming and adapter removal
+#   - quality: 0 means no trimming, 30 means keep base with quality 
+#       above 30
+#   - m: 20 means discard trimmed reads that are shorter than 20.
+#   - tool: only cutadapt supported for now
+#   ref: http://cutadapt.readthedocs.io/
+#################################################################
+adapter_removal:
+    do: yes
+    tool: cutadapt
+    design_file: "%(adapter_design)s"
+    adapter_type: "%(adapter_type)s"
+    fwd: "%(adapter_fwd)s"     
+    rev: "%(adapter_rev)s"
+    m: 20   # min length cutoff
+    M: 120  # max length cutoff
+    mode: "g"   # g for 5' adapter, a for 3' and b for both 5'/3'
+    quality: "30"
+    options: "-O 6 --trim-n"
+
+##################################################################
+#       REPORTING SECTION WITH MULTIQC
+#
+##################################################################
+
+multiqc:
+    excluded: "-x *_init_* -x *left_kept_reads* -x *report_rnaseq*"
+    output-directory: "multiqc"
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Mark duplicates (picard-tools)
+
+mark_duplicates:
+    do: yes
+    remove: 'True' ## may be False
+    tmpdir: 'TMP_DIR=/local/scratch/' ## on Slurm cluster at Pasteur
+
+
+coverage:
+    do: no
+    binSize: 10
+    genomeSize : 2150570000 ##mm10
+    extendReads: 65
+    minFragmentLength: 0 #Note that a value other than 0 will exclude all single-end reads.
+    maxFragmentLength: 0 #A value of 0 disables filtering and is needed for including single-end and orphan reads.
+    threads: 4
+    chromSize: /pasteur/projets/specific/PF2_ngs/protected/fasta_genomes/hg19.chrom.sizes
+
+RNAseQC:
+     do: yes
+     ref: /pasteur/projets/specific/PF2_ngs/protected/Genomes/hg19/hg19.fa
+     gtf: /pasteur/projets/specific/PF2_ngs/protected/annotation/gtf/hg19.gtf
+     BWArRNA: /pasteur/projets/specific/PF2_ngs/protected/Genomes/human_rRNA/human_all_rRNA.fasta
