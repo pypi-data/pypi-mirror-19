@@ -1,0 +1,80 @@
+Metadata-Version: 1.1
+Name: pycep-correios
+Version: 1.1.3
+Summary: Método para busca de dados de CEP no webservice dos Correios
+Home-page: https://github.com/mstuttgart/pycep-correios
+Author: Michell Stuttgart
+Author-email: michellstut@gmail.com
+License: MIT
+Description: PyCEP Correios
+        =============
+        
+        [![Build Status](https://travis-ci.org/mstuttgart/pycep-correios.svg?branch=develop)](https://travis-ci.org/mstuttgart/pycep-correios)
+        [![Coverage Status](https://coveralls.io/repos/github/mstuttgart/pycep-correios/badge.svg?branch=develop)](https://coveralls.io/github/mstuttgart/pycep-correios?branch=develop)
+        [![Code Health](https://landscape.io/github/mstuttgart/pycep-correios/develop/landscape.svg)](https://landscape.io/github/mstuttgart/pycep-correios/develop)
+        [![PyPI](https://img.shields.io/pypi/v/pycep-correios.svg)](https://pypi.python.org/pypi/pycep-correios)
+        [![PyPI](https://img.shields.io/pypi/pyversions/pycep-correios.svg)](https://pypi.python.org/pypi/pycep-correios)
+        [![PyPI](https://img.shields.io/pypi/l/pycep-correios.svg)](https://github.com/mstuttgart/pycep-correios/blob/master/LICENSE)
+        
+        O PyCEP Correios faz uso do webservice dos correios para efetuar a busca de um dado CEP fornecido pelo usuário. O retorno dessa consulta é o endereço pertencente ao CEP.
+        
+        ### Instalação
+        O PyCEP Correios pode ser facilmente instalado com o comando a seguir:
+        
+        ```
+        pip3 install pycep-correios
+        ```
+        
+        ### Como usar
+        
+        Consultar o endereço de um CEP é muito simples com o PyCEPCorreios. Não importa se o CEP fornecido possui hífen ou ponto. O PyCEPCorreios trata a entrada garantindo uma entrada válida para o *webservice* dos Correioss.
+        Veja os exemplos a seguir:
+        
+        ```python
+        from pycep_correios.correios import Correios
+        
+        # Tambem pode ser usado .get_cep('37503130')
+        endereco = Correios.get_cep('37503130')
+        
+        print(endereco['rua'])
+        print(endereco['bairro'])
+        print(endereco['cidade'])
+        print(endereco['complemento'])
+        print(endereco['uf'])
+        print(endereco['outro'])
+        
+        # Terceiro exemplo, usando o mesmo cep usado anteriormente, porém com hífen e ponto.
+        endereco = Correios.get_cep('37.503-130')
+        
+        print(endereco['rua'])
+        print(endereco['bairro'])
+        print(endereco['cidade'])
+        print(endereco['complemento'])
+        print(endereco['uf'])
+        print(endereco['outro'])
+        
+        # Quarto exemplo, enviamos um cep incorreto, com o numero de digitos inferior a 8.
+        
+        try:
+            endereco = Correios.get_cep('37.50-130')
+        except CorreiosCEPInvalidCEPException as exc:
+            print(exc.message)
+        
+        ```
+        
+        ### Contribuidores
+        
+        [Aldo Soares](https://github.com/Aldo774)
+        
+        ### Créditos
+        
+        Copyright (C) 2015-2017 por Michell Stuttgart Faria
+        
+Keywords: correios development cep
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.4
