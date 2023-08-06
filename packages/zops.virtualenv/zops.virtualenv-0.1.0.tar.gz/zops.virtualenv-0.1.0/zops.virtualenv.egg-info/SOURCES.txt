@@ -1,0 +1,13 @@
+.gitignore
+README.md
+setup.py
+zops/__init__.py
+zops.virtualenv.egg-info/PKG-INFO
+zops.virtualenv.egg-info/SOURCES.txt
+zops.virtualenv.egg-info/dependency_links.txt
+zops.virtualenv.egg-info/entry_points.txt
+zops.virtualenv.egg-info/namespace_packages.txt
+zops.virtualenv.egg-info/requires.txt
+zops.virtualenv.egg-info/top_level.txt
+zops/virtualenv/__init__.py
+zops/virtualenv/cli.py
