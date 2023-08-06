@@ -1,0 +1,28 @@
+Metadata-Version: 2.0
+Name: echo-kernel
+Version: 1.1
+Summary: Simple example kernel for Jupyter
+Home-page: https://github.com/jupyter/echo_kernel
+Author: Jupyter Development Team
+Author-email: jupyter@googlegroups.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+
+``echo_kernel`` is a simple example of a Jupyter kernel. This repository
+complements the documentation on wrapper kernels here:
+
+http://jupyter-client.readthedocs.io/en/latest/wrapperkernels.html
+
+To install ``echo_kernel`` from PyPI::
+
+    pip install echo_kernel
+    python -m echo_kernel.install
+
+The *New* menu in the notebook should show an option for an Echo notebook. To
+use it with the console frontends, add ``--kernel echo`` to their command line
+arguments.
+
+
