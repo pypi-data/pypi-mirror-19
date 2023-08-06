@@ -1,0 +1,12 @@
+= AnyWebHook 0.2.0
+
+== New features
+
+* Response manipulator now accepts a data_dict, which is (initially empty)
+  dictionary which can be filled with arbitrary data passed to validator and
+  executor.
+
+* Added `operate.tempdir` - a context manager for creating temporary
+  directories.
+
+* Added `operate.chdir` - a context manager for changing current directory.
