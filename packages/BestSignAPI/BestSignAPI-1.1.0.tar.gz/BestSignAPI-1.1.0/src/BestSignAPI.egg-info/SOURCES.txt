@@ -1,0 +1,14 @@
+MANIFEST.in
+README
+setup.py
+src/BestSignAPI/BestSignAPI.py
+src/BestSignAPI/Templates.py
+src/BestSignAPI/__init__.py
+src/BestSignAPI/errorCode.py
+src/BestSignAPI/utils.py
+src/BestSignAPI/version.py
+src/BestSignAPI.egg-info/PKG-INFO
+src/BestSignAPI.egg-info/SOURCES.txt
+src/BestSignAPI.egg-info/dependency_links.txt
+src/BestSignAPI.egg-info/requires.txt
+src/BestSignAPI.egg-info/top_level.txt
