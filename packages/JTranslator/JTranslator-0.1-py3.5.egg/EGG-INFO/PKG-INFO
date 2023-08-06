@@ -1,0 +1,72 @@
+Metadata-Version: 1.1
+Name: JTranslator
+Version: 0.1
+Summary: Translate texts with python
+Home-page: https://twitter.com/joaok63
+Author: João Mário
+Author-email: joaok63@outlook.com
+License: UNKNOWN
+Description: 
+        
+                Example:
+                       >>> from JTranslator import Translate
+                       >>> Translate('Ola Mundo!','pt','en')
+                       Hello World!
+                       >>> ||
+                Languages:
+        
+                       Azerbaijan : az	 	Macedonian  : mk
+        Albanian   : sq	 	Maori	    : mi
+        Amharic	   : am	 	Marathi     : mr
+        English	   : en	 	Mari	    : mhr
+        Arabic	   : ar	 	Mongolian   : mn
+        Armenian   : hy	 	German	    : de
+        Afrikaans  : af	 	Nepali	    : ne
+        Basque	   : eu	 	Norwegian   : no
+        Bashkir	   : ba	 	Punjabi	    : pa
+        Belarusian : be	 	Papiamento  : pap
+        Bengali	   : bn	 	Persian	    : fa
+        Bulgarian  : bg	 	Polish	    : pl
+        Bosnian	   : bs	 	Portuguese  : pt
+        Welsh	   : cy	 	Romanian    : ro
+        Hungarian  : hu	 	Russian	    : ru
+        Vietnamese : vi	 	Cebuano	    : ceb
+        Haitian(Creole) : ht	Serbian	    : sr
+        Galician   : gl 	Sinhala	    : si
+        Dutch	   : nl		Slovakian   : sk
+        Hill Mari  : mrj	Slovenian   : sl
+        Greek	   : el	        Swahili	    : sw
+        Georgian   : ka	        Sundanese   : su
+        Gujarati   : gu		Tajik	    : tg
+        Danish	   : da		Thai	    : th
+        Hebrew	   : he		Tagalog	    : tl
+        Yiddish	   : yi		Tamil       : ta
+        Indonesian : id		Tatar	    : tt
+        Irish	   : ga		Telugu	    : te
+        Italian	   : it		Turkish	    : tr
+        Icelandic  : is		Udmurt	    : udm
+        Spanish	   : es		Uzbek	    : uz
+        Kazakh	   : kk		Ukrainian   : uk
+        Kannada	   : kn		Urdu	    : ur
+        Catalan	   : ca	        Finnish	    : fi
+        Kyrgyz	   : ky	        French	    : fr
+        Chinese	   : zh		Hindi	    : hi
+        Korean	   : ko		Croatian    : hr
+        Xhosa	   : xh		Czech	    : cs
+        Latin	   : la		Swedish	    : sv
+        Latvian	   : lv		Scottish    : gd
+        Lithuanian : lt		Estonian    : et
+        Malagasy   : mg		Esperanto   : eo
+        Malay	   : ms		Javanese    : jv
+        Malayalam  : ml		Japanese    : ja
+        Maltese	   : mt
+        
+                       
+Keywords: Translate Translator
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
