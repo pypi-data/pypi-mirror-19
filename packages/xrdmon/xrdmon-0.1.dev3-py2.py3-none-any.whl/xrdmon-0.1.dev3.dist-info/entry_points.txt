@@ -1,0 +1,3 @@
+[console_scripts]
+xrdmon = xrdmonlib.interface:app_main
+
