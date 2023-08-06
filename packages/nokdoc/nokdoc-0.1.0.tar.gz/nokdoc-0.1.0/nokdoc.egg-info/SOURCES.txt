@@ -1,0 +1,12 @@
+MANIFEST.in
+setup.py
+nokdoc/__init__.py
+nokdoc/nokdoc.py
+nokdoc.egg-info/PKG-INFO
+nokdoc.egg-info/SOURCES.txt
+nokdoc.egg-info/dependency_links.txt
+nokdoc.egg-info/entry_points.txt
+nokdoc.egg-info/requires.txt
+nokdoc.egg-info/top_level.txt
+nokdoc/template/favicon.png
+nokdoc/template/index.html
