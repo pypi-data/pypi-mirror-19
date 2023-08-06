@@ -1,0 +1,14 @@
+Metadata-Version: 1.0
+Name: fiqs
+Version: 0.1.0
+Summary: Python client for Elasticsearch built on top of elasticsearch-dsl
+Home-page: https://gitlab.com/pmourlanne/fiqs
+Author: Pierre Mourlanne
+Author-email: pmourlanne@gmail.com
+License: MIT License
+Description: fiqs helps you make queries against Elasticsearch and consume the output.
+        It is built on top of the official Python Elasticsearch client and the great Elasticsearch DSL library.
+        
+        You can read the docs [here](http://fiqs.rtfd.io)
+        You can find the project on PyPi [here]()
+Platform: UNKNOWN
