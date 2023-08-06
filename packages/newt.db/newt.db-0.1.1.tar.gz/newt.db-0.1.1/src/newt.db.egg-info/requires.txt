@@ -1,0 +1,10 @@
+setuptools
+RelStorage[postgresql]
+psycopg2
+six
+
+[test]
+manuel
+mock
+zope.testing
+zc.zlibstorage
