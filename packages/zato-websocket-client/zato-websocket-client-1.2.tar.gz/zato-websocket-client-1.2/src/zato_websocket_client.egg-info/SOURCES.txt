@@ -1,0 +1,11 @@
+setup.py
+src/zato/__init__.py
+src/zato/websocket/__init__.py
+src/zato/websocket/client.py
+src/zato_websocket_client.egg-info/PKG-INFO
+src/zato_websocket_client.egg-info/SOURCES.txt
+src/zato_websocket_client.egg-info/dependency_links.txt
+src/zato_websocket_client.egg-info/namespace_packages.txt
+src/zato_websocket_client.egg-info/not-zip-safe
+src/zato_websocket_client.egg-info/requires.txt
+src/zato_websocket_client.egg-info/top_level.txt
