@@ -1,0 +1,12 @@
+regex
+docopt
+six
+
+[docs]
+Sphinx
+docutils
+
+[testing]
+mock
+nose
+coverage
