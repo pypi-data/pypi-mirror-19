@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>{{ program_path }}</title>
+  <style type="text/css">
+    {% include "source.css" %}
+  </style>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/font/octicons.min.css"
+        integrity="sha256-pNGG0948CVwfHxxS8lVkUKftaSsMBzFSUknrKr2utfY="
+        crossorigin="anonymous" />
+</head>
+<body>
+
+  <div id="controls">
+    <form>
+      <div>
+        <button type="button" id="fold-functions">Fold functions</button>
+        <button type="button" id="unfold-functions">Unfold functions</button>
+        <button type="button" id="fold-all">Fold all</button>
+        <button type="button" id="unfold-all">Unfold all</button>
+      </div>
+      <div>
+        <label><input type="checkbox" id="only-code">Show only code</label>
+        <label><input type="checkbox" id="level-colors" checked>Code level colors</label>
+        <label><input type="checkbox" id="indent-guides" checked>Indent guides</label>
+      </div>
+    </form>
+  </div>
+
+  <div id="cobol">
+    <div class="source show-level-colors show-indent-guides">
+      {% for line in cobol_lines -%}
+
+      <div id="cobol.{{ line.number }}" class="line {{ line | cobol_line.class }}">
+        <div class="lineno"><a href="#cobol.{{ line.number }}">{{ line.number }}</a></div>
+        <div class="code" id="{{ line | cobol_line.anchor }}"><a href="#{{ line | cobol_line.href }}">{{ line.whitespace }}<span class="{{ line | cobol_line.level }}">{{ line.code |e }}</span></a></div>
+      </div>
+
+      {%- endfor %}
+    </div>
+  </div>
+
+  <div id="output">
+    <div class="source show-level-colors show-indent-guides">
+      {% for item in items -%}
+      {%- if isinstance(item, StartBlock) and not item.suppress %}
+      <div class="block unfolded-block">
+
+      {%- elif isinstance(item, Line) %}
+      <div id="output.{{ item.number }}" class="line {{ 'block-first-line' if item.first_in_block }}">
+        {%- if item.first_in_block -%}
+          <button type="button" class="fold-button fold-top" aria-label="Fold block"><span class="octicon octicon-fold" aria-hidden="true"></span></button>
+          <button type="button" class="fold-button unfold" aria-label="Unfold block"><span class="octicon octicon-unfold" aria-hidden="true"></span></button>
+        {% endif %}
+        {%- if item.href_output -%}
+          <a class="link-def" href="#{{item.href_output}}" aria-label="Go to definition"><span class="octicon octicon-tag" aria-hidden="true"></span></a>
+        {%- endif -%}
+        <div class="lineno"><a href="#output.{{ item.number }}">{{ item.number }}</a></div>
+        <div class="code" id="{{ item.anchor }}"><a href="#{{ item | output_line.href }}">
+            {%- for i in range(item.indent) %}<span class="indent indent{{ i % 8 }}"></span>    {% endfor -%}
+            <span class="{{ item | code_span.class }}">{{ item.text |e }}</span></a></div>
+      </div>
+
+      {%- if item.xref_stmts %}
+      <div class="line">
+        <div class="lineno"></div>
+        <div class="code">
+          {%- for i in range(item.indent) %}<span class="indent indent{{ i % 8 }}"></span>    {% endfor -%}
+            <span class="comment">{{ comment_format('References:') }}</span></div>
+      </div>
+      {% for stmt in item.xref_stmts|sort -%}
+      <div class="line">
+        <div class="lineno"></div>
+        <div class="code"><a href="#cobol.{{ stmt.source.from_line }}">
+            {%- for i in range(item.indent) %}<span class="indent indent{{ i % 8 }}"></span>    {% endfor -%}
+            <span class="comment">{{ comment_format('{:6d}: {}'.format(stmt.source.from_line, stmt.sentence.para.section.name)) |e }}</span></a></div>
+      </div>
+      {% endfor -%}
+      {%- endif -%}
+
+      {%- elif isinstance(item, EndBlock) and not item.start.suppress %}
+        {%- if bottom_fold_button %}
+          <button type="button" class="fold-button fold-bottom" aria-label="Fold block"><span class="octicon octicon-fold" aria-hidden="true"></span></button>
+        {% endif %}
+        </div>
+      {%- endif -%}
+      {%- endfor %}
+    </div>
+  </div>
+
+  <div id="footer">
+    Generated with <a href="https://github.com/petli/cobol-sharp">CobolSharp</a> v{{ version }}.
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+	  integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
+	  crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    {% include "ui.js" %}
+  </script>
+</body>
+</html>

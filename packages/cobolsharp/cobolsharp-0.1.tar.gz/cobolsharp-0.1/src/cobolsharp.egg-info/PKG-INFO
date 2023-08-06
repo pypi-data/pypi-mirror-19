@@ -1,0 +1,18 @@
+Metadata-Version: 1.2
+Name: cobolsharp
+Version: 0.1
+Summary: COBOL code revisualizer
+Home-page: https://github.com/petli/cobol-sharp
+Author: Peter Liljenberg
+Author-email: peter.liljenberg@gmail.com
+License: GPLv3
+Description: UNKNOWN
+Keywords: cobol code analysis
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Topic :: Software Development
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: ~= 3.3
