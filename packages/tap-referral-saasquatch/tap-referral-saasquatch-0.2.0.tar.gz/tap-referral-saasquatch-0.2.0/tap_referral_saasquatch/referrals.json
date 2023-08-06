@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "key": true
+    },
+    "referredUser": {
+      "type": "string"
+    },
+    "referredAccount": {
+      "type": "string"
+    },
+    "referredReward": {
+      "type": "string"
+    },
+    "referredModerationStatus": {
+      "type": "string"
+    },
+    "referrerUser": {
+      "type": "string"
+    },
+    "referrerAccount": {
+      "type": "string"
+    },
+    "referrerReward": {
+      "type": "string"
+    },
+    "referrerModerationStatus": {
+      "type": "string"
+    },
+    "dateReferralStarted": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "dateReferralPaid": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "dateReferralEnded": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "dateModerated": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
