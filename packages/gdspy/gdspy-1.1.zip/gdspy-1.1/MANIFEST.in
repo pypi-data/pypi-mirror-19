@@ -1,0 +1,5 @@
+recursive-include docs/_build/html *
+include *.txt
+include examples/*
+include LICENSE
+include gdspy/clipper.hpp
