@@ -1,0 +1,58 @@
+Metadata-Version: 2.0
+Name: trabBuild
+Version: 0.1.0
+Summary: A script for updating and building python dists
+Home-page: UNKNOWN
+Author: Scott Doucet
+Author-email: duroktar@gmail.com
+License: Apache Software License
+Platform: UNKNOWN
+Requires-Dist: pyyaml
+Requires-Dist: twine
+
+trabBuild
+=========
+
+Update package version, build, and upload to PyPi. All in one step!
+
+
+Install
+-------
+
+trabBuild is available on PyPi. ::
+
+    pip install trabBuild
+
+Or install directly from setup.py ::
+
+    python setup.py install
+
+
+Usage
+-----
+
+Navigate to the directory with the package and setup.py file you want to update and build, then type. ::
+
+    $ trabbuild
+
+trabBuild will first update the version number in your setup.py file
+based on your input, then call `python setup.py sdist` and `python
+setup.py bdist_wheel --universal` to build your package.
+
+Once built you will be given the option to upload your package to
+PyPi with `twine`. *NOTE: You must already have an account on PyPi for this part to work.*
+
+***NOTE***
+**Package version must be specified in setup.py with this format** ::
+
+    __version__ = "x.x.x"
+
+
+Sample
+------
+
+.. image:: trabBuild.png
+    :align: center
+    :alt: alternate text
+
+
