@@ -1,0 +1,6 @@
+include README
+include LICENSE
+include setup.py
+graft bin
+graft wsdl
+recursive-include txaws *.py
