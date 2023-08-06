@@ -1,0 +1,4 @@
+[console_scripts]
+blockade = blockade.cli.client:main
+blockade-cfg = blockade.cli.config:main
+
