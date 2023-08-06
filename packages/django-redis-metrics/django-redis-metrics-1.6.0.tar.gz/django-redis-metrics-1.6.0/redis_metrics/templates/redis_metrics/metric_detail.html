@@ -1,0 +1,20 @@
+{% extends "redis_metrics/base.html" %}
+
+{% load redis_metric_tags %}
+
+{% block titletext %}{{ slug }} <small>metrics</small>{% endblock %}
+{% block breadcrumb %}
+    <li class="active">{{ slug }}</li>
+{% endblock %}
+
+{% block content %}
+
+    <ul class="nav nav-pills history">
+    {% for g in granularities %}
+    <li><a href="{% url 'redis_metric_history' slug g %}">{{ g|title }}</a></li>
+    {% endfor %}
+    </ul>
+
+    {% metric_detail slug True %}
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "redis_metrics/base.html" %}
+
+{% block titletext %}Aggregate Metrics{% endblock %}
+{% block breadcrumb %}
+    <li class="active">Aggregate Metrics</li>
+{% endblock %}
+
+{% block content %}
+    {% if form %}
+        <form action="" method="post">{% csrf_token %}
+        <p>Select the metrics that you wish to view:</p>
+        {{ form.as_p }}
+        <p><input type="submit" value="View Metrics" class="btn btn-default"/></p>
+        </form>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "redis_metrics/base.html" %}
+
+{% block titletext %}Categorize{% endblock %}
+{% block breadcrumb %}
+    <li class="active">Categorize Metrics</li>
+{% endblock %}
+
+{% block content %}
+    {% if form %}
+        <form action="{% url 'redis_metrics_categorize' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <p><input type="submit" value="Categorize Metrics" class="btn btn-default"/></p>
+        </form>
+    {% endif %}
+
+{% endblock %}

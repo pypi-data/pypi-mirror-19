@@ -1,0 +1,92 @@
+{% load static %}
+{% load redis_metrics_filters %}
+{% comment %}
+
+Context for this Template:
+
+    * ``chart_id`` -- the id attribute used for the <canvas> element
+    * ``slugs`` -- a set of slugs for the metrics that we want to aggregate.
+    * ``with_data_table`` -- True or False; whether or not to show raw metric
+      data in a table.
+    * ``metrics`` -- the metric data. It's a list of two-tuples that looks
+      something like this, where the 2nd item is a list of values for the
+      configured Granularties (e.g. [day, week, month, year])
+
+    [
+      ('foo', [42, 90, 50, 991])
+      ('bar', [42, 10, 5, 90])
+    ]
+
+{% endcomment %}
+<div class="chart">
+  <canvas id="{{chart_id}}"></canvas>
+</div>
+<script type="text/javascript" src="{% static 'redis_metrics/js/zepto.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'redis_metrics/js/chart.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'redis_metrics/js/colors.js' %}"></script>
+<script type="text/javascript">
+var ctx = document.getElementById("{{chart_id}}").getContext("2d");
+var options = {animation:false, responsive: true, legend: {display:false}};
+var data = {
+  labels: {{granularities|json}},
+  datasets: [
+    {% for slug, values in metrics %}
+    {% with counter=forloop.counter0 %}
+    {
+      label: "{{ slug }}",
+      backgroundColor: [
+        {% for v in values %}
+          DefaultColor({{counter}}).fillColor{% if not forloop.last %},{% endif %}
+        {% endfor %}
+      ],
+      borderColor: [
+        {% for v in values %}
+          DefaultColor({{counter}}).strokeColor{% if not forloop.last %},{% endif %}
+        {% endfor %}
+      ],
+      hoverBackgroundColor: [
+        {% for v in values %}
+          DefaultColor({{counter}}).highlightFill{% if not forloop.last %},{% endif %}
+        {% endfor %}
+      ],
+      hoverBorderColor: [
+        {% for v in values %}
+          DefaultColor({{counter}}).highlightStroke{% if not forloop.last %},{% endif %}
+        {% endfor %}
+      ],
+      borderWidth: 1,
+      data: {{values|json}}
+    }{% if not forloop.last %},{% endif %}
+    {% endwith %}
+    {% endfor %}
+  ]
+};
+var chart = new Chart(ctx, {
+  type: 'bar',
+  data: data,
+  options: options
+});
+</script>
+<hr style="clear:both;"/>
+
+{% if with_data_table %}
+<table class="table table-striped">
+    <caption>Metric Data</caption>
+    <thead>
+      <tr>
+        <th>Metric</th>
+        {% for t in granularities %}<th>{{ t }}</th>{% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+    {% for slug, values in metrics %}
+      <tr>
+        <td><code>{{ slug }}</code></td>
+        {% for v in values %}
+          <td class="value">{{ v|default:"-" }}</td>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+{% endif %}

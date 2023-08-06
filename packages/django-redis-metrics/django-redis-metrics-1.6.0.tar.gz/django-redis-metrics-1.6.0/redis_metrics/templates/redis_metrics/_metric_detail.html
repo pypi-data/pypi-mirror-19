@@ -1,0 +1,67 @@
+{% load static %}
+{% load redis_metrics_filters %}
+
+<div class="chart">
+  <canvas id="metric-detail-chart-{{slug}}"></canvas>
+</div>
+<script type="text/javascript" src="{% static 'redis_metrics/js/colors.js' %}"></script>
+<script type="text/javascript" src="{% static 'redis_metrics/js/chart.min.js' %}"></script>
+<script type="text/javascript">
+var ctx = document.getElementById("metric-detail-chart-{{slug}}").getContext("2d");
+var options = {animation:false, responsive: true, legend: {display:false}};
+var data = {
+  labels: {{granularities|json}},
+  datasets: [
+    {
+      label: "{{ slug }}",
+      backgroundColor: [
+        {% for item in metrics %}
+          DefaultColor({{forloop.counter0}}).fillColor{% if not forloop.last %},{% endif %}
+        {% endfor %}
+      ],
+      borderColor: [
+        {% for item in metrics %}
+          DefaultColor({{forloop.counter0}}).strokeColor{% if not forloop.last %},{% endif %}
+        {% endfor %}
+      ],
+      hoverBackgroundColor: [
+        {% for item in metrics %}
+          DefaultColor({{forloop.counter0}}).highlightFill{% if not forloop.last %},{% endif %}
+        {% endfor %}
+      ],
+      hoverBorderColor: [
+        {% for item in metrics %}
+          DefaultColor({{forloop.counter0}}).highlightStroke{% if not forloop.last %},{% endif %}
+        {% endfor %}
+      ],
+      borderWidth: 1,
+      data: [
+        {% for slug, value in metrics %}
+          {{ value|default:0 }}{% if not forloop.last %},{% endif %}
+        {% endfor %}
+      ]
+    }
+  ]
+};
+var chart = new Chart(ctx, {
+  type: 'bar',
+  data: data,
+  options: options
+});
+</script>
+{% if with_data_table %}
+<table class="table">
+    <caption><code>{{ slug }}</code> data</caption>
+    <thead>
+        <tr><th>Time Period</th><th>Value</th></tr>
+    </thead>
+    <tbody>
+    {% for metric, value in metrics %}
+        <tr>
+            <td>{{ metric|title }}</td>
+            <td class="value">{{ value|default:"-" }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endif %}
