@@ -1,0 +1,12 @@
+===================================================
+            Ninjag
+---------------------------------------------------
+Author: Steven(Yuhang) Wang
+License: MIT/X11
+---------------------------------------------------
+Usage:
+ninjag [output.ninja] <in1.yaml> [in2.yaml] ...
+
+If the first argument doesn't have ".ninja" extension,
+the default output name "build.ninja" will be used.
+===================================================
