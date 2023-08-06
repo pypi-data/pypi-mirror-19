@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: routekit
+Version: 0.2.2
+Summary: Persistent policy routing and TC configuration toolkit for Linux
+Home-page: https://github.com/ti-mo/routekit
+Author: Timo Beckers
+Author-email: timo@incline.eu
+License: UNKNOWN
+Description: UNKNOWN
+Keywords: router,netlink,pyroute2
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: System Administrators
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: System :: Networking
+Classifier: Topic :: System :: Systems Administration
