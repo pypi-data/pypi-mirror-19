@@ -1,0 +1,16 @@
+PicturesDedupeRename-1.0.5.data/scripts/dedupe-rename.py,sha256=tjf4guqByRZyxpvnhA6GrYWLgM8-T4Z7GL9d5nw1_zw,2169
+PicturesDedupeRename-1.0.5.dist-info/DESCRIPTION.rst,sha256=5kumdB0WzTF3IR_XC6PPfaUPMWzmH97byujJe0DS_Sw,2022
+PicturesDedupeRename-1.0.5.dist-info/METADATA,sha256=2EUl0AjIq1K904hWR99f3SLdW3saPBAEdV7oFpcnWIE,2367
+PicturesDedupeRename-1.0.5.dist-info/RECORD,,
+PicturesDedupeRename-1.0.5.dist-info/WHEEL,sha256=9Z5Xm-eel1bTS7e6ogYiKz0zmPEqDwIypurdHN1hR40,116
+PicturesDedupeRename-1.0.5.dist-info/metadata.json,sha256=NLkiptFhKHNAVPb-SjQAlaQmK9uGMkqnLWetPZ_VTek,567
+PicturesDedupeRename-1.0.5.dist-info/top_level.txt,sha256=Umc7y7nybfEHoaOE2RBXSTzZjl4hS0l2qWKZVwqxHAc,15
+pictures/__init__.py,sha256=3xqagjjHt92F6ltKfzb4OxuW6mM118t6L9Lgug6kVEM,54
+pictures/dedupe/__init__.py,sha256=x24-3BBeWtend_zQChh5AMzIKcpW6Jxvkh8plM3ucC8,27
+pictures/dedupe/dedupe.py,sha256=IIpySzS9xQLYdBsDw13x2f6hgpu_9KvC-SFmRUR9b6o,601
+pictures/rename/__init__.py,sha256=wKw4WU9gI0yZRwLlJvLK09SaYVhAW-vmRkmk9wmzn2E,27
+pictures/rename/rename.py,sha256=QnF-VVJVxODB_BA_JRbfuARr_xPMUxDy6jq3_LMRTbs,1752
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/helpers.py,sha256=gamwliwMVB8xk1EdSob1VaHjrBt33ilBaf3-wlh420A,98
+tests/test_dedupe.py,sha256=9gjKm5GqnZZzDn3Xtr-9NzS1PG_bqW_fc7qU1g0XfI8,1640
+tests/test_rename.py,sha256=HMN_VwTMCriFzRRvqXoF91kvc07kBL0yQEDNxeMMVOo,2504
