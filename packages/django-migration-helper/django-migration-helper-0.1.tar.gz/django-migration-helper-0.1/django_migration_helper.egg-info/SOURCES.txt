@@ -1,0 +1,15 @@
+MANIFEST.in
+README.rst
+setup.py
+django_migration_helper.egg-info/PKG-INFO
+django_migration_helper.egg-info/SOURCES.txt
+django_migration_helper.egg-info/dependency_links.txt
+django_migration_helper.egg-info/requires.txt
+django_migration_helper.egg-info/top_level.txt
+migration_helper/__init__.py
+migration_helper/apps.py
+migration_helper/tests.py
+migration_helper/management/__init__.py
+migration_helper/management/commands/__init__.py
+migration_helper/management/commands/move_model.py
+migration_helper/migrations/__init__.py
