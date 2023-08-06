@@ -1,0 +1,26 @@
+Metadata-Version: 1.2
+Name: bytesrepr
+Version: 0.0.1
+Summary: A simple IPython extension which changes the representation of bytes to
+Home-page: https://github.com/Carreau/bytesrepr
+License: UNKNOWN
+Author: Matthias Bussonnier
+Author-email: bussonniermatthias@gmail.com
+Requires-Python: >=3.3
+Classifier: License :: OSI Approved :: BSD License
+
+BytesRepr
+=========
+
+Change the ``__rerp__`` of bytes in IPython (python 3) to look less like
+text:
+
+.. code:: python
+
+    In[1]: import bytesrepr
+    In[2]: bytesrerpr.enable()
+    In[3]: b'These are bytes'
+    <bytes b'These are bytes' at 0x107e0c000>
+
+Bytes will be elided to ``...``\ in the rerp if too long.
+
