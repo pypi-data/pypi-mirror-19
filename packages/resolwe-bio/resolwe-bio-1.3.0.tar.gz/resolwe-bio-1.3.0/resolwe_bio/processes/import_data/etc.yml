@@ -1,0 +1,49 @@
+# ==========
+# Import ETC
+# ==========
+---
+
+- slug: upload-etc
+  name: Expression time course
+  requirements:
+    expression-engine: jinja
+  data_name: Expression time course
+  version: 1.0.7
+  type: data:etc
+  category: upload
+  persistence: RAW
+  description: >
+    Upload Expression time course.
+  input:
+    - name: src
+      label: Expression time course file (xls or tab)
+      type: basic:file
+      description: >
+        Expression time course
+      required: true
+      validate_regex: '\.(xls|xlsx|tab)$'
+  output:
+    - name: etcfile
+      label: Expression time course file
+      type: basic:file
+    - name: etc
+      label: Expression time course
+      type: basic:json
+  run:
+    runtime: polyglot
+    language: bash
+    program: |
+      NAME=`basename '{{ src.file }}'`
+      TEMP='{{ proc.upload_path }}/{{ src.file_temp }}'
+
+      mv "${TEMP}" "${NAME}"
+      echo "{\"proc.progress\":0.2,\"proc.rc\":$?}"
+
+      importETC.py "${NAME}"
+      str="{\"proc.progress\":1.0,\"proc.rc\":$?"
+      if [ -f {{ proc.data_dir }}/{{ proc.data_id }}/etc.json.gz ]
+      then
+        str=$str",\"etcfile\":{\"file\":\"etc.json.gz\"}"
+      fi
+      str=$str"}"
+      echo $str

@@ -1,0 +1,41 @@
+# ==================================
+# Import Nucleotide Sequence (FASTA)
+# ==================================
+---
+
+- slug: upload-fasta-nucl
+  name: Upload nucleotide sequence(s) (FASTA)
+  requirements:
+    expression-engine: jinja
+  data_name: '{{ src.file|default("?") }}'
+  version: 1.0.12
+  type: data:seq:nucleotide
+  category: upload
+  flow_collection: sample
+  persistence: RAW
+  description: >
+    Upload sequence file in FASTA format.
+  input:
+    - name: src
+      label: Sequence file (FASTA)
+      type: basic:file
+      description: >
+        Sequence file (containing single or multiple sequences) in FASTA format. Supported extensions: .fasta.gz (preferred), .fa.*, .fna.* or .fasta.*
+      validate_regex: '\.(fasta|fa|fna)(|\.gz|\.bz2|\.tgz|\.tar\.gz|\.tar\.bz2|\.zip|\.rar|\.7z)$'
+  output:
+    - name: fasta
+      label: Uploaded file
+      type: basic:file
+    - name: number
+      label: Number of sequences
+      type: basic:integer
+      default: 'Sequence file ({{ src.file|default("?") }})'
+  run:
+    runtime: polyglot
+    language: bash
+    program: |
+      re-import "{{ src.file_temp }}" "{{ src.file }}" "fasta|fa|fna" "fasta" 1.0 compress
+      NUMBER=$(zcat ${NAME}.fasta.gz | grep -c "^>")
+      re-checkrc
+      re-save number ${NUMBER}
+      re-save-file fasta ${NAME}.fasta.gz
