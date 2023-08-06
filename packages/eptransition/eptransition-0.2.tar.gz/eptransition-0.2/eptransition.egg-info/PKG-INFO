@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: eptransition
+Version: 0.2
+Summary: EnergyPlus file transition in Python.
+Home-page: https://github.com/myoldmopar/ep-transition
+Author: Edwin Lee
+Author-email: leeed2001@gmail.com
+License: UNKNOWN
+Description: This is a Python library for transitioning EnergyPlus input files between versions.  The tool includes a command line
+        application called "eptransition" that performs transition functionality as well as being called from Python itself.
+        
+Keywords: cli energyplus
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Utilities
+Classifier: License :: Public Domain
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
