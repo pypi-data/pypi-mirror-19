@@ -1,0 +1,15 @@
+README.rst
+setup.py
+split-global.conf
+apkkit/__init__.py
+apkkit/portage.py
+apkkit.egg-info/PKG-INFO
+apkkit.egg-info/SOURCES.txt
+apkkit.egg-info/dependency_links.txt
+apkkit.egg-info/requires.txt
+apkkit.egg-info/top_level.txt
+apkkit/base/__init__.py
+apkkit/base/package.py
+apkkit/io/__init__.py
+apkkit/io/apkfile.py
+apkkit/io/util.py
