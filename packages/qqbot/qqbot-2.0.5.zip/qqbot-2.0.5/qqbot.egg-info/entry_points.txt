@@ -1,0 +1,5 @@
+[console_scripts]
+qqbot = qqbot:Main
+qterm = qqbot:QTerm
+qtm = qqbot:QTerm
+
