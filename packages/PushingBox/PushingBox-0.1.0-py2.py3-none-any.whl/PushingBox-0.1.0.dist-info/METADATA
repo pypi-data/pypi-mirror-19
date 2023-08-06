@@ -1,0 +1,23 @@
+Metadata-Version: 2.0
+Name: PushingBox
+Version: 0.1.0
+Summary: A very simple Python client for the PushingBox Notification service API.
+Home-page: https://github.com/jazzycamel/pushingbox
+Author: Rob Kent
+Author-email: jazzycamel@googlemail.com
+License: MIT
+Keywords: PushingBox Notification API
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: requests
+
+# pushingbox
+A very simple Python client for the PushingBox Notification service API.
+
+
