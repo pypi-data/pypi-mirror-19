@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: msmtpqd
+Version: 0.1.0
+Summary: A queueing daemon for emails
+Home-page: https://github.com/dcbaker/msmtpqd
+Author: Dylan Baker
+Author-email: dylan@pnwbakers.com
+License: GPLv3+
+Description: msmtpqd
+        =======
+        
+        msmtpqd is a queueing daemon for msmtp that talks over dbus.
+        
+Keywords: email
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Operating System :: POSIX
+Classifier: Topic :: Communications :: Email :: Mail Transport Agents
