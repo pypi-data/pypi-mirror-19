@@ -1,0 +1,16 @@
+---
+  - name: "say-hello-fr"
+    signals:
+      - order: "Bonjour"
+    neurons:
+      - say:
+          message:
+            - "Bonjour monsieur"
+
+  - name: "say-hello-en"
+    signals:
+      - order: "Hello"
+    neurons:
+      - say:
+          message:
+            - "Hello sir"
