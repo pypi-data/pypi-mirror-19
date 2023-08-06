@@ -1,0 +1,30 @@
+Metadata-Version: 1.1
+Name: usigtreatment
+Version: 0.0.1
+Summary: Utility functionnalities for signal treatments
+Home-page: UNKNOWN
+Author: Krounet
+Author-email: krounet@gmail.com
+License: WTFPL
+Description: usigtreatment-a usefull package for signal treatments by Krounet
+        ================================================================
+        
+        usigtreatment is a little usefull Python (Python 2.7) package to do signal treatments. Descriptions of the functionnalities are included into the different scripts (one day I'll do a wiki...maybe)
+        
+        This package need Numpy to work.
+        
+        To install it's easy : pip install usigtreatment
+        
+        Enjoy :)
+        
+        This package is under WTFPL licence.
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Development Status :: 1 - Planning
+Classifier: Natural Language :: French
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Scientific/Engineering
