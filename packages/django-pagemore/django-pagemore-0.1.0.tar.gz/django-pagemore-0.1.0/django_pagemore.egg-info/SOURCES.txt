@@ -1,0 +1,15 @@
+AUTHORS
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+django_pagemore.egg-info/PKG-INFO
+django_pagemore.egg-info/SOURCES.txt
+django_pagemore.egg-info/dependency_links.txt
+django_pagemore.egg-info/requires.txt
+django_pagemore.egg-info/top_level.txt
+pagemore/__init__.py
+pagemore/models.py
+pagemore/static/pagemore/js/pagemore.js
+pagemore/templatetags/__init__.py
+pagemore/templatetags/pagemore.py
