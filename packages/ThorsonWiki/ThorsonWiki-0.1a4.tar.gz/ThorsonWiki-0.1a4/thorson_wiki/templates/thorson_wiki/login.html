@@ -1,0 +1,44 @@
+{% extends "thorson_wiki/base.html" %}
+
+{% load i18n staticfiles %}
+
+{% block content %}
+
+<h1>{% trans "Log in" %}</h1>
+
+<hr/>
+
+{% if form.non_field_errors %}
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="alert alert-danger">
+      <span class="glyphicon glyphicon-exclamation-sign"
+            aria-hidden="true">
+      </span>
+      <span class="sr-only">{% trans "Error:" %}</span>
+
+      {% for error in form.non_field_errors %}
+        {{ error }}<br/>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+<form method="post" action="{% url namespace_|add:":login" %}">
+  {% csrf_token %}
+  <input type="hidden" name="next" value="{{ next }}"/>
+
+  {% include "thorson_wiki/_text_field.html" with field=form.username %}
+  {% include "thorson_wiki/_text_field.html" with field=form.password %}
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <button type="submit" class="btn btn-primary pull-right">
+        {% trans "Submit" %}
+      </button>
+    </div>
+  </div>
+</form>
+
+{% endblock %}
