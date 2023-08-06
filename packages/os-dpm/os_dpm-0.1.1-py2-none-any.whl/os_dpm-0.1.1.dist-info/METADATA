@@ -1,0 +1,50 @@
+Metadata-Version: 2.0
+Name: os-dpm
+Version: 0.1.1
+Summary: Shared library for OpenStack projects enabling IBM z Systems PR/SM hypervisor in DPM mode
+Home-page: http://www.openstack.org/
+Author: OpenStack
+Author-email: openstack-dev@lists.openstack.org
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: pbr (>=1.8)
+
+===============================
+os-dpm
+===============================
+
+OpenStack Shared library for IBM z Systems PR/SM hypervisor in DPM mode
+
+The IBM z Systems (and IBM LinuxONE) "Dynamic Partition Manager" (DPM) allows
+managing the firmware-based logical partition hypervisor (PR/SM) with the
+dynamic capabilities known from software-based hypervisors. This project
+holds common files between nova-dpm [1] and networking-dpm [2].
+
+[1] https://github.com/openstack/nova-dpm
+[2] https://github.com/openstack/networking-dpm
+
+
+* Free software: Apache license
+* Documentation: TBD
+* Source: http://git.openstack.org/cgit/openstack/os-dpm
+* Bugs: http://bugs.launchpad.net/os-dpm
+
+Features
+--------
+
+* TODO
+
+
+
