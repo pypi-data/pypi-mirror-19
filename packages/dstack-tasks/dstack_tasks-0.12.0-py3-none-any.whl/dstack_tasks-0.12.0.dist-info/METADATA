@@ -1,0 +1,72 @@
+Metadata-Version: 2.0
+Name: dstack-tasks
+Version: 0.12.0
+Summary: Collection of tasks to manage the deployment of dockerized django apps.
+Home-page: https://github.com/obitec/dstack-tasks
+Author: JR Minnaar
+Author-email: jr.minnaar+pypi@gmail.com
+License: BSD License
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: Fabric3 (>=1.12.post1)
+Requires-Dist: python-dotenv (>=0.5.1)
+Requires-Dist: pyyaml (>=3.11)
+Provides-Extra: dev
+Requires-Dist: Sphinx (>=1.4.1); extra == 'dev'
+Requires-Dist: invoke (>=0.13.0); extra == 'dev'
+Requires-Dist: wheel (>=0.29.0); extra == 'dev'
+Provides-Extra: test
+Requires-Dist: coverage; extra == 'test'
+
+============
+DStack Tasks
+============
+
+Part of the DStack project. This package provides the utilities and tasks that make it easier to
+develop, build and deploy dockerized Django apps.
+
+Detailed documentation is in the "docs" directory.
+
+Quick start
+-----------
+
+1. Install the library::
+
+    pip install -U git+https://github.com/obitec/dstack-tasks
+
+2. Import the package at the top of your project's fabfile::
+
+    # fabfile.py
+    from dstack_tasks import *
+
+3. Run the doctor task to check if everything is okay::
+
+    fab doctor
+
+4. Create a project.yml and/or .env file to configure your tasks::
+
+    # project.yml
+    project:
+      name: example
+      version: 0.9.9
+      maintained_by:
+        - name: A Thor
+          email: e@mail.com
+      description: "How awesome is your project?"
+
+    # .env
+    HOST_NAME=example_host
+    VIRTUAL_ENV=example_env
+    PROJECT_NAME=example_name
+
+5. Happy coding :-)
+
+
