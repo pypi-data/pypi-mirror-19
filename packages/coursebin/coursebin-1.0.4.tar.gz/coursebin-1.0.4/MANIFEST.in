@@ -1,0 +1,5 @@
+include coursebin/static/config.json
+
+include coursebin/static/class-template/*
+
+include coursebin/static/course-template/*

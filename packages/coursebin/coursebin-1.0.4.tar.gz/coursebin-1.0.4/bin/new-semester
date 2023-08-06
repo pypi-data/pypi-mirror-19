@@ -1,0 +1,29 @@
+#!/usr/bin/env python
+
+import argparse
+from coursebin import college, logging
+
+parser = argparse.ArgumentParser(description='Grade a course.')
+parser.add_argument(type=int, dest='semester_number', nargs='?',
+                    default=-1, help='Number of the semester to begin.')
+parser.add_argument('-q', '--quiet', dest='quiet', required=False,
+                    action='store_true', default=False,
+                    help='Suppress output')
+
+args = parser.parse_args()
+
+if args.quiet:
+    logging.setLevel(logging.CRITICAL)
+
+if args.semester_number != -1:
+    college.new_semester(args.semester_number)
+else:
+    while True:
+        try:
+            semester_numb = int(raw_input('Semester number: '))
+        except ValueError:
+            logging.error('Invalid input')
+            continue
+        else:
+            college.new_semester(semester_numb)
+

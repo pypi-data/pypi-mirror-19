@@ -1,0 +1,29 @@
+{
+    "collegeDirectory": false, 
+    "defaultSemester": false, 
+    "gradesPath": false, 
+    "gradingScheme": {
+        "A": {
+            "gpa": 4.0, 
+            "include_in_gpa": true
+        }, 
+        "B": {
+            "gpa": 4.0, 
+            "include_in_gpa": true
+        }, 
+        "C": {
+            "gpa": 4.0, 
+            "include_in_gpa": true
+        }, 
+        "NC": {
+            "gpa": 0.0, 
+            "include_in_gpa": false
+        }, 
+        "S": {
+            "gpa": 0.0, 
+            "include_in_gpa": false
+        }
+    }, 
+    "noteFormat": "%d-%m-%y", 
+    "setDefaultSemesterOn-newsemester": true
+}
