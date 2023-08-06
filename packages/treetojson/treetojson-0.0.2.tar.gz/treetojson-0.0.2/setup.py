@@ -1,0 +1,16 @@
+from distutils.core import setup
+
+version = '0.0.2'
+
+setup(
+    name='treetojson',
+    version=version,
+    description='Converts a tree structure in to a valid JSON',
+    long_description=open('README.markdown').read(),
+    author='Saad Sahibjan',
+    author_email='saad.sahibjan@gmail.com',
+    license='LICENSE',
+    url='https://github.com/saadsahibjan/treetojson',
+    py_modules=['treetojson'],
+    platforms='Cross-platform',
+)
