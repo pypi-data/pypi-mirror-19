@@ -1,0 +1,17 @@
+##############################################################################
+# Workspaces
+#
+# Requirements:
+#  - role  : git
+#  - task  : snorriheim (needs vcs_extras)
+#  - module: vci
+#
+##############################################################################
+
+- name: vci various workspaces
+  vci:
+    key: "{{ item }}"
+    index: "{{ vci_index }}"
+    path: "{{ vci_path }}/{{ item }}"
+    force: true
+  with_items: "{{ vci_workspaces }}"
