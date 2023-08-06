@@ -1,0 +1,33 @@
+Metadata-Version: 1.0
+Name: tmux-control
+Version: 2017.1.16.1614
+Summary: configure and control tmux
+Home-page: https://github.com/wdbm/tmux-control
+Author: Will Breaden Madden
+Author-email: wbm@protonmail.ch
+License: GPLv3
+Description: tmux-control
+        ============
+        
+        configure and control tmux
+        
+        note
+        ====
+        
+        code in experimental state -- check back soon
+        
+        setup
+        =====
+        
+        .. code:: bash
+        
+            sudo pip install tmuxcontrol
+        
+        documentation and help
+        ======================
+        
+        .. code:: bash
+        
+            tmux-control.py --help
+        
+Platform: UNKNOWN
