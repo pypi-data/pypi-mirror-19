@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+django_pigeon.egg-info/PKG-INFO
+django_pigeon.egg-info/SOURCES.txt
+django_pigeon.egg-info/dependency_links.txt
+django_pigeon.egg-info/requires.txt
+django_pigeon.egg-info/top_level.txt
+pigeon/__init__.py
+pigeon/test.py
