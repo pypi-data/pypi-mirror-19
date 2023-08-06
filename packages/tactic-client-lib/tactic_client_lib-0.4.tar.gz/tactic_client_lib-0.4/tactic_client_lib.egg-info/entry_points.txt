@@ -1,0 +1,4 @@
+[console_scripts]
+create_project = tactic_client_lib.create_project:cli
+get_ticket = tactic_client_lib.get_ticket:cli
+
