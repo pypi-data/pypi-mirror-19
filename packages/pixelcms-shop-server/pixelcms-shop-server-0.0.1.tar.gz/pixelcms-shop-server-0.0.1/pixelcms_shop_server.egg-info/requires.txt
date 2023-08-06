@@ -1,0 +1,5 @@
+pixelcms-server>=0.4.0,<1
+django-mptt>=0.8.6,<1
+hashids>=1.1.0,<2
+django-ipware>=1.1.6,<2
+django-nested-admin>=3.0.12,<4

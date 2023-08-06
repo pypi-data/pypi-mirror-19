@@ -1,0 +1,607 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-10 17:39+0100\n"
+"PO-Revision-Date: 2017-01-10 17:39+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#: apps.py:7
+msgid "Shop"
+msgstr "Sklep"
+
+#: catalog/admin.py:23
+msgid "Name"
+msgstr "Nazwa"
+
+#: catalog/admin.py:33 catalog/admin.py:130 sale/admin.py:121 sale/admin.py:230
+msgid "Image"
+msgstr "Obrazek"
+
+#: catalog/admin.py:152
+msgid "Attributes"
+msgstr "Atrybuty"
+
+#: catalog/admin.py:156
+msgid "Prices"
+msgstr "Ceny"
+
+#: catalog/admin.py:161
+msgid "Availability"
+msgstr "Dostępność"
+
+#: catalog/admin.py:166
+msgid "Variants"
+msgstr "Warianty"
+
+#: catalog/admin.py:206 catalog/models.py:286 sale/admin.py:142
+#: sale/admin.py:251
+msgid "Options"
+msgstr "Opcje"
+
+#: catalog/admin.py:210
+msgid "Categories"
+msgstr "Kategorie\t\t"
+
+#: catalog/admin.py:242
+msgid "Products module"
+msgstr "Moduł produktów"
+
+#: catalog/apps.py:7
+msgid "Shop catalog"
+msgstr "Sklep - katalog"
+
+#: catalog/models.py:25 catalog/models.py:151 catalog/models.py:289
+#: catalog/models.py:370 catalog/models.py:403 config/models.py:9
+#: config/models.py:23 config/models.py:59 sale/models.py:344
+msgid "name"
+msgstr "nazwa"
+
+#: catalog/models.py:27 catalog/models.py:153
+msgid "slug"
+msgstr "slug"
+
+#: catalog/models.py:29 catalog/models.py:155 catalog/models.py:264
+#: catalog/models.py:290 config/models.py:24 config/models.py:60
+#: config/models.py:101
+msgid "published"
+msgstr "opublikowano"
+
+#: catalog/models.py:31
+msgid "published with parents"
+msgstr "opublikowano wraz z rodzicami"
+
+#: catalog/models.py:34
+msgid "parent"
+msgstr "rodzic"
+
+#: catalog/models.py:37 catalog/models.py:159 catalog/models.py:265
+#: catalog/models.py:291 catalog/models.py:319 catalog/models.py:341
+#: catalog/models.py:371 catalog/models.py:404 catalog/models.py:481
+#: config/models.py:25 config/models.py:61
+msgid "order"
+msgstr "kolejność"
+
+#: catalog/models.py:40 catalog/models.py:263 catalog/models.py:270
+msgid "image"
+msgstr "obrazek"
+
+#: catalog/models.py:42
+msgid "thumbnail"
+msgstr "miniaturka"
+
+#: catalog/models.py:44 catalog/models.py:160
+msgid "description"
+msgstr "opis"
+
+#: catalog/models.py:48 catalog/models.py:157
+msgid "category"
+msgstr "kategoria"
+
+#: catalog/models.py:49 catalog/models.py:297
+msgid "categories"
+msgstr "kategorie"
+
+#: catalog/models.py:163 catalog/models.py:348
+msgid "attributes"
+msgstr "atrybuty"
+
+#: catalog/models.py:168
+msgid "gross price"
+msgstr "cena brutto"
+
+#: catalog/models.py:172 config/models.py:15
+msgid "tax rule"
+msgstr "reguła podatku"
+
+#: catalog/models.py:175
+msgid "tax amount"
+msgstr "kwota podatku"
+
+#: catalog/models.py:182 catalog/models.py:480 catalog/models.py:486
+#: sale/models.py:341
+msgid "product"
+msgstr "produkt"
+
+#: catalog/models.py:183 catalog/models.py:487
+msgid "products"
+msgstr "produkty"
+
+#: catalog/models.py:271
+msgid "images"
+msgstr "obrazki"
+
+#: catalog/models.py:287
+msgid "Text"
+msgstr "Tekst"
+
+#: catalog/models.py:293
+msgid "value type"
+msgstr "typ wartości"
+
+#: catalog/models.py:299
+msgid "Attribute will be available only for products in selected categories."
+msgstr "Atrybuty będą dostępne tylko dla produktów w wybranych kategoriach."
+
+#: catalog/models.py:307
+msgid "product attribute"
+msgstr "atrybut produktu"
+
+#: catalog/models.py:308
+msgid "product attributes"
+msgstr "atrybuty produktu"
+
+#: catalog/models.py:316 catalog/models.py:335 catalog/models.py:347
+msgid "attribute"
+msgstr "atrybut"
+
+#: catalog/models.py:318
+msgid "value"
+msgstr "wartość"
+
+#: catalog/models.py:325 catalog/models.py:415 sale/models.py:161
+#: sale/models.py:363 sale/models.py:373
+msgid "option"
+msgstr "opcja"
+
+#: catalog/models.py:326 catalog/models.py:416 sale/models.py:162
+#: sale/models.py:374
+msgid "options"
+msgstr "opcje"
+
+#: catalog/models.py:339
+msgid "text value"
+msgstr "wartość tekstowa"
+
+#: catalog/models.py:372
+msgid "required"
+msgstr "wymagane"
+
+#: catalog/models.py:378 sale/models.py:362
+msgid "options group"
+msgstr "grupa opcji"
+
+#: catalog/models.py:379
+msgid "options groups"
+msgstr "grupy opcji"
+
+#: catalog/models.py:406 sale/models.py:365
+msgid "price modification"
+msgstr "modyfikacja ceny"
+
+#: catalog/models.py:409 sale/models.py:368
+msgid "percentage"
+msgstr "procentowo"
+
+#: catalog/models.py:441
+msgid "Order"
+msgstr "Kolejność"
+
+#: catalog/models.py:442
+msgid "Price - from lowest"
+msgstr "Cena - od najniższej"
+
+#: catalog/models.py:443
+msgid "Price - from highest"
+msgstr "Cena - od najwyższej"
+
+#: catalog/models.py:444
+msgid "Random"
+msgstr "Losowo"
+
+#: catalog/models.py:451
+msgid "order by"
+msgstr "sortowanie"
+
+#: catalog/models.py:455
+msgid "number of products"
+msgstr "ilość produktów"
+
+#: catalog/models.py:457
+msgid "show names"
+msgstr "pokazuj nazwy"
+
+#: catalog/models.py:459
+msgid "names headers level"
+msgstr "poziom nagłówków nazw"
+
+#: catalog/models.py:462
+msgid "show images"
+msgstr "pokazuj obrazki"
+
+#: catalog/models.py:463
+msgid "show prices"
+msgstr "pokazuj ceny"
+
+#: catalog/models.py:467
+msgid "products module"
+msgstr "moduł produktów"
+
+#: catalog/models.py:468
+msgid "products modules"
+msgstr "moduły produktów"
+
+#: config/apps.py:7
+msgid "Shop config"
+msgstr "Sklep - konfiguracja"
+
+#: config/models.py:10
+msgid "rate [%]"
+msgstr "stawka [%]"
+
+#: config/models.py:16
+msgid "tax rules"
+msgstr "reguły podatku"
+
+#: config/models.py:27 config/models.py:63
+msgid "price"
+msgstr "cena"
+
+#: config/models.py:31
+msgid "set \"Waiting for payment\" status"
+msgstr "ustaw status \"Oczekiwanie na płatność\""
+
+#: config/models.py:34
+msgid "gateway"
+msgstr "bramka"
+
+#: config/models.py:38
+msgid "additional information"
+msgstr "dodatkowa informacja"
+
+#: config/models.py:39
+msgid "This text will be presented to customer after placing an order."
+msgstr "Ten tekst zostanie zaprezentowany klientowi po złożeniu zamówienia."
+
+#: config/models.py:47 sale/models.py:194
+msgid "payment method"
+msgstr "metoda płatności"
+
+#: config/models.py:48 config/models.py:70
+msgid "payment methods"
+msgstr "metody płatności"
+
+#: config/models.py:67
+msgid "set \"Waiting for shipping\" status"
+msgstr "ustaw status \"Oczekiwanie na wysyłkę\""
+
+#: config/models.py:76 sale/models.py:190
+msgid "shipping method"
+msgstr "metoda wysyłki"
+
+#: config/models.py:77
+msgid "shipping methods"
+msgstr "metody wysyłki"
+
+#: config/models.py:87
+msgid "Order placement - (to customer)"
+msgstr "Złożenie zamówienia - (do klienta)"
+
+#: config/models.py:91
+msgid "Order status change (to customer)"
+msgstr "Zmiana statusu zamówienia (do klienta)"
+
+#: config/models.py:95
+msgid "Order placement - (to admin)"
+msgstr "Złożenie zamówienia - (do administratora)"
+
+#: config/models.py:99
+msgid "event"
+msgstr "zdarzenie"
+
+#: config/models.py:102
+msgid "subject"
+msgstr "temat"
+
+#: config/models.py:103
+msgid "content"
+msgstr "treść"
+
+#: config/models.py:108
+msgid "email template"
+msgstr "szablon emaila"
+
+#: config/models.py:109
+msgid "email templates"
+msgstr "szablony emaili"
+
+#: payments/admin.py:20 sale/admin.py:305
+msgid "Gateway name"
+msgstr "Nazwa bramki"
+
+#: payments/admin.py:24 sale/admin.py:309
+msgid "Internal ID"
+msgstr "Wewnętrzne ID"
+
+#: payments/admin.py:28 sale/admin.py:313
+msgid "Internal status"
+msgstr "Wewnętrzny status"
+
+#: payments/apps.py:7
+msgid "Shop payments"
+msgstr "Sklep - płatności"
+
+#: payments/models.py:12 sale/models.py:212
+msgid "shop order"
+msgstr "zamówienia"
+
+#: payments/models.py:15 sale/models.py:62 sale/models.py:188
+msgid "created"
+msgstr "utworzono"
+
+#: payments/models.py:18 sale/models.py:67 sale/models.py:197
+msgid "total"
+msgstr "razem"
+
+#: payments/models.py:20
+msgid "success"
+msgstr "zakończona sukcesem"
+
+#: payments/models.py:21
+msgid "payment URI"
+msgstr "URI płatności"
+
+#: payments/models.py:22
+msgid "valid until"
+msgstr "ważna do"
+
+#: payments/models.py:27
+msgid "payment"
+msgstr "płatność"
+
+#: payments/models.py:28
+msgid "payments"
+msgstr "płatności"
+
+#: payments/payu/admin.py:23 sale/views_routes.py:65
+msgid "Shop order"
+msgstr "Zamówienia"
+
+#: payments/payu/models.py:21
+msgid "New"
+msgstr "Nowa"
+
+#: payments/payu/models.py:22
+msgid "Pending"
+msgstr "Oczekująca"
+
+#: payments/payu/models.py:23
+msgid "Waiting for confirmation"
+msgstr "Oczekiwanie na potwierdzenie"
+
+#: payments/payu/models.py:24 settings.py:32
+msgid "Completed"
+msgstr "Zakończona"
+
+#: payments/payu/models.py:25
+msgid "Canceled"
+msgstr "Anulowana"
+
+#: payments/payu/models.py:26
+msgid "Rejected"
+msgstr "Odrzucona"
+
+#: payments/payu/models.py:32
+msgid "PayU order ID"
+msgstr "ID zamówienia PayU"
+
+#: payments/payu/models.py:34 sale/models.py:202
+msgid "status"
+msgstr "status"
+
+#: payments/payu/models.py:59
+msgid "Shipping"
+msgstr "Wysyłka"
+
+#: payments/views_api.py:39
+msgid ""
+"Error occurred during payment creation. Service may be temporary "
+"unavailable. Please try again in a moment."
+msgstr ""
+"Wystąpił błąd podczas tworzenia płatności. Usługa może być chwilowo "
+"niedostępna. Spróbuj ponownie za chwilę."
+
+#: payments/views_api.py:53
+msgid "Payment for this order has been already made."
+msgstr "Płatność za to zamówienie została już dokonana."
+
+#: payments/views_api.py:61
+msgid "Payment is not available for this order."
+msgstr "Płatność nie jest dostępna dla tego zamówienia."
+
+#: payments/views_api.py:67
+msgid "Order not found."
+msgstr "Nie znaleziono zamówienia."
+
+#: sale/admin.py:28
+msgid "Order ID"
+msgstr "ID zamówienia"
+
+#: sale/admin.py:49 sale/admin.py:193
+msgid "Total"
+msgstr "Razem"
+
+#: sale/admin.py:65
+msgid "Email"
+msgstr "Email"
+
+#: sale/admin.py:73
+msgid "User"
+msgstr "Użytkownik"
+
+#: sale/admin.py:110 sale/admin.py:219
+msgid "Product"
+msgstr "Produkt"
+
+#: sale/admin.py:171 sale/admin.py:337
+msgid "Customer"
+msgstr "Klient"
+
+#: sale/admin.py:298
+msgid "Details"
+msgstr "Szczegóły"
+
+#: sale/admin.py:342
+msgid "Products total"
+msgstr "Razem za produkty"
+
+#: sale/admin.py:377
+msgid "Additional"
+msgstr "Dodatkowe"
+
+#: sale/apps.py:7
+msgid "Shop sale"
+msgstr "Sklep - sprzedaż"
+
+#: sale/models.py:28
+msgid "user"
+msgstr "użytkownik"
+
+#: sale/models.py:35 sale/models.py:59 sale/models.py:186
+msgid "customer"
+msgstr "klient"
+
+#: sale/models.py:36
+msgid "customers"
+msgstr "klienci"
+
+#: sale/models.py:64
+msgid "products count"
+msgstr "ilość produktów"
+
+#: sale/models.py:74
+msgid "cart"
+msgstr "koszyk"
+
+#: sale/models.py:75
+msgid "carts"
+msgstr "koszyki"
+
+#: sale/models.py:101 sale/models.py:346
+msgid "unit price"
+msgstr "cena jednostkowa"
+
+#: sale/models.py:103 sale/models.py:348
+msgid "quantity"
+msgstr "ilość"
+
+#: sale/models.py:105 sale/models.py:350
+msgid "subtotal"
+msgstr "razem"
+
+#: sale/models.py:111
+msgid "cart product"
+msgstr "produkt"
+
+#: sale/models.py:112
+msgid "cart products"
+msgstr "produkty"
+
+#: sale/models.py:181
+msgid "order ID"
+msgstr "ID zamówienia"
+
+#: sale/models.py:199
+msgid "includes the cost of shipping and payment"
+msgstr "zawiera koszt dostawy i płatności"
+
+#: sale/models.py:206
+msgid "additional comment"
+msgstr "dodatkowy komentarz"
+
+#: sale/models.py:213
+msgid "shop orders"
+msgstr "zamówienia"
+
+#: sale/models.py:356
+msgid "order product"
+msgstr "produkt"
+
+#: sale/models.py:357
+msgid "order products"
+msgstr "produkty"
+
+#: sale/models.py:380 sale/models.py:404
+msgid "first and last name / company name"
+msgstr "imię i nazwisko / nazwa firmy"
+
+#: sale/models.py:383
+msgid "VAT ID"
+msgstr "NIP"
+
+#: sale/models.py:385 sale/models.py:406
+msgid "address"
+msgstr "adres"
+
+#: sale/models.py:386 sale/models.py:407
+msgid "postal code"
+msgstr "kod pocztowy"
+
+#: sale/models.py:387 sale/models.py:408
+msgid "place"
+msgstr "miejscowość"
+
+#: sale/models.py:389 sale/models.py:410
+msgid "phone"
+msgstr "telefon"
+
+#: sale/models.py:394 sale/models.py:395
+msgid "billing data"
+msgstr "dane rozliczeniowe"
+
+#: sale/models.py:415 sale/models.py:416
+msgid "shipping data"
+msgstr "dane do wysyłki"
+
+#: sale/serializers.py:110
+msgid "Wrong option."
+msgstr "Nieprawidłowa opcja."
+
+#: sale/views_routes.py:30
+msgid "Cart"
+msgstr "Koszyk"
+
+#: sale/views_routes.py:45
+msgid "Shop orders"
+msgstr "Zamówienia"
+
+#: settings.py:30
+msgid "Waiting for payment"
+msgstr "Oczekiwanie na płatność"
+
+#: settings.py:31
+msgid "Waiting for shipping"
+msgstr "Oczekiwanie na wysyłkę"
