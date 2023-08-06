@@ -1,0 +1,47 @@
+Metadata-Version: 1.1
+Name: gatheros
+Version: 0.1.5
+Summary: A suite for gathering and presenting OS related information
+Home-page: https://github.com/operatorequals/gatheros
+Author: John Torakis
+Author-email: john.torakis@gmail.com
+License: BSD
+Download-URL: https://github.com/operatorequals/gatheros/tarball/0.1.5
+Description: GatherOS
+        ===============================
+        
+        version number: 0.0.1
+        author: John Torakis
+        
+        Overview
+        --------
+        
+        A suite for gathering and presenting OS related information
+        
+        Installation / Usage
+        --------------------
+        
+        To install use pip:
+        
+            $ pip install gatheros
+        
+        
+        Or clone the repo:
+        
+            $ git clone https://github.com/operatorequals/gatheros.git
+            $ python setup.py install
+            
+        Contributing
+        ------------
+        
+        TBD
+        
+        Example
+        -------
+        
+        TBD
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 2
+Classifier: Operating System :: POSIX :: Linux
