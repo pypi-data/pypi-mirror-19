@@ -1,0 +1,15 @@
+pandas
+numpy
+future
+six
+pypyodbc
+lazy
+
+[doc]
+sphinx
+
+[jdbc]
+jaydebeapi
+
+[test]
+pytest
