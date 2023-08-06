@@ -1,0 +1,21 @@
+Metadata-Version: 2.0
+Name: rgmining-synthetic-dataset
+Version: 0.9.1
+Summary: A synthetic dataset for Review graph mining project
+Home-page: https://github.com/rgmining/synthetic
+Author: Junpei Kawamoto
+Author-email: kawamoto.junpei@gmail.com
+License: GPLv3
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Requires-Dist: dsargparse (>=0.3.0)
+
+UNKNOWN
+
+
