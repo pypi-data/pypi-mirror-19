@@ -1,0 +1,355 @@
+# List of source files which do not need to be translated.
+# $Id$
+#
+#   Python files
+#
+Gramps.py
+gprime/__init__.py
+#
+# cli
+#
+gprime/cli/__init__.py
+#
+# gen
+#
+gprime/constfunc.py
+gprime/dbstate.py
+gprime/errors.py
+gprime/git_revision.py
+gprime/__init__.py
+gprime/sort.py
+gprime/soundex.py
+gprime/updatecallback.py
+gprime/ggettext.py
+#
+# gen.datehandler package
+#
+gprime/datehandler/_date_ar.py
+gprime/datehandler/_date_bg.py
+gprime/datehandler/_date_ca.py
+gprime/datehandler/_date_cs.py
+gprime/datehandler/_date_da.py
+gprime/datehandler/_date_de.py
+gprime/datehandler/_date_el.py
+gprime/datehandler/_date_es.py
+gprime/datehandler/_date_fi.py
+gprime/datehandler/_date_fr.py
+gprime/datehandler/_datehandler.py
+gprime/datehandler/_date_hr.py
+gprime/datehandler/_date_it.py
+gprime/datehandler/_date_lt.py
+gprime/datehandler/_date_nb.py
+gprime/datehandler/_date_nl.py
+gprime/datehandler/_date_pl.py
+gprime/datehandler/_date_pt.py
+gprime/datehandler/_date_ru.py
+gprime/datehandler/_date_sk.py
+gprime/datehandler/_date_sl.py
+gprime/datehandler/_date_sr.py
+gprime/datehandler/_date_sv.py
+gprime/datehandler/_dateutils.py
+gprime/datehandler/_date_zh.py
+gprime/datehandler/_grampslocale.py
+#
+# gen db API
+#
+gprime/db/__init__.py
+gprime/db/backup.py
+gprime/db/bsddbtxn.py
+gprime/db/cursor.py
+gprime/db/dbconst.py
+gprime/db/test/db_test.py
+gprime/db/txn.py
+#
+# gen.display package
+#
+gprime/display/__init__.py
+#
+# gen.filters package
+#
+gprime/filters/_filterlist.py
+gprime/filters/_genericfilter.py
+gprime/filters/__init__.py
+gprime/filters/_paramfilter.py
+gprime/filters/_searchfilter.py
+#
+# gen.filters.rules package
+#
+gprime/filters/rules/_hastextmatchingregexpof.py
+gprime/filters/rules/__init__.py
+#
+# gen.filters.rules.test package
+#
+gprime/filters/rules/test/event_rules_test.py
+gprime/filters/rules/test/family_rules_test.py
+gprime/filters/rules/test/media_rules_test.py
+gprime/filters/rules/test/note_rules_test.py
+gprime/filters/rules/test/person_rules_test.py
+gprime/filters/rules/test/place_rules_test.py
+gprime/filters/rules/test/repository_rules_test.py
+#
+# gen.filters.rules.person package
+#
+gprime/filters/rules/person/__init__.py
+gprime/filters/rules/person/_hastextmatchingregexpof.py
+#
+# gen.filters.rules.family package
+#
+gprime/filters/rules/family/__init__.py
+gprime/filters/rules/family/_memberbase.py
+#
+# gen.filters.rules.event package
+#
+gprime/filters/rules/event/__init__.py
+#
+# gen.filters.rules.place package
+#
+gprime/filters/rules/place/__init__.py
+#
+# gen.filters.rules.source package
+#
+gprime/filters/rules/source/__init__.py
+#
+# gen.filters.rules.citation package
+#
+gprime/filters/rules/citation/__init__.py
+#
+# gen.filters.rules.media package
+#
+gprime/filters/rules/media/__init__.py
+#
+# gen.filters.rules.repository package
+#
+gprime/filters/rules/repository/__init__.py
+#
+# gen.filters.rules.note package
+#
+gprime/filters/rules/note/__init__.py
+#
+# gen lib API
+#
+gprime/lib/__init__.py
+gprime/lib/address.py
+gprime/lib/addressbase.py
+gprime/lib/attrbase.py
+gprime/lib/attribute.py
+gprime/lib/baseobj.py
+gprime/lib/gcalendar.py
+gprime/lib/childref.py
+gprime/lib/citationbase.py
+gprime/lib/citation.py
+gprime/lib/const.py
+gprime/lib/datebase.py
+gprime/lib/event.py
+gprime/lib/eventref.py
+gprime/lib/family.py
+gprime/lib/genderstats.py
+gprime/lib/ldsordbase.py
+gprime/lib/location.py
+gprime/lib/locationbase.py
+gprime/lib/mediaobj.py
+gprime/lib/mediabase.py
+gprime/lib/mediaref.py
+gprime/lib/note.py
+gprime/lib/notebase.py
+gprime/lib/personref.py
+gprime/lib/place.py
+gprime/lib/placebase.py
+gprime/lib/primaryobj.py
+gprime/lib/privacybase.py
+gprime/lib/refbase.py
+gprime/lib/repo.py
+gprime/lib/reporef.py
+gprime/lib/researcher.py
+gprime/lib/secondaryobj.py
+gprime/lib/src.py
+gprime/lib/srcbase.py
+gprime/lib/srcref.py
+gprime/lib/styledtext.py
+gprime/lib/styledtexttag.py
+gprime/lib/surname.py
+gprime/lib/tableobj.py
+gprime/lib/tagbase.py
+gprime/lib/tag.py
+gprime/lib/test/date_test.py
+gprime/lib/test/grampstype_test.py
+gprime/lib/test/merge_test.py
+gprime/lib/url.py
+gprime/lib/urlbase.py
+#
+# gen.merge package
+#
+gprime/merge/__init__.py
+#
+# gen mime API
+#
+gprime/mime/__init__.py
+#
+# gen plugin API
+#
+gprime/plug/__init__.py
+gprime/plug/_docgenplugin.py
+gprime/plug/_export.py
+gprime/plug/_import.py
+gprime/plug/_plugin.py
+gprime/plug/menu/_booleanlist.py
+gprime/plug/menu/_boolean.py
+gprime/plug/menu/_color.py
+gprime/plug/menu/_destination.py
+gprime/plug/menu/_family.py
+gprime/plug/menu/_filter.py
+gprime/plug/menu/__init__.py
+gprime/plug/menu/_media.py
+gprime/plug/menu/_menu.py
+gprime/plug/menu/_note.py
+gprime/plug/menu/_number.py
+gprime/plug/menu/_option.py
+gprime/plug/menu/_personlist.py
+gprime/plug/menu/_person.py
+gprime/plug/menu/_placelist.py
+gprime/plug/menu/_string.py
+gprime/plug/menu/_style.py
+gprime/plug/menu/_surnamecolor.py
+gprime/plug/menu/_text.py
+gprime/plug/docbackend/cairobackend.py
+gprime/plug/docbackend/__init__.py
+gprime/plug/docgen/basedoc.py
+gprime/plug/docgen/drawdoc.py
+gprime/plug/docgen/fontscale.py
+gprime/plug/docgen/fontstyle.py
+gprime/plug/docgen/graphicstyle.py
+gprime/plug/docgen/__init__.py
+gprime/plug/docgen/paragraphstyle.py
+gprime/plug/docgen/stylesheet.py
+gprime/plug/docgen/tablestyle.py
+gprime/plug/docgen/textdoc.py
+gprime/plug/report/_bibliography.py
+gprime/plug/report/__init__.py
+gprime/plug/report/_options.py
+gprime/plug/report/_reportbase.py
+#
+# gen proxy API
+#
+gprime/proxy/__init__.py
+gprime/proxy/filter.py
+gprime/proxy/living.py
+gprime/proxy/proxybase.py
+gprime/proxy/referencedbyselection.py
+#
+# gen.simple
+#
+gprime/simple/__init__.py
+gprime/simple/_simpledoc.py
+#gprime/simple/_simpletable.py
+#
+# gen utils API
+#
+gprime/utils/__init__.py
+gprime/utils/callback.py
+gprime/utils/callman.py
+gprime/utils/config.py
+gprime/utils/debug.py
+gprime/utils/file.py
+gprime/utils/id.py
+gprime/utils/libformatting.py
+gprime/utils/mactrans.py
+gprime/utils/test/callback_test.py
+#
+# gen.utils.docgen
+#
+gprime/utils/docgen/__init__.py
+gprime/utils/docgen/csvtab.py
+gprime/utils/docgen/tabbeddoc.py
+#
+# plugins .gpr.py
+#
+gprime/plugins/__init__.py
+#
+# plugins/docgen directory
+#
+gprime/plugins/docgen/__init__.py
+#
+# plugins/draw directory
+#
+gprime/plugins/drawreport/__init__.py
+#
+# plugins/export directory
+#
+gprime/plugins/export/exportftree.py
+gprime/plugins/export/__init__.py
+gprime/plugins/export/test/exportvcard_test.py
+#
+# plugins/lib directory
+#
+gprime/plugins/lib/__init__.py
+gprime/plugins/lib/libgrampsxml.py
+gprime/plugins/lib/libholiday.py
+gprime/plugins/lib/libhtml.py
+gprime/plugins/lib/libmapservice.py
+gprime/plugins/lib/libmixin.py
+gprime/plugins/lib/libodfbackend.py
+#
+# plugins/map directory
+#
+gprime/plugins/lib/maps/constants.py
+gprime/plugins/lib/maps/datelayer.py
+gprime/plugins/lib/maps/dummylayer.py
+gprime/plugins/lib/maps/dummynogps.py
+gprime/plugins/lib/maps/__init__.py
+gprime/plugins/lib/maps/lifewaylayer.py
+gprime/plugins/lib/maps/markerlayer.py
+gprime/plugins/lib/maps/messagelayer.py
+gprime/plugins/lib/maps/selectionlayer.py
+#
+# plugins/mapservices directory
+#
+gprime/plugins/mapservices/googlemap.py
+gprime/plugins/mapservices/__init__.py
+gprime/plugins/mapservices/openstreetmap.py
+#
+# plugins/import directory
+#
+gprime/plugins/importer/__init__.py
+gprime/plugins/importer/test/importvcard_test.py
+#
+# plugins/graph directory
+#
+gprime/plugins/graph/__init__.py
+#
+# plugins/rel directory
+#
+gprime/plugins/rel/__init__.py
+gprime/plugins/rel/rel_ca.py
+gprime/plugins/rel/rel_cs.py
+gprime/plugins/rel/rel_da.py
+gprime/plugins/rel/rel_de.py
+gprime/plugins/rel/rel_es.py
+gprime/plugins/rel/rel_fi.py
+gprime/plugins/rel/rel_fr.py
+gprime/plugins/rel/rel_hr.py
+gprime/plugins/rel/rel_hu.py
+gprime/plugins/rel/rel_it.py
+gprime/plugins/rel/rel_nl.py
+gprime/plugins/rel/rel_no.py
+gprime/plugins/rel/rel_pl.py
+gprime/plugins/rel/rel_pt.py
+gprime/plugins/rel/rel_ru.py
+gprime/plugins/rel/rel_sk.py
+gprime/plugins/rel/rel_sl.py
+gprime/plugins/rel/rel_sv.py
+#
+# plugins/web directory
+#
+gprime/plugins/webreport/__init__.py
+gprime/plugins/webstuff/__init__.py
+#
+# test
+#
+gprime/test/config_test.py
+gprime/test/gramps_cli_test.py
+gprime/test/__init__.py
+gprime/test/regrtest.py
+gprime/test/test/gedread_util_test.py
+gprime/test/test/test_util_test.py
+gprime/test/test_util.py
+gprime/test/utils_test.py
