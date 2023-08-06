@@ -1,0 +1,186 @@
+{% extends "template.html" %}
+
+
+{% block "content" %}
+
+<h3>Events</h3>
+
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-body">
+
+            <h4>Event query</h4>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" style="padding: 10px;">
+                    Saved queries <a href="#" class="text-success pull-right" onclick="$('#saved-queries').toggle()">Show</a>
+                </div>
+                <div class="panel-body" id="saved-queries" hidden>
+                    <ul id="saved-queries-ul">
+
+                    </ul>
+                </div>
+            </div>
+
+             <div class="panel panel-default">
+                <div class="panel-heading" style="padding: 10px;">
+                    Last 10 queries <a href="#" class="text-success pull-right" onclick="$('#query-history').toggle()">Show</a>
+                </div>
+                <div class="panel-body" id="query-history" hidden>
+                    <ul>
+                    {% for query in history %}
+                        <li><code>{{query.query}}</code> which yielded {{query.result_count}} results ({{query.runtime}} seconds) - {{query.humanized_timestamp}}</li>
+                    {% end %}
+                    </ul>
+                </div>
+             </div>
+
+            <div class="form-group">
+                <label for="query" class="control-label">Query</label>
+
+                <div class="input-group">
+                    <input type="text" class="form-control" id="query" style="font-family: consolas;"
+                           {% if initial_query %}
+                           value="{{initial_query}}"
+                           {% end %}
+                            >
+
+                    <div class="input-group-btn">
+                        <button class="btn btn-success" id="run-query">Run query</button>
+                        <button class="btn btn-default" id="save-query">Save query for later visualisation</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-danger" id="query-error" hidden>An error occured: <span id="query-error-msg"></span>
+            </div>
+
+
+            <div id="table-area"></div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    var getEventFields = function (data) {
+        if (!data.length) {
+            return []
+        }
+        var values = data[0].values;
+        var keys = [];
+        for (name in values) {
+            if (!values.hasOwnProperty(name)) {
+                continue;
+            }
+            keys.push(name)
+        }
+        return keys
+    };
+
+    var getColumnDefinitions = function (fieldNames) {
+        var columns = [];
+        console.log(fieldNames);
+        for (var i = 0; i < fieldNames.length; i++) {
+            columns.push({data: "values." + fieldNames[i], title: fieldNames[i]});
+            console.log(fieldNames[i]);
+        }
+        columns.push({data: "source", title: "Source"});
+        columns.push({data: "timestamp", title: "Timestamp"});
+        return columns
+    };
+    var makeQuery = function (query) {
+        $("#run-query").attr("disabled", true);
+        pymicroserviceMethodCall({
+            method: 'query_events',
+            params: {
+                query: query
+            },
+            onSuccess: function (data) {
+                $("#run-query").attr("disabled", false);
+                if (data.error) {
+                    $("#query-error").show();
+                    $("#query-error-msg").text(JSON.stringify(data.error));
+                }
+                else {
+                    $("#table-area").append($("<table id='data-table' class='table'></table>"));
+
+                    var eventFields = getEventFields(data.result);
+
+//                    var toggleButtons = $("#toggle-column-vis");
+//                    for (var i = 0; i< eventFields.length; i++) {
+//                        toggleButtons.append(
+//                                $("<a class='btn btn-default toggle-col' href='#' data-column='" + i + "'>" + eventFields[i] + "</a>")
+//                        )
+//                    }
+
+                    var columns = getColumnDefinitions(eventFields);
+
+                    var table = $("#data-table").DataTable({
+                        dom: 'Bfrtip',
+                        data: data.result,
+                        columns: columns,
+                        buttons: [
+                            'copy', 'csv', 'excel', 'pdf'
+                        ]
+                    });
+
+//                    $("a.toggle-col").on('click', function (event) {
+//                        event.preventDefault();
+//                        var column = table.column($(this).attr("data-column"));
+//                        column.visible(!column.visible());
+//                    })
+                }
+            }
+        })
+
+    };
+
+    $("#run-query").on('click', function (event) {
+        event.preventDefault();
+
+        $("#table-area").empty();
+        $("#query-error").hide();
+
+        makeQuery($("#query").val());
+    });
+
+    function refreshSavedQueries() {
+        var queriesUl = $("#saved-queries-ul");
+        queriesUl.empty();
+        var queries = JSON.parse(window.localStorage.getItem("saved_queries"));
+        for (var i in queries) {
+            queriesUl.append("<li><code>" + queries[i] + "</code> <i class='glyphicon glyphicon-remove' onclick='removeSavedQuery(" + i + ");'></i></li>")
+        }
+    }
+
+    function removeSavedQuery(index) {
+        var items = JSON.parse(window.localStorage.getItem("saved_queries"));
+        items.splice(index, 1);
+        localStorage.setItem("saved_queries", JSON.stringify(items));
+        refreshSavedQueries();
+    }
+
+    $("#save-query").on('click', function (e) {
+        e.preventDefault();
+        var currentQuery = $("#query").val();
+
+        var currentItems = window.localStorage.getItem("saved_queries");
+        if (currentItems == undefined || currentItems == null) {
+            currentItems = [];
+        }
+        else {
+            currentItems = JSON.parse(currentItems);
+        }
+        currentItems.push(currentQuery);
+        window.localStorage.setItem("saved_queries", JSON.stringify(currentItems));
+        refreshSavedQueries();
+    });
+
+    refreshSavedQueries();
+
+    {% if initial_query %} $("#run-query").click(); {% end %}
+</script>
+
+{% end %}
+
