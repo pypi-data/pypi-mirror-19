@@ -1,0 +1,13 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+src/django_debug_toolbar_template_flamegraph.egg-info/PKG-INFO
+src/django_debug_toolbar_template_flamegraph.egg-info/SOURCES.txt
+src/django_debug_toolbar_template_flamegraph.egg-info/dependency_links.txt
+src/django_debug_toolbar_template_flamegraph.egg-info/requires.txt
+src/django_debug_toolbar_template_flamegraph.egg-info/top_level.txt
+src/template_flamegraph/__init__.py
+src/template_flamegraph/flamegraph.pl
+src/template_flamegraph/flamegraph_utils.py
+src/template_flamegraph/panel.py
