@@ -1,0 +1,3 @@
+[console_scripts]
+wracker = wracker.__main__:main
+
