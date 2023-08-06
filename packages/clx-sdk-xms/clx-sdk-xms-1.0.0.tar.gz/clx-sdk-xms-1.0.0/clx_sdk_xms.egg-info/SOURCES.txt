@@ -1,0 +1,16 @@
+README.rst
+setup.cfg
+setup.py
+clx/__init__.py
+clx/xms/__about__.py
+clx/xms/__init__.py
+clx/xms/api.py
+clx/xms/client.py
+clx/xms/deserialize.py
+clx/xms/exceptions.py
+clx/xms/serialize.py
+clx_sdk_xms.egg-info/PKG-INFO
+clx_sdk_xms.egg-info/SOURCES.txt
+clx_sdk_xms.egg-info/dependency_links.txt
+clx_sdk_xms.egg-info/requires.txt
+clx_sdk_xms.egg-info/top_level.txt
