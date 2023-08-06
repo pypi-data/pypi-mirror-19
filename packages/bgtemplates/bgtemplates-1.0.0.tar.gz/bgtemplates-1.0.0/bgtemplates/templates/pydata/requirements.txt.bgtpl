@@ -1,0 +1,6 @@
+{% for package in project.unversioned_packages -%}
+{{package}}
+{% endfor -%}
+{% for package, version in project.versioned_packages.items() -%}
+{{package}}=={{version}}
+{% endfor -%}

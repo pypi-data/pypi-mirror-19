@@ -1,0 +1,24 @@
+{% if project.cli_enabled -%}
+import click
+
+from . import __version__
+
+CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
+{%- endif %}
+
+def main():
+    pass
+
+
+{% if project.cli_enabled -%}
+@click.command(context_settings=CONTEXT_SETTINGS)
+@click.option('--input', '-i', help='Input file for {{project.name}}', type=click.Path(exists=True))
+@click.version_option(version=__version__)
+def cli(input):
+    """{{project.name}} help"""
+    pass
+{%- endif %}
+
+
+if __name__ == "__main__":
+    main()
