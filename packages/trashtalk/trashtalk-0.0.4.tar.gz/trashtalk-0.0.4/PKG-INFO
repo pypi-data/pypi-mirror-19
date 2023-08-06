@@ -1,0 +1,52 @@
+Metadata-Version: 1.1
+Name: trashtalk
+Version: 0.0.4
+Summary: simplify trash in command line
+Home-page: https://github.com/PTank/trashtalk
+Author: PTank
+Author-email: akazian@student.42.fr
+License: UNKNOWN
+Description: # TRASHTALK
+        
+        [![Build Status](https://travis-ci.org/PTank/trashtalk.svg?branch=master)](https://travis-ci.org/PTank/trashtalk) 
+        [![Coverage Status](https://coveralls.io/repos/github/PTank/trashtalk/badge.svg?branch=master)](https://coveralls.io/github/PTank/trashtalk?branch=master) 
+        
+        ## concept
+        
+        *script to simplify trash access*
+        
+        ## install
+        
+        	pip install trashtalk
+        	# or
+        	git clone git@github.com:PTank/trashtalk.git
+        	cd trashtalk
+        	python setup.py install
+        
+        ### .trashtalk
+        
+        You can add a .trahstalk in your home for add specific trash path or media path
+        
+        	# this is a comment
+        	TRASH_PATH=/direct/path/to/Trash , "name of this trash"
+        	MEDIA_PATH=/path/to/media/
+        	# you can add multiple path
+        
+        ### example
+        
+        	$ trashtalk -cl # clean trash from yout home
+        	$ trashtalk -f "file" -cl # clean only this file from trash
+        	$ trashtalk media_name -ls
+        	>>> file1 5M
+        	>>> file2 100.10M
+        	>>> file3 100M
+        	>>> total 205.10M
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 2
+Classifier: Topic :: Utilities
