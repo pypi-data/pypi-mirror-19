@@ -1,0 +1,17 @@
+setup.py
+fdep/__init__.py
+fdep/__main__.py
+fdep/config.py
+fdep/interpreter.py
+fdep/messages.py
+fdep/utils.py
+fdep.egg-info/PKG-INFO
+fdep.egg-info/SOURCES.txt
+fdep.egg-info/dependency_links.txt
+fdep.egg-info/entry_points.txt
+fdep.egg-info/requires.txt
+fdep.egg-info/top_level.txt
+fdep/backends/__init__.py
+fdep/backends/gspreadsheet.py
+fdep/backends/http.py
+fdep/backends/s3.py
