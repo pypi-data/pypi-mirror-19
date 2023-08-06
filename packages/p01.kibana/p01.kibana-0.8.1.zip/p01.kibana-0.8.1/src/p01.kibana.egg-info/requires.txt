@@ -1,0 +1,15 @@
+setuptools
+
+[forwarder]
+gevent
+greenlet
+elasticsearch
+
+[geo]
+p01.geo
+
+[test]
+elasticsearch
+gevent
+greenlet
+p01.checker
