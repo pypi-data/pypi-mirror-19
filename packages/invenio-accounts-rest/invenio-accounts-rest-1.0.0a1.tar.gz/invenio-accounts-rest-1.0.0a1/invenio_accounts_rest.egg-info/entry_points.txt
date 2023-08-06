@@ -1,0 +1,9 @@
+[invenio_base.api_apps]
+invenio_accounts_rest = invenio_accounts_rest:InvenioAccountsREST
+
+[invenio_base.api_views]
+invenio_accounts_rest = invenio_accounts_rest.views:blueprint
+
+[invenio_i18n.translations]
+messages = invenio_accounts_rest
+
