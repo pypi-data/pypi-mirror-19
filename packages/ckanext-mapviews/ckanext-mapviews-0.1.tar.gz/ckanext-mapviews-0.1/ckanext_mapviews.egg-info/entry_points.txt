@@ -1,0 +1,5 @@
+
+    [ckan.plugins]
+	navigablemap=ckanext.mapviews.plugin:NavigableMap
+	choroplethmap=ckanext.mapviews.plugin:ChoroplethMap
+	
