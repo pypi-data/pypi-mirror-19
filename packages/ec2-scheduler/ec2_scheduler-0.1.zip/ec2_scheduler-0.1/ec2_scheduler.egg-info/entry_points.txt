@@ -1,0 +1,3 @@
+[console_scripts]
+ec2_scheduler = ec2_scheduler.main:main
+
