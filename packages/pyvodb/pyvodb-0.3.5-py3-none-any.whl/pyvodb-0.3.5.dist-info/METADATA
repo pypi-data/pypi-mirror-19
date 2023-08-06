@@ -1,0 +1,28 @@
+Metadata-Version: 2.0
+Name: pyvodb
+Version: 0.3.5
+Summary: Database of Pyvo meetups
+Home-page: https://github.com/pyvec/pyvodb
+Author: Petr Viktorin
+Author-email: encukou@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: PyYAML (>=3.12,<4.0)
+Requires-Dist: blessings (>=1.6,<2.0)
+Requires-Dist: blessings (>=1.6,<2.0)
+Requires-Dist: click (>=6.6,<7.0)
+Requires-Dist: czech-holidays
+Requires-Dist: python-dateutil (>=2.5,<3.0)
+Requires-Dist: sqlalchemy (>=1.1,<2.0)
+Requires-Dist: unidecode (>=0.4,<1.0)
+
+UNKNOWN
+
+
