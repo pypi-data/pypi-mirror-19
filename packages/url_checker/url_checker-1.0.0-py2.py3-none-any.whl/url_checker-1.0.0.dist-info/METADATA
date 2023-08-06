@@ -1,0 +1,15 @@
+Metadata-Version: 1.2
+Name: url_checker
+Version: 1.0.0
+Summary: Will make request to provided url with given method
+Home-page: https://gitlab.com/cw-andrews/url-checker
+License: UNKNOWN
+Author: cw-andrews
+Author-email: cwandrews.oh@gmail.com
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: packaging (>=16.8)
+Requires-Dist: py (>=1.4.32)
+Requires-Dist: pyparsing (>=2.1.10)
+Requires-Dist: pytest (>=3.0.6)
+Requires-Dist: six (>=1.10.0)
+Requires-Dist: requests (>=2.13.0)
