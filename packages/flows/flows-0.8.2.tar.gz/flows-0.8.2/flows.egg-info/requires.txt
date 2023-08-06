@@ -1,0 +1,8 @@
+watchdog>=0.8.3
+zmq>=0.0.0
+croniter>=0.3.12
+pytyler>=0.2
+
+[Win32 Optional Dependencies]
+pypiwin32>=219
+pymssql>=2.1.3
