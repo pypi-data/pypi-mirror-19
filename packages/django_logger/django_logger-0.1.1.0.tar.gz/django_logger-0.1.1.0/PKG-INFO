@@ -1,0 +1,93 @@
+Metadata-Version: 1.1
+Name: django_logger
+Version: 0.1.1.0
+Summary: django_logger
+Home-page: UNKNOWN
+Author: ChaosHead
+Author-email: prostomrkot@gmail.com
+License: MIT License
+Description: Пакет django_logger предназначен для хранения и периодической записи логов в базу данных.
+        
+        Чтобы начать использовать django_logger нужно:
+        
+        1) создать модель для храниения логов:
+        
+            class Log(models.Model):
+                level = models.CharField(max_length=200)
+                message = models.TextField()
+                extra = models.TextField()
+                created_at = models.DateTimeField(auto_now_add=True)
+        
+        2) в файле settings.py создать конфигурации для логирования,
+        в качестве примера:
+        
+            LOGGING = {
+                'version': 1,
+                'disable_existing_loggers': False,
+                'handlers': {
+                    'filehandler': {
+                        'level': 'INFO',
+                        'class': 'django_logger.handler.FileLogHandler',
+                        'filename': file_log
+                    }
+                },
+                'loggers': {
+                    'registry': {
+                        'handlers': ['filehandler'],
+                        'level': 'INFO',
+                        'propagate': False,
+                    }
+                }
+            }
+        
+        3) создать представление CreateViews, для записи логов в базу данных,
+        и обернауть его в @csrf_exempt декоратор,
+        в качестве примера:
+        
+            @csrf_exempt
+            def create_log(request):
+                strings = request.POST
+        
+                for key in strings:
+                    string = json.loads(strings[key])
+                    default_log_data = string['default_log_data']
+                    extra_data = string['extra_data']
+        
+                    Log.objects.create(level=default_log_data['level'],
+                                       message=default_log_data['message'],
+                                       extra=extra_data)
+        
+                return HttpResponse()
+        
+        4) в файле с views-хами создать строку с обращением к конфигурации логгера:
+        
+            logger = logging.getLogger('registry')
+        
+        и в теле представление, при отработки которого будут записываться логи, прописать:
+        
+            logger.info(message, extra={})
+        
+        где message="сообщение, передоваемое в логгер при отработки представления",
+        а extra="словарь с данными, определяемыми самим пользователем"
+        
+        5) в файле settings.py указать переменые:
+        
+            file_log="путь к файлу, в который будут записываться логи",
+            log_url="урл, по которому будут отправляться логи из файла, для записи в бузу данных"
+            periodicity_of_sending_logs="переодичность отправки логов на запись"
+        
+        6) в settings.py, в INSTALLED_APPS добавить наш django_logger,
+        это нужно, чтобы получить возможность запуска manage.py комманды из пакета django_logger.
+        
+        7) после запуска приложения зпустить manage.py комманду "command_log_user_actions" из коммандной строки,
+        она отправляет логи, записанные в файл, на запись в нашу CreateViews, каждый определенный промежуток времени,
+        указанный в переменной periodicity_of_sending_logs.
+        
+Keywords: django
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Requires: python (>= 2.5)
+Requires: django (>= 1.3)
