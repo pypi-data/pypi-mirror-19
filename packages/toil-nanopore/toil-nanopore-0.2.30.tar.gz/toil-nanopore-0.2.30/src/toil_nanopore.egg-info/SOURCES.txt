@@ -1,0 +1,12 @@
+setup.py
+src/toil_nanopore/__init__.py
+src/toil_nanopore/marginAlignToil.py
+src/toil_nanopore/marginCallerToil.py
+src/toil_nanopore/sample.py
+src/toil_nanopore/toil_nanopore_pipeline.py
+src/toil_nanopore.egg-info/PKG-INFO
+src/toil_nanopore.egg-info/SOURCES.txt
+src/toil_nanopore.egg-info/dependency_links.txt
+src/toil_nanopore.egg-info/entry_points.txt
+src/toil_nanopore.egg-info/requires.txt
+src/toil_nanopore.egg-info/top_level.txt
