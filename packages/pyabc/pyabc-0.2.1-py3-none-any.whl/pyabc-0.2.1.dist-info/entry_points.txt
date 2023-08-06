@@ -1,0 +1,3 @@
+[console_scripts]
+abc-server = pyabc.visserver.server:run_app
+
