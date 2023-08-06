@@ -1,0 +1,3 @@
+[console_scripts]
+repubmqtt = repubmqtt.__main__:main
+
