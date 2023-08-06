@@ -1,0 +1,13 @@
+setup.py
+ptfutils.egg-info/PKG-INFO
+ptfutils.egg-info/SOURCES.txt
+ptfutils.egg-info/dependency_links.txt
+ptfutils.egg-info/top_level.txt
+tfutils/__init__.py
+tfutils/data/__init__.py
+tfutils/data/batch_manager.py
+tfutils/data/general_data_pipeline.py
+tfutils/data/img_pipeline.py
+tfutils/data/text_pipeline.py
+tfutils/training/__init__.py
+tfutils/training/nice_trainer.py
