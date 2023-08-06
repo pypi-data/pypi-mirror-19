@@ -1,0 +1,39 @@
+Metadata-Version: 1.0
+Name: pyaeries
+Version: 1.0
+Summary: Aeries SIS API
+Home-page: UNKNOWN
+Author: Jeff Tchang
+Author-email: jeff.tchang@gmail.com
+License: UNKNOWN
+Description: Python Aeries SIS API
+        ==========================
+        
+        
+        =============
+        Running Tests
+        =============
+        
+        
+        Tests require ```pip install pytest```.
+        
+        To run the unit tests ::
+        
+            $ py.test
+        
+        
+        
+        News
+        ====
+        
+        1.0
+        -----
+        
+        *Release date: 17-Jan-2017*
+        
+        * Initial release of the Aeries API
+        
+        
+        
+Keywords: aeries api
+Platform: UNKNOWN

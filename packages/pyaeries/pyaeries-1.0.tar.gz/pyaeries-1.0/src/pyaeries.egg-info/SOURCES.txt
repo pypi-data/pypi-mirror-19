@@ -1,0 +1,13 @@
+MANIFEST.in
+NEWS.txt
+README.rst
+setup.py
+src/pyaeries/__init__.py
+src/pyaeries/api.py
+src/pyaeries.egg-info/PKG-INFO
+src/pyaeries.egg-info/SOURCES.txt
+src/pyaeries.egg-info/dependency_links.txt
+src/pyaeries.egg-info/entry_points.txt
+src/pyaeries.egg-info/not-zip-safe
+src/pyaeries.egg-info/requires.txt
+src/pyaeries.egg-info/top_level.txt
