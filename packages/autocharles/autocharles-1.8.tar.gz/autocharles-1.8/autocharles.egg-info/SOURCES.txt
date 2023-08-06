@@ -1,0 +1,17 @@
+setup.py
+autocharles/__init__.py
+autocharles/adsutils.py
+autocharles/alertutils.py
+autocharles/alertutils_backup.py
+autocharles/csvutils.py
+autocharles/keys.py
+autocharles/parser.py
+autocharles/regexputils.py
+autocharles/setup.py
+autocharles/summaryutil.py
+autocharles.egg-info/PKG-INFO
+autocharles.egg-info/SOURCES.txt
+autocharles.egg-info/dependency_links.txt
+autocharles.egg-info/not-zip-safe
+autocharles.egg-info/top_level.txt
+bin/autocharles
