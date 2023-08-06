@@ -1,0 +1,11 @@
+MANIFEST.in
+setup.cfg
+setup.py
+json_cherry_pick/__init__.py
+json_cherry_pick/mapper.c
+json_cherry_pick/marker_map.c
+json_cherry_pick/marker_map.h
+json_cherry_pick.egg-info/PKG-INFO
+json_cherry_pick.egg-info/SOURCES.txt
+json_cherry_pick.egg-info/dependency_links.txt
+json_cherry_pick.egg-info/top_level.txt
