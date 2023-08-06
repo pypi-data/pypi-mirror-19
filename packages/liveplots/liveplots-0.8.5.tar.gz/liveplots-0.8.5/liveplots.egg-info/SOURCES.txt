@@ -1,0 +1,15 @@
+README.rst
+setup.py
+liveplots/__init__.py
+liveplots/filemonitor.py
+liveplots/liveplot.py
+liveplots/xmlrpcserver.py
+liveplots.egg-info/PKG-INFO
+liveplots.egg-info/SOURCES.txt
+liveplots.egg-info/dependency_links.txt
+liveplots.egg-info/requires.txt
+liveplots.egg-info/top_level.txt
+liveplots.egg-info/zip-safe
+liveplots/tests/__init__.py
+liveplots/tests/test_filemonitor.py
+liveplots/tests/test_xmlrpcserver.py
