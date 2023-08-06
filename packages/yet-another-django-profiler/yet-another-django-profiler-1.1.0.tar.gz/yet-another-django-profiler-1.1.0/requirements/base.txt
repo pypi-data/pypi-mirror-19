@@ -1,0 +1,19 @@
+# Core dependencies
+
+# Python packaging utilities
+setuptools==30.2.0
+pip==9.0.1
+
+# Indirect dependencies first, exact versions for consistency
+
+# mock
+funcsigs==1.0.2; python_version < '3.3'
+pbr==1.10.0; python_version < '3.3'
+
+# And now the direct dependencies
+
+# The framework we're profiling
+Django==1.10.4
+
+# Used to override pstats function path stripping behavior
+mock==2.0.0; python_version < '3.3'
