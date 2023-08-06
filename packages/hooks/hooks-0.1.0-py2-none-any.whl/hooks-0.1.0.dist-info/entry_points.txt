@@ -1,0 +1,3 @@
+[console_scripts]
+hooks = hooks.main:cli
+
