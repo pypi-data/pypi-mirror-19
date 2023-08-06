@@ -1,0 +1,34 @@
+Metadata-Version: 1.1
+Name: spectralview
+Version: 0.0.1
+Summary: Web application for star spectra viewing.
+Home-page: https://spectralview.readthedocs.io/
+Author: Ondřej Podsztavek
+Author-email: ondrej.podsztavek@gmail.com
+License: GPLv3
+Description: Spectral View
+        =============
+        
+        .. image:: https://travis-ci.org/podondra/spectralview.svg?branch=master
+            :target: https://travis-ci.org/podondra/spectralview
+            :alt: Continuous Integration Status
+        
+        .. image:: https://readthedocs.org/projects/spectralview/badge/?version=latest
+            :target: http://spectralview.readthedocs.io/en/latest/?badge=latest
+            :alt: Documentation Status
+        
+        .. image:: https://coveralls.io/repos/github/podondra/spectralview/badge.svg?branch=master
+            :target: https://coveralls.io/github/podondra/spectralview?branch=master
+            :alt: Coverage Status
+        
+        Web application for interactive spectra viewing.
+        
+        `Documentation <http://spectralview.readthedocs.io/>`_ is available on
+        `Read the Docs <https://readthedocs.org/>`_.
+        
+Keywords: star spectra astroinformatics astronomy
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6

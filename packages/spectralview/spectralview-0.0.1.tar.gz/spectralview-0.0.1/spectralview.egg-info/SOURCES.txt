@@ -1,0 +1,16 @@
+README.rst
+setup.py
+spectralview/__init__.py
+spectralview/app.py
+spectralview/fits.py
+spectralview.egg-info/PKG-INFO
+spectralview.egg-info/SOURCES.txt
+spectralview.egg-info/dependency_links.txt
+spectralview.egg-info/entry_points.txt
+spectralview.egg-info/requires.txt
+spectralview.egg-info/top_level.txt
+spectralview/static/favicon.ico
+spectralview/templates/base.html
+spectralview/templates/figure.html
+spectralview/templates/login.html
+spectralview/templates/show_spectra.html
