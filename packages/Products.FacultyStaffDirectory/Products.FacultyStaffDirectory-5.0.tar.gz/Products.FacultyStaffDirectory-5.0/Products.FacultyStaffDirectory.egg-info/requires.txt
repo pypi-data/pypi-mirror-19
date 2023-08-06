@@ -1,0 +1,7 @@
+setuptools
+Plone>=4.0
+Products.ATContentTypes
+archetypes.schemaextender
+Products.Relations>=0.9b1
+Products.membrane>=2.1.4
+archetypes.referencebrowserwidget
