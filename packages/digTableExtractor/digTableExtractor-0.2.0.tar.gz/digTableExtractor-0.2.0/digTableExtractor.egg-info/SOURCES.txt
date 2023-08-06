@@ -1,0 +1,11 @@
+setup.cfg
+setup.py
+digTableExtractor/__init__.py
+digTableExtractor/table_ext_helper.py
+digTableExtractor/table_extractor.py
+digTableExtractor.egg-info/PKG-INFO
+digTableExtractor.egg-info/SOURCES.txt
+digTableExtractor.egg-info/dependency_links.txt
+digTableExtractor.egg-info/requires.txt
+digTableExtractor.egg-info/top_level.txt
+test/test_table_extractor.py
