@@ -1,0 +1,4 @@
+[console_scripts]
+alignak-backend-cli = alignak_backend_import.backend_client:main
+alignak-backend-import = alignak_backend_import.cfg_to_backend:main
+
