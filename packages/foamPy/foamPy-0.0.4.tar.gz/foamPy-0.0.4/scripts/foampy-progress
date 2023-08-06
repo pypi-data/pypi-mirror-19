@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+"""Create a progress indicator in a terminal."""
+
+import foampy
+
+foampy.monitor_progress()
