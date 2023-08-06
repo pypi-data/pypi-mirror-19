@@ -1,0 +1,50 @@
+Metadata-Version: 1.1
+Name: django-constance-cli
+Version: 0.0.7
+Summary: Get/Set In-database config settings handled by Django Constance
+Home-page: https://github.com/NZME/django-constance-cli
+Author: NZME
+Author-email: sysadmin@grabone.co.nz
+License: UNKNOWN
+Description: Django Constance CLI - Deprecated
+        =================================
+        
+        Command-line interface for `django constance <https://github.com/jazzband/django-constance/>`_.
+        
+        Deprecation
+        -----------
+        
+        django-constance-cli is deprecated, the functionality is part of django-constance>=1.3.4.
+        
+        See https://github.com/jazzband/django-constance/pull/180
+        
+        
+        Installation
+        ------------
+        
+        ::
+        
+            pip install django-constance-cli
+        
+        
+        Change Log
+        ----------
+        
+        - 0.0.7   Added deprecation warning
+        - 0.0.6   Fix `--help` (doesn't like ugettext_lazy)
+        - 0.0.5   Travis -> PyPi
+        - 0.0.4   Travis build
+        - 0.0.3   Prepare for move to github
+        - 0.0.2   Added basic tests
+        - 0.0.1   Package created
+        
+Keywords: django,constance,cli
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Framework :: Django

@@ -1,0 +1,6 @@
+include setup.py
+include README.rst
+recursive-include constance_cli *.py
+
+recursive-exclude constance_cli *.pyc
+recursive-exclude constance_cli *.pyo

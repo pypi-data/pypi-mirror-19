@@ -1,0 +1,16 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+constance_cli/__init__.py
+constance_cli/apps.py
+constance_cli/utils.py
+constance_cli/management/__init__.py
+constance_cli/management/commands/__init__.py
+constance_cli/management/commands/constance_cli.py
+django_constance_cli.egg-info/PKG-INFO
+django_constance_cli.egg-info/SOURCES.txt
+django_constance_cli.egg-info/dependency_links.txt
+django_constance_cli.egg-info/not-zip-safe
+django_constance_cli.egg-info/requires.txt
+django_constance_cli.egg-info/top_level.txt
