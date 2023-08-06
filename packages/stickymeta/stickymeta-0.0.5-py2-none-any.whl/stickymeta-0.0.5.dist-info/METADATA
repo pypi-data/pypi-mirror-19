@@ -1,0 +1,160 @@
+Metadata-Version: 2.0
+Name: stickymeta
+Version: 0.0.5
+Summary: Handy tools to maintain persistent meta values between requests in Scrapy spiders
+Home-page: http://github.com/mizhgun/scrapy_stickymeta
+Author: Mikhail Kolganov
+Author-email: mikhail.kolganov@gmail.com
+License: MIT
+Keywords: scrapy
+Platform: UNKNOWN
+Classifier: Framework :: Scrapy
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: Scrapy (>=1.0.0)
+
+Scrapy Sticky Meta
+==================
+
+Handy tools to maintain persistent meta values between requests in
+Scrapy spiders. Available as spider middleware and spider callback
+decorators.
+
+Installation
+------------
+
+::
+
+    pip install stickymeta
+
+Usage
+-----
+
+As spider middleware
+^^^^^^^^^^^^^^^^^^^^
+
+Add middleware to ``settings.py``:
+
+::
+
+    SPIDER_MIDDLEWARES = {
+        ...
+        'stickymeta.StickyMetaMiddleware': 543,
+        ...
+    }
+
+and ``sticky_meta`` attribute containing persistent ``meta`` keys to
+spider:
+
+::
+
+    class TheSpider(scrapy.Spider):
+        name = 'thespider'
+        sticky_meta = ('cookiejar', 'foo', 'bar')
+
+All values for the corresponding keys will be kept persistent between
+all the requests and responses.
+
+As decorators
+^^^^^^^^^^^^^
+
+@stick\_meta
+''''''''''''
+
+::
+
+    from stickymeta import stick_meta
+
+Keep persistent values for keys passed as decorator parameters:
+
+::
+
+    @stick_meta('a', 'b', 'c')
+    def parse(self, response):
+        ...
+        yield scrapy.Request(url)
+
+
+is equivalent to:
+
+::
+
+    def parse(self, response)
+        ...
+        meta = {
+            'a': response.meta['a'],
+            'b': response.meta['b'],
+            'c': response.meta['c'],
+        }
+        yield scrapy.Request(url, meta=meta}
+
+
+@stick\_cj
+''''''''''
+
+::
+
+    from stickymeta import stick_cj
+
+Shortcut for ``stick_meta`` handling ``cookiejar`` as default argument
+value, so
+
+::
+
+    @stick_cj('a', 'b', 'c')
+    def parse(self,response):
+        ...
+
+
+is equivalent to
+
+::
+
+    @stick_meta('cookiejar', 'a', 'b', 'c')
+    def parse(self,response):
+        ...
+
+
+Spider attribute ``sticky_meta`` also affects to decorators, next two
+pieces of code will handle ``meta`` in the same way:
+
+::
+
+    class TheSpider(scrapy.Spider):
+        name = 'thespider'
+        sticky_meta = ('a', 'b', 'c')
+
+        @stick_meta()
+        def parse(self, response):
+            ...
+            yield Request(url)
+
+
+vs
+
+::
+
+    class TheSpider(scrapy.Spider):
+        name = 'thespider'
+
+        @stick_meta('a', 'b', 'c')
+        def parse(self, response):
+            ...
+            yield Request(url)
+
+
+
