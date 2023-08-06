@@ -1,0 +1,25 @@
+CHANGES
+=======
+
+1.1.1
+-----
+
+* Use lower() to make sure comparison work for auth_mode
+* Fix doc for authmode
+
+1.1.0
+-----
+
+* Stop encoding resources name and stop using slashes
+* Update plugin for Gnocchi 3.1
+
+1.0.1
+-----
+
+* Add LICENSE file
+
+1.0.0
+-----
+
+* fix: Parse error in file /etc/collectd.conf
+* Initial import
