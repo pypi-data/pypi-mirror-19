@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+docs/index.rst
+drip/__init__.py
+drip/drip.py
+drip/helpers.py
+drip/tests/__init__.py
+drip/tests/test_drip.py
+drip_py.egg-info/PKG-INFO
+drip_py.egg-info/SOURCES.txt
+drip_py.egg-info/dependency_links.txt
+drip_py.egg-info/top_level.txt
