@@ -1,0 +1,100 @@
+2016-08-30 15:49:10,016 - tcell_agent_configuration -- [INFO]: Checking for configuration file: '/app/tcell_agent/tcell_agent.config'
+2016-08-30 15:49:10,018 - tcell_agent_configuration -- [INFO]: Checking for configuration file: '/app/tcell_agent/tcell/tcell_agent.config'
+2016-08-30 15:49:10,020 - tcell_agent_configuration -- [INFO]: Configuration file not found, using environmental variables.
+2016-08-30 15:49:10,021 - tcell_agent_configuration -- [INFO]: Checking configuration environmental variables.
+2016-08-30 15:49:10,023 - tcell_agent_configuration -- [WARNING]: tCell.io APP ID not set by file or environmental variable.
+2016-08-30 15:49:10,024 - tcell_agent_configuration -- [WARNING]: tCell.io API Key not set by file or environmental variable.
+2016-08-30 15:49:11,181 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing agent
+2016-08-30 15:49:11,182 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing API
+2016-08-30 15:49:11,183 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing IO Pipe
+2016-08-30 15:49:11,184 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Checking cache
+2016-08-30 15:49:11,187 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Checking preload policy file
+2016-08-30 15:49:11,191 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing route table.
+2016-08-30 15:49:11,194 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing agent
+2016-08-30 15:49:11,197 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing API
+2016-08-30 15:49:11,198 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing IO Pipe
+2016-08-30 15:49:11,200 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Checking cache
+2016-08-30 15:49:11,202 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Checking preload policy file
+2016-08-30 15:49:11,202 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing route table.
+2016-08-30 15:49:11,213 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing agent
+2016-08-30 15:49:11,216 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing API
+2016-08-30 15:49:11,218 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing IO Pipe
+2016-08-30 15:49:11,223 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Checking cache
+2016-08-30 15:49:11,225 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Checking preload policy file
+2016-08-30 15:49:11,226 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing route table.
+2016-08-30 15:49:11,231 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing agent
+2016-08-30 15:49:11,232 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing API
+2016-08-30 15:49:11,233 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing IO Pipe
+2016-08-30 15:49:11,235 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Checking cache
+2016-08-30 15:49:11,237 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Checking preload policy file
+2016-08-30 15:49:11,238 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing route table.
+2016-08-30 15:49:11,269 - tcell_agent_configuration -- [INFO]: Checking for configuration file: '/app/tcell_agent/tests/config/data_exposure.config'
+2016-08-30 15:49:11,269 - tcell_agent_configuration -- [INFO]: Checking for configuration file: '/app/tcell_agent/tests/config/data_exposure.config'
+2016-08-30 15:49:11,274 - tcell_agent_configuration -- [INFO]: Checking configuration environmental variables.
+2016-08-30 15:49:11,274 - tcell_agent_configuration -- [INFO]: Checking configuration environmental variables.
+2016-08-30 15:49:11,277 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing agent
+2016-08-30 15:49:11,278 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing API
+2016-08-30 15:49:11,279 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing IO Pipe
+2016-08-30 15:49:11,282 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Checking cache
+2016-08-30 15:49:11,285 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Checking preload policy file
+2016-08-30 15:49:11,287 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing route table.
+2016-08-30 15:49:11,288 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing agent
+2016-08-30 15:49:11,289 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing API
+2016-08-30 15:49:11,289 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing IO Pipe
+2016-08-30 15:49:11,291 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Checking cache
+2016-08-30 15:49:11,293 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Checking preload policy file
+2016-08-30 15:49:11,294 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing route table.
+2016-08-30 15:49:11,434 - tcell_agent.tcell_agent.policies.secure_headers_policy -- [ERROR]: error parsing secure header (content-Security-POLICY, test321)
+2016-08-30 15:49:11,452 - tcell_agent.tcell_agent.policies.content_security_policy -- [ERROR]: error parsing secure header (Content-Security-Policy-Report-Only: test123)
+2016-08-30 15:49:11,465 - tcell_agent.tcell_agent.policies.patches_policy -- [WARNING]: Patches Policy not supported: None
+2016-08-30 15:49:11,469 - tcell_agent.tcell_agent.policies.patches_policy -- [WARNING]: Patches Policy not supported: 2
+2016-08-30 15:59:58,948 - tcell_agent_configuration -- [INFO]: Checking for configuration file: '/app/tcell_agent/tcell_agent.config'
+2016-08-30 15:59:58,949 - tcell_agent_configuration -- [INFO]: Checking for configuration file: '/app/tcell_agent/tcell/tcell_agent.config'
+2016-08-30 15:59:58,950 - tcell_agent_configuration -- [INFO]: Configuration file not found, using environmental variables.
+2016-08-30 15:59:58,951 - tcell_agent_configuration -- [INFO]: Checking configuration environmental variables.
+2016-08-30 15:59:58,952 - tcell_agent_configuration -- [WARNING]: tCell.io APP ID not set by file or environmental variable.
+2016-08-30 15:59:58,953 - tcell_agent_configuration -- [WARNING]: tCell.io API Key not set by file or environmental variable.
+2016-08-30 16:00:00,233 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing agent
+2016-08-30 16:00:00,233 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing API
+2016-08-30 16:00:00,235 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing IO Pipe
+2016-08-30 16:00:00,236 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Checking cache
+2016-08-30 16:00:00,238 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Checking preload policy file
+2016-08-30 16:00:00,239 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing route table.
+2016-08-30 16:00:00,242 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing agent
+2016-08-30 16:00:00,244 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing API
+2016-08-30 16:00:00,245 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing IO Pipe
+2016-08-30 16:00:00,247 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Checking cache
+2016-08-30 16:00:00,248 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Checking preload policy file
+2016-08-30 16:00:00,249 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing route table.
+2016-08-30 16:00:00,258 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing agent
+2016-08-30 16:00:00,259 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing API
+2016-08-30 16:00:00,260 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing IO Pipe
+2016-08-30 16:00:00,264 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Checking cache
+2016-08-30 16:00:00,266 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Checking preload policy file
+2016-08-30 16:00:00,267 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing route table.
+2016-08-30 16:00:00,275 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing agent
+2016-08-30 16:00:00,276 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing API
+2016-08-30 16:00:00,277 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing IO Pipe
+2016-08-30 16:00:00,278 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Checking cache
+2016-08-30 16:00:00,281 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Checking preload policy file
+2016-08-30 16:00:00,283 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing route table.
+2016-08-30 16:00:00,321 - tcell_agent_configuration -- [INFO]: Checking for configuration file: '/app/tcell_agent/tests/config/data_exposure.config'
+2016-08-30 16:00:00,321 - tcell_agent_configuration -- [INFO]: Checking for configuration file: '/app/tcell_agent/tests/config/data_exposure.config'
+2016-08-30 16:00:00,325 - tcell_agent_configuration -- [INFO]: Checking configuration environmental variables.
+2016-08-30 16:00:00,325 - tcell_agent_configuration -- [INFO]: Checking configuration environmental variables.
+2016-08-30 16:00:00,328 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing agent
+2016-08-30 16:00:00,331 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing API
+2016-08-30 16:00:00,333 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing IO Pipe
+2016-08-30 16:00:00,335 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Checking cache
+2016-08-30 16:00:00,336 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Checking preload policy file
+2016-08-30 16:00:00,337 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing route table.
+2016-08-30 16:00:00,338 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing agent
+2016-08-30 16:00:00,339 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing API
+2016-08-30 16:00:00,340 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing IO Pipe
+2016-08-30 16:00:00,342 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Checking cache
+2016-08-30 16:00:00,343 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Checking preload policy file
+2016-08-30 16:00:00,346 - tcell_agent.tcell_agent.agent.agent_threads -- [INFO]: Initializing route table.
+2016-08-30 16:00:00,627 - tcell_agent.tcell_agent.policies.secure_headers_policy -- [ERROR]: error parsing secure header (content-Security-POLICY, test321)
+2016-08-30 16:00:00,655 - tcell_agent.tcell_agent.policies.content_security_policy -- [ERROR]: error parsing secure header (Content-Security-Policy-Report-Only: test123)
+2016-08-30 16:00:00,671 - tcell_agent.tcell_agent.policies.patches_policy -- [WARNING]: Patches Policy not supported: None
+2016-08-30 16:00:00,683 - tcell_agent.tcell_agent.policies.patches_policy -- [WARNING]: Patches Policy not supported: 2
