@@ -1,0 +1,3 @@
+[hypr.models]
+SqlAlchemyModel = hypr.sqlalchemy:SqlAlchemyModel
+
