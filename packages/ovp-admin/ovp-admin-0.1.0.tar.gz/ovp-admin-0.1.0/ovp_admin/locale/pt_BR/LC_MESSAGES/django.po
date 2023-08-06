@@ -1,0 +1,885 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-09 12:40+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: django-ovp-admin/ovp_admin/modules/organization.py:51
+msgid "Owner's Name"
+msgstr "Responsável"
+
+#: django-ovp-admin/ovp_admin/modules/organization.py:56
+msgid "Owner's E-mail"
+msgstr "Email do Responsável"
+
+#: django-ovp-admin/ovp_admin/modules/organization.py:61
+msgid "Owner's Phone"
+msgstr "Tel do Responsável"
+
+#: django-ovp-admin/ovp_admin/modules/project/apply.py:40
+#: django-ovp-admin/ovp_admin/modules/project/apply.py:49
+#: django-ovp-admin/ovp_admin/modules/project/apply.py:57
+#: django-ovp-admin/ovp_admin/modules/project/apply.py:65
+#: django-ovp-admin/ovp_admin/modules/project/apply.py:73
+#: django-ovp-admin/ovp_admin/modules/project/apply.py:81
+msgid "None"
+msgstr "Nenhum"
+
+#: django-ovp-admin/ovp_admin/modules/project/apply.py:42
+msgid "Name"
+msgstr "Nome"
+
+#: django-ovp-admin/ovp_admin/modules/project/apply.py:50
+msgid "E-mail"
+msgstr "Email"
+
+#: django-ovp-admin/ovp_admin/modules/project/apply.py:58
+msgid "Phone"
+msgstr "Telefone"
+
+#: django-ovp-admin/ovp_admin/modules/project/apply.py:66
+msgid "Project"
+msgstr "Projeto"
+
+#: django-ovp-admin/ovp_admin/modules/project/apply.py:74
+#: django-ovp-admin/ovp_admin/modules/project/project.py:54
+msgid "Organization"
+msgstr "Oganização"
+
+#: django-ovp-admin/ovp_admin/modules/project/apply.py:82
+msgid "Address"
+msgstr "Endereço"
+
+#: django-ovp-admin/ovp_admin/templates/admin/404.html:4
+#: django-ovp-admin/ovp_admin/templates/admin/404.html:8
+msgid "Page not found"
+msgstr "Página não encontrada"
+
+#: django-ovp-admin/ovp_admin/templates/admin/404.html:10
+msgid "We're sorry, but the requested page could not be found."
+msgstr "Nos desculpe, mas a página requisitada não pôde ser encontrada."
+
+#: django-ovp-admin/ovp_admin/templates/admin/500.html:6
+#: django-ovp-admin/ovp_admin/templates/admin/app_index.html:10
+#: django-ovp-admin/ovp_admin/templates/admin/auth/user/change_password.html:19
+#: django-ovp-admin/ovp_admin/templates/admin/base.html:159
+#: django-ovp-admin/ovp_admin/templates/admin/change_form.html:22
+#: django-ovp-admin/ovp_admin/templates/admin/change_list.html:43
+#: django-ovp-admin/ovp_admin/templates/admin/delete_confirmation.html:9
+#: django-ovp-admin/ovp_admin/templates/admin/delete_selected_confirmation.html:9
+#: django-ovp-admin/ovp_admin/templates/admin/object_history.html:7
+#: django-ovp-admin/ovp_admin/templates/registration/password_change_done.html:7
+#: django-ovp-admin/ovp_admin/templates/registration/password_change_form.html:12
+#: django-ovp-admin/ovp_admin/templates/registration/password_reset_complete.html:7
+#: django-ovp-admin/ovp_admin/templates/registration/password_reset_confirm.html:7
+#: django-ovp-admin/ovp_admin/templates/registration/password_reset_done.html:7
+#: django-ovp-admin/ovp_admin/templates/registration/password_reset_form.html:7
+msgid "Home"
+msgstr "Página Principal"
+
+#: django-ovp-admin/ovp_admin/templates/admin/500.html:7
+msgid "Server error"
+msgstr "Erro Interno"
+
+#: django-ovp-admin/ovp_admin/templates/admin/500.html:11
+msgid "Server error (500)"
+msgstr "Erro interno (500)"
+
+#: django-ovp-admin/ovp_admin/templates/admin/500.html:14
+msgid "Server Error <em>(500)</em>"
+msgstr "Erro Interno <em>(500)</em>"
+
+#: django-ovp-admin/ovp_admin/templates/admin/500.html:15
+msgid ""
+"There's been an error. It's been reported to the site administrators via "
+"email and should be fixed shortly. Thanks for your patience."
+msgstr ""
+
+#: django-ovp-admin/ovp_admin/templates/admin/actions.html:7
+msgid "Run the selected action"
+msgstr "Executar ação selecionada"
+
+#: django-ovp-admin/ovp_admin/templates/admin/actions.html:7
+msgid "Go"
+msgstr "Ir"
+
+#: django-ovp-admin/ovp_admin/templates/admin/actions.html:19
+msgid "Click here to select the objects across all pages"
+msgstr "Clique para para selecionar objetos entre todas as páginas"
+
+#: django-ovp-admin/ovp_admin/templates/admin/actions.html:19
+#, python-format
+msgid "Select all %(total_count)s %(module_name)s"
+msgstr "Selecionar todos %(total_count)s %(module_name)s"
+
+#: django-ovp-admin/ovp_admin/templates/admin/actions.html:21
+msgid "Clear selection"
+msgstr "Limpar Seleção"
+
+#: django-ovp-admin/ovp_admin/templates/admin/auth/user/add_form.html:7
+msgid ""
+"First, enter a username and password. Then, you'll be able to edit more user "
+"options."
+msgstr "Primeiro, entre nome de usuário e senha, e então, poderá editar mais opções de usuário"
+
+#: django-ovp-admin/ovp_admin/templates/admin/auth/user/add_form.html:10
+msgid "Enter a username and password."
+msgstr "Entre com usuário e senha"
+
+#: django-ovp-admin/ovp_admin/templates/admin/auth/user/change_password.html:31
+#: django-ovp-admin/ovp_admin/templates/admin/auth/user/change_password.html:75
+#: django-ovp-admin/ovp_admin/templates/admin/base.html:139
+msgid "Change password"
+msgstr "Alterar senha"
+
+#: django-ovp-admin/ovp_admin/templates/admin/auth/user/change_password.html:44
+#: django-ovp-admin/ovp_admin/templates/admin/change_form.html:65
+#: django-ovp-admin/ovp_admin/templates/admin/change_list.html:69
+#: django-ovp-admin/ovp_admin/templates/admin/login.html:43
+#: django-ovp-admin/ovp_admin/templates/registration/password_change_form.html:31
+msgid "Please correct the error below."
+msgid_plural "Please correct the errors below."
+msgstr[0] "Por favor, corrija o erro abaixo."
+msgstr[1] "Por favor, corrija os erros abaixo."
+
+#: django-ovp-admin/ovp_admin/templates/admin/auth/user/change_password.html:44
+#: django-ovp-admin/ovp_admin/templates/admin/change_form.html:65
+#: django-ovp-admin/ovp_admin/templates/registration/password_change_form.html:31
+msgid "Please correct the errors below."
+msgstr "Por favor, corrija os erros abaixo."
+
+#: django-ovp-admin/ovp_admin/templates/admin/auth/user/change_password.html:50
+#, python-format
+msgid "Enter a new password for the user <strong>%(username)s</strong>."
+msgstr "Cadastre uma nova senha para o usuário <strong>%(username)s</strong>."
+
+#: django-ovp-admin/ovp_admin/templates/admin/auth/user/change_password.html:60
+msgid "Password"
+msgstr "Senha"
+
+#: django-ovp-admin/ovp_admin/templates/admin/auth/user/change_password.html:68
+#: django-ovp-admin/ovp_admin/templates/registration/password_change_form.html:57
+msgid "Password (again)"
+msgstr "Senha (novamente)"
+
+#: django-ovp-admin/ovp_admin/templates/admin/auth/user/change_password.html:69
+msgid "Enter the same password as above, for verification."
+msgstr "Entre com a mesma senha acima, para verificação."
+
+#: django-ovp-admin/ovp_admin/templates/admin/base.html:87
+#: django-ovp-admin/ovp_admin/templates/admin/base.html:112
+#: django-ovp-admin/ovp_admin/templates/admin/base.html:115
+#: django-ovp-admin/ovp_admin/templates/admin/login.html:31
+#: django-ovp-admin/ovp_admin/templates/admin/login.html:35
+msgid "Platform administration"
+msgstr "Administração da Plataforma"
+
+#: django-ovp-admin/ovp_admin/templates/admin/base.html:134
+#: django-ovp-admin/ovp_admin/templates/admin/base.html:148
+msgid "Documentation"
+msgstr "Documentação"
+
+#: django-ovp-admin/ovp_admin/templates/admin/base.html:143
+#: django-ovp-admin/ovp_admin/templates/admin/base.html:150
+msgid "Log out"
+msgstr "Log out"
+
+#: django-ovp-admin/ovp_admin/templates/admin/base.html:169
+#: django-ovp-admin/ovp_admin/templates/admin/change_list.html:68
+msgid "Close"
+msgstr "Fechar"
+
+#: django-ovp-admin/ovp_admin/templates/admin/base_site.html:3
+msgid "Django site admin"
+msgstr "Administração da Plataforma"
+
+#: django-ovp-admin/ovp_admin/templates/admin/change_form.html:39
+#: django-ovp-admin/ovp_admin/templates/admin/index.html:57
+msgid "Add"
+msgstr "Adicionar"
+
+#: django-ovp-admin/ovp_admin/templates/admin/change_form.html:114
+#: django-ovp-admin/ovp_admin/templates/admin/change_form.html:116
+#: django-ovp-admin/ovp_admin/templates/admin/object_history.html:18
+msgid "History"
+msgstr "Histórico"
+
+#: django-ovp-admin/ovp_admin/templates/admin/change_form.html:121
+#: django-ovp-admin/ovp_admin/templates/admin/change_form.html:123
+#: django-ovp-admin/ovp_admin/templates/admin/edit_inline/stacked.html:20
+#: django-ovp-admin/ovp_admin/templates/admin/edit_inline/tabular.html:34
+msgid "View on site"
+msgstr "Ver no Site"
+
+#: django-ovp-admin/ovp_admin/templates/admin/change_list.html:58
+msgid "Filter"
+msgstr "Filtrar"
+
+#: django-ovp-admin/ovp_admin/templates/admin/change_list.html:92
+#, python-format
+msgid "Add %(name)s"
+msgstr "Adicionar %(name)s"
+
+#: django-ovp-admin/ovp_admin/templates/admin/change_list.html:154
+#: django-ovp-admin/ovp_admin/templates/admin/submit_line.html:5
+#: django-ovp-admin/ovp_admin/templates/admin/submit_line.html:7
+msgid "Save"
+msgstr "Salvar"
+
+#: django-ovp-admin/ovp_admin/templates/admin/change_list_results.html:13
+msgid "Remove from sorting"
+msgstr "Remover do ordenamento"
+
+#: django-ovp-admin/ovp_admin/templates/admin/change_list_results.html:16
+#, python-format
+msgid "Sorting priority: %(priority_number)s"
+msgstr "Ordem de prioridade: %(priority_number)s"
+
+#: django-ovp-admin/ovp_admin/templates/admin/change_list_results.html:17
+msgid "Toggle sorting"
+msgstr "Alternar Ordenação"
+
+#: django-ovp-admin/ovp_admin/templates/admin/delete_confirmation.html:20
+#: django-ovp-admin/ovp_admin/templates/admin/submit_line.html:34
+#: django-ovp-admin/ovp_admin/templates/admin/submit_line.html:36
+msgid "Delete"
+msgstr "Apagar"
+
+#: django-ovp-admin/ovp_admin/templates/admin/delete_confirmation.html:29
+#, python-format
+msgid ""
+"Deleting the %(object_name)s '%(escaped_object)s' would result in deleting "
+"related objects, but your account doesn't have permission to delete the "
+"following types of objects:"
+msgstr ""
+
+#: django-ovp-admin/ovp_admin/templates/admin/delete_confirmation.html:43
+#, python-format
+msgid ""
+"Deleting the %(object_name)s '%(escaped_object)s' would require deleting the "
+"following protected related objects:"
+msgstr ""
+
+#: django-ovp-admin/ovp_admin/templates/admin/delete_confirmation.html:57
+#, python-format
+msgid ""
+"Are you sure you want to delete the %(object_name)s \"%(escaped_object)s\"? "
+"All of the following related items will be deleted:"
+msgstr ""
+"Está certo de que deseja apagar %(object_name)s \"%(escaped_object)s\"? "
+"Todos os itens relacionados serão apagados:"
+
+#: django-ovp-admin/ovp_admin/templates/admin/delete_confirmation.html:65
+#: django-ovp-admin/ovp_admin/templates/admin/delete_confirmation.html:67
+#: django-ovp-admin/ovp_admin/templates/admin/delete_selected_confirmation.html:68
+msgid "Yes, I'm sure"
+msgstr "Sim, tenho certeza"
+
+#: django-ovp-admin/ovp_admin/templates/admin/delete_selected_confirmation.html:17
+msgid "Delete multiple objects"
+msgstr "Apagar multiplos objetos"
+
+#: django-ovp-admin/ovp_admin/templates/admin/delete_selected_confirmation.html:26
+#, python-format
+msgid ""
+"Deleting the selected %(objects_name)s would result in deleting related "
+"objects, but your account doesn't have permission to delete the following "
+"types of objects:"
+msgstr ""
+"Apagando os %(objects_name)s selecionados resultará em apagar objetos "
+"relacionados, mas sua conta não possui pormissão para apagar os objetos "
+"dos seguintes tipos: "
+
+#: django-ovp-admin/ovp_admin/templates/admin/delete_selected_confirmation.html:40
+#, python-format
+msgid ""
+"Deleting the selected %(objects_name)s would require deleting the following "
+"protected related objects:"
+msgstr ""
+"Apagando os %(objects_name)s selecionados resultará em apagar objetos "
+"seguintes objetos relacionados:"
+
+#: django-ovp-admin/ovp_admin/templates/admin/delete_selected_confirmation.html:54
+#, python-format
+msgid ""
+"Are you sure you want to delete the selected %(objects_name)s? All of the "
+"following objects and their related items will be deleted:"
+msgstr ""
+"Está certo de que deseja apagar os %(objects_name)s selecionados? "
+"Todos os seguintes itens e suas relações são serão apagadas:"
+
+#: django-ovp-admin/ovp_admin/templates/admin/edit_inline/stacked.html:41
+#: django-ovp-admin/ovp_admin/templates/admin/edit_inline/tabular.html:81
+msgid "Remove"
+msgstr "Remover"
+
+#: django-ovp-admin/ovp_admin/templates/admin/edit_inline/stacked.html:42
+#: django-ovp-admin/ovp_admin/templates/admin/edit_inline/tabular.html:80
+#, python-format
+msgid "Add another %(verbose_name)s"
+msgstr "Adionar outro %(verbose_name)s"
+
+#: django-ovp-admin/ovp_admin/templates/admin/edit_inline/tabular.html:19
+msgid "Delete?"
+msgstr "Apagar?"
+
+#: django-ovp-admin/ovp_admin/templates/admin/filter.html:2
+#, python-format
+msgid " By %(filter_title)s "
+msgstr " Por %(filter_title)s "
+
+#: django-ovp-admin/ovp_admin/templates/admin/includes/object_delete_summary.html:2
+msgid "Summary"
+msgstr "Sumário"
+
+#: django-ovp-admin/ovp_admin/templates/admin/index.html:19
+msgid "Apps"
+msgstr "Aplicações"
+
+#: django-ovp-admin/ovp_admin/templates/admin/index.html:22
+#: django-ovp-admin/ovp_admin/templates/admin/index.html:23
+#: django-ovp-admin/ovp_admin/templates/admin/index.html:72
+msgid "Recent Actions"
+msgstr "Ações Recentes"
+
+#: django-ovp-admin/ovp_admin/templates/admin/index.html:32
+#: django-ovp-admin/ovp_admin/templates/admin/index.html:59
+#: django-ovp-admin/ovp_admin/templates/admin/search_form.html:11
+#: django-ovp-admin/ovp_admin/templates/admin/search_form.html:13
+msgid "Search"
+msgstr "Buscar"
+
+#: django-ovp-admin/ovp_admin/templates/admin/index.html:43
+#: django-ovp-admin/ovp_admin/templates/admin/index.html:51
+#: django-ovp-admin/ovp_admin/templates/ovp_admin/sidebar_menu.html:14
+#, python-format
+msgid "Models in the %(name)s application"
+msgstr "Módulos na aplicação %(name)s"
+
+#: django-ovp-admin/ovp_admin/templates/admin/index.html:58
+msgid "Change"
+msgstr "Mudar"
+
+#: django-ovp-admin/ovp_admin/templates/admin/index.html:72
+msgid "My Actions"
+msgstr "Minhas Ações"
+
+#: django-ovp-admin/ovp_admin/templates/admin/index.html:77
+msgid "None available"
+msgstr "Nenhum disponível"
+
+#: django-ovp-admin/ovp_admin/templates/admin/index.html:103
+msgid "Unknown content"
+msgstr "Conteúdo desconhecido"
+
+#: django-ovp-admin/ovp_admin/templates/admin/index.html:131
+#: django-ovp-admin/ovp_admin/templates/ovp_admin/sidebar_menu.html:19
+#: django-ovp-admin/ovp_admin/templates/ovp_admin/sidebar_menu.html:26
+msgid "You don't have permission to edit anything."
+msgstr "Você não possui permissão para editar isso"
+
+#: django-ovp-admin/ovp_admin/templates/admin/invalid_setup.html:5
+msgid ""
+"Something's wrong with your database installation. Make sure the appropriate "
+"database tables have been created, and make sure the database is readable by "
+"the appropriate user."
+msgstr ""
+"Something's wrong with your database installation. Make sure the appropriate "
+"database tables have been created, and make sure the database is readable by "
+"the appropriate user."
+
+#: django-ovp-admin/ovp_admin/templates/admin/login.html:23
+#, python-format
+msgid ""
+"You are authenticated as %(username)s, but are not authorized to access this "
+"page. Would you like to login to a different account?"
+msgstr ""
+"Você está autenticado como %(username)s, porém não é autorizado a acessar "
+"essa página. Gostaria de logar com uma conta diferente?"
+
+#: django-ovp-admin/ovp_admin/templates/admin/login.html:84
+#: django-ovp-admin/ovp_admin/templates/registration/password_reset_complete.html:23
+msgid "Log in"
+msgstr "Logar"
+
+#: django-ovp-admin/ovp_admin/templates/admin/login.html:95
+msgid "Forgotten your password or username?"
+msgstr "Esqueceu usuário ou senha?"
+
+#: django-ovp-admin/ovp_admin/templates/admin/object_history.html:29
+msgid "Date/time"
+msgstr "Date/Horário"
+
+#: django-ovp-admin/ovp_admin/templates/admin/object_history.html:30
+msgid "User"
+msgstr "Usuário"
+
+#: django-ovp-admin/ovp_admin/templates/admin/object_history.html:31
+msgid "Action"
+msgstr "Ação"
+
+#: django-ovp-admin/ovp_admin/templates/admin/object_history.html:45
+msgid ""
+"This object doesn't have a change history. It probably wasn't added via this "
+"admin site."
+msgstr ""
+"Esse objeto não possui histórico de alteraçõs. Provávelmente não foi "
+"adicionado por essa interface de administração"
+
+#: django-ovp-admin/ovp_admin/templates/admin/pagination.html:19
+msgid "Show all"
+msgstr "Mostrar todos"
+
+#: django-ovp-admin/ovp_admin/templates/admin/popup_response.html:16
+msgid "Popup closing..."
+msgstr "Janela fechando..."
+
+#: django-ovp-admin/ovp_admin/templates/admin/related_widget_wrapper.html:8
+#, python-format
+msgid "Change selected %(model)s"
+msgstr "Alterar %(model)s selecionados"
+
+#: django-ovp-admin/ovp_admin/templates/admin/related_widget_wrapper.html:15
+#, python-format
+msgid "Add another %(model)s"
+msgstr "Adicionar novo %(model)s"
+
+#: django-ovp-admin/ovp_admin/templates/admin/related_widget_wrapper.html:22
+#, python-format
+msgid "Delete selected %(model)s"
+msgstr "Apagar %(model)s selecionado"
+
+#: django-ovp-admin/ovp_admin/templates/admin/search_form.html:4
+#, python-format
+msgid "%(counter)s result"
+msgid_plural "%(counter)s results"
+msgstr[0] "%(counter)s resultado"
+msgstr[1] "%(counter)s resultados"
+
+#: django-ovp-admin/ovp_admin/templates/admin/search_form.html:4
+#, python-format
+msgid "%(full_result_count)s total"
+msgstr "%(full_result_count)s total"
+
+#: django-ovp-admin/ovp_admin/templates/admin/submit_line.html:12
+#: django-ovp-admin/ovp_admin/templates/admin/submit_line.html:14
+msgid "Save as new"
+msgstr "Salvar como novo"
+
+#: django-ovp-admin/ovp_admin/templates/admin/submit_line.html:19
+#: django-ovp-admin/ovp_admin/templates/admin/submit_line.html:21
+msgid "Save and add another"
+msgstr "Salvar e adicionar novo"
+
+#: django-ovp-admin/ovp_admin/templates/admin/submit_line.html:26
+#: django-ovp-admin/ovp_admin/templates/admin/submit_line.html:28
+msgid "Save and continue editing"
+msgstr "Salvar e continuar editando"
+
+#: django-ovp-admin/ovp_admin/templates/registration/logged_out.html:18
+msgid "Thanks for spending some quality time with the Web site today."
+msgstr "Obrigado por gastar um tempo de qualidade com o Site hoje"
+
+#: django-ovp-admin/ovp_admin/templates/registration/logged_out.html:20
+msgid "Log in again"
+msgstr "Logar novamente"
+
+#: django-ovp-admin/ovp_admin/templates/registration/password_change_done.html:10
+#: django-ovp-admin/ovp_admin/templates/registration/password_change_form.html:15
+msgid "Password change"
+msgstr "Alerar senha"
+
+#: django-ovp-admin/ovp_admin/templates/registration/password_change_done.html:20
+msgid "Your password was changed."
+msgstr "Sua senha foi alterada"
+
+#: django-ovp-admin/ovp_admin/templates/registration/password_change_form.html:37
+msgid ""
+"Please enter your old password, for security's sake, and then enter your new "
+"password twice so we can verify you typed it in correctly."
+msgstr ""
+"Por favor, entre com sua senha antiga por questões de segurança, e então, "
+"Entre com uma nova senha duas vezes para que possamos verificar se digitou "
+"corretamente."
+
+#: django-ovp-admin/ovp_admin/templates/registration/password_change_form.html:43
+msgid "Old password"
+msgstr "Senha antiga"
+
+#: django-ovp-admin/ovp_admin/templates/registration/password_change_form.html:50
+msgid "New password"
+msgstr "Nova Senha"
+
+#: django-ovp-admin/ovp_admin/templates/registration/password_change_form.html:66
+#: django-ovp-admin/ovp_admin/templates/registration/password_reset_confirm.html:46
+msgid "Change my password"
+msgstr "Alterar minha senha"
+
+#: django-ovp-admin/ovp_admin/templates/registration/password_reset_complete.html:10
+#: django-ovp-admin/ovp_admin/templates/registration/password_reset_done.html:10
+#: django-ovp-admin/ovp_admin/templates/registration/password_reset_form.html:10
+msgid "Password reset"
+msgstr "Redefinir senha"
+
+#: django-ovp-admin/ovp_admin/templates/registration/password_reset_complete.html:20
+msgid "Your password has been set.  You may go ahead and log in now."
+msgstr "Sua senha foi definida. Já pode logar agora."
+
+#: django-ovp-admin/ovp_admin/templates/registration/password_reset_confirm.html:10
+msgid "Password reset confirmation"
+msgstr "Confirmação de redefinição de senha"
+
+#: django-ovp-admin/ovp_admin/templates/registration/password_reset_confirm.html:24
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr "Por favor, digite duas vezes a nova senha para que possas verificá-la."
+
+#: django-ovp-admin/ovp_admin/templates/registration/password_reset_confirm.html:30
+msgid "New password:"
+msgstr "Nova senha:"
+
+#: django-ovp-admin/ovp_admin/templates/registration/password_reset_confirm.html:37
+msgid "Confirm password:"
+msgstr "Confirmar senha:"
+
+#: django-ovp-admin/ovp_admin/templates/registration/password_reset_confirm.html:55
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a new password reset."
+msgstr ""
+"O link de redefinição de senha foi inválidado, possivelmente por uso anterior."
+"Pedimos que repita o processo de redefinição de senha."
+
+#: django-ovp-admin/ovp_admin/templates/registration/password_reset_done.html:19
+msgid ""
+"We've emailed you instructions for setting your password. You should be "
+"receiving them shortly."
+msgstr ""
+""
+"Lhe enviamos um email com instruções para redefinir sua senha. Você deverá "
+"recebe-lo em breve."
+
+#: django-ovp-admin/ovp_admin/templates/registration/password_reset_done.html:21
+msgid ""
+"If you don't receive an email, please make sure you've entered the address "
+"you registered with, and check your spam folder."
+msgstr ""
+"Se ainda não recebeu um emails, verifique se digitou o mesmo que usou para o "
+"cadastro, e verifique sua caixa de SPAM."
+
+#: django-ovp-admin/ovp_admin/templates/registration/password_reset_email.html:2
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+"Você está recebendo esse email por ter pedido a redefinição de sua senha em: "
+"%(site_name)s."
+
+#: django-ovp-admin/ovp_admin/templates/registration/password_reset_email.html:4
+msgid "Please go to the following page and choose a new password:"
+msgstr "Vá para a seguinte página de defina uma nova senha:"
+
+#: django-ovp-admin/ovp_admin/templates/registration/password_reset_email.html:8
+msgid "Your username, in case you've forgotten:"
+msgstr "Seu usuário, no caso de ter esquecido:"
+
+#: django-ovp-admin/ovp_admin/templates/registration/password_reset_email.html:10
+msgid "Thanks for using our site!"
+msgstr "Obrigado por usar nova plataforma!"
+
+#: django-ovp-admin/ovp_admin/templates/registration/password_reset_email.html:12
+#, python-format
+msgid "The %(site_name)s team"
+msgstr "O time do %(site_name)s"
+
+#: django-ovp-admin/ovp_admin/templates/registration/password_reset_form.html:23
+msgid ""
+"Forgotten your password? Enter your email address below, and we'll email "
+"instructions for setting a new one."
+msgstr ""
+"Esqueceu sua senha? Digite seu email abaixo, e lhe enviaremos instruções por "
+"email para definir uma nova."
+
+#: django-ovp-admin/ovp_admin/templates/registration/password_reset_form.html:29
+msgid "Email address:"
+msgstr "Endereço de email:"
+
+#: django-ovp-admin/ovp_admin/templates/registration/password_reset_form.html:38
+msgid "Reset my password"
+msgstr "Redefinir minha senha"
+
+#: django-ovp-projects/ovp_projects/models/apply.py:10
+msgid "name"
+msgstr "nome"
+
+#: django-ovp-projects/ovp_projects/models/apply.py:12
+msgid "Canceled"
+msgstr "Cancelado"
+
+#: django-ovp-projects/ovp_projects/models/apply.py:13
+msgid "Canceled date"
+msgstr "Data de Cancelamento"
+
+#: django-ovp-projects/ovp_projects/models/apply.py:14
+msgid "Email"
+msgstr "Email"
+
+#: django-ovp-projects/ovp_projects/models/apply.py:43
+msgid "apply"
+msgstr "aplicar"
+
+#: django-ovp-projects/ovp_projects/models/apply.py:44
+msgid "applies"
+msgstr "aplicações"
+
+#: django-ovp-projects/ovp_projects/models/job.py:5
+msgid "Label"
+msgstr "Título"
+
+#: django-ovp-projects/ovp_projects/models/job.py:6
+#: django-ovp-projects/ovp_projects/models/job.py:23
+msgid "Start date"
+msgstr "Data de inicial"
+
+#: django-ovp-projects/ovp_projects/models/job.py:7
+#: django-ovp-projects/ovp_projects/models/job.py:24
+msgid "End date"
+msgstr "Data final"
+
+#: django-ovp-projects/ovp_projects/models/job.py:17
+msgid "job date"
+msgstr "data do projeto"
+
+#: django-ovp-projects/ovp_projects/models/job.py:18
+msgid "job dates"
+msgstr "datas do projeto"
+
+#: django-ovp-projects/ovp_projects/models/job.py:25
+#: django-ovp-projects/ovp_projects/models/work.py:9
+msgid "This job can be done remotely"
+msgstr "Essa projeto pode ser feita remotamente"
+
+#: django-ovp-projects/ovp_projects/models/job.py:28
+msgid "Unbound Job"
+msgstr "Ação sem projeto"
+
+#: django-ovp-projects/ovp_projects/models/job.py:42
+msgid "job"
+msgstr "projeto"
+
+#: django-ovp-projects/ovp_projects/models/job.py:43
+msgid "jobs"
+msgstr "projetos"
+
+#: django-ovp-projects/ovp_projects/models/project.py:24
+msgid "Volunteer Roles"
+msgstr "Cargos de Voluntário"
+
+#: django-ovp-projects/ovp_projects/models/project.py:27
+msgid "Project name"
+msgstr "Nome do Projeto"
+
+#: django-ovp-projects/ovp_projects/models/project.py:29
+msgid "Published"
+msgstr "Publicado"
+
+#: django-ovp-projects/ovp_projects/models/project.py:30
+msgid "Highlighted"
+msgstr "Em destaque"
+
+#: django-ovp-projects/ovp_projects/models/project.py:35
+msgid "Published date"
+msgstr "Data de publicação"
+
+#: django-ovp-projects/ovp_projects/models/project.py:36
+msgid "Closed"
+msgstr "Fechado"
+
+#: django-ovp-projects/ovp_projects/models/project.py:37
+msgid "Closed date"
+msgstr "Data de fechamento"
+
+#: django-ovp-projects/ovp_projects/models/project.py:38
+msgid "Deleted"
+msgstr "Apagado"
+
+#: django-ovp-projects/ovp_projects/models/project.py:39
+msgid "Deleted date"
+msgstr "Apagado em"
+
+#: django-ovp-projects/ovp_projects/models/project.py:44
+#: django-ovp-projects/ovp_projects/models/project.py:142
+msgid "Details"
+msgstr "Detalhes"
+
+#: django-ovp-projects/ovp_projects/models/project.py:45
+msgid "Short description"
+msgstr "Descrição curta"
+
+#: django-ovp-projects/ovp_projects/models/project.py:121
+msgid "project"
+msgstr "projeto"
+
+#: django-ovp-projects/ovp_projects/models/project.py:122
+msgid "projects"
+msgstr "projetos"
+
+#: django-ovp-projects/ovp_projects/models/project.py:140
+msgid "Role name"
+msgstr "Nome do cargo"
+
+#: django-ovp-projects/ovp_projects/models/project.py:141
+msgid "Prerequisites"
+msgstr "Prerequisitos"
+
+#: django-ovp-projects/ovp_projects/models/project.py:143
+msgid "Vacancies"
+msgstr "Vagas"
+
+#: django-ovp-projects/ovp_projects/models/project.py:147
+msgid "volunteer role"
+msgstr "cargo do voluntário"
+
+#: django-ovp-projects/ovp_projects/models/project.py:148
+msgid "volunteer roles"
+msgstr "cargos de volunrários"
+
+#: django-ovp-projects/ovp_projects/models/work.py:7
+msgid "Weekly hours"
+msgstr "Horas semanais"
+
+#: django-ovp-projects/ovp_projects/models/work.py:8
+msgid "Description"
+msgstr "Descrição"
+
+#: django-ovp-projects/ovp_projects/models/work.py:16
+msgid "work"
+msgstr "trabalho"
+
+#: django-ovp-projects/ovp_projects/models/work.py:17
+msgid "works"
+msgstr "trabalhos"
+
+#: django-ovp-uploads/ovp_uploads/models.py:49
+msgid "uploaded image"
+msgstr "imagem enviada"
+
+#: django-ovp-uploads/ovp_uploads/models.py:50
+msgid "uploaded images"
+msgstr "imagens enviadas"
+
+#: django-ovp-uploads/ovp_uploads/models.py:53
+msgid "Image 350x260"
+msgstr "Imagem 350x260"
+
+#: server/settings.py:183
+msgid "Portuguese"
+msgstr "Português"
+
+#: server/settings.py:184
+msgid "English"
+msgstr "Inglês"
+
+#: ovp_core.Cause/name:1
+msgid "Capacitação Profissional"
+msgstr ""
+
+#: ovp_core.Cause/name:2
+msgid "Combate à Pobreza"
+msgstr ""
+
+#: ovp_core.Cause/name:3
+msgid "Consumo Consciente"
+msgstr ""
+
+#: ovp_core.Cause/name:4
+msgid "Cultura, Esporte e Arte"
+msgstr ""
+
+#: ovp_core.Cause/name:5
+msgid "Direitos Humanos"
+msgstr ""
+
+#: ovp_core.Cause/name:6 ovp_core.Skill/name:5
+msgid "Educação"
+msgstr ""
+
+#: ovp_core.Cause/name:7
+msgid "Crianças e Jovens"
+msgstr ""
+
+#: ovp_core.Cause/name:8
+msgid "Idosos"
+msgstr ""
+
+#: ovp_core.Cause/name:9
+msgid "Meio Ambiente"
+msgstr ""
+
+#: ovp_core.Cause/name:10
+msgid "Participação Cidadã"
+msgstr ""
+
+#: ovp_core.Cause/name:11
+msgid "Proteção Animal"
+msgstr ""
+
+#: ovp_core.Cause/name:12 ovp_core.Skill/name:11
+msgid "Saúde"
+msgstr ""
+
+#: ovp_core.Cause/name:13
+msgid "Pessoas com Deficiência"
+msgstr ""
+
+#: ovp_core.Skill/name:1
+msgid "Artes/Artesanato"
+msgstr ""
+
+#: ovp_core.Skill/name:2
+msgid "Português"
+msgstr ""
+
+#: ovp_core.Skill/name:4
+msgid "Direito"
+msgstr ""
+
+#: ovp_core.Skill/name:6
+msgid "Esportes"
+msgstr ""
+
+#: ovp_core.Skill/name:7
+msgid "Gastronomia"
+msgstr ""
+
+#: ovp_core.Skill/name:8
+msgid "Gestão"
+msgstr ""
+
+#: ovp_core.Skill/name:9
+msgid "Idiomas"
+msgstr ""
+
+#: ovp_core.Skill/name:10
+msgid "Informática/Tecnologia"
+msgstr ""
+
+#: ovp_core.Skill/name:12
+msgid "Outros"
+msgstr ""
