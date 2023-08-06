@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: spynl
+Version: 5.52rc8
+Summary: spynl
+Home-page: http://www.softwear.nl
+Author: Softwear BV
+Author-email: development@softwear.nl
+License: MIT
+Description: # spynl
+        Python Web Framework, Pyramid + CLI (Docker/Jenkins support) and other batteries
+        
+Keywords: API SaaS
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Framework :: Pylons
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Application
