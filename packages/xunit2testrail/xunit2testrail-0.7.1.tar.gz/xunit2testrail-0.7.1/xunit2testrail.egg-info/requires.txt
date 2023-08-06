@@ -1,0 +1,10 @@
+setuptools>=17.1
+requests>=2.4.2
+pytest-runner
+Jinja2
+six
+
+[test]
+pytest-mock
+pytest-capturelog
+requests-mock
