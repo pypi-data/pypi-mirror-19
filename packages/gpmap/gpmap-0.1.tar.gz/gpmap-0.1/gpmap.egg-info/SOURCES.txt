@@ -1,0 +1,17 @@
+MANIFEST.in
+setup.py
+gpmap/__init__.py
+gpmap/base.py
+gpmap/binary.py
+gpmap/errors.py
+gpmap/gpm.py
+gpmap/plotting.py
+gpmap/stats.py
+gpmap/transform.py
+gpmap/utils.py
+gpmap.egg-info/PKG-INFO
+gpmap.egg-info/SOURCES.txt
+gpmap.egg-info/dependency_links.txt
+gpmap.egg-info/not-zip-safe
+gpmap.egg-info/requires.txt
+gpmap.egg-info/top_level.txt
