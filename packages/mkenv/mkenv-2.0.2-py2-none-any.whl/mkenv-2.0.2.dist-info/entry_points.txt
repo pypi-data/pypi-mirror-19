@@ -1,0 +1,5 @@
+[console_scripts]
+findenv = mkenv.find:main
+mkenv = mkenv.make:main
+rmenv = mkenv.remove:main
+
