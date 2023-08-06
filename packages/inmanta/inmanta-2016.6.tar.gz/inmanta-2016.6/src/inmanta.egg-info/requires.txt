@@ -1,0 +1,12 @@
+cliff <= 2.0.0
+execnet
+tornado
+colorlog
+urllib3
+python-dateutil
+ply
+ruamel.yaml
+virtualenv
+motorengine
+pymongo==2.7
+blessings
