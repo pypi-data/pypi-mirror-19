@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"Rachmat.Wahidi",
+			"Arifin.wijaya"
+		]
+	},
+	"'$1' not completed.  Submit anyway?": "Kolom '$1' belum diisi. Lanjut mengirimkan?",
+	"Abandon": "Abaikan",
+	"Are you sure that you want to abandon this task?": "Apakah Anda yakin ingin mengabaikan tugas ini?",
+	"Campaigns": "Kampanye",
+	"Can't save label. No task is selected!": "Tidak dapat menyimpan label. Tidak ada tugas dipilih!",
+	"Could not get metadata for revision $1": "Tidak dapat menemukan metadata untuk revisi $1",
+	"Could not load form \"$1\": \n$2": "Tidak dapat memuat formulir \"$1\":\n$2",
+	"Could not load view \"$1\": $2\nUsing simple task viewer.": "Tidak dapat memuat tampilan \"$1\": $2.\nMenggunakan penampil tugas sederhana.",
+	"Could not load workset list: $1": "Tidak dapat memuat daftar rangkaian tugas: $1",
+	"Could not parse MediaWiki API's response": "Tidak dapat memilah respons API MediaWiki",
+	"Diff for revision $1": "Beda untuk revisi $1",
+	"No difference": "Tidak ada perbedaan",
+	"Request new workset": "Minta pekerjaan baru",
+	"Review": "Tinjau",
+	"Save": "Simpan",
+	"Submit label": "Kirim label",
+	"Workset": "Pekerjaan",
+	"Workset complete!": "Pekerjaan selesai!",
+	"connect to server": "sambung ke server",
+	"date-format": "%d-%m-%Y",
+	"fullscreen": "layar penuh",
+	"open": "buka",
+	"request workset": "minta pekerjaan",
+	"review": "tinjau"
+}
