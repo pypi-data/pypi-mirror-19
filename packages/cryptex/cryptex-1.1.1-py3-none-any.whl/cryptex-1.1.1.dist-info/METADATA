@@ -1,0 +1,17 @@
+Metadata-Version: 2.0
+Name: cryptex
+Version: 1.1.1
+Summary: Easy and safe file/password storage encrypted globally
+Home-page: https://github.com/srevenant/cryptex
+Author: Brandon Gillespie
+Author-email: bjg-pypi@cold.org
+License: UNKNOWN
+Keywords: password,storage
+Platform: UNKNOWN
+Requires-Dist: pynacl
+Requires-Dist: boto
+Requires-Dist: dictlib
+
+UNKNOWN
+
+
