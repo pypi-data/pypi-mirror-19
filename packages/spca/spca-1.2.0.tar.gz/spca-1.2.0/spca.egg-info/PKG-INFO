@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: spca
+Version: 1.2.0
+Summary: A simple implemetation of Principle Component Analysis
+Home-page: https://github.com/salman-kgp/easypca
+Author: Salman Ahmad
+Author-email: salmaniit.ahmed1@gmail.com
+License: MIT
+Description: A simple but great implementation of Principle component analysis. This module accepts a SVM format data in a file and expected value of variance with output file location. Reduces dimension and writes data back to output location
+Keywords: dimension reduction pca machine learning
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7

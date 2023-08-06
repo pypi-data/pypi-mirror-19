@@ -1,0 +1,5 @@
+#data used for clustering
+recursive-include easypca/data *
+
+#MISC
+include LICENSE.txt
