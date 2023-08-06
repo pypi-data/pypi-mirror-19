@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+pylox/__init__.py
+pylox/__main__.py
+pylox/scanner.py
+pylox/token.py
+pylox/tokentype.py
+pylox.egg-info/PKG-INFO
+pylox.egg-info/SOURCES.txt
+pylox.egg-info/dependency_links.txt
+pylox.egg-info/entry_points.txt
+pylox.egg-info/top_level.txt
