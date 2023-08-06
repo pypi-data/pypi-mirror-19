@@ -1,0 +1,3 @@
+[console_scripts]
+cronquot = cronquot.cronquot:execute_from_console
+
