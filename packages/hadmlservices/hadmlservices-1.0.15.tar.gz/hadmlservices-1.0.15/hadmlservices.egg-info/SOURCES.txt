@@ -1,0 +1,17 @@
+LICENSE.txt
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+data/data_file
+hadmlservices/__init__.py
+hadmlservices/awslogs.conf
+hadmlservices/awslogs.service
+hadmlservices/callbacks.py
+hadmlservices/service.py
+hadmlservices.egg-info/PKG-INFO
+hadmlservices.egg-info/SOURCES.txt
+hadmlservices.egg-info/dependency_links.txt
+hadmlservices.egg-info/entry_points.txt
+hadmlservices.egg-info/requires.txt
+hadmlservices.egg-info/top_level.txt
