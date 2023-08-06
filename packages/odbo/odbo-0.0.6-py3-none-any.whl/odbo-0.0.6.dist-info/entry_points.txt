@@ -1,0 +1,3 @@
+[console_scripts]
+odbo = odbo.__main__:main
+
