@@ -1,0 +1,4 @@
+
+    [console_scripts]
+    calendar-cli = calendar_cli.calendar_cli:main
+    
