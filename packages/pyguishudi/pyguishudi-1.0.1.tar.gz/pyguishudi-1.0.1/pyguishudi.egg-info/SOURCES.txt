@@ -1,0 +1,15 @@
+setup.cfg
+setup.py
+pyguishudi/__init__.py
+pyguishudi/guishudi.py
+pyguishudi.egg-info/PKG-INFO
+pyguishudi.egg-info/SOURCES.txt
+pyguishudi.egg-info/dependency_links.txt
+pyguishudi.egg-info/entry_points.txt
+pyguishudi.egg-info/requires.txt
+pyguishudi.egg-info/top_level.txt
+pyguishudi.egg-info/zip-safe
+pyguishudi/client/__init__.py
+pyguishudi/model/__init__.py
+pyguishudi/model/phone_prefix.py
+tests/__init__.py
