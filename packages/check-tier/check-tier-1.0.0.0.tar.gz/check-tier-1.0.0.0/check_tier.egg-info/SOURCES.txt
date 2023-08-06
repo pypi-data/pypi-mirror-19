@@ -1,0 +1,11 @@
+MANIFEST.in
+README.txt
+setup.py
+check_tier/__init__.py
+check_tier.egg-info/PKG-INFO
+check_tier.egg-info/SOURCES.txt
+check_tier.egg-info/dependency_links.txt
+check_tier.egg-info/top_level.txt
+check_tier/management/__init__.py
+check_tier/management/commands/__init__.py
+check_tier/management/commands/get_tier.py

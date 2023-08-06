@@ -1,0 +1,31 @@
+Metadata-Version: 1.0
+Name: check-tier
+Version: 1.0.0.0
+Summary: Sends an html email that populates a template with and object, dictionary or both
+Home-page: UNKNOWN
+Author: Level Up
+Author-email: os@lvlup.us
+License: GPL v3
+Description: Check TIER
+        ==========
+        
+        Django management command to check the tier current instance.
+        
+        Required the tier setting from localsetting to be in main settings file as 
+        TIER=localsettings.tier
+        
+        usage
+        -----
+        
+        ::
+        	python -Wi manage.py get_tier <TIER_TO_CHECK>
+        
+        
+        ::
+        	python -Wi manage.py get_tier staging
+        
+        will return success if tiers match error code if they do not as well as text.
+        
+        Install as django app by putting 'check_tier' in installed apps.
+        
+Platform: UNKNOWN
