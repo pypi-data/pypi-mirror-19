@@ -1,0 +1,9 @@
+gevent
+retrying
+
+[dev]
+check-manifest
+
+[test]
+coverage
+pytest
