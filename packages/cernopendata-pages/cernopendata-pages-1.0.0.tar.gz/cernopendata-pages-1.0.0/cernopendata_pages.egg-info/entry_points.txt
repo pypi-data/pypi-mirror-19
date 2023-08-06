@@ -1,0 +1,3 @@
+[invenio_base.blueprints]
+cernopendata_pages = cernopendata_pages.views:blueprint
+
