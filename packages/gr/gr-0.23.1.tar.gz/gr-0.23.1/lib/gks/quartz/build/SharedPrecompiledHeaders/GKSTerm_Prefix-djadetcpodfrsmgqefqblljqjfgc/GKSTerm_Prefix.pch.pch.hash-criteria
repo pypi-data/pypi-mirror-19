@@ -1,0 +1,26 @@
+-x
+objective-c
+-arch
+x86_64
+-gmodules
+-fpascal-strings
+-O3
+-isysroot
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk
+-fasm-blocks
+-funroll-loops
+-mmacosx-version-min=10.12
+-g
+-mssse3
+-fvisibility=hidden
+-iquote
+-iquote
+-I/Users/jheinen/Home/Developer/gr/lib/gks/quartz/build/Release/include
+-I/usr/X11/include
+-I/usr/X11/include/freetype2
+-F/Users/jheinen/Home/Developer/gr/lib/gks/quartz/build/Release
+-DXFT
+x86_64-apple-darwin16.5.0
+"4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.42.1)"
+SDK_PRODUCT_BUILD_VERSION=16C58
+16C58
