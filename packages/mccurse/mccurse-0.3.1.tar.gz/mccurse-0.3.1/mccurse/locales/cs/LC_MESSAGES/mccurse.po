@@ -1,0 +1,72 @@
+# Czech translations for mccurse.
+# Copyright (C) 2017 Jan 'Khardix' Staněk
+# This file is distributed under the same license as the mccurse project.
+# Jan Staněk <khardix@gmail.com>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mccurse 0.1.2.dev0+ngc2be2bb.d20170116\n"
+"Report-Msgid-Bugs-To: khardix@gmail.com\n"
+"POT-Creation-Date: 2017-01-25 19:46+0100\n"
+"PO-Revision-Date: 2017-01-16 20:31+0100\n"
+"Last-Translator: Jan Staněk <khardix@gmail.com>\n"
+"Language: cs\n"
+"Language-Team: cs <khardix@gmail.com>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: mccurse/cli.py:64
+msgid "Specify the game to mod."
+msgstr "Vybere hru pro modifikaci."
+
+#: mccurse/cli.py:69
+msgid "Specify the game version to mod."
+msgstr "Vybere verzi hry pro modifikaci."
+
+#: mccurse/cli.py:78
+msgid "Unknown game '{game}'"
+msgstr "Neznámá hra '{game}'"
+
+#. NOTE: Help for refresh flag
+#: mccurse/cli.py:100
+msgid "Force refreshing of search data."
+msgstr "Vynutí obnovení prohledávaných dat."
+
+#: mccurse/cli.py:108
+msgid "No text to search for!"
+msgstr "Chybí text k vyhledání!"
+
+#: mccurse/cli.py:116
+msgid "Refreshing search data, please wait…"
+msgstr "Obnovuji data k prohledání, prosím o strpení…"
+
+#: mccurse/cli.py:121
+msgid "Search results for \"{text}\""
+msgstr "Nalezené výsledky pro \"{text}\""
+
+#: mccurse/cli.py:122
+msgid "Choose mod to open its project page, or press [q] to quit."
+msgstr ""
+"Zvolte mód pro otevření jeho projektové stránky, nebo stiskněte [q] pro "
+"ukončení."
+
+#: mccurse/cli.py:134 mccurse/cli.py:135
+msgid "Curse user name or email"
+msgstr "Uživatelské jméno nebo e-mail pro Curse"
+
+#: mccurse/cli.py:138
+msgid "Curse password"
+msgstr "Heslo pro Curse"
+
+#: mccurse/cli.py:154
+msgid "Root profile directory"
+msgstr "Kořenová složka profilu"
+
+#: mccurse/cli.py:166
+msgid "Profile directory is not valid: Missing {!s}"
+msgstr "Složka profilu není validní: Chybí {!s}"
+
