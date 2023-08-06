@@ -1,0 +1,25 @@
+Metadata-Version: 2.0
+Name: resting
+Version: 0.3.2b0
+Summary: Pretty convenient REST API client
+Home-page: UNKNOWN
+Author: Awesome Developers UG
+Author-email: support@awesomedevelopers.eu
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: Internet :: WWW/HTTP
+Requires-Dist: mohawk (>=0.3.2.1)
+Requires-Dist: requests (>=2.10.0)
+Requires-Dist: requests-hawk (>=1.0.0)
+Requires-Dist: dicttoxml (>=1.7.4)
+Requires-Dist: xmltodict (>=0.10.2)
+
+UNKNOWN
+
+
