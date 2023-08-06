@@ -1,0 +1,16 @@
+LICENCE
+MANIFEST.in
+README.rst
+setup.py
+npimp/__init__.py
+npimp/__main__.py
+npimp/action_modules.py
+npimp/config.py
+npimp/info_modules.py
+npimp/npimp.py
+npimp.egg-info/PKG-INFO
+npimp.egg-info/SOURCES.txt
+npimp.egg-info/dependency_links.txt
+npimp.egg-info/entry_points.txt
+npimp.egg-info/not-zip-safe
+npimp.egg-info/top_level.txt
