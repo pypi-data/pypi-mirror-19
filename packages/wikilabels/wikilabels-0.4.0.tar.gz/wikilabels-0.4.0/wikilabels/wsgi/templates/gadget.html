@@ -1,0 +1,42 @@
+<html lang="en" dir="ltr" class="client-js ve-not-available">
+  <head>
+    <title>Labels home gadget</title>
+    <link rel="stylesheet" type="text/css" href="https://{{ mw_host|safe }}/w/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css" />
+    <link rel="stylesheet" type="text/css" href="https://{{ mw_host|safe }}/w/index.php?title=MediaWiki:Vector.css&action=raw&ctype=text/css" />
+    {{ script_tags|safe }}
+    {% assets "js_all" %}
+        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+        <script type="text/javascript" src="/gadget/WikiLabels.messages.js"></script>
+    {{ style_tags|safe }}
+    {% assets "css_all" %}
+        <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}" />
+    {% endassets %}
+    <style>
+      body {
+        background: #fff;
+        margin: 0px 2em;
+      }
+    </style>
+  </head>
+  <body class="mediawiki ltr sitedir-ltr ns-4 ns-subject page-Wikipedia_Labels
+               skin-vector action-view webfonts-changed">
+    <div id="bodyContent" class="mw-body-content">
+      <div id="mw-content-text">
+        <div id="wikilabels-labeler">
+          <div class="wikilabels-menu" style=" ">
+            <center> Checking for authorization ... </center>
+          </div>
+          <div class="wikilabels-workspace" style="clear:both;">
+          </div>
+        </div>
+        <script>
+          wikiLabels.config.update( {
+            serverRoot: '{{ url_root|safe }}'
+          } );
+          wikiLabels.home = new wikiLabels.Home('{{ mw_host|safe }}');
+        </script>
+      </div> <!-- end mw-content-text -->
+    </div> <!-- end mw-content-text -->
+  </body>
+</html>
