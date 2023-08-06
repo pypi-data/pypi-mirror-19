@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">scripts/django_cradmin/widgets/DataListDisplayByStateWidget.js | django_cradmin API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">django_cradmin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/DateTimePicker.js~DateTimePicker.html">DateTimePicker</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/django_cradmin_all.js~DjangoCradminAll.html">DjangoCradminAll</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">django_cradmin/components</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminDateSelectorDay.jsx~CradminDateSelectorDay.html">CradminDateSelectorDay</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminDateSelectorHiddenIsoDate.jsx~CradminDateSelectorHiddenIsoDate.html">CradminDateSelectorHiddenIsoDate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminDateSelectorMonth.jsx~CradminDateSelectorMonth.html">CradminDateSelectorMonth</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminDateSelectorYear.jsx~CradminDateSelectorYear.html">CradminDateSelectorYear</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminFilterCheckbox.jsx~CradminFilterCheckbox.html">CradminFilterCheckbox</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminHiddenInputList.jsx~CradminHiddenInputList.html">CradminHiddenInputList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminHtmlList.jsx~CradminHtmlList.html">CradminHtmlList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminLoadMoreButton.jsx~CradminLoadMoreButton.html">CradminLoadMoreButton</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminSearchInput.jsx~CradminSearchInput.html">CradminSearchInput</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminSelectableList.jsx~CradminSelectableList.html">CradminSelectableList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminSelectableListItem.jsx~CradminSelectableListItem.html">CradminSelectableListItem</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminSelectedList.jsx~CradminSelectedList.html">CradminSelectedList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/components/CradminSelectedListItem.jsx~CradminSelectedListItem.html">CradminSelectedListItem</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">django_cradmin/utilities</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/utilities/Calendar.js~CalendarCoordinator.html">CalendarCoordinator</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/utilities/Calendar.js~MonthlyCalendarCoordinator.html">MonthlyCalendarCoordinator</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/utilities/DomUtilities.js~DomUtilities.html">DomUtilities</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/utilities/ElementCreator.js~ElementCreator.html">ElementCreator</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">django_cradmin/widgets</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/AbstractDataListWidget.js~AbstractDataListWidget.html">AbstractDataListWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/AbstractSelectWidget.jsx~AbstractSelectWidget.html">AbstractSelectWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/ApiDataListWidget.js~ApiDataListWidget.html">ApiDataListWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/AutoSubmitFormAfterCountdownWidget.js~AutoSubmitFormAfterCountdownWidget.html">AutoSubmitFormAfterCountdownWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/DataListDisplayByStateWidget.js~DataListDisplayByStateWidget.html">DataListDisplayByStateWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/DateSelectorDayWidget.jsx~DateSelectorDayWidget.html">DateSelectorDayWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/DateSelectorHiddenIsoDateWidget.jsx~DateSelectorHiddenIsoDateWidget.html">DateSelectorHiddenIsoDateWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/DateSelectorMonthWidget.jsx~DateSelectorMonthWidget.html">DateSelectorMonthWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/DateSelectorYearWidget.jsx~DateSelectorYearWidget.html">DateSelectorYearWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/FilterCheckboxWidget.jsx~FilterCheckboxFilter.html">FilterCheckboxFilter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/HiddenInputListWidget.js~HiddenInputListWidget.html">HiddenInputListWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/HidePopupOnClickWidget.js~HidePopupOnClickWidget.html">HidePopupOnClickWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/HtmlListWidget.jsx~HtmlListWidget.html">HtmlListWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/LoadMoreButtonWidget.jsx~LoadMoreButtonWidget.html">LoadMoreButtonWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/MenuToggleWidget.js~MenuToggleWidget.html">MenuToggleWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/PopUpWidget.js~PopUpWidget.html">PopUpWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/PrintOnClickWidget.js~PrintOnClickWidget.html">PrintOnClickWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/SearchInputWidget.jsx~SearchInputWidget.html">SearchInputWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/SelectableListWidget.jsx~SelectableListWidget.html">SelectableListWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/SelectedListWidget.js~SelectedListWidget.html">SelectedListWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/ShowPopupOnClickWidget.js~ShowPopupOnClickWidget.html">ShowPopupOnClickWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/SignalRouterWidget.js~SignalRouterWidget.html">SignalRouterWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/StaticDataListWidget.js~StaticDataListWidget.html">StaticDataListWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/TabButtonWidget.js~TabButtonWidget.html">TabButtonWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/TabPanelWidget.js~TabPanelWidget.html">TabPanelWidget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/django_cradmin/widgets/ToggleableMenuWidget.js~ToggleableMenuWidget.html">ToggleableMenuWidget</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">scripts/django_cradmin/widgets/DataListDisplayByStateWidget.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import AbstractWidget from &quot;ievv_jsbase/widget/AbstractWidget&quot;;
+import DomUtilities from &quot;../utilities/DomUtilities&quot;;
+
+
+export default class DataListDisplayByStateWidget extends AbstractWidget {
+  getDefaultConfig() {
+    return {
+      signalNameSpace: null,
+      displayStyle: &apos;block&apos;,
+      // Valid values:
+      // - &apos;IsInitializingDataList&apos;
+      // - &apos;IsNotInitializingDataList&apos;
+      // - &apos;UnfilteredIsEmpty&apos;
+      // - &apos;UnfilteredIsNotEmpty&apos;
+      // - &apos;FilteredIsNotEmpty&apos;
+      // - &apos;FilteredIsEmpty&apos;
+      // - &apos;HasNextPage&apos;
+      // - &apos;HasSearchString&apos;
+      // - &apos;HasFocus&apos;
+      // - &apos;HasNoFocus&apos;
+      // - &apos;HasSelectedItems&apos;
+      // - &apos;HasNoSelectedItems&apos;
+      showStates: [],
+
+      hideStates: []
+    };
+  }
+
+  constructor(element, widgetInstanceId) {
+    super(element, widgetInstanceId);
+    this._widgetInstanceId = widgetInstanceId;
+    this._name = `django_cradmin.widgets.DataListDisplayByStateWidget.${widgetInstanceId}`;
+    this.logger = new window.ievv_jsbase_core.LoggerSingleton().getLogger(
+      &apos;django_cradmin.widgets.DataListDisplayByStateWidget&apos;);
+    if(this.config.signalNameSpace == null) {
+      throw new Error(&apos;The signalNameSpace config is required.&apos;);
+    }
+    this._onDataListInitializedSignal = this._onDataListInitializedSignal.bind(this);
+    this._onIsEmpyDataListSignal = this._onIsEmpyDataListSignal.bind(this);
+    this._onNotEmpyDataListSignal = this._onNotEmpyDataListSignal.bind(this);
+    this._onDataChangeSignal = this._onDataChangeSignal.bind(this);
+    this._onSearchValueChangeSignal = this._onSearchValueChangeSignal.bind(this);
+    this._onFocusSignal = this._onFocusSignal.bind(this);
+    this._onBlurSignal = this._onBlurSignal.bind(this);
+    this._onLoadingStateChangeSignal = this._onLoadingStateChangeSignal.bind(this);
+    this._onSelectionChangeSignal = this._onSelectionChangeSignal.bind(this);
+
+    this._watchedStates = new Set(this.config.showStates);
+    for(let hideState of this.config.hideStates) {
+      this._watchedStates.add(hideState);
+    }
+    this.stateSet = new Set();
+    if(this._watchInitializingDataList()) {
+      this.stateSet.add(&apos;IsInitializingDataList&apos;);
+    }
+    this._refresh();
+    this.initializeSignalHandlers();
+  }
+
+  _watchIsEmpty() {
+    return this._watchedStates.has(&apos;UnfilteredIsEmpty&apos;);
+  }
+
+  _watchNotEmpty() {
+    return this._watchedStates.has(&apos;UnfilteredIsNotEmpty&apos;);
+  }
+
+  _watchInitializingDataList() {
+    return this._watchedStates.has(&apos;IsInitializingDataList&apos;) ||
+      this._watchedStates.has(&apos;IsNotInitializingDataList&apos;);
+  }
+
+  _watchResultCount() {
+    return this._watchedStates.has(&apos;FilteredIsNotEmpty&apos;) ||
+         this._watchedStates.has(&apos;FilteredIsEmpty&apos;);
+  }
+
+  _watchNextPage() {
+    return this._watchedStates.has(&apos;HasNextPage&apos;);
+  }
+
+  _watchSearchString() {
+    return this._watchedStates.has(&apos;HasSearchString&apos;);
+  }
+
+  _watchFocus() {
+    return this._watchedStates.has(&apos;HasFocus&apos;) ||
+         this._watchedStates.has(&apos;HasNoFocus&apos;);
+  }
+
+  _watchLoadingStateChange() {
+    return this._watchedStates.has(&apos;IsLoading&apos;);
+  }
+
+  _watchSelectionChangeCount() {
+    return this._watchedStates.has(&apos;HasSelectedItems&apos;) ||
+         this._watchedStates.has(&apos;HasNoSelectedItems&apos;);
+  }
+
+  _listenForDataListInitializedSignal() {
+    return this._watchInitializingDataList();
+  }
+
+  _listenForIsEmpyDataListSignal() {
+    return this._watchIsEmpty();
+  }
+
+  _listenForNotEmpyDataListSignal() {
+    return this._watchNotEmpty();
+  }
+
+  _listenForDataChangeSignal() {
+    return this._watchResultCount() || this._watchNextPage();
+  }
+
+  _listenForSearchValueChangeSignal() {
+    return this._watchSearchString();
+  }
+
+  _listenForFocusSignal() {
+    return this._watchFocus();
+  }
+
+  _listenForBlurSignal() {
+    return this._watchFocus();
+  }
+
+  _listenForLoadingStateChangeSignal() {
+    return this._watchLoadingStateChange();
+  }
+
+  _listenForSelectionChangeSignal() {
+    return this._watchSelectionChangeCount();
+  }
+
+  initializeSignalHandlers() {
+    if(this._listenForDataListInitializedSignal()) {
+      new window.ievv_jsbase_core.SignalHandlerSingleton().addReceiver(
+        `${this.config.signalNameSpace}.DataListInitialized`,
+        this._name,
+        this._onDataListInitializedSignal
+      );
+    }
+    if(this._listenForIsEmpyDataListSignal()) {
+      new window.ievv_jsbase_core.SignalHandlerSingleton().addReceiver(
+        `${this.config.signalNameSpace}.IsEmpyDataList`,
+        this._name,
+        this._onIsEmpyDataListSignal
+      );
+    }
+    if(this._listenForNotEmpyDataListSignal()) {
+      new window.ievv_jsbase_core.SignalHandlerSingleton().addReceiver(
+        `${this.config.signalNameSpace}.NotEmpyDataList`,
+        this._name,
+        this._onNotEmpyDataListSignal
+      );
+    }
+    if(this._listenForDataChangeSignal()) {
+      new window.ievv_jsbase_core.SignalHandlerSingleton().addReceiver(
+        `${this.config.signalNameSpace}.DataChange`,
+        this._name,
+        this._onDataChangeSignal
+      );
+    }
+    if(this._listenForSearchValueChangeSignal()) {
+      new window.ievv_jsbase_core.SignalHandlerSingleton().addReceiver(
+        `${this.config.signalNameSpace}.SearchValueChange`,
+        this._name,
+        this._onSearchValueChangeSignal
+      );
+    }
+    if(this._listenForFocusSignal()) {
+      new window.ievv_jsbase_core.SignalHandlerSingleton().addReceiver(
+        `${this.config.signalNameSpace}.Focus`,
+        this._name,
+        this._onFocusSignal
+      );
+    }
+    if(this._listenForBlurSignal()) {
+      new window.ievv_jsbase_core.SignalHandlerSingleton().addReceiver(
+        `${this.config.signalNameSpace}.Blur`,
+        this._name,
+        this._onBlurSignal
+      );
+    }
+    if(this._listenForLoadingStateChangeSignal()) {
+      new window.ievv_jsbase_core.SignalHandlerSingleton().addReceiver(
+        `${this.config.signalNameSpace}.LoadingStateChange`,
+        this._name,
+        this._onLoadingStateChangeSignal
+      );
+    }
+    if(this._listenForSelectionChangeSignal()) {
+      new window.ievv_jsbase_core.SignalHandlerSingleton().addReceiver(
+        `${this.config.signalNameSpace}.SelectionChange`,
+        this._name,
+        this._onSelectionChangeSignal
+      );
+    }
+  }
+
+  destroy() {
+    new window.ievv_jsbase_core.SignalHandlerSingleton().removeAllSignalsFromReceiver(
+      this._name);
+  }
+
+  _onDataListInitializedSignal(receivedSignalInfo) {
+    if(this.stateSet.has(&apos;IsInitializingDataList&apos;)) {
+      this.stateSet.delete(&apos;IsInitializingDataList&apos;);
+      this.stateSet.add(&apos;IsNotInitializingDataList&apos;);
+      this._refresh();
+    }
+  }
+
+  _onIsEmpyDataListSignal(receivedSignalInfo) {
+    if(!this.stateSet.has(&apos;UnfilteredIsEmpty&apos;)) {
+      this.stateSet.add(&apos;UnfilteredIsEmpty&apos;);
+      this.stateSet.delete(&apos;UnfilteredIsNotEmpty&apos;);
+      this._refresh();
+    }
+  }
+
+  _onNotEmpyDataListSignal(receivedSignalInfo) {
+    if(!this.stateSet.has(&apos;UnfilteredIsNotEmpty&apos;)) {
+      this.stateSet.add(&apos;UnfilteredIsNotEmpty&apos;);
+      this.stateSet.delete(&apos;UnfilteredIsEmpty&apos;);
+      this._refresh();
+    }
+  }
+
+  _checkDataChanges(data) {
+    let hasChanges = false;
+    if(this._watchResultCount()) {
+      if(data.count &gt; 0) {
+        if(!this.stateSet.has(&apos;FilteredIsNotEmpty&apos;)) {
+          this.stateSet.add(&apos;FilteredIsNotEmpty&apos;);
+          this.stateSet.delete(&apos;FilteredIsEmpty&apos;);
+          hasChanges = true;
+        }
+      } else {
+        if(!this.stateSet.has(&apos;FilteredIsEmpty&apos;)) {
+          this.stateSet.add(&apos;FilteredIsEmpty&apos;);
+          this.stateSet.delete(&apos;FilteredIsNotEmpty&apos;);
+          hasChanges = true;
+        }
+      }
+    }
+
+    if(this._watchNextPage()) {
+      if(data.next) {
+        if(!this.stateSet.has(&apos;HasNextPage&apos;)) {
+          this.stateSet.add(&apos;HasNextPage&apos;);
+          hasChanges = true;
+        }
+      } else {
+        if(this.stateSet.has(&apos;HasNextPage&apos;)) {
+          this.stateSet.delete(&apos;HasNextPage&apos;);
+          hasChanges = true;
+        }
+      }
+    }
+
+    return hasChanges;
+  }
+
+  _onDataChangeSignal(receivedSignalInfo) {
+    const data = receivedSignalInfo.data;
+    if(this._checkDataChanges(data)) {
+      this._refresh();
+    }
+  }
+
+  _checkSearchStringChanges(searchString) {
+    let hasChanges = false;
+    if(searchString.length &gt; 0) {
+      if(!this.stateSet.has(&apos;HasSearchString&apos;)) {
+        this.stateSet.add(&apos;HasSearchString&apos;);
+        hasChanges = true;
+      }
+    } else {
+      if(this.stateSet.has(&apos;HasSearchString&apos;)) {
+        this.stateSet.delete(&apos;HasSearchString&apos;);
+        hasChanges = true;
+      }
+    }
+    return hasChanges;
+  }
+
+  _onSearchValueChangeSignal(receivedSignalInfo) {
+    const searchString = receivedSignalInfo.data;
+    if(this._checkSearchStringChanges(searchString)) {
+      this._refresh();
+    }
+  }
+
+  _onFocusSignal(receivedSignalInfo) {
+    if(!this.stateSet.has(&apos;HasFocus&apos;)) {
+      this.stateSet.add(&apos;HasFocus&apos;);
+      this.stateSet.delete(&apos;HasNoFocus&apos;);
+      this._refresh();
+    }
+  }
+
+  _onBlurSignal(receivedSignalInfo) {
+    if(!this.stateSet.has(&apos;HasNoFocus&apos;)) {
+      this.stateSet.add(&apos;HasNoFocus&apos;);
+      this.stateSet.delete(&apos;HasFocus&apos;);
+      this._refresh();
+    }
+  }
+
+  _checkLoadingChanges(isLoading) {
+    let hasChanges = false;
+    if(isLoading) {
+      if(!this.stateSet.has(&apos;IsLoading&apos;)) {
+        this.stateSet.add(&apos;IsLoading&apos;);
+        hasChanges = true;
+      }
+    } else {
+      if(this.stateSet.has(&apos;IsLoading&apos;)) {
+        this.stateSet.delete(&apos;IsLoading&apos;);
+        hasChanges = true;
+      }
+    }
+    return hasChanges;
+  }
+
+  _onLoadingStateChangeSignal(receivedSignalInfo) {
+    const isLoading = receivedSignalInfo.data;
+    if(this._checkLoadingChanges(isLoading)) {
+      this._refresh();
+    }
+  }
+
+  _checkSelectionChanges(selectedItemsMap) {
+    let hasChanges = false;
+    if(selectedItemsMap.size == 0) {
+      if(!this.stateSet.has(&apos;HasNoSelectedItems&apos;)) {
+        this.stateSet.add(&apos;HasNoSelectedItems&apos;);
+        this.stateSet.delete(&apos;HasSelectedItems&apos;);
+        hasChanges = true;
+      }
+    } else {
+      if(!this.stateSet.has(&apos;HasSelectedItems&apos;)) {
+        this.stateSet.add(&apos;HasSelectedItems&apos;);
+        this.stateSet.delete(&apos;HasNoSelectedItems&apos;);
+        hasChanges = true;
+      }
+    }
+    return hasChanges;
+  }
+
+  _onSelectionChangeSignal(receivedSignalInfo) {
+    const selectedItemsMap = receivedSignalInfo.data.selectedItemsMap;
+    if(this._checkSelectionChanges(selectedItemsMap)) {
+      this._refresh();
+    }
+  }
+
+  _display(display) {
+    if(display) {
+      DomUtilities.show(this.element, this.config.displayStyle);
+    } else {
+      DomUtilities.hide(this.element);
+    }
+  }
+
+  _refresh() {
+    let display = false;
+    for(let state of this.config.showStates) {
+      if(this.stateSet.has(state)) {
+        display = true;
+        break;
+      }
+    }
+    for(let state of this.config.hideStates) {
+      if(this.stateSet.has(state)) {
+        display = false;
+        break;
+      }
+    }
+    if(this.logger.isDebug) {
+      this.logger.debug(
+        `State changes detected by widgetInstanceId=${this._widgetInstanceId}. New stateSet`,
+        this.stateSet, &apos;Display:&apos;, display);
+    }
+    this._display(display);
+  }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.8)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

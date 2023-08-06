@@ -1,0 +1,622 @@
+{
+  "coverage": "1.68%",
+  "expectCount": 357,
+  "actualCount": 6,
+  "files": {
+    "scripts/django_cradmin/widgets/AbstractDataListWidget.js": {
+      "expectCount": 13,
+      "actualCount": 0,
+      "undocumentLines": [
+        8,
+        109,
+        22,
+        166,
+        10,
+        25,
+        522,
+        467,
+        463,
+        263,
+        43,
+        42,
+        105
+      ]
+    },
+    "scripts/django_cradmin/widgets/AbstractSelectWidget.jsx": {
+      "expectCount": 15,
+      "actualCount": 0,
+      "undocumentLines": [
+        7,
+        312,
+        8,
+        80,
+        31,
+        20,
+        316,
+        10,
+        335,
+        349,
+        185,
+        171,
+        250,
+        21,
+        197
+      ]
+    },
+    "scripts/django_cradmin/widgets/ApiDataListWidget.js": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        6,
+        42,
+        13,
+        17,
+        67,
+        24
+      ]
+    },
+    "scripts/django_cradmin/widgets/AutoSubmitFormAfterCountdownWidget.js": {
+      "expectCount": 4,
+      "actualCount": 1,
+      "undocumentLines": [
+        27,
+        62,
+        21
+      ]
+    },
+    "scripts/django_cradmin/utilities/Calendar.js": {
+      "expectCount": 48,
+      "actualCount": 2,
+      "undocumentLines": [
+        281,
+        536,
+        214,
+        271,
+        182,
+        492,
+        500,
+        484,
+        476,
+        287,
+        288,
+        291,
+        606,
+        598,
+        562,
+        553,
+        580,
+        587,
+        566,
+        573,
+        545,
+        594,
+        289,
+        401,
+        283,
+        195,
+        194,
+        290,
+        441,
+        284,
+        218,
+        286,
+        370,
+        249,
+        196,
+        210,
+        193,
+        261,
+        610,
+        253,
+        257,
+        198,
+        245,
+        285,
+        331,
+        282
+      ]
+    },
+    "scripts/django_cradmin/components/CradminDateSelectorDay.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        5,
+        18,
+        6,
+        21,
+        108,
+        24
+      ]
+    },
+    "scripts/django_cradmin/components/CradminDateSelectorHiddenIsoDate.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        5,
+        16,
+        6,
+        19,
+        90,
+        22
+      ]
+    },
+    "scripts/django_cradmin/components/CradminDateSelectorMonth.jsx": {
+      "expectCount": 7,
+      "actualCount": 0,
+      "undocumentLines": [
+        5,
+        18,
+        6,
+        21,
+        89,
+        73,
+        26
+      ]
+    },
+    "scripts/django_cradmin/components/CradminDateSelectorYear.jsx": {
+      "expectCount": 7,
+      "actualCount": 0,
+      "undocumentLines": [
+        5,
+        19,
+        6,
+        22,
+        84,
+        68,
+        27
+      ]
+    },
+    "scripts/django_cradmin/components/CradminFilterCheckbox.jsx": {
+      "expectCount": 9,
+      "actualCount": 0,
+      "undocumentLines": [
+        6,
+        73,
+        20,
+        7,
+        43,
+        23,
+        107,
+        103,
+        37
+      ]
+    },
+    "scripts/django_cradmin/components/CradminHiddenInputList.jsx": {
+      "expectCount": 10,
+      "actualCount": 0,
+      "undocumentLines": [
+        4,
+        43,
+        15,
+        6,
+        35,
+        18,
+        59,
+        65,
+        73,
+        28
+      ]
+    },
+    "scripts/django_cradmin/components/CradminHtmlList.jsx": {
+      "expectCount": 10,
+      "actualCount": 0,
+      "undocumentLines": [
+        5,
+        44,
+        18,
+        7,
+        36,
+        21,
+        49,
+        75,
+        86,
+        28
+      ]
+    },
+    "scripts/django_cradmin/components/CradminLoadMoreButton.jsx": {
+      "expectCount": 13,
+      "actualCount": 0,
+      "undocumentLines": [
+        6,
+        50,
+        17,
+        7,
+        127,
+        110,
+        87,
+        37,
+        20,
+        152,
+        139,
+        135,
+        31
+      ]
+    },
+    "scripts/django_cradmin/components/CradminSearchInput.jsx": {
+      "expectCount": 14,
+      "actualCount": 0,
+      "undocumentLines": [
+        6,
+        55,
+        17,
+        7,
+        113,
+        78,
+        108,
+        141,
+        118,
+        37,
+        20,
+        169,
+        158,
+        31
+      ]
+    },
+    "scripts/django_cradmin/components/CradminSelectableList.jsx": {
+      "expectCount": 11,
+      "actualCount": 0,
+      "undocumentLines": [
+        5,
+        197,
+        71,
+        18,
+        7,
+        43,
+        21,
+        76,
+        157,
+        161,
+        33
+      ]
+    },
+    "scripts/django_cradmin/components/CradminSelectableListItem.jsx": {
+      "expectCount": 23,
+      "actualCount": 0,
+      "undocumentLines": [
+        6,
+        104,
+        49,
+        31,
+        8,
+        112,
+        182,
+        96,
+        88,
+        54,
+        227,
+        219,
+        41,
+        258,
+        170,
+        165,
+        152,
+        159,
+        126,
+        134,
+        142,
+        120,
+        244
+      ]
+    },
+    "scripts/django_cradmin/components/CradminSelectedList.jsx": {
+      "expectCount": 11,
+      "actualCount": 0,
+      "undocumentLines": [
+        5,
+        147,
+        61,
+        17,
+        7,
+        38,
+        20,
+        135,
+        103,
+        107,
+        31
+      ]
+    },
+    "scripts/django_cradmin/components/CradminSelectedListItem.jsx": {
+      "expectCount": 21,
+      "actualCount": 0,
+      "undocumentLines": [
+        6,
+        98,
+        45,
+        27,
+        8,
+        86,
+        73,
+        78,
+        194,
+        188,
+        37,
+        216,
+        152,
+        147,
+        134,
+        141,
+        116,
+        124,
+        128,
+        110,
+        203
+      ]
+    },
+    "scripts/django_cradmin/widgets/DataListDisplayByStateWidget.js": {
+      "expectCount": 7,
+      "actualCount": 0,
+      "undocumentLines": [
+        5,
+        29,
+        202,
+        6,
+        136,
+        33,
+        52
+      ]
+    },
+    "scripts/django_cradmin/widgets/DateSelectorDayWidget.jsx": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        7,
+        24,
+        8,
+        16,
+        20
+      ]
+    },
+    "scripts/django_cradmin/widgets/DateSelectorHiddenIsoDateWidget.jsx": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        7,
+        8,
+        16
+      ]
+    },
+    "scripts/django_cradmin/widgets/DateSelectorMonthWidget.jsx": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        7,
+        24,
+        8,
+        16,
+        20
+      ]
+    },
+    "scripts/django_cradmin/widgets/DateSelectorYearWidget.jsx": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        7,
+        24,
+        8,
+        16,
+        20
+      ]
+    },
+    "scripts/django_cradmin/DateTimePicker.js": {
+      "expectCount": 10,
+      "actualCount": 0,
+      "undocumentLines": [
+        7,
+        24,
+        8,
+        133,
+        15,
+        113,
+        10,
+        31,
+        22,
+        21
+      ]
+    },
+    "scripts/django_cradmin/django_cradmin_all.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        28,
+        29
+      ]
+    },
+    "scripts/django_cradmin/utilities/DomUtilities.js": {
+      "expectCount": 4,
+      "actualCount": 2,
+      "undocumentLines": [
+        40,
+        36
+      ]
+    },
+    "scripts/django_cradmin/utilities/ElementCreator.js": {
+      "expectCount": 9,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        29,
+        19,
+        24,
+        2,
+        44,
+        6,
+        34,
+        39
+      ]
+    },
+    "scripts/django_cradmin/widgets/FilterCheckboxWidget.jsx": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        7,
+        8,
+        16
+      ]
+    },
+    "scripts/django_cradmin/widgets/HiddenInputListWidget.js": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        7,
+        8,
+        16
+      ]
+    },
+    "scripts/django_cradmin/widgets/HidePopupOnClickWidget.js": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        3,
+        10,
+        23,
+        4,
+        14
+      ]
+    },
+    "scripts/django_cradmin/widgets/HtmlListWidget.jsx": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        7,
+        8,
+        16
+      ]
+    },
+    "scripts/django_cradmin/widgets/LoadMoreButtonWidget.jsx": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        7,
+        8,
+        16
+      ]
+    },
+    "scripts/django_cradmin/widgets/MenuToggleWidget.js": {
+      "expectCount": 4,
+      "actualCount": 0,
+      "undocumentLines": [
+        3,
+        4,
+        23,
+        10
+      ]
+    },
+    "scripts/django_cradmin/widgets/PopUpWidget.js": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        5,
+        12,
+        38,
+        6,
+        27,
+        16
+      ]
+    },
+    "scripts/django_cradmin/widgets/PrintOnClickWidget.js": {
+      "expectCount": 3,
+      "actualCount": 1,
+      "undocumentLines": [
+        12,
+        23
+      ]
+    },
+    "scripts/django_cradmin/widgets/SearchInputWidget.jsx": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        7,
+        8,
+        16
+      ]
+    },
+    "scripts/django_cradmin/widgets/SelectableListWidget.jsx": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        7,
+        8,
+        16
+      ]
+    },
+    "scripts/django_cradmin/widgets/SelectedListWidget.js": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        7,
+        8,
+        16
+      ]
+    },
+    "scripts/django_cradmin/widgets/ShowPopupOnClickWidget.js": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        3,
+        10,
+        23,
+        4,
+        14
+      ]
+    },
+    "scripts/django_cradmin/widgets/SignalRouterWidget.js": {
+      "expectCount": 7,
+      "actualCount": 0,
+      "undocumentLines": [
+        4,
+        16,
+        42,
+        5,
+        36,
+        20,
+        25
+      ]
+    },
+    "scripts/django_cradmin/widgets/StaticDataListWidget.js": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        4,
+        13,
+        6,
+        46,
+        32
+      ]
+    },
+    "scripts/django_cradmin/widgets/TabButtonWidget.js": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        3,
+        98,
+        11,
+        34,
+        4,
+        90
+      ]
+    },
+    "scripts/django_cradmin/widgets/TabPanelWidget.js": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        3,
+        12,
+        33,
+        5,
+        75
+      ]
+    },
+    "scripts/django_cradmin/widgets/ToggleableMenuWidget.js": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        3,
+        11,
+        37,
+        4,
+        25,
+        29
+      ]
+    }
+  }
+}
