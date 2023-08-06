@@ -1,0 +1,12 @@
+syntax: glob
+
+*.egg-info
+*.pyc
+.DS_Store
+.cache
+.coverage
+.installed.cfg
+bin/
+coverage-report/
+develop-eggs/
+parts/
