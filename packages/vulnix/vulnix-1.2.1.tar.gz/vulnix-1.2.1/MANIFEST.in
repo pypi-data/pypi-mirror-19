@@ -1,0 +1,6 @@
+include *.nix
+include *.rst
+include *.json
+include VERSION
+recursive-include src *.py *.yaml
+
