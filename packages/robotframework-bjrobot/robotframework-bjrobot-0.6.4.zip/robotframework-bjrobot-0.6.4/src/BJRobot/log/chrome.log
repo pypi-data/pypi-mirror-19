@@ -1,0 +1,270 @@
+[1.994][INFO]: COMMAND InitSession {
+   "desiredCapabilities": {
+      "browserName": "chrome",
+      "chromeOptions": {
+         "args": [ "--disable-extensions" ],
+         "extensions": [  ]
+      },
+      "javascriptEnabled": true,
+      "platform": "ANY",
+      "proxy": {
+         "autodetect": false,
+         "ftpProxy": "",
+         "httpProxy": "",
+         "noProxy": "localhost",
+         "proxyType": "DIRECT",
+         "socksProxy": "",
+         "sslProxy": ""
+      },
+      "version": ""
+   },
+   "requiredCapabilities": {
+
+   }
+}
+[1.997][INFO]: Populating Preferences file: {
+   "alternate_error_pages": {
+      "enabled": false
+   },
+   "autofill": {
+      "enabled": false
+   },
+   "browser": {
+      "check_default_browser": false
+   },
+   "distribution": {
+      "import_bookmarks": false,
+      "import_history": false,
+      "import_search_engine": false,
+      "make_chrome_default_for_user": false,
+      "show_welcome_page": false,
+      "skip_first_run_ui": true
+   },
+   "dns_prefetching": {
+      "enabled": false
+   },
+   "profile": {
+      "content_settings": {
+         "pattern_pairs": {
+            "https://*,*": {
+               "media-stream": {
+                  "audio": "Default",
+                  "video": "Default"
+               }
+            }
+         }
+      },
+      "default_content_setting_values": {
+         "geolocation": 1
+      },
+      "default_content_settings": {
+         "geolocation": 1,
+         "mouselock": 1,
+         "notifications": 1,
+         "popups": 1,
+         "ppapi-broker": 1
+      },
+      "password_manager_enabled": false
+   },
+   "safebrowsing": {
+      "enabled": false
+   },
+   "search": {
+      "suggest_enabled": false
+   },
+   "translate": {
+      "enabled": false
+   }
+}
+[1.997][INFO]: Populating Local State file: {
+   "background_mode": {
+      "enabled": false
+   },
+   "ssl": {
+      "rev_checking": {
+         "enabled": false
+      }
+   }
+}
+[2.005][INFO]: Launching chrome: "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-extensions --disable-hang-monitor --disable-infobars --disable-popup-blocking --disable-prompt-on-repost --disable-sync --disable-web-resources --enable-logging --ignore-certificate-errors --load-component-extension="C:\Users\eason\AppData\Local\Temp\scoped_dir100504_5635\internal" --log-level=0 --metrics-recording-only --no-first-run --no-proxy-server --password-store=basic --remote-debugging-port=12504 --safebrowsing-disable-auto-update --test-type=webdriver --use-mock-keychain --user-data-dir="C:\Users\eason\AppData\Local\Temp\scoped_dir100504_9458" data:,
+[2.377][INFO]: resolved localhost to ["::1","127.0.0.1"]
+[3.391][INFO]: RESPONSE InitSession {
+   "acceptSslCerts": true,
+   "applicationCacheEnabled": false,
+   "browserConnectionEnabled": false,
+   "browserName": "chrome",
+   "chrome": {
+      "chromedriverVersion": "2.27.440174 (e97a722caafc2d3a8b807ee115bfb307f7d2cfd9)",
+      "userDataDir": "C:\\Users\\eason\\AppData\\Local\\Temp\\scoped_dir100504_9458"
+   },
+   "cssSelectorsEnabled": true,
+   "databaseEnabled": false,
+   "handlesAlerts": true,
+   "hasTouchScreen": false,
+   "javascriptEnabled": true,
+   "locationContextEnabled": true,
+   "mobileEmulationEnabled": false,
+   "nativeEvents": true,
+   "networkConnectionEnabled": false,
+   "pageLoadStrategy": "normal",
+   "platform": "Windows NT",
+   "rotatable": false,
+   "takesHeapSnapshot": true,
+   "takesScreenshot": true,
+   "~~~": "..."
+}
+[3.393][INFO]: COMMAND SetScriptTimeout {
+   "ms": 10000.0,
+   "sessionId": "9f8bfe989429887d14303e85a7b3c606"
+}
+[3.393][INFO]: RESPONSE SetScriptTimeout
+[3.395][INFO]: COMMAND SetImplicitWait {
+   "ms": 20000.0,
+   "sessionId": "9f8bfe989429887d14303e85a7b3c606"
+}
+[3.395][INFO]: RESPONSE SetImplicitWait
+[3.397][INFO]: COMMAND Navigate {
+   "sessionId": "9f8bfe989429887d14303e85a7b3c606",
+   "url": "http://www.bing.com"
+}
+[3.397][INFO]: Waiting for pending navigations...
+[3.412][INFO]: Done waiting for pending navigations. Status: ok
+[3.829][INFO]: Waiting for pending navigations...
+[4.013][INFO]: Done waiting for pending navigations. Status: ok
+[4.013][INFO]: RESPONSE Navigate
+[4.015][INFO]: COMMAND ExecuteScript {
+   "args": [  ],
+   "script": "window.open('http://www.baidu.com')",
+   "sessionId": "9f8bfe989429887d14303e85a7b3c606"
+}
+[4.015][INFO]: Waiting for pending navigations...
+[4.017][INFO]: Done waiting for pending navigations. Status: ok
+[4.046][INFO]: Waiting for pending navigations...
+[4.048][INFO]: Done waiting for pending navigations. Status: ok
+[4.048][INFO]: RESPONSE ExecuteScript null
+[4.050][INFO]: COMMAND GetWindows {
+
+}
+[4.051][INFO]: RESPONSE GetWindows [ "CDwindow-e6b3e62f-9f72-4213-806d-2d2ca847bbc8", "CDwindow-538a8305-a7cb-4c5b-9c61-acc10a0bad0f" ]
+[4.053][INFO]: COMMAND SwitchToWindow {
+   "name": "CDwindow-e6b3e62f-9f72-4213-806d-2d2ca847bbc8",
+   "sessionId": "9f8bfe989429887d14303e85a7b3c606"
+}
+[4.071][INFO]: RESPONSE SwitchToWindow
+[4.073][INFO]: COMMAND GetUrl {
+
+}
+[4.073][INFO]: Waiting for pending navigations...
+[4.074][INFO]: Done waiting for pending navigations. Status: ok
+[4.082][INFO]: Waiting for pending navigations...
+[4.084][INFO]: Done waiting for pending navigations. Status: ok
+[4.084][INFO]: RESPONSE GetUrl "http://cn.bing.com/"
+[4.085][INFO]: COMMAND GetTitle {
+
+}
+[4.085][INFO]: Waiting for pending navigations...
+[4.086][INFO]: Done waiting for pending navigations. Status: ok
+[4.088][INFO]: Waiting for pending navigations...
+[4.088][INFO]: Done waiting for pending navigations. Status: ok
+[4.088][INFO]: RESPONSE GetTitle "微软必应搜索 - 全球搜索，有问必应 (Bing)"
+[4.090][INFO]: COMMAND SwitchToWindow {
+   "name": "CDwindow-538a8305-a7cb-4c5b-9c61-acc10a0bad0f",
+   "sessionId": "9f8bfe989429887d14303e85a7b3c606"
+}
+[4.090][INFO]: RESPONSE SwitchToWindow
+[4.092][INFO]: COMMAND GetUrl {
+
+}
+[4.092][INFO]: resolved localhost to ["::1","127.0.0.1"]
+[5.099][INFO]: Waiting for pending navigations...
+[5.107][INFO]: Done waiting for pending navigations. Status: ok
+[5.110][INFO]: Waiting for pending navigations...
+[5.111][INFO]: Done waiting for pending navigations. Status: ok
+[5.111][INFO]: RESPONSE GetUrl "https://www.baidu.com/"
+[5.112][INFO]: COMMAND GetTitle {
+
+}
+[5.112][INFO]: Waiting for pending navigations...
+[5.115][INFO]: Done waiting for pending navigations. Status: ok
+[5.117][INFO]: Waiting for pending navigations...
+[5.118][INFO]: Done waiting for pending navigations. Status: ok
+[5.118][INFO]: RESPONSE GetTitle "百度一下，你就知道"
+[5.120][INFO]: COMMAND SetImplicitWait {
+   "ms": 1000.0,
+   "sessionId": "9f8bfe989429887d14303e85a7b3c606"
+}
+[5.120][INFO]: RESPONSE SetImplicitWait
+[5.121][INFO]: COMMAND FindElements {
+   "sessionId": "9f8bfe989429887d14303e85a7b3c606",
+   "using": "id",
+   "value": "kw"
+}
+[5.121][INFO]: Waiting for pending navigations...
+[5.122][INFO]: Done waiting for pending navigations. Status: ok
+[5.138][INFO]: Waiting for pending navigations...
+[5.139][INFO]: Done waiting for pending navigations. Status: ok
+[5.139][INFO]: RESPONSE FindElements [ {
+   "ELEMENT": "0.6438640366240453-1"
+} ]
+[5.140][INFO]: COMMAND IsElementDisplayed {
+   "id": "0.6438640366240453-1"
+}
+[5.140][INFO]: Waiting for pending navigations...
+[5.141][INFO]: Done waiting for pending navigations. Status: ok
+[5.156][INFO]: Waiting for pending navigations...
+[5.168][INFO]: Done waiting for pending navigations. Status: ok
+[5.168][INFO]: RESPONSE IsElementDisplayed true
+[5.170][INFO]: COMMAND SetImplicitWait {
+   "ms": 20000.0,
+   "sessionId": "9f8bfe989429887d14303e85a7b3c606"
+}
+[5.170][INFO]: RESPONSE SetImplicitWait
+[5.171][INFO]: COMMAND SetImplicitWait {
+   "ms": 20000.0,
+   "sessionId": "9f8bfe989429887d14303e85a7b3c606"
+}
+[5.171][INFO]: RESPONSE SetImplicitWait
+[5.172][INFO]: COMMAND ClearElement {
+   "id": "0.6438640366240453-1",
+   "sessionId": "9f8bfe989429887d14303e85a7b3c606"
+}
+[5.172][INFO]: Waiting for pending navigations...
+[5.173][INFO]: Done waiting for pending navigations. Status: ok
+[5.190][INFO]: Waiting for pending navigations...
+[5.191][INFO]: Done waiting for pending navigations. Status: ok
+[5.191][INFO]: RESPONSE ClearElement
+[5.193][INFO]: COMMAND TypeElement {
+   "id": "0.6438640366240453-1",
+   "sessionId": "9f8bfe989429887d14303e85a7b3c606",
+   "value": [ "t", "e", "s", "t" ]
+}
+[5.193][INFO]: Waiting for pending navigations...
+[5.193][INFO]: Done waiting for pending navigations. Status: ok
+[5.232][INFO]: Waiting for pending navigations...
+[5.276][INFO]: Done waiting for pending navigations. Status: ok
+[5.276][INFO]: RESPONSE TypeElement
+[5.278][INFO]: COMMAND ExecuteScript {
+   "args": [ [  ] ],
+   "script": "return document.title",
+   "sessionId": "9f8bfe989429887d14303e85a7b3c606"
+}
+[5.278][INFO]: Waiting for pending navigations...
+[5.282][INFO]: Done waiting for pending navigations. Status: ok
+[5.287][INFO]: Waiting for pending navigations...
+[5.299][INFO]: Done waiting for pending navigations. Status: ok
+[5.300][INFO]: RESPONSE ExecuteScript "百度一下，你就知道"
+[5.302][INFO]: COMMAND ExecuteAsyncScript {
+   "args": [ [  ] ],
+   "script": "return document.title",
+   "sessionId": "9f8bfe989429887d14303e85a7b3c606"
+}
+[5.302][INFO]: Waiting for pending navigations...
+[5.311][INFO]: Done waiting for pending navigations. Status: ok
+[15.371][INFO]: Waiting for pending navigations...
+[15.371][INFO]: Done waiting for pending navigations. Status: ok
+[15.371][INFO]: RESPONSE ExecuteAsyncScript asynchronous script timeout: result was not received in 10 seconds
+  (Session info: chrome=55.0.2883.87)
+[15.373][INFO]: COMMAND Quit {
+
+}
+[15.399][INFO]: RESPONSE Quit
