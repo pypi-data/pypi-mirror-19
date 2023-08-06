@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Python Toolkit for WMO BUFR Messages &#8212; PyBufrKit 0.2.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API reference" href="api.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="python-toolkit-for-wmo-bufr-messages">
+<h1>Python Toolkit for WMO BUFR Messages<a class="headerlink" href="#python-toolkit-for-wmo-bufr-messages" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://github.com/ywangd/pybufrkit">PyBufrKit</a> is a <strong>pure</strong> Python package
+to work with WMO BUFR (FM-94) messages. It can be used as both a
+command line tool or library to decode and encode BUFR messages. Here is a brief
+list of some of the features:</p>
+<ul class="simple">
+<li>Handles both compressed and un-compressed messages</li>
+<li>Handles all practical operator descriptors, including data quality info,
+stats, bitmaps, etc.</li>
+<li>Tested with the same set of BUFR files used by
+<a class="reference external" href="https://software.ecmwf.int/wiki/display/ECC/ecCodes+Home">ecCodes</a>
+and <a class="reference external" href="https://software.ecmwf.int/wiki/display/BUFR/BUFRDC+Home">BUFRDC</a>.</li>
+</ul>
+<p>Read more documentation at <a class="reference external" href="http://pybufrkit.readthedocs.io/">http://pybufrkit.readthedocs.io/</a></p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>PyBufrKit is compatible with both Python 2.6+ and 3.5+. To install from PyPi:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pybufrkit</span>
+</pre></div>
+</div>
+<p>Or from source:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="command-line-usage">
+<h2>Command Line Usage<a class="headerlink" href="#command-line-usage" title="Permalink to this headline">¶</a></h2>
+<p>The command line usage of the toolkit takes the following form:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pybufrkit</span> <span class="p">[</span><span class="n">OPTIONS</span><span class="p">]</span> <span class="n">sub</span><span class="o">-</span><span class="n">command</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>where the <code class="docutils literal"><span class="pre">sub-command</span></code> is one of following actions that can be performed by the tool:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">decode</span></code> - Decode a BUFR file to outputs of various format, e.g. JSON</li>
+<li><code class="docutils literal"><span class="pre">encode</span></code> - Encode a BUFR file from a JSON input</li>
+<li><code class="docutils literal"><span class="pre">info</span></code> - Decode a BUFR file upt to the data associated to the BUFR Template (exclusive)</li>
+<li><code class="docutils literal"><span class="pre">lookup</span></code> - Look up information about the given BUFR descriptor</li>
+<li><code class="docutils literal"><span class="pre">compile</span></code> - Compile the given comma separated BUFR descriptors</li>
+</ul>
+<p>Here are a few examples using the tool from command line. For more details, please refer
+to the help option, e.g. <code class="docutils literal"><span class="pre">pybufrkit</span> <span class="pre">decode</span> <span class="pre">-h</span></code>. Also checkout the
+<a class="reference external" href="http://pybufrkit.readthedocs.io/">documentation</a>.</p>
+<ul>
+<li><dl class="first docutils">
+<dt>Decode a BUFR file</dt>
+<dd><p class="first last"><code class="docutils literal"><span class="pre">pybufrkit</span> <span class="pre">decode</span> <span class="pre">BUFR_FILE</span></code></p>
+</dd>
+</dl>
+</li>
+<li><p class="first">Decode a BUFR file and display it as a hierarchical structure corresponding to
+the BUFR Descriptors. In addition, the attribute descriptors are associated to
+their (bitmap) corresponding descriptors.</p>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">pybufrkit</span> <span class="pre">decode</span> <span class="pre">-a</span> <span class="pre">BUFR_FILE</span></code></p>
+</div></blockquote>
+</li>
+<li><dl class="first docutils">
+<dt>Decode a BUFR file and convert to JSON format (the JSON can be encoded back to the BUFR format)</dt>
+<dd><p class="first last"><code class="docutils literal"><span class="pre">pybufrkit</span> <span class="pre">decode</span> <span class="pre">-j</span> <span class="pre">BUFR_FILE</span></code></p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Encode a JSON file to BUFR</dt>
+<dd><p class="first last"><code class="docutils literal"><span class="pre">pybufrkit</span> <span class="pre">encode</span> <span class="pre">JSON_FILE</span> <span class="pre">BUFR_FILE</span></code></p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Decoded a BUFR file to JSON, pipe it to the encoder to encode it back to BUFR</dt>
+<dd><p class="first last"><code class="docutils literal"><span class="pre">pybufrkit</span> <span class="pre">decode</span> <span class="pre">-j</span> <span class="pre">BUFR_FILE</span> <span class="pre">|</span> <span class="pre">pybufrkit</span> <span class="pre">encode</span> <span class="pre">-</span></code></p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Decode only the metadata sections of a BUFR file</dt>
+<dd><p class="first last"><code class="docutils literal"><span class="pre">pybufrkit</span> <span class="pre">info</span> <span class="pre">BUFR_FILE</span></code></p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Lookup information for a Element Descriptor (along with its code table)</dt>
+<dd><p class="first last"><code class="docutils literal"><span class="pre">pybufrkit</span> <span class="pre">lookup</span> <span class="pre">-l</span> <span class="pre">020003</span></code></p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Compile a BUFR Template composed as a comma separated list of descriptors</dt>
+<dd><p class="first last"><code class="docutils literal"><span class="pre">pybufrkit</span> <span class="pre">compile</span> <span class="pre">309052,205060</span></code></p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="library-usage">
+<h2>Library Usage<a class="headerlink" href="#library-usage" title="Permalink to this headline">¶</a></h2>
+<p>The followings are some basic library usage:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Decode a BUFR file</span>
+<span class="kn">from</span> <span class="nn">pybufrkit.decoder</span> <span class="k">import</span> <span class="n">Decoder</span>
+<span class="n">decoder</span> <span class="o">=</span> <span class="n">Decoder</span><span class="p">()</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">SOME_BUFR_FILE</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ins</span><span class="p">:</span>
+    <span class="n">bufr_message</span> <span class="o">=</span> <span class="n">decoder</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">ins</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+<span class="c1"># Convert the BUFR message to JSON</span>
+<span class="kn">from</span> <span class="nn">pybufrkit.renderer</span> <span class="k">import</span> <span class="n">FlatJsonRenderer</span>
+<span class="n">json_string</span> <span class="o">=</span> <span class="n">FlatJsonRenderer</span><span class="p">()</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">bufr_message</span><span class="p">)</span>
+
+<span class="c1"># Encode the JSON back to BUFR file</span>
+<span class="kn">from</span> <span class="nn">pybufrkit.encoder</span> <span class="k">import</span> <span class="n">Encoder</span>
+<span class="n">encoder</span> <span class="o">=</span> <span class="n">Encoder</span><span class="p">()</span>
+<span class="n">bufr_message_new</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">json_string</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">BUFR_OUTPUT_FILE</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outs</span><span class="p">:</span>
+    <span class="n">outs</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">bufr_message_new</span><span class="o">.</span><span class="n">serialized_bytes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-it-works">
+<h2>How It Works<a class="headerlink" href="#how-it-works" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bufr-message-configuration-files">
+<h3>BUFR Message Configuration files<a class="headerlink" href="#bufr-message-configuration-files" title="Permalink to this headline">¶</a></h3>
+<p>The configurations describe how a BUFR message is composed of sections and how each
+section is organised. They are used to provide the overall structure definition
+of a BUFR message. The purpose of using configurations is to allow greater
+flexibility so that changes of BUFR Spec do NOT (to a certain extent) require
+program changes.</p>
+<p>The builtin Configuration JSON files are located in the
+<a class="reference external" href="https://github.com/ywangd/pybufrkit/tree/master/pybufrkit/definitions">definitions</a>
+directory inside the package. It can also be configured to load from an user
+provided directory. The naming convention of the files is as follows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sectionX</span><span class="p">[</span><span class="o">-</span><span class="n">Y</span><span class="p">]</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>where X is the section index, Y is the edition number and optional.</p>
+<p>Each section is configured with some metadata and a list of parameters.
+It takes the following general format:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>  <span class="c1"># zero-based section index</span>
+
+  <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Indicator section&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>  <span class="c1"># use this config if an edition-specific one is not available</span>
+
+  <span class="s2">&quot;optional&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span> <span class="c1"># whether this section is optional</span>
+
+  <span class="s2">&quot;end_of_message&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span> <span class="c1"># whether this is the last section</span>
+
+  <span class="s2">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[</span>  <span class="c1"># a list of parameter configs</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;start_signature&quot;</span><span class="p">,</span>  <span class="c1"># parameter name</span>
+
+      <span class="s2">&quot;nbits&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>  <span class="c1"># number of bits</span>
+
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;bytes&quot;</span><span class="p">,</span>  <span class="c1"># parameter type determines how the value can be processed from the input bits</span>
+
+      <span class="s2">&quot;expected&quot;</span><span class="p">:</span> <span class="s2">&quot;BUFR&quot;</span><span class="p">,</span>  <span class="c1"># expected value for this parameter (will be validated if not None)</span>
+
+      <span class="s2">&quot;as_property&quot;</span><span class="p">:</span> <span class="n">false</span>  <span class="c1"># whether this parameter can be accessed from the parent message object</span>
+    <span class="p">},</span>
+    <span class="o">...</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>A few more notes about the configuration:</p>
+<ul class="simple">
+<li>Some section, e.g. Section 1, has edition-specific configuration, e.g. <code class="docutils literal"><span class="pre">section1-1.json</span></code>.
+However, most sections have a single configuration for all editions. The <code class="docutils literal"><span class="pre">default</span></code> field
+is used to indicate that the configuration is a catch-all for any editions that does not
+have its own specific config.</li>
+<li>Number of bits can be set to <code class="docutils literal"><span class="pre">0</span></code>, which means value of the corresponding parameter takes
+all the bits left for the section.</li>
+<li><dl class="first docutils">
+<dt>There are generally two categories of parameter types, simple and complex.</dt>
+<dd><ul class="first last">
+<li>Simple types are <code class="docutils literal"><span class="pre">uint</span></code> (unsigned integer), <code class="docutils literal"><span class="pre">int</span></code> (signed integer), <code class="docutils literal"><span class="pre">bool</span></code>,
+<code class="docutils literal"><span class="pre">bin</span></code> (binary bits) and <code class="docutils literal"><span class="pre">bytes</span></code> (string).</li>
+<li>Complex types include <code class="docutils literal"><span class="pre">unexpanded_descriptors</span></code> and <code class="docutils literal"><span class="pre">template_data</span></code>. How they are
+processed is taken care of by a processor, e.g. Decoder. The configuration file does
+not concern how they are interpreted.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>The <code class="docutils literal"><span class="pre">expected</span></code> value will be validated against the actual value processed from the input.
+Currently, it is only used to ensure the start and stop signatures of a BUFR message.</li>
+<li>To allow loose coupling between sections, the parent message object can be configured to
+proxy some fields from a section. This is what the <code class="docutils literal"><span class="pre">as_property</span></code> field is
+for. For an example, the <code class="docutils literal"><span class="pre">edition</span></code> field from section 0 is needed for other
+sections to determine their structures. Therefore the <code class="docutils literal"><span class="pre">edition</span></code> field is
+proxyed by the parent message object so that it can be accessed by other
+sections without worrying about exactly which section provides this
+information.</li>
+</ul>
+</div>
+<div class="section" id="decoder-and-encoder">
+<h3>Decoder and Encoder<a class="headerlink" href="#decoder-and-encoder" title="Permalink to this headline">¶</a></h3>
+<p>These components process the input as prescribed by the configurations.
+Each sections are processed in order of the section index. The components
+also provide specialised methods to process parameters of complex types.
+The processing of <code class="docutils literal"><span class="pre">template_data</span></code> is where most of the program logic goes.</p>
+<p>The <code class="docutils literal"><span class="pre">Decoder</span></code> and <code class="docutils literal"><span class="pre">Encoder</span></code> are sub-classes of the same abstract <code class="docutils literal"><span class="pre">Coder</span></code> class.
+They are implemented using the
+<a class="reference external" href="https://en.wikipedia.org/wiki/Template_method_pattern">Template Method Pattern</a>.
+The <code class="docutils literal"><span class="pre">Coder</span></code> base class provides bootstrapping and common functions needed by all
+of the sub-classes and leaves spaces for sub-classes to fill in the actual
+processing of the parameters.</p>
+<p>For an example, the base class knows how to process an Element Descriptor.
+It prepares all necessary information about the descriptor, including its
+type, number of bits, units, scale, reference, etc. Depending on its type,
+the base class then invoke a method provided by the subclass to handle the
+actual processing, which can be either decoding or encoding.</p>
+</div>
+<div class="section" id="bufr-template-compilation">
+<h3>BUFR Template Compilation<a class="headerlink" href="#bufr-template-compilation" title="Permalink to this headline">¶</a></h3>
+<p>The main purpose of Template Compilation is performance. However since bit
+operations are the most time consuming part in the overall processing. The
+performance gain somewhat is limited. Depending on the total number of
+descriptors to be processed for a message, template compilation provides 10 -
+30% performance boost. Larger number of descriptors, i.e. longer message,
+generally lead to less performance gain.</p>
+<p>The implementation of <code class="docutils literal"><span class="pre">TemplateCompiler</span></code> is similar to the Decoder/Encoder.
+It is also a subclass of the abstract <code class="docutils literal"><span class="pre">Coder</span></code> class. It uses introspection
+to record method calls dispatched by the base class. The recorded calls
+can then be executed more efficiently because they bypass most of the
+BUFR template processing, such as checking descriptor type, expand sequence
+descriptors, etc.</p>
+</div>
+<div class="section" id="template-data-wiring">
+<h3>Template Data Wiring<a class="headerlink" href="#template-data-wiring" title="Permalink to this headline">¶</a></h3>
+<p>A BUFR Template is by nature hierarchical. For an example, a sequence descriptor
+has all of its child descriptors nested under it. When data associated to the
+template is decoded, they can also be organised in a hierarchical format. This
+is especially necessary when some operator descriptors, such as 204YYY
+(associated field) and bitmap related operators (222, 223, 224, 225, 232, 235,
+236, 237), make some values as attributes to other values. The wiring process
+associates attributes to their owners so that their meanings are explicit.</p>
+</div>
+<div class="section" id="renderer">
+<h3>Renderer<a class="headerlink" href="#renderer" title="Permalink to this headline">¶</a></h3>
+<p>This component is responsible for rendering the processed BUFR message object
+in different formats, e.g. plain text, JSON.</p>
+</div>
+</div>
+<div class="section" id="show-me-the-code">
+<h2>Show me the code<a class="headerlink" href="#show-me-the-code" title="Permalink to this headline">¶</a></h2>
+<p>Check the code to see details.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pybufrkit">pybufrkit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pybufrkit-bufr">pybufrkit.bufr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pybufrkit-descriptors">pybufrkit.descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pybufrkit-tables">pybufrkit.tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pybufrkit-coder">pybufrkit.coder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pybufrkit-decoder">pybufrkit.decoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pybufrkit-encoder">pybufrkit.encoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pybufrkit-templatecompiler">pybufrkit.templatecompiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pybufrkit-templatedata">pybufrkit.templatedata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pybufrkit-renderer">pybufrkit.renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pybufrkit-bitops">pybufrkit.bitops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pybufrkit-constants">pybufrkit.constants</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Python Toolkit for WMO BUFR Messages</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#command-line-usage">Command Line Usage</a></li>
+<li><a class="reference internal" href="#library-usage">Library Usage</a></li>
+<li><a class="reference internal" href="#how-it-works">How It Works</a><ul>
+<li><a class="reference internal" href="#bufr-message-configuration-files">BUFR Message Configuration files</a></li>
+<li><a class="reference internal" href="#decoder-and-encoder">Decoder and Encoder</a></li>
+<li><a class="reference internal" href="#bufr-template-compilation">BUFR Template Compilation</a></li>
+<li><a class="reference internal" href="#template-data-wiring">Template Data Wiring</a></li>
+<li><a class="reference internal" href="#renderer">Renderer</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#show-me-the-code">Show me the code</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="api.html" title="next chapter">API reference</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Yang Wang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
