@@ -1,0 +1,16 @@
+LICENSE.txt
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+statsbot/__init__.py
+statsbot/bot.py
+statsbot/cli.py
+statsbot/const.py
+statsbot/util.py
+statsbot.egg-info/PKG-INFO
+statsbot.egg-info/SOURCES.txt
+statsbot.egg-info/dependency_links.txt
+statsbot.egg-info/entry_points.txt
+statsbot.egg-info/requires.txt
+statsbot.egg-info/top_level.txt
