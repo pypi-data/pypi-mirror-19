@@ -1,0 +1,25 @@
+Metadata-Version: 2.0
+Name: pyxr
+Version: 1.0.5
+Summary: An object-relational mapping-ish wrapper around Xlib and X's resource manager/xrdb
+Home-page: https://github.com/WhatNodyn/Pyxr
+Author: Neil Cecchini
+Author-email: stranger.neil@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Dist: python-xlib
+
+# Pyxr
+An object-relational mapping-ish wrapper around Xlib ad X's resource manager/xrdb
+
+## How to Use
+Pyxr provides only one class: `pyxr.Namespace`.
+That takes two optional arguments: The namespace to operate in (`*` by default) and the display address, which Xlib will pick on its own if unspecified.
+
+Then, you access members of the xrdb class name as if they were attributes of the `Namespace` instance. They'll be written, read and deleted as you go.
+
+
