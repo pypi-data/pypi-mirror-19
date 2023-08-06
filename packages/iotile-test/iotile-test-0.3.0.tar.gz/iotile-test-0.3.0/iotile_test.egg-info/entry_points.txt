@@ -1,0 +1,6 @@
+[iotile.proxy]
+simple = iotile.mock.devices.simple_virtual_proxy
+
+[iotile.virtual_device]
+simple = iotile.mock.devices.simple_virtual_device:SimpleVirtualDevice
+
