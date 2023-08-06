@@ -1,0 +1,13 @@
+[console_scripts]
+madcore = madcore.cli:main
+
+[madcorecli.app]
+configure = madcore.cmds.configure:Configure
+create = madcore.cmds.create:Create
+destroy = madcore.cmds.destroy:Destroy
+endpoints = madcore.cmds.endpoints:Endpoints
+followme = madcore.cmds.followme:Followme
+registration = madcore.cmds.registration:Registration
+selftest = madcore.cmds.selftest:SelfTest
+stacks = madcore.cmds.stacks:Stacks
+

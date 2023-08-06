@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: madcore
+Version: 0.3.5
+Summary: Madcore Core CLI - Deep Learning & Machine Intelligence Infrastructure Controller
+Home-page: https://github.com/madcore-ai/cli
+Author: Peter Styk
+Author-email: humans@madcore.ai
+License: UNKNOWN
+Download-URL: https://github.com/madcore-ai/cli/tarball/master
+Description: ![Travis CI](https://travis-ci.org/madcore-ai/cli.svg?branch=master)
+        
+        # Madcore Core CLI - Deep Learning & Machine Intelligence Infrastructure Controller
+        
+        More Info...
+        https://wiki.madcore.ai/core/cli
+        
+Keywords: aws,infrastructure
+Platform: Any
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: Console
