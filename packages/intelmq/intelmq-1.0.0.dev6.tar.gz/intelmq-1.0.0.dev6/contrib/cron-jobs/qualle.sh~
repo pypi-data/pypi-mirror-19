@@ -1,0 +1,43 @@
+#!/bin/sh
+
+# How often should this run? 
+#  Once a day max
+
+# crontab entry for this (proposal):
+# # m h  dom mon dow   command
+# 02  01 *   *   *     ( cd /tmp; /my/path/to/this/script )
+# 
+
+path=/usr/local/bin
+export PATH=$PATH:$path
+
+cd /tmp
+mkdir -p qualle
+cd qualle
+
+whois -h qualle.cert.at block origin v4table > ipasn.dat
+
+whois -h qualle.cert.at block origin v6table >> ipasn.dat
+
+sed -i 's/^v[46]*table //' ipasn.dat
+sed -i 's/ /\t/' ipasn.dat
+
+#awk '{ print $2,"\t",$3 }' ipasn.dat >| ipasn.dat
+
+if [[ $(wc -l ipasn.dat | awk '{print $1}') -lt 650000 ]]; then
+    echo "Less then 650k entries, can't be true."
+    exit 1
+fi
+
+python3 -c "import pyasn; pyasn.pyasn('/tmp/qualle/ipasn.dat')"
+if [[ $? -ne 0 ]]; then
+    echo "Unparseable data."
+    exit 1
+fi
+
+
+cp ipasn.dat  /opt/intelmq/var/lib/bots/asn_lookup/
+chown intelmq:intelmq /opt/intelmq/var/lib/bots/asn_lookup/ipasn.dat
+
+cd ..
+rm -f /tmp/qualle
