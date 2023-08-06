@@ -1,0 +1,24 @@
+!/bin/sh
+#
+#
+
+WORKTREE=../build
+GITDIR=../bare.git
+
+cd $WORKTREE
+# update the working tree
+git --work-tree=./ --git-dir=$GITDIR checkout -f
+git --work-tree=./ --git-dir=$GITDIR clean -fd
+
+blogbook --blogbook-dir=../ build
+
+# return to git directory
+cd $GITDIR
+
+# we have to read stdin in order to avoid
+# sideband demutiplexer error
+# more details here: http://bit.ly/PzbRwo
+while read oldrev newrev refname
+do
+:
+done
