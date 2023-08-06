@@ -1,0 +1,4 @@
+[console_scripts]
+list-pagerduty-incidents = ictools.pagerduty:list_incidents
+scan-hipchat-room = ictools.hipchat:scan_room
+
