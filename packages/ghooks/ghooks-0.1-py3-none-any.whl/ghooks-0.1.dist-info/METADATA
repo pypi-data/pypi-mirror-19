@@ -1,0 +1,31 @@
+Metadata-Version: 2.0
+Name: ghooks
+Version: 0.1
+Summary: GitHub hooks made simpler to handle!
+Home-page: https://github.com/meetmangukiya/ghooks
+Author: Meet Mangukiya
+Author-email: meetmangukiya98@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: flask
+
+ghooks
+======
+
+Getting started
+---------------
+
+.. code:: py
+
+    import ghooks
+
+    @ghooks.events('push')
+    def push_event(data):
+        # Use/Manipulate data posted
+        # Actions to take when push event is triggered
+
+    ghooks.run()
+
+To run the webhook, ``python3 filename.py -p 5000``
+
+
