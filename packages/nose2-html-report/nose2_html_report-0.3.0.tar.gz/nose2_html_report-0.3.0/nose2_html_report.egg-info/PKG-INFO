@@ -1,0 +1,35 @@
+Metadata-Version: 1.1
+Name: nose2-html-report
+Version: 0.3.0
+Summary: Generate an HTML report for your unit tests
+Home-page: https://github.com/mgrijalva/nose2-html-report
+Author: Michael Grijalva
+Author-email: michaelgrij@gmail.com
+License: MIT
+Description: # Nose2 HTML Report
+        [![Build Status](https://travis-ci.org/mgrijalva/nose2-html-report.svg?branch=master)](https://travis-ci.org/mgrijalva/nose2-html-report)
+        [![Coverage Status](https://coveralls.io/repos/github/mgrijalva/nose2-html-report/badge.svg?branch=master)](https://coveralls.io/github/mgrijalva/nose2-html-report?branch=master)
+        
+        ### Installation
+        
+        ### Configuration
+        
+        ### Usage
+        Command line flag:
+        ```
+        nose2 --html-report
+        ```
+        
+        If configured via nose2.cfg:
+        ```
+        nose2
+        ```
+        
+Keywords: nose2,testing,reporting
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Testing
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
