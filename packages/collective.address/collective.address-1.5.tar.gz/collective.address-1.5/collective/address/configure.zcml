@@ -1,0 +1,53 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="collective.address">
+
+  <i18n:registerTranslations directory="locales" />
+  <configure package="pycountry">
+    <i18n:registerTranslations directory="locales" />
+  </configure>
+
+  <include package="plone.behavior" file="meta.zcml" />
+
+  <adapter
+      name="SearchableText"
+      factory=".behaviors.searchable_text_indexer"/>
+
+  <plone:behavior
+      title="Address"
+      name="collective.address.address"
+      description="Address behavior."
+      provides=".behaviors.IAddress"
+      />
+
+  <plone:behavior
+      title="Contact"
+      name="collective.address.contact"
+      description="Contact behavior (email, phone, website, ...)."
+      provides=".behaviors.IContact"
+      />
+
+  <plone:behavior
+      title="Person"
+      name="collective.address.person"
+      description="Person behavior (name and title)."
+      provides=".behaviors.IPerson"
+      />
+
+  <plone:behavior
+      title="Social"
+      name="collective.address.social"
+      description="Social media behavior (Facebook, Twitter, ...)."
+      provides=".behaviors.ISocial"
+      />
+
+  <adapter factory=".behaviors.NameFromPerson" />
+
+  <utility
+      component=".vocabulary.CountryVocabularyFactory"
+      name="collective.address.CountryVocabulary"
+      />
+
+</configure>
