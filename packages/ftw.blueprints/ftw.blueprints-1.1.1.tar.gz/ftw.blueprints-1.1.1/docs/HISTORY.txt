@@ -1,0 +1,40 @@
+Changelog
+=========
+
+
+1.1.1 (2017-01-09)
+------------------
+
+- Multilingual: encode canonicalpath. [libargutxi]
+
+
+1.1.0 (2016-08-29)
+------------------
+
+- Fix Plone 5 tests:
+
+  - Make sure to set unicode titles.
+  - Install p.a.contenttypes:default profile during Plone 5 tests
+  - Use conditional imports for Plone 4 / 5 compatibility in tests.
+  - Ensure we have consistent IDs on Plone 4 and 5.
+
+  [lgraf]
+
+- Make ILanguage import conditional so it works for both Plone 4 and Plone 5.
+  [lgraf]
+
+- Don't hard depend on ftw.inflator.
+  This makes it possible to use ftw.blueprint sections in Plone5 even when ftw.inflator is not upgraded yet.
+  [Guido A.J. Stevens]
+
+- Update imports to work with both Plone 4 and Plone 5
+  [Guido A.J. Stevens]
+
+- Update imports to work with Plone 5
+  [erral]
+
+
+1.0.0 (2015-09-30)
+------------------
+
+- Initial release
