@@ -1,0 +1,75 @@
+.. SamSifter documentation master file
+
+======
+by_get
+======
+
+by_get downloads all image files of a given text file of URLs and places them in
+the working directory.
+
+Good URLs and the resulting image file names are written to STDOUT. Bad
+URLs and their error codes are written to STDERR. Images are saved to the
+working directory and named with the SHA256 hash of the (clean) source URL
+to avoid overwriting homonymous files from other URLs.
+
+Redirects are handled transparently and non-image responses (e.g. HTML from
+domain parking servers) are filtered out. Existing connections are re-used
+where possible to reduce the overhead of connection negotiation when
+repeatedly requesting images from the same server.
+
+Quick Start
+===========
+
+Installing by_get
+-----------------
+
+Download and install the current by_get package on your system by executing
+the following command as administrator::
+
+	pip3 install by_get
+
+Previous versions will be uninstalled automatically. The installation can be
+tested with ::
+
+	by_get -h
+
+If everything went fine you should see the program's help text.
+
+First Steps
+-----------
+
+A typical download is started by issuing the following command::
+
+	by_get my_urls.txt
+
+where 
+
+Uninstalling by_get
+-------------------
+
+To get rid of by_get simply execute the following command as administrator::
+
+	pip3 uninstall by_get
+
+The Python utility ``pip3`` will list all currently installed
+available versions for selective removal. Proceed similarly with any required
+packages (e.g. ``pytest``) if you don't need them anymore.
+
+
+API documentation
+=================
+
+Developers interested in extending the program's functionalities may find the
+following pages useful:
+
+.. toctree::
+   :maxdepth: 2
+
+   api
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
