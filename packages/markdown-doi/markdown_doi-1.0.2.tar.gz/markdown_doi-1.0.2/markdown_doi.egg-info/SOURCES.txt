@@ -1,0 +1,13 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.py
+markdown_doi/__init__.py
+markdown_doi/markdown_doi.py
+markdown_doi.egg-info/PKG-INFO
+markdown_doi.egg-info/SOURCES.txt
+markdown_doi.egg-info/dependency_links.txt
+markdown_doi.egg-info/requires.txt
+markdown_doi.egg-info/top_level.txt
+test/__init__.py
+test/test_main.py
