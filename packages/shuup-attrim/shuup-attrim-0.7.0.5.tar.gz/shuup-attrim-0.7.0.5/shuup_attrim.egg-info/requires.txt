@@ -1,0 +1,4 @@
+shuup >= 1, < 2
+psycopg2 >= 2.6.2, < 3
+shuup-dev-testutils >= 0.3, < 0.4
+shuup-dev-utils >= 0.2, < 0.3

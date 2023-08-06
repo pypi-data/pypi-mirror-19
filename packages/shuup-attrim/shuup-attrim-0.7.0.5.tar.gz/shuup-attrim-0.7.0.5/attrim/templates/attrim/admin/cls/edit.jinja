@@ -1,0 +1,69 @@
+{% extends "shuup/admin/base.jinja" %}
+{% from "shuup/admin/macros/general.jinja" import content_block, content_with_sidebar %}
+{% from "shuup/admin/macros/multilanguage.jinja" import language_dependent_content_tabs %}
+
+{% block extra_css %}
+    <link href="{{ static("attrim/css/admin.css") }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+    <form method="post" id="attribute_form">
+        {% csrf_token %}
+
+        {% call content_block(_("General information"), "fa-info-circle") %}
+            {{ form.as_ul() }}
+            
+            <table id="formset-container">
+                <tbody id="formset">
+                    <tr>
+                        <th>Value</th>
+                        <th>Order</th>
+                        <th>Delete</th>
+                    </tr>
+                    
+                    {{ option_formset.management_form }}
+                    {% for form in option_formset %}
+                        <tr class="formset-form">
+                            <td class="option-field-value">{{ form.value }}</td>
+                            <td class="option-field-order">{{ form.order }}</td>
+                            <td class="option-field-delete">
+                                <label>
+                                    {{ form.DELETE.label }}
+                                    {{ form.DELETE }}
+                                </label>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            
+            <button id="formset-form-add" type="button">Add option</button>
+            
+            <script>
+                let form = document.querySelector('#attribute_form')
+                let submit_button = document.querySelector('.btn.btn-success')
+                    submit_button.addEventListener('click', (e) => {
+                        form.submit()
+                    })
+            </script>
+        {% endcall %}
+
+        <!--suppress JSAnnotator -->
+        <script>
+            const LANGUAGES_LIST = {{ languages_list|safe }}
+            const DEFAULT_LANG_CODE = '{{ DEFAULT_LANG_CODE|safe }}'
+            const STATIC_URL = '{{ STATIC_URL }}'
+        </script>
+
+        <script src="{{ static('attrim/node_modules/systemjs/dist/system.js') }}"></script>
+        <script>
+            System.config({
+                baseURL: '{{ static('attrim') }}',
+                packages: {
+                    'app': {defaultExtension: 'js'}
+                }
+            })
+            System.import('app/admin/cls/main')
+        </script>
+    </form>
+{% endblock %}
