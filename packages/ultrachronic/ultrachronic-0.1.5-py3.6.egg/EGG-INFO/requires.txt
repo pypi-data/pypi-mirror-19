@@ -1,0 +1,7 @@
+
+[dist]
+requests
+
+[test]
+click>=5
+nose
