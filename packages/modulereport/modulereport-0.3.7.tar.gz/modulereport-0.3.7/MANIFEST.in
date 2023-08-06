@@ -1,0 +1,16 @@
+prune docs/_build
+
+global-exclude __pycache__
+global-exclude *.py[co]
+
+include LICENSE
+include MANIFEST.in
+include requirements.txt
+include Makefile
+include .bumpversion.cfg
+
+include *.rst
+include *.py
+
+recursive-include docs *.rst *.py *.txt Makefile
+recursive-include modulereport *.py
