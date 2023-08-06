@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: weberSchema
+Version: 0.0.18
+Summary: Public functions library wrote by Weber Juche.
+Home-page: https://github.com/Weber-JC/PythonEggs/tree/master/weberSchema
+Author: Weber Juche
+Author-email: weber.juche@gmail.com
+License: MIT
+Description: =========================
+        weberSchema 包功能说明
+        =========================
+        
+        设计目的
+        ====
+        
+        在 “库表元模型” 基础上实现对mysql访问的封装。
+        
+Keywords: weberSchema
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
