@@ -1,0 +1,4 @@
+
+        [zops.plugins]
+        main=zops.virtualenv.cli:main
+    
