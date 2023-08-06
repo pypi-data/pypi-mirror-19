@@ -1,0 +1,14 @@
+pydead
+setup.cfg
+setup.py
+pydead.egg-info/PKG-INFO
+pydead.egg-info/SOURCES.txt
+pydead.egg-info/dependency_links.txt
+pydead.egg-info/top_level.txt
+src/__init__.py
+src/base.py
+src/config.py
+src/parsers.py
+src/search.py
+src/utils.py
+src/writer.py
