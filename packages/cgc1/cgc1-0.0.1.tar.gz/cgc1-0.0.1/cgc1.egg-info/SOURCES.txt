@@ -1,0 +1,15 @@
+setup.py
+cgc1/__init__.py
+cgc1/fsutil.py
+cgc1/log_call.py
+cgc1/lxcconfig.py
+cgc1/main.py
+cgc1/subid.py
+cgc1.egg-info/PKG-INFO
+cgc1.egg-info/SOURCES.txt
+cgc1.egg-info/dependency_links.txt
+cgc1.egg-info/entry_points.txt
+cgc1.egg-info/top_level.txt
+cgc1/conf/common.conf
+cgc1/conf/debian.type.conf
+cgc1/conf/userns.conf
