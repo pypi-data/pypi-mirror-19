@@ -1,0 +1,11 @@
+golix[full]>=0.1.6
+websockets>=3.2
+cryptography>=1.6
+pycryptodome>=3.4.3
+daemoniker>=0.2.3
+loopa>=0.0.2
+certifi
+
+[dev]
+
+[test]
