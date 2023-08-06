@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: pystreamdl
+Version: 0.0.2
+Summary: Downloader library for large files based on pycurl
+Home-page: https://github.com/Farthen/pystreamdl
+Author: Fina Wilke
+Author-email: fina@felinira.net
+License: MIT
+Keywords: pycurl downloader library pystreamdl
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: pycurl
+
+UNKNOWN
+
+
