@@ -1,0 +1,21 @@
+language: python
+python:
+- 3.5-dev
+sudo: required
+services:
+  - docker
+cache:
+  directories:
+  - eggs
+install:
+- pip install zc.buildout
+- buildout -t 3
+- pip install flake8
+- pip install coverage==4.0.3
+- sleep 15
+script:
+- bin/py.test -s --cov=plone.server -v --cov-report term-missing src
+- bin/code-analysis
+after_success:
+- coveralls
+- cat .coverage
