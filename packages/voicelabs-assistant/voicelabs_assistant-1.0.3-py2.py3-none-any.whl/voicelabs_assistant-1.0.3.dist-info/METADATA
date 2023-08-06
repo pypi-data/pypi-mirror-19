@@ -1,0 +1,58 @@
+Metadata-Version: 2.0
+Name: voicelabs-assistant
+Version: 1.0.3
+Summary: VoiceInsights Python SDK for Google Assistant
+Home-page: https://github.com/voicelabs/assistant-python-sdk
+Author: Sridhar Nallani
+Author-email: sridhar@voicelabs.co
+License: MIT
+Keywords: voicelabs,voiceinsights,google assistant sdk
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: requests
+
+--------------------
+--------------------
+
+# Install the package
+
+you can install the package locally in the current folder by using the following command:
+
+#from test PIP repo
+pip install -t ./ -i https://testpypi.python.org/pypi voicelabs-assistant
+
+#from main public PIP repo
+pip install -t ./ voicelabs-assistant
+
+--------------------
+--------------------
+
+## SDK usage:
+
+#import sdk
+from voicelabs import  VoiceInsights
+
+#instantiate SDK object globally. You only need one object.
+appToken = '<YOUR APP TOKEN>'   
+vi = VoiceInsights(appToken)
+
+#track your events. Example Flask implementation
+@app.route('/intent', methods = ['POST'])
+def api_intent_handler():
+
+    req_json = request.get_json()
+    data = req_json['originalRequest']['data']
+    intentName = req_json['result']['metadata']['intentName']
+    ...
+    #tts string could be plain text or a valid SSML
+    tts = "Here is my response to the user"
+    ...
+    resp = vi.track( intentName, data, tts )
+
+--------------------
+--------------------
+
+
