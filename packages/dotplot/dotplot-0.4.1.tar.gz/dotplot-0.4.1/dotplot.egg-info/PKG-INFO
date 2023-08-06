@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: dotplot
+Version: 0.4.1
+Summary: Small bioinformatic package for dotplot's generation (in command line and in GUI)
+Home-page: https://github.com/kn-bibs/dotplot
+Author: kn_bibs
+Author-email: bibs.kn@uw.edu.pl
+License: LGPL-3.0
+Download-URL: https://github.com/kn-bibs/dotplot/tarball/v0.4.1-alpha
+Description: UNKNOWN
+Keywords: dotplot,bioinformatic,gui
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Utilities
+Classifier: Environment :: X11 Applications :: Qt
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3.5
