@@ -1,0 +1,25 @@
+Metadata-Version: 2.0
+Name: python-cafe-consul
+Version: 0.12.0
+Summary: Asynchronous Consul extension for Cafe
+Home-page: https://github.com/abn/python-cafe-consul
+Author: Arun Babu Neelicattu
+Author-email: arun.neelicattu@gmail.com
+License: APLv2
+Platform: UNKNOWN
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Requires-Dist: python-cafe
+Requires-Dist: python-consul
+Requires-Dist: twisted
+
+Cafe Consul
+===========
+
+An asynchronous consul extension for Cafe.
+
+
+
