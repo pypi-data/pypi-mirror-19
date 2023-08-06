@@ -1,0 +1,48 @@
+Metadata-Version: 1.1
+Name: 36-chambers
+Version: 0.0.1
+Summary: Python Library for Binary Ninja
+Home-page: https://www.github.com/mgoffin/36-chambers
+Author: Mike Goffin
+Author-email: mgoffin@gmail.com
+License: MIT
+Description: 36-chambers
+        =====================================================================
+        
+        36-chambers is a Python Library which adds common reversing methods and
+        functions for Binary Ninja. The library is designed to be used within Binary
+        Ninja in the Python console.
+        
+        Installation
+        ------------
+        
+        Use pip to install or upgrade 36-chambers::
+        
+            $ pip install 36-chambers [--upgrade]
+        
+        Quick Example
+        -------------
+        
+        Find and print all blocks with a "push" instruction:
+        
+        .. code-block :: python
+        
+            from chambers import Chamber
+        
+            c = Chamber(bv=bv)
+            c.instructions('push')
+        
+        Documentation
+        -------------
+        
+        For more information you can find documentation on readthedocs_.
+        
+        .. _readthedocs: https://36-chambers.readthedocs.org
+        
+Keywords: binary ninja 36 chambers
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
