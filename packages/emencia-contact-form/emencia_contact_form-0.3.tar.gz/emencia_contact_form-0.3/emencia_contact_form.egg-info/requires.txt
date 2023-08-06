@@ -1,0 +1,11 @@
+django<1.11,>=1.8
+tox
+django-countries
+pytz
+crispy-forms-foundation
+django-modeltranslation
+django-import-export
+django-crispy-forms
+psycopg2
+django-cms>=3
+django-recaptcha

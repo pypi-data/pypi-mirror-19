@@ -1,0 +1,10 @@
+{% extends "contact_form/base.html" %}
+
+{% load i18n crispy_forms_tags %}
+
+{% block contact_form_content %}
+    <div class="head">
+        <h2>{% trans "Contact" %}</h2>
+    </div>
+    {% crispy form %}
+{% endblock contact_form_content %}

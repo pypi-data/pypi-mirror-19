@@ -1,0 +1,21 @@
+<html>
+{% load i18n %}
+<head>
+	<title>{% block title %}{% trans "Contact Form" %}{% endblock title %}</title>
+</head>
+<body>
+
+{% load i18n %}
+
+{% block base_content %}
+<div id="contact">
+    <div class="row container">
+        <div class="large-12 columns content-side">
+            {% block contact_form_content %}{% endblock contact_form_content %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+</body>
+</html>

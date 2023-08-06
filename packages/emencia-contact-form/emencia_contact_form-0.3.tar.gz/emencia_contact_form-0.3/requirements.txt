@@ -1,0 +1,11 @@
+django>=1.8,<1.11
+psycopg2
+django-modeltranslation
+django-countries
+django-crispy-forms
+crispy-forms-foundation
+django-recaptcha
+django-import-export
+pytz  # used in hierarchy for ContactAdmin
+django-cms>=3
+tox
