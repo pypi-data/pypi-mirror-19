@@ -1,0 +1,7 @@
+splitio_client>=2.1
+redis>=2.10.5
+jsonpickle>=0.9.3
+
+[test]
+Django>=1.8
+mock
