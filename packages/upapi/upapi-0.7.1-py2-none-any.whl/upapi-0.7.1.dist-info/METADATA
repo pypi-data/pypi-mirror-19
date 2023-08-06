@@ -1,0 +1,35 @@
+Metadata-Version: 2.0
+Name: upapi
+Version: 0.7.1
+Summary: SDK for the Jawbone UP APIs
+Home-page: https://github.com/Jawbone/UPPlatform_Python_SDK
+Author: RAY Courtney
+Author-email: ray@jawbone.com
+License: Apache
+Keywords: jawbone upapi upsdk jawboneup up
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: oauth2client
+Provides-Extra: dev
+Requires-Dist: mock; extra == 'dev'
+Provides-Extra: test
+Requires-Dist: mock; extra == 'test'
+
+====================
+ Jawbone UP API SDK
+====================
+
+This is the Python SDK for the Jawbone UP API.
+
+.. _UP Developer Portal: https://jawbone.com/up/developer
+.. _SDK Github Project: https://github.com/Jawbone/UPPlatform_Python_SDK
+
+- For UP API details: `UP Developer Portal`_
+- For SDK documentation: `SDK Github Project`_
+
+
+
