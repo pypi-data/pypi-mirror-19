@@ -1,0 +1,51 @@
+================
+ Igo for Python
+================
+
+About
+=====
+
+Igo_ is a Japanese morphological analyzer written in Java and Common Lisp.
+This software is Python port of Igo(Java version).
+
+.. _Igo: http://igo.osdn.jp/
+
+Notice
+======
+
+Dictionary builder is not provided. You need to use Igo Java version to build the dictionary for Igo.
+From igo-python 0.9.7, pre-built `IPA dictionary (2.7.0-20070801)`__ is included for ease of use.
+
+__ https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7MWVlSDBCSXZMTXM
+
+How To Use
+==========
+
+You can use Igo Python easily::
+
+ >>> from igo.Tagger import Tagger
+ >>> t = Tagger() # use bundled dictionary
+ >>> for m in t.parse(u'すもももももももものうち'):
+ ...     print m.surface, m.feature
+ ...
+ すもも 名詞,一般,*,*,*,*,すもも,スモモ,スモモ
+ も 助詞,係助詞,*,*,*,*,も,モ,モ
+ もも 名詞,一般,*,*,*,*,もも,モモ,モモ
+ も 助詞,係助詞,*,*,*,*,も,モ,モ
+ もも 名詞,一般,*,*,*,*,もも,モモ,モモ
+ の 助詞,連体化,*,*,*,*,の,ノ,ノ
+ うち 名詞,非自立,副詞可能,*,*,*,うち,ウチ,ウチ
+ >>>
+
+
+Using command line parser::
+
+  $ igo # or python -m igo.parse
+  私の名前は中野です
+  私      名詞,代名詞,一般,*,*,*,私,ワタシ,ワタシ
+  の      助詞,連体化,*,*,*,*,の,ノ,ノ
+  名前    名詞,一般,*,*,*,*,名前,ナマエ,ナマエ
+  は      助詞,係助詞,*,*,*,*,は,ハ,ワ
+  中野    名詞,固有名詞,地域,一般,*,*,中野,ナカノ,ナカノ
+  です    助動詞,*,*,*,特殊・デス,基本形,です,デス,デス
+  EOS
