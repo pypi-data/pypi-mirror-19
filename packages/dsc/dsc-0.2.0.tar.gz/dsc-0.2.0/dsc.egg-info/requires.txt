@@ -1,0 +1,8 @@
+sos>=0.8.7
+msgpack-python
+pyyaml
+pandas>=0.18.0
+rpy2>=2.7.8
+sympy
+numexpr
+numpy
