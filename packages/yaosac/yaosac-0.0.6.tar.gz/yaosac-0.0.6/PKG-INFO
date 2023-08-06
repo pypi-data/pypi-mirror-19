@@ -1,0 +1,44 @@
+Metadata-Version: 1.1
+Name: yaosac
+Version: 0.0.6
+Summary: Yet another OneSignal API Client
+Home-page: https://github.com/alej0varas/yaosac
+Author: Alexandre Varas
+Author-email: alej0varas@gmail.com
+License: GNU Library or Lesser General Public License (LGPL)
+Description: ======
+         Why?
+        ======
+        
+        I don't like exisiting libraries.
+        
+        This client is a mapping of the `RESTful server API <https://documentation.onesignal.com/reference>`_. There is a method for every API end-point with the corresponding arguments avoiding validation. You'll get the errors from the API in the response.
+        
+        Install
+        -------
+        ::
+        
+           pip install yaosac
+        
+        Usage
+        -----
+        ::
+        
+           import yaosac
+           yaosac.client.create_notification(player_ids)
+        
+        Contribution/Testing
+        --------------------
+        ::
+        
+           python setup.py test
+        
+Keywords: onesignal push notification client api sdk
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
