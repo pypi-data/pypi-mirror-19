@@ -1,0 +1,14 @@
+MANIFEST.in
+README.rst
+requirements.txt
+setup.py
+coscmd/__init__.py
+coscmd/auth.py
+coscmd/client.py
+coscmd/main.py
+coscmd.egg-info/PKG-INFO
+coscmd.egg-info/SOURCES.txt
+coscmd.egg-info/dependency_links.txt
+coscmd.egg-info/entry_points.txt
+coscmd.egg-info/requires.txt
+coscmd.egg-info/top_level.txt
