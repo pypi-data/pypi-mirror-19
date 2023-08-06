@@ -1,0 +1,16 @@
+#!python
+
+import os
+import sys
+
+try:
+    # Installed system wide
+    from simple_site_crawler.command_line import cli
+except ImportError:
+    # Try to look for the source code locally
+    sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+    from simple_site_crawler.command_line import cli
+
+
+if __name__ == '__main__':
+    cli()
