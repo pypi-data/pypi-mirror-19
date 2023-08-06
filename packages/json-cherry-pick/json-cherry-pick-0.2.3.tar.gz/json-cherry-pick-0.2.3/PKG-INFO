@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: json-cherry-pick
+Version: 0.2.3
+Summary: JSON Cherry Picker
+Home-page: https://github.com/tiras-j/jcp
+Author: Josh Tiras
+Author-email: jot@yelp.com
+License: Apache2
+Download-URL: https://github.com/tiras-j/jcp/tarball/0.2.3
+Description: jcp provides quick access to sub-objects inside large JSON blobs
+Keywords: JSON,cherry,pick,extractor
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Text Processing :: Indexing
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
