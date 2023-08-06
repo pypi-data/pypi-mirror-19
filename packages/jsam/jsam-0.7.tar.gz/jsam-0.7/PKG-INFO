@@ -1,0 +1,74 @@
+Metadata-Version: 1.1
+Name: jsam
+Version: 0.7
+Summary: JSAM (JSON Storage Access Methods) is a "NoSQL" Database for JSON objects.
+Home-page: http://www.ultimate.com/phil/python/#jsam
+Author: Phil Budne
+Author-email: phil@ultimate.com
+License: GPL
+Download-URL: http://www.ultimate.com/phil/python/download/jsam-0.7.tar.gz
+Description: JSAM's basic operations are get, put and remove, with basic support
+        for transactions via begin, commit and rollback.  All stored objects
+        are identified by an integer key.
+        
+        A JSAM database is opened by supplying a URL to jsam.jsurl.parse()
+        and calling the open() method on the returned object.  The syntax of
+        URL depends on the particular "access method".
+        
+        The following URL types currently exist::
+        
+            * file:   directory plain text JSON files
+            * rcs:    directory plain text JSON files under RCS
+            * cvs:    directory plain text JSON files under CVS (not tested)
+            * svn:    directory plain text JSON files under SVN (not tested)
+            * sqlite: object trees stored in an SQLite3 database
+            * mysql:  object trees stored in a MySQL database (lightly tested)
+            * pgsql:  object trees stored in a PostgreSQL database (lightly tested)
+        
+        Query methods include::
+        
+            * Collections: a jQuery/Django-like method-chained interface
+            * XPath query language subset (only supported for SQL backends)
+            * P4J (E4X-like) query language (only supported for SQL backends)
+                which allows construction of "xpath" queries in Python using
+                method chaining and operator overload, bridging the lexical divide
+                between code and query.
+        
+        pydoc jsam.<URLTYPE>_jsam
+          gives information on the URL syntax for <URLTYPE>
+        
+        pydoc jsam.jsam.JSAM
+          gives information on jsam object methods
+        
+        pydoc jsam.xpath
+          gives information on XPath query syntax (SQL backends only)
+        
+        pydoc jsam.p4j
+          gives information on P4J Python native query syntax
+        
+        NOTE::
+        
+            * uses Python 2.6+ supplied "json"; requires "simplejson" on Python 2.5
+            * file-based storage depends on POSIX file semantics
+            * requires "MySQLdb" for MySQL
+            * requires "psycopg2" for PostgreSQL
+        
+        The name "JSAM" is a joke on IBM Mainframe O/S data "Access Methods"
+        (BDAM, BSAM, VSAM, ISAM, QSAM, BPAM).
+        
+        The obvious name 'jsonstore' was already taken by another package
+        in the Python Package Index (PyPI).
+        
+        The URL/URI syntax was cribbed from Django, which copied SQLAlchemy.
+        
+Platform: POSIX
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 2.5
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Database
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Processing :: Markup

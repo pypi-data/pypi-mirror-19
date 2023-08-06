@@ -1,0 +1,158 @@
+2014-08-06  Phil Budne <phil@ultimate.com>
+	jsam/pgsql_jsam.py: comment
+	
+Released to PyPI as v0.7
+
+2014-04-24  Phil Budne <phil@ultimate.com>
+	jsam/p4j.py: experiment: allow [PREDICATE]
+	jsam/__init__.py: Update version to 0.7
+	many: Update Copyright dates to 2014
+
+2011-10-29  Phil Budne <phil@ultimate.com>
+	jsam/jsonsqlcheck.py: copyright date, tweak Node
+
+2011-10-24  Phil Budne <phil@ultimate.com>
+	jsam/p4j.py: docstring
+
+2011-10-19  Phil Budne <phil@ultimate.com>
+	jsam/jsonsqlcheck.py: don't depend on namedtuple
+		detect more errors
+
+2011-10-05  Phil Budne <phil@ultimate.com>
+	new: jsam/jsonsqlcheck.py: start of database checker (& fixer?!)
+	jsam/jsonsqlxpath.py: comment
+	jsam/p4j.py: comments, index checks
+
+Released to PyPI as v0.6.3
+
+2011-10-01  Phil Budne <phil@ultimate.com>
+	jsam/filecollection.py:
+		detect (and reject) fancy output without terminal keep
+	jsam/jsonsql.py: reject fancy output without terminal keep
+	__init__.py: update to version 0.6.3
+
+2011-09-22  Phil Budne <phil@ultimate.com>
+	jsam/collection.py: docstrings
+	jsam/pathutil.py: new file with path_{get,set}
+
+2011-09-21  Phil Budne <phil@ultimate.com>
+	jsam/p4j.py: update module docstring (using rst)
+
+Released to PyPI as v0.6.2
+
+2011-09-14  Phil Budne <phil@ultimate.com>
+	jsam/jsam.py: make debug() a base class method
+	jsam/jsonsqlcollection.py: fixes for value output w/ final "drop"
+	test/filetest.py, test/collect.py: cleanup before and after
+	__init__.py: update to version 0.6.2
+
+Released to PyPI as v0.6.1
+
+2011-09-14  Phil Budne <phil@ultimate.com>
+	jsam/file_jsam.py, jsam/jsonsql.py: add args to jsam.JSAM.put()
+	__init__.py: update to version 0.6.1
+
+Released to PyPI as v0.6
+
+2011-09-04  Phil Budne <phil@ultimate.com>
+	__init__.py: update to version 0.6; add documentation
+
+2011-09-03  Phil Budne <phil@ultimate.com>
+	setup.py: include Python 2.7
+	jsdbi.py: use unicode() to str'ify args
+	jsonsql.py: debug() method turns on JSDBI level debugging.
+		Include "id" check in lright "UPDATE" (for speed on PgSQL).
+		Add "ORDER BY node" in retrieve_query & retrieve_key_path
+		  paths were misordered on MySQL and PgSQL.
+	jsonsqlxpath.py, xpath.py: add PATHKEYS output
+	pgsql_jsam.py: set conn.autocommit (under a try)
+
+2011-08-28  Phil Budne <phil@ultimate.com>
+	port to PostgreSQL
+	jsdbi.py: add execute_insert, hide lastrowid
+	mysql_jsam.py, sqlite_jsam.py: rename lastrowid
+	jsonsql.py: use execute_insert instead of lastrowid
+	pgsql_jsam.py: JSONSQL support for PostgreSQL
+	Update Copyrights to 2011
+
+2011-06-20  Phil Budne <phil@ultimate.com>
+	__init__.py: add more info for p4j
+
+Released to PyPI as v0.5
+
+2011-05-31  Phil Budne <phil@ultimate.com>
+	p4j.py: add documentation!
+	xpath.py: document p4j arguments
+	__init__.py: update to v0.5, document p4j
+
+2010-07-28  Phil Budne <phil@ultimate.com>
+	jsonsqlxpath.py: fix "params" processing; expunge caller_locals
+
+2010-07-14  Phil Budne <phil@ultimate.com>
+	mysql_jsam.py: comments, suppress "table already exists" warning
+
+2010-07-09  Phil Budne <phil@ultimate.com>
+	mysql_jsam.py: insert_id() is connection, not cursor method
+
+2010-05-22  Phil Budne <phil@ultimate.com>
+	EXPERIMENTAL: implement (expr) and not (expr) for XPath
+	jsonsqlxpath.py: process 'not' operator
+	xparse.g: parse (expr) and not (expr)
+
+2010-03-31  Phil Budne <phil@ultimate.com>
+	jsonsqlxpath.py: allow arbitrary params (list, tuple)
+	jsonsql.py: take params arg
+
+2010-04-10  Phil Budne <phil@ultimate.com>
+	p4j.py: "Python for JSON" E4X-like query language
+	jsonsqlxpath.py: accept e4j paths, fix 'and' operator
+
+2010-03-27  Phil Budne <phil@ultimate.com>
+	jsam.py: create CollectionJSAM and XPathJSAM mixins
+		 base JSAM collect and xpath methods raise exception
+	file_jsam.py: use CollectionJSAM mixin
+	jsonsql_jsam.py: use CollectionJSAM, XPathJSAM mixins
+
+2010-02-16  Phil Budne <phil@ultimate.com>
+	jsonsql.py: store len(obj) for ARRAY and OBJECT nodes
+	update to v0.2.3
+
+2009-07-26  Phil Budne <phil@ultimate.com>
+	filecollection.py: fix startswith
+			fix ID+KEY... for only one file; update to v0.2.2
+
+2009-07-25  Phil Budne <phil@ultimate.com>
+	filecollection.py: fix empty collections
+
+2009-07-19  Phil Budne <phil@ultimate.com>
+	setup.py add #name to url
+	fix __init__ docstring
+
+2009-07-08  Phil Budne <phil@ultimate.com>
+	setup.py: fix download_url
+	Submittted to PyPI as v0.2
+	
+2009-07-05  Phil Budne  <phil@ultimate.com>
+	* new: tests/filetest.py
+	* setup.py: use __doc__ to create [long_]descr,
+		use __version__, __name__
+
+2009-06-26  Phil Budne  <phil@ultimate.com>
+	Implement new output types: idvalues(), idkeyvalues()
+	version 0.1.2
+	* jsam/filecollection.py: implement value & new output types;
+		perform terminal filter node seperately
+	* jsam/jsonsqlcollection.py: new output types
+	* new: tests/ tests/collect.py
+
+2009-06-24  Phil Budne  <phil@ultimate.com>
+	* jsam/filecollection.py: fix cmd formatting
+		check for empty file set
+
+2009-05-22  Phil Budne  <phil@ultimate.com>
+	version 0.1.1
+
+Released to PyPI as v0.1
+
+2009-05-07  Phil Budne  <phil@ultimate.com>
+	* CHANGELOG: created changelog
