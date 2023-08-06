@@ -1,0 +1,98 @@
+Metadata-Version: 2.0
+Name: wsgi-basic-auth-isl
+Version: 1.0.4
+Summary: Simple wsgi middleware to provide basic http auth
+Home-page: https://github.com/istrategylabs/wsgi-basic-auth
+Author: iStrategyLabs
+Author-email: dev@isl.co
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Dist: webob (>=1.0.0)
+Provides-Extra: docs
+Requires-Dist: sphinx (>=1.4.0); extra == 'docs'
+Provides-Extra: test
+Requires-Dist: WebTest (==2.0.23); extra == 'test'
+Requires-Dist: flake8 (==3.0.3); extra == 'test'
+Requires-Dist: flake8-blind-except (==0.1.1); extra == 'test'
+Requires-Dist: flake8-debugger (==1.4.0); extra == 'test'
+Requires-Dist: isort (==4.2.5); extra == 'test'
+Requires-Dist: pytest (>=2.8.3); extra == 'test'
+Requires-Dist: pytest-cov (>=2.2.0); extra == 'test'
+
+===============
+WSGI Basic Auth
+===============
+
+Really simple wsgi middleware to provide basic http auth. It is intented to
+work with environment variables. This makes it simple to use in a docker 
+context.
+
+Status
+------
+
+.. image:: https://readthedocs.org/projects/wsgi-basic-auth/badge/?version=latest
+    :target: https://readthedocs.org/projects/wsgi-basic-auth/
+
+.. image:: https://travis-ci.org/mvantellingen/wsgi-basic-auth.svg?branch=master
+    :target: https://travis-ci.org/mvantellingen/wsgi-basic-auth
+
+.. image:: https://ci.appveyor.com/api/projects/status/im609ng9h29vt89r?svg=true
+    :target: https://ci.appveyor.com/project/mvantellingen/wsgi-basic-auth
+
+.. image:: http://codecov.io/github/mvantellingen/wsgi-basic-auth/coverage.svg?branch=master 
+    :target: http://codecov.io/github/mvantellingen/wsgi-basic-auth?branch=master
+
+.. image:: https://img.shields.io/pypi/v/wsgi-basic-auth.svg
+    :target: https://pypi.python.org/pypi/wsgi-basic-auth/
+
+
+
+Getting started
+===============
+
+Using this module is really simple.  In Django for example edit the wsgi.py
+file and add the following to the end of the file.
+
+.. code-block:: python
+
+  from wsgi_basic_auth import BasicAuth 
+  application = BasicAuth(application) 
+
+Now run docker with the env variable WSGI_AUTH_CREDENTIALS=foo:bar and you have
+to authenticate with username foo and password bar. Multiple credentials are
+separated with a | (pipe) character.
+
+To exclude specific paths for healthchecks (e.g. the Amazon ELB healthchecks)
+specify the environment variable WSGI_AUTH_EXCLUDE_PATHS=/api/healthchecks.
+Here multiple paths can be separated with the ; char.
+
+To include only specific paths specify the environment variable
+WSGI_AUTH_EXCLUDE_PATHS. Here multiple paths can be separated with the ; char.
+
+You can use both include and exclude paths together for example:
+WSGI_AUTH_INCLUDE_PATHS=/foo
+WSGI_AUTH_EXCLUDE_PATHS=/foo/bar
+This will force Basic Auth on all paths under /foo except /foo/bar
+
+
+Installation 
+============
+
+You can install the latest version using pip::
+
+    pip install wsgi-basic-auth
+
+
+
+
