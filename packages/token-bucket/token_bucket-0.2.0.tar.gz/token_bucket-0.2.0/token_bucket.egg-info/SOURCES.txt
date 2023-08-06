@@ -1,0 +1,12 @@
+README.rst
+setup.cfg
+setup.py
+token_bucket/__init__.py
+token_bucket/limiter.py
+token_bucket/storage.py
+token_bucket/storage_base.py
+token_bucket/version.py
+token_bucket.egg-info/PKG-INFO
+token_bucket.egg-info/SOURCES.txt
+token_bucket.egg-info/dependency_links.txt
+token_bucket.egg-info/top_level.txt
