@@ -1,0 +1,6 @@
+TurboGears2 >= 2.3.2
+repoze.sendmail == 4.3
+
+[testing]
+nose
+webtest
