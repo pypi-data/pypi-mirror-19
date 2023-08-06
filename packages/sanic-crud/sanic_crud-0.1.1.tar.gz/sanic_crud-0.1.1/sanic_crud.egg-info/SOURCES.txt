@@ -1,0 +1,14 @@
+README.rst
+setup.py
+sanic_crud/__init__.py
+sanic_crud/base_resource.py
+sanic_crud/collection_resource.py
+sanic_crud/crud_config.py
+sanic_crud/crud_generation.py
+sanic_crud/helpers.py
+sanic_crud/single_resource.py
+sanic_crud.egg-info/PKG-INFO
+sanic_crud.egg-info/SOURCES.txt
+sanic_crud.egg-info/dependency_links.txt
+sanic_crud.egg-info/requires.txt
+sanic_crud.egg-info/top_level.txt
