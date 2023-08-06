@@ -1,0 +1,16 @@
+groundwork_database/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+groundwork_database/version.py,sha256=YvuYzWnKtqBb-IqG8HAu-nhIYAsgj9Vmc_b9o7vO-js,22
+groundwork_database/patterns/__init__.py,sha256=wKaLw0xDI5IQHwu5yHdP8PJwJEZdRTUEwOVCRt1FC1k,41
+groundwork_database/patterns/gw_sql_pattern.py,sha256=K718e6p87b1p1kFcGTrYEW5ddA4t3M3nS9o9hMazpA8,9302
+groundwork_database/plugins/__init__.py,sha256=cQ9WHxJvkJfjvOOadojLyUSk_hWhNX9kAmhhObKQXEU,48
+groundwork_database/plugins/gwdatabase_plugin.py,sha256=sNRZMLedQZI9KpvkcXVriMZHKv2Ylmh2N3qAMd-8pd8,589
+tests/test_plugins/__init__.py,sha256=gKTgmQ6lIlxQM1D6TzCsvs3HkIiy6wIjCyQy75lDjRs,99
+tests/test_plugins/database_plugin.py,sha256=sGWStGM9l5obrgN-U3hVQHKn-w0bw-BWkDM9EUfDyio,393
+tests/test_plugins/empty_database_plugin.py,sha256=kV0yk09_tmDIq4Y80f4WFXcweB1Wvv71b9VnT1DPsWw,324
+groundwork_database-0.1.2.dist-info/entry_points.txt,sha256=YBAKtnToV56gSnXB7INLeUcWMiC7LCXhVwUl6uaYqiQ,106
+groundwork_database-0.1.2.dist-info/top_level.txt,sha256=10YFc8RhedPcgjlsxIQMybnfgyItduq52DjRsfFhqKk,26
+groundwork_database-0.1.2.dist-info/METADATA,sha256=R794Ds9OFlM6uCW7h-Dfp-06xKhhTV2C8yi7Ipp2TPA,847
+groundwork_database-0.1.2.dist-info/DESCRIPTION.rst,sha256=5P2ARQ5JOlYKr22a1sfNOKDvfFLTpmVHFjyO99WeNrA,43
+groundwork_database-0.1.2.dist-info/metadata.json,sha256=dPwJ5U0DWzPRAloWhXbJNl1KVEWe3sM6eVI7RYpjvcw,1143
+groundwork_database-0.1.2.dist-info/WHEEL,sha256=-aSo8rHuuPDEFzkcqqQ55pDyCjy25bYMLxSiHWKAOTc,92
+groundwork_database-0.1.2.dist-info/RECORD,,
