@@ -1,0 +1,3 @@
+[console_scripts]
+pandoc-shortcaption = pandoc_shortcaption.__main__:main
+
