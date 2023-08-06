@@ -1,0 +1,21 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="collective.blueline">
+
+  <genericsetup:upgradeSteps
+      source="1"
+      destination="2"
+      profile="collective.blueline:default">
+
+    <genericsetup:upgradeDepends
+        title="Add Blueline portlet"
+        description="Reload registration of portlet registry to add new portlet."
+        import_steps="portlets"
+        run_deps="false"
+        />
+
+  </genericsetup:upgradeSteps>
+
+</configure>

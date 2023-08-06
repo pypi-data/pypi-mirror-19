@@ -1,0 +1,106 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2017-01-26 11:46+0000\n"
+"PO-Revision-Date: 2017-01-26 10:08-0200\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#: collective/blueline/interfaces.py:69
+msgid "Above Content"
+msgstr "Acima do conteúdo"
+
+#: collective/blueline/interfaces.py:87
+msgid "Below Content"
+msgstr "Embaixo do conteúdo"
+
+#: collective/blueline/interfaces.py:78
+msgid "Below Content Body"
+msgstr "Embaixo do corpo do texto"
+
+#: collective/blueline/controlpanel.py:12 collective/blueline/profiles.zcml:15
+#: collective/blueline/profiles/default/controlpanel.xml
+msgid "Blueline"
+msgstr "Blueline"
+
+#: collective/blueline/interfaces.py:42
+msgid "By default, viewlets will be visible for anonymous users only. If selected, the code will be shown to authenticated users also."
+msgstr "Por padrão, os viewlets são visíveis só para usuários anónimos. Se selecionado, o código será também mostrado para usuários autenticados."
+
+#: collective/blueline/upgrades/v2/configure.zcml:15
+msgid "Do something."
+msgstr ""
+
+#: collective/blueline/interfaces.py:96
+msgid "Footer"
+msgstr "Rodapé"
+
+#: collective/blueline/interfaces.py:51
+msgid "HTML Head"
+msgstr "Cabeçalho HTML"
+
+#: collective/blueline/interfaces.py:60
+msgid "Header"
+msgstr "Cabeçalho"
+
+#: collective/blueline/profiles.zcml:15
+msgid "Helper viewlets to easily insert code on the layout of a Plone site."
+msgstr "Viewlets para inserir código fácilmente no layout de um Plone site."
+
+#: collective/blueline/interfaces.py:32
+msgid "Invalid code: "
+msgstr "Código inválido:"
+
+#: collective/blueline/profiles.zcml:24
+msgid "Remove collective.blueline package."
+msgstr "Remover o Blueline."
+
+#: collective/blueline/controlpanel.py:13
+msgid "Settings for the collective.blueline package"
+msgstr "Configurações do Blueline"
+
+#: collective/blueline/interfaces.py:41
+msgid "Show to authenticated users?"
+msgstr "Mostrar para usuários autenticados?"
+
+#: collective/blueline/interfaces.py:70
+msgid "This code will be included above the content of the page."
+msgstr "Este código será incluso acima do conteúdo da página."
+
+#: collective/blueline/interfaces.py:97
+msgid "This code will be included at the end of the page."
+msgstr "Este código será incluso no final da página."
+
+#: collective/blueline/interfaces.py:61
+msgid "This code will be included at the top of the page."
+msgstr "Este código será incluso na parte superior da página."
+
+#: collective/blueline/interfaces.py:79
+msgid "This code will be included below the body of the content of the page."
+msgstr "Este código será incluso embaixo do corpo do texto da página."
+
+#: collective/blueline/interfaces.py:88
+msgid "This code will be included below the content of the page."
+msgstr "Este código será incluso embaixo do conteúdo da página."
+
+#: collective/blueline/interfaces.py:52
+msgid "This code will be included inside the head tag."
+msgstr "Este código será incluso dentro da tag <head> da página."
+
+#: collective/blueline/profiles.zcml:24
+msgid "collective.blueline: uninstall"
+msgstr "collective.blueline: uninstall"
+
+#: collective/blueline/upgrades/v2/configure.zcml:15
+msgid "collective.blueline: v2"
+msgstr "collective.blueline: v2"
