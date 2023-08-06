@@ -1,0 +1,56 @@
+Metadata-Version: 1.1
+Name: sse2fedmsg
+Version: 0.1.0
+Summary: Turn Server-Sent Events into fedmsgs.
+Home-page: https://github.com/fedora-infra/sse2fedmsg
+Author: Fedora Infrastructure Team
+Author-email: infrastructure@lists.fedoraproject.org
+License: GPLv2+
+Description: # sse2fedmsg
+        
+        sse2fedmsg translates [Server-Sent Events](https://www.w3.org/TR/eventsource/)
+        to [fedmsgs](http://fedmsg.com/).
+        
+        ## Usage
+        
+        First, install the Python package:
+        ```
+        $ pip install sse2fedmsg
+        ```
+        
+        Next, run the following:
+        ```
+        $ sse2fedmsg <topic> <feed>
+        ```
+        
+        For example:
+        ```
+        $ sse2fedmsg libraryio http://firehose.libraries.io/events
+        ```
+        
+        ## Development
+        
+        To observe the messages being published, start a fedmsg-relay and optionally
+        run it in the background:
+        ```
+        $ fedmsg-relay --config-filename fedmsg.d/fedmsg-config.py &
+        ```
+        
+        Next, tail fedmsg:
+        ```
+        $ fedmsg-tail --config fedmsg.d/fedmsg-config.py --no-validate --really-pretty
+        ```
+        
+Keywords: fedora
+Platform: Fedora
+Platform: GNU/Linux
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
