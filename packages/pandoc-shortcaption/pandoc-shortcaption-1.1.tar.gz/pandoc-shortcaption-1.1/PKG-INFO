@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: pandoc-shortcaption
+Version: 1.1
+Summary: Pandoc Filter that uses the alt-text of an imageas short caption when converting to LaTeX
+Home-page: https://www.python.org/sigs/distutils-sig/
+Author: Martin Isaksson
+Author-email: martin@martisak.com
+License: GPL
+Description: UNKNOWN
+Keywords: pandoc image caption latex filter
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python
