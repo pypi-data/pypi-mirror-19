@@ -1,0 +1,28 @@
+Metadata-Version: 2.0
+Name: desktop-drive
+Version: 0.3a1
+Summary: Bash-like file operations on Google Drives "mounted" on the local filesystem.
+Home-page: UNKNOWN
+Author: Kevin Beaufume, Thomas Saglio, Louis Senez
+Author-email: from.math.import.pi@gmail.com
+License: GPLv3
+Keywords: files google drive bash
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: X11 Applications :: Qt
+Classifier: Environment :: MacOS X
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Communications :: File Sharing
+Classifier: Topic :: Desktop Environment :: File Managers
+Requires-Dist: google-api-python-client
+Requires-Dist: pyqt5
+
+UNKNOWN
+
+
