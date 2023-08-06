@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <script src="/assets/vendor/jquery/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="resultDivContainer"></div>
+
+<input type="text" id="add_id">
+<button type="button" id="add_button_id">Add</button><br>
+
+<form id='test_form'>
+    <div id="page">
+    {% for key, value in page.items() %}
+        {% if key not in ['content', 'url'] %}
+        <label for="{{ key }}_id" id="label_{{ key }}_id">{{ key }} : </label>
+        <input type="text" id="{{ key }}_id" name="{{ key }}" value="{{ value }}">
+        <button type="button" id="button_{{ key }}_id" onclick="remove('{{ key }}')">Remove</button><br>
+        {% endif %}
+    {% endfor %}
+    </div>
+    <textarea name="content">{{ content }}</textarea>
+    <button type="submit">Save</button>
+</form>
+
+<script type="text/javascript">
+
+    var simplemde = new SimpleMDE();
+
+    (function ($) {
+        $.fn.serializeFormJSON = function () {
+
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function () {
+                if (o[this.name]) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
+    })(jQuery);
+
+    $('#test_form').submit(function (e) {
+
+        e.preventDefault();
+
+        var resultDiv = $("#resultDivContainer");
+
+        $.ajax({
+            type: "POST",
+            data: JSON.stringify({
+                page: $('#page :input').serializeFormJSON(),
+                content: simplemde.value()
+            }),
+            contentType: "application/json",
+            success: function (result) {
+                switch (result) {
+                    case true:
+                        processResponse(result);
+                        break;
+                    default:
+                        resultDiv.html(result);
+                }
+            }
+        });
+    });
+
+    function remove(fieldname) {
+        $("[id$=" + fieldname + "_id]").remove()
+    }
+
+    $('#add_button_id').click(function (e) {
+
+        e.preventDefault();
+        fieldname = $("#add_id").val()
+        $("#page").append(
+            "<label for='" + fieldname + "_id'>" + fieldname + " : </label>" +
+            "<input type='text' id='" + fieldname + "_id' name='" + fieldname + "'>" +
+            "<button type='button' id='remove_" + fieldname + "_id'>Remove</button><br>"
+        );
+
+    });
+
+</script>
+</body>
+</html>

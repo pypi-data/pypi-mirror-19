@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+</head>
+<body>
+
+<form id='test_form' action="upload" method="POST">
+    <label for="image_id">Image : </label><input type="file" onchange="readURL(this);" id="image_id" name="image" accept="image/*"><br>
+    <button type="submit">Save</button>
+    <img id="blah" src="#" alt="your image" />
+</form>
+
+<script>
+
+     function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result)
+                        .width(150)
+                        .height(200);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+    $('#test_form').submit(function (e) {
+        e.preventDefault();
+
+        var $form = $(this);
+        var formdata = (window.FormData) ? new FormData($form[0]) : null;
+        var data = (formdata !== null) ? formdata : $form.serialize();
+
+        $.ajax({
+            url: "/dev/editor/add",
+            type: "POST",
+            data: data,
+            contentType: false, // obligatoire pour de l'upload
+            processData: false, // obligatoire pour de l'upload
+            dataType: 'json', // selon le retour attendu
+            success: function (result) {
+                switch (result) {
+                    case true:
+                        processResponse(result);
+                        break;
+                    default:
+                        resultDiv.html(result);
+                }
+            }
+        });
+    })
+</script>
+
+</body>
+</html>
