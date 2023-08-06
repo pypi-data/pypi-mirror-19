@@ -1,0 +1,21 @@
+Metadata-Version: 2.0
+Name: wordsmith
+Version: 0.5
+Summary: A wrapper around the Wordsmith API written in python
+Home-page: UNKNOWN
+Author: John Hegele - Automated Insights
+Author-email: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: requests
+Requires-Dist: six
+
+UNKNOWN
+
+
