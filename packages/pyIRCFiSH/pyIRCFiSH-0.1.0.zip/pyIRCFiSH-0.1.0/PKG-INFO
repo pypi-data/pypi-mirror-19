@@ -1,0 +1,77 @@
+Metadata-Version: 1.0
+Name: pyIRCFiSH
+Version: 0.1.0
+Summary: Python implementation of the IRC with SSL and FiSH support.
+Home-page: http://pypi.python.org/pypi/pyIRCFiSH/
+Author: Brian Sykes
+Author-email: bsykes@bdscomputers.ca
+License: LICENSE.txt
+Description: =====
+        pyIRC
+        =====
+        
+        pyIRC is a self contained class that is used to create irc bots, it supports both TLSv1 secured connection and FiSH chat encryption. It is essentially a protocol handler and sends all information to the handler system explained below. FiSH is supported through the decrypt and encrypt functions in the bot class, you must use these added to whatever event handler you use to decrypt or encrypt as needed.
+        
+        This set of modules hopefully will allow for easy, simple bot creation for IRC using SSL or and FiSH should it be required. This module does not support every protocol used by IRC only those vital to getting a bot online and keeping it there. Currently protocol's the bot can read are: NOTICE, JOIN, PART, QUIT, PRIVMSG, PING and 376(End of MOTD - Signifies connected)
+        
+        These protocol's are all that is needed to get online, the bot does support nickserv registration and identify through two functions in the protocol class, nsreg(password, email) and nsid(password)
+        
+        Install
+        =======
+        
+        To install simply use pip like so::
+        
+            sudo pip install pyircfish
+        
+        Alright so to use this you dont really need much in the way of additional dependencies, and thats only PyCrypto for the blowfish encryption used in FiSH. Now i made the setup for this package to require PyCrypto and it should install regardless if not and you use a Debian/Ubuntu based system of linux just type::
+        
+            sudo pip install pycrypto
+        
+        How to Use
+        ==========
+        
+        To use the module is very simple and i designed it for ease of use, I included a pretty detailed sample bot in the project itself in the sample directory of the package.
+        
+        Below you'll find the class variable and function listing along with their descriptions.
+        
+        Class Details
+        -------------
+        
+        First is the bots class::
+        
+            bots.getbotbyserver(server) # Returns either the bot class of the server searched for, or returns False if not found
+            bots.makebot(server, port, username, realname="", ssl=False, events=None, verbose=False) # Creates a bot with the given arguments, all variables with definitions already are optional.
+        
+        
+        Now, to detail the variables contained within the bot class::
+        
+            bot.server # The server name given to the bot. (string)
+            bot.port # Port number given to the bot. (integer)
+            bot.username # Username given to the bot. (string)
+            bot.realname # Real name given to the bot. (string)
+            bot.ssl # Whether or not to use ssl. (boolean)
+            bot.verbose # Whether or not to print all incoming and outdoing data. (boolean)
+            bot.protocol # Contains various IRC protocol functions to make life easier and less annoying :P (class)
+            # The following are the various functions in the bot class.
+            bot.encrypt(key, input) # Encrypts messages to FiSH encryption using a given FiSH key. (This is tested and working successfully on a multi-channel multi-key bot i made.)
+            bot.decrypt(key, input) # Decrypts messages from FiSH encryption using a given FiSH key.(FiSH portion of this confirmed to work.) This also has untested Mircryption support, i have not had the chance to test it as i hate mIRC, XChat for life.
+            bot.connect() # Starts the connection process.
+            bot.disconnect() # Kills the socket and null's the variable it was in and forces the thread running to stop.
+            
+        The protocol class has a few functions in it that would be helpful, they are listed below::
+        
+            bot.protocol.joinChannel(channel) # Joins the given channel.
+            bot.protocol.leaveChannel(channel) # Leaves the given channel.
+            bot.protocol.quit([reason]) # Quits IRC, reason can be empty or given something to send.
+            bot.protocol.nsid(password) # Sends a message to nickserv identifying you using password given.
+            bot.protocol.nsreg(password, email) # Sends a message to nickserv to register the username the bot uses using the password and email provided.
+        
+        Event Handler
+        -------------
+        
+        To use the raised events the bot is capable of raising at various times during its running you can either use a class with specficially named functions or a dictionary using specifically named key's with their partner function being the value.
+        
+        The sample bot in the sample directory of this package uses the class handler, i find it a bit better than using just a dictionary, but the library supports either so have fun.
+        
+        
+Platform: UNKNOWN
