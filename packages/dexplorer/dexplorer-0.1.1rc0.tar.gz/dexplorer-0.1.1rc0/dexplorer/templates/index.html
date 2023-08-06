@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html ng-app="dataExplorer">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Data Explorer</title>
+    <link rel="stylesheet" href="{{ static_url("css/bootstrap.min.css") }}" type="text/css"/>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="{{ static_url('css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ static_url("css/template.css") }}" type="text/css"/>
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="{{ static_url('js/ie-emulation-modes-warning.js') }}"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-controller="DashCtrl">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Data Explorer</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Type: <strong ng-bind="vm.summary.type"></strong></a></li>
+            <li><a href="#">Rows: <strong ng-bind="vm.summary.rows"></strong></a></li>
+            <li><a href="#">Columns: <strong ng-bind="vm.summary.cols"></strong></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+          </ul>
+          <strong>Data Columns</strong>
+          <ul class="nav nav-sidebar columns" style="margin-left: 0px;">
+            <li ng-repeat="(col, summary) in vm.columns" ng-class="{active: vm.col==col}" title="View Column Details">
+              <a href="javascripts:void(0);" ng-bind="col" ng-click="viewColumn(col)"></a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <div>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#summary" aria-controls="summary" role="tab" data-toggle="tab">Summary</a></li>
+              <li role="presentation"><a href="#table" aria-controls="table" role="tab" data-toggle="tab" ng-click="loadTable()">Table</a></li>
+              <li role="presentation"><a href="#plots" aria-controls="plots" role="tab" data-toggle="tab" ng-click="loadPlots()">Plots</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane fade in active" id="summary">
+                <div class='col-sm-12 m-t-20' draw-plot plots="vm.plots">
+                  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default" ng-repeat="(col, summary) in vm.columns">
+                      <div class="panel-heading" role="tab" id="{[col]}">
+                        <h4 class="panel-title">
+                          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_{[col]}" aria-expanded="true" aria-controls="collapse_{[col]}" ng-bind="col">
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapse_{[col]}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="{[col]}">
+                        <div class="panel-body">
+                          <div class='col-sm-3'>
+                            <table class='table table-condensed summary-table'>
+                              <caption>Description</caption>
+                              <tbody>
+                                <tr ng-if="summary.dtype">
+                                  <td class='summary-label'>dtype:</td>
+                                  <td class='summary-value text-right' ng-bind='summary.dtype'></td>
+                                </tr>
+                                <tr ng-if="summary.count">
+                                  <td class='summary-label'>count:</td>
+                                  <td class='summary-value text-right' ng-bind='summary.count'></td>
+                                </tr>
+                                <tr ng-if="summary.num_unique">
+                                  <td class='summary-label'>num_unique:</td>
+                                  <td class='summary-value text-right' ng-bind='summary.unique'></td>
+                                </tr>
+                                <tr ng-if="summary.num_undefined">
+                                  <td class='summary-label'>num_undefined:</td>
+                                  <td class='summary-value text-right' ng-bind='summary.num_undefined'></td>
+                                </tr>
+                                <tr ng-if="summary.unique">
+                                  <td class='summary-label'>num_unique:</td>
+                                  <td class='summary-value text-right' ng-bind='summary.unique'></td>
+                                </tr>
+                                <tr ng-if="summary.min">
+                                  <td class='summary-label'>min:</td>
+                                  <td class='summary-value text-right' ng-bind='summary.min'></td>
+                                </tr>
+                                <tr ng-if="summary.max">
+                                  <td class='summary-label'>max:</td>
+                                  <td class='summary-value text-right' ng-bind='summary.max'></td>
+                                </tr>
+                                <tr ng-if="summary.median">
+                                  <td class='summary-label'>median:</td>
+                                  <td class='summary-value text-right' ng-bind='summary.median'></td>
+                                </tr>
+                                <tr ng-if="summary.mean">
+                                  <td class='summary-label'>mean:</td>
+                                  <td class='summary-value text-right' ng-bind='summary.mean'></td>
+                                </tr>
+                                <tr ng-if="summary.std">
+                                  <td class='summary-label'>std:</td>
+                                  <td class='summary-value text-right' ng-bind='summary.std'></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class='col-sm-9 text-center'>
+                          <table class="table">
+                            <caption ng-if="summary.dtype !='object'">Distribution Of Values</caption>
+                            <caption ng-if="summary.dtype =='object'">Frequent Items</caption>
+                            <tbody>
+                              <tr>
+                                <td id='plot_{[col]}' class="plot-container">
+                                  <div class="loader">
+                                    <img src="{{ static_url('img/spin.svg') }}" />
+                                    <p>Rendering plot...</p>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane fade" id="table" scroll='loadMore()'>
+                <div class="table-responsive">
+                  <div class="loader" ng-show="vm.table.loading">
+                    <img src="{{ static_url('img/spin.svg') }}" />
+                    <p>Loading more rows...</p>
+                  </div>
+                  <table class="table table-hover table-bordered">
+                    <caption>Showing <b>0</b> to <b ng-bind="vm.table.start"></b> records</caption>
+                    <thead>
+                      <tr>
+                        <th ng-repeat="col in vm.table.columns" >
+                          <a href="javascripts:void(0)" ng-bind="col" title="view column" ng-click="loadColumn(col)"></a>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="row in vm.table.data track by $index">
+                        <td ng-repeat='value in row track by $index' ng-bind="value"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane fade" id="plots">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="{{ static_url("js/jquery-3.1.1.min.js") }}" type="text/javascript"></script>
+    <script src="{{ static_url("js/bootstrap.min.js") }}" type="text/javascript"></script>
+    <script src="{{ static_url("js/angular.min.js") }}" type="text/javascript"></script>
+    <script src="{{ static_url("js/d3.v3.min.js") }}" type="text/javascript"></script>
+    <script src="{{ static_url("js/mpld3.v0.3.js") }}" type="text/javascript"></script>
+    <script src="{{ static_url("js/app.js") }}" type="text/javascript"></script>
+  </body>
+</html>
