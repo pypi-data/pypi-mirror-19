@@ -1,0 +1,8 @@
+# Packages needed for development
+Sphinx==1.5.1
+sphinx-argparse==0.1.15
+sphinx_rtd_theme==0.1.9
+tox==2.5.0
+pyinstaller==3.2
+pytest==3.0.5
+pytest-runner==2.9
