@@ -1,0 +1,9 @@
+Pithos changelog
+================
+
+Version 0.0.4
+-------------
+
+- Private data inside a session now uses keys starting with '__session' instead
+  of '_' to avoid conflict with Flask message flashing (which uses a key with
+  an underscore).
