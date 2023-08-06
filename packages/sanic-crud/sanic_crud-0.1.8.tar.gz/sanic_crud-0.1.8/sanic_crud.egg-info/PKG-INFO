@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: sanic-crud
+Version: 0.1.8
+Summary: A REST API framework for building CRUD APIs using Sanic and peewee
+Home-page: https://github.com/Typhon66/sanic_crud
+Author: Typhon
+Author-email: typhonnge@gmail.com
+License: MIT
+Description: UNKNOWN
+Keywords: sanic api rest crud
+Platform: any
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
