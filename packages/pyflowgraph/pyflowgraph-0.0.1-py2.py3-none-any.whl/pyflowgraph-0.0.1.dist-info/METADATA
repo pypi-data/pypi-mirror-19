@@ -1,0 +1,27 @@
+Metadata-Version: 2.0
+Name: pyflowgraph
+Version: 0.0.1
+Summary: An interactive data flow graph editor
+Home-page: https://github.com/EricTRocks/pyflowgraph
+Author: Eric Thivierge
+Author-email: ethivierge@gmail.com
+License: BSD 3-clause "New" or "Revised" License
+Keywords: data flow graph
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: User Interfaces
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: PySide (>=1.2.2,<1.2.4)
+Requires-Dist: future
+Requires-Dist: qtpy
+Requires-Dist: six
+
+An interactive data flow graph editor.
+
+
