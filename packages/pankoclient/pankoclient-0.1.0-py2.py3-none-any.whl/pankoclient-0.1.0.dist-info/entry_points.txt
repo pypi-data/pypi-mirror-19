@@ -1,0 +1,13 @@
+[console_scripts]
+panko = pankoclient.shell:main
+
+[keystoneauth1.plugin]
+panko-noauth = pankoclient.noauth:PankoNoAuthLoader
+
+[openstack.cli.extension]
+metric = pankoclient.osc
+
+[openstack.event.v2]
+capabilities list = pankoclient.v2.capabilities_cli:CliCapabilitiesList
+event list = pankoclient.v2.events_cli:CliEventList
+
