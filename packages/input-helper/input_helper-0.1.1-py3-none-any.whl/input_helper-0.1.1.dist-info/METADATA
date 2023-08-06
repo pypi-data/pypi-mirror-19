@@ -1,0 +1,48 @@
+Metadata-Version: 2.0
+Name: input-helper
+Version: 0.1.1
+Summary: Common CLI input helper functions and string/arg conversions
+Home-page: https://github.com/kenjyco/input-helper
+Author: Ken
+Author-email: kenjyco@gmail.com
+License: MIT
+Download-URL: https://github.com/kenjyco/input-helper/tarball/v0.1.1
+Keywords: input,cli,helper
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Intended Audience :: Developers
+
+Install
+^^^^^^^
+
+::
+
+    % pip install input-helper
+
+Usage
+^^^^^
+
+::
+
+    % ipython
+    ...
+
+    In [1]: import input_helper as ih
+
+    In [2]: real_args = ih.string_to_set('arg1, arg2, arg3')
+
+    In [3]: real_val = ih.from_string('true')
+
+    In [4]: response = ih.user_input('type some input, human')
+
+    In [5]: selected = ih.make_selections(list_of_items)
+
+    In [6]: seconds = ih.timestamp_to_seconds('1h22m33s')
+
+    In [7]: urls = ih.get_all_urls('some-file-with-urls.txt', 'https://blah.net')
+
+
