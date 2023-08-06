@@ -1,0 +1,32 @@
+Metadata-Version: 1.0
+Name: denarius
+Version: 2017.1.20.21
+Summary: currency and other utilities
+Home-page: https://github.com/wdbm/denarius
+Author: Will Breaden Madden
+Author-email: wbm@protonmail.ch
+License: GPLv3
+Description: denarius
+        ========
+        
+        currency and other utilities
+        
+        setup
+        =====
+        
+        .. code:: bash
+        
+            sudo apt-get install sqlite
+            sudo pip install denarius
+        
+        usage
+        =====
+        
+        .. figure:: images/2010_07_17--2017_01_20_Bitcoin_EUR.png
+           :alt: 
+        
+        .. figure:: images/2016-12--2017-01_Bitcoin_EUR.png
+           :alt: 
+        
+        
+Platform: UNKNOWN
