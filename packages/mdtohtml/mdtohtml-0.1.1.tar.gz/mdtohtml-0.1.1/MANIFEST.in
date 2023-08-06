@@ -1,0 +1,3 @@
+include LICENSE.txt README.rst mdtohtml-runner.py
+recursive-exclude *.pyc
+recursive-exclude *.git
