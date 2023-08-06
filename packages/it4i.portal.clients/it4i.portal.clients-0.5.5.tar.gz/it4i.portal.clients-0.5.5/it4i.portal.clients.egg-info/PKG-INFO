@@ -1,0 +1,42 @@
+Metadata-Version: 1.1
+Name: it4i.portal.clients
+Version: 0.5.5
+Summary: Client tools for accessing various client APIs of IT4I portals
+Home-page: http://www.it4i.cz/
+Author: IT4Innovations
+Author-email: support@it4i.cz
+License: BSD
+Description: List of available utilities
+        ---------------------------
+        
+        -  it4ifree - Show some basic information from IT4I PBS accounting.
+        -  motd\_rss - A generic tool for extracting RSS feed(s) into formatted
+           text or HTML page (using TAL / Zope Page Template).
+        
+        Installation / upgrading
+        ------------------------
+        
+        ::
+        
+            $ pip install --upgrade it4i.portal.clients
+        
+        Sample config file main.cfg
+        ---------------------------
+        
+        ::
+        
+            [main]
+        
+            # uncomment and fill in your IT4I username
+            #it4i_username = <your_username_here>
+        
+            # IT4I Extranet API
+            extranet_api_url = https://extranet.it4i.cz/
+        
+        -  System-wide config file path:
+           ``/usr/local/etc/it4i-portal-clients/main.cfg``
+        -  Local user's config file path: ``~/.it4i-portal-clients/main.cfg``
+        
+Keywords: accounting api client extranet feed it4i it4innovations it4i.portal.clients it4i-portal-clients motd pbs portal rss tool
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
