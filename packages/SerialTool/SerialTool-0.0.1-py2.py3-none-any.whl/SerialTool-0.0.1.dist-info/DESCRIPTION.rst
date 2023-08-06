@@ -1,0 +1,23 @@
+SerialTool Project 
+=======================
+
+overview
+----
+This is a small development tools for debugging the serial port programming.
+
+usage
+----
+SerailTool com baudrate databits parity stopbits [tx data types] [rx data types]
+    com: the serial port device name
+    baudrate: any standard baudrate, such as 9600, 115200, etc.
+    databits: 5,6,7,8
+    parity: N,E
+    stopbits: 1,1.5,2 
+    tx data types: string or hex, default is string if this parameter is null.
+    rx data types: string or hex, default is string if this parameter is null.
+
+simple usage examples
+----
+#SerialTool /dev/ttyUSB0 115200 8 N 1
+
+
