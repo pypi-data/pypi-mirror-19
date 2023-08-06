@@ -1,0 +1,48 @@
+Use-Cases 'FileSysObjects'
+==========================
+
+functions
+---------
+
+Function calls.
+
+
+branches
+--------
+
+Branch operactions.
+
+testdata
+--------
+
+Common test data.
+ 
+
+getModuleFilePathName
+----------------------
+
+Get the filepathname of a module. 
+
+getModulePathName
+-----------------
+
+Get the pathname of a module. 
+
+getSourceFilePathName
+---------------------
+
+Get the source filepathname of the caller. 
+
+getSourceFuncName
+-----------------
+
+Get the function name of the caller. 
+
+getSourceLinenumber
+-------------------
+
+Get the line number of the call. 
+
+
+
+
