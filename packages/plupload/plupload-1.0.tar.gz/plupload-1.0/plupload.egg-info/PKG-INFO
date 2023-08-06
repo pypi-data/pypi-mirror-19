@@ -1,0 +1,52 @@
+Metadata-Version: 1.1
+Name: plupload
+Version: 1.0
+Summary: use plupload javascript library with python web apps based on bottlepy
+Home-page: https://github.com/JonathanHuot/bottlepy-plupload
+Author: Jonathan Huot
+Author-email: jonathan.huot@gmail.com
+License: MIT
+Description: bottlepy-plupload
+        =================
+        
+        Uploading multiples files using plupload js library and bottlepy as never been easier.
+        
+        
+        Setup virtualenv
+        =================
+        ```
+        virtualenv dev
+        . dev/bin/activate
+        pip install bottle
+        ```
+        
+        Run multiple upload with plupload and bottle
+        =================
+        ```
+        . dev/bin/activate
+        python bottle-example.py
+        ```
+        
+        Save uploaded files in your Python code
+        =================
+        ```
+        from bottle import request, post
+        from plupload import plupload
+        
+        @post('/upload')
+        def index():
+            return plupload.save(request.forms, request.files, "/destination/folder")
+        ```
+        
+Keywords: bottle web wsgi js plupload
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Framework :: Bottle
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
