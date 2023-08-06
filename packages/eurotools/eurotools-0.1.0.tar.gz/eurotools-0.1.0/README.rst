@@ -1,0 +1,57 @@
+*************
+eurotools
+*************
+
+.. image:: http://gitlab.stonework.net/stoneworksolutions/eurotools/badges/master/build.svg
+     :target: http://gitlab.stonework.net/stoneworksolutions/eurotools/
+
+.. image:: http://gitlab.stonework.net/stoneworksolutions/eurotools/badges/master/coverage.svg
+     :target: http://gitlab.stonework.net/stoneworksolutions/eurotools/
+
+Comienzo rapido
+---------------
+
+1. Agregar la aplicacion deseada a INSTALLED_APPS::
+
+     INSTALLED_APPS = (
+         ...
+         "euroblock",
+         "eurocharts",
+         "eurocube",
+         "eurodate",
+         "eurodecorators",
+         "eurofilters",
+         "eurogrids",
+         "europlugin",
+     )
+
+2. Importar los estaticos:
+
+
+    <!-- jQuery UI -->
+    <script src="{{STATIC_URL}}plugins/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <link href="{{STATIC_URL}}plugins/jquery-ui-1.12.1/jquery-ui.min.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}plugins/jquery-ui-1.12.1/jquery-ui.theme.min.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}plugins/jquery-ui-1.12.1/jquery-ui.structure.min.css" rel="stylesheet">
+
+
+    <!-- MULTISELECT-->
+    <link href="{{ STATIC_URL }}css/euromultiselect.css" rel="stylesheet"/>
+    <script src="{{ STATIC_URL }}js/euromultiselect.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/eurofilters_localdb.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}lib/jquery-multiselect/src/jquery.multiselect.min.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}lib/jquery-multiselect/src/jquery.multiselect.filter.min.js" type="text/javascript"></script>
+
+    <!-- Add stoneplugins  -->
+    <script src="{{STATIC_URL}}js/euroutils.js"></script>
+
+    <!-- BLOCKUI -->
+    <script src="{{ STATIC_URL }}js/euroblock.js" type="text/javascript"></script>
+
+
+3. Ejemplo de uso:
+
+
+    euroselect = new eurofiltersIU(config, cb)
+    euroselect.createFilters(filters);
+
