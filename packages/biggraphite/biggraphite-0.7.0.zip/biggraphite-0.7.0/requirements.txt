@@ -1,0 +1,29 @@
+#To avoid a bug with pycassa https://github.com/pycassa/pycassa/issues/245
+thrift==0.9.3
+
+# Commande line
+humanize
+ipython
+parsedatetime
+progressbar2
+scandir
+
+# Memory driver
+sortedcontainers
+
+# Cassandra driver
+cassandra-driver
+scales
+
+# Core
+enum34
+cachetools
+prometheus_client
+
+# Metadata cache
+lmdb
+
+# Graphite
+whisper
+git+https://github.com/graphite-project/carbon.git@master#egg=carbon
+git+https://github.com/graphite-project/graphite-web.git@master#egg=graphite-web

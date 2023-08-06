@@ -1,0 +1,48 @@
+**THIS SOFTWARE IS NOT READY FOR PRODUCTION USE AND IS PROVIDED AS-IS**
+
+|Build Status| |Coverage Status| |Dependency Status| |Join the chat at
+https://gitter.im/criteo/biggraphite|
+
+Big Graphite
+============
+
+BigGraphite is a storage layer for timeseries data. It integrates with
+Graphite as a plugin.
+
+For usage information and how to contribute, please see
+`CONTRIBUTING.md <CONTRIBUTING.md>`__.
+
+Contact
+=======
+
+-  `Gitter <https://gitter.im/criteo/biggraphite>`__
+-  `Mailing
+   List <https://groups.google.com/forum/#!forum/biggraphite>`__
+
+Backends
+========
+
+There is only one supported backend for now: Cassandra, whose design is
+`described in CASSANDRA\_DESIGN.md <CASSANDRA_DESIGN.md>`__.
+
+Code structure
+==============
+
+-  ``biggraphite.accessor`` exposes the public API to store/retrieve
+   metrics
+-  ``biggraphite.metadata_cache`` implements a machine-local cache using
+   `LMDB <https://lmdb.readthedocs.io>`__ so that one does not need a
+   round-trip for each call to ``accessor``
+-  ``biggraphite.plugins.*`` implements integration with Carbon and
+   Graphite
+-  ``biggraphite.backends.*`` implements the storage backends (eg:
+   Cassandra-specific code)
+
+.. |Build Status| image:: https://travis-ci.org/criteo/biggraphite.svg?branch=master
+   :target: https://travis-ci.org/criteo/biggraphite
+.. |Coverage Status| image:: https://coveralls.io/repos/github/criteo/biggraphite/badge.svg?branch=initialimport
+   :target: https://coveralls.io/github/criteo/biggraphite?branch=master
+.. |Dependency Status| image:: https://gemnasium.com/badges/github.com/criteo/biggraphite.svg
+   :target: https://gemnasium.com/github.com/criteo/biggraphite
+.. |Join the chat at https://gitter.im/criteo/biggraphite| image:: https://badges.gitter.im/criteo/biggraphite.svg
+   :target: https://gitter.im/criteo/biggraphite?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
