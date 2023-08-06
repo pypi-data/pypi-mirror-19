@@ -1,0 +1,832 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Plotting Examples &mdash; wrf-python 1.0a3 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="wrf-python 1.0a3 documentation" href="index.html"/>
+        <link rel="next" title="API Reference" href="api.html"/>
+        <link rel="prev" title="How To Use" href="basic_usage.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> wrf-python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0a3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="new.html">What&#8217;s New</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="diagnostics.html">Table of Available Diagnostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_usage.html">How To Use</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Plotting Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#matplotlib-with-cartopy">Matplotlib With Cartopy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#plotting-a-two-dimensional-field">Plotting a Two-dimensional Field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#horizontal-interpolation-to-a-pressure-level">Horizontal Interpolation to a Pressure Level</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#panel-plots-from-front-page">Panel Plots From Front Page</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#matplotlib-with-basemap">Matplotlib with Basemap</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Plotting a Two-Dimensional Field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Horizontal Interpolation to a Pressure Level</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#panel-plots-from-the-front-page">Panel Plots from the Front Page</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#vertical-cross-section">Vertical Cross Section</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">wrf-python</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Plotting Examples</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/plot.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="plotting-examples">
+<h1>Plotting Examples<a class="headerlink" href="#plotting-examples" title="Permalink to this headline">¶</a></h1>
+<p>The examples below show how wrf-python can be used to make plots with
+matplotlib (with basemap and cartopy) and PyNGL.  None of these examples
+make use of xarray&#8217;s builtin plotting functions, since additional work is most
+likely needed to extend xarray in order to work correctly.  This is planned
+for a future release.</p>
+<div class="section" id="matplotlib-with-cartopy">
+<h2>Matplotlib With Cartopy<a class="headerlink" href="#matplotlib-with-cartopy" title="Permalink to this headline">¶</a></h2>
+<p>Cartopy is becoming the main tool for base mapping with matplotlib, but you should
+be aware of a few shortcomings when working with WRF data.</p>
+<ul class="simple">
+<li>The builtin transformations of coordinates when calling the contouring functions
+do not work correctly with the rotated pole projection.  The
+transform_points method needs to be called manually on the latitude and
+longitude arrays.</li>
+<li>The rotated pole projection requires the x and y limits to be set manually
+using set_xlim and set_ylim.</li>
+<li>You can&#8217;t place latitude and longitude labels on the axes when using
+any projection other than Mercator or LatLon.</li>
+</ul>
+<div class="section" id="plotting-a-two-dimensional-field">
+<h3>Plotting a Two-dimensional Field<a class="headerlink" href="#plotting-a-two-dimensional-field" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="_images/cartopy_slp.png"><img alt="_images/cartopy_slp.png" class="align-center" src="_images/cartopy_slp.png" style="width: 737.0px; height: 412.0px;" /></a>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.cm</span> <span class="kn">import</span> <span class="n">get_cmap</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="kn">as</span> <span class="nn">crs</span>
+<span class="kn">from</span> <span class="nn">cartopy.feature</span> <span class="kn">import</span> <span class="n">NaturalEarthFeature</span>
+
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="p">(</span><span class="n">to_np</span><span class="p">,</span> <span class="n">getvar</span><span class="p">,</span> <span class="n">smooth2d</span><span class="p">,</span> <span class="n">get_cartopy</span><span class="p">,</span> <span class="n">latlon_coords</span><span class="p">,</span>
+                <span class="n">cartopy_xlim</span><span class="p">,</span> <span class="n">cartopy_ylim</span><span class="p">)</span>
+
+<span class="n">ncfile</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_00_00_00&quot;</span><span class="p">)</span>
+
+<span class="c1"># Get the sea level pressure</span>
+<span class="n">slp</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;slp&quot;</span><span class="p">)</span>
+
+<span class="c1"># Smooth the sea level pressure since it tends to be noisy near the mountains</span>
+<span class="n">smooth_slp</span> <span class="o">=</span> <span class="n">smooth2d</span><span class="p">(</span><span class="n">slp</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Get the latitude and longitude coordinate arrays</span>
+<span class="n">lats</span><span class="p">,</span> <span class="n">lons</span> <span class="o">=</span> <span class="n">latlon_coords</span><span class="p">(</span><span class="n">smooth_slp</span><span class="p">)</span>
+
+<span class="c1"># The WrfProj.cartopy() method returns a cartopy.crs projection object</span>
+<span class="n">cart_proj</span> <span class="o">=</span> <span class="n">get_cartopy</span><span class="p">(</span><span class="n">smooth_slp</span><span class="p">)</span>
+
+<span class="c1"># Create a figure that&#39;s 10x10</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># Get the GeoAxes set to the projection used by WRF</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">cart_proj</span><span class="p">)</span>
+
+<span class="c1"># Download and add the states and coastlines</span>
+<span class="n">states</span> <span class="o">=</span> <span class="n">NaturalEarthFeature</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s1">&#39;cultural&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s1">&#39;50m&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span>
+                             <span class="n">name</span><span class="o">=</span><span class="s1">&#39;admin_1_states_provinces_shp&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">states</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=.</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">(</span><span class="s1">&#39;50m&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+
+<span class="c1"># Make the contour outlines and filled contours for the smoothed sea level pressure.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">to_np</span><span class="p">(</span><span class="n">lons</span><span class="p">),</span> <span class="n">to_np</span><span class="p">(</span><span class="n">lats</span><span class="p">),</span> <span class="n">to_np</span><span class="p">(</span><span class="n">smooth_slp</span><span class="p">),</span> <span class="mi">10</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+            <span class="n">transform</span><span class="o">=</span><span class="n">crs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">to_np</span><span class="p">(</span><span class="n">lons</span><span class="p">),</span> <span class="n">to_np</span><span class="p">(</span><span class="n">lats</span><span class="p">),</span> <span class="n">to_np</span><span class="p">(</span><span class="n">smooth_slp</span><span class="p">),</span> <span class="mi">10</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">crs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+
+<span class="c1"># Add a color bar</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=.</span><span class="mi">47</span><span class="p">)</span>
+
+<span class="c1"># Set the map limits</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">cartopy_xlim</span><span class="p">(</span><span class="n">smooth_slp</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">cartopy_ylim</span><span class="p">(</span><span class="n">smooth_slp</span><span class="p">))</span>
+
+<span class="c1"># Add the gridlines</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Sea Level Pressure (hPa)&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="horizontal-interpolation-to-a-pressure-level">
+<h3>Horizontal Interpolation to a Pressure Level<a class="headerlink" href="#horizontal-interpolation-to-a-pressure-level" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="_images/cartopy_500.png"><img alt="_images/cartopy_500.png" class="align-center" src="_images/cartopy_500.png" style="width: 668.0px; height: 501.0px;" /></a>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.cm</span> <span class="kn">import</span> <span class="n">get_cmap</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="kn">as</span> <span class="nn">crs</span>
+<span class="kn">from</span> <span class="nn">cartopy.feature</span> <span class="kn">import</span> <span class="n">NaturalEarthFeature</span>
+
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="p">(</span><span class="n">getvar</span><span class="p">,</span> <span class="n">interplevel</span><span class="p">,</span> <span class="n">to_np</span><span class="p">,</span> <span class="n">get_cartopy</span><span class="p">,</span>
+                <span class="n">latlon_coords</span><span class="p">,</span> <span class="n">cartopy_xlim</span><span class="p">,</span> <span class="n">cartopy_ylim</span><span class="p">)</span>
+
+<span class="n">ncfile</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_00_00_00&quot;</span><span class="p">)</span>
+
+<span class="c1"># Extract the pressure, geopotential height, and wind variables</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;pressure&quot;</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;dm&quot;</span><span class="p">)</span>
+<span class="n">ua</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;ua&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;kt&quot;</span><span class="p">)</span>
+<span class="n">va</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;va&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;kt&quot;</span><span class="p">)</span>
+<span class="n">wspd</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;wspd_wdir&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;kts&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">,:]</span>
+
+<span class="c1"># Interpolate geopotential height, u, and v winds to 500 hPa</span>
+<span class="n">ht_500</span> <span class="o">=</span> <span class="n">interplevel</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">u_500</span> <span class="o">=</span> <span class="n">interplevel</span><span class="p">(</span><span class="n">ua</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">v_500</span> <span class="o">=</span> <span class="n">interplevel</span><span class="p">(</span><span class="n">va</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">wspd_500</span> <span class="o">=</span> <span class="n">interplevel</span><span class="p">(</span><span class="n">wspd</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># Get the lat/lon coordinates</span>
+<span class="n">lats</span><span class="p">,</span> <span class="n">lons</span> <span class="o">=</span> <span class="n">latlon_coords</span><span class="p">(</span><span class="n">ht_500</span><span class="p">)</span>
+
+<span class="c1"># Get the cartopy map projection information</span>
+<span class="n">cart_proj</span> <span class="o">=</span> <span class="n">get_cartopy</span><span class="p">(</span><span class="n">ht_500</span><span class="p">)</span>
+
+<span class="c1"># Create the figure</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.8</span><span class="p">],</span> <span class="n">projection</span><span class="o">=</span><span class="n">cart_proj</span><span class="p">)</span>
+
+<span class="c1"># Download and add the states and coastlines</span>
+<span class="n">states</span> <span class="o">=</span> <span class="n">NaturalEarthFeature</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s1">&#39;cultural&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s1">&#39;50m&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span>
+                             <span class="n">name</span><span class="o">=</span><span class="s1">&#39;admin_1_states_provinces_shp&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">states</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">(</span><span class="s1">&#39;50m&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+
+<span class="c1"># Create the 500 hPa geopotential height contours</span>
+<span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">520.</span><span class="p">,</span> <span class="mf">580.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">)</span>
+<span class="n">contours</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">to_np</span><span class="p">(</span><span class="n">lons</span><span class="p">),</span> <span class="n">to_np</span><span class="p">(</span><span class="n">lats</span><span class="p">),</span> <span class="n">to_np</span><span class="p">(</span><span class="n">ht_500</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+            <span class="n">transform</span><span class="o">=</span><span class="n">crs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clabel</span><span class="p">(</span><span class="n">contours</span><span class="p">,</span> <span class="n">inline</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%i</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Wind Speed contours</span>
+<span class="n">levels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">120</span><span class="p">]</span>
+<span class="n">wspd_contours</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">to_np</span><span class="p">(</span><span class="n">lons</span><span class="p">),</span> <span class="n">to_np</span><span class="p">(</span><span class="n">lats</span><span class="p">),</span> <span class="n">to_np</span><span class="p">(</span><span class="n">wspd_500</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span>
+                             <span class="n">cmap</span><span class="o">=</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;rainbow&quot;</span><span class="p">),</span>
+                             <span class="n">transform</span><span class="o">=</span><span class="n">crs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">wspd_contours</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;horizontal&quot;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=.</span><span class="mo">05</span><span class="p">)</span>
+
+<span class="c1"># Add the 500 hPa wind barbs, only plotting every 125th data point.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">barbs</span><span class="p">(</span><span class="n">to_np</span><span class="p">(</span><span class="n">lons</span><span class="p">[::</span><span class="mi">125</span><span class="p">,::</span><span class="mi">125</span><span class="p">]),</span> <span class="n">to_np</span><span class="p">(</span><span class="n">lats</span><span class="p">[::</span><span class="mi">125</span><span class="p">,::</span><span class="mi">125</span><span class="p">]),</span> <span class="n">to_np</span><span class="p">(</span><span class="n">u_500</span><span class="p">[::</span><span class="mi">125</span><span class="p">,</span> <span class="p">::</span><span class="mi">125</span><span class="p">]),</span>
+          <span class="n">to_np</span><span class="p">(</span><span class="n">v_500</span><span class="p">[::</span><span class="mi">125</span><span class="p">,</span> <span class="p">::</span><span class="mi">125</span><span class="p">]),</span> <span class="n">transform</span><span class="o">=</span><span class="n">crs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> <span class="n">length</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="c1"># Set the map bounds</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">cartopy_xlim</span><span class="p">(</span><span class="n">ht_500</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">cartopy_ylim</span><span class="p">(</span><span class="n">ht_500</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;500 MB Height (dm), Wind Speed (kt), Barbs (kt)&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="panel-plots-from-front-page">
+<h3>Panel Plots From Front Page<a class="headerlink" href="#panel-plots-from-front-page" title="Permalink to this headline">¶</a></h3>
+<p>This lengthy example shows how to make the panel plots on the first page
+of the documentation.  For a simpler example of how to make a cross section
+plot, see <a class="reference internal" href="#cross-example"><span class="std std-ref">Vertical Cross Section</span></a>.</p>
+<a class="reference internal image-reference" href="_images/matthew.png"><img alt="_images/matthew.png" class="align-center" src="_images/matthew.png" style="width: 553.0px; height: 480.0px;" /></a>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.cm</span> <span class="kn">import</span> <span class="n">get_cmap</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="kn">as</span> <span class="nn">crs</span>
+<span class="kn">import</span> <span class="nn">cartopy.feature</span> <span class="kn">as</span> <span class="nn">cfeature</span>
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="p">(</span><span class="n">getvar</span><span class="p">,</span> <span class="n">to_np</span><span class="p">,</span> <span class="n">vertcross</span><span class="p">,</span> <span class="n">smooth2d</span><span class="p">,</span> <span class="n">CoordPair</span><span class="p">,</span> <span class="n">GeoBounds</span><span class="p">,</span>
+                <span class="n">latlon_coords</span><span class="p">,</span> <span class="n">get_cartopy</span><span class="p">,</span> <span class="n">cartopy_xlim</span><span class="p">,</span> <span class="n">cartopy_ylim</span><span class="p">)</span>
+
+<span class="c1"># Open the output NetCDF file</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;wrfout_d01_2016-10-07_00_00_00&quot;</span>
+<span class="n">ncfile</span> <span class="o">=</span> <span class="n">DataSet</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+<span class="c1"># Get the WRF variables</span>
+<span class="n">slp</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;slp&quot;</span><span class="p">)</span>
+<span class="n">smooth_slp</span> <span class="o">=</span> <span class="n">smooth2d</span><span class="p">(</span><span class="n">slp</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">ctt</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;ctt&quot;</span><span class="p">)</span>
+<span class="n">height</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">)</span>
+<span class="n">dbz</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;dbz&quot;</span><span class="p">)</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="n">dbz</span><span class="o">/</span><span class="mf">10.</span><span class="p">)</span>
+<span class="n">wspd</span> <span class="o">=</span>  <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;wspd_wdir&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;kt&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">,:]</span>
+
+<span class="c1"># Set the start point and end point for the cross section</span>
+<span class="n">start_point</span> <span class="o">=</span> <span class="n">CoordPair</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="mf">26.76</span><span class="p">,</span> <span class="n">lon</span><span class="o">=-</span><span class="mf">80.0</span><span class="p">)</span>
+<span class="n">end_point</span> <span class="o">=</span> <span class="n">CoordPair</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="mf">26.76</span><span class="p">,</span> <span class="n">lon</span><span class="o">=-</span><span class="mf">77.8</span><span class="p">)</span>
+
+<span class="c1"># Compute the vertical cross-section interpolation.  Also, include the</span>
+<span class="c1"># lat/lon points along the cross-section in the metadata by setting</span>
+<span class="c1"># latlon to True.</span>
+<span class="n">z_cross</span> <span class="o">=</span> <span class="n">vertcross</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">wrfin</span><span class="o">=</span><span class="n">ncfile</span><span class="p">,</span> <span class="n">start_point</span><span class="o">=</span><span class="n">start_point</span><span class="p">,</span>
+                    <span class="n">end_point</span><span class="o">=</span><span class="n">end_point</span><span class="p">,</span> <span class="n">latlon</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">wspd_cross</span> <span class="o">=</span> <span class="n">vertcross</span><span class="p">(</span><span class="n">wspd</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">wrfin</span><span class="o">=</span><span class="n">ncfile</span><span class="p">,</span> <span class="n">start_point</span><span class="o">=</span><span class="n">start_point</span><span class="p">,</span>
+                       <span class="n">end_point</span><span class="o">=</span><span class="n">end_point</span><span class="p">,</span> <span class="n">latlon</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">dbz_cross</span> <span class="o">=</span> <span class="mf">10.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">z_cross</span><span class="p">)</span>
+
+<span class="c1"># Get the latitude and longitude coordinate arrays</span>
+<span class="n">lats</span><span class="p">,</span> <span class="n">lons</span> <span class="o">=</span> <span class="n">latlon_coords</span><span class="p">(</span><span class="n">slp</span><span class="p">)</span>
+
+<span class="c1"># Get the cartopy projection object</span>
+<span class="n">cart_proj</span> <span class="o">=</span> <span class="n">get_cartopy</span><span class="p">(</span><span class="n">slp</span><span class="p">)</span>
+
+<span class="c1"># Create the figure which will have 3 subplots, one on the left, and</span>
+<span class="c1"># two vertically stacked on the right.</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax_ctt</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">projection</span><span class="o">=</span><span class="n">cart_proj</span><span class="p">)</span>
+<span class="n">ax_wspd</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax_dbz</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># Download and create the states, land, and oceans using cartopy features</span>
+<span class="n">states</span> <span class="o">=</span> <span class="n">cfeature</span><span class="o">.</span><span class="n">NaturalEarthFeature</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s1">&#39;cultural&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s1">&#39;50m&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span>
+                                      <span class="n">name</span><span class="o">=</span><span class="s1">&#39;admin_1_states_provinces_shp&#39;</span><span class="p">)</span>
+<span class="n">land</span> <span class="o">=</span> <span class="n">cfeature</span><span class="o">.</span><span class="n">NaturalEarthFeature</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s1">&#39;physical&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;land&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s1">&#39;50m&#39;</span><span class="p">,</span>
+                                    <span class="n">facecolor</span><span class="o">=</span><span class="n">cfeature</span><span class="o">.</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;land&#39;</span><span class="p">])</span>
+<span class="n">ocean</span> <span class="o">=</span> <span class="n">cfeature</span><span class="o">.</span><span class="n">NaturalEarthFeature</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s1">&#39;physical&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s1">&#39;50m&#39;</span><span class="p">,</span>
+                                     <span class="n">facecolor</span><span class="o">=</span><span class="n">cfeature</span><span class="o">.</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;water&#39;</span><span class="p">])</span>
+
+<span class="c1"># Make the ctt contours.</span>
+<span class="n">contour_levels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">960</span><span class="p">,</span> <span class="mi">965</span><span class="p">,</span> <span class="mi">970</span><span class="p">,</span> <span class="mi">975</span><span class="p">,</span> <span class="mi">980</span><span class="p">,</span> <span class="mi">990</span><span class="p">]</span>
+<span class="n">c1</span> <span class="o">=</span> <span class="n">ax_ctt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">to_np</span><span class="p">(</span><span class="n">lons</span><span class="p">),</span> <span class="n">to_np</span><span class="p">(</span><span class="n">lats</span><span class="p">),</span> <span class="n">to_np</span><span class="p">(</span><span class="n">smooth_slp</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="n">contour_levels</span><span class="p">,</span>
+            <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">crs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+<span class="c1"># Create the filled cloud top temperature contours</span>
+<span class="n">contour_levels</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">80.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">70.0</span><span class="p">,</span> <span class="o">-</span><span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">ctt_contours</span> <span class="o">=</span> <span class="n">ax_ctt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">lons</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">to_np</span><span class="p">(</span><span class="n">ctt</span><span class="p">),</span> <span class="n">contour_levels</span><span class="p">,</span>
+                               <span class="n">cmap</span><span class="o">=</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;Greys&quot;</span><span class="p">),</span> <span class="n">transform</span><span class="o">=</span><span class="n">crs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
+                               <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Draw the yellow cross section line</span>
+<span class="n">ax_ctt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">start_point</span><span class="o">.</span><span class="n">lon</span><span class="p">,</span> <span class="n">end_point</span><span class="o">.</span><span class="n">lon</span><span class="p">],</span> <span class="p">[</span><span class="n">start_point</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">end_point</span><span class="o">.</span><span class="n">lat</span><span class="p">],</span>
+            <span class="n">color</span><span class="o">=</span><span class="s2">&quot;yellow&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">crs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Create the label bar for cloud top temperature</span>
+<span class="n">cb_ctt</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">ctt_contours</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_ctt</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=.</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">cb_ctt</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Draw the oceans, land, and states</span>
+<span class="n">ax_ctt</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">ocean</span><span class="p">)</span>
+<span class="n">ax_ctt</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">land</span><span class="p">)</span>
+<span class="n">ax_ctt</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">states</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
+<span class="c1"># Crop the domain to the region around the hurricane</span>
+<span class="n">hur_bounds</span> <span class="o">=</span> <span class="n">GeoBounds</span><span class="p">(</span><span class="n">CoordPair</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">to_np</span><span class="p">(</span><span class="n">lats</span><span class="p">)),</span> <span class="n">lon</span><span class="o">=-</span><span class="mf">85.0</span><span class="p">),</span>
+                       <span class="n">CoordPair</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="mf">30.0</span><span class="p">,</span> <span class="n">lon</span><span class="o">=-</span><span class="mf">72.0</span><span class="p">))</span>
+<span class="n">ax_ctt</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">cartopy_xlim</span><span class="p">(</span><span class="n">ctt</span><span class="p">,</span> <span class="n">geobounds</span><span class="o">=</span><span class="n">hur_bounds</span><span class="p">))</span>
+<span class="n">ax_ctt</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">cartopy_ylim</span><span class="p">(</span><span class="n">ctt</span><span class="p">,</span> <span class="n">geobounds</span><span class="o">=</span><span class="n">hur_bounds</span><span class="p">))</span>
+<span class="n">ax_ctt</span><span class="o">.</span><span class="n">gridlines</span><span class="p">()</span>
+
+<span class="c1"># Make the contour plot for wspd</span>
+<span class="n">wspd_contours</span> <span class="o">=</span> <span class="n">ax_wspd</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">to_np</span><span class="p">(</span><span class="n">wspd_cross</span><span class="p">))</span>
+<span class="c1"># Add the color bar</span>
+<span class="n">cb_wspd</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">wspd_contours</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_wspd</span><span class="p">)</span>
+<span class="n">cb_wspd</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Make the contour plot for dbz</span>
+<span class="n">levels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">)]</span>
+<span class="n">dbz_contours</span> <span class="o">=</span> <span class="n">ax_dbz</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">to_np</span><span class="p">(</span><span class="n">dbz_cross</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">)</span>
+<span class="n">cb_dbz</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">dbz_contours</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_dbz</span><span class="p">)</span>
+<span class="n">cb_dbz</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Set the x-ticks to use latitude and longitude labels.</span>
+<span class="n">coord_pairs</span> <span class="o">=</span> <span class="n">to_np</span><span class="p">(</span><span class="n">dbz_cross</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s2">&quot;xy_loc&quot;</span><span class="p">])</span>
+<span class="n">x_ticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">coord_pairs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">x_labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">pair</span><span class="o">.</span><span class="n">latlon_str</span><span class="p">()</span> <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">to_np</span><span class="p">(</span><span class="n">coord_pairs</span><span class="p">)]</span>
+<span class="n">ax_wspd</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">[::</span><span class="mi">20</span><span class="p">])</span>
+<span class="n">ax_wspd</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">ax_dbz</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">[::</span><span class="mi">20</span><span class="p">])</span>
+<span class="n">ax_dbz</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">x_labels</span><span class="p">[::</span><span class="mi">20</span><span class="p">],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># Set the y-ticks to be height.</span>
+<span class="n">vert_vals</span> <span class="o">=</span> <span class="n">to_np</span><span class="p">(</span><span class="n">dbz_cross</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s2">&quot;vertical&quot;</span><span class="p">])</span>
+<span class="n">v_ticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">vert_vals</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax_wspd</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">v_ticks</span><span class="p">[::</span><span class="mi">20</span><span class="p">])</span>
+<span class="n">ax_wspd</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">vert_vals</span><span class="p">[::</span><span class="mi">20</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">ax_dbz</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">v_ticks</span><span class="p">[::</span><span class="mi">20</span><span class="p">])</span>
+<span class="n">ax_dbz</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">vert_vals</span><span class="p">[::</span><span class="mi">20</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># Set the x-axis and  y-axis labels</span>
+<span class="n">ax_dbz</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Latitude, Longitude&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ax_wspd</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Height (m)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ax_dbz</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Height (m)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Add titles</span>
+<span class="n">ax_ctt</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Cloud Top Temperature (degC)&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;fontsize&quot;</span> <span class="p">:</span> <span class="mi">7</span><span class="p">})</span>
+<span class="n">ax_wspd</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Cross-Section of Wind Speed (kt)&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;fontsize&quot;</span> <span class="p">:</span> <span class="mi">7</span><span class="p">})</span>
+<span class="n">ax_dbz</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Cross-Section of Reflectivity (dBZ)&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;fontsize&quot;</span> <span class="p">:</span> <span class="mi">7</span><span class="p">})</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="matplotlib-with-basemap">
+<h2>Matplotlib with Basemap<a class="headerlink" href="#matplotlib-with-basemap" title="Permalink to this headline">¶</a></h2>
+<p>Although basemap is in maintenance mode only and becoming deprecated, it is still
+widely used by many programmers.  Cartopy is becoming the preferred package for
+mapping, however it suffers from growing pains in some areas
+(can&#8217;t use latitude/longitude labels for many map projections).  If you
+run in to these issues, basemap is likely to accomplish what you need, despite
+slower performance.</p>
+<div class="section" id="id1">
+<h3>Plotting a Two-Dimensional Field<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="_images/basemap_slp.png"><img alt="_images/basemap_slp.png" class="align-center" src="_images/basemap_slp.png" style="width: 602.0px; height: 339.0px;" /></a>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.cm</span> <span class="kn">import</span> <span class="n">get_cmap</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.basemap</span> <span class="kn">import</span> <span class="n">Basemap</span>
+
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="n">to_np</span><span class="p">,</span> <span class="n">getvar</span><span class="p">,</span> <span class="n">smooth2d</span><span class="p">,</span> <span class="n">latlon_coords</span><span class="p">,</span> <span class="n">get_basemap</span>
+
+<span class="n">ncfile</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_00_00_00&quot;</span><span class="p">)</span>
+
+<span class="c1"># Get the sea level pressure</span>
+<span class="n">slp</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;slp&quot;</span><span class="p">)</span>
+
+<span class="c1"># Smooth the sea level pressure since it tends to be noisey near the mountains</span>
+<span class="n">smooth_slp</span> <span class="o">=</span> <span class="n">smooth2d</span><span class="p">(</span><span class="n">slp</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Get the latitude and longitude coordinates</span>
+<span class="n">lats</span><span class="p">,</span> <span class="n">lons</span> <span class="o">=</span> <span class="n">latlon_coords</span><span class="p">(</span><span class="n">slp</span><span class="p">)</span>
+
+<span class="c1"># Get the basemap projection object</span>
+<span class="n">bm</span> <span class="o">=</span> <span class="n">get_basemap</span><span class="p">(</span><span class="n">slp</span><span class="p">)</span>
+
+<span class="c1"># Create a figure that&#39;s 10x10</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="n">bm</span><span class="o">.</span><span class="n">drawcoastlines</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">bm</span><span class="o">.</span><span class="n">drawstates</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">bm</span><span class="o">.</span><span class="n">drawcountries</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+
+<span class="c1"># Convert the lats and lons to x and y.  Make sure you convert the lats and lons to</span>
+<span class="c1"># numpy arrays via to_np, or basemap crashes with an undefined RuntimeError.</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">bm</span><span class="p">(</span><span class="n">to_np</span><span class="p">(</span><span class="n">lons</span><span class="p">),</span> <span class="n">to_np</span><span class="p">(</span><span class="n">lats</span><span class="p">))</span>
+
+<span class="c1"># Draw the contours and filled contours</span>
+<span class="n">bm</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">to_np</span><span class="p">(</span><span class="n">smooth_slp</span><span class="p">),</span> <span class="mi">10</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">bm</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">to_np</span><span class="p">(</span><span class="n">smooth_slp</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Add a color bar</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">shrink</span><span class="o">=.</span><span class="mi">47</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Sea Level Pressure (hPa)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Horizontal Interpolation to a Pressure Level<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="_images/basemap_500.png"><img alt="_images/basemap_500.png" class="align-center" src="_images/basemap_500.png" style="width: 668.0px; height: 501.0px;" /></a>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.cm</span> <span class="kn">import</span> <span class="n">get_cmap</span>
+
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="n">getvar</span><span class="p">,</span> <span class="n">interplevel</span><span class="p">,</span> <span class="n">to_np</span><span class="p">,</span> <span class="n">get_basemap</span><span class="p">,</span> <span class="n">latlon_coords</span>
+
+<span class="n">ncfile</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_00_00_00&quot;</span><span class="p">)</span>
+
+<span class="c1"># Extract the pressure, geopotential height, and wind variables</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;pressure&quot;</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;dm&quot;</span><span class="p">)</span>
+<span class="n">ua</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;ua&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;kt&quot;</span><span class="p">)</span>
+<span class="n">va</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;va&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;kt&quot;</span><span class="p">)</span>
+<span class="n">wspd</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;wspd_wdir&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;kts&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">,:]</span>
+
+<span class="c1"># Interpolate geopotential height, u, and v winds to 500 hPa</span>
+<span class="n">ht_500</span> <span class="o">=</span> <span class="n">interplevel</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">u_500</span> <span class="o">=</span> <span class="n">interplevel</span><span class="p">(</span><span class="n">ua</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">v_500</span> <span class="o">=</span> <span class="n">interplevel</span><span class="p">(</span><span class="n">va</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">wspd_500</span> <span class="o">=</span> <span class="n">interplevel</span><span class="p">(</span><span class="n">wspd</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># Get the lat/lon coordinates</span>
+<span class="n">lats</span><span class="p">,</span> <span class="n">lons</span> <span class="o">=</span> <span class="n">latlon_coords</span><span class="p">(</span><span class="n">ht_500</span><span class="p">)</span>
+
+<span class="c1"># Get the basemap projection object</span>
+<span class="n">bm</span> <span class="o">=</span> <span class="n">get_basemap</span><span class="p">(</span><span class="n">ht_500</span><span class="p">)</span>
+
+<span class="c1"># Create the figure</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.8</span><span class="p">])</span>
+
+<span class="c1"># Get the x and y coordinates</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">bm</span><span class="p">(</span><span class="n">to_np</span><span class="p">(</span><span class="n">lons</span><span class="p">),</span> <span class="n">to_np</span><span class="p">(</span><span class="n">lats</span><span class="p">))</span>
+
+<span class="c1"># Create the 500 hPa geopotential height contours</span>
+<span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">520.</span><span class="p">,</span> <span class="mf">580.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">)</span>
+<span class="n">contours</span> <span class="o">=</span> <span class="n">bm</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">to_np</span><span class="p">(</span><span class="n">ht_500</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clabel</span><span class="p">(</span><span class="n">contours</span><span class="p">,</span> <span class="n">inline</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%i</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Wind Speed contours</span>
+<span class="n">levels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">120</span><span class="p">]</span>
+<span class="n">wspd_contours</span> <span class="o">=</span> <span class="n">bm</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">to_np</span><span class="p">(</span><span class="n">wspd_500</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span>
+                             <span class="n">cmap</span><span class="o">=</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;rainbow&quot;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">wspd_contours</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;horizontal&quot;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=.</span><span class="mo">05</span><span class="p">)</span>
+
+<span class="n">bm</span><span class="o">.</span><span class="n">drawcoastlines</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">bm</span><span class="o">.</span><span class="n">drawstates</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">bm</span><span class="o">.</span><span class="n">drawcountries</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+
+<span class="c1"># Add the 500 hPa wind barbs, only plotting every 125th data point.</span>
+<span class="n">bm</span><span class="o">.</span><span class="n">barbs</span><span class="p">(</span><span class="n">x</span><span class="p">[::</span><span class="mi">125</span><span class="p">,::</span><span class="mi">125</span><span class="p">],</span> <span class="n">y</span><span class="p">[::</span><span class="mi">125</span><span class="p">,::</span><span class="mi">125</span><span class="p">],</span> <span class="n">to_np</span><span class="p">(</span><span class="n">u_500</span><span class="p">[::</span><span class="mi">125</span><span class="p">,</span> <span class="p">::</span><span class="mi">125</span><span class="p">]),</span>
+          <span class="n">to_np</span><span class="p">(</span><span class="n">v_500</span><span class="p">[::</span><span class="mi">125</span><span class="p">,</span> <span class="p">::</span><span class="mi">125</span><span class="p">]),</span> <span class="n">length</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;500 MB Height (dm), Wind Speed (kt), Barbs (kt)&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="panel-plots-from-the-front-page">
+<h3>Panel Plots from the Front Page<a class="headerlink" href="#panel-plots-from-the-front-page" title="Permalink to this headline">¶</a></h3>
+<p>This lengthy example shows how to make the panel plots on the first page
+of the documentation.  For a simpler example of how to make a cross section
+plot, see <a class="reference internal" href="#cross-example"><span class="std std-ref">Vertical Cross Section</span></a>.</p>
+<a class="reference internal image-reference" href="_images/basemap_front.png"><img alt="_images/basemap_front.png" class="align-center" src="_images/basemap_front.png" style="width: 625.0px; height: 480.0px;" /></a>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.cm</span> <span class="kn">import</span> <span class="n">get_cmap</span>
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="n">getvar</span><span class="p">,</span> <span class="n">to_np</span><span class="p">,</span> <span class="n">vertcross</span><span class="p">,</span> <span class="n">smooth2d</span><span class="p">,</span> <span class="n">CoordPair</span><span class="p">,</span> <span class="n">get_basemap</span><span class="p">,</span> <span class="n">latlon_coords</span>
+
+<span class="c1"># Open the output NetCDF file</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;/Users/ladwig/Documents/wrf_files/wrfout_d01_2016-10-07_00_00_00&quot;</span>
+<span class="n">ncfile</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+<span class="c1"># Get the WRF variables</span>
+<span class="n">slp</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;slp&quot;</span><span class="p">)</span>
+<span class="n">smooth_slp</span> <span class="o">=</span> <span class="n">smooth2d</span><span class="p">(</span><span class="n">slp</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">ctt</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;ctt&quot;</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="n">timeidx</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">dbz</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;dbz&quot;</span><span class="p">,</span> <span class="n">timeidx</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="n">dbz</span><span class="o">/</span><span class="mf">10.</span><span class="p">)</span>
+<span class="n">wspd</span> <span class="o">=</span>  <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;wspd_wdir&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;kt&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">,:]</span>
+
+<span class="c1"># Set the start point and end point for the cross section</span>
+<span class="n">start_point</span> <span class="o">=</span> <span class="n">CoordPair</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="mf">26.76</span><span class="p">,</span> <span class="n">lon</span><span class="o">=-</span><span class="mf">80.0</span><span class="p">)</span>
+<span class="n">end_point</span> <span class="o">=</span> <span class="n">CoordPair</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="mf">26.76</span><span class="p">,</span> <span class="n">lon</span><span class="o">=-</span><span class="mf">77.8</span><span class="p">)</span>
+
+<span class="c1"># Compute the vertical cross-section interpolations.  Also, include the lat/lon points along the cross-section</span>
+<span class="c1"># in the metadata by setting latlon to True.</span>
+<span class="n">z_cross</span> <span class="o">=</span> <span class="n">vertcross</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">wrfin</span><span class="o">=</span><span class="n">ncfile</span><span class="p">,</span> <span class="n">start_point</span><span class="o">=</span><span class="n">start_point</span><span class="p">,</span> <span class="n">end_point</span><span class="o">=</span><span class="n">end_point</span><span class="p">,</span> <span class="n">latlon</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">wspd_cross</span> <span class="o">=</span> <span class="n">vertcross</span><span class="p">(</span><span class="n">wspd</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">wrfin</span><span class="o">=</span><span class="n">ncfile</span><span class="p">,</span> <span class="n">start_point</span><span class="o">=</span><span class="n">start_point</span><span class="p">,</span> <span class="n">end_point</span><span class="o">=</span><span class="n">end_point</span><span class="p">,</span> <span class="n">latlon</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">dbz_cross</span> <span class="o">=</span> <span class="mf">10.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">z_cross</span><span class="p">)</span>
+
+<span class="c1"># Extract the latitude and longitude coordinate arrays</span>
+<span class="n">lats</span><span class="p">,</span> <span class="n">lons</span> <span class="o">=</span> <span class="n">latlon_coords</span><span class="p">(</span><span class="n">slp</span><span class="p">)</span>
+
+<span class="c1"># Create a figure that will have 3 subplots.  One on the left,</span>
+<span class="c1"># two vertically stacked on the right.</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax_ctt</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax_wspd</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax_dbz</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># Get the basemap projection class</span>
+<span class="n">bm</span> <span class="o">=</span> <span class="n">get_basemap</span><span class="p">(</span><span class="n">slp</span><span class="p">)</span>
+
+<span class="c1"># Get the x, y values</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">bm</span><span class="p">(</span><span class="n">to_np</span><span class="p">(</span><span class="n">lons</span><span class="p">),</span> <span class="n">to_np</span><span class="p">(</span><span class="n">lats</span><span class="p">))</span>
+
+<span class="c1"># Make the pressure contours.</span>
+<span class="n">contour_levels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">960</span><span class="p">,</span> <span class="mi">965</span><span class="p">,</span> <span class="mi">970</span><span class="p">,</span> <span class="mi">975</span><span class="p">,</span> <span class="mi">980</span><span class="p">,</span> <span class="mi">990</span><span class="p">]</span>
+<span class="n">c1</span> <span class="o">=</span> <span class="n">bm</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">to_np</span><span class="p">(</span><span class="n">smooth_slp</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="n">contour_levels</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+                <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_ctt</span><span class="p">)</span>
+
+<span class="c1"># Create the filled cloud top temperature contours</span>
+<span class="n">contour_levels</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">80.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">70.0</span><span class="p">,</span> <span class="o">-</span><span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">ctt_contours</span> <span class="o">=</span> <span class="n">bm</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">to_np</span><span class="p">(</span><span class="n">ctt</span><span class="p">),</span> <span class="n">contour_levels</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;Greys&quot;</span><span class="p">),</span>
+                               <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_ctt</span><span class="p">)</span>
+
+<span class="n">point_x</span><span class="p">,</span> <span class="n">point_y</span> <span class="o">=</span> <span class="n">bm</span><span class="p">([</span><span class="n">start_point</span><span class="o">.</span><span class="n">lon</span><span class="p">,</span> <span class="n">end_point</span><span class="o">.</span><span class="n">lon</span><span class="p">],</span> <span class="p">[</span><span class="n">start_point</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">end_point</span><span class="o">.</span><span class="n">lat</span><span class="p">])</span>
+<span class="n">bm</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">point_x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">point_x</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[</span><span class="n">point_y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">point_y</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;yellow&quot;</span><span class="p">,</span>
+            <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_ctt</span><span class="p">)</span>
+
+<span class="c1"># Create the label bar for cloud top temperature</span>
+<span class="n">cb_ctt</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">ctt_contours</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_ctt</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=.</span><span class="mi">68</span><span class="p">)</span>
+<span class="n">cb_ctt</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Draw the oceans, land, and states.  Use the same colors as the cartopy</span>
+<span class="c1"># example</span>
+<span class="n">bm</span><span class="o">.</span><span class="n">drawcoastlines</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_ctt</span><span class="p">)</span>
+<span class="n">bm</span><span class="o">.</span><span class="n">drawstates</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_ctt</span><span class="p">)</span>
+<span class="n">bm</span><span class="o">.</span><span class="n">drawcountries</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_ctt</span><span class="p">)</span>
+<span class="n">bm</span><span class="o">.</span><span class="n">fillcontinents</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">0.9375</span> <span class="p">,</span> <span class="mf">0.9375</span> <span class="p">,</span> <span class="mf">0.859375</span><span class="p">]),</span>
+                  <span class="n">ax</span><span class="o">=</span><span class="n">ax_ctt</span><span class="p">,</span> <span class="n">lake_color</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">0.59375</span> <span class="p">,</span> <span class="mf">0.71484375</span><span class="p">,</span> <span class="mf">0.8828125</span> <span class="p">]))</span>
+<span class="n">bm</span><span class="o">.</span><span class="n">drawmapboundary</span><span class="p">(</span><span class="n">fill_color</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">0.59375</span> <span class="p">,</span> <span class="mf">0.71484375</span><span class="p">,</span> <span class="mf">0.8828125</span> <span class="p">]),</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_ctt</span><span class="p">)</span>
+
+<span class="c1"># Draw Parallels</span>
+<span class="n">parallels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">lats</span><span class="p">),</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
+<span class="n">bm</span><span class="o">.</span><span class="n">drawparallels</span><span class="p">(</span><span class="n">parallels</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_ctt</span><span class="p">)</span>
+
+<span class="n">merids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">85.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">72.0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
+<span class="n">bm</span><span class="o">.</span><span class="n">drawmeridians</span><span class="p">(</span><span class="n">merids</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_ctt</span><span class="p">)</span>
+
+<span class="c1"># Get the x and y coordinate ranges for the cropped region around the</span>
+<span class="c1"># hurricane</span>
+<span class="n">x_start</span><span class="p">,</span> <span class="n">y_start</span> <span class="o">=</span> <span class="n">bm</span><span class="p">(</span><span class="o">-</span><span class="mf">85.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">lats</span><span class="p">))</span>
+<span class="n">x_end</span><span class="p">,</span> <span class="n">y_end</span> <span class="o">=</span> <span class="n">bm</span><span class="p">(</span><span class="o">-</span><span class="mf">72.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">)</span>
+
+<span class="n">ax_ctt</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="n">x_start</span><span class="p">,</span> <span class="n">x_end</span><span class="p">])</span>
+<span class="n">ax_ctt</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="n">y_start</span><span class="p">,</span> <span class="n">y_end</span><span class="p">])</span>
+
+<span class="c1"># Make the contour plot for wspd</span>
+<span class="n">wspd_contours</span> <span class="o">=</span> <span class="n">ax_wspd</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">to_np</span><span class="p">(</span><span class="n">wspd_cross</span><span class="p">))</span>
+<span class="c1"># Add the color bar</span>
+<span class="n">cb_wspd</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">wspd_contours</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_wspd</span><span class="p">)</span>
+<span class="n">cb_wspd</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Make the contour plot for dbz</span>
+<span class="n">levels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">)]</span>
+<span class="n">dbz_contours</span> <span class="o">=</span> <span class="n">ax_dbz</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">to_np</span><span class="p">(</span><span class="n">dbz_cross</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">)</span>
+<span class="n">cb_dbz</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">dbz_contours</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_dbz</span><span class="p">)</span>
+<span class="n">cb_dbz</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Set the x-ticks to use latitude and longitude labels.</span>
+<span class="n">coord_pairs</span> <span class="o">=</span> <span class="n">to_np</span><span class="p">(</span><span class="n">dbz_cross</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s2">&quot;xy_loc&quot;</span><span class="p">])</span>
+<span class="n">x_ticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">coord_pairs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">x_labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">pair</span><span class="o">.</span><span class="n">latlon_str</span><span class="p">()</span> <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">to_np</span><span class="p">(</span><span class="n">coord_pairs</span><span class="p">)]</span>
+<span class="n">ax_wspd</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">[::</span><span class="mi">20</span><span class="p">])</span>
+<span class="n">ax_wspd</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">ax_dbz</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">[::</span><span class="mi">20</span><span class="p">])</span>
+<span class="n">ax_dbz</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">x_labels</span><span class="p">[::</span><span class="mi">20</span><span class="p">],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># Set the y-ticks to be height.</span>
+<span class="n">vert_vals</span> <span class="o">=</span> <span class="n">to_np</span><span class="p">(</span><span class="n">dbz_cross</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s2">&quot;vertical&quot;</span><span class="p">])</span>
+<span class="n">v_ticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">vert_vals</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax_wspd</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">v_ticks</span><span class="p">[::</span><span class="mi">20</span><span class="p">])</span>
+<span class="n">ax_wspd</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">vert_vals</span><span class="p">[::</span><span class="mi">20</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">ax_dbz</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">v_ticks</span><span class="p">[::</span><span class="mi">20</span><span class="p">])</span>
+<span class="n">ax_dbz</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">vert_vals</span><span class="p">[::</span><span class="mi">20</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># Set the x-axis and  y-axis labels</span>
+<span class="n">ax_dbz</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Latitude, Longitude&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ax_wspd</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Height (m)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ax_dbz</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Height (m)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Add a title</span>
+<span class="n">ax_ctt</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Cloud Top Temperature (degC)&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;fontsize&quot;</span> <span class="p">:</span> <span class="mi">7</span><span class="p">})</span>
+<span class="n">ax_wspd</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Cross-Section of Wind Speed (kt)&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;fontsize&quot;</span> <span class="p">:</span> <span class="mi">7</span><span class="p">})</span>
+<span class="n">ax_dbz</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Cross-Section of Reflectivity (dBZ)&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;fontsize&quot;</span> <span class="p">:</span> <span class="mi">7</span><span class="p">})</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="vertical-cross-section">
+<span id="cross-example"></span><h2>Vertical Cross Section<a class="headerlink" href="#vertical-cross-section" title="Permalink to this headline">¶</a></h2>
+<p>Vertical cross sections require no mapping software package and can be
+plotted using the standard matplotlib API.</p>
+<a class="reference internal image-reference" href="_images/cartopy_cross.png"><img alt="_images/cartopy_cross.png" class="align-center" src="_images/cartopy_cross.png" style="width: 828.0px; height: 531.0px;" /></a>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.cm</span> <span class="kn">import</span> <span class="n">get_cmap</span>
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="n">to_np</span><span class="p">,</span> <span class="n">getvar</span><span class="p">,</span> <span class="n">CoordPair</span><span class="p">,</span> <span class="n">vertcross</span>
+
+<span class="c1"># Open the output NetCDF file with PyNIO</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;wrfout_d01_2016-10-07_00_00_00&quot;</span>
+<span class="n">ncfile</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+<span class="c1"># Extract pressure and model height</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">)</span>
+<span class="n">wspd</span> <span class="o">=</span>  <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;uvmet_wspd_wdir&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;kt&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">,:]</span>
+
+<span class="c1"># Define the start point and end point for the cross section using</span>
+<span class="c1"># latitude and longitude coordinates.</span>
+<span class="n">start_point</span> <span class="o">=</span> <span class="n">CoordPair</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="mf">26.76</span><span class="p">,</span> <span class="n">lon</span><span class="o">=-</span><span class="mf">80.0</span><span class="p">)</span>
+<span class="n">end_point</span> <span class="o">=</span> <span class="n">CoordPair</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="mf">26.76</span><span class="p">,</span> <span class="n">lon</span><span class="o">=-</span><span class="mf">77.8</span><span class="p">)</span>
+
+<span class="c1"># Compute the vertical cross-section interpolation.  Also, include the lat/lon</span>
+<span class="c1"># points along the cross-section in the metadata by setting latlon to True.</span>
+<span class="n">wspd_cross</span> <span class="o">=</span> <span class="n">vertcross</span><span class="p">(</span><span class="n">wspd</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">wrfin</span><span class="o">=</span><span class="n">ncfile</span><span class="p">,</span> <span class="n">start_point</span><span class="o">=</span><span class="n">start_point</span><span class="p">,</span>
+                       <span class="n">end_point</span><span class="o">=</span><span class="n">end_point</span><span class="p">,</span> <span class="n">latlon</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># Create the figure</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.8</span><span class="p">])</span>
+
+<span class="c1"># Make the contour plot</span>
+<span class="n">wspd_contours</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">to_np</span><span class="p">(</span><span class="n">wspd_cross</span><span class="p">))</span>
+<span class="c1"># Add the color bar</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">wspd_contours</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="c1"># Set the x-ticks to use latitude and longitude labels.</span>
+<span class="n">coord_pairs</span> <span class="o">=</span> <span class="n">to_np</span><span class="p">(</span><span class="n">wspd_cross</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s2">&quot;xy_loc&quot;</span><span class="p">])</span>
+<span class="n">x_ticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">coord_pairs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">x_labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">pair</span><span class="o">.</span><span class="n">latlon_str</span><span class="p">(</span><span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;{:.2f}, {:.2f}&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">to_np</span><span class="p">(</span><span class="n">coord_pairs</span><span class="p">)]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">[::</span><span class="mi">20</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">x_labels</span><span class="p">[::</span><span class="mi">20</span><span class="p">],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># Set the y-ticks to be height.</span>
+<span class="n">vert_vals</span> <span class="o">=</span> <span class="n">to_np</span><span class="p">(</span><span class="n">wspd_cross</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s2">&quot;vertical&quot;</span><span class="p">])</span>
+<span class="n">v_ticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">vert_vals</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">v_ticks</span><span class="p">[::</span><span class="mi">20</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">vert_vals</span><span class="p">[::</span><span class="mi">20</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># Set the x-axis and  y-axis labels</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Latitude, Longitude&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Height (m)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Vertical Cross Section of Wind Speed (kt)&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="basic_usage.html" class="btn btn-neutral" title="How To Use" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, University Corporation for Atmospheric Research.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0a3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

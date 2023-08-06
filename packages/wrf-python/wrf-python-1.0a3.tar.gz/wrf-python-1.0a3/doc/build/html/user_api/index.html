@@ -1,0 +1,761 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>User API &mdash; wrf-python 1.0a3 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="wrf-python 1.0a3 documentation" href="../index.html"/>
+        <link rel="up" title="API Reference" href="../api.html"/>
+        <link rel="next" title="wrf.getvar" href="generated/wrf.getvar.html"/>
+        <link rel="prev" title="API Reference" href="../api.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> wrf-python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0a3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../new.html">What&#8217;s New</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../diagnostics.html">Table of Available Diagnostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage.html">How To Use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plot.html">Plotting Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">User API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#routines">Routines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#diagnostic-routine">Diagnostic Routine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#interpolation-routines">Interpolation Routines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lat-lon-to-from-xy-routines">Lat-Lon to/from XY Routines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numpy-extraction-routine">Numpy Extraction Routine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#variable-extraction-routines">Variable Extraction Routines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plotting-helper-routines">Plotting Helper Routines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raw-diagnostic-routines">Raw Diagnostic Routines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration-routines">Configuration Routines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#miscellaneous-routines">Miscellaneous Routines</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exceptions">Exceptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#coordpair-class">CoordPair Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geobounds-class">GeoBounds Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#projection-classes">Projection Classes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../internal_api/index.html">Internal API</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">wrf-python</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../api.html">API Reference</a> &raquo;</li>
+      
+    <li>User API</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/user_api/index.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="user-api">
+<h1>User API<a class="headerlink" href="#user-api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="routines">
+<h2>Routines<a class="headerlink" href="#routines" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="diagnostic-routine">
+<h3>Diagnostic Routine<a class="headerlink" href="#diagnostic-routine" title="Permalink to this headline">¶</a></h3>
+<p>The routine below is the primary routine for extracting variables from a
+WRF-ARW NetCDF file (or sequence of files) and performing diagnostic
+calculations.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.getvar.html#wrf.getvar" title="wrf.getvar"><code class="xref py py-obj docutils literal"><span class="pre">wrf.getvar</span></code></a></td>
+<td>Returns basic diagnostics from the WRF ARW model output.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="interpolation-routines">
+<h3>Interpolation Routines<a class="headerlink" href="#interpolation-routines" title="Permalink to this headline">¶</a></h3>
+<p>The routines below are the primary routines used for performing interpolation
+calculations.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.interplevel.html#wrf.interplevel" title="wrf.interplevel"><code class="xref py py-obj docutils literal"><span class="pre">wrf.interplevel</span></code></a></td>
+<td>Return the three-dimensional field horizontally interpolated to a specified vertical level.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.vertcross.html#wrf.vertcross" title="wrf.vertcross"><code class="xref py py-obj docutils literal"><span class="pre">wrf.vertcross</span></code></a></td>
+<td>Return the vertical cross section for a three-dimensional field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.interpline.html#wrf.interpline" title="wrf.interpline"><code class="xref py py-obj docutils literal"><span class="pre">wrf.interpline</span></code></a></td>
+<td>Return the two-dimensional field interpolated along a line.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.vinterp.html#wrf.vinterp" title="wrf.vinterp"><code class="xref py py-obj docutils literal"><span class="pre">wrf.vinterp</span></code></a></td>
+<td>Return the field vertically interpolated to the given the type of surface and a set of new levels.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="lat-lon-to-from-xy-routines">
+<h3>Lat-Lon to/from XY Routines<a class="headerlink" href="#lat-lon-to-from-xy-routines" title="Permalink to this headline">¶</a></h3>
+<p>The routines below are used for converting back and forth between xy-grid
+space and latitude-longitude space.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.ll_to_xy.html#wrf.ll_to_xy" title="wrf.ll_to_xy"><code class="xref py py-obj docutils literal"><span class="pre">wrf.ll_to_xy</span></code></a></td>
+<td>Return the x,y coordinates for a specified latitude and longitude.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.xy_to_ll.html#wrf.xy_to_ll" title="wrf.xy_to_ll"><code class="xref py py-obj docutils literal"><span class="pre">wrf.xy_to_ll</span></code></a></td>
+<td>Return the latitude and longitude for specified x,y coordinates.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.ll_to_xy_proj.html#wrf.ll_to_xy_proj" title="wrf.ll_to_xy_proj"><code class="xref py py-obj docutils literal"><span class="pre">wrf.ll_to_xy_proj</span></code></a></td>
+<td>Return the x, y coordinates for a specified latitude and longitude.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.xy_to_ll_proj.html#wrf.xy_to_ll_proj" title="wrf.xy_to_ll_proj"><code class="xref py py-obj docutils literal"><span class="pre">wrf.xy_to_ll_proj</span></code></a></td>
+<td>Return the latitude and longitude for the specified x,y coordinates.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="numpy-extraction-routine">
+<h3>Numpy Extraction Routine<a class="headerlink" href="#numpy-extraction-routine" title="Permalink to this headline">¶</a></h3>
+<p>The routine below is used to extract a <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.11)"><code class="xref py py-class docutils literal"><span class="pre">numpy.ndarray</span></code></a> from a
+<a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.html#xarray.DataArray" title="(in xarray v0.8.2)"><code class="xref py py-class docutils literal"><span class="pre">xarray.DataArray</span></code></a>.  This routine must be used before passing
+the array object to a compiled extension.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.to_np.html#wrf.to_np" title="wrf.to_np"><code class="xref py py-obj docutils literal"><span class="pre">wrf.to_np</span></code></a></td>
+<td>Return the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.11)"><code class="xref py py-class docutils literal"><span class="pre">numpy.ndarray</span></code></a> contained in an <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.html#xarray.DataArray" title="(in xarray v0.8.2)"><code class="xref py py-class docutils literal"><span class="pre">xarray.DataArray</span></code></a> instance.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="variable-extraction-routines">
+<h3>Variable Extraction Routines<a class="headerlink" href="#variable-extraction-routines" title="Permalink to this headline">¶</a></h3>
+<p>The routines below are primarily used internally by <a class="reference internal" href="generated/wrf.getvar.html#wrf.getvar" title="wrf.getvar"><code class="xref py py-meth docutils literal"><span class="pre">wrf.getvar()</span></code></a>, but
+some users may find them useful to manually extract variables from a
+WRF NetCDF file (or a sequence of NetCDF files).</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.extract_vars.html#wrf.extract_vars" title="wrf.extract_vars"><code class="xref py py-obj docutils literal"><span class="pre">wrf.extract_vars</span></code></a></td>
+<td>Extract variables from a NetCDF file object or a sequence of NetCDF file objects.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.combine_files.html#wrf.combine_files" title="wrf.combine_files"><code class="xref py py-obj docutils literal"><span class="pre">wrf.combine_files</span></code></a></td>
+<td>Combine and return an array object for the sequence of WRF output files.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.extract_dim.html#wrf.extract_dim" title="wrf.extract_dim"><code class="xref py py-obj docutils literal"><span class="pre">wrf.extract_dim</span></code></a></td>
+<td>Return the dimension size for the specified dimension name.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.extract_global_attrs.html#wrf.extract_global_attrs" title="wrf.extract_global_attrs"><code class="xref py py-obj docutils literal"><span class="pre">wrf.extract_global_attrs</span></code></a></td>
+<td>Return the global attribute(s).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.extract_times.html#wrf.extract_times" title="wrf.extract_times"><code class="xref py py-obj docutils literal"><span class="pre">wrf.extract_times</span></code></a></td>
+<td>Return a sequence of time objects.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="plotting-helper-routines">
+<h3>Plotting Helper Routines<a class="headerlink" href="#plotting-helper-routines" title="Permalink to this headline">¶</a></h3>
+<p>The routines below are used to assist with plotting.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.geo_bounds.html#wrf.geo_bounds" title="wrf.geo_bounds"><code class="xref py py-obj docutils literal"><span class="pre">wrf.geo_bounds</span></code></a></td>
+<td>Return the geographic boundaries for the variable or file(s).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.get_cartopy.html#wrf.get_cartopy" title="wrf.get_cartopy"><code class="xref py py-obj docutils literal"><span class="pre">wrf.get_cartopy</span></code></a></td>
+<td>Return a <code class="xref py py-class docutils literal"><span class="pre">cartopy.crs.Projection</span></code> subclass for the map projection.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.get_basemap.html#wrf.get_basemap" title="wrf.get_basemap"><code class="xref py py-obj docutils literal"><span class="pre">wrf.get_basemap</span></code></a></td>
+<td>Return a <code class="xref py py-class docutils literal"><span class="pre">matplotlib.mpl_toolkits.basemap.Basemap</span></code> object     for the map projection.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.get_pyngl.html#wrf.get_pyngl" title="wrf.get_pyngl"><code class="xref py py-obj docutils literal"><span class="pre">wrf.get_pyngl</span></code></a></td>
+<td>Return a <code class="xref py py-class docutils literal"><span class="pre">Ngl.Resources</span></code> object for the map projection.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.cartopy_xlim.html#wrf.cartopy_xlim" title="wrf.cartopy_xlim"><code class="xref py py-obj docutils literal"><span class="pre">wrf.cartopy_xlim</span></code></a></td>
+<td>Return the x-axis limits in the projected coordinates.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.cartopy_ylim.html#wrf.cartopy_ylim" title="wrf.cartopy_ylim"><code class="xref py py-obj docutils literal"><span class="pre">wrf.cartopy_ylim</span></code></a></td>
+<td>Return the y-axis limits in the projected coordinates.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="raw-diagnostic-routines">
+<h3>Raw Diagnostic Routines<a class="headerlink" href="#raw-diagnostic-routines" title="Permalink to this headline">¶</a></h3>
+<p>The routines below can be used when working with variables that are not
+contained in a WRF-ARW NetCDF file.  They can also be used with non-WRF data.
+However, if you are working with WRF-ARW NetCDF files,
+use <a class="reference internal" href="generated/wrf.getvar.html#wrf.getvar" title="wrf.getvar"><code class="xref py py-meth docutils literal"><span class="pre">wrf.getvar()</span></code></a> instead.</p>
+<p>Keep in mind that these routines were developed for WRF-ARW, so your mileage
+may vary when working with non-WRF data.  Also, the vast majority of these
+routines do not allow for missing values in any of the input arrays, so make
+sure they are removed before calling these routines.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.xy.html#wrf.xy" title="wrf.xy"><code class="xref py py-obj docutils literal"><span class="pre">wrf.xy</span></code></a></td>
+<td>Return the x,y points for a line within a two-dimensional grid.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.interp1d.html#wrf.interp1d" title="wrf.interp1d"><code class="xref py py-obj docutils literal"><span class="pre">wrf.interp1d</span></code></a></td>
+<td>Return the linear interpolation of a one-dimensional variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.interp2dxy.html#wrf.interp2dxy" title="wrf.interp2dxy"><code class="xref py py-obj docutils literal"><span class="pre">wrf.interp2dxy</span></code></a></td>
+<td>Return a cross section for a three-dimensional field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.interpz3d.html#wrf.interpz3d" title="wrf.interpz3d"><code class="xref py py-obj docutils literal"><span class="pre">wrf.interpz3d</span></code></a></td>
+<td>Return the field interpolated to a specified pressure or height level.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.slp.html#wrf.slp" title="wrf.slp"><code class="xref py py-obj docutils literal"><span class="pre">wrf.slp</span></code></a></td>
+<td>Return the sea level pressure.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.tk.html#wrf.tk" title="wrf.tk"><code class="xref py py-obj docutils literal"><span class="pre">wrf.tk</span></code></a></td>
+<td>Return the temperature.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.td.html#wrf.td" title="wrf.td"><code class="xref py py-obj docutils literal"><span class="pre">wrf.td</span></code></a></td>
+<td>Return the dewpoint temperature.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.rh.html#wrf.rh" title="wrf.rh"><code class="xref py py-obj docutils literal"><span class="pre">wrf.rh</span></code></a></td>
+<td>Return the relative humidity.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.uvmet.html#wrf.uvmet" title="wrf.uvmet"><code class="xref py py-obj docutils literal"><span class="pre">wrf.uvmet</span></code></a></td>
+<td>Return the u,v components of the wind rotated to earth coordinates.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.smooth2d.html#wrf.smooth2d" title="wrf.smooth2d"><code class="xref py py-obj docutils literal"><span class="pre">wrf.smooth2d</span></code></a></td>
+<td>Return the field smoothed.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.cape_2d.html#wrf.cape_2d" title="wrf.cape_2d"><code class="xref py py-obj docutils literal"><span class="pre">wrf.cape_2d</span></code></a></td>
+<td>Return the two-dimensional CAPE, CIN, LCL, and LFC.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.cape_3d.html#wrf.cape_3d" title="wrf.cape_3d"><code class="xref py py-obj docutils literal"><span class="pre">wrf.cape_3d</span></code></a></td>
+<td>Return the three-dimensional CAPE and CIN.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.cloudfrac.html#wrf.cloudfrac" title="wrf.cloudfrac"><code class="xref py py-obj docutils literal"><span class="pre">wrf.cloudfrac</span></code></a></td>
+<td>Return the cloud fraction.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.ctt.html#wrf.ctt" title="wrf.ctt"><code class="xref py py-obj docutils literal"><span class="pre">wrf.ctt</span></code></a></td>
+<td>Return the cloud top temperature.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.dbz.html#wrf.dbz" title="wrf.dbz"><code class="xref py py-obj docutils literal"><span class="pre">wrf.dbz</span></code></a></td>
+<td>Return the simulated radar reflectivity.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.srhel.html#wrf.srhel" title="wrf.srhel"><code class="xref py py-obj docutils literal"><span class="pre">wrf.srhel</span></code></a></td>
+<td>Return the storm relative helicity.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.udhel.html#wrf.udhel" title="wrf.udhel"><code class="xref py py-obj docutils literal"><span class="pre">wrf.udhel</span></code></a></td>
+<td>Return the updraft helicity.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.avo.html#wrf.avo" title="wrf.avo"><code class="xref py py-obj docutils literal"><span class="pre">wrf.avo</span></code></a></td>
+<td>Return the absolute vorticity.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.pvo.html#wrf.pvo" title="wrf.pvo"><code class="xref py py-obj docutils literal"><span class="pre">wrf.pvo</span></code></a></td>
+<td>Return the potential vorticity.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.eth.html#wrf.eth" title="wrf.eth"><code class="xref py py-obj docutils literal"><span class="pre">wrf.eth</span></code></a></td>
+<td>Return the equivalent potential temperature.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.wetbulb.html#wrf.wetbulb" title="wrf.wetbulb"><code class="xref py py-obj docutils literal"><span class="pre">wrf.wetbulb</span></code></a></td>
+<td>Return the wetbulb temperature.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.tvirtual.html#wrf.tvirtual" title="wrf.tvirtual"><code class="xref py py-obj docutils literal"><span class="pre">wrf.tvirtual</span></code></a></td>
+<td>Return the virtual temperature.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.omega.html#wrf.omega" title="wrf.omega"><code class="xref py py-obj docutils literal"><span class="pre">wrf.omega</span></code></a></td>
+<td>Return omega.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.pw.html#wrf.pw" title="wrf.pw"><code class="xref py py-obj docutils literal"><span class="pre">wrf.pw</span></code></a></td>
+<td>Return the precipitable water.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="configuration-routines">
+<h3>Configuration Routines<a class="headerlink" href="#configuration-routines" title="Permalink to this headline">¶</a></h3>
+<p>The routines below are used to configure wrf-python by enabling or
+disabling third party packages.  For the most part, these settings are
+configured automatically based on the presence of a third party package.
+However, disabling xarray can be useful when you want to turn off all metadata
+in one place.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.xarray_enabled.html#wrf.xarray_enabled" title="wrf.xarray_enabled"><code class="xref py py-obj docutils literal"><span class="pre">wrf.xarray_enabled</span></code></a></td>
+<td>Return True if xarray is installed and enabled.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.disable_xarray.html#wrf.disable_xarray" title="wrf.disable_xarray"><code class="xref py py-obj docutils literal"><span class="pre">wrf.disable_xarray</span></code></a></td>
+<td>Disable xarray.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.enable_xarray.html#wrf.enable_xarray" title="wrf.enable_xarray"><code class="xref py py-obj docutils literal"><span class="pre">wrf.enable_xarray</span></code></a></td>
+<td>Enable xarray.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.cartopy_enabled.html#wrf.cartopy_enabled" title="wrf.cartopy_enabled"><code class="xref py py-obj docutils literal"><span class="pre">wrf.cartopy_enabled</span></code></a></td>
+<td>Return True if cartopy is installed and enabled.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.disable_cartopy.html#wrf.disable_cartopy" title="wrf.disable_cartopy"><code class="xref py py-obj docutils literal"><span class="pre">wrf.disable_cartopy</span></code></a></td>
+<td>Disable cartopy.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.enable_cartopy.html#wrf.enable_cartopy" title="wrf.enable_cartopy"><code class="xref py py-obj docutils literal"><span class="pre">wrf.enable_cartopy</span></code></a></td>
+<td>Enable cartopy.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.basemap_enabled.html#wrf.basemap_enabled" title="wrf.basemap_enabled"><code class="xref py py-obj docutils literal"><span class="pre">wrf.basemap_enabled</span></code></a></td>
+<td>Return True if basemap is installed and enabled.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.disable_basemap.html#wrf.disable_basemap" title="wrf.disable_basemap"><code class="xref py py-obj docutils literal"><span class="pre">wrf.disable_basemap</span></code></a></td>
+<td>Disable basemap.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.enable_basemap.html#wrf.enable_basemap" title="wrf.enable_basemap"><code class="xref py py-obj docutils literal"><span class="pre">wrf.enable_basemap</span></code></a></td>
+<td>Enable basemap.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.pyngl_enabled.html#wrf.pyngl_enabled" title="wrf.pyngl_enabled"><code class="xref py py-obj docutils literal"><span class="pre">wrf.pyngl_enabled</span></code></a></td>
+<td>Return True if pyngl is installed and enabled.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.enable_pyngl.html#wrf.enable_pyngl" title="wrf.enable_pyngl"><code class="xref py py-obj docutils literal"><span class="pre">wrf.enable_pyngl</span></code></a></td>
+<td>Enable pyngl.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.disable_pyngl.html#wrf.disable_pyngl" title="wrf.disable_pyngl"><code class="xref py py-obj docutils literal"><span class="pre">wrf.disable_pyngl</span></code></a></td>
+<td>Disable pyngl.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.set_cache_size.html#wrf.set_cache_size" title="wrf.set_cache_size"><code class="xref py py-obj docutils literal"><span class="pre">wrf.set_cache_size</span></code></a></td>
+<td>Set the maximum number of items that the threadsafe cache can retain.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.get_cache_size.html#wrf.get_cache_size" title="wrf.get_cache_size"><code class="xref py py-obj docutils literal"><span class="pre">wrf.get_cache_size</span></code></a></td>
+<td>Return the maximum number of items that the threadsafe cache can retain.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="miscellaneous-routines">
+<h3>Miscellaneous Routines<a class="headerlink" href="#miscellaneous-routines" title="Permalink to this headline">¶</a></h3>
+<p>The routines below are primarily used internally, but some users may find
+them helpful for other purposes.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.is_time_coord_var.html#wrf.is_time_coord_var" title="wrf.is_time_coord_var"><code class="xref py py-obj docutils literal"><span class="pre">wrf.is_time_coord_var</span></code></a></td>
+<td>Return True if the input variable name is a time coordinate.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.get_coord_pairs.html#wrf.get_coord_pairs" title="wrf.get_coord_pairs"><code class="xref py py-obj docutils literal"><span class="pre">wrf.get_coord_pairs</span></code></a></td>
+<td>Return a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.6)"><code class="xref py py-obj docutils literal"><span class="pre">tuple</span></code></a> for the variable names of the coordinate pair used for the 2D curvilinear coordinate variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.is_multi_time_req.html#wrf.is_multi_time_req" title="wrf.is_multi_time_req"><code class="xref py py-obj docutils literal"><span class="pre">wrf.is_multi_time_req</span></code></a></td>
+<td>Return True if the requested time index is for <code class="xref py py-data docutils literal"><span class="pre">wrf.ALL_TIMES</span></code> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.6)"><code class="xref py py-obj docutils literal"><span class="pre">None</span></code></a>.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.is_multi_file.html#wrf.is_multi_file" title="wrf.is_multi_file"><code class="xref py py-obj docutils literal"><span class="pre">wrf.is_multi_file</span></code></a></td>
+<td>Return True if the input argument is an iterable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.has_time_coord.html#wrf.has_time_coord" title="wrf.has_time_coord"><code class="xref py py-obj docutils literal"><span class="pre">wrf.has_time_coord</span></code></a></td>
+<td>Return True if the input file or sequence contains the time coordinate variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.is_mapping.html#wrf.is_mapping" title="wrf.is_mapping"><code class="xref py py-obj docutils literal"><span class="pre">wrf.is_mapping</span></code></a></td>
+<td>Return True if the input file or sequence is a mapping type.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.latlon_coordvars.html#wrf.latlon_coordvars" title="wrf.latlon_coordvars"><code class="xref py py-obj docutils literal"><span class="pre">wrf.latlon_coordvars</span></code></a></td>
+<td>Return the first found latitude and longitude coordinate names from a NetCDF variable dictionary.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.is_coordvar.html#wrf.is_coordvar" title="wrf.is_coordvar"><code class="xref py py-obj docutils literal"><span class="pre">wrf.is_coordvar</span></code></a></td>
+<td>Returns True if the variable is a coordinate variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.get_iterable.html#wrf.get_iterable" title="wrf.get_iterable"><code class="xref py py-obj docutils literal"><span class="pre">wrf.get_iterable</span></code></a></td>
+<td>Returns a resettable iterable object.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.is_moving_domain.html#wrf.is_moving_domain" title="wrf.is_moving_domain"><code class="xref py py-obj docutils literal"><span class="pre">wrf.is_moving_domain</span></code></a></td>
+<td>Return True if the domain is a moving nest.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.npbytes_to_str.html#wrf.npbytes_to_str" title="wrf.npbytes_to_str"><code class="xref py py-obj docutils literal"><span class="pre">wrf.npbytes_to_str</span></code></a></td>
+<td>Return a <a class="reference external" href="https://docs.python.org/3/library/functions.html#bytes" title="(in Python v3.6)"><code class="xref py py-obj docutils literal"><span class="pre">bytes</span></code></a> object for the raw character array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.is_standard_wrf_var.html#wrf.is_standard_wrf_var" title="wrf.is_standard_wrf_var"><code class="xref py py-obj docutils literal"><span class="pre">wrf.is_standard_wrf_var</span></code></a></td>
+<td>Return True if the variable is a standard WRF variable and not a diagnostic.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.is_staggered.html#wrf.is_staggered" title="wrf.is_staggered"><code class="xref py py-obj docutils literal"><span class="pre">wrf.is_staggered</span></code></a></td>
+<td>Return True if the variable is on a staggered grid.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.get_left_indexes.html#wrf.get_left_indexes" title="wrf.get_left_indexes"><code class="xref py py-obj docutils literal"><span class="pre">wrf.get_left_indexes</span></code></a></td>
+<td>Returns a tuple for the extra leftmost dimension sizes.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.iter_left_indexes.html#wrf.iter_left_indexes" title="wrf.iter_left_indexes"><code class="xref py py-obj docutils literal"><span class="pre">wrf.iter_left_indexes</span></code></a></td>
+<td>Yield the iteration tuples for a sequence of dimensions sizes.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.get_right_slices.html#wrf.get_right_slices" title="wrf.get_right_slices"><code class="xref py py-obj docutils literal"><span class="pre">wrf.get_right_slices</span></code></a></td>
+<td>Return an indexing tuple where the left dimensions are held to a fixed value and the right dimensions are set to slice objects.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.get_proj_params.html#wrf.get_proj_params" title="wrf.get_proj_params"><code class="xref py py-obj docutils literal"><span class="pre">wrf.get_proj_params</span></code></a></td>
+<td>Return a tuple of latitude, longitude, and projection parameters from a WRF output file object or a sequence of WRF output file objects.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.psafilepath.html#wrf.psafilepath" title="wrf.psafilepath"><code class="xref py py-obj docutils literal"><span class="pre">wrf.psafilepath</span></code></a></td>
+<td>Return the full path to the &#8216;psadilookup.dat&#8217; file.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.get_id.html#wrf.get_id" title="wrf.get_id"><code class="xref py py-obj docutils literal"><span class="pre">wrf.get_id</span></code></a></td>
+<td>Return the object id.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.getproj.html#wrf.getproj" title="wrf.getproj"><code class="xref py py-obj docutils literal"><span class="pre">wrf.getproj</span></code></a></td>
+<td>Return a <a class="reference internal" href="generated/wrf.WrfProj.html#wrf.WrfProj" title="wrf.WrfProj"><code class="xref py py-class docutils literal"><span class="pre">wrf.WrfProj</span></code></a> subclass.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.cache_item.html#wrf.cache_item" title="wrf.cache_item"><code class="xref py py-obj docutils literal"><span class="pre">wrf.cache_item</span></code></a></td>
+<td>Store an item in the cache.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.get_cached_item.html#wrf.get_cached_item" title="wrf.get_cached_item"><code class="xref py py-obj docutils literal"><span class="pre">wrf.get_cached_item</span></code></a></td>
+<td>Return an item from the cache.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="exceptions">
+<h3>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.DiagnosticError.html#wrf.DiagnosticError" title="wrf.DiagnosticError"><code class="xref py py-obj docutils literal"><span class="pre">wrf.DiagnosticError</span></code></a></td>
+<td>Raised when an error occurs in a diagnostic routine.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="coordpair-class">
+<h3>CoordPair Class<a class="headerlink" href="#coordpair-class" title="Permalink to this headline">¶</a></h3>
+<p>The class below is used for storing coordinate metadata from routines that
+use a single point for an (x, y) or (lat, lon) location.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.CoordPair.html#wrf.CoordPair" title="wrf.CoordPair"><code class="xref py py-obj docutils literal"><span class="pre">wrf.CoordPair</span></code></a></td>
+<td>A class that stores (x, y) and/or (latitude, longitude) coordinate pairs.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="coordpair-methods">
+<h4>CoordPair Methods<a class="headerlink" href="#coordpair-methods" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.CoordPair.latlon_str.html#wrf.CoordPair.latlon_str" title="wrf.CoordPair.latlon_str"><code class="xref py py-obj docutils literal"><span class="pre">wrf.CoordPair.latlon_str</span></code></a></td>
+<td>Return a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> for the (latitude, longitude) coordinate pair.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.CoordPair.xy_str.html#wrf.CoordPair.xy_str" title="wrf.CoordPair.xy_str"><code class="xref py py-obj docutils literal"><span class="pre">wrf.CoordPair.xy_str</span></code></a></td>
+<td>Return a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a> for the (x,y) coordinate pair.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="geobounds-class">
+<h3>GeoBounds Class<a class="headerlink" href="#geobounds-class" title="Permalink to this headline">¶</a></h3>
+<p>The class below is used for specifying geographic boundaries.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.GeoBounds.html#wrf.GeoBounds" title="wrf.GeoBounds"><code class="xref py py-obj docutils literal"><span class="pre">wrf.GeoBounds</span></code></a></td>
+<td>A class that stores the geographic boundaries.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="projection-classes">
+<h3>Projection Classes<a class="headerlink" href="#projection-classes" title="Permalink to this headline">¶</a></h3>
+<p>The classes below are used to hold the projection information in the
+&#8216;projection&#8217; entry within a <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.attrs.html#xarray.DataArray.attrs" title="(in xarray v0.8.2)"><code class="xref py py-attr docutils literal"><span class="pre">xarray.DataArray.attrs</span></code></a> attribute.</p>
+<div class="section" id="projection-base-class">
+<h4>Projection Base Class<a class="headerlink" href="#projection-base-class" title="Permalink to this headline">¶</a></h4>
+<p>The base class for all map projection types.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.WrfProj.html#wrf.WrfProj" title="wrf.WrfProj"><code class="xref py py-obj docutils literal"><span class="pre">wrf.WrfProj</span></code></a></td>
+<td>A base class for storing map projection information from WRF data.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="projection-base-class-methods">
+<h4>Projection Base Class Methods<a class="headerlink" href="#projection-base-class-methods" title="Permalink to this headline">¶</a></h4>
+<p>The class methods for all projection types.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.WrfProj.basemap.html#wrf.WrfProj.basemap" title="wrf.WrfProj.basemap"><code class="xref py py-obj docutils literal"><span class="pre">wrf.WrfProj.basemap</span></code></a></td>
+<td>Return a <code class="xref py py-class docutils literal"><span class="pre">matplotlib.mpl_toolkits.basemap.Basemap</span></code> object for the map projection.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.WrfProj.cartopy.html#wrf.WrfProj.cartopy" title="wrf.WrfProj.cartopy"><code class="xref py py-obj docutils literal"><span class="pre">wrf.WrfProj.cartopy</span></code></a></td>
+<td>Return a <code class="xref py py-class docutils literal"><span class="pre">cartopy.crs.Projection</span></code> subclass for the map projection.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.WrfProj.cartopy_xlim.html#wrf.WrfProj.cartopy_xlim" title="wrf.WrfProj.cartopy_xlim"><code class="xref py py-obj docutils literal"><span class="pre">wrf.WrfProj.cartopy_xlim</span></code></a></td>
+<td>Return the x extents in projected coordinates for cartopy.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.WrfProj.cartopy_ylim.html#wrf.WrfProj.cartopy_ylim" title="wrf.WrfProj.cartopy_ylim"><code class="xref py py-obj docutils literal"><span class="pre">wrf.WrfProj.cartopy_ylim</span></code></a></td>
+<td>Return the y extents in projected coordinates for cartopy.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.WrfProj.pyngl.html#wrf.WrfProj.pyngl" title="wrf.WrfProj.pyngl"><code class="xref py py-obj docutils literal"><span class="pre">wrf.WrfProj.pyngl</span></code></a></td>
+<td>Return a <code class="xref py py-class docutils literal"><span class="pre">Ngl.Resources</span></code> object for the map projection.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.WrfProj.cf.html#wrf.WrfProj.cf" title="wrf.WrfProj.cf"><code class="xref py py-obj docutils literal"><span class="pre">wrf.WrfProj.cf</span></code></a></td>
+<td>Return a dictionary with the NetCDF CF parameters for the projection.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.WrfProj.proj4.html#wrf.WrfProj.proj4" title="wrf.WrfProj.proj4"><code class="xref py py-obj docutils literal"><span class="pre">wrf.WrfProj.proj4</span></code></a></td>
+<td>Return the PROJ.4 string for the map projection.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="projection-subclasses">
+<h4>Projection Subclasses<a class="headerlink" href="#projection-subclasses" title="Permalink to this headline">¶</a></h4>
+<p>See <a class="reference internal" href="generated/wrf.WrfProj.html#wrf.WrfProj" title="wrf.WrfProj"><code class="xref py py-class docutils literal"><span class="pre">wrf.WrfProj</span></code></a> for methods and attributes.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.NullProjection.html#wrf.NullProjection" title="wrf.NullProjection"><code class="xref py py-obj docutils literal"><span class="pre">wrf.NullProjection</span></code></a></td>
+<td>A <a class="reference internal" href="generated/wrf.WrfProj.html#wrf.WrfProj" title="wrf.WrfProj"><code class="xref py py-class docutils literal"><span class="pre">wrf.WrfProj</span></code></a> subclass for empty projections.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.LambertConformal.html#wrf.LambertConformal" title="wrf.LambertConformal"><code class="xref py py-obj docutils literal"><span class="pre">wrf.LambertConformal</span></code></a></td>
+<td>A <a class="reference internal" href="generated/wrf.WrfProj.html#wrf.WrfProj" title="wrf.WrfProj"><code class="xref py py-class docutils literal"><span class="pre">wrf.WrfProj</span></code></a> subclass for Lambert Conformal Conic projections.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.Mercator.html#wrf.Mercator" title="wrf.Mercator"><code class="xref py py-obj docutils literal"><span class="pre">wrf.Mercator</span></code></a></td>
+<td>A <a class="reference internal" href="generated/wrf.WrfProj.html#wrf.WrfProj" title="wrf.WrfProj"><code class="xref py py-class docutils literal"><span class="pre">wrf.WrfProj</span></code></a> subclass for Mercator projections.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.PolarStereographic.html#wrf.PolarStereographic" title="wrf.PolarStereographic"><code class="xref py py-obj docutils literal"><span class="pre">wrf.PolarStereographic</span></code></a></td>
+<td>A <a class="reference internal" href="generated/wrf.WrfProj.html#wrf.WrfProj" title="wrf.WrfProj"><code class="xref py py-class docutils literal"><span class="pre">wrf.WrfProj</span></code></a> subclass for Polar Stereographic projections.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.LatLon.html#wrf.LatLon" title="wrf.LatLon"><code class="xref py py-obj docutils literal"><span class="pre">wrf.LatLon</span></code></a></td>
+<td>A <a class="reference internal" href="generated/wrf.WrfProj.html#wrf.WrfProj" title="wrf.WrfProj"><code class="xref py py-class docutils literal"><span class="pre">wrf.WrfProj</span></code></a> subclass for Lat Lon projections.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.RotatedLatLon.html#wrf.RotatedLatLon" title="wrf.RotatedLatLon"><code class="xref py py-obj docutils literal"><span class="pre">wrf.RotatedLatLon</span></code></a></td>
+<td>A <a class="reference internal" href="generated/wrf.WrfProj.html#wrf.WrfProj" title="wrf.WrfProj"><code class="xref py py-class docutils literal"><span class="pre">wrf.WrfProj</span></code></a> subclass for Rotated Lat Lon projections.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="generated/wrf.getvar.html" class="btn btn-neutral float-right" title="wrf.getvar" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../api.html" class="btn btn-neutral" title="API Reference" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, University Corporation for Atmospheric Research.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0a3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

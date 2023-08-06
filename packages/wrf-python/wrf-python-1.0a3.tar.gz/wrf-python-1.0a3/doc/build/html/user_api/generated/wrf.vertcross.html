@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>wrf.vertcross &mdash; wrf-python 1.0a3 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="wrf-python 1.0a3 documentation" href="../../index.html"/>
+        <link rel="up" title="User API" href="../index.html"/>
+        <link rel="next" title="wrf.interpline" href="wrf.interpline.html"/>
+        <link rel="prev" title="wrf.interplevel" href="wrf.interplevel.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> wrf-python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0a3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../new.html">What&#8217;s New</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../diagnostics.html">Table of Available Diagnostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basic_usage.html">How To Use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plot.html">Plotting Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">User API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#routines">Routines</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../index.html#diagnostic-routine">Diagnostic Routine</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html#interpolation-routines">Interpolation Routines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#lat-lon-to-from-xy-routines">Lat-Lon to/from XY Routines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#numpy-extraction-routine">Numpy Extraction Routine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#variable-extraction-routines">Variable Extraction Routines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#plotting-helper-routines">Plotting Helper Routines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#raw-diagnostic-routines">Raw Diagnostic Routines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#configuration-routines">Configuration Routines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#miscellaneous-routines">Miscellaneous Routines</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#classes">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../internal_api/index.html">Internal API</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">wrf-python</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../api.html">API Reference</a> &raquo;</li>
+      
+          <li><a href="../index.html">User API</a> &raquo;</li>
+      
+    <li>wrf.vertcross</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/user_api/generated/wrf.vertcross.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="wrf-vertcross">
+<h1>wrf.vertcross<a class="headerlink" href="#wrf-vertcross" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="wrf.vertcross">
+<code class="descclassname">wrf.</code><code class="descname">vertcross</code><span class="sig-paren">(</span><em>field3d</em>, <em>vert</em>, <em>levels=None</em>, <em>missing=9.969209968386869e+36</em>, <em>wrfin=None</em>, <em>timeidx=0</em>, <em>stagger=None</em>, <em>projection=None</em>, <em>pivot_point=None</em>, <em>angle=None</em>, <em>start_point=None</em>, <em>end_point=None</em>, <em>latlon=False</em>, <em>cache=None</em>, <em>meta=True</em><span class="sig-paren">)</span><a class="headerlink" href="#wrf.vertcross" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the vertical cross section for a three-dimensional field.</p>
+<p>The cross section is defined by a horizontal line through the domain.
+This horizontal line is defined by either including the
+<em>pivot_point</em> and <em>angle</em> parameters, or the <em>start_point</em> and
+<em>end_point</em> parameters. The <em>pivot_point</em>, <em>start_point</em>, and <em>end_point</em>
+coordinates can be defined in either x,y or latitude,longitude space.
+If latitude,longitude coordinates are used, then a WRF input file or
+map projection must also be specified.</p>
+<p>The vertical levels for the cross section are fixed if <em>levels</em> is not
+specified, and are determined by dividing the vertical coordinate in to
+grid boxes of roughly 1% of the maximum vertical distance from top to
+bottom.  Otherwise, the <em>levels</em> argument can be used to specify specific
+vertical levels.  If all vertical levels are desired, use the raw
+<a class="reference internal" href="wrf.interp2dxy.html#wrf.interp2dxy" title="wrf.interp2dxy"><code class="xref py py-meth docutils literal"><span class="pre">wrf.interp2dxy()</span></code></a> function.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="wrf.interp2dxy.html#wrf.interp2dxy" title="wrf.interp2dxy"><code class="xref py py-meth docutils literal"><span class="pre">wrf.interp2dxy()</span></code></a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>field3d</strong> (<a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.html#xarray.DataArray" title="(in xarray v0.8.2)"><code class="xref py py-class docutils literal"><span class="pre">xarray.DataArray</span></code></a> or <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.11)"><code class="xref py py-class docutils literal"><span class="pre">numpy.ndarray</span></code></a>) &#8211; A
+three-dimensional field to interpolate, whose
+rightmost dimensions are nz x ny x nx.</li>
+<li><strong>vert</strong> (<a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.html#xarray.DataArray" title="(in xarray v0.8.2)"><code class="xref py py-class docutils literal"><span class="pre">xarray.DataArray</span></code></a> or <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.11)"><code class="xref py py-class docutils literal"><span class="pre">numpy.ndarray</span></code></a>) &#8211; A
+three-dimensional variable for the vertical coordinate, typically
+pressure or height. This array must have the same dimensionality
+as <em>field3d</em></li>
+<li><strong>levels</strong> (<em>sequence, optional</em>) &#8211; A sequence of <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><code class="xref py py-obj docutils literal"><span class="pre">float</span></code></a> for the desired
+vertical levels in the output array.  Must be in the same units
+as <em>vert</em>.  If None, a fixed set of vertical levels is provided.
+Default is None.</li>
+<li><strong>missing</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><code class="xref py py-obj docutils literal"><span class="pre">float</span></code></a>) &#8211; The fill value to use for the output.
+Default is <code class="xref py py-data docutils literal"><span class="pre">wrf.Constants.DEFAULT_FILL</span></code>.</li>
+<li><strong>wrfin</strong> (<code class="xref py py-class docutils literal"><span class="pre">netCDF4.Dataset</span></code>, <code class="xref py py-class docutils literal"><span class="pre">Nio.NioFile</span></code>, or an             iterable, optional) &#8211; Input WRF ARW NetCDF
+data as a <code class="xref py py-class docutils literal"><span class="pre">netCDF4.Dataset</span></code>, <code class="xref py py-class docutils literal"><span class="pre">Nio.NioFile</span></code>
+or an iterable sequence of the aforementioned types. This is used
+to obtain the map projection when using latitude,longitude
+coordinates. Default is None.</li>
+<li><strong>timeidx</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) &#8211; The
+desired time index when obtaining map boundary information
+from moving nests. This value can be a positive or negative integer.
+Only required when <em>wrfin</em> is specified and the nest is moving.
+Currently, <code class="xref py py-data docutils literal"><span class="pre">wrf.ALL_TIMES</span></code> is not supported.
+Default is 0.</li>
+<li><strong>stagger</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) &#8211; <p>If using latitude, longitude coordinate pairs
+for <em>start_point</em>, <em>end_point</em>, or <em>pivot_point</em>,
+set the appropriate grid staggering type for <em>field2d</em>. By default,
+the mass grid is used.  The options are:</p>
+<blockquote>
+<div><ul>
+<li>&#8216;m&#8217;: Use the mass grid (default).</li>
+<li>&#8216;u&#8217;: Use the same staggered grid as the u wind component,
+which has a staggered west_east (x) dimension.</li>
+<li>&#8216;v&#8217;: Use the same staggered grid as the v wind component,
+which has a staggered south_north (y) dimension.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><strong>projection</strong> (<a class="reference internal" href="wrf.WrfProj.html#wrf.WrfProj" title="wrf.WrfProj"><code class="xref py py-class docutils literal"><span class="pre">wrf.WrfProj</span></code></a> subclass, optional) &#8211; The map
+projection object to use when working with latitude, longitude
+coordinates, and must be specified if <em>wrfin</em> is None. Default
+is None.</li>
+<li><strong>(</strong> (<em>pivot_point</em>) &#8211; class`wrf.CoordPair`, optional): A coordinate pair for
+the pivot point, which indicates the location through which
+the plane will pass. Must also specify <em>angle</em>.  The coordinate
+pair can be in x,y grid coordinates or latitude, longitude
+coordinates.  If using latitude, longitude coordinates, then
+either <em>wrfin</em> or <em>projection</em> must be specified to obtain the
+map projection.  Default is None.</li>
+<li><strong>angle</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><code class="xref py py-obj docutils literal"><span class="pre">float</span></code></a>, optional) &#8211; Only valid for cross sections where
+a plane will be plotted through
+a given point on the model domain. 0.0 represents a S-N cross
+section.  90.0 is a W-E cross section.</li>
+<li><strong>start_point</strong> (<a class="reference internal" href="wrf.CoordPair.html#wrf.CoordPair" title="wrf.CoordPair"><code class="xref py py-class docutils literal"><span class="pre">wrf.CoordPair</span></code></a>, optional) &#8211; A coordinate pair
+which indicates the start location through which the plane will
+pass. Must also specify <em>end_point</em>. The coordinate
+pair can be in x,y grid coordinates or latitude, longitude
+coordinates.  If using latitude, longitude coordinates, then
+either <em>wrfin</em> or <em>projection</em> must be specified to obtain the
+map projection.  Default is None.</li>
+<li><strong>end_point</strong> (<a class="reference internal" href="wrf.CoordPair.html#wrf.CoordPair" title="wrf.CoordPair"><code class="xref py py-class docutils literal"><span class="pre">wrf.CoordPair</span></code></a>, optional) &#8211; A coordinate pair
+which indicates the end location through which the plane will
+pass. Must also specify <em>end_point</em>. The coordinate
+pair can be in x,y grid coordinates or latitude, longitude
+coordinates.  If using latitude, longitude coordinates, then
+either <em>wrfin</em> or <em>projection</em> must be specified to obtain the
+map projection.  Default is None.</li>
+<li><strong>latlon</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, optional) &#8211; Set to True to also interpolate the
+two-dimensional latitude and longitude coordinates along the same
+horizontal line and include this information in the metadata
+(if enabled).  This can be helpful for plotting.  Default is False.</li>
+<li><strong>cache</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.6)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a>, optional) &#8211; A dictionary of (varname, ndarray)
+that can be used to supply pre-extracted NetCDF variables to the
+computational routines.  It is primarily used for internal
+purposes, but can also be used to improve performance by
+eliminating the need to repeatedly extract the same variables
+used in multiple diagnostics calculations, particularly when using
+large sequences of files.
+Default is None.</li>
+<li><strong>meta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, optional) &#8211; Set to False to disable metadata and
+return <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.11)"><code class="xref py py-class docutils literal"><span class="pre">numpy.ndarray</span></code></a> instead of
+<a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.html#xarray.DataArray" title="(in xarray v0.8.2)"><code class="xref py py-class docutils literal"><span class="pre">xarray.DataArray</span></code></a>.  Default is True.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The interpolated variable.  If xarray is enabled and
+the <em>meta</em> parameter is True, then the result will be a
+<a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.html#xarray.DataArray" title="(in xarray v0.8.2)"><code class="xref py py-class docutils literal"><span class="pre">xarray.DataArray</span></code></a> object.  Otherwise, the result will be a
+<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.11)"><code class="xref py py-class docutils literal"><span class="pre">numpy.ndarray</span></code></a> object with no metadata.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.html#xarray.DataArray" title="(in xarray v0.8.2)"><code class="xref py py-class docutils literal"><span class="pre">xarray.DataArray</span></code></a> or <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.11)"><code class="xref py py-class docutils literal"><span class="pre">numpy.ndarray</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="wrf.interpline.html" class="btn btn-neutral float-right" title="wrf.interpline" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="wrf.interplevel.html" class="btn btn-neutral" title="wrf.interplevel" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, University Corporation for Atmospheric Research.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0a3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

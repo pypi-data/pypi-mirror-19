@@ -1,0 +1,1320 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>How To Use &mdash; wrf-python 1.0a3 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="wrf-python 1.0a3 documentation" href="index.html"/>
+        <link rel="next" title="Plotting Examples" href="plot.html"/>
+        <link rel="prev" title="Table of Available Diagnostics" href="diagnostics.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> wrf-python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0a3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="new.html">What&#8217;s New</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="diagnostics.html">Table of Available Diagnostics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How To Use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-usage">Basic Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#computing-diagnostic-variables">Computing Diagnostic Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extracting-wrf-netcdf-variables">Extracting WRF NetCDF Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#disabling-xarray-and-metadata">Disabling xarray and metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extracting-a-numpy-array-from-a-dataarray">Extracting a Numpy Array from a DataArray</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sequences-of-files">Sequences of Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#combining-multiple-files-using-the-cat-method">Combining Multiple Files Using the &#8216;cat&#8217; Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#combining-multiple-files-using-the-join-method">Combining Multiple Files Using the &#8216;join&#8217; Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dictionaries-of-wrf-file-sequences">Dictionaries of WRF File Sequences</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#interpolation-routines">Interpolation Routines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#interpolating-to-a-horizontal-level">Interpolating to a Horizontal Level</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vertical-cross-sections">Vertical Cross Sections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example-using-start-point-and-end-point">Example Using Start Point and End Point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-using-pivot-point-and-angle">Example Using Pivot Point and Angle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-using-lat-lon-coordinates">Example Using Lat/Lon Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-using-specified-vertical-levels">Example Using Specified Vertical Levels</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#interpolating-two-dimensional-fields-to-a-line">Interpolating Two-Dimensional Fields to a Line</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Example Using Start Point and End Point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Example Using Pivot Point and Angle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Example Using Lat/Lon Coordinates</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#interpolating-a-3d-field-to-a-surface-type">Interpolating a 3D Field to a Surface Type</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#lat-lon-xy-routines">Lat/Lon &lt;-&gt; XY Routines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-with-single-coordinates">Example With Single Coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-with-multiple-coordinates">Example With Multiple Coordinates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plot.html">Plotting Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">wrf-python</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>How To Use</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/basic_usage.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-use">
+<h1>How To Use<a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basic-usage">
+<h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="computing-diagnostic-variables">
+<span id="diagnostic-usage"></span><h3>Computing Diagnostic Variables<a class="headerlink" href="#computing-diagnostic-variables" title="Permalink to this headline">¶</a></h3>
+<p>The primary use for the <a class="reference internal" href="user_api/generated/wrf.getvar.html#wrf.getvar" title="wrf.getvar"><code class="xref py py-meth docutils literal"><span class="pre">wrf.getvar()</span></code></a> function is to return diagnostic
+variables that require a calculation, since WRF does not produce these variables
+natively. These diagnostics include CAPE, storm relative helicity,
+omega, sea level pressure, etc. A table of all available diagnostics can be
+found here: <a class="reference internal" href="diagnostics.html#diagnostic-table"><span class="std std-ref">Table of Available Diagnostics</span></a>.</p>
+<p>In the example below, sea level pressure is calculated and printed.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="n">getvar</span>
+
+<span class="n">ncfile</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_00_00_00&quot;</span><span class="p">)</span>
+
+<span class="c1"># Get the Sea Level Pressure</span>
+<span class="n">slp</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;slp&quot;</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">slp</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Result:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&lt;xarray.DataArray u&#39;slp&#39; (south_north: 1059, west_east: 1799)&gt;
+array([[ 1012.22033691,  1012.29815674,  1012.24786377, ...,
+     1010.13201904,  1009.93231201,  1010.06707764],
+   [ 1012.43286133,  1012.44476318,  1012.33666992, ...,
+     1010.1072998 ,  1010.10845947,  1010.04760742],
+   [ 1012.39544678,  1012.38085938,  1012.41705322, ...,
+     1010.22937012,  1010.05596924,  1010.02679443],
+   ...,
+    [ 1009.0423584 ,  1009.06921387,  1008.98779297, ...,
+     1019.19281006,  1019.14434814,  1019.1105957 ],
+   [ 1009.22485352,  1009.07513428,  1008.98638916, ...,
+     1019.07189941,  1019.04266357,  1019.0612793 ],
+   [ 1009.18896484,  1009.1071167 ,  1008.97979736, ...,
+     1018.91778564,  1018.95684814,  1019.04748535]], dtype=float32)
+Coordinates:
+    XLONG        (south_north, west_east) float32 -122.72 -122.693 -122.666 ...
+    XLAT         (south_north, west_east) float32 21.1381 21.1451 21.1521 ...
+    Time         datetime64[ns] 2016-10-07
+  * south_north  (south_north) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 ...
+  * west_east    (west_east) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 ...
+Attributes:
+    FieldType: 104
+    MemoryOrder: XY
+    description: sea level pressure
+    units: hPa
+    stagger:
+    coordinates: XLONG XLAT
+    projection: LambertConformal(bottom_left=(21.138123, -122.71953),
+                top_right=(47.843636, -60.901367), stand_lon=-97.5,
+                moad_cen_lat=38.5000038147, truelat1=38.5, truelat2=38.5,
+                pole_lat=90.0, pole_lon=0.0)
+</pre></div>
+</div>
+</div>
+<div class="section" id="extracting-wrf-netcdf-variables">
+<span id="extract-ncvars"></span><h3>Extracting WRF NetCDF Variables<a class="headerlink" href="#extracting-wrf-netcdf-variables" title="Permalink to this headline">¶</a></h3>
+<p>In addition to computing diagnostic variables (see <a class="reference internal" href="#diagnostic-usage"><span class="std std-ref">Computing Diagnostic Variables</span></a>),
+the <a class="reference internal" href="user_api/generated/wrf.getvar.html#wrf.getvar" title="wrf.getvar"><code class="xref py py-meth docutils literal"><span class="pre">wrf.getvar()</span></code></a> function can be used to extract regular WRF-ARW output
+NetCDF variables.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="n">getvar</span>
+
+<span class="n">ncfile</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_00_00_00&quot;</span><span class="p">)</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;P&quot;</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Result:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&lt;xarray.DataArray u&#39;P&#39; (bottom_top: 50, south_north: 1059, west_east: 1799)&gt;
+array([[[  1.21753906e+03,   1.22532031e+03,   1.22030469e+03, ...,
+       1.00760156e+03,   9.87640625e+02,   1.00111719e+03],
+    [  1.23877344e+03,   1.24004688e+03,   1.22926562e+03, ...,
+       1.00519531e+03,   1.00529688e+03,   9.99171875e+02],
+    [  1.23503906e+03,   1.23367188e+03,   1.23731250e+03, ...,
+       1.01739844e+03,   1.00005469e+03,   9.97093750e+02],
+    ...,
+    [  1.77978516e+00,   1.77050781e+00,   1.79003906e+00, ...,
+       4.22949219e+00,   4.25659180e+00,   4.13647461e+00],
+    [  1.73291016e+00,   1.76879883e+00,   1.77978516e+00, ...,
+       4.24047852e+00,   4.24707031e+00,   4.13549805e+00],
+    [  1.71533203e+00,   1.65722656e+00,   1.67480469e+00, ...,
+       4.06884766e+00,   4.03637695e+00,   4.04785156e+00]]], dtype=float32)
+Coordinates:
+    XLONG        (south_north, west_east) float32 -122.72 -122.693 -122.666 ...
+    XLAT         (south_north, west_east) float32 21.1381 21.1451 21.1521 ...
+    Time         datetime64[ns] 2016-10-07
+  * bottom_top   (bottom_top) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 ...
+  * south_north  (south_north) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 ...
+  * west_east    (west_east) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 ...
+Attributes:
+    FieldType: 104
+    MemoryOrder: XYZ
+    description: perturbation pressure
+    units: Pa
+    stagger:
+    coordinates: XLONG XLAT
+    projection: LambertConformal(bottom_left=(21.138123, -122.71953),
+                top_right=(47.843636, -60.901367), stand_lon=-97.5,
+                moad_cen_lat=38.5000038147, truelat1=38.5, truelat2=38.5,
+                pole_lat=90.0, pole_lon=0.0)
+</pre></div>
+</div>
+</div>
+<div class="section" id="disabling-xarray-and-metadata">
+<h3>Disabling xarray and metadata<a class="headerlink" href="#disabling-xarray-and-metadata" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes you just want a regular numpy array and don&#8217;t care about metadata.
+This is often the case when you are working with compiled extensions.  Metadata
+can be disabled in one of two ways.</p>
+<ol class="arabic simple">
+<li>disable xarray completely</li>
+<li>set the <em>meta</em> function parameter to False.</li>
+</ol>
+<p>The example below illustrates both.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="n">getvar</span><span class="p">,</span> <span class="n">disable_xarray</span>
+
+<span class="n">ncfile</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_00_00_00&quot;</span><span class="p">)</span>
+
+<span class="c1"># Disable xarray completely</span>
+<span class="n">disable_xarray</span><span class="p">()</span>
+<span class="n">p_no_meta</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;P&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">p_no_meta</span><span class="p">))</span>
+<span class="n">enable_xarray</span><span class="p">()</span>
+
+<span class="c1"># Disable by using the meta parameter</span>
+<span class="n">p_no_meta</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;P&quot;</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">p_no_meta</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Result:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&lt;type &#39;numpy.ndarray&#39;&gt;
+&lt;type &#39;numpy.ndarray&#39;&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="extracting-a-numpy-array-from-a-dataarray">
+<h3>Extracting a Numpy Array from a DataArray<a class="headerlink" href="#extracting-a-numpy-array-from-a-dataarray" title="Permalink to this headline">¶</a></h3>
+<p>If you need to convert an <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.html#xarray.DataArray" title="(in xarray v0.8.2)"><code class="xref py py-class docutils literal"><span class="pre">xarray.DataArray</span></code></a> to a <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.11)"><code class="xref py py-class docutils literal"><span class="pre">numpy.ndarray</span></code></a>,
+wrf-python provides the <a class="reference internal" href="user_api/generated/wrf.to_np.html#wrf.to_np" title="wrf.to_np"><code class="xref py py-meth docutils literal"><span class="pre">wrf.to_np()</span></code></a> function for this purpose. Although
+an <code class="xref py py-class docutils literal"><span class="pre">xarray.DataArary</span></code> object already contains the
+<a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.values.html#xarray.DataArray.values" title="(in xarray v0.8.2)"><code class="xref py py-attr docutils literal"><span class="pre">xarray.DataArray.values</span></code></a> attribute to extract the Numpy array, there is a
+problem when working with compiled extensions. The behavior for xarray (and pandas)
+is to convert missing/fill values to NaN, which may cause crashes when working
+with compiled extensions.  Also, some existing code may be designed to work with
+<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/maskedarray.baseclass.html#numpy.ma.MaskedArray" title="(in NumPy v1.11)"><code class="xref py py-class docutils literal"><span class="pre">numpy.ma.MaskedArray</span></code></a>, and numpy arrays with NaN may not work with it.</p>
+<p>The <a class="reference internal" href="user_api/generated/wrf.to_np.html#wrf.to_np" title="wrf.to_np"><code class="xref py py-meth docutils literal"><span class="pre">wrf.to_np()</span></code></a> function does the following:</p>
+<ol class="arabic simple">
+<li>If no missing/fill values are used, <a class="reference internal" href="user_api/generated/wrf.to_np.html#wrf.to_np" title="wrf.to_np"><code class="xref py py-meth docutils literal"><span class="pre">wrf.to_np()</span></code></a> simply returns the
+<a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.values.html#xarray.DataArray.values" title="(in xarray v0.8.2)"><code class="xref py py-attr docutils literal"><span class="pre">xarray.DataArray.values</span></code></a> attribute.</li>
+<li>If missing/fill values are used, then <a class="reference internal" href="user_api/generated/wrf.to_np.html#wrf.to_np" title="wrf.to_np"><code class="xref py py-meth docutils literal"><span class="pre">wrf.to_np()</span></code></a> replaces the NaN
+values with the _FillValue found in the <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.attrs.html#xarray.DataArray.attrs" title="(in xarray v0.8.2)"><code class="xref py py-attr docutils literal"><span class="pre">xarray.DataArray.attrs</span></code></a>
+attribute (required) and a <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/maskedarray.baseclass.html#numpy.ma.MaskedArray" title="(in NumPy v1.11)"><code class="xref py py-class docutils literal"><span class="pre">numpy.ma.MaskedArray</span></code></a> is returned.</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="n">getvar</span>
+
+<span class="n">ncfile</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_00_00_00&quot;</span><span class="p">)</span>
+
+<span class="c1"># Get the Sea Level Pressure</span>
+<span class="n">cape_3d</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;cape_3d&quot;</span><span class="p">)</span>
+
+<span class="n">cape_3d_ndarray</span> <span class="o">=</span> <span class="n">to_np</span><span class="p">(</span><span class="n">cape_3d</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">cape_3d_ndarray</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Result:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&lt;class &#39;numpy.ma.core.MaskedArray&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="sequences-of-files">
+<h2>Sequences of Files<a class="headerlink" href="#sequences-of-files" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="combining-multiple-files-using-the-cat-method">
+<h3>Combining Multiple Files Using the &#8216;cat&#8217; Method<a class="headerlink" href="#combining-multiple-files-using-the-cat-method" title="Permalink to this headline">¶</a></h3>
+<p>The &#8216;cat&#8217; (concatenate) method aggregates all files in the sequence along the
+&#8216;Time&#8217; dimension, which will be the leftmost dimension for the output array.
+To include all of the times, in all of the files, in the output array, set the
+<em>timeidx</em> parameter to <code class="xref py py-data docutils literal"><span class="pre">wrf.ALL_TIMES</span></code> (an alias for None).  If a single
+value is specified for <em>timeidx</em>, then the time index is assumed to be taken from
+the concatenation of all times for all files.</p>
+<p>It is import to note that no sorting is performed in the <a class="reference internal" href="user_api/generated/wrf.getvar.html#wrf.getvar" title="wrf.getvar"><code class="xref py py-meth docutils literal"><span class="pre">wrf.getvar()</span></code></a>
+routine, so all files in the sequence must be sorted prior to calling this
+function.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="n">getvar</span><span class="p">,</span> <span class="n">ALL_TIMES</span>
+
+<span class="c1"># Creating a simple test list with three timesteps</span>
+<span class="n">wrflist</span> <span class="o">=</span> <span class="p">[</span><span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_00_00_00&quot;</span><span class="p">),</span>
+           <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_01_00_00&quot;</span><span class="p">),</span>
+           <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_02_00_00&quot;</span><span class="p">)]</span>
+
+<span class="c1"># Extract the &#39;P&#39; variable for all times</span>
+<span class="n">p_cat</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">wrflist</span><span class="p">,</span> <span class="s2">&quot;P&quot;</span><span class="p">,</span> <span class="n">timeidx</span><span class="o">=</span><span class="n">ALL_TIMES</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;cat&quot;</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">p_cat</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Result:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&lt;xarray.DataArray u&#39;P&#39; (Time: 3, bottom_top: 50, south_north: 1059, west_east: 1799)&gt;
+array([[[[  1.21753906e+03,   1.22532031e+03,   1.22030469e+03, ...,
+        1.00760156e+03,   9.87640625e+02,   1.00111719e+03],
+     [  1.23877344e+03,   1.24004688e+03,   1.22926562e+03, ...,
+        1.00519531e+03,   1.00529688e+03,   9.99171875e+02],
+     [  1.23503906e+03,   1.23367188e+03,   1.23731250e+03, ...,
+        1.01739844e+03,   1.00005469e+03,   9.97093750e+02],
+     ...,
+     [  1.77978516e+00,   1.77050781e+00,   1.79003906e+00, ...,
+        4.22949219e+00,   4.25659180e+00,   4.13647461e+00],
+     [  1.73291016e+00,   1.76879883e+00,   1.77978516e+00, ...,
+        4.24047852e+00,   4.24707031e+00,   4.13549805e+00],
+     [  1.71533203e+00,   1.65722656e+00,   1.67480469e+00, ...,
+        4.06884766e+00,   4.03637695e+00,   4.04785156e+00]]]], dtype=float32)
+Coordinates:
+    XLONG        (south_north, west_east) float32 -122.72 -122.693 -122.666 ...
+    XLAT         (south_north, west_east) float32 21.1381 21.1451 21.1521 ...
+  * Time         (Time) datetime64[ns] 2016-10-07 2016-10-07 2016-10-07
+  * bottom_top   (bottom_top) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 ...
+  * south_north  (south_north) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 ...
+  * west_east    (west_east) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 ...
+    datetime     (Time) datetime64[ns] 2016-10-07T00:00:00 ...
+Attributes:
+    FieldType: 104
+    MemoryOrder: XYZ
+    description: perturbation pressure
+    units: Pa
+    stagger:
+    coordinates: XLONG XLAT
+    projection: LambertConformal(bottom_left=(21.138123, -122.71953),
+                top_right=(47.843636, -60.901367), stand_lon=-97.5,
+                moad_cen_lat=38.5000038147, truelat1=38.5, truelat2=38.5,
+                pole_lat=90.0, pole_lon=0.0)
+</pre></div>
+</div>
+</div>
+<div class="section" id="combining-multiple-files-using-the-join-method">
+<h3>Combining Multiple Files Using the &#8216;join&#8217; Method<a class="headerlink" href="#combining-multiple-files-using-the-join-method" title="Permalink to this headline">¶</a></h3>
+<p>The &#8216;join&#8217; method combines a sequence of files by adding a new leftmost
+dimension for the file/sequence index. In situations where there are multiple
+files with multiple times, and the last file contains less times than the
+previous files, the remaining arrays will be arrays filled with missing values.
+There are checks in place within the wrf-python algorithms to look for these missing
+arrays, but be careful when calling compiled routines outside of wrf-python.</p>
+<p>In most cases, <em>timeidx</em> parameter should be set to <code class="xref py py-data docutils literal"><span class="pre">wrf.ALL_TIMES</span></code>.  If
+a <em>timeidx</em> value is specified, then this time index is used when extracting the
+variable from each file.  In cases where there are multiple files with multiple
+time steps, this is probably nonsensical, since the nth time index for each
+file represents a different time.</p>
+<p>In general, join is rarely used, so the concatenate method should be used
+for most cases.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="n">getvar</span><span class="p">,</span> <span class="n">ALL_TIMES</span>
+
+
+<span class="c1"># Creating a simple test list with three timesteps</span>
+<span class="n">wrflist</span> <span class="o">=</span> <span class="p">[</span><span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_00_00_00&quot;</span><span class="p">),</span>
+           <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_01_00_00&quot;</span><span class="p">),</span>
+           <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_02_00_00&quot;</span><span class="p">)]</span>
+
+<span class="c1"># Extract the &#39;P&#39; variable for all times</span>
+<span class="n">p_join</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">wrflist</span><span class="p">,</span> <span class="s2">&quot;P&quot;</span><span class="p">,</span> <span class="n">timeidx</span><span class="o">=</span><span class="n">ALL_TIMES</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;join&quot;</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">p_join</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Result:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&lt;xarray.DataArray u&#39;P&#39; (file: 3, bottom_top: 50, south_north: 1059, west_east: 1799)&gt;
+array([[[[  1.21753906e+03,   1.22532031e+03,   1.22030469e+03, ...,
+        1.00760156e+03,   9.87640625e+02,   1.00111719e+03],
+     [  1.23877344e+03,   1.24004688e+03,   1.22926562e+03, ...,
+        1.00519531e+03,   1.00529688e+03,   9.99171875e+02],
+     [  1.23503906e+03,   1.23367188e+03,   1.23731250e+03, ...,
+        1.01739844e+03,   1.00005469e+03,   9.97093750e+02],
+     ...,
+     [  1.77978516e+00,   1.77050781e+00,   1.79003906e+00, ...,
+        4.22949219e+00,   4.25659180e+00,   4.13647461e+00],
+     [  1.73291016e+00,   1.76879883e+00,   1.77978516e+00, ...,
+        4.24047852e+00,   4.24707031e+00,   4.13549805e+00],
+     [  1.71533203e+00,   1.65722656e+00,   1.67480469e+00, ...,
+        4.06884766e+00,   4.03637695e+00,   4.04785156e+00]]]], dtype=float32)
+Coordinates:
+    XLONG        (south_north, west_east) float32 -122.72 -122.693 -122.666 ...
+    XLAT         (south_north, west_east) float32 21.1381 21.1451 21.1521 ...
+  * bottom_top   (bottom_top) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 ...
+  * south_north  (south_north) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 ...
+  * west_east    (west_east) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 ...
+  * file         (file) int64 0 1 2
+    datetime     (file) datetime64[ns] 2016-10-07T00:00:00 ...
+    Time         int64 0
+Attributes:
+    FieldType: 104
+    MemoryOrder: XYZ
+    description: perturbation pressure
+    units: Pa
+    stagger:
+    coordinates: XLONG XLAT
+    projection: LambertConformal(bottom_left=(21.138123, -122.71953),
+                top_right=(47.843636, -60.901367), stand_lon=-97.5,
+                moad_cen_lat=38.5000038147, truelat1=38.5, truelat2=38.5,
+                pole_lat=90.0, pole_lon=0.0)
+</pre></div>
+</div>
+<p>Note how the &#8216;Time&#8217; dimension was replaced with the &#8216;file&#8217; dimension, due to the
+numpy&#8217;s automatic squeezing of the single &#8216;Time&#8217; dimension. To maintain the
+&#8216;Time&#8217; dimension, set the <em>squeeze</em> parameter to False.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="n">getvar</span><span class="p">,</span> <span class="n">ALL_TIMES</span>
+
+
+<span class="c1"># Creating a simple test list with three timesteps</span>
+<span class="n">wrflist</span> <span class="o">=</span> <span class="p">[</span><span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_00_00_00&quot;</span><span class="p">),</span>
+           <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_01_00_00&quot;</span><span class="p">),</span>
+           <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_02_00_00&quot;</span><span class="p">)]</span>
+
+<span class="c1"># Extract the &#39;P&#39; variable for all times</span>
+<span class="n">p_join</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">wrflist</span><span class="p">,</span> <span class="s2">&quot;P&quot;</span><span class="p">,</span> <span class="n">timeidx</span><span class="o">=</span><span class="n">ALL_TIMES</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;join&quot;</span><span class="p">,</span> <span class="n">squeeze</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">p_join</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Result</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&lt;xarray.DataArray u&#39;P&#39; (file: 3, Time: 1, bottom_top: 50, south_north: 1059, west_east: 1799)&gt;
+array([[[[[  1.21753906e+03,   1.22532031e+03,   1.22030469e+03, ...,
+         1.00760156e+03,   9.87640625e+02,   1.00111719e+03],
+      [  1.23877344e+03,   1.24004688e+03,   1.22926562e+03, ...,
+         1.00519531e+03,   1.00529688e+03,   9.99171875e+02],
+      [  1.23503906e+03,   1.23367188e+03,   1.23731250e+03, ...,
+         1.01739844e+03,   1.00005469e+03,   9.97093750e+02],
+      ...,
+      [  1.77978516e+00,   1.77050781e+00,   1.79003906e+00, ...,
+         4.22949219e+00,   4.25659180e+00,   4.13647461e+00],
+      [  1.73291016e+00,   1.76879883e+00,   1.77978516e+00, ...,
+         4.24047852e+00,   4.24707031e+00,   4.13549805e+00],
+      [  1.71533203e+00,   1.65722656e+00,   1.67480469e+00, ...,
+         4.06884766e+00,   4.03637695e+00,   4.04785156e+00]]]]], dtype=float32)
+Coordinates:
+    XLONG        (south_north, west_east) float32 -122.72 -122.693 -122.666 ...
+    XLAT         (south_north, west_east) float32 21.1381 21.1451 21.1521 ...
+  * bottom_top   (bottom_top) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 ...
+  * south_north  (south_north) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 ...
+  * west_east    (west_east) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 ...
+  * file         (file) int64 0 1 2
+    datetime     (file, Time) datetime64[ns] 2016-10-07T00:00:00 ...
+  * Time         (Time) int64 0
+Attributes:
+    FieldType: 104
+    MemoryOrder: XYZ
+    description: perturbation pressure
+    units: Pa
+    stagger:
+    coordinates: XLONG XLAT
+    projection: LambertConformal(bottom_left=(21.138123, -122.71953),
+                top_right=(47.843636, -60.901367), stand_lon=-97.5,
+                moad_cen_lat=38.5000038147, truelat1=38.5, truelat2=38.5,
+                pole_lat=90.0, pole_lon=0.0)
+</pre></div>
+</div>
+</div>
+<div class="section" id="dictionaries-of-wrf-file-sequences">
+<h3>Dictionaries of WRF File Sequences<a class="headerlink" href="#dictionaries-of-wrf-file-sequences" title="Permalink to this headline">¶</a></h3>
+<p>Dictionaries can also be used as input to the <a class="reference internal" href="user_api/generated/wrf.getvar.html#wrf.getvar" title="wrf.getvar"><code class="xref py py-meth docutils literal"><span class="pre">wrf.getvar()</span></code></a> functions.
+This can be useful when working with ensembles.  However, all WRF files in the
+dictionary must have the same dimensions.  The result is an array where the
+leftmost dimension is the keys from the dictionary.  Nested dictionaries
+are allowed.</p>
+<p>The <em>method</em> argument is used to describe how each sequence in the dictionary
+will be combined.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="n">getvar</span><span class="p">,</span> <span class="n">ALL_TIMES</span>
+
+<span class="n">wrf_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ens1&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;ens1/wrfout_d01_2016-10-07_00_00_00&quot;</span><span class="p">),</span>
+                      <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;ens1/wrfout_d01_2016-10-07_01_00_00&quot;</span><span class="p">),</span>
+                      <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;ens1/wrfout_d01_2016-10-07_02_00_00&quot;</span><span class="p">)],</span>
+            <span class="s2">&quot;ens2&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;ens2/wrfout_d01_2016-10-07_00_00_00&quot;</span><span class="p">),</span>
+                      <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;ens2/wrfout_d01_2016-10-07_01_00_00&quot;</span><span class="p">),</span>
+                      <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;ens2/wrfout_d01_2016-10-07_02_00_00&quot;</span><span class="p">)]</span>
+            <span class="p">}</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">wrf_dict</span><span class="p">,</span> <span class="s2">&quot;P&quot;</span><span class="p">,</span> <span class="n">timeidx</span><span class="o">=</span><span class="n">ALL_TIMES</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Result:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&lt;xarray.DataArray &#39;P&#39; (key_0: 2, Time: 2, bottom_top: 50, south_north: 1059, west_east: 1799)&gt;
+array([[[[[  1.21753906e+03,   1.22532031e+03,   1.22030469e+03, ...,
+         1.00760156e+03,   9.87640625e+02,   1.00111719e+03],
+      [  1.23877344e+03,   1.24004688e+03,   1.22926562e+03, ...,
+         1.00519531e+03,   1.00529688e+03,   9.99171875e+02],
+      [  1.23503906e+03,   1.23367188e+03,   1.23731250e+03, ...,
+         1.01739844e+03,   1.00005469e+03,   9.97093750e+02],
+      ...,
+      [  1.77978516e+00,   1.77050781e+00,   1.79003906e+00, ...,
+         4.22949219e+00,   4.25659180e+00,   4.13647461e+00],
+      [  1.73291016e+00,   1.76879883e+00,   1.77978516e+00, ...,
+         4.24047852e+00,   4.24707031e+00,   4.13549805e+00],
+      [  1.71533203e+00,   1.65722656e+00,   1.67480469e+00, ...,
+         4.06884766e+00,   4.03637695e+00,   4.04785156e+00]]]]], dtype=float32)
+Coordinates:
+    XLONG        (south_north, west_east) float32 -122.72 -122.693 -122.666 ...
+    XLAT         (south_north, west_east) float32 21.1381 21.1451 21.1521 ...
+  * Time         (Time) datetime64[ns] 2016-10-07T00:00:00 ...
+  * bottom_top   (bottom_top) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 ...
+  * south_north  (south_north) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 ...
+  * west_east    (west_east) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 ...
+    datetime     (Time) datetime64[ns] 2016-10-07T00:00:00 ...
+  * key_0        (key_0) &lt;U6 u&#39;ens1&#39; u&#39;ens2&#39;
+Attributes:
+    FieldType: 104
+    MemoryOrder: XYZ
+    description: perturbation pressure
+    units: Pa
+    stagger:
+    coordinates: XLONG XLAT
+    projection: LambertConformal(bottom_left=(21.138123, -122.71953),
+                top_right=(47.843636, -60.901367), stand_lon=-97.5,
+                moad_cen_lat=38.5000038147, truelat1=38.5, truelat2=38.5,
+                pole_lat=90.0, pole_lon=0.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="interpolation-routines">
+<h2>Interpolation Routines<a class="headerlink" href="#interpolation-routines" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="interpolating-to-a-horizontal-level">
+<h3>Interpolating to a Horizontal Level<a class="headerlink" href="#interpolating-to-a-horizontal-level" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="user_api/generated/wrf.interplevel.html#wrf.interplevel" title="wrf.interplevel"><code class="xref py py-meth docutils literal"><span class="pre">wrf.interplevel()</span></code></a> function is used to interpolate a 3D field to
+a specific horizontal level, usually pressure or height.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="n">getvar</span><span class="p">,</span> <span class="n">interplevel</span>
+
+<span class="n">ncfile</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_00_00_00&quot;</span><span class="p">)</span>
+
+<span class="c1"># Extract the Geopotential Height and Pressure (hPa) fields</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;pressure&quot;</span><span class="p">)</span>
+
+<span class="c1"># Compute the 500 MB Geopotential Height</span>
+<span class="n">ht_500mb</span> <span class="o">=</span> <span class="n">interplevel</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mf">500.</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">ht_500mb</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Result:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&lt;xarray.DataArray u&#39;height_500_hPa&#39; (south_north: 1059, west_east: 1799)&gt;
+array([[ 5882.16992188,  5881.87939453,  5881.81005859, ...,
+     5890.14501953,  5890.23583984,  5890.33349609],
+   [ 5882.71777344,  5882.17529297,  5882.1171875 , ...,
+     5890.37695312,  5890.38525391,  5890.27978516],
+   [ 5883.32177734,  5882.47119141,  5882.34130859, ...,
+     5890.48339844,  5890.42871094,  5890.17724609],
+   ...,
+   [ 5581.45800781,  5580.46826172,  5579.32617188, ...,
+     5788.93554688,  5788.70507812,  5788.64453125],
+   [ 5580.32714844,  5579.51611328,  5578.34863281, ...,
+     5788.15869141,  5787.87304688,  5787.65527344],
+   [ 5579.64404297,  5578.30957031,  5576.98632812, ...,
+     5787.19384766,  5787.10888672,  5787.06933594]], dtype=float32)
+Coordinates:
+    XLONG        (south_north, west_east) float32 -122.72 -122.693 -122.666 ...
+    XLAT         (south_north, west_east) float32 21.1381 21.1451 21.1521 ...
+    Time         datetime64[ns] 2016-10-07
+  * south_north  (south_north) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 ...
+  * west_east    (west_east) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 ...
+Attributes:
+    FieldType: 104
+    units: m
+    stagger:
+    coordinates: XLONG XLAT
+    projection: LambertConformal(bottom_left=(21.138123, -122.71953),
+                top_right=(47.843636, -60.901367), stand_lon=-97.5,
+                moad_cen_lat=38.5000038147, truelat1=38.5, truelat2=38.5,
+                pole_lat=90.0, pole_lon=0.0)
+    level: 500 hPa
+    missing_value: 9.96920996839e+36
+    _FillValue: 9.96920996839e+36
+</pre></div>
+</div>
+</div>
+<div class="section" id="vertical-cross-sections">
+<span id="vert-cross-interp"></span><h3>Vertical Cross Sections<a class="headerlink" href="#vertical-cross-sections" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="user_api/generated/wrf.vertcross.html#wrf.vertcross" title="wrf.vertcross"><code class="xref py py-meth docutils literal"><span class="pre">wrf.vertcross()</span></code></a> function is used to create vertical cross sections.
+To define a cross section, a start point and an end point needs to be specified.
+Alternatively, a pivot point and an angle may be used.  The start point,
+end point, and pivot point are specified using a <a class="reference internal" href="user_api/generated/wrf.CoordPair.html#wrf.CoordPair" title="wrf.CoordPair"><code class="xref py py-class docutils literal"><span class="pre">wrf.CoordPair</span></code></a> object,
+and coordinates can either be in grid (x,y) coordinates or (latitude,longitude)
+coordinates. When using (latitude,longitude) coordinates, a NetCDF file object or
+a <a class="reference internal" href="user_api/generated/wrf.WrfProj.html#wrf.WrfProj" title="wrf.WrfProj"><code class="xref py py-class docutils literal"><span class="pre">wrf.WrfProj</span></code></a> object must be provided.</p>
+<p>The vertical levels can also be specified using the <em>levels</em> parameter.  If
+not specified, then approximately 100 levels will be chosen in 1% increments.</p>
+<div class="section" id="example-using-start-point-and-end-point">
+<h4>Example Using Start Point and End Point<a class="headerlink" href="#example-using-start-point-and-end-point" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="n">getvar</span><span class="p">,</span> <span class="n">vertcross</span><span class="p">,</span> <span class="n">CoordPair</span>
+
+<span class="n">ncfile</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_00_00_00&quot;</span><span class="p">)</span>
+
+<span class="c1"># Get the geopotential height (m) and pressure (hPa).</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;pressure&quot;</span><span class="p">)</span>
+
+<span class="c1"># Define a start point and end point in grid coordinates</span>
+<span class="n">start_point</span> <span class="o">=</span> <span class="n">CoordPair</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">end_point</span> <span class="o">=</span> <span class="n">CoordPair</span><span class="p">(</span><span class="n">x</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Calculate the vertical cross section.  By setting latlon to True, this</span>
+<span class="c1"># also calculates the latitude and longitude coordinates along the cross</span>
+<span class="c1"># section line and adds them to the &#39;xy_loc&#39; metadata to help with plotting.</span>
+<span class="n">p_vert</span> <span class="o">=</span> <span class="n">vertcross</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">start_point</span><span class="o">=</span><span class="n">start_point</span><span class="p">,</span> <span class="n">end_point</span><span class="o">=</span><span class="n">end_point</span><span class="p">,</span> <span class="n">latlon</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">p_vert</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Result:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&lt;xarray.DataArray u&#39;pressure_cross&#39; (vertical: 100, idx: 1798)&gt;
+array([[          nan,           nan,           nan, ...,           nan,
+              nan,           nan],
+   [ 989.66168213,  989.66802979,  989.66351318, ...,  988.05737305,
+     987.99151611,  987.96917725],
+   [ 959.49450684,  959.50109863,  959.50030518, ...,  958.96948242,
+     958.92980957,  958.89294434],
+   ...,
+   [  24.28092003,   24.27359581,   24.27034378, ...,   24.24800491,
+      24.2486496 ,   24.24947357],
+   [  23.2868309 ,   23.27933884,   23.27607918, ...,   23.25231361,
+      23.2530098 ,   23.25384521],
+   [          nan,           nan,           nan, ...,           nan,
+              nan,           nan]], dtype=float32)
+Coordinates:
+    Time      datetime64[ns] 2016-10-07
+    xy_loc    (idx) object CoordPair(x=0.0, y=529.0, lat=34.5279502869, lon=-127.398925781) ...
+  * vertical  (vertical) float32 0.0 261.828 523.656 785.484 1047.31 1309.14 ...
+  * idx       (idx) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 ...
+Attributes:
+    FieldType: 104
+    description: pressure
+    units: hPa
+    stagger:
+    coordinates: XLONG XLAT
+    projection: LambertConformal(bottom_left=(21.138123, -122.71953),
+                top_right=(47.843636, -60.901367), stand_lon=-97.5,
+                moad_cen_lat=38.5000038147, truelat1=38.5, truelat2=38.5,
+                pole_lat=90.0, pole_lon=0.0)
+    orientation: (0.0, 529.0) to (1797.0, 529.0)
+    missing_value: 9.96920996839e+36
+    _FillValue: 9.96920996839e+36
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-using-pivot-point-and-angle">
+<h4>Example Using Pivot Point and Angle<a class="headerlink" href="#example-using-pivot-point-and-angle" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="n">getvar</span><span class="p">,</span> <span class="n">vertcross</span><span class="p">,</span> <span class="n">CoordPair</span>
+
+<span class="n">ncfile</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_00_00_00&quot;</span><span class="p">)</span>
+
+<span class="c1"># Get the geopotential height (m) and pressure (hPa).</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;pressure&quot;</span><span class="p">)</span>
+
+<span class="c1"># Define a pivot point and angle in grid coordinates, with the</span>
+<span class="c1"># pivot point being the center of the grid.</span>
+<span class="n">pivot_point</span> <span class="o">=</span> <span class="n">CoordPair</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">angle</span> <span class="o">=</span> <span class="mf">90.0</span>
+
+<span class="c1"># Calculate the vertical cross section.  By setting latlon to True, this</span>
+<span class="c1"># also calculates the latitude and longitude coordinates along the line</span>
+<span class="c1"># and adds them to the metadata to help with plotting labels.</span>
+<span class="n">p_vert</span> <span class="o">=</span> <span class="n">vertcross</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">pivot_point</span><span class="o">=</span><span class="n">pivot_point</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="n">angle</span><span class="p">,</span> <span class="n">latlon</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="p">(</span><span class="n">p_vert</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Result:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&lt;xarray.DataArray u&#39;pressure_cross&#39; (vertical: 100, idx: 1798)&gt;
+array([[          nan,           nan,           nan, ...,           nan,
+              nan,           nan],
+   [ 989.66168213,  989.66802979,  989.66351318, ...,  988.05737305,
+     987.99151611,  987.96917725],
+   [ 959.49450684,  959.50109863,  959.50030518, ...,  958.96948242,
+     958.92980957,  958.89294434],
+   ...,
+   [  24.28092003,   24.27359581,   24.27034378, ...,   24.24800491,
+      24.2486496 ,   24.24947357],
+   [  23.2868309 ,   23.27933884,   23.27607918, ...,   23.25231361,
+      23.2530098 ,   23.25384521],
+   [          nan,           nan,           nan, ...,           nan,
+              nan,           nan]], dtype=float32)
+Coordinates:
+    Time      datetime64[ns] 2016-10-07
+    xy_loc    (idx) object CoordPair(x=0.0, y=529.0, lat=34.5279502869, lon=-127.398925781) ...
+  * vertical  (vertical) float32 0.0 261.828 523.656 785.484 1047.31 1309.14 ...
+  * idx       (idx) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 ...
+Attributes:
+    FieldType: 104
+    description: pressure
+    units: hPa
+    stagger:
+    coordinates: XLONG XLAT
+    projection: LambertConformal(bottom_left=(21.138123, -122.71953),
+                top_right=(47.843636, -60.901367), stand_lon=-97.5,
+                moad_cen_lat=38.5000038147, truelat1=38.5, truelat2=38.5,
+                pole_lat=90.0, pole_lon=0.0)
+    orientation: (0.0, 529.0) to (1797.0, 529.0) ; center=CoordPair(x=899.0, y=529.0) ; angle=90.0
+    missing_value: 9.96920996839e+36
+    _FillValue: 9.96920996839e+36
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-using-lat-lon-coordinates">
+<h4>Example Using Lat/Lon Coordinates<a class="headerlink" href="#example-using-lat-lon-coordinates" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="n">getvar</span><span class="p">,</span> <span class="n">vertcross</span><span class="p">,</span> <span class="n">CoordPair</span>
+
+<span class="n">ncfile</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_00_00_00&quot;</span><span class="p">)</span>
+
+<span class="c1"># Get the geopotential height (m) and pressure (hPa).</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;pressure&quot;</span><span class="p">)</span>
+<span class="n">lats</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">)</span>
+<span class="n">lons</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">)</span>
+
+<span class="c1"># Making the same horizontal line, but with lats/lons</span>
+<span class="n">start_lat</span> <span class="o">=</span> <span class="n">lats</span><span class="p">[(</span><span class="n">lats</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">end_lat</span> <span class="o">=</span> <span class="n">lats</span><span class="p">[(</span><span class="n">lats</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">start_lon</span> <span class="o">=</span> <span class="n">lons</span><span class="p">[(</span><span class="n">lats</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">end_lon</span> <span class="o">=</span> <span class="n">lons</span><span class="p">[(</span><span class="n">lats</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Cross section line using start_point and end_point.</span>
+<span class="n">start_point</span> <span class="o">=</span> <span class="n">CoordPair</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="n">start_lat</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="n">start_lon</span><span class="p">)</span>
+<span class="n">end_point</span> <span class="o">=</span> <span class="n">CoordPair</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="n">end_lat</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="n">end_lon</span><span class="p">)</span>
+
+<span class="c1"># When using lat/lon coordinates, you must supply a netcdf file object, or a</span>
+<span class="c1"># projection object.</span>
+<span class="n">p_vert</span> <span class="o">=</span> <span class="n">vertcross</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">wrfin</span><span class="o">=</span><span class="n">ncfile</span><span class="p">,</span> <span class="n">start_point</span><span class="o">=</span><span class="n">start_point</span><span class="p">,</span> <span class="n">end_point</span><span class="o">=</span><span class="n">end_point</span><span class="p">,</span> <span class="n">latlon</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">p_vert</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Result:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&lt;xarray.DataArray u&#39;pressure_cross&#39; (vertical: 100, idx: 1798)&gt;
+array([[          nan,           nan,           nan, ...,           nan,
+              nan,           nan],
+   [ 989.66168213,  989.66802979,  989.66351318, ...,  988.05737305,
+     987.99151611,  987.96917725],
+   [ 959.49450684,  959.50109863,  959.50030518, ...,  958.96948242,
+     958.92980957,  958.89294434],
+   ...,
+   [  24.28092003,   24.27359581,   24.27034378, ...,   24.24800491,
+      24.2486496 ,   24.24947357],
+   [  23.2868309 ,   23.27933884,   23.27607918, ...,   23.25231361,
+      23.2530098 ,   23.25384521],
+   [          nan,           nan,           nan, ...,           nan,
+              nan,           nan]], dtype=float32)
+Coordinates:
+    Time      datetime64[ns] 2016-10-07
+    xy_loc    (idx) object CoordPair(x=0.0, y=529.0, lat=34.5279502869, lon=-127.398925781) ...
+  * vertical  (vertical) float32 0.0 261.828 523.656 785.484 1047.31 1309.14 ...
+  * idx       (idx) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 ...
+Attributes:
+    FieldType: 104
+    description: pressure
+    units: hPa
+    stagger:
+    coordinates: XLONG XLAT
+    projection: LambertConformal(bottom_left=(21.138123, -122.71953),
+                top_right=(47.843636, -60.901367), stand_lon=-97.5,
+                moad_cen_lat=38.5000038147, truelat1=38.5, truelat2=38.5,
+                pole_lat=90.0, pole_lon=0.0)
+    orientation: (0.0, 529.0) to (1797.0, 529.0)
+    missing_value: 9.96920996839e+36
+    _FillValue: 9.96920996839e+36
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-using-specified-vertical-levels">
+<h4>Example Using Specified Vertical Levels<a class="headerlink" href="#example-using-specified-vertical-levels" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="n">getvar</span><span class="p">,</span> <span class="n">vertcross</span><span class="p">,</span> <span class="n">CoordPair</span>
+
+<span class="n">ncfile</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_00_00_00&quot;</span><span class="p">)</span>
+
+<span class="c1"># Get the geopotential height (m) and pressure (hPa).</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;pressure&quot;</span><span class="p">)</span>
+<span class="n">lats</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">)</span>
+<span class="n">lons</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">)</span>
+
+<span class="c1"># Making the same horizontal line, but with lats/lons</span>
+<span class="n">start_lat</span> <span class="o">=</span> <span class="n">lats</span><span class="p">[(</span><span class="n">lats</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">end_lat</span> <span class="o">=</span> <span class="n">lats</span><span class="p">[(</span><span class="n">lats</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">start_lon</span> <span class="o">=</span> <span class="n">lons</span><span class="p">[(</span><span class="n">lats</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">end_lon</span> <span class="o">=</span> <span class="n">lons</span><span class="p">[(</span><span class="n">lats</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Pressure using start_point and end_point.  These were obtained using</span>
+<span class="n">start_point</span> <span class="o">=</span> <span class="n">CoordPair</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="n">start_lat</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="n">start_lon</span><span class="p">)</span>
+<span class="n">end_point</span> <span class="o">=</span> <span class="n">CoordPair</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="n">end_lat</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="n">end_lon</span><span class="p">)</span>
+
+<span class="c1"># Specify vertical levels</span>
+<span class="n">levels</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1000.</span><span class="p">,</span> <span class="mf">2000.</span><span class="p">,</span> <span class="mf">3000.</span><span class="p">]</span>
+
+<span class="c1"># Calculate the cross section</span>
+<span class="n">p_vert</span> <span class="o">=</span> <span class="n">vertcross</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">wrfin</span><span class="o">=</span><span class="n">ncfile</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span> <span class="n">start_point</span><span class="o">=</span><span class="n">start_point</span><span class="p">,</span> <span class="n">end_point</span><span class="o">=</span><span class="n">end_point</span><span class="p">,</span> <span class="n">latlon</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">p_vert</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Result:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&lt;xarray.DataArray u&#39;pressure_cross&#39; (vertical: 3, idx: 1798)&gt;
+array([[ 906.375     ,  906.38043213,  906.39367676, ...,  907.6661377 ,
+         907.63006592,  907.59191895],
+       [ 804.24737549,  804.26885986,  804.28076172, ...,  806.98632812,
+         806.95556641,  806.92608643],
+       [ 713.24578857,  713.2722168 ,  713.27886963, ...,  716.09594727,
+         716.06610107,  716.03503418]], dtype=float32)
+Coordinates:
+    Time      datetime64[ns] 2016-10-07
+    xy_loc    (idx) object CoordPair(x=0.0, y=529.0, lat=34.5279502869, lon=-127.398925781) ...
+  * vertical  (vertical) float32 1000.0 2000.0 3000.0
+  * idx       (idx) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 ...
+Attributes:
+    FieldType: 104
+    description: pressure
+    units: hPa
+    stagger:
+    coordinates: XLONG XLAT
+    projection: LambertConformal(bottom_left=(21.138123, -122.71953),
+                top_right=(47.843636, -60.901367), stand_lon=-97.5,
+                moad_cen_lat=38.5000038147, truelat1=38.5, truelat2=38.5,
+                pole_lat=90.0, pole_lon=0.0)
+    orientation: (0.0, 529.0) to (1797.0, 529.0)
+    missing_value: 9.96920996839e+36
+    _FillValue: 9.96920996839e+36
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="interpolating-two-dimensional-fields-to-a-line">
+<h3>Interpolating Two-Dimensional Fields to a Line<a class="headerlink" href="#interpolating-two-dimensional-fields-to-a-line" title="Permalink to this headline">¶</a></h3>
+<p>Two-dimensional fields can be interpolated along a line, in a manner similar to
+the vertical cross section (see <a class="reference internal" href="#vert-cross-interp"><span class="std std-ref">Vertical Cross Sections</span></a>), using the
+<a class="reference internal" href="user_api/generated/wrf.interpline.html#wrf.interpline" title="wrf.interpline"><code class="xref py py-meth docutils literal"><span class="pre">wrf.interpline()</span></code></a> function. To define the line
+to interpolate along, a start point and an end point needs to be specified.
+Alternatively, a pivot point and an angle may be used.  The start point,
+end point, and pivot point are specified using a <a class="reference internal" href="user_api/generated/wrf.CoordPair.html#wrf.CoordPair" title="wrf.CoordPair"><code class="xref py py-class docutils literal"><span class="pre">wrf.CoordPair</span></code></a> object,
+and coordinates can either be in grid (x,y) coordinates or (latitude,longitude)
+coordinates.  When using (latitude,longitude) coordinates, a NetCDF file object or
+a <a class="reference internal" href="user_api/generated/wrf.WrfProj.html#wrf.WrfProj" title="wrf.WrfProj"><code class="xref py py-class docutils literal"><span class="pre">wrf.WrfProj</span></code></a> object must also be provided.</p>
+<div class="section" id="id1">
+<h4>Example Using Start Point and End Point<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="n">getvar</span><span class="p">,</span> <span class="n">interpline</span><span class="p">,</span> <span class="n">CoordPair</span>
+
+<span class="n">ncfile</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_00_00_00&quot;</span><span class="p">)</span>
+
+<span class="c1"># Get the 2m temperature</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;T2&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create a south-north line in the center of the domain using</span>
+<span class="c1"># start point and end point</span>
+<span class="n">start_point</span> <span class="o">=</span> <span class="n">CoordPair</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">(</span><span class="n">t2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">end_point</span> <span class="o">=</span> <span class="n">CoordPair</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">(</span><span class="n">t2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Calculate the vertical cross section.  By setting latlon to True, this</span>
+<span class="c1"># also calculates the latitude and longitude coordinates along the line</span>
+<span class="c1"># and adds them to the metadata to help with plotting labels.</span>
+<span class="n">t2_line</span> <span class="o">=</span> <span class="n">interpline</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">start_point</span><span class="o">=</span><span class="n">start_point</span><span class="p">,</span> <span class="n">end_point</span><span class="o">=</span><span class="n">end_point</span><span class="p">,</span> <span class="n">latlon</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">t2_line</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Result:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&lt;xarray.DataArray u&#39;T2_line&#39; (line_idx: 1058)&gt;
+array([ 302.07214355,  302.08505249,  302.08688354, ...,  279.18557739,
+        279.1998291 ,  279.23132324], dtype=float32)
+Coordinates:
+    Time      datetime64[ns] 2016-10-07
+    xy_loc    (line_idx) object CoordPair(x=899.0, y=0.0, lat=24.3645858765, lon=-97.5) ...
+  * line_idx  (line_idx) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 ...
+Attributes:
+    FieldType: 104
+    description: TEMP at 2 M
+    units: K
+    stagger:
+    coordinates: XLONG XLAT
+    projection: LambertConformal(bottom_left=(21.138123, -122.71953),
+                top_right=(47.843636, -60.901367), stand_lon=-97.5,
+                moad_cen_lat=38.5000038147, truelat1=38.5, truelat2=38.5,
+                pole_lat=90.0, pole_lon=0.0)
+    orientation: (899.0, 0.0) to (899.0, 1057.0)
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h4>Example Using Pivot Point and Angle<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="n">getvar</span><span class="p">,</span> <span class="n">interpline</span><span class="p">,</span> <span class="n">CoordPair</span>
+
+<span class="n">ncfile</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_00_00_00&quot;</span><span class="p">)</span>
+
+<span class="c1"># Get the 2m temperature</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;T2&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create a south-north line using pivot point and angle</span>
+<span class="n">pivot_point</span> <span class="o">=</span> <span class="n">CoordPair</span><span class="p">((</span><span class="n">t2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">t2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">angle</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="c1"># Calculate the vertical cross section.  By setting latlon to True, this</span>
+<span class="c1"># also calculates the latitude and longitude coordinates along the line</span>
+<span class="c1"># and adds them to the metadata to help with plotting labels.</span>
+<span class="n">t2_line</span> <span class="o">=</span> <span class="n">interpline</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">start_point</span><span class="o">=</span><span class="n">start_point</span><span class="p">,</span> <span class="n">end_point</span><span class="o">=</span><span class="n">end_point</span><span class="p">,</span> <span class="n">latlon</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">t2_line</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Result:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&lt;xarray.DataArray u&#39;T2_line&#39; (line_idx: 1058)&gt;
+array([ 302.07214355,  302.08505249,  302.08688354, ...,  279.18557739,
+        279.1998291 ,  279.23132324], dtype=float32)
+Coordinates:
+    Time      datetime64[ns] 2016-10-07
+    xy_loc    (line_idx) object CoordPair(x=899.0, y=0.0, lat=24.3645858765, lon=-97.5) ...
+  * line_idx  (line_idx) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 ...
+Attributes:
+    FieldType: 104
+    description: TEMP at 2 M
+    units: K
+    stagger:
+    coordinates: XLONG XLAT
+    projection: LambertConformal(bottom_left=(21.138123, -122.71953),
+                top_right=(47.843636, -60.901367), stand_lon=-97.5,
+                moad_cen_lat=38.5000038147, truelat1=38.5, truelat2=38.5,
+                pole_lat=90.0, pole_lon=0.0)
+    orientation: (899.0, 0.0) to (899.0, 1057.0) ; center=CoordPair(x=899, y=529) ; angle=0.0
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h4>Example Using Lat/Lon Coordinates<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="n">getvar</span><span class="p">,</span> <span class="n">interpline</span><span class="p">,</span> <span class="n">CoordPair</span>
+
+<span class="n">ncfile</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_00_00_00&quot;</span><span class="p">)</span>
+
+<span class="n">t2</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;T2&quot;</span><span class="p">)</span>
+<span class="n">lats</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">)</span>
+<span class="n">lons</span> <span class="o">=</span> <span class="n">getvar</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">)</span>
+
+<span class="c1"># Select the latitude,longitude points for a vertical line through</span>
+<span class="c1"># the center of the domain.</span>
+<span class="n">start_lat</span> <span class="o">=</span> <span class="n">lats</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">lats</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">end_lat</span> <span class="o">=</span> <span class="n">lats</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">lats</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">start_lon</span> <span class="o">=</span> <span class="n">lons</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">lons</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">end_lon</span> <span class="o">=</span> <span class="n">lons</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">lons</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># Create the CoordPairs</span>
+<span class="n">start_point</span> <span class="o">=</span> <span class="n">CoordPair</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="n">start_lat</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="n">start_lon</span><span class="p">)</span>
+<span class="n">end_point</span> <span class="o">=</span> <span class="n">CoordPair</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="n">end_lat</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="n">end_lon</span><span class="p">)</span>
+
+<span class="c1"># Calculate the vertical cross section.  By setting latlon to True, this</span>
+<span class="c1"># also calculates the latitude and longitude coordinates along the line</span>
+<span class="c1"># and adds them to the metadata to help with plotting labels.</span>
+<span class="n">t2_line</span> <span class="o">=</span> <span class="n">interpline</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">wrfin</span><span class="o">=</span><span class="n">ncfile</span><span class="p">,</span> <span class="n">start_point</span><span class="o">=</span><span class="n">start_point</span><span class="p">,</span> <span class="n">end_point</span><span class="o">=</span><span class="n">end_point</span><span class="p">,</span> <span class="n">latlon</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="p">(</span><span class="n">t2_line</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Result:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&lt;xarray.DataArray u&#39;T2_line&#39; (line_idx: 1058)&gt;
+array([ 302.07214355,  302.08505249,  302.08688354, ...,  279.18557739,
+        279.1998291 ,  279.23132324], dtype=float32)
+Coordinates:
+    Time      datetime64[ns] 2016-10-07
+    xy_loc    (line_idx) object CoordPair(x=899.0, y=0.0, lat=24.3645858765, lon=-97.5) ...
+  * line_idx  (line_idx) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 ...
+Attributes:
+    FieldType: 104
+    description: TEMP at 2 M
+    units: K
+    stagger:
+    coordinates: XLONG XLAT
+    projection: LambertConformal(bottom_left=(21.138123, -122.71953),
+                top_right=(47.843636, -60.901367), stand_lon=-97.5,
+                moad_cen_lat=38.5000038147, truelat1=38.5, truelat2=38.5,
+                pole_lat=90.0, pole_lon=0.0)
+    orientation: (899.0, 0.0) to (899.0, 1057.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="interpolating-a-3d-field-to-a-surface-type">
+<h3>Interpolating a 3D Field to a Surface Type<a class="headerlink" href="#interpolating-a-3d-field-to-a-surface-type" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="user_api/generated/wrf.vinterp.html#wrf.vinterp" title="wrf.vinterp"><code class="xref py py-meth docutils literal"><span class="pre">wrf.vinterp()</span></code></a> is used to interpolate a field to a type of surface.
+The available surfaces are pressure, geopotential height, theta, and theta-e.
+The surface levels to interpolate also need to be specified.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="n">getvar</span><span class="p">,</span> <span class="n">interpline</span><span class="p">,</span> <span class="n">CoordPair</span>
+
+<span class="n">ncfile</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_00_00_00&quot;</span><span class="p">)</span>
+
+<span class="c1"># Interpolate tk to theta-e levels</span>
+<span class="n">interp_levels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]</span>
+
+<span class="n">interp_field</span> <span class="o">=</span> <span class="n">vinterp</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span>
+               <span class="n">field</span><span class="o">=</span><span class="n">tk</span><span class="p">,</span>
+               <span class="n">vert_coord</span><span class="o">=</span><span class="s2">&quot;eth&quot;</span><span class="p">,</span>
+               <span class="n">interp_levels</span><span class="o">=</span><span class="n">interp_levels</span><span class="p">,</span>
+               <span class="n">extrapolate</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+               <span class="n">field_type</span><span class="o">=</span><span class="s2">&quot;tk&quot;</span><span class="p">,</span>
+               <span class="n">log_p</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">interp_field</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Result:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&lt;xarray.DataArray u&#39;temp&#39; (interp_level: 4, south_north: 1059, west_east: 1799)&gt;
+array([[[ 296.12872314,  296.1166687 ,  296.08905029, ...,  301.71026611,
+          301.67956543,  301.67791748],
+        [ 296.11352539,  295.95581055,  295.91555786, ...,  301.63052368,
+          301.62905884,  301.65887451],
+        [ 296.07556152,  295.91577148,  295.88214111, ...,  301.61499023,
+          301.60287476,  301.63961792],
+        ...,
+        [ 219.11134338,  219.08581543,  219.08602905, ...,  218.29879761,
+          218.30923462,  218.3787384 ],
+        [ 219.09260559,  219.07765198,  219.08340454, ...,  218.2855072 ,
+          218.30444336,  218.37931824],
+        [ 219.07936096,  219.08181763,  219.10089111, ...,  218.31173706,
+          218.34288025,  218.3687439 ]]], dtype=float32)
+Coordinates:
+    XLONG         (south_north, west_east) float32 -122.72 -122.693 -122.666 ...
+    XLAT          (south_north, west_east) float32 21.1381 21.1451 21.1521 ...
+    Time          datetime64[ns] 2016-10-07
+  * south_north   (south_north) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 ...
+  * west_east     (west_east) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 ...
+  * interp_level  (interp_level) int64 200 300 500 1000
+Attributes:
+    FieldType: 104
+    MemoryOrder: XYZ
+    description: temperature
+    units: K
+    stagger:
+    coordinates: XLONG XLAT
+    projection: LambertConformal(bottom_left=(21.138123, -122.71953),
+                top_right=(47.843636, -60.901367), stand_lon=-97.5,
+                moad_cen_lat=38.5000038147, truelat1=38.5, truelat2=38.5,
+                pole_lat=90.0, pole_lon=0.0)
+    vert_interp_type: eth
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="lat-lon-xy-routines">
+<h2>Lat/Lon &lt;-&gt; XY Routines<a class="headerlink" href="#lat-lon-xy-routines" title="Permalink to this headline">¶</a></h2>
+<p>wrf-python includes a set of routines for converting back and forth between
+latitude,longitude space and x,y space.  The methods are <a class="reference internal" href="user_api/generated/wrf.xy_to_ll.html#wrf.xy_to_ll" title="wrf.xy_to_ll"><code class="xref py py-meth docutils literal"><span class="pre">wrf.xy_to_ll()</span></code></a>,
+<a class="reference internal" href="user_api/generated/wrf.xy_to_ll_proj.html#wrf.xy_to_ll_proj" title="wrf.xy_to_ll_proj"><code class="xref py py-meth docutils literal"><span class="pre">wrf.xy_to_ll_proj()</span></code></a>, <a class="reference internal" href="user_api/generated/wrf.ll_to_xy.html#wrf.ll_to_xy" title="wrf.ll_to_xy"><code class="xref py py-meth docutils literal"><span class="pre">wrf.ll_to_xy()</span></code></a>, <a class="reference internal" href="user_api/generated/wrf.ll_to_xy_proj.html#wrf.ll_to_xy_proj" title="wrf.ll_to_xy_proj"><code class="xref py py-meth docutils literal"><span class="pre">wrf.ll_to_xy_proj()</span></code></a>.
+The <em>latitude</em>, <em>longitude</em>, <em>x</em>, and <em>y</em> parameters to these methods
+can contain sequences if multiple points are desired to be converted.</p>
+<div class="section" id="example-with-single-coordinates">
+<h3>Example With Single Coordinates<a class="headerlink" href="#example-with-single-coordinates" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="n">getvar</span><span class="p">,</span> <span class="n">interpline</span><span class="p">,</span> <span class="n">CoordPair</span><span class="p">,</span> <span class="n">xy_to_ll</span><span class="p">,</span> <span class="n">ll_to_xy</span>
+
+<span class="n">ncfile</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_00_00_00&quot;</span><span class="p">)</span>
+
+<span class="n">lat_lon</span> <span class="o">=</span> <span class="n">xy_to_ll</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">lat_lon</span><span class="p">)</span>
+
+<span class="n">x_y</span> <span class="o">=</span> <span class="n">ll_to_xy</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="n">lat_lon</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lat_lon</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="k">print</span> <span class="p">(</span><span class="n">x_y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Result:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&lt;xarray.DataArray u&#39;latlon&#39; (lat_lon: 2)&gt;
+array([  28.55816408, -112.67827617])
+Coordinates:
+  * lat_lon   (lat_lon) &lt;U3 u&#39;lat&#39; u&#39;lon&#39;
+    xy_coord  object CoordPair(x=400, y=200)
+    idx       int64 0
+
+
+&lt;xarray.DataArray u&#39;xy&#39; (x_y: 2)&gt;
+array([400, 200])
+Coordinates:
+    latlon_coord  object CoordPair(lat=28.5581640822, lon=-112.678276173)
+  * x_y           (x_y) &lt;U1 u&#39;x&#39; u&#39;y&#39;
+    idx           int64 0
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-with-multiple-coordinates">
+<h3>Example With Multiple Coordinates<a class="headerlink" href="#example-with-multiple-coordinates" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">wrf</span> <span class="kn">import</span> <span class="n">getvar</span><span class="p">,</span> <span class="n">interpline</span><span class="p">,</span> <span class="n">CoordPair</span><span class="p">,</span> <span class="n">xy_to_ll</span><span class="p">,</span> <span class="n">ll_to_xy</span>
+
+<span class="n">ncfile</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;wrfout_d01_2016-10-07_00_00_00&quot;</span><span class="p">)</span>
+
+<span class="n">lat_lon</span> <span class="o">=</span> <span class="n">xy_to_ll</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="p">[</span><span class="mi">400</span><span class="p">,</span><span class="mi">105</span><span class="p">],</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span><span class="mi">205</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">lat_lon</span><span class="p">)</span>
+
+<span class="n">x_y</span> <span class="o">=</span> <span class="n">ll_to_xy</span><span class="p">(</span><span class="n">ncfile</span><span class="p">,</span> <span class="n">lat_lon</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">lat_lon</span><span class="p">[</span><span class="mi">1</span><span class="p">,:])</span>
+
+<span class="k">print</span> <span class="p">(</span><span class="n">x_y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Result:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&lt;xarray.DataArray u&#39;latlon&#39; (lat_lon: 2, idx: 2)&gt;
+array([[  28.55816408,   27.03835783],
+       [-112.67827617, -121.36392174]])
+Coordinates:
+  * lat_lon   (lat_lon) &lt;U3 u&#39;lat&#39; u&#39;lon&#39;
+    xy_coord  (idx) object CoordPair(x=400, y=200) CoordPair(x=105, y=205)
+  * idx       (idx) int64 0 1
+
+
+&lt;xarray.DataArray u&#39;xy&#39; (x_y: 2, idx: 2)&gt;
+array([[400, 105],
+       [200, 205]])
+Coordinates:
+    latlon_coord  (idx) object CoordPair(lat=28.5581640822, lon=-112.678276173) ...
+  * x_y           (x_y) &lt;U1 u&#39;x&#39; u&#39;y&#39;
+  * idx           (idx) int64 0 1
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="plot.html" class="btn btn-neutral float-right" title="Plotting Examples" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="diagnostics.html" class="btn btn-neutral" title="Table of Available Diagnostics" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, University Corporation for Atmospheric Research.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0a3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

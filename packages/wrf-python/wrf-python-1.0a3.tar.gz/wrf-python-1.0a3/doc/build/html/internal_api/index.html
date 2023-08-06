@@ -1,0 +1,509 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Internal API &mdash; wrf-python 1.0a3 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="wrf-python 1.0a3 documentation" href="../index.html"/>
+        <link rel="up" title="API Reference" href="../api.html"/>
+        <link rel="next" title="wrf.cape.get_2dcape" href="generated/wrf.cape.get_2dcape.html"/>
+        <link rel="prev" title="wrf.RotatedLatLon" href="../user_api/generated/wrf.RotatedLatLon.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> wrf-python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0a3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../new.html">What&#8217;s New</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../diagnostics.html">Table of Available Diagnostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_usage.html">How To Use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plot.html">Plotting Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../user_api/index.html">User API</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Internal API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#routines">Routines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#extraction-and-diagnostic-routines">Extraction and Diagnostic Routines</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#decorators">Decorators</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#algorithm-decorators">Algorithm Decorators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#metadata-decorators">Metadata Decorators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#decorator-utilities">Decorator Utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#iterable-wrapper-class">Iterable Wrapper Class</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">wrf-python</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../api.html">API Reference</a> &raquo;</li>
+      
+    <li>Internal API</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/internal_api/index.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="internal-api">
+<h1>Internal API<a class="headerlink" href="#internal-api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="routines">
+<h2>Routines<a class="headerlink" href="#routines" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="extraction-and-diagnostic-routines">
+<h3>Extraction and Diagnostic Routines<a class="headerlink" href="#extraction-and-diagnostic-routines" title="Permalink to this headline">¶</a></h3>
+<p>The routines below are called internally by <a class="reference internal" href="../user_api/generated/wrf.getvar.html#wrf.getvar" title="wrf.getvar"><code class="xref py py-meth docutils literal"><span class="pre">wrf.getvar()</span></code></a>.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.cape.get_2dcape.html#wrf.cape.get_2dcape" title="wrf.cape.get_2dcape"><code class="xref py py-obj docutils literal"><span class="pre">wrf.cape.get_2dcape</span></code></a></td>
+<td>Return the 2d fields of CAPE, CIN, LCL, and LFC.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.cape.get_3dcape.html#wrf.cape.get_3dcape" title="wrf.cape.get_3dcape"><code class="xref py py-obj docutils literal"><span class="pre">wrf.cape.get_3dcape</span></code></a></td>
+<td>Return the three-dimensional CAPE and CIN.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.cloudfrac.get_cloudfrac.html#wrf.cloudfrac.get_cloudfrac" title="wrf.cloudfrac.get_cloudfrac"><code class="xref py py-obj docutils literal"><span class="pre">wrf.cloudfrac.get_cloudfrac</span></code></a></td>
+<td>Return the cloud fraction.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.ctt.get_ctt.html#wrf.ctt.get_ctt" title="wrf.ctt.get_ctt"><code class="xref py py-obj docutils literal"><span class="pre">wrf.ctt.get_ctt</span></code></a></td>
+<td>Return the cloud top temperature.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.dbz.get_dbz.html#wrf.dbz.get_dbz" title="wrf.dbz.get_dbz"><code class="xref py py-obj docutils literal"><span class="pre">wrf.dbz.get_dbz</span></code></a></td>
+<td>Return the simulated radar reflectivity.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.dbz.get_max_dbz.html#wrf.dbz.get_max_dbz" title="wrf.dbz.get_max_dbz"><code class="xref py py-obj docutils literal"><span class="pre">wrf.dbz.get_max_dbz</span></code></a></td>
+<td>Return the maximum simulated radar reflectivity.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.dewpoint.get_dp.html#wrf.dewpoint.get_dp" title="wrf.dewpoint.get_dp"><code class="xref py py-obj docutils literal"><span class="pre">wrf.dewpoint.get_dp</span></code></a></td>
+<td>Return the dewpoint temperature.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.dewpoint.get_dp_2m.html#wrf.dewpoint.get_dp_2m" title="wrf.dewpoint.get_dp_2m"><code class="xref py py-obj docutils literal"><span class="pre">wrf.dewpoint.get_dp_2m</span></code></a></td>
+<td>Return the 2m dewpoint temperature.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.geoht.get_geopt.html#wrf.geoht.get_geopt" title="wrf.geoht.get_geopt"><code class="xref py py-obj docutils literal"><span class="pre">wrf.geoht.get_geopt</span></code></a></td>
+<td>Return the geopotential.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.geoht.get_height.html#wrf.geoht.get_height" title="wrf.geoht.get_height"><code class="xref py py-obj docutils literal"><span class="pre">wrf.geoht.get_height</span></code></a></td>
+<td>Return the geopotential height.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.helicity.get_srh.html#wrf.helicity.get_srh" title="wrf.helicity.get_srh"><code class="xref py py-obj docutils literal"><span class="pre">wrf.helicity.get_srh</span></code></a></td>
+<td>Return the storm relative helicity.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.helicity.get_uh.html#wrf.helicity.get_uh" title="wrf.helicity.get_uh"><code class="xref py py-obj docutils literal"><span class="pre">wrf.helicity.get_uh</span></code></a></td>
+<td>Return the updraft helicity.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.omega.get_omega.html#wrf.omega.get_omega" title="wrf.omega.get_omega"><code class="xref py py-obj docutils literal"><span class="pre">wrf.omega.get_omega</span></code></a></td>
+<td>Return Omega.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.pressure.get_pressure.html#wrf.pressure.get_pressure" title="wrf.pressure.get_pressure"><code class="xref py py-obj docutils literal"><span class="pre">wrf.pressure.get_pressure</span></code></a></td>
+<td>Return the pressure in the specified units.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.pressure.get_pressure_hpa.html#wrf.pressure.get_pressure_hpa" title="wrf.pressure.get_pressure_hpa"><code class="xref py py-obj docutils literal"><span class="pre">wrf.pressure.get_pressure_hpa</span></code></a></td>
+<td>Return the pressure in [hPa].</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.pw.get_pw.html#wrf.pw.get_pw" title="wrf.pw.get_pw"><code class="xref py py-obj docutils literal"><span class="pre">wrf.pw.get_pw</span></code></a></td>
+<td>Return the preciptiable water.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.rh.get_rh.html#wrf.rh.get_rh" title="wrf.rh.get_rh"><code class="xref py py-obj docutils literal"><span class="pre">wrf.rh.get_rh</span></code></a></td>
+<td>Return the relative humidity.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.rh.get_rh_2m.html#wrf.rh.get_rh_2m" title="wrf.rh.get_rh_2m"><code class="xref py py-obj docutils literal"><span class="pre">wrf.rh.get_rh_2m</span></code></a></td>
+<td>Return the 2m relative humidity.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.slp.get_slp.html#wrf.slp.get_slp" title="wrf.slp.get_slp"><code class="xref py py-obj docutils literal"><span class="pre">wrf.slp.get_slp</span></code></a></td>
+<td>Return the sea level pressure in the specified units.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.temp.get_theta.html#wrf.temp.get_theta" title="wrf.temp.get_theta"><code class="xref py py-obj docutils literal"><span class="pre">wrf.temp.get_theta</span></code></a></td>
+<td>Return the potential temperature.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.temp.get_temp.html#wrf.temp.get_temp" title="wrf.temp.get_temp"><code class="xref py py-obj docutils literal"><span class="pre">wrf.temp.get_temp</span></code></a></td>
+<td>Return the temperature in the specified units.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.temp.get_eth.html#wrf.temp.get_eth" title="wrf.temp.get_eth"><code class="xref py py-obj docutils literal"><span class="pre">wrf.temp.get_eth</span></code></a></td>
+<td>Return the equivalent potential temperature.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.temp.get_tv.html#wrf.temp.get_tv" title="wrf.temp.get_tv"><code class="xref py py-obj docutils literal"><span class="pre">wrf.temp.get_tv</span></code></a></td>
+<td>Return the virtual temperature.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.temp.get_tw.html#wrf.temp.get_tw" title="wrf.temp.get_tw"><code class="xref py py-obj docutils literal"><span class="pre">wrf.temp.get_tw</span></code></a></td>
+<td>Return the wetbulb temperature.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.temp.get_tk.html#wrf.temp.get_tk" title="wrf.temp.get_tk"><code class="xref py py-obj docutils literal"><span class="pre">wrf.temp.get_tk</span></code></a></td>
+<td>Return the temperature in [K].</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.temp.get_tc.html#wrf.temp.get_tc" title="wrf.temp.get_tc"><code class="xref py py-obj docutils literal"><span class="pre">wrf.temp.get_tc</span></code></a></td>
+<td>Return the temperature in [degC].</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.terrain.get_terrain.html#wrf.terrain.get_terrain" title="wrf.terrain.get_terrain"><code class="xref py py-obj docutils literal"><span class="pre">wrf.terrain.get_terrain</span></code></a></td>
+<td>Return the terrain height in the specified units.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.times.get_times.html#wrf.times.get_times" title="wrf.times.get_times"><code class="xref py py-obj docutils literal"><span class="pre">wrf.times.get_times</span></code></a></td>
+<td>Return a sequence of time objects.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.times.get_xtimes.html#wrf.times.get_xtimes" title="wrf.times.get_xtimes"><code class="xref py py-obj docutils literal"><span class="pre">wrf.times.get_xtimes</span></code></a></td>
+<td>Return a sequence of time objects.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.uvmet.get_uvmet.html#wrf.uvmet.get_uvmet" title="wrf.uvmet.get_uvmet"><code class="xref py py-obj docutils literal"><span class="pre">wrf.uvmet.get_uvmet</span></code></a></td>
+<td>Return the u,v wind components rotated to earth coordinates.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.uvmet.get_uvmet10.html#wrf.uvmet.get_uvmet10" title="wrf.uvmet.get_uvmet10"><code class="xref py py-obj docutils literal"><span class="pre">wrf.uvmet.get_uvmet10</span></code></a></td>
+<td>Return the u,v components for the 10m winds rotated to earth coordinates.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.uvmet.get_uvmet_wspd_wdir.html#wrf.uvmet.get_uvmet_wspd_wdir" title="wrf.uvmet.get_uvmet_wspd_wdir"><code class="xref py py-obj docutils literal"><span class="pre">wrf.uvmet.get_uvmet_wspd_wdir</span></code></a></td>
+<td>Return the wind speed and wind direction for the wind rotated to earth coordinates.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.uvmet.get_uvmet10_wspd_wdir.html#wrf.uvmet.get_uvmet10_wspd_wdir" title="wrf.uvmet.get_uvmet10_wspd_wdir"><code class="xref py py-obj docutils literal"><span class="pre">wrf.uvmet.get_uvmet10_wspd_wdir</span></code></a></td>
+<td>Return the wind speed and wind direction for the 10m wind rotated to earth coordinates.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.vorticity.get_avo.html#wrf.vorticity.get_avo" title="wrf.vorticity.get_avo"><code class="xref py py-obj docutils literal"><span class="pre">wrf.vorticity.get_avo</span></code></a></td>
+<td>Return the absolute vorticity.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.vorticity.get_pvo.html#wrf.vorticity.get_pvo" title="wrf.vorticity.get_pvo"><code class="xref py py-obj docutils literal"><span class="pre">wrf.vorticity.get_pvo</span></code></a></td>
+<td>Return the potential vorticity.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.wind.get_u_destag.html#wrf.wind.get_u_destag" title="wrf.wind.get_u_destag"><code class="xref py py-obj docutils literal"><span class="pre">wrf.wind.get_u_destag</span></code></a></td>
+<td>Return the u-component of the wind on mass points.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.wind.get_v_destag.html#wrf.wind.get_v_destag" title="wrf.wind.get_v_destag"><code class="xref py py-obj docutils literal"><span class="pre">wrf.wind.get_v_destag</span></code></a></td>
+<td>Return the v-component of the wind on mass points.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.wind.get_w_destag.html#wrf.wind.get_w_destag" title="wrf.wind.get_w_destag"><code class="xref py py-obj docutils literal"><span class="pre">wrf.wind.get_w_destag</span></code></a></td>
+<td>Return the w-component of the wind on mass points.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.wind.get_destag_wspd_wdir.html#wrf.wind.get_destag_wspd_wdir" title="wrf.wind.get_destag_wspd_wdir"><code class="xref py py-obj docutils literal"><span class="pre">wrf.wind.get_destag_wspd_wdir</span></code></a></td>
+<td>Return the wind speed and wind direction for the wind in the projected coordinate space.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.wind.get_destag_wspd_wdir10.html#wrf.wind.get_destag_wspd_wdir10" title="wrf.wind.get_destag_wspd_wdir10"><code class="xref py py-obj docutils literal"><span class="pre">wrf.wind.get_destag_wspd_wdir10</span></code></a></td>
+<td>Return the wind speed and wind direction for the 10m wind in projected coordinate space.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="decorators">
+<h2>Decorators<a class="headerlink" href="#decorators" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="algorithm-decorators">
+<h3>Algorithm Decorators<a class="headerlink" href="#algorithm-decorators" title="Permalink to this headline">¶</a></h3>
+<p>The decorators below are used for performing common operations related to
+diagnostic and interpolation calculations.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.decorators.convert_units.html#wrf.decorators.convert_units" title="wrf.decorators.convert_units"><code class="xref py py-obj docutils literal"><span class="pre">wrf.decorators.convert_units</span></code></a></td>
+<td>A decorator that converts the units from the wrapped function&#8217;s output.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.decorators.left_iteration.html#wrf.decorators.left_iteration" title="wrf.decorators.left_iteration"><code class="xref py py-obj docutils literal"><span class="pre">wrf.decorators.left_iteration</span></code></a></td>
+<td>A decorator to handle iterating over the leftmost dimensions.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.decorators.cast_type.html#wrf.decorators.cast_type" title="wrf.decorators.cast_type"><code class="xref py py-obj docutils literal"><span class="pre">wrf.decorators.cast_type</span></code></a></td>
+<td>A decorator to handle type casting.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.decorators.extract_and_transpose.html#wrf.decorators.extract_and_transpose" title="wrf.decorators.extract_and_transpose"><code class="xref py py-obj docutils literal"><span class="pre">wrf.decorators.extract_and_transpose</span></code></a></td>
+<td>A decorator to extract the data array from a <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.html#xarray.DataArray" title="(in xarray v0.8.2)"><code class="xref py py-class docutils literal"><span class="pre">xarray.DataArray</span></code></a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.decorators.check_args.html#wrf.decorators.check_args" title="wrf.decorators.check_args"><code class="xref py py-obj docutils literal"><span class="pre">wrf.decorators.check_args</span></code></a></td>
+<td>A decorator to check that the wrapped function&#8217;s arguments are valid.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.specialdec.uvmet_left_iter.html#wrf.specialdec.uvmet_left_iter" title="wrf.specialdec.uvmet_left_iter"><code class="xref py py-obj docutils literal"><span class="pre">wrf.specialdec.uvmet_left_iter</span></code></a></td>
+<td>A decorator to handle iterating over the leftmost dimensions for the uvmet diagnostic.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.specialdec.cape_left_iter.html#wrf.specialdec.cape_left_iter" title="wrf.specialdec.cape_left_iter"><code class="xref py py-obj docutils literal"><span class="pre">wrf.specialdec.cape_left_iter</span></code></a></td>
+<td>A decorator to handle iterating over the leftmost dimensions for the cape diagnostic.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.specialdec.cloudfrac_left_iter.html#wrf.specialdec.cloudfrac_left_iter" title="wrf.specialdec.cloudfrac_left_iter"><code class="xref py py-obj docutils literal"><span class="pre">wrf.specialdec.cloudfrac_left_iter</span></code></a></td>
+<td>A decorator to handle iterating over the leftmost dimensions for the cloud fraction diagnostic.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="metadata-decorators">
+<h3>Metadata Decorators<a class="headerlink" href="#metadata-decorators" title="Permalink to this headline">¶</a></h3>
+<p>The decorators below are used for performing common operations related to
+setting metadata.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.metadecorators.copy_and_set_metadata.html#wrf.metadecorators.copy_and_set_metadata" title="wrf.metadecorators.copy_and_set_metadata"><code class="xref py py-obj docutils literal"><span class="pre">wrf.metadecorators.copy_and_set_metadata</span></code></a></td>
+<td>A decorator that sets the metadata for a wrapped function&#8217;s output.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.metadecorators.set_wind_metadata.html#wrf.metadecorators.set_wind_metadata" title="wrf.metadecorators.set_wind_metadata"><code class="xref py py-obj docutils literal"><span class="pre">wrf.metadecorators.set_wind_metadata</span></code></a></td>
+<td>A decorator that sets the metadata for a wrapped wind function&#8217;s output.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.metadecorators.set_cape_metadata.html#wrf.metadecorators.set_cape_metadata" title="wrf.metadecorators.set_cape_metadata"><code class="xref py py-obj docutils literal"><span class="pre">wrf.metadecorators.set_cape_metadata</span></code></a></td>
+<td>A decorator that sets the metadata for a wrapped CAPE function&#8217;s output.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.metadecorators.set_cloudfrac_metadata.html#wrf.metadecorators.set_cloudfrac_metadata" title="wrf.metadecorators.set_cloudfrac_metadata"><code class="xref py py-obj docutils literal"><span class="pre">wrf.metadecorators.set_cloudfrac_metadata</span></code></a></td>
+<td>A decorator that sets the metadata for a wrapped cloud fraction function&#8217;s output.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.metadecorators.set_latlon_metadata.html#wrf.metadecorators.set_latlon_metadata" title="wrf.metadecorators.set_latlon_metadata"><code class="xref py py-obj docutils literal"><span class="pre">wrf.metadecorators.set_latlon_metadata</span></code></a></td>
+<td>A decorator that sets the metadata for a wrapped latlon function&#8217;s output.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.metadecorators.set_height_metadata.html#wrf.metadecorators.set_height_metadata" title="wrf.metadecorators.set_height_metadata"><code class="xref py py-obj docutils literal"><span class="pre">wrf.metadecorators.set_height_metadata</span></code></a></td>
+<td>A decorator that sets the metadata for a wrapped height function&#8217;s output.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.metadecorators.set_interp_metadata.html#wrf.metadecorators.set_interp_metadata" title="wrf.metadecorators.set_interp_metadata"><code class="xref py py-obj docutils literal"><span class="pre">wrf.metadecorators.set_interp_metadata</span></code></a></td>
+<td>A decorator that sets the metadata for a wrapped interpolation function.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.metadecorators.set_alg_metadata.html#wrf.metadecorators.set_alg_metadata" title="wrf.metadecorators.set_alg_metadata"><code class="xref py py-obj docutils literal"><span class="pre">wrf.metadecorators.set_alg_metadata</span></code></a></td>
+<td>A decorator that sets the metadata for a wrapped raw diagnostic function.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.metadecorators.set_uvmet_alg_metadata.html#wrf.metadecorators.set_uvmet_alg_metadata" title="wrf.metadecorators.set_uvmet_alg_metadata"><code class="xref py py-obj docutils literal"><span class="pre">wrf.metadecorators.set_uvmet_alg_metadata</span></code></a></td>
+<td>A decorator that sets the metadata for the wrapped raw UVMET diagnostic function.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.metadecorators.set_cape_alg_metadata.html#wrf.metadecorators.set_cape_alg_metadata" title="wrf.metadecorators.set_cape_alg_metadata"><code class="xref py py-obj docutils literal"><span class="pre">wrf.metadecorators.set_cape_alg_metadata</span></code></a></td>
+<td>A decorator that sets the metadata for the wrapped raw CAPE diagnostic function.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.metadecorators.set_cloudfrac_alg_metadata.html#wrf.metadecorators.set_cloudfrac_alg_metadata" title="wrf.metadecorators.set_cloudfrac_alg_metadata"><code class="xref py py-obj docutils literal"><span class="pre">wrf.metadecorators.set_cloudfrac_alg_metadata</span></code></a></td>
+<td>A decorator that sets the metadata for the wrapped raw cloud fraction diagnostic function.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.metadecorators.set_destag_metadata.html#wrf.metadecorators.set_destag_metadata" title="wrf.metadecorators.set_destag_metadata"><code class="xref py py-obj docutils literal"><span class="pre">wrf.metadecorators.set_destag_metadata</span></code></a></td>
+<td>A decorator that sets the metadata for the wrapped raw destaggering function.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="decorator-utilities">
+<h3>Decorator Utilities<a class="headerlink" href="#decorator-utilities" title="Permalink to this headline">¶</a></h3>
+<p>The routines below are used within the decorators.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.either.html#wrf.either" title="wrf.either"><code class="xref py py-obj docutils literal"><span class="pre">wrf.either</span></code></a></td>
+<td>A callable class that determines which variable is present in the file.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.combine_dims.html#wrf.combine_dims" title="wrf.combine_dims"><code class="xref py py-obj docutils literal"><span class="pre">wrf.combine_dims</span></code></a></td>
+<td>A callable class that mixes dimension sizes from different function arguments.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.from_var.html#wrf.from_var" title="wrf.from_var"><code class="xref py py-obj docutils literal"><span class="pre">wrf.from_var</span></code></a></td>
+<td>A callable class that retrieves attributes from the function argument.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.from_args.html#wrf.from_args" title="wrf.from_args"><code class="xref py py-obj docutils literal"><span class="pre">wrf.from_args</span></code></a></td>
+<td>Return a mapping of argument name to value for the called function.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.args_to_list.html#wrf.args_to_list" title="wrf.args_to_list"><code class="xref py py-obj docutils literal"><span class="pre">wrf.args_to_list</span></code></a></td>
+<td>Return all of the function arguments, including defaults, as a list.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/wrf.arg_location.html#wrf.arg_location" title="wrf.arg_location"><code class="xref py py-obj docutils literal"><span class="pre">wrf.arg_location</span></code></a></td>
+<td>Return the function arguments as a single list along with the index within that list for a specified argument name.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="iterable-wrapper-class">
+<h3>Iterable Wrapper Class<a class="headerlink" href="#iterable-wrapper-class" title="Permalink to this headline">¶</a></h3>
+<p>The class below is an Iterable wrapper class and provides an __iter__ function
+that always returns the beginning of the sequence, regardless of the
+Iterable type.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/wrf.IterWrapper.html#wrf.IterWrapper" title="wrf.IterWrapper"><code class="xref py py-obj docutils literal"><span class="pre">wrf.IterWrapper</span></code></a></td>
+<td>A wrapper class for generators and custom iterable classes that returns a new iterator to the start of the sequence when <code class="xref py py-meth docutils literal"><span class="pre">IterWrapper.__iter__()</span></code> is called.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="generated/wrf.cape.get_2dcape.html" class="btn btn-neutral float-right" title="wrf.cape.get_2dcape" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../user_api/generated/wrf.RotatedLatLon.html" class="btn btn-neutral" title="wrf.RotatedLatLon" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, University Corporation for Atmospheric Research.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0a3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
