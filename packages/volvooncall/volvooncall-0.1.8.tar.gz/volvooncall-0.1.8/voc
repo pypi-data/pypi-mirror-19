@@ -1,0 +1,141 @@
+#!/usr/bin/env python
+# -*- mode: python; coding: utf-8 -*-
+"""
+Retrieve information from VOC
+
+Usage:
+  voc (-h | --help)
+  voc --version
+  voc [-v|-vv] [options] list
+  voc [-v|-vv] [options] status
+  voc [-v|-vv] [options] print [<attribute>]
+  voc [-v|-vv] [options] (lock | unlock)
+  voc [-v|-vv] [options] heater (start | stop)
+  voc [-v|-vv] [options] call <method>
+
+Options:
+  -u <username>     VOC username
+  -p <password>     VOC password
+  -i <vin>          Vehicle VIN or registration number
+  -g                Geolocate position
+  -h --help         Show this message
+  -v,-vv            Increase verbosity
+  --version         Show version
+"""
+
+from sys import exit
+import docopt
+import logging
+
+from volvooncall import __version__, read_credentials, Connection
+
+_LOGGER = logging.getLogger(__name__)
+
+def lookup_position(lat, lon):
+    try:
+        from geopy.geocoders import Nominatim
+        geolocator = Nominatim()
+        return geolocator.reverse((lat, lon))
+    except ImportError:
+        _LOGGER.info('geopy not installed. position lookup not available')
+
+def print_vehicle(vehicle, geolocate=False):
+    s = '%s %dkm' % (
+	vehicle,
+	vehicle.odometer / 1000)
+
+    if vehicle.fuelAmountLevel:
+        s += ' (fuel %s%% %skm)' % (
+            vehicle.fuelAmountLevel,
+            vehicle.distanceToEmpty)
+
+    print(s)
+
+    try:
+        lat, lon = (vehicle.position['latitude'],
+                    vehicle.position['longitude'])
+        pos = lookup_position(lat, lon) if geolocate else None
+        if pos:
+            print('    position: %.14f,%.14f (%s)' % (lat, lon, pos.address))
+        else:
+            print('    position: %.14f,%.14f' % (lat, lon))
+    except AttributeError:
+        pass
+
+    print('    locked: %s' % ('yes' if vehicle.is_locked else 'no'))
+    print('    heater: %s' % ('on' if vehicle.is_heater_on else 'off'))
+
+
+def main():
+    """Command line interface."""
+
+    args = docopt.docopt(__doc__,
+			 version=__version__)
+
+    if args['-v'] == 2:
+        level=logging.DEBUG
+    elif args['-v']:
+        level=logging.INFO
+    else:
+        level=logging.ERROR
+
+    FORMAT = '%(asctime)s %(name)s: %(message)s'
+    logging.basicConfig(level=level, format=FORMAT, datefmt='%H:%M:%S')
+
+    if args['-u'] and args['-p']:
+        connection = Connection(args['-u'],
+				args['-p'])
+    else:
+        credentials = read_credentials()
+        if not credentials:
+            exit("Could not read credentials and none supplied.")
+        connection = Connection(**credentials)
+
+    if not connection.update():
+        exit('Could not connect to the server.')
+
+    if args['list']:
+        for vehicle in connection.vehicles:
+            print(vehicle)
+            exit()
+
+    if args['-i']:
+        vehicle = connection.vehicle(args['-i'])
+    else:
+        vehicle = next(connection.vehicles)
+
+    if not vehicle:
+        exit('Vehicle not found')
+
+    if args['status']:
+        print_vehicle(vehicle, args['-g'])
+    elif args['print']:
+        attr = args['<attribute>']
+        if attr:
+            if hasattr(vehicle, attr):
+                print(getattr(vehicle, attr))
+            else:
+                exit('unknown attribute')
+        else:
+            attrs = {k:v for k,v in vars(vehicle).items() if not k.startswith('_')}
+            from datetime import datetime
+            import json
+            def serialize(obj):
+                if isinstance(obj, datetime):
+                    return obj.isoformat()
+            print(json.dumps(attrs, indent=2, default=serialize))
+    elif args['heater']:
+        if args['start']:
+            vehicle.start_heater()
+        else:
+            vehicle.stop_heater()
+    elif args['lock']:
+        vehicle.lock()
+    elif args['unlock']:
+        vehicle.unlock()
+    elif args['call']:
+        vehicle.call(args['<method>'])
+
+
+if __name__ == '__main__':
+   main()
