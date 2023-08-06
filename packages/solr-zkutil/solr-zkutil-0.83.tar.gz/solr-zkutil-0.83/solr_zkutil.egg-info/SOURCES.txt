@@ -1,0 +1,12 @@
+README.rst
+setup.cfg
+setup.py
+./bin/solr-zkutil
+solr_zkutil.egg-info/PKG-INFO
+solr_zkutil.egg-info/SOURCES.txt
+solr_zkutil.egg-info/dependency_links.txt
+solr_zkutil.egg-info/requires.txt
+solr_zkutil.egg-info/top_level.txt
+solr_zkutil.egg-info/zip-safe
+solrzkutil/__init__.py
+solrzkutil/__main__.py
