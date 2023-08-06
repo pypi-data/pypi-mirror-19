@@ -1,0 +1,14 @@
+Metadata-Version: 1.1
+Name: loopabull
+Version: 0.0.5
+Summary: Event loop driven Ansible playbook execution engine
+Home-page: https://github.com/maxamillion/loopabull
+Author: Adam Miller
+Author-email: admiller@redhat.com
+License: GPLv3+
+Description: Event loop driven Ansible playbook execution engine
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: System :: Systems Administration
