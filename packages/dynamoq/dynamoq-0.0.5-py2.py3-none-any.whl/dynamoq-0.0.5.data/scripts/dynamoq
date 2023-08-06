@@ -1,0 +1,4 @@
+#!python
+from dynamoq import main
+
+main()
