@@ -1,0 +1,16 @@
+MANIFEST.in
+README
+README.md
+setup.py
+src/snimar_thumbnails.egg-info/PKG-INFO
+src/snimar_thumbnails.egg-info/SOURCES.txt
+src/snimar_thumbnails.egg-info/dependency_links.txt
+src/snimar_thumbnails.egg-info/requires.txt
+src/snimar_thumbnails.egg-info/top_level.txt
+src/thumbnails/__init__.py
+src/thumbnails/bbox.py
+src/thumbnails/coordinates.py
+src/thumbnails/generator.py
+src/thumbnails/image.py
+src/thumbnails/tiles.py
+src/thumbnails/utils.py
