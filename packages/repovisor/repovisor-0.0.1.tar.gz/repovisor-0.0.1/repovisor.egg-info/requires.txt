@@ -1,0 +1,4 @@
+colorama==0.3.7
+gitdb2==2.0.0             # via gitpython
+gitpython==2.1.1
+smmap2==2.0.1             # via gitdb2
