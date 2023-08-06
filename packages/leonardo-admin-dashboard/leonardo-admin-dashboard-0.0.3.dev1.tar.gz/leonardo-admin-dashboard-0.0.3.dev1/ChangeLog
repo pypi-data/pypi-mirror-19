@@ -1,0 +1,44 @@
+CHANGES
+=======
+
+* Update changelog
+
+0.0.2
+-----
+
+* Bump django-jet version
+* Update translations
+* Fix login page
+* Upgrade to 1.0.2
+* Downgrade django-jet
+* Load jquery first. Fix broken select2
+* Remove useless translation
+* Fix dummy stuff
+* Add translations
+* Update to latest version and make admin-sso optionaly
+* Fix dash
+* Use fix
+* Change count
+* Next fixes
+* Fixes
+* Fix chart
+* Fix dummy chart
+* Fix
+* Add custom js
+* Fix name
+* Fix
+* Add dummy graphs
+* Typo fix
+* Container classes removed
+* Change content container class
+* Again no compress
+* No compress and hide application in default state
+* Hide tabs only in page view
+* Fix example
+* Add SSO login link
+* Use basestyle and override them by jet and fix checkboxes
+* Support app dashboard in menu and override page list css
+* Cosmetic changes in Page detail
+* Adapt page edit
+* Cleanup readme
+* Initial commit

@@ -1,0 +1,18 @@
+{% load i18n %}
+
+{% if module.show_title %}
+<span class="sidebar-menu-item-title">{{ module.title }}</span>
+{% endif %}
+
+<a href="{{ module.index_url }}" class="sidebar-link popup-section-link app-{{ module.title|slugify }}" data-app-label="{{ module.title|slugify }}" data-popup-section-class="sidebar-popup-section-{{ module.title|slugify }}" data-popup-item-id="sidebar-popup-section-{{ module.title|slugify }}">
+    <span class="sidebar-left collapsible">
+        <span class="sidebar-left-pin icon-star pin-toggle"></span>
+        <span class="sidebar-left-unpin icon-cross pin-toggle"></span>
+    </span>
+    <span class="sidebar-right">
+        <span class="sidebar-right-arrow icon-arrow-right"></span>
+    </span>
+    <span class="sidebar-link-label">      
+    {{ module.title }}
+    </span>
+</a>
