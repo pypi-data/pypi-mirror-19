@@ -1,0 +1,5 @@
+recursive-include corral/ *
+recursive-include corral/template/ *
+include LICENSE.txt
+include README.md
+
