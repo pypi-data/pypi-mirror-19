@@ -1,0 +1,43 @@
+Metadata-Version: 1.1
+Name: django-rest-users-mosoti
+Version: 0.1
+Summary: A simple Django REST app that provides users for the django REST project.
+Home-page: https://github.com/morfat/rest_users
+Author: Morfat Mosoti 
+Author-email: morfatmosoti@gmail.com
+License: MIT License
+Description: =====
+        rest_users
+        =====
+        
+        App for Django rest framework users
+        users email as default login
+        
+        Detailed documentation is in the "docs" directory.
+        
+        Quick start
+        -----------
+        
+        1. Add "rest_users" to your INSTALLED_APPS setting like this::
+        
+            INSTALLED_APPS = [
+                ...
+                'rest_users',
+            ]
+        
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.10
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
