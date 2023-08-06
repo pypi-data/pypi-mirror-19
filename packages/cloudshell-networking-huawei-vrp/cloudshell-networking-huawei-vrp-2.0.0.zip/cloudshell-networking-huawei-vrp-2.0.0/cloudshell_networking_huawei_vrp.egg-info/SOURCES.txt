@@ -1,0 +1,17 @@
+MANIFEST.in
+README.txt
+requirements.txt
+setup.py
+version.txt
+cloudshell/__init__.py
+cloudshell/networking/__init__.py
+cloudshell/networking/huawei/__init__.py
+cloudshell/networking/huawei/vrp/__init__.py
+cloudshell/networking/huawei/vrp/structures/__init__.py
+cloudshell/networking/huawei/vrp/structures/autoload_structure.py
+cloudshell/networking/huawei/vrp/wrapper/__init__.py
+cloudshell_networking_huawei_vrp.egg-info/PKG-INFO
+cloudshell_networking_huawei_vrp.egg-info/SOURCES.txt
+cloudshell_networking_huawei_vrp.egg-info/dependency_links.txt
+cloudshell_networking_huawei_vrp.egg-info/requires.txt
+cloudshell_networking_huawei_vrp.egg-info/top_level.txt
