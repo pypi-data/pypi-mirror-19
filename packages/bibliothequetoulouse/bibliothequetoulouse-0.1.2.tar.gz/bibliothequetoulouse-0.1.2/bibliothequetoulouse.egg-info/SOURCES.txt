@@ -1,0 +1,10 @@
+setup.cfg
+setup.py
+bibliothequetoulouse/__init__.py
+bibliothequetoulouse/client.py
+bibliothequetoulouse.egg-info/PKG-INFO
+bibliothequetoulouse.egg-info/SOURCES.txt
+bibliothequetoulouse.egg-info/dependency_links.txt
+bibliothequetoulouse.egg-info/requires.txt
+bibliothequetoulouse.egg-info/top_level.txt
+test/test_client.py
