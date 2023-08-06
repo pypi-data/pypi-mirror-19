@@ -1,0 +1,17 @@
+{
+    "command": "barbican-worker",
+    "config_files": [
+        {
+            "source": "{{ container_config_directory }}/barbican.conf",
+            "dest": "/etc/barbican/barbican.conf",
+            "owner": "barbican",
+            "perm": "0600"
+        }
+    ],
+    "permissions": [
+        {
+            "path": "/var/log/kolla/barbican",
+            "owner": "barbican:barbican"
+        }
+    ]
+}
