@@ -1,0 +1,12 @@
+MANIFEST.in
+README.rst
+setup.py
+discogs_finder/__init__.py
+discogs_finder/finder.py
+discogs_finder.egg-info/PKG-INFO
+discogs_finder.egg-info/SOURCES.txt
+discogs_finder.egg-info/dependency_links.txt
+discogs_finder.egg-info/not-zip-safe
+discogs_finder.egg-info/requires.txt
+discogs_finder.egg-info/top_level.txt
+scripts/discogs-finder
