@@ -1,0 +1,3 @@
+[console_scripts]
+demographer = demographer_popgen.__init__:main
+
