@@ -1,0 +1,4 @@
+[console_scripts]
+althea-registrator = althea.bin:registrator
+althea-server = althea.bin:server
+
