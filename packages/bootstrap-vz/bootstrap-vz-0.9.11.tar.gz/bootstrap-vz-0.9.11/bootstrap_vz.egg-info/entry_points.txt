@@ -1,0 +1,5 @@
+[console_scripts]
+bootstrap-vz = bootstrapvz.base:main
+bootstrap-vz-remote = bootstrapvz.remote.main:main
+bootstrap-vz-server = bootstrapvz.remote.server:main
+
