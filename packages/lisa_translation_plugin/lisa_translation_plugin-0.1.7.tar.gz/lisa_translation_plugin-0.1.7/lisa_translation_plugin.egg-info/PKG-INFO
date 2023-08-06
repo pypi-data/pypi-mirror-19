@@ -1,0 +1,14 @@
+Metadata-Version: 1.1
+Name: lisa-translation-plugin
+Version: 0.1.7
+Summary: A translation plugin to use with Lisa (Lightweight Improvable Software Assistant).
+Home-page: https://bitbucket.org/lisadevteam/lisa-translation-plugin
+Author: Xavier Saliniere
+Author-email: xavier.saliniere@openmailbox.org
+License: UNKNOWN
+Download-URL: https://bitbucket.org/lisadevteam/lisa-translation-plugin/get/master.zip
+Description: UNKNOWN
+Keywords: plugin,translate,translation,lisa
+Platform: UNKNOWN
+Requires: lisa_sdk
+Requires: goslate
