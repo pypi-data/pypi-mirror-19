@@ -1,0 +1,58 @@
+Metadata-Version: 1.1
+Name: voicelabs
+Version: 0.0.9
+Summary: VoiceInsights Python SDK
+Home-page: https://github.com/voicelabs/analytics-python-sdk
+Author: Sridhar Nallani
+Author-email: sridhar@voicelabs.co
+License: MIT
+Description: --------------------
+        --------------------
+        
+        # Install the package
+        
+        you can install the package locally in the current folder by using the following command:
+        
+        #from test PIP repo
+        pip install -t ./ -i https://testpypi.python.org/pypi VoiceInsights
+        
+        #from main public PIP repo
+        pip install -t ./ VoiceInsights
+        
+        --------------------
+        --------------------
+        
+        ## SDK usage:
+        
+        
+        from voicelabs import  VoiceInsights
+        
+        appToken = '<YOUR APP TOKEN>'   
+        vi = VoiceInsights()
+        
+        def on_session_started(session_started_request, session):
+            # Called when the session starts """   
+            vi.initialize(appToken, session)
+            
+        def on_intent(intent_request, session):
+            intent = intent_request['intent']
+            intent_name = intent_request['intent']['name']
+            
+            response = None
+            #Logic to populate response goes here
+            
+            #invoke SDK track method like follows
+            vi.track(intent_name, intent_request, response)
+            
+            return response
+        
+        
+        --------------------
+        --------------------
+        
+Keywords: voicelabs,voiceinsights,alexasdk
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
