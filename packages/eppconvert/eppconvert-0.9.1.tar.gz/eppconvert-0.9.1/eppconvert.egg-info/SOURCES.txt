@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+eppconvert/__init__.py
+eppconvert/eppformat.py
+eppconvert/eppread.py
+eppconvert/gpx2epp.py
+eppconvert/release.py
+eppconvert.egg-info/PKG-INFO
+eppconvert.egg-info/SOURCES.txt
+eppconvert.egg-info/dependency_links.txt
+eppconvert.egg-info/entry_points.txt
+eppconvert.egg-info/requires.txt
+eppconvert.egg-info/top_level.txt
+test/test_eppconvert.py

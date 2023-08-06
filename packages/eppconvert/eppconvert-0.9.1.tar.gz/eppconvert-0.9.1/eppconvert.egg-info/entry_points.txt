@@ -1,0 +1,4 @@
+[console_scripts]
+eppread = eppconvert.eppread:main
+gpx2epp = eppconvert.gpx2epp:main
+
