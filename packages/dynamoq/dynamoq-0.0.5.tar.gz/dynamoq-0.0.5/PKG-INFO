@@ -1,0 +1,80 @@
+Metadata-Version: 1.1
+Name: dynamoq
+Version: 0.0.5
+Summary: A DynamoDB Command Line Interface with JSON I/O
+Home-page: https://github.com/kislyuk/dynamoq
+Author: Andrey Kislyuk
+Author-email: kislyuk@gmail.com
+License: Apache Software License
+Description: DynamoQ: A DynamoDB command line interface with JSON I/O
+        ========================================================
+        
+        Installation
+        ------------
+        ::
+        
+            pip install dynamoq
+        
+        Synopsis
+        --------
+        
+        Use ``aws configure`` to set up your AWS command line environment.
+        
+        .. code-block:: bash
+        
+            ddb get TABLE_NAME HASH_KEY
+            DYNAMODB_TABLE=mytable ddb get HASH_KEY
+        
+            ddb put mytable '{"key": "foo", "data": "xyz"}' '{"key": "bar", "data": "xyz"}'
+            ddb scan mytable
+        
+            echo '{"data": "update"}' | ddb update mytable mykey
+            ddb update mytable mykey field1=2 field2=[] --condition "field3 eq 456"
+            ddb update mytable mykey field1=2 field2=[] --condition "field4 between 7,8"
+        
+        See `DynamoDB Conditions
+        <http://boto3.readthedocs.io/en/latest/reference/customizations/dynamodb.html#ref-dynamodb-conditions>`_ for more.
+        
+        Authors
+        -------
+        * Andrey Kislyuk
+        
+        Links
+        -----
+        * `Project home page (GitHub) <https://github.com/kislyuk/dynamoq>`_
+        * `Documentation (Read the Docs) <https://dynamoq.readthedocs.io/en/latest/>`_
+        * `Package distribution (PyPI) <https://pypi.python.org/pypi/dynamoq>`_
+        * `Change log <https://github.com/kislyuk/dynamoq/blob/master/Changes.rst>`_
+        
+        Bugs
+        ~~~~
+        Please report bugs, issues, feature requests, etc. on `GitHub <https://github.com/kislyuk/dynamoq/issues>`_.
+        
+        License
+        -------
+        Licensed under the terms of the `Apache License, Version 2.0 <http://www.apache.org/licenses/LICENSE-2.0>`_.
+        
+        .. image:: https://img.shields.io/travis/kislyuk/dynamoq.svg
+                :target: https://travis-ci.org/kislyuk/dynamoq
+        .. image:: https://codecov.io/github/kislyuk/dynamoq/coverage.svg?branch=master
+                :target: https://codecov.io/github/kislyuk/dynamoq?branch=master
+        .. image:: https://img.shields.io/pypi/v/dynamoq.svg
+                :target: https://pypi.python.org/pypi/dynamoq
+        .. image:: https://img.shields.io/pypi/l/dynamoq.svg
+                :target: https://pypi.python.org/pypi/dynamoq
+        .. image:: https://readthedocs.org/projects/dynamoq/badge/?version=latest
+                :target: https://dynamoq.readthedocs.io/
+        
+Platform: MacOS X
+Platform: Posix
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
