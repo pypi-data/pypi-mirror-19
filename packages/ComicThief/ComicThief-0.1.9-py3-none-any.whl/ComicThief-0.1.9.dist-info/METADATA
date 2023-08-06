@@ -1,0 +1,110 @@
+Metadata-Version: 2.0
+Name: ComicThief
+Version: 0.1.9
+Summary: Comic Books Scraper. Easy download comics and make .cbz files.
+Home-page: https://github.com/nuncjo/comicthief
+Author: Nuncjo
+Author-email: zoreander@gmail.com
+License: MIT License
+Requires-Dist: lxml
+Requires-Dist: requests
+Requires-Dist: tqdm
+
+Copyright (c) 2017 Nuncjo
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+Description: ComicThief
+        ========================
+        
+        
+        
+        .. image:: https://codecov.io/gh/nuncjo/comicthief/branch/master/graph/badge.svg?branch=master
+            :target: https://codecov.io/github/nuncjo/comicthief
+            :alt: codecov.io
+            
+        
+        Comic Books Scraper. Easy download comics and make .cbz files.
+        
+        Should work on Python versions 3.4+ on Linux and also on Windows/MacOS (but not tested yet).
+        
+        Downloads comics from `Readcomics.tv <http://www.readcomics.tv/>`_.
+        
+        Download and install ComicThief by:
+        
+        .. code-block:: bash
+        
+            $ pip3 install ComicThief
+            or
+            $ python3 setup.py install -r requirements.txt
+        
+        Use as comand line utility:
+        ----------------
+        
+        Copy *ct.py* wherever You want.
+        
+        Search comic books.
+        
+        .. code-block:: bash
+        
+            $ python3 ct.py -s "Name"
+        
+        Type if there is more than one result. List of episodes will appear.
+        
+        .. code-block:: bash
+        
+            $ python3 ct.py -xs "Exact name"
+        
+        Type to download selected episode.
+        
+        .. code-block:: bash
+        
+            $ python3 ct.py -xs "Exact name" -e "Episode name #1"
+        
+        Go to "comics" directory, there it is!
+        
+        Use as library:
+        ----------------
+        
+        .. code-block:: python
+        
+            from ComicThief.main import ComicThief
+        
+            ct = ComicThief()
+            result = ct.exact_search("Lobo")
+            episode_url = result.get("Lobo #1")
+        
+            if episode_url:
+                ct.download_episode(episode_url, "Lobo #1")
+        ..
+        
+        
+Platform: Windows
+Platform: MacOS
+Platform: Unix
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
