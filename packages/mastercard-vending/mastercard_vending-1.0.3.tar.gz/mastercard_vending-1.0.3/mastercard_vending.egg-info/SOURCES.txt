@@ -1,0 +1,10 @@
+setup.py
+mastercard_vending.egg-info/PKG-INFO
+mastercard_vending.egg-info/SOURCES.txt
+mastercard_vending.egg-info/dependency_links.txt
+mastercard_vending.egg-info/requires.txt
+mastercard_vending.egg-info/top_level.txt
+mastercardvending/__init__.py
+mastercardvending/approval.py
+mastercardvending/machine.py
+mastercardvending/resourceconfig.py
