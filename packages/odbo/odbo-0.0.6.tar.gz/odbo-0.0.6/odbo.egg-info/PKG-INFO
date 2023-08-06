@@ -1,0 +1,61 @@
+Metadata-Version: 1.1
+Name: odbo
+Version: 0.0.6
+Summary: odbo is a tool to simplify the distribution of pandas DataFrames as CSV and database files.
+Home-page: https://github.com/kimlaborg/odbo
+Author: Alexey Strokach
+Author-email: alex.strokach@utoronto.ca
+License: MIT
+Description: odbo
+        ====
+        
+        |anaconda| |docs| |travis| |codecov|
+        
+        odbo is a tool to simplify the distribution of pandas DataFrames as CSV
+        and database files.
+        
+        It analyses a text file and spits out SQL that creates a database table
+        and loads data into that table.
+        
+        It is similar to to the blaze `odo <https://github.com/blaze/odo>`__
+        project, and hence carries a similar name. It was previously called
+        "datapkg", but it seems that this name is [already taken].
+        
+        Examples
+        --------
+        
+        .. code:: bash
+        
+            mysql_install_db --no-defaults --basedir=$HOME/anaconda --datadir=$HOME/tmp/mysql_db
+            mysqld --no-defaults --basedir=$HOME/anaconda --datadir=$HOME/tmp/mysql_db
+        
+        TODO
+        ----
+        
+        -  [ ] Lower flake8 max-complexity to 10.
+        -  [ ] PostgreSQL support.
+        -  [ ] HDF5 support.
+        -  [ ] MariaDB CollumnStore support.
+        
+        Contributing
+        ------------
+        
+        -  Make sure all tests pass before merging into master.
+        -  Follow the PEP8 / PyFlake / Flake8 / etc. guidelines.
+        -  Add tests for new code.
+        -  Try to document things.
+        -  Break any / all of the above if you have a good reason.
+        
+        .. |anaconda| image:: https://anaconda.org/kimlab/odbo/badges/version.svg?style=flat-square
+           :target: https://anaconda.org/kimlab/odbo
+        .. |docs| image:: https://img.shields.io/badge/docs-latest-blue.svg?style=flat-square&?version=latest
+           :target: http://kimlaborg.github.io/odbo
+        .. |travis| image:: https://img.shields.io/travis/kimlaborg/odbo.svg?style=flat-square
+           :target: https://travis-ci.org/kimlaborg/odbo
+        .. |codecov| image:: https://img.shields.io/codecov/c/github/kimlaborg/odbo.svg?style=flat-square
+           :target: https://codecov.io/gh/kimlaborg/odbo
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics

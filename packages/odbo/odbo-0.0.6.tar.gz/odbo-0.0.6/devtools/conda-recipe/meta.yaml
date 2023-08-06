@@ -1,0 +1,62 @@
+{% set version = "0.0.6" %}
+
+package:
+  name: odbo
+  version: {{ version }}
+
+source:
+  path: ../../
+
+build:
+  script: python setup.py install
+  number: 0
+  entry_points:
+    - odbo = odbo.__main__:main
+
+requirements:
+  build:
+    # Basic
+    - python
+  run:
+    # Basic
+    - python
+    - pyyaml
+    - requests
+    - lxml
+    - pycurl
+    - paramiko
+    - biopython
+    - retrying
+    - psutil
+    # Scientific
+    - numpy
+    - scipy
+    - pandas
+    - scikit-learn
+    # Database clients
+    - sqlalchemy
+    - mysqlclient
+    - psycopg2
+    # Binaries
+    - p7zip
+    - mariadb-server
+    # Kimlab
+    - kmtools
+
+test:
+  requires:
+    - pytest
+    - pytest-runner
+    - pytest-cov
+    - pytest-logging
+    - flake8
+  imports:
+    - odbo
+  commands:
+    - odbo --help
+    - odbo file2db --help
+
+about:
+  home: http://kimlaborg.github.io/odbo
+  license: MIT
+  summary: Start and interact with databases through Python / Pandas.
