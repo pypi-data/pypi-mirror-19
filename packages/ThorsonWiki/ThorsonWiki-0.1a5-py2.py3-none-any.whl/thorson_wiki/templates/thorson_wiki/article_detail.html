@@ -1,0 +1,73 @@
+{% extends "thorson_wiki/base.html" %}
+
+{% load i18n staticfiles wikitags %}
+
+{% block addstyles %}
+<link href="{% static "thorson_wiki/css/article.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block subtitle %}
+| {{ article.title }}
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-xs-10">
+    <h1 class="article-title">{{ article.title }}</h1>
+  </div>
+
+  <div class="col-xs-2">
+    {% if user.is_authenticated %}
+      <div class="btn-group pull-right">
+        <button type="button"
+                class="btn btn-primary btn-actions dropdown-toggle"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false">
+          {% trans "Actions" %} <span class="caret"></span>
+        </button>
+
+        <ul class="dropdown-menu">
+          {% if user|can_edit:article %}
+          <li>
+            <a href="{% url namespace_|add:":article_update" article.slug %}">
+              {% trans "Edit article" %}
+            </a>
+          </li>
+          <li>
+            <a href="{% url namespace_|add:":article_delete" article.slug %}">
+              {% trans "Delete article" %}
+            </a>
+          </li>
+          {% endif %}
+          <li>
+            <a href="{% url namespace_|add:":article_create" %}">
+              {% trans "Create new article" %}
+            </a>
+          </li>
+        </ul>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<hr/>
+
+<div class="article-contents">
+  {% if user|can_read:article %}
+    {% markdown %}
+      {{ article.content }}
+    {% endmarkdown %}
+  {% else %}
+    <div class="alert alert-info">
+      <h2>{% trans "Spoilers!" %}</h2>
+
+      {% blocktrans %}
+      You are not authorized to view this page.
+      {% endblocktrans %}
+    </div>
+  {% endif %}
+</div>
+
+{% endblock %}

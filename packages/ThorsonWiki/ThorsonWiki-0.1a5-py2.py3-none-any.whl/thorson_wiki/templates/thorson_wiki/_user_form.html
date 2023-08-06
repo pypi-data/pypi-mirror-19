@@ -1,0 +1,14 @@
+{% load i18n %}
+
+{% include "thorson_wiki/_text_field.html" with field=form.username %}
+{% include "thorson_wiki/_text_field.html" with field=form.email %}
+{% include "thorson_wiki/_text_field.html" with field=form.password1 %}
+{% include "thorson_wiki/_text_field.html" with field=form.password2 %}
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <button type="submit" class="btn btn-primary pull-right">
+      {% trans "Submit" %}
+    </button>
+  </div>
+</div>
