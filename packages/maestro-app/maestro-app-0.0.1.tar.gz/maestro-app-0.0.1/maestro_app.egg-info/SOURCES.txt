@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+maestro/__init__.py
+maestro_app.egg-info/PKG-INFO
+maestro_app.egg-info/SOURCES.txt
+maestro_app.egg-info/dependency_links.txt
+maestro_app.egg-info/entry_points.txt
+maestro_app.egg-info/requires.txt
+maestro_app.egg-info/top_level.txt
+maestro_app.egg-info/zip-safe
