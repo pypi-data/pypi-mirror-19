@@ -1,0 +1,13 @@
+shortuuid
+pika<0.11
+yarl
+
+[develop]
+asynctest
+coverage!=4.3
+coveralls
+pytest
+pytest-asyncio
+pytest-cov
+timeout-decorator
+tox>=2.4
