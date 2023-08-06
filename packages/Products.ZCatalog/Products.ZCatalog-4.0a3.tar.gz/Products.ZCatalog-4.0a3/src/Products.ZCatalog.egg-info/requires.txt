@@ -1,0 +1,21 @@
+setuptools
+AccessControl >= 4.0a4
+Acquisition
+BTrees
+DateTime
+DocumentTemplate
+ExtensionClass
+five.globalrequest
+Missing
+Persistence
+Record
+RestrictedPython
+zExceptions
+ZODB
+Zope2 >= 4.0.dev0
+zope.deferredimport
+zope.dottedname
+zope.globalrequest
+zope.interface
+zope.schema
+zope.testing
