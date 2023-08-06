@@ -1,0 +1,39 @@
+Metadata-Version: 1.1
+Name: azure-cli-batch
+Version: 0.1.1b1
+Summary: Microsoft Azure Command-Line Tools Batch Command Module
+Home-page: https://github.com/Azure/azure-cli
+Author: Microsoft Corporation
+Author-email: azpycli@microsoft.com
+License: MIT
+Description: Microsoft Azure CLI 'batch' Command Module
+        ==================================
+        
+        This package is for the 'batch' module.
+        i.e. 'az batch'
+        
+        
+        
+        
+        .. :changelog:
+        
+        Release History
+        ===============
+        
+        0.1.1b1 (2017-01-17)
+        +++++++++++++++++++++
+        
+        * Initial preview release.
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: License :: OSI Approved :: MIT License
