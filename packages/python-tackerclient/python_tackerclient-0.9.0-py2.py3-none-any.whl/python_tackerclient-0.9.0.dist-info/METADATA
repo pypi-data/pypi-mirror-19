@@ -1,0 +1,47 @@
+Metadata-Version: 2.0
+Name: python-tackerclient
+Version: 0.9.0
+Summary: CLI and Client Library for OpenStack Tacker
+Home-page: http://docs.openstack.org/developer/tacker/
+Author: OpenStack
+Author-email: openstack-dev@lists.openstack.org
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: Babel (>=2.3.4)
+Requires-Dist: cliff (>=2.3.0)
+Requires-Dist: iso8601 (>=0.1.11)
+Requires-Dist: netaddr (!=0.7.16,>=0.7.13)
+Requires-Dist: oslo.i18n (>=2.1.0)
+Requires-Dist: oslo.log (>=3.11.0)
+Requires-Dist: oslo.serialization (>=1.10.0)
+Requires-Dist: oslo.utils (>=3.18.0)
+Requires-Dist: oslosphinx (>=4.7.0)
+Requires-Dist: pbr (>=1.8)
+Requires-Dist: python-keystoneclient (>=3.8.0)
+Requires-Dist: requests (!=2.12.2,>=2.10.0)
+Requires-Dist: simplejson (>=2.2.0)
+Requires-Dist: six (>=1.9.0)
+Requires-Dist: stevedore (>=1.17.1)
+
+========================
+Team and repository tags
+========================
+
+.. image:: http://governance.openstack.org/badges/python-tackerclient.svg
+    :target: http://governance.openstack.org/reference/tags/index.html
+
+.. Change things from this point on
+
+This is the client API library for Tacker.
+
+
+
