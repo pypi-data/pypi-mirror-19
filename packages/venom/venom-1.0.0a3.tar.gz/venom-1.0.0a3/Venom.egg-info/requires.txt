@@ -1,0 +1,13 @@
+
+[aiohttp]
+aiohttp
+ujson
+
+[docs]
+sphinx
+
+[grpc]
+grpcio
+
+[zmq]
+pyzmq
