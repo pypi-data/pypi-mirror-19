@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        zabbix_exporter=zabbix_exporter:main
+    
