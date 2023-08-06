@@ -1,0 +1,10 @@
+setup.cfg
+setup.py
+pyjstore/__init__.py
+pyjstore/dynamodb.py
+pyjstore/exception.py
+pyjstore.egg-info/PKG-INFO
+pyjstore.egg-info/SOURCES.txt
+pyjstore.egg-info/dependency_links.txt
+pyjstore.egg-info/requires.txt
+pyjstore.egg-info/top_level.txt
