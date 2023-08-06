@@ -1,0 +1,45 @@
+AWS: Is my instance healthy?
+============================
+
+Simple tool to ensure that an AWS instance is healthy (ELB-Based)
+
+Usage:
+======
+
+From inside an target EC2 instance:
+-----------------------------------
+
+.. code:: commandline
+
+    $ am_i_healthy.py
+    Instance i-0d26836d9ab61a235 is healthy
+
+Call ``am_i_healthy.py`` to check for its own health.
+
+From outside an target EC2 instance:
+------------------------------------
+
+.. code:: commandline
+
+    $ is_instance_healthy.py sa-east-1 i-0d26836d9ab61a235
+    Instance i-0d26836d9ab61a235 is healthy
+
+Call ``is_instance_healthy.py [region_name] [instance_id]`` to check for
+its health.
+
+From within your own python script:
+-----------------------------------
+
+.. code:: python
+
+    from vivareal.cli.is_instance_healthy import is_instance_healthy
+
+    status = is_instance_healthy('sa-east-1', 'i-0d26836d9ab61a235')
+
+    print(status)
+    >>> (True, 'N/A', 'N/A')
+
+When calling from within your own python script, the tuple structure is:
+- Healthy (boolean)
+- ReasonCode (string)
+- Description (string)
