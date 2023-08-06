@@ -1,0 +1,16 @@
+# Include the licence file
+include LICENCE
+
+# Include the data files
+include templates.npz
+include training_params.pickle
+include model_trainedAtZeroZ.ckpt
+include type_age_atRedshiftZero.npz
+
+# Include Python files
+include *.py
+recursive-include dash *.py *.ui *.pickle *.npz *.ckpt
+
+prune type_age_atRedshiftZero.npz
+prune model_trainedAtZeroZ.ckpt
+
