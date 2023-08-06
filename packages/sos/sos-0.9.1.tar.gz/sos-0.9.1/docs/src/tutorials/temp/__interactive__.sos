@@ -1,0 +1,16 @@
+parameter: name='tracked_f1'
+[0]
+output:  name
+sh:
+    dd if=/dev/urandom of=${name} count=1000
+
+[1]
+output:  'd1/tracked_f2'
+sh:
+    dd if=/dev/urandom of=${output} count=5000
+    dd if=/dev/urandom of=d1/untracked_f4 count=50
+
+[2]
+output:  'd2/d3/tracked_f3'
+sh:
+    dd if=/dev/urandom of=${output} count=600
