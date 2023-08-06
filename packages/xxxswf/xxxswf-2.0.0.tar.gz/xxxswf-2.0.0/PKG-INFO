@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: xxxswf
+Version: 2.0.0
+Summary: xxxswf.py is a Python script for carving, scanning, compressing, decompressing and analyzing Flash SWF files.
+Home-page: https://bitbucket.org/Alexander_Hanel/xxxswf
+Author: Alexander Hanel
+Author-email: alexander<dot>hanel<at>gmail<dot>com
+License: GNU
+Description: xxxswf.py
+        =========
+        
+        xxxswf.py is a Python script for carving, scanning, compressing, decompressing and analyzing Flash SWF files. The script can be used on an individual SWF, single SWF or multiple SWFs embedded in a file stream or all files in a directory. The tool could be useful for system administrators, incident response, exploit analyst, malware analyst or web developers. 
+Keywords: flash swf
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
