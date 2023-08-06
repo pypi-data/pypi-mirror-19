@@ -1,0 +1,10 @@
+graft fedmsg.d/
+include alembic.ini
+include CHANGELOG.rst
+include COPYING
+include COPYING.LESSER
+include README.rst
+include requirements.txt
+include dev-requirements.txt
+recursive-include alembic *
+recursive-include systemd *
