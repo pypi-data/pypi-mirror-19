@@ -1,0 +1,29 @@
+Metadata-Version: 2.0
+Name: motils
+Version: 0.1
+Summary: A package containing local utilities for simplifying every day coding and scripting
+Home-page: https://github.com/neuhofmo/motils
+Author: Moran Neuhof
+Author-email: neuhofmo@gmail.com
+License: MIT
+Keywords: Everyday scripting and development tools
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Other Audience
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+
+A package containing local utilities for simplifying every day coding and scripting. These include: performing zip on a list of files, performing tar+gz on a folder,Converting files to strings, checking if files exist and not empty, etc.
+
+
