@@ -1,0 +1,11 @@
+include LICENSE
+include README.md
+include distributedchat/keys.cfg
+include distributedchat/main.ui
+include distributedchat/startnode.ui
+include requirements.txt
+recursive-include tests .*
+prune tests/__pycache__
+recursive-include docs .*
+prune docs/_build
+include docs/Makefile
