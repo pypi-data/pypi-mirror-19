@@ -1,0 +1,14 @@
+MANIFEST.in
+setup.py
+src/main.cpp
+src/utf8proc.cpp
+src/utf8proc.h
+src/utf8proc_data.cpp
+src/utf8tool.cpp
+src/utf8tool.h
+utf8proc.egg-info/PKG-INFO
+utf8proc.egg-info/SOURCES.txt
+utf8proc.egg-info/dependency_links.txt
+utf8proc.egg-info/not-zip-safe
+utf8proc.egg-info/requires.txt
+utf8proc.egg-info/top_level.txt
