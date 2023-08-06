@@ -1,0 +1,13 @@
+Metadata-Version: 1.1
+Name: dystros
+Version: 0.0.1
+Summary: Tools for working with CalDAV/CardDAV
+Home-page: https://www.jelmer.uk/projects/dystros
+Author: Jelmer Vernooij
+Author-email: jelmer@jelmer.uk
+License: Apache v2 or later
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires: jinja2
+Requires: icalendar
+Requires: defusedxml
