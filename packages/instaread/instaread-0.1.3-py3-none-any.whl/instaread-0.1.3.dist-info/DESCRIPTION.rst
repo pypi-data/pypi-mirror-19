@@ -1,0 +1,89 @@
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+Description: ===============================
+        instaread
+        ===============================
+        
+        .. image:: https://badge.fury.io/py/instaread.png
+            :target: http://badge.fury.io/py/instaread
+        
+        .. image:: https://travis-ci.org/anhdat/instaread.png?branch=master
+                :target: https://travis-ci.org/anhdat/instaread
+        
+        
+        Fast and minimal CLI application to read Instapaper from terminal
+        
+        Usage
+        --------
+        
+        Main flow
+        
+        `instaread`
+        
+        Read the last unread item. Use with '--archive' as 'instaread --archive' to show your commitment.
+        
+        In the case you was overconfident, unarchive last archived item with:
+            instaread putback
+        
+        More commands:
+        .. code-block::
+            Usage:
+              instaread [--archive][--force]
+              instaread putback
+              instaread folders
+              instaread unreads
+              instaread archiveds
+              instaread -h | --help
+              instaread --version
+            
+            Options:
+              -h --help     Show this screen.
+        		    Open last unread
+              --archive     Open last unread and archive it
+              --force       Force refresh token and secret
+              --version     Show version.
+          
+        
+        Installation
+        ------------
+        
+        `pip3 install instaread`
+        
+        
+        Requirements
+        ------------
+        
+        - Python >= 3.3
+        
+        License
+        -------
+        
+        MIT licensed. See the bundled `LICENSE <https://github.com/anhdat/instaread/blob/master/LICENSE>`_ file for more details.
+        
+Keywords: instaread
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
