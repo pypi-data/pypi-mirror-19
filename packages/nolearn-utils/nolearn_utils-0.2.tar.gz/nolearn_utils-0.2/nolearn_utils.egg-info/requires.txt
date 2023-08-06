@@ -1,0 +1,16 @@
+joblib
+numpy
+scikit-image
+
+[docs]
+Sphinx
+
+[examples]
+nolearn
+Lasagne
+
+[testing]
+mock
+pytest
+pytest-cov
+pytest-pep8
