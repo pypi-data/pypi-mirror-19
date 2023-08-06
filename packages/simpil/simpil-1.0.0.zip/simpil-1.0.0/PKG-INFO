@@ -1,0 +1,32 @@
+Metadata-Version: 1.1
+Name: simpil
+Version: 1.0.0
+Summary: Simplifies use is Pillow for adding text to images
+Home-page: https://bitbucket.org/daycoder/simpil.git
+Author: Hywel Thomas
+Author-email: hywel.thomas@mac.com
+License: MIT
+Download-URL: https://bitbucket.org/daycoder/simpil.git/get/1.0.0.tar
+Description: simpil
+        ========================
+        
+        Provides an easy to use class for creating reading/fetching images files, adding
+        text and saving/retrieving image data.
+        
+        It abstracts away some boiler plate for PIL/Pillow for things I want to do:
+        
+        * Read image from file
+        * Write image to file
+        * Load image from string
+        * Load image from file object (StringIO)
+        * Load image from url
+        * Add text, shadowed text and outline text
+        * Autosave changes
+        * Get raw image data from object without saving.
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Utilities
