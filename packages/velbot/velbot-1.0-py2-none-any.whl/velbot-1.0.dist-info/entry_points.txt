@@ -1,0 +1,3 @@
+[console_scripts]
+velbot = velbot.bin.run_velbot:main
+
