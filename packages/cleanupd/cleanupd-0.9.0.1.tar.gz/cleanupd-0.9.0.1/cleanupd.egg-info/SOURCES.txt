@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+cleanupd.egg-info/PKG-INFO
+cleanupd.egg-info/SOURCES.txt
+cleanupd.egg-info/dependency_links.txt
+cleanupd.egg-info/namespace_packages.txt
+cleanupd.egg-info/not-zip-safe
+cleanupd.egg-info/top_level.txt
+src/deso/cleanup/__init__.py
+src/deso/cleanup/__meta__.py
+src/deso/cleanup/defer.py
+src/deso/cleanup/test/__init__.py
+src/deso/cleanup/test/testDefer.py
