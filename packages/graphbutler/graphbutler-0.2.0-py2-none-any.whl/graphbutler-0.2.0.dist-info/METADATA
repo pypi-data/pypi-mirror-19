@@ -1,0 +1,25 @@
+Metadata-Version: 2.0
+Name: graphbutler
+Version: 0.2.0
+Summary: Generate simple, reproducible graphs.
+Home-page: https://github.com/jacwah/graphbutler
+Author: Jacob Wahlgren
+Author-email: jacob.wahlgren@gmail.com
+License: MIT
+Keywords: graph plot matplotlib
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 2 :: Only
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+
+UNKNOWN
+
+
