@@ -1,0 +1,4 @@
+recursive-include astrogear/data *
+include astrogear/data/default/*
+include astrogear/data/*
+include astrogear/data/icons/*
