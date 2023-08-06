@@ -1,0 +1,10 @@
+MANIFEST.in
+setup.cfg
+setup.py
+versioneer.py
+cmdvars/__init__.py
+cmdvars/_version.py
+cmdvars.egg-info/PKG-INFO
+cmdvars.egg-info/SOURCES.txt
+cmdvars.egg-info/dependency_links.txt
+cmdvars.egg-info/top_level.txt
