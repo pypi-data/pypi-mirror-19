@@ -1,0 +1,77 @@
+Metadata-Version: 2.0
+Name: deferred2
+Version: 0.0.1
+Summary: Successor of the deferred library shipped with Google AppEngine (GAE)
+Home-page: https://github.com/kaste/deferred2
+Author: herr kaste
+Author-email: herr.kaste@gmail.com
+License: MIT
+Platform: linux
+Platform: osx
+Platform: win32
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Topic :: Utilities
+Classifier: Programming Language :: Python
+
+Successor of the so useful deferred library on Google AppEngine (GAE).
+
+It should fix some issues.
+It should work async.
+
+
+
+Usage
+=====
+
+By example::
+
+    from google.appengine.ext import ndb
+    import deferred2 as deferred
+
+
+    def work(message):
+        pass
+
+
+    @ndb.tasklet
+    def defer_one_task():
+        yield deferred.defer_async(work, 'to be done')
+
+
+    @ndb.tasklet
+    def defer_multiple_tasks():
+        yield deferred.defer_multi_async(
+            deferred.task(work, 'Hello'),
+            deferred.task(work, 'world!'))
+
+
+    @ndb.tasklet
+    def defer_deferring():
+        # this one enqueues one task right now, which will then add all the
+        # other tasks
+        yield deferred.one_shot_async(
+            deferred.task(work, 'Hello'),
+            deferred.task(work, 'world!'))
+
+
+You see, it pretty much looks and works as before.
+
+
+Changes
+=======
+
+- ``transactional``'s new default is ``auto`` (instead of ``False``), t.i. if your inside a transaction it will be set to True, otherwise it will be False
+
+- You can set ``_urlsuffix`` which can be a str or a sequence of strs; which will get appended to the url. Pure cosmetics.
+
+- In case you set a ``name`` that is too long or contains invalid characters, a hash of the name will be used instead.
+
+
+
+
+
