@@ -1,0 +1,3 @@
+[console_scripts]
+nim = nim.__main__:main
+
