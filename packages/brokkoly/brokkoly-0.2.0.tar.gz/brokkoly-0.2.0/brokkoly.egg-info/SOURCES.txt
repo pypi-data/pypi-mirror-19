@@ -1,0 +1,17 @@
+CHANGELOG.rst
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+brokkoly/__init__.py
+brokkoly/database.py
+brokkoly/resource.py
+brokkoly.egg-info/PKG-INFO
+brokkoly.egg-info/SOURCES.txt
+brokkoly.egg-info/dependency_links.txt
+brokkoly.egg-info/requires.txt
+brokkoly.egg-info/top_level.txt
+brokkoly/resources/brokkoly.css
+brokkoly/resources/brokkoly.js
+brokkoly/resources/enqueue.html
+brokkoly/resources/migrations/0.2.0.sql
