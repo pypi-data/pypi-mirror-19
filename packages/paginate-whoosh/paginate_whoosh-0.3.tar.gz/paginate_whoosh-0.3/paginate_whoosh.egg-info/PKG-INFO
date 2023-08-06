@@ -1,0 +1,36 @@
+Metadata-Version: 1.1
+Name: paginate-whoosh
+Version: 0.3
+Summary: Extension to the paginate module to support Whoosh
+Home-page: https://github.com/myriogon/paginate_whoosh
+Author: Lukas Weissenböck
+Author-email: lukas@lukes.space
+License: MIT
+Description: paginate_whoosh
+        ---------------
+        
+        This module is an extension to the [paginate](https://github.com/Pylons/paginate) module. It divides
+        up search results obtained with Whoosh.
+        
+        
+        Usage
+        -----
+        ```
+        from paginate_whoosh import WhooshPage
+        
+        qp = QueryParser("text", myindex.schema)
+        q = qp.parse("a query")
+        
+        with myindex.searcher() as searcher:
+            page = WhooshPage(
+                searcher.search(q, limit=None), # limit=None is required!
+                page=1, items_per_page=10)
+            # Now continue as you are used from the paginate module.
+            # Iterate over page to obtain the Whoosh result dictionary
+        ```
+Keywords: pagination paginate whoosh
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
