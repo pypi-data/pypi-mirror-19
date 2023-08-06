@@ -1,0 +1,14 @@
+attrs
+click
+ijson
+pyyaml
+pyxdg
+requests
+sqlalchemy
+urwid
+
+[test]
+betamax
+pytest
+responses
+pyfakefs>2.9
