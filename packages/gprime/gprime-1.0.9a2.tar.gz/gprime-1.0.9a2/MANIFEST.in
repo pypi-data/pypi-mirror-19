@@ -1,0 +1,13 @@
+include README.md
+include MANIFEST.in
+recursive-include share *
+recursive-include gprime *
+recursive-include po *
+recursive-include scripts *
+
+# Remove files created in the build
+exclude share/gprime/data/tips.xml
+exclude share/gprime/data/holidays.xml
+exclude po/.intltool-merge-cache
+global-exclude *.pyc
+global-exclude *.pyo
