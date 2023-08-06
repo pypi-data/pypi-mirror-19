@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.py
+django_es2015_transformer.egg-info/PKG-INFO
+django_es2015_transformer.egg-info/SOURCES.txt
+django_es2015_transformer.egg-info/dependency_links.txt
+django_es2015_transformer.egg-info/requires.txt
+django_es2015_transformer.egg-info/top_level.txt
+es2015_transformer/__init__.py
+es2015_transformer/apps.py
+es2015_transformer/storage.py
+es2015_transformer/tests.py
