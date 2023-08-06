@@ -1,0 +1,11 @@
+{% load static sekizai_tags cmsplugin_markdownx %}
+{% get_setting "CMSPLUGIN_MARKDOWNX_CODEHILITE_CSS" as codehilite_css  %}
+{% if codehilite_css %}
+{% addtoblock "css" %}
+<link rel="stylesheet" href="{% static codehilite_css %}"/>
+{% endaddtoblock %}
+{% endif %}
+
+<div>{{ instance.markdown_text|markdownify }}</div>
+
+

@@ -1,0 +1,9 @@
+.idea/
+*.pyc
+*.egg-info/
+chromedriver.log
+coverage/
+.coverage
+dist/
+build/
+.tox
