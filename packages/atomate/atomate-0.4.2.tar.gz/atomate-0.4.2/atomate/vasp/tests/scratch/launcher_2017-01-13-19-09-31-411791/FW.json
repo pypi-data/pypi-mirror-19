@@ -1,0 +1,232 @@
+{
+    "name": "Si-structure optimization", 
+    "launches": [
+        {
+            "fworker": {
+                "category": "", 
+                "query": "{}", 
+                "name": "Automatically generated Worker", 
+                "env": {}
+            }, 
+            "trackers": [
+                {
+                    "allow_zipped": true, 
+                    "nlines": 25, 
+                    "filename": "OUTCAR"
+                }, 
+                {
+                    "allow_zipped": true, 
+                    "nlines": 25, 
+                    "filename": "OSZICAR"
+                }
+            ], 
+            "ip": "131.243.15.144", 
+            "fw_id": 1, 
+            "state": "RUNNING", 
+            "host": "computron-5.dhcp.lbl.gov", 
+            "launch_dir": "/Users/ajain/Documents/code_matgen/atomate/atomate/vasp/tests/scratch/launcher_2017-01-13-19-09-31-411791", 
+            "action": null, 
+            "launch_id": 1, 
+            "state_history": [
+                {
+                    "updated_on": "2017-01-13T19:09:31.418256", 
+                    "state": "RUNNING", 
+                    "created_on": "2017-01-13T19:09:31.418248"
+                }
+            ]
+        }
+    ], 
+    "fw_id": 1, 
+    "state": "RUNNING", 
+    "created_on": "2017-01-13T19:09:31.387240", 
+    "updated_on": "2017-01-13T19:09:31.419343", 
+    "spec": {
+        "_tasks": [
+            {
+                "vasp_input_set": {
+                    "force_gamma": true, 
+                    "structure": {
+                        "lattice": {
+                            "a": 3.8401979337, 
+                            "c": 3.8401979337177736, 
+                            "b": 3.840198994344244, 
+                            "matrix": [
+                                [
+                                    3.8401979337, 
+                                    0.0, 
+                                    0.0
+                                ], 
+                                [
+                                    1.9200989668, 
+                                    3.3257101909, 
+                                    0.0
+                                ], 
+                                [
+                                    0.0, 
+                                    -2.2171384943, 
+                                    3.1355090603
+                                ]
+                            ], 
+                            "volume": 40.04479464425159, 
+                            "beta": 90.0, 
+                            "alpha": 119.99999086398421, 
+                            "gamma": 60.0000091373222
+                        }, 
+                        "sites": [
+                            {
+                                "xyz": [
+                                    0.0, 
+                                    0.0, 
+                                    0.0
+                                ], 
+                                "abc": [
+                                    0.0, 
+                                    0.0, 
+                                    0.0
+                                ], 
+                                "species": [
+                                    {
+                                        "occu": 1, 
+                                        "element": "Si"
+                                    }
+                                ], 
+                                "label": "Si"
+                            }, 
+                            {
+                                "xyz": [
+                                    3.8401979336749994, 
+                                    1.2247250001928833e-06, 
+                                    2.351631795225
+                                ], 
+                                "abc": [
+                                    0.75, 
+                                    0.5, 
+                                    0.75
+                                ], 
+                                "species": [
+                                    {
+                                        "occu": 1, 
+                                        "element": "Si"
+                                    }
+                                ], 
+                                "label": "Si"
+                            }
+                        ], 
+                        "@class": "Structure", 
+                        "@module": "pymatgen.core.structure"
+                    }, 
+                    "@class": "MPRelaxSet", 
+                    "@module": "pymatgen.io.vasp.sets"
+                }, 
+                "_fw_name": "{{atomate.vasp.firetasks.write_inputs.WriteVaspFromIOSet}}", 
+                "structure": {
+                    "lattice": {
+                        "a": 3.8401979337, 
+                        "c": 3.8401979337177736, 
+                        "b": 3.840198994344244, 
+                        "matrix": [
+                            [
+                                3.8401979337, 
+                                0.0, 
+                                0.0
+                            ], 
+                            [
+                                1.9200989668, 
+                                3.3257101909, 
+                                0.0
+                            ], 
+                            [
+                                0.0, 
+                                -2.2171384943, 
+                                3.1355090603
+                            ]
+                        ], 
+                        "volume": 40.04479464425159, 
+                        "beta": 90.0, 
+                        "alpha": 119.99999086398421, 
+                        "gamma": 60.0000091373222
+                    }, 
+                    "sites": [
+                        {
+                            "xyz": [
+                                0.0, 
+                                0.0, 
+                                0.0
+                            ], 
+                            "abc": [
+                                0.0, 
+                                0.0, 
+                                0.0
+                            ], 
+                            "species": [
+                                {
+                                    "occu": 1, 
+                                    "element": "Si"
+                                }
+                            ], 
+                            "label": "Si"
+                        }, 
+                        {
+                            "xyz": [
+                                3.8401979336749994, 
+                                1.2247250001928833e-06, 
+                                2.351631795225
+                            ], 
+                            "abc": [
+                                0.75, 
+                                0.5, 
+                                0.75
+                            ], 
+                            "species": [
+                                {
+                                    "occu": 1, 
+                                    "element": "Si"
+                                }
+                            ], 
+                            "label": "Si"
+                        }
+                    ], 
+                    "@class": "Structure", 
+                    "@module": "pymatgen.core.structure"
+                }
+            }, 
+            {
+                "params_to_check": [
+                    "ISPIN", 
+                    "ENCUT", 
+                    "ISMEAR", 
+                    "SIGMA", 
+                    "IBRION", 
+                    "LORBIT", 
+                    "NBANDS", 
+                    "LMAXMIX"
+                ], 
+                "ref_dir": "/Users/ajain/Documents/code_matgen/atomate/atomate/vasp/tests/reference_files/Si_structure_optimization", 
+                "_fw_name": "{{atomate.vasp.firetasks.run_calc.RunVaspFake}}"
+            }, 
+            {
+                "_fw_name": "{{atomate.common.firetasks.glue_tasks.PassCalcLocs}}", 
+                "name": "structure optimization"
+            }, 
+            {
+                "additional_fields": {
+                    "task_label": "structure optimization"
+                }, 
+                "db_file": null, 
+                "_fw_name": "{{atomate.vasp.firetasks.parse_outputs.VaspToDbTask}}"
+            }
+        ], 
+        "_trackers": [
+            {
+                "allow_zipped": true, 
+                "nlines": 25, 
+                "filename": "OUTCAR"
+            }, 
+            {
+                "allow_zipped": true, 
+                "nlines": 25, 
+                "filename": "OSZICAR"
+            }
+        ]
+    }
+}
