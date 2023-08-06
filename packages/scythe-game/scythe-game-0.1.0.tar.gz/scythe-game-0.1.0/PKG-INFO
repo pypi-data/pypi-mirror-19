@@ -1,0 +1,33 @@
+Metadata-Version: 1.1
+Name: scythe-game
+Version: 0.1.0
+Summary: Modeling the boardgame Scythe
+Home-page: https://github.com/chucksmash/scythe.git
+Author: Chuck Bassett
+Author-email: iamchuckb@gmail.com
+License: MIT
+Description: # Scythe
+        
+        [![Build Status](https://img.shields.io/travis/chucksmash/scythe.game.svg)](https://travis-ci.org/chucksmash/scythe-game)
+        [![Coverage](https://img.shields.io/coveralls/chucksmash/scythe-game.svg)](https://coveralls.io/r/chucksmash/scythe-game)
+        [![PyPi Version](https://img.shields.io/pypi/v/scythe-game.svg)](https://pypi.python.org/pypi/scythe-game)
+        [![Python Versions](https://img.shields.io/pypi/pyversions/scythe-game.svg)](https://pypi.python.org/pypi/scythe-game/)
+        [![Daily Downloads](https://img.shields.io/pypi/dd/scythe-game.svg)](https://pypi.python.org/pypi/scythe-game/)
+        
+        Modeling the board game `Scythe` and creating agents to play it.
+        
+Keywords: scythe boardgames
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
