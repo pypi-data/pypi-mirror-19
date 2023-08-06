@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: cubicweb-jsonschema
+Version: 0.1.0
+Summary: JSON Schema for CubicWeb
+Home-page: http://www.cubicweb.org/project/cubicweb-jsonschema
+Author: LOGILAB S.A. (Paris, FRANCE)
+Author-email: contact@logilab.fr
+License: LGPL
+Description: .. image:: https://jenkins.logilab.org/job/cubicweb-jsonschema/badge/icon
+          :target: https://jenkins.logilab.org/job/cubicweb-jsonschema/
+        
+        Summary
+        -------
+        JSON Schema for CubicWeb
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: CubicWeb
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: JavaScript
