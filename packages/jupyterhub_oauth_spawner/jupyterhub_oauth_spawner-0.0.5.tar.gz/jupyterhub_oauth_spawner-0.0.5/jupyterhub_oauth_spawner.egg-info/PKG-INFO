@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: jupyterhub-oauth-spawner
+Version: 0.0.5
+Summary: Spawner for jupyterhub with oauth authentication.
+Home-page: https://github.com/globocom/jupyterhub_oauth_spawner
+Author: Globo.com
+Author-email: diogo.munaro@corp.globo.com
+License: UNKNOWN
+Description: Spawner for jupyterhub with oauth authentication
+Keywords: Interactive,Interpreter,Shell,Web,Customization,JupyterHub
+Platform: Linux
+Platform: Mac OS X
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
