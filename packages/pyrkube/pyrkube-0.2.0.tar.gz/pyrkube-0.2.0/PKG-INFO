@@ -1,0 +1,36 @@
+Metadata-Version: 1.1
+Name: pyrkube
+Version: 0.2.0
+Summary: Readonly wrapper for pykube with a different focus
+Home-page: https://github.com/joeblackwaslike/pyrkube
+Author: Joe Black
+Author-email: joeblack949@gmail.com
+License: Apache 2.0
+Download-URL: https://github.com/joeblackwaslike/pyrkube/tarball/0.2.0
+Description: pyrkube
+        ~~~~~~~
+        
+        Maintainer: Joe Black <joeblack949@gmail.com>
+        Repository: https://www.github.com/joeblackwaslike/pyrkube
+        
+        This projects wraps the `pykube <https://github.com/kelproject/pykube>`_ project.
+        
+        Description
+        -----------
+        
+        A general purpose wrapper around the ``pykube`` library designed to make things
+        such as writing configuration templates for containers using Jinja easier with
+        Kubernetes resources.
+        
+        It has been open sourced in the case that it might be useful for someone else.
+        
+Keywords: kubernetes,clustering,templating
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: System :: Clustering
