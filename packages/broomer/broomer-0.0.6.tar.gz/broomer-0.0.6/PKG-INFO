@@ -1,0 +1,35 @@
+Metadata-Version: 1.1
+Name: broomer
+Version: 0.0.6
+Summary: Your github house-keeper
+Home-page: https://github.com/calind/broomer
+Author: Calin Don
+Author-email: calin.don@gmail.com
+License: BSD
+Description: broomer
+        =======
+        
+        Your github house-keeper
+        
+        |Build Status|
+        
+        ToDo:
+        -----
+        
+        -  [ ] add ``dry-run`` mode
+        -  [ ] add labels enforcement
+        -  [ ] add pull requests checking (title, description)
+        
+        .. |Build Status| image:: https://travis-ci.org/calind/broomer.svg?branch=master
+           :target: https://travis-ci.org/calind/broomer
+        
+Keywords: github issues broomer
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5

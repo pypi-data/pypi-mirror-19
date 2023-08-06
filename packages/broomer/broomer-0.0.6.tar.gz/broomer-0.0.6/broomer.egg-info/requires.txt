@@ -1,0 +1,9 @@
+zipa
+maya
+PyYAML
+pystache
+
+[test]
+pytest
+pytest-runner>=2.0,<3dev
+pytest-flake8

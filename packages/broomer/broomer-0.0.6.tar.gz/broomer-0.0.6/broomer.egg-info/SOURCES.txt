@@ -1,0 +1,11 @@
+MANIFEST.in
+setup.cfg
+setup.py
+versioneer.py
+broomer/_version.py
+broomer.egg-info/PKG-INFO
+broomer.egg-info/SOURCES.txt
+broomer.egg-info/dependency_links.txt
+broomer.egg-info/entry_points.txt
+broomer.egg-info/requires.txt
+broomer.egg-info/top_level.txt
