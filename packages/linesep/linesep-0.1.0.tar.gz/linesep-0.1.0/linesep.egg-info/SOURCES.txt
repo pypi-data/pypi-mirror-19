@@ -1,0 +1,12 @@
+README.rst
+linesep.py
+setup.cfg
+setup.py
+linesep.egg-info/PKG-INFO
+linesep.egg-info/SOURCES.txt
+linesep.egg-info/dependency_links.txt
+linesep.egg-info/top_level.txt
+test/test_join_bytes.py
+test/test_join_text.py
+test/test_split_bytes.py
+test/test_split_text.py
