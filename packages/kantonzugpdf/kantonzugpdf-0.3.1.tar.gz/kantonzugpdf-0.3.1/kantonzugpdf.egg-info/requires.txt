@@ -1,0 +1,9 @@
+pdfdocument
+reportlab
+svglib>=0.8
+
+[test]
+pytest
+pytest-cov
+PyPDF2
+pdfminer3k

@@ -1,0 +1,98 @@
+Metadata-Version: 1.1
+Name: kantonzugpdf
+Version: 0.3.1
+Summary: A library to create PDF reports for the Canton of Zug
+Home-page: http://github.com/seantis/kantonzugpdf
+Author: Seantis GmbH
+Author-email: info@seantis.ch
+License: GPLv2
+Description: 
+        
+        Usage
+        -----
+        
+        Create a subclass of ReportZug and provide the populate method. To generate
+        the PDF, call build.
+        
+        Run the Tests
+        -------------
+        
+        Install tox and run it::
+        
+            pip install tox
+            tox
+        
+        Limit the tests to a specific python version::
+        
+            tox -e py27
+        
+        Conventions
+        -----------
+        
+        Kantonzugpdf follows PEP8 as close as possible. To test for it run::
+        
+            tox -e pep8
+        
+        Kantonzugpdf uses `Semantic Versioning <http://semver.org/>`_
+        
+        License
+        -------
+        kantonzugpdf is released under GPLv2
+        
+        Changelog
+        ---------
+        
+        0.3.1 (2017-01-30)
+        ~~~~~~~~~~~~~~~~~~
+        
+        - Use latest svglib.
+          [msom]
+        
+        
+        0.3 (2015-12-14)
+        ~~~~~~~~~~~~~~~~
+        
+        - Add support for markup paragraphs and images.
+          [msom]
+        
+        
+        0.2.1 (2015-05-07)
+        ~~~~~~~~~~~~~~~~~~
+        
+        - Include missing resources.
+          [msom]
+        
+        
+        0.2 (2015-05-07)
+        ~~~~~~~~~~~~~~~~
+        
+        - Use and embed a free font to better support unicode characters #1.
+          [msom]
+        
+        
+        0.1.2 (2015-01-21)
+        ~~~~~~~~~~~~~~~~~~
+        
+        - Fix description in setup.py".
+          [msom]
+        
+        
+        0.1.1 (2015-01-21)
+        ~~~~~~~~~~~~~~~~~~
+        
+        - Update readme.
+          [msom]
+        
+        
+        0.1.0 (2015-01-21)
+        ~~~~~~~~~~~~~~~~~~
+        
+        - Initial release.
+          [msom]
+        
+Platform: any
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
