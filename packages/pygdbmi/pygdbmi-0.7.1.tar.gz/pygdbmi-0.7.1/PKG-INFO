@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: pygdbmi
+Version: 0.7.1
+Summary: Parse gdb machine interface output with Python
+Home-page: https://github.com/cs01/pygdbmi
+Author: Chad Smith
+Author-email: grassfedcode@gmail.com
+License: MIT
+Description: UNKNOWN
+Keywords: gdb,python,machine-interface,parse,frontend
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
