@@ -1,0 +1,38 @@
+Metadata-Version: 2.0
+Name: ring
+Version: 0.2.0
+Summary: Generic cache decorator with built-in memcache & redis support.
+Home-page: https://github.com/youknowone/ring
+Author: Jeong YunWon
+Author-email: ring@youknowone.org
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: prettyexc (>=0.6.0)
+Provides-Extra: tests
+Requires-Dist: aiomcache; extra == 'tests'
+Requires-Dist: aioredis; extra == 'tests'
+Requires-Dist: mock; extra == 'tests'
+Requires-Dist: patch; extra == 'tests'
+Requires-Dist: pymemcache; extra == 'tests'
+Requires-Dist: pytest (>=3.0.2); extra == 'tests'
+Requires-Dist: pytest-asyncio; extra == 'tests'
+Requires-Dist: pytest-cov; extra == 'tests'
+Requires-Dist: redis; extra == 'tests'
+
+Ring
+~~~~
+
+.. image:: https://travis-ci.org/youknowone/ring.svg?branch=master
+    :target: https://travis-ci.org/youknowone/ring
+
