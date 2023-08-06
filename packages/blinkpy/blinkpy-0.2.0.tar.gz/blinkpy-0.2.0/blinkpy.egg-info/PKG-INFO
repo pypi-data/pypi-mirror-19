@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: blinkpy
+Version: 0.2.0
+Summary: A Blink camera Python library
+Home-page: https://github.com/fronzbot/blinkpy
+Author: Kevin Fronczak
+Author-email: kfronczak@gmail.com
+License: MIT
+Description: A library that communicates with Blink cameras
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Environment :: Plugins
+Classifier: Environment :: Web Environment
