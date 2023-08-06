@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: bookCoverSearch
+Version: 1.1.0
+Summary: Searches Google's book database and returns a URL for the book cover image
+Home-page: https://github.com/scholnicks/bookCoverSearch
+Author: Steven Scholnick
+Author-email: scholnicks@gmail.com
+License: MIT
+Download-URL: https://github.com/scholnicks/bookCoverSearch
+Description: Searches Google's book database and returns a URL for the book cover image
+Keywords: bookCoverSearch,book,cover,photo
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Topic :: Utilities
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: MIT License
