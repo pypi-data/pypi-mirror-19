@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+flask_resty_shared_session/__init__.py
+flask_resty_shared_session/sessions.py
+flask_resty_shared_session/version.py
+flask_resty_shared_session.egg-info/PKG-INFO
+flask_resty_shared_session.egg-info/SOURCES.txt
+flask_resty_shared_session.egg-info/dependency_links.txt
+flask_resty_shared_session.egg-info/not-zip-safe
+flask_resty_shared_session.egg-info/requires.txt
+flask_resty_shared_session.egg-info/top_level.txt
