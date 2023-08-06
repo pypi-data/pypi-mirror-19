@@ -1,0 +1,6 @@
+[console_scripts]
+discoveryscan = DiscoNet.discoveryscan:_main
+
+[gui_scripts]
+DiscoNet = DiscoNet.__main__:run [kivy]
+
