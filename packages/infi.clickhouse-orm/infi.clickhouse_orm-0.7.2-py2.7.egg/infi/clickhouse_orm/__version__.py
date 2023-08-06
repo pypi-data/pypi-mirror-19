@@ -1,0 +1,11 @@
+__version__ = "0.7.2"
+__git_commiter_name__ = "Itai Shirav"
+__git_commiter_email__ = "itais@infinidat.com"
+__git_branch__ = '(HEAD detached at v0.7.2)'
+__git_remote_tracking_branch__ = '(No remote tracking)'
+__git_remote_url__ = '(Not remote tracking)'
+__git_head_hash__ = 'ce8c77684e487bcf0dfc68354272590395426471'
+__git_head_subject__ = 'Allow passing -1 as the page number (returning the last page)'
+__git_head_message__ = ''
+__git_dirty_diff__ = ''
+__git_commit_date__ = '2017-01-25 15:10:14'
