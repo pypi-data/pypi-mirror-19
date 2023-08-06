@@ -1,0 +1,586 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>meta_package_manager.tests package &mdash; Meta Package Manager 2.3.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Meta Package Manager 2.3.0 documentation" href="index.html"/>
+        <link rel="up" title="meta_package_manager package" href="meta_package_manager.html"/>
+        <link rel="next" title="Development" href="development.html"/>
+        <link rel="prev" title="meta_package_manager.managers package" href="meta_package_manager.managers.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Meta Package Manager
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="meta_package_manager.html">meta_package_manager package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="meta_package_manager.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="meta_package_manager.bitbar.html">meta_package_manager.bitbar package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="meta_package_manager.managers.html">meta_package_manager.managers package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">meta_package_manager.tests package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-meta_package_manager.tests.case">meta_package_manager.tests.case module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-meta_package_manager.tests.test_bitbar_plugin">meta_package_manager.tests.test_bitbar_plugin module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-meta_package_manager.tests.test_cli">meta_package_manager.tests.test_cli module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-meta_package_manager.tests.test_managers">meta_package_manager.tests.test_managers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-meta_package_manager.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="meta_package_manager.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meta_package_manager.html#module-meta_package_manager.base">meta_package_manager.base module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meta_package_manager.html#module-meta_package_manager.cli">meta_package_manager.cli module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meta_package_manager.html#module-meta_package_manager.platform">meta_package_manager.platform module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meta_package_manager.html#module-meta_package_manager">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Meta Package Manager</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="meta_package_manager.html">meta_package_manager package</a> &raquo;</li>
+      
+    <li>meta_package_manager.tests package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/meta_package_manager.tests.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="meta-package-manager-tests-package">
+<h1>meta_package_manager.tests package<a class="headerlink" href="#meta-package-manager-tests-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-meta_package_manager.tests.case">
+<span id="meta-package-manager-tests-case-module"></span><h2>meta_package_manager.tests.case module<a class="headerlink" href="#module-meta_package_manager.tests.case" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="meta_package_manager.tests.case.CLITestCase">
+<em class="property">class </em><code class="descclassname">meta_package_manager.tests.case.</code><code class="descname">CLITestCase</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/case.html#CLITestCase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.case.CLITestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></code></p>
+<p>Utilities and helpers to easely write unit-tests.</p>
+<dl class="method">
+<dt id="meta_package_manager.tests.case.CLITestCase.invoke">
+<code class="descname">invoke</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/case.html#CLITestCase.invoke"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.case.CLITestCase.invoke" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes Click&#8217;s CLI, print output and return results.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.case.CLITestCase.print_cli_output">
+<code class="descname">print_cli_output</code><span class="sig-paren">(</span><em>cmd</em>, <em>output</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/case.html#CLITestCase.print_cli_output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.case.CLITestCase.print_cli_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulate CLI output.</p>
+<p>Used to print debug traces in test suites.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.case.CLITestCase.run_cmd">
+<code class="descname">run_cmd</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/case.html#CLITestCase.run_cmd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.case.CLITestCase.run_cmd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run a system command, print output and return results.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.case.CLITestCase.setUp">
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/case.html#CLITestCase.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.case.CLITestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="meta_package_manager.tests.case.skip_destructive">
+<code class="descclassname">meta_package_manager.tests.case.</code><code class="descname">skip_destructive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/case.html#skip_destructive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.case.skip_destructive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator to skip a test unless destructive mode is allowed.</p>
+<p>Destructive mode is activated by the presence of a <code class="docutils literal"><span class="pre">DESTRUCTIVE_TESTS</span></code>
+environment variable set to <code class="docutils literal"><span class="pre">True</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="meta_package_manager.tests.case.unless_linux">
+<code class="descclassname">meta_package_manager.tests.case.</code><code class="descname">unless_linux</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/case.html#unless_linux"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.case.unless_linux" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator to skip a test unless it is run on a Linux system.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="meta_package_manager.tests.case.unless_macos">
+<code class="descclassname">meta_package_manager.tests.case.</code><code class="descname">unless_macos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/case.html#unless_macos"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.case.unless_macos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator to skip a test unless it is run on a macOS system.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="meta_package_manager.tests.case.unless_windows">
+<code class="descclassname">meta_package_manager.tests.case.</code><code class="descname">unless_windows</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/case.html#unless_windows"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.case.unless_windows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator to skip a test unless it is run on a Windows system.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-meta_package_manager.tests.test_bitbar_plugin">
+<span id="meta-package-manager-tests-test-bitbar-plugin-module"></span><h2>meta_package_manager.tests.test_bitbar_plugin module<a class="headerlink" href="#module-meta_package_manager.tests.test_bitbar_plugin" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="meta_package_manager.tests.test_bitbar_plugin.TestBitBarPlugin">
+<em class="property">class </em><code class="descclassname">meta_package_manager.tests.test_bitbar_plugin.</code><code class="descname">TestBitBarPlugin</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_bitbar_plugin.html#TestBitBarPlugin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_bitbar_plugin.TestBitBarPlugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#meta_package_manager.tests.case.CLITestCase" title="meta_package_manager.tests.case.CLITestCase"><code class="xref py py-class docutils literal"><span class="pre">meta_package_manager.tests.case.CLITestCase</span></code></a></p>
+<dl class="method">
+<dt id="meta_package_manager.tests.test_bitbar_plugin.TestBitBarPlugin.test_simple_call">
+<code class="descname">test_simple_call</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_bitbar_plugin.html#TestBitBarPlugin.test_simple_call"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_bitbar_plugin.TestBitBarPlugin.test_simple_call" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-meta_package_manager.tests.test_cli">
+<span id="meta-package-manager-tests-test-cli-module"></span><h2>meta_package_manager.tests.test_cli module<a class="headerlink" href="#module-meta_package_manager.tests.test_cli" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="meta_package_manager.tests.test_cli.TestCLI">
+<em class="property">class </em><code class="descclassname">meta_package_manager.tests.test_cli.</code><code class="descname">TestCLI</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLI"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#meta_package_manager.tests.case.CLITestCase" title="meta_package_manager.tests.case.CLITestCase"><code class="xref py py-class docutils literal"><span class="pre">meta_package_manager.tests.case.CLITestCase</span></code></a></p>
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLI.test_bare_call">
+<code class="descname">test_bare_call</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLI.test_bare_call"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLI.test_bare_call" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLI.test_main_help">
+<code class="descname">test_main_help</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLI.test_main_help"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLI.test_main_help" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLI.test_verbosity">
+<code class="descname">test_verbosity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLI.test_verbosity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLI.test_verbosity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLI.test_version">
+<code class="descname">test_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLI.test_version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLI.test_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="meta_package_manager.tests.test_cli.TestCLIManagers">
+<em class="property">class </em><code class="descclassname">meta_package_manager.tests.test_cli.</code><code class="descname">TestCLIManagers</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIManagers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIManagers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#meta_package_manager.tests.case.CLITestCase" title="meta_package_manager.tests.case.CLITestCase"><code class="xref py py-class docutils literal"><span class="pre">meta_package_manager.tests.case.CLITestCase</span></code></a></p>
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLIManagers.test_json_debug_output">
+<code class="descname">test_json_debug_output</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIManagers.test_json_debug_output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIManagers.test_json_debug_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLIManagers.test_json_output">
+<code class="descname">test_json_output</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIManagers.test_json_output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIManagers.test_json_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLIManagers.test_main_help">
+<code class="descname">test_main_help</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIManagers.test_main_help"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIManagers.test_main_help" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLIManagers.test_plain_table_rendering">
+<code class="descname">test_plain_table_rendering</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIManagers.test_plain_table_rendering"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIManagers.test_plain_table_rendering" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLIManagers.test_simple_call">
+<code class="descname">test_simple_call</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIManagers.test_simple_call"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIManagers.test_simple_call" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLIManagers.test_simple_table_rendering">
+<code class="descname">test_simple_table_rendering</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIManagers.test_simple_table_rendering"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIManagers.test_simple_table_rendering" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLIManagers.test_sub_manager_scope">
+<code class="descname">test_sub_manager_scope</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIManagers.test_sub_manager_scope"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIManagers.test_sub_manager_scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLIManagers.test_verbosity">
+<code class="descname">test_verbosity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIManagers.test_verbosity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIManagers.test_verbosity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="meta_package_manager.tests.test_cli.TestCLIOutdated">
+<em class="property">class </em><code class="descclassname">meta_package_manager.tests.test_cli.</code><code class="descname">TestCLIOutdated</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIOutdated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIOutdated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#meta_package_manager.tests.case.CLITestCase" title="meta_package_manager.tests.case.CLITestCase"><code class="xref py py-class docutils literal"><span class="pre">meta_package_manager.tests.case.CLITestCase</span></code></a></p>
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLIOutdated.test_cli_format_bitbar">
+<code class="descname">test_cli_format_bitbar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIOutdated.test_cli_format_bitbar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIOutdated.test_cli_format_bitbar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLIOutdated.test_cli_format_fragments">
+<code class="descname">test_cli_format_fragments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIOutdated.test_cli_format_fragments"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIOutdated.test_cli_format_fragments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLIOutdated.test_cli_format_plain">
+<code class="descname">test_cli_format_plain</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIOutdated.test_cli_format_plain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIOutdated.test_cli_format_plain" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLIOutdated.test_json_debug_output">
+<code class="descname">test_json_debug_output</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIOutdated.test_json_debug_output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIOutdated.test_json_debug_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLIOutdated.test_json_output">
+<code class="descname">test_json_output</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIOutdated.test_json_output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIOutdated.test_json_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLIOutdated.test_main_help">
+<code class="descname">test_main_help</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIOutdated.test_main_help"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIOutdated.test_main_help" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLIOutdated.test_plain_table_rendering">
+<code class="descname">test_plain_table_rendering</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIOutdated.test_plain_table_rendering"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIOutdated.test_plain_table_rendering" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLIOutdated.test_simple_call">
+<code class="descname">test_simple_call</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIOutdated.test_simple_call"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIOutdated.test_simple_call" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLIOutdated.test_simple_table_rendering">
+<code class="descname">test_simple_table_rendering</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIOutdated.test_simple_table_rendering"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIOutdated.test_simple_table_rendering" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLIOutdated.test_sub_manager_scope">
+<code class="descname">test_sub_manager_scope</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIOutdated.test_sub_manager_scope"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIOutdated.test_sub_manager_scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLIOutdated.test_verbosity">
+<code class="descname">test_verbosity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIOutdated.test_verbosity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIOutdated.test_verbosity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="meta_package_manager.tests.test_cli.TestCLISync">
+<em class="property">class </em><code class="descclassname">meta_package_manager.tests.test_cli.</code><code class="descname">TestCLISync</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLISync"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLISync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#meta_package_manager.tests.case.CLITestCase" title="meta_package_manager.tests.case.CLITestCase"><code class="xref py py-class docutils literal"><span class="pre">meta_package_manager.tests.case.CLITestCase</span></code></a></p>
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLISync.test_main_help">
+<code class="descname">test_main_help</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLISync.test_main_help"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLISync.test_main_help" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLISync.test_simple_call">
+<code class="descname">test_simple_call</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLISync.test_simple_call"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLISync.test_simple_call" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLISync.test_sub_manager_scope">
+<code class="descname">test_sub_manager_scope</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLISync.test_sub_manager_scope"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLISync.test_sub_manager_scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLISync.test_verbosity">
+<code class="descname">test_verbosity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLISync.test_verbosity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLISync.test_verbosity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="meta_package_manager.tests.test_cli.TestCLIUpgrade">
+<em class="property">class </em><code class="descclassname">meta_package_manager.tests.test_cli.</code><code class="descname">TestCLIUpgrade</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIUpgrade"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIUpgrade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#meta_package_manager.tests.case.CLITestCase" title="meta_package_manager.tests.case.CLITestCase"><code class="xref py py-class docutils literal"><span class="pre">meta_package_manager.tests.case.CLITestCase</span></code></a></p>
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLIUpgrade.test_full_upgrade">
+<code class="descname">test_full_upgrade</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIUpgrade.test_full_upgrade"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIUpgrade.test_full_upgrade" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLIUpgrade.test_main_help">
+<code class="descname">test_main_help</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIUpgrade.test_main_help"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIUpgrade.test_main_help" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLIUpgrade.test_simple_call">
+<code class="descname">test_simple_call</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIUpgrade.test_simple_call"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIUpgrade.test_simple_call" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLIUpgrade.test_sub_manager_scope">
+<code class="descname">test_sub_manager_scope</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIUpgrade.test_sub_manager_scope"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIUpgrade.test_sub_manager_scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_cli.TestCLIUpgrade.test_verbosity">
+<code class="descname">test_verbosity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_cli.html#TestCLIUpgrade.test_verbosity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_cli.TestCLIUpgrade.test_verbosity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-meta_package_manager.tests.test_managers">
+<span id="meta-package-manager-tests-test-managers-module"></span><h2>meta_package_manager.tests.test_managers module<a class="headerlink" href="#module-meta_package_manager.tests.test_managers" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="meta_package_manager.tests.test_managers.TestManagerDefinitions">
+<em class="property">class </em><code class="descclassname">meta_package_manager.tests.test_managers.</code><code class="descname">TestManagerDefinitions</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_managers.html#TestManagerDefinitions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_managers.TestManagerDefinitions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></code></p>
+<p>Test the definition of all package managers.</p>
+<dl class="method">
+<dt id="meta_package_manager.tests.test_managers.TestManagerDefinitions.test_ascii_id">
+<code class="descname">test_ascii_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_managers.html#TestManagerDefinitions.test_ascii_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_managers.TestManagerDefinitions.test_ascii_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>All package manager IDs should be short ASCII strings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_managers.TestManagerDefinitions.test_cli_args_type">
+<code class="descname">test_cli_args_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_managers.html#TestManagerDefinitions.test_cli_args_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_managers.TestManagerDefinitions.test_cli_args_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that definitions returns CLI args as a list.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_managers.TestManagerDefinitions.test_cli_path_type">
+<code class="descname">test_cli_path_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_managers.html#TestManagerDefinitions.test_cli_path_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_managers.TestManagerDefinitions.test_cli_path_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that definitions returns the CLI path as a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_managers.TestManagerDefinitions.test_cli_type">
+<code class="descname">test_cli_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_managers.html#TestManagerDefinitions.test_cli_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_managers.TestManagerDefinitions.test_cli_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that all methods returning a CLI is a list.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_managers.TestManagerDefinitions.test_number">
+<code class="descname">test_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_managers.html#TestManagerDefinitions.test_number"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_managers.TestManagerDefinitions.test_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check all implemented package managers are accounted for.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_managers.TestManagerDefinitions.test_platforms_type">
+<code class="descname">test_platforms_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_managers.html#TestManagerDefinitions.test_platforms_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_managers.TestManagerDefinitions.test_platforms_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that definitions returns supported platforms as a frozenset.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_managers.TestManagerDefinitions.test_platforms_values">
+<code class="descname">test_platforms_values</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_managers.html#TestManagerDefinitions.test_platforms_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_managers.TestManagerDefinitions.test_platforms_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that definitions returns platforms with a registered label.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="meta_package_manager.tests.test_managers.TestManagerPlatform">
+<em class="property">class </em><code class="descclassname">meta_package_manager.tests.test_managers.</code><code class="descname">TestManagerPlatform</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_managers.html#TestManagerPlatform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_managers.TestManagerPlatform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="method">
+<dt id="meta_package_manager.tests.test_managers.TestManagerPlatform.test_linux">
+<code class="descname">test_linux</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_managers.html#TestManagerPlatform.test_linux"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_managers.TestManagerPlatform.test_linux" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_managers.TestManagerPlatform.test_macos">
+<code class="descname">test_macos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_managers.html#TestManagerPlatform.test_macos"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_managers.TestManagerPlatform.test_macos" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.tests.test_managers.TestManagerPlatform.test_windows">
+<code class="descname">test_windows</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/tests/test_managers.html#TestManagerPlatform.test_windows"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.tests.test_managers.TestManagerPlatform.test_windows" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-meta_package_manager.tests">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-meta_package_manager.tests" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="development.html" class="btn btn-neutral float-right" title="Development" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="meta_package_manager.managers.html" class="btn btn-neutral" title="meta_package_manager.managers package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      Last updated on 2016-12-25.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <div role="contentinfo">
+        <p>
+            &copy; Copyright 2016-2016, <a href='https://kevin.deldycke.com'>Kevin Deldycke</a> and <a href='https://github.com/kdeldycke/meta-package-manager/graphs/contributors'>contributors</a>.
+        </p>
+    </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.3.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

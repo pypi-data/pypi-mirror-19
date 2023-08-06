@@ -1,0 +1,825 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>meta_package_manager.managers package &mdash; Meta Package Manager 2.3.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Meta Package Manager 2.3.0 documentation" href="index.html"/>
+        <link rel="up" title="meta_package_manager package" href="meta_package_manager.html"/>
+        <link rel="next" title="meta_package_manager.tests package" href="meta_package_manager.tests.html"/>
+        <link rel="prev" title="meta_package_manager.bitbar package" href="meta_package_manager.bitbar.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Meta Package Manager
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="meta_package_manager.html">meta_package_manager package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="meta_package_manager.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="meta_package_manager.bitbar.html">meta_package_manager.bitbar package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">meta_package_manager.managers package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-meta_package_manager.managers.apm">meta_package_manager.managers.apm module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-meta_package_manager.managers.gem">meta_package_manager.managers.gem module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-meta_package_manager.managers.homebrew">meta_package_manager.managers.homebrew module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-meta_package_manager.managers.mas">meta_package_manager.managers.mas module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-meta_package_manager.managers.npm">meta_package_manager.managers.npm module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-meta_package_manager.managers.pip">meta_package_manager.managers.pip module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-meta_package_manager.managers">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="meta_package_manager.tests.html">meta_package_manager.tests package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="meta_package_manager.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meta_package_manager.html#module-meta_package_manager.base">meta_package_manager.base module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meta_package_manager.html#module-meta_package_manager.cli">meta_package_manager.cli module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meta_package_manager.html#module-meta_package_manager.platform">meta_package_manager.platform module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meta_package_manager.html#module-meta_package_manager">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Meta Package Manager</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="meta_package_manager.html">meta_package_manager package</a> &raquo;</li>
+      
+    <li>meta_package_manager.managers package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/meta_package_manager.managers.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="meta-package-manager-managers-package">
+<h1>meta_package_manager.managers package<a class="headerlink" href="#meta-package-manager-managers-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-meta_package_manager.managers.apm">
+<span id="meta-package-manager-managers-apm-module"></span><h2>meta_package_manager.managers.apm module<a class="headerlink" href="#module-meta_package_manager.managers.apm" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="meta_package_manager.managers.apm.APM">
+<em class="property">class </em><code class="descclassname">meta_package_manager.managers.apm.</code><code class="descname">APM</code><a class="reference internal" href="_modules/meta_package_manager/managers/apm.html#APM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.apm.APM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="meta_package_manager.html#meta_package_manager.base.PackageManager" title="meta_package_manager.base.PackageManager"><code class="xref py py-class docutils literal"><span class="pre">meta_package_manager.base.PackageManager</span></code></a></p>
+<dl class="attribute">
+<dt id="meta_package_manager.managers.apm.APM.cli_path">
+<code class="descname">cli_path</code><em class="property"> = u'/usr/local/bin/apm'</em><a class="headerlink" href="#meta_package_manager.managers.apm.APM.cli_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.apm.APM.get_version">
+<code class="descname">get_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/apm.html#APM.get_version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.apm.APM.get_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="meta_package_manager.managers.apm.APM.name">
+<code class="descname">name</code><a class="headerlink" href="#meta_package_manager.managers.apm.APM.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal"><span class="pre">cachedproperty</span></code> is used similar to <code class="xref py py-class docutils literal"><span class="pre">property</span></code>, except
+that the wrapped method is only called once. This is commonly used
+to implement lazy attributes.</p>
+<p>After the property has been accessed, the value is stored on the
+instance itself, using the same name as the cachedproperty. This
+allows the cache to be cleared with <code class="xref py py-func docutils literal"><span class="pre">delattr()</span></code>, or through
+manipulating the object&#8217;s <code class="docutils literal"><span class="pre">__dict__</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="meta_package_manager.managers.apm.APM.platforms">
+<code class="descname">platforms</code><em class="property"> = frozenset([u'macos'])</em><a class="headerlink" href="#meta_package_manager.managers.apm.APM.platforms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.apm.APM.sync">
+<code class="descname">sync</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/apm.html#APM.sync"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.apm.APM.sync" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.apm.APM.upgrade_all_cli">
+<code class="descname">upgrade_all_cli</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/apm.html#APM.upgrade_all_cli"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.apm.APM.upgrade_all_cli" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.apm.APM.upgrade_cli">
+<code class="descname">upgrade_cli</code><span class="sig-paren">(</span><em>package_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/apm.html#APM.upgrade_cli"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.apm.APM.upgrade_cli" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-meta_package_manager.managers.gem">
+<span id="meta-package-manager-managers-gem-module"></span><h2>meta_package_manager.managers.gem module<a class="headerlink" href="#module-meta_package_manager.managers.gem" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="meta_package_manager.managers.gem.Gem">
+<em class="property">class </em><code class="descclassname">meta_package_manager.managers.gem.</code><code class="descname">Gem</code><a class="reference internal" href="_modules/meta_package_manager/managers/gem.html#Gem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.gem.Gem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="meta_package_manager.html#meta_package_manager.base.PackageManager" title="meta_package_manager.base.PackageManager"><code class="xref py py-class docutils literal"><span class="pre">meta_package_manager.base.PackageManager</span></code></a></p>
+<dl class="attribute">
+<dt id="meta_package_manager.managers.gem.Gem.HOMEBREW_PATH">
+<code class="descname">HOMEBREW_PATH</code><em class="property"> = u'/usr/local/bin/gem'</em><a class="headerlink" href="#meta_package_manager.managers.gem.Gem.HOMEBREW_PATH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="meta_package_manager.managers.gem.Gem.SYSTEM_PATH">
+<code class="descname">SYSTEM_PATH</code><em class="property"> = u'/usr/bin/gem'</em><a class="headerlink" href="#meta_package_manager.managers.gem.Gem.SYSTEM_PATH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="meta_package_manager.managers.gem.Gem.cli_path">
+<code class="descname">cli_path</code><a class="headerlink" href="#meta_package_manager.managers.gem.Gem.cli_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal"><span class="pre">cachedproperty</span></code> is used similar to <code class="xref py py-class docutils literal"><span class="pre">property</span></code>, except
+that the wrapped method is only called once. This is commonly used
+to implement lazy attributes.</p>
+<p>After the property has been accessed, the value is stored on the
+instance itself, using the same name as the cachedproperty. This
+allows the cache to be cleared with <code class="xref py py-func docutils literal"><span class="pre">delattr()</span></code>, or through
+manipulating the object&#8217;s <code class="docutils literal"><span class="pre">__dict__</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.gem.Gem.get_version">
+<code class="descname">get_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/gem.html#Gem.get_version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.gem.Gem.get_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="meta_package_manager.managers.gem.Gem.name">
+<code class="descname">name</code><a class="headerlink" href="#meta_package_manager.managers.gem.Gem.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal"><span class="pre">cachedproperty</span></code> is used similar to <code class="xref py py-class docutils literal"><span class="pre">property</span></code>, except
+that the wrapped method is only called once. This is commonly used
+to implement lazy attributes.</p>
+<p>After the property has been accessed, the value is stored on the
+instance itself, using the same name as the cachedproperty. This
+allows the cache to be cleared with <code class="xref py py-func docutils literal"><span class="pre">delattr()</span></code>, or through
+manipulating the object&#8217;s <code class="docutils literal"><span class="pre">__dict__</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="meta_package_manager.managers.gem.Gem.platforms">
+<code class="descname">platforms</code><em class="property"> = frozenset([u'macos'])</em><a class="headerlink" href="#meta_package_manager.managers.gem.Gem.platforms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.gem.Gem.sync">
+<code class="descname">sync</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/gem.html#Gem.sync"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.gem.Gem.sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sample of gem output:</p>
+<blockquote>
+<div>$ gem outdated
+did_you_mean (1.0.0 &lt; 1.0.2)
+io-console (0.4.5 &lt; 0.4.6)
+json (1.8.3 &lt; 2.0.1)
+minitest (5.8.3 &lt; 5.9.0)
+power_assert (0.2.6 &lt; 0.3.0)
+psych (2.0.17 &lt; 2.1.0)</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.gem.Gem.upgrade_all_cli">
+<code class="descname">upgrade_all_cli</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/gem.html#Gem.upgrade_all_cli"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.gem.Gem.upgrade_all_cli" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.gem.Gem.upgrade_cli">
+<code class="descname">upgrade_cli</code><span class="sig-paren">(</span><em>package_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/gem.html#Gem.upgrade_cli"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.gem.Gem.upgrade_cli" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-meta_package_manager.managers.homebrew">
+<span id="meta-package-manager-managers-homebrew-module"></span><h2>meta_package_manager.managers.homebrew module<a class="headerlink" href="#module-meta_package_manager.managers.homebrew" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="meta_package_manager.managers.homebrew.Homebrew">
+<em class="property">class </em><code class="descclassname">meta_package_manager.managers.homebrew.</code><code class="descname">Homebrew</code><a class="reference internal" href="_modules/meta_package_manager/managers/homebrew.html#Homebrew"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.homebrew.Homebrew" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="meta_package_manager.html#meta_package_manager.base.PackageManager" title="meta_package_manager.base.PackageManager"><code class="xref py py-class docutils literal"><span class="pre">meta_package_manager.base.PackageManager</span></code></a></p>
+<dl class="attribute">
+<dt id="meta_package_manager.managers.homebrew.Homebrew.cli_path">
+<code class="descname">cli_path</code><em class="property"> = u'/usr/local/bin/brew'</em><a class="headerlink" href="#meta_package_manager.managers.homebrew.Homebrew.cli_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.homebrew.Homebrew.get_version">
+<code class="descname">get_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/homebrew.html#Homebrew.get_version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.homebrew.Homebrew.get_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="meta_package_manager.managers.homebrew.Homebrew.id">
+<code class="descname">id</code><a class="headerlink" href="#meta_package_manager.managers.homebrew.Homebrew.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal"><span class="pre">cachedproperty</span></code> is used similar to <code class="xref py py-class docutils literal"><span class="pre">property</span></code>, except
+that the wrapped method is only called once. This is commonly used
+to implement lazy attributes.</p>
+<p>After the property has been accessed, the value is stored on the
+instance itself, using the same name as the cachedproperty. This
+allows the cache to be cleared with <code class="xref py py-func docutils literal"><span class="pre">delattr()</span></code>, or through
+manipulating the object&#8217;s <code class="docutils literal"><span class="pre">__dict__</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="meta_package_manager.managers.homebrew.Homebrew.platforms">
+<code class="descname">platforms</code><em class="property"> = frozenset([u'macos'])</em><a class="headerlink" href="#meta_package_manager.managers.homebrew.Homebrew.platforms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="meta_package_manager.managers.homebrew.Homebrew.requirement">
+<code class="descname">requirement</code><em class="property"> = u'&gt;= 1.0.*'</em><a class="headerlink" href="#meta_package_manager.managers.homebrew.Homebrew.requirement" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.homebrew.Homebrew.sync">
+<code class="descname">sync</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/homebrew.html#Homebrew.sync"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.homebrew.Homebrew.sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetch latest Homebrew formulas.</p>
+<p>Sample of brew output:</p>
+<blockquote>
+<div><p>$ brew outdated &#8211;json=v1
+[</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>{</dt>
+<dd><p class="first">&#8220;name&#8221;: &#8220;cassandra&#8221;,
+&#8220;installed_versions&#8221;: [</p>
+<blockquote>
+<div>&#8220;3.5&#8221;</div></blockquote>
+<p class="last">],
+&#8220;current_version&#8221;: &#8220;3.7&#8221;</p>
+</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div><p>&#8220;name&#8221;: &#8220;vim&#8221;,
+&#8220;installed_versions&#8221;: [</p>
+<blockquote>
+<div>&#8220;7.4.1967&#8221;</div></blockquote>
+<p>],
+&#8220;current_version&#8221;: &#8220;7.4.1993&#8221;</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>&#8220;name&#8221;: &#8220;youtube-dl&#8221;,
+&#8220;installed_versions&#8221;: [</p>
+<blockquote>
+<div>&#8220;2016.07.06&#8221;</div></blockquote>
+<p>],
+&#8220;current_version&#8221;: &#8220;2016.07.09.1&#8221;</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.homebrew.Homebrew.upgrade_all_cli">
+<code class="descname">upgrade_all_cli</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/homebrew.html#Homebrew.upgrade_all_cli"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.homebrew.Homebrew.upgrade_all_cli" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.homebrew.Homebrew.upgrade_cli">
+<code class="descname">upgrade_cli</code><span class="sig-paren">(</span><em>package_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/homebrew.html#Homebrew.upgrade_cli"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.homebrew.Homebrew.upgrade_cli" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="meta_package_manager.managers.homebrew.HomebrewCask">
+<em class="property">class </em><code class="descclassname">meta_package_manager.managers.homebrew.</code><code class="descname">HomebrewCask</code><a class="reference internal" href="_modules/meta_package_manager/managers/homebrew.html#HomebrewCask"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.homebrew.HomebrewCask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#meta_package_manager.managers.homebrew.Homebrew" title="meta_package_manager.managers.homebrew.Homebrew"><code class="xref py py-class docutils literal"><span class="pre">meta_package_manager.managers.homebrew.Homebrew</span></code></a></p>
+<p>Cask is now part of Homebrew&#8217;s core and extend it.</p>
+<dl class="attribute">
+<dt id="meta_package_manager.managers.homebrew.HomebrewCask.cli_args">
+<code class="descname">cli_args</code><em class="property"> = [u'cask']</em><a class="headerlink" href="#meta_package_manager.managers.homebrew.HomebrewCask.cli_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="meta_package_manager.managers.homebrew.HomebrewCask.id">
+<code class="descname">id</code><a class="headerlink" href="#meta_package_manager.managers.homebrew.HomebrewCask.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal"><span class="pre">cachedproperty</span></code> is used similar to <code class="xref py py-class docutils literal"><span class="pre">property</span></code>, except
+that the wrapped method is only called once. This is commonly used
+to implement lazy attributes.</p>
+<p>After the property has been accessed, the value is stored on the
+instance itself, using the same name as the cachedproperty. This
+allows the cache to be cleared with <code class="xref py py-func docutils literal"><span class="pre">delattr()</span></code>, or through
+manipulating the object&#8217;s <code class="docutils literal"><span class="pre">__dict__</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="meta_package_manager.managers.homebrew.HomebrewCask.name">
+<code class="descname">name</code><a class="headerlink" href="#meta_package_manager.managers.homebrew.HomebrewCask.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal"><span class="pre">cachedproperty</span></code> is used similar to <code class="xref py py-class docutils literal"><span class="pre">property</span></code>, except
+that the wrapped method is only called once. This is commonly used
+to implement lazy attributes.</p>
+<p>After the property has been accessed, the value is stored on the
+instance itself, using the same name as the cachedproperty. This
+allows the cache to be cleared with <code class="xref py py-func docutils literal"><span class="pre">delattr()</span></code>, or through
+manipulating the object&#8217;s <code class="docutils literal"><span class="pre">__dict__</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="meta_package_manager.managers.homebrew.HomebrewCask.requirement">
+<code class="descname">requirement</code><em class="property"> = u'&gt;= 1.1.*'</em><a class="headerlink" href="#meta_package_manager.managers.homebrew.HomebrewCask.requirement" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.homebrew.HomebrewCask.sync">
+<code class="descname">sync</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/homebrew.html#HomebrewCask.sync"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.homebrew.HomebrewCask.sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetch latest formulas and their metadata.</p>
+<p>Sample of brew cask output:</p>
+<blockquote>
+<div><p>$ brew cask list &#8211;versions
+aerial 1.2beta5
+android-file-transfer latest
+audacity 2.1.2-1453294898 2.1.2
+bitbar 1.9.2
+firefox 49.0.1
+flux 37.7
+gimp 2.8.18-x86_64
+java 1.8.0_112-b16
+tunnelblick 3.6.8_build_4625 3.6.9_build_4685
+virtualbox 5.1.8-111374 5.1.10-112026</p>
+<p>$ brew cask info aerial
+aerial: 1.2beta5
+<a class="reference external" href="https://github.com/JohnCoates/Aerial">https://github.com/JohnCoates/Aerial</a>
+/usr/local/Caskroom/aerial/1.2beta5 (18 files, 6.6M)
+From: <a class="reference external" href="https://github.com/(...)/blob/master/Casks/aerial.rb">https://github.com/(...)/blob/master/Casks/aerial.rb</a>
+==&gt; Name
+Aerial Screensaver
+==&gt; Artifacts
+Aerial.saver (screen_saver)</p>
+<p>$ brew cask info firefox
+firefox: 50.0.1
+<a class="reference external" href="https://www.mozilla.org/firefox/">https://www.mozilla.org/firefox/</a>
+/usr/local/Caskroom/firefox/49.0.1 (107 files, 185.3M)
+From: <a class="reference external" href="https://github.com/(...)/blob/master/Casks/firefox.rb">https://github.com/(...)/blob/master/Casks/firefox.rb</a>
+==&gt; Name
+Mozilla Firefox
+==&gt; Artifacts
+Firefox.app (app)</p>
+<p>$ brew cask info virtualbox
+virtualbox: 5.1.10-112026
+<a class="reference external" href="https://www.virtualbox.org">https://www.virtualbox.org</a>
+/usr/local/Caskroom/virtualbox/5.1.8-111374 (3 files, 88.8M)
+/usr/local/Caskroom/virtualbox/5.1.10-112026 (3 files, 89.3M)
+From: <a class="reference external" href="https://github.com/(...)/blob/master/Casks/virtualbox.rb">https://github.com/(...)/blob/master/Casks/virtualbox.rb</a>
+==&gt; Name
+Oracle VirtualBox
+==&gt; Artifacts
+VirtualBox.pkg (pkg)</p>
+<p>$ brew cask info prey
+prey: 1.6.3
+<a class="reference external" href="https://preyproject.com/">https://preyproject.com/</a>
+Not installed
+From: <a class="reference external" href="https://github.com/(...)/blob/master/Casks/prey.rb">https://github.com/(...)/blob/master/Casks/prey.rb</a>
+==&gt; Name
+Prey
+==&gt; Artifacts
+prey-mac-1.6.3-x86.pkg (pkg)
+==&gt; Caveats
+Prey requires your API key, found in the bottom-left corner of
+the Prey web account Settings page, to complete installation.
+The API key may be set as an environment variable as follows:</p>
+<blockquote>
+<div>API_KEY=&#8221;abcdef123456&#8221; brew cask install prey</div></blockquote>
+<p>$ brew cask info ubersicht
+ubersicht: 1.0.44
+<a class="reference external" href="http://tracesof.net/uebersicht/">http://tracesof.net/uebersicht/</a>
+Not installed
+From: <a class="reference external" href="https://github.com/(...)/blob/master/Casks/ubersicht.rb">https://github.com/(...)/blob/master/Casks/ubersicht.rb</a>
+==&gt; Name
+Übersicht
+==&gt; Artifacts
+Übersicht.app (app)</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.homebrew.HomebrewCask.upgrade_all_cli">
+<code class="descname">upgrade_all_cli</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/homebrew.html#HomebrewCask.upgrade_all_cli"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.homebrew.HomebrewCask.upgrade_all_cli" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cask has no way to upgrade all outdated packages.</p>
+<p>See: <a class="reference external" href="https://github.com/caskroom/homebrew-cask/issues/4678">https://github.com/caskroom/homebrew-cask/issues/4678</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.homebrew.HomebrewCask.upgrade_cli">
+<code class="descname">upgrade_cli</code><span class="sig-paren">(</span><em>package_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/homebrew.html#HomebrewCask.upgrade_cli"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.homebrew.HomebrewCask.upgrade_cli" title="Permalink to this definition">¶</a></dt>
+<dd><p>Install a package.</p>
+<p>TODO: wait for <a class="reference external" href="https://github.com/caskroom/homebrew-cask/issues/22647">https://github.com/caskroom/homebrew-cask/issues/22647</a>
+so we can force a cleanup in one go, as we do above with vanilla
+Homebrew.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-meta_package_manager.managers.mas">
+<span id="meta-package-manager-managers-mas-module"></span><h2>meta_package_manager.managers.mas module<a class="headerlink" href="#module-meta_package_manager.managers.mas" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="meta_package_manager.managers.mas.MAS">
+<em class="property">class </em><code class="descclassname">meta_package_manager.managers.mas.</code><code class="descname">MAS</code><a class="reference internal" href="_modules/meta_package_manager/managers/mas.html#MAS"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.mas.MAS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="meta_package_manager.html#meta_package_manager.base.PackageManager" title="meta_package_manager.base.PackageManager"><code class="xref py py-class docutils literal"><span class="pre">meta_package_manager.base.PackageManager</span></code></a></p>
+<dl class="attribute">
+<dt id="meta_package_manager.managers.mas.MAS.cli_path">
+<code class="descname">cli_path</code><em class="property"> = u'/usr/local/bin/mas'</em><a class="headerlink" href="#meta_package_manager.managers.mas.MAS.cli_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.mas.MAS.get_version">
+<code class="descname">get_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/mas.html#MAS.get_version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.mas.MAS.get_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="meta_package_manager.managers.mas.MAS.name">
+<code class="descname">name</code><a class="headerlink" href="#meta_package_manager.managers.mas.MAS.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal"><span class="pre">cachedproperty</span></code> is used similar to <code class="xref py py-class docutils literal"><span class="pre">property</span></code>, except
+that the wrapped method is only called once. This is commonly used
+to implement lazy attributes.</p>
+<p>After the property has been accessed, the value is stored on the
+instance itself, using the same name as the cachedproperty. This
+allows the cache to be cleared with <code class="xref py py-func docutils literal"><span class="pre">delattr()</span></code>, or through
+manipulating the object&#8217;s <code class="docutils literal"><span class="pre">__dict__</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="meta_package_manager.managers.mas.MAS.platforms">
+<code class="descname">platforms</code><em class="property"> = frozenset([u'macos'])</em><a class="headerlink" href="#meta_package_manager.managers.mas.MAS.platforms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="meta_package_manager.managers.mas.MAS.requirement">
+<code class="descname">requirement</code><em class="property"> = u'&gt;= 1.3.1'</em><a class="headerlink" href="#meta_package_manager.managers.mas.MAS.requirement" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.mas.MAS.sync">
+<code class="descname">sync</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/mas.html#MAS.sync"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.mas.MAS.sync" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.mas.MAS.upgrade_all_cli">
+<code class="descname">upgrade_all_cli</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/mas.html#MAS.upgrade_all_cli"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.mas.MAS.upgrade_all_cli" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.mas.MAS.upgrade_cli">
+<code class="descname">upgrade_cli</code><span class="sig-paren">(</span><em>package_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/mas.html#MAS.upgrade_cli"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.mas.MAS.upgrade_cli" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-meta_package_manager.managers.npm">
+<span id="meta-package-manager-managers-npm-module"></span><h2>meta_package_manager.managers.npm module<a class="headerlink" href="#module-meta_package_manager.managers.npm" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="meta_package_manager.managers.npm.NPM">
+<em class="property">class </em><code class="descclassname">meta_package_manager.managers.npm.</code><code class="descname">NPM</code><a class="reference internal" href="_modules/meta_package_manager/managers/npm.html#NPM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.npm.NPM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="meta_package_manager.html#meta_package_manager.base.PackageManager" title="meta_package_manager.base.PackageManager"><code class="xref py py-class docutils literal"><span class="pre">meta_package_manager.base.PackageManager</span></code></a></p>
+<dl class="attribute">
+<dt id="meta_package_manager.managers.npm.NPM.cli_path">
+<code class="descname">cli_path</code><em class="property"> = u'/usr/local/bin/npm'</em><a class="headerlink" href="#meta_package_manager.managers.npm.NPM.cli_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.npm.NPM.get_version">
+<code class="descname">get_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/npm.html#NPM.get_version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.npm.NPM.get_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="meta_package_manager.managers.npm.NPM.name">
+<code class="descname">name</code><a class="headerlink" href="#meta_package_manager.managers.npm.NPM.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal"><span class="pre">cachedproperty</span></code> is used similar to <code class="xref py py-class docutils literal"><span class="pre">property</span></code>, except
+that the wrapped method is only called once. This is commonly used
+to implement lazy attributes.</p>
+<p>After the property has been accessed, the value is stored on the
+instance itself, using the same name as the cachedproperty. This
+allows the cache to be cleared with <code class="xref py py-func docutils literal"><span class="pre">delattr()</span></code>, or through
+manipulating the object&#8217;s <code class="docutils literal"><span class="pre">__dict__</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="meta_package_manager.managers.npm.NPM.platforms">
+<code class="descname">platforms</code><em class="property"> = frozenset([u'macos'])</em><a class="headerlink" href="#meta_package_manager.managers.npm.NPM.platforms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.npm.NPM.sync">
+<code class="descname">sync</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/npm.html#NPM.sync"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.npm.NPM.sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sample of npm output:</p>
+<blockquote>
+<div><p>$ npm -g &#8211;progress=false &#8211;json outdated
+{</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>&#8220;my-linked-package&#8221;: {</dt>
+<dd>&#8220;current&#8221;: &#8220;0.0.0-development&#8221;,
+&#8220;wanted&#8221;: &#8220;linked&#8221;,
+&#8220;latest&#8221;: &#8220;linked&#8221;,
+&#8220;location&#8221;: &#8220;/Users/...&#8221;</dd>
+</dl>
+<p>},
+&#8220;npm&#8221;: {</p>
+<blockquote>
+<div>&#8220;current&#8221;: &#8220;3.10.3&#8221;,
+&#8220;wanted&#8221;: &#8220;3.10.5&#8221;,
+&#8220;latest&#8221;: &#8220;3.10.5&#8221;,
+&#8220;location&#8221;: &#8220;/Users/...&#8221;</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.npm.NPM.upgrade_all_cli">
+<code class="descname">upgrade_all_cli</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/npm.html#NPM.upgrade_all_cli"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.npm.NPM.upgrade_all_cli" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.npm.NPM.upgrade_cli">
+<code class="descname">upgrade_cli</code><span class="sig-paren">(</span><em>package_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/npm.html#NPM.upgrade_cli"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.npm.NPM.upgrade_cli" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-meta_package_manager.managers.pip">
+<span id="meta-package-manager-managers-pip-module"></span><h2>meta_package_manager.managers.pip module<a class="headerlink" href="#module-meta_package_manager.managers.pip" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="meta_package_manager.managers.pip.Pip">
+<em class="property">class </em><code class="descclassname">meta_package_manager.managers.pip.</code><code class="descname">Pip</code><a class="reference internal" href="_modules/meta_package_manager/managers/pip.html#Pip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.pip.Pip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="meta_package_manager.html#meta_package_manager.base.PackageManager" title="meta_package_manager.base.PackageManager"><code class="xref py py-class docutils literal"><span class="pre">meta_package_manager.base.PackageManager</span></code></a></p>
+<dl class="method">
+<dt id="meta_package_manager.managers.pip.Pip.get_version">
+<code class="descname">get_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/pip.html#Pip.get_version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.pip.Pip.get_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="meta_package_manager.managers.pip.Pip.platforms">
+<code class="descname">platforms</code><em class="property"> = frozenset([u'macos', u'linux'])</em><a class="headerlink" href="#meta_package_manager.managers.pip.Pip.platforms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.pip.Pip.sync">
+<code class="descname">sync</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/pip.html#Pip.sync"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.pip.Pip.sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>List outdated packages and their metadata.</p>
+<p>Sample of pip output:</p>
+<blockquote>
+<div>$ pip list &#8211;outdated
+ccm (2.1.8, /Users/kdeldycke/ccm) - Latest: 2.1.11 [sdist]
+coverage (4.0.3) - Latest: 4.1 [wheel]
+IMAPClient (0.13) - Latest: 1.0.1 [wheel]
+Logbook (0.10.1) - Latest: 1.0.0 [sdist]
+mccabe (0.4.0) - Latest: 0.5.0 [wheel]
+mercurial (3.8.3) - Latest: 3.8.4 [sdist]
+pylint (1.5.6) - Latest: 1.6.1 [wheel]</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.pip.Pip.upgrade_all_cli">
+<code class="descname">upgrade_all_cli</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/pip.html#Pip.upgrade_all_cli"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.pip.Pip.upgrade_all_cli" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pip lacks support of a proper full upgrade command.</p>
+<p>See: <a class="reference external" href="https://github.com/pypa/pip/issues/59">https://github.com/pypa/pip/issues/59</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="meta_package_manager.managers.pip.Pip.upgrade_cli">
+<code class="descname">upgrade_cli</code><span class="sig-paren">(</span><em>package_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meta_package_manager/managers/pip.html#Pip.upgrade_cli"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.pip.Pip.upgrade_cli" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="meta_package_manager.managers.pip.Pip2">
+<em class="property">class </em><code class="descclassname">meta_package_manager.managers.pip.</code><code class="descname">Pip2</code><a class="reference internal" href="_modules/meta_package_manager/managers/pip.html#Pip2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.pip.Pip2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#meta_package_manager.managers.pip.Pip" title="meta_package_manager.managers.pip.Pip"><code class="xref py py-class docutils literal"><span class="pre">meta_package_manager.managers.pip.Pip</span></code></a></p>
+<dl class="attribute">
+<dt id="meta_package_manager.managers.pip.Pip2.cli_path">
+<code class="descname">cli_path</code><em class="property"> = u'/usr/local/bin/pip2'</em><a class="headerlink" href="#meta_package_manager.managers.pip.Pip2.cli_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="meta_package_manager.managers.pip.Pip2.name">
+<code class="descname">name</code><a class="headerlink" href="#meta_package_manager.managers.pip.Pip2.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal"><span class="pre">cachedproperty</span></code> is used similar to <code class="xref py py-class docutils literal"><span class="pre">property</span></code>, except
+that the wrapped method is only called once. This is commonly used
+to implement lazy attributes.</p>
+<p>After the property has been accessed, the value is stored on the
+instance itself, using the same name as the cachedproperty. This
+allows the cache to be cleared with <code class="xref py py-func docutils literal"><span class="pre">delattr()</span></code>, or through
+manipulating the object&#8217;s <code class="docutils literal"><span class="pre">__dict__</span></code>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="meta_package_manager.managers.pip.Pip3">
+<em class="property">class </em><code class="descclassname">meta_package_manager.managers.pip.</code><code class="descname">Pip3</code><a class="reference internal" href="_modules/meta_package_manager/managers/pip.html#Pip3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meta_package_manager.managers.pip.Pip3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#meta_package_manager.managers.pip.Pip" title="meta_package_manager.managers.pip.Pip"><code class="xref py py-class docutils literal"><span class="pre">meta_package_manager.managers.pip.Pip</span></code></a></p>
+<dl class="attribute">
+<dt id="meta_package_manager.managers.pip.Pip3.cli_path">
+<code class="descname">cli_path</code><em class="property"> = u'/usr/local/bin/pip3'</em><a class="headerlink" href="#meta_package_manager.managers.pip.Pip3.cli_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="meta_package_manager.managers.pip.Pip3.name">
+<code class="descname">name</code><a class="headerlink" href="#meta_package_manager.managers.pip.Pip3.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal"><span class="pre">cachedproperty</span></code> is used similar to <code class="xref py py-class docutils literal"><span class="pre">property</span></code>, except
+that the wrapped method is only called once. This is commonly used
+to implement lazy attributes.</p>
+<p>After the property has been accessed, the value is stored on the
+instance itself, using the same name as the cachedproperty. This
+allows the cache to be cleared with <code class="xref py py-func docutils literal"><span class="pre">delattr()</span></code>, or through
+manipulating the object&#8217;s <code class="docutils literal"><span class="pre">__dict__</span></code>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-meta_package_manager.managers">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-meta_package_manager.managers" title="Permalink to this headline">¶</a></h2>
+<p>Registration, indexing and cache of package manager definitions.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="meta_package_manager.tests.html" class="btn btn-neutral float-right" title="meta_package_manager.tests package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="meta_package_manager.bitbar.html" class="btn btn-neutral" title="meta_package_manager.bitbar package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      Last updated on 2016-12-25.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <div role="contentinfo">
+        <p>
+            &copy; Copyright 2016-2016, <a href='https://kevin.deldycke.com'>Kevin Deldycke</a> and <a href='https://github.com/kdeldycke/meta-package-manager/graphs/contributors'>contributors</a>.
+        </p>
+    </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.3.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
