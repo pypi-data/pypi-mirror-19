@@ -1,0 +1,131 @@
+Metadata-Version: 2.0
+Name: tensorpack
+Version: 0.1.5
+Summary: Neural Network Toolbox on TensorFlow
+Home-page: https://github.com/ppwwyyxx/tensorpack
+Author: TensorPack contributors
+Author-email: ppwwyyxxc@gmail.com
+License: Apache
+Keywords: tensorflow,deep learning,neural network
+Platform: UNKNOWN
+Requires-Dist: functools32
+Requires-Dist: msgpack-numpy
+Requires-Dist: msgpack-python
+Requires-Dist: numpy
+Requires-Dist: pyzmq
+Requires-Dist: six
+Requires-Dist: subprocess32
+Requires-Dist: termcolor
+Requires-Dist: tqdm (>4.11.1)
+Provides-Extra: all
+Requires-Dist: h5py; extra == 'all'
+Requires-Dist: lmdb; extra == 'all'
+Requires-Dist: matplotlib; extra == 'all'
+Requires-Dist: pillow; extra == 'all'
+Requires-Dist: scikit-learn; extra == 'all'
+Requires-Dist: scipy; extra == 'all'
+Requires-Dist: tornado; extra == 'all'
+
+tensorpack
+==========
+
+Neural Network Toolbox on TensorFlow
+
+|Build Status|
+
+Docs & tutorials should be ready within a month. See some
+`examples <examples>`__ to learn about the framework:
+
+Vision:
+~~~~~~~
+
+-  `DoReFa-Net: train binary / low-bitwidth CNN on
+   ImageNet <examples/DoReFa-Net>`__
+-  `Train ResNet on ImageNet / Cifar10 / SVHN <examples/ResNet>`__
+-  `InceptionV3 on ImageNet <examples/Inception/inceptionv3.py>`__
+-  `Fully-convolutional Network for Holistically-Nested Edge
+   Detection(HED) <examples/HED>`__
+-  `Spatial Transformer Networks on MNIST
+   addition <examples/SpatialTransformer>`__
+-  `Visualize Saliency Maps by Guided ReLU <examples/Saliency>`__
+-  `Similarity Learning on MNIST <examples/SimilarityLearning>`__
+
+Reinforcement Learning:
+~~~~~~~~~~~~~~~~~~~~~~~
+
+-  `Deep Q-Network(DQN) variants on Atari
+   games <examples/DeepQNetwork>`__
+-  `Asynchronous Advantage Actor-Critic(A3C) with demos on OpenAI
+   Gym <examples/A3C-Gym>`__
+
+Unsupervised Learning:
+~~~~~~~~~~~~~~~~~~~~~~
+
+-  `Generative Adversarial Network(GAN) variants <examples/GAN>`__,
+   including DCGAN, InfoGAN, Conditional GAN, Image to Image.
+
+Speech / NLP:
+~~~~~~~~~~~~~
+
+-  `LSTM-CTC for speech recognition <examples/CTC-TIMIT>`__
+-  `char-rnn for fun <examples/Char-RNN>`__
+-  `LSTM language model on PennTreebank <examples/PennTreebank>`__
+
+The examples are not only for demonstration of the framework -- you can
+train them and reproduce the results in papers.
+
+Features:
+---------
+
+Describe your training task with three components:
+
+1. **Model**, or graph. ``models/`` has some scoped abstraction of
+   common models, but you can simply use any symbolic functions
+   available in tensorflow, or most functions in
+   slim/tflearn/tensorlayer. ``LinearWrap`` and ``argscope`` simplify
+   large models (`vgg
+   example <https://github.com/ppwwyyxx/tensorpack/blob/master/examples/load-vgg16.py>`__).
+
+2. **DataFlow**. tensorpack allows and encourages complex data
+   processing.
+
+   -  All data producer has an unified interface, allowing them to be
+      composed to perform complex preprocessing.
+   -  Use Python to easily handle any data format, yet still keep good
+      performance thanks to multiprocess prefetch & TF Queue prefetch.
+      For example, InceptionV3 can run in the same speed as the official
+      code which reads data by TF operators.
+
+3. **Callbacks**, including everything you want to do apart from the
+   training iterations, such as:
+
+   -  Change hyperparameters during training
+   -  Print some tensors of interest
+   -  Run inference on a test dataset
+   -  Run some operations once a while
+   -  Send loss to your phone
+
+With the above components defined, tensorpack trainer will run the
+training iterations for you. Multi-GPU training is off-the-shelf by
+simply switching the trainer. You can also define your own trainer for
+non-standard training (e.g. GAN).
+
+Install:
+--------
+
+Dependencies:
+
+-  Python 2 or 3
+-  TensorFlow >= 1.0.0rc0
+-  Python bindings for OpenCV
+-  (optional) use tcmalloc if running with large data
+
+::
+
+    pip install --user -U git+https://github.com/ppwwyyxx/tensorpack.git
+    pip install --user -r opt-requirements.txt # (some optional dependencies required by certain submodules, you can install later if prompted)
+
+.. |Build Status| image:: https://travis-ci.org/ppwwyyxx/tensorpack.svg?branch=master
+   :target: https://travis-ci.org/ppwwyyxx/tensorpack
+
+
