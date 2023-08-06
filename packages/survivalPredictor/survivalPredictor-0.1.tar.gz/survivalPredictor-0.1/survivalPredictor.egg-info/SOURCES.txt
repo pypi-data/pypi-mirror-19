@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+setup.py
+survivalPredictor/survivalPredictor
+survivalPredictor.egg-info/PKG-INFO
+survivalPredictor.egg-info/SOURCES.txt
+survivalPredictor.egg-info/dependency_links.txt
+survivalPredictor.egg-info/requires.txt
+survivalPredictor.egg-info/top_level.txt
+survivalPredictor/data/x.train.txt
+survivalPredictor/data/y.train.txt
