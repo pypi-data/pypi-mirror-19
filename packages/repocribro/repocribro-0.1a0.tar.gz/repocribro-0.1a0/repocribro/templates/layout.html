@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Marek Suchánek">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>repocribro</title>{# edit title on pages #}
+
+    <link rel="icon" href="{{ url_for('static', filename='pics/repocribro-icon.png') }}" type="image/png">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/octicons.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/font/octicons.min.css"/>
+</head>
+<body>
+    <main>
+        <div id="content">
+            {% include "header.html" %}
+
+            {% include "flash.html" %}
+
+            <div class="container">
+                {% block body %}{% endblock %}
+                <div id="push"></div>
+            </div>
+        </div>
+
+        {% include "footer.html" %}
+    </main>
+
+    <script src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    {% block scripts %}{% endblock %}
+    <script type="application/javascript">
+        $(document).ready(function () {
+            var searchUrl = "{{ url_for('core.search') }}";
+            $('#nav-search-query').on('input', function () {
+                $('#nav-search-form').attr('action', searchUrl + "/" + $(this).val());
+            });
+        });
+    </script>
+</body>
+</html>

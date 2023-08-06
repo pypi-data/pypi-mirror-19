@@ -1,0 +1,34 @@
+{# Pushes and commits of repository #}
+{% from "macros/basic.html" import octicon without context %}
+<h2>Updates</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Timestamp</th>
+            <th>Ref</th>
+            <th>Before - After</th>
+            <th>Pusher</th>
+            <th>Sender</th>
+            <th>Commits</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {# TODO: display single commits of push? #}
+    {% for push in repo.pushes %}
+        <tr>
+            <td>{{ push.timestamp }}</td>
+            <td>{{ push.ref }}</td>
+            <td>{{ push.before[:7] }} - {{ push.after[:7] }}</td>
+            <td>{{ push.pusher_login }}</td>
+            <td>{{ push.sender_login }}</td>
+            <td>{{ push.commits|length }}</td>{# TODO: filter #}
+            <td>
+                <a href="{{ push.compare_url }}">{{ octicon('mark-github') }}</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    {# TODO: pagination? #}
+</table>

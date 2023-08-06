@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% from "macros/tabs.html" import tabzone without context %}
+{% block body %}
+    <h1>{{ org.login }} <small>&laquo;organization&raquo;</small></h1>
+
+    {{ tabzone(tabs, active_tab) }}
+{% endblock %}

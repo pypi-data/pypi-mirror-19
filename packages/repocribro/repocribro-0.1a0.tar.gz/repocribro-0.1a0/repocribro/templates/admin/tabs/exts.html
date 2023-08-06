@@ -1,0 +1,39 @@
+{% from 'macros/basic.html' import octicon without context %}
+<h2>Extensions</h2>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Author</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for ext in exts %}
+        <tr>
+            <td>{{ ext.name }}</td>
+            <td>{{ ext.category }}</td>
+            <td>{{ ext.author }}</td>
+            <td class="btn-group">
+                {% if ext.admin_url %}
+                    <a href="{{ ext.admin_url }}" class="btn btn-primary">
+                        {{ octicon('tools') }}
+                    </a>
+                {% endif %}
+                {% if ext.home_url %}
+                    <a href="{{ ext.home_url }}" target="_blank" class="btn btn-default">
+                        {{ octicon('home') }}
+                    </a>
+                {% endif %}
+                {% if ext.gh_url %}
+                    <a href="{{ ext.gh_url }}" target="_blank" class="btn btn-default">
+                        {{ octicon('mark-github') }}
+                    </a>
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

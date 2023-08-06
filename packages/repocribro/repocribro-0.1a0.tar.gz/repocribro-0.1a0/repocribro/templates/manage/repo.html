@@ -1,0 +1,95 @@
+{% extends 'layout.html' %}
+{% from 'macros/basic.html' import octicon without context %}
+{% block body %}
+    <h1>{{ repo.full_name }}
+        <small>&laquo;manage&raquo;</small>
+    </h1>
+
+    <table class="table table-striped">
+        <tr>
+            <th>Full name:</th>
+            <td>{{ repo|gh_repo_link }}</td>
+        </tr>
+        <tr>
+            <th>Languages:</th>
+            <td>{{ repo.languages }}</td>
+        </tr>
+        <tr>
+            <th>Description:</th>
+            <td>{{ repo.description }}</td>
+        </tr>
+        <tr>
+            <th>Visibility @GitHub:</th>
+            <td>{{ repo|gh_repo_visibility }}</td>
+        </tr>
+        <tr>
+            <th>Visibility @repocribro:</th>
+            <td>{{ repo|repo_visibility }}</td>
+        </tr>
+        <tr>
+            <th>URL @GitHub:</th>
+            <td>{{ repo.url|ext_link }}</td>
+        </tr>
+        <tr>
+            <th>URL @repocribro:</th>
+            <td>{{ repo|repo_link(show_secret=True) }}</td>
+        </tr>
+    </table>
+
+    <div class="row">
+        <div class="col-md-2">
+            <a href="{{ url_for('manage.dashboard', tab='repositories') }}" class="btn btn-default">
+                {{ octicon('list-unordered') }} Back
+            </a>
+        </div>
+
+        <div class="col-md-2">
+        <form action="{{ url_for('manage.repo_activate', reponame=repo.name) }}" method="POST">
+            <button type="submit" class="btn btn-primary" name="enable" value="{{ repo.visibility_type }}">
+                {{ octicon('link') }} Reactivate
+            </button>
+        </form>
+        </div>
+
+        <div class="col-md-2">
+        <form action="{{ url_for('manage.repo_deactivate', reponame=repo.name) }}" method="POST">
+            <button type="submit" class="btn btn-danger">
+                {{ octicon('circle-slash') }} Deactivate
+            </button>
+        </form>
+        </div>
+
+        <div class="col-md-2">
+        <form action="{{ url_for('manage.repo_update', reponame=repo.name) }}" method="POST">
+            <button type="submit" class="btn btn-primary">
+                {{ octicon('sync') }} Update
+            </button>
+        </form>
+        </div>
+
+        <div class="col-md-3">
+        <form action="{{ url_for('manage.repo_activate', reponame=repo.name) }}" method="POST">
+            <input type="hidden" value="{{ repo.name }}" name="reponame">
+            <div class="btn-group" role="group">
+                <button type="submit" class="btn btn-success" name="enable" value="{{ Repository.VISIBILITY_PUBLIC }}">
+                    Public
+                </button>
+                <button type="submit" class="btn btn-primary" name="enable" value="{{ Repository.VISIBILITY_HIDDEN }}">
+                    Hidden
+                </button>
+                <button type="submit" class="btn btn-warning" name="enable" value="{{ Repository.VISIBILITY_PRIVATE }}">
+                    Private
+                </button>
+            </div>
+        </form>
+        </div>
+
+        <div class="col-md-1">
+        <form action="{{ url_for('manage.repo_delete', reponame=repo.name) }}" method="POST">
+            <button type="submit" class="btn btn-danger">
+                {{ octicon('trashcan') }} Delete
+            </button>
+        </form>
+        </div>
+    </div>
+{% endblock %}

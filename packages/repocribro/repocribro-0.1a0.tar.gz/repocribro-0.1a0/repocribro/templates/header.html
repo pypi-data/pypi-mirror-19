@@ -1,0 +1,54 @@
+{% from "macros/basic.html" import octicon without context %}
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-logo" href="{{ url_for('core.index') }}">
+                <img src="{{ url_for('static', filename='pics/repocribro-icon-inv.png') }}" alt="logo" id="logo">
+                <span class="navbar-brand" href="{{ url_for('core.index') }}">repocribro</span>
+            </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            {% block nav_search %}
+            <form class="navbar-form navbar-left" method="GET"
+                  action="{{ url_for('core.search', query=query) }}" id="nav-search-form">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search" name="query"
+                           id="nav-search-query">
+                </div>
+                <button type="submit" class="btn btn-default">{{ octicon('search') }}</button>
+            </form>
+            {% endblock %}
+            <ul class="nav navbar-nav navbar-right">
+                {% if current_user.is_authenticated %}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            {{ octicon('person') }} <strong>{{ current_user.github_user.login }}</strong> {{ octicon('chevron-down') }}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url_for('manage.dashboard') }}">Dashboard</a></li>
+                            <li><a href="{{ url_for('manage.repositories') }}">Repositories</a></li>
+                            <li><a href="{{ url_for('manage.organizations') }}">Organizations</a></li>
+                            <li class="divider"></li>
+                            {% if current_user.has_role('admin') %}
+                            <li><a href="{{ url_for('admin.index') }}">Administration</a></li>
+                            <li class="divider"></li>
+                            {% endif %}
+                            <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{{ url_for('auth.github') }}">{{ octicon('mark-github') }} Login via GitHub</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>

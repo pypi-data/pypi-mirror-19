@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% from "macros/tabs.html" import tabzone without context %}
+{% block body %}
+    <h1>Dashboard</h1>
+
+    {{ tabzone(tabs, active_tab) }}
+
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+
+    <script type="application/javascript">
+        $(document).ready(function () {
+            $('#toggle-gh_token').click(function () {
+                var field = $('#gh_token');
+                var ftype = $(field).attr('type');
+                if (ftype == 'password') {
+                    $(field).attr('type', 'text');
+                } else {
+                    $(field).attr('type', 'password');
+                }
+            });
+        });
+    </script>
+{% endblock %}

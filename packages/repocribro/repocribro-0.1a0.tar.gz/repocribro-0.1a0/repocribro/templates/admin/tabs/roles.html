@@ -1,0 +1,46 @@
+{% from 'macros/basic.html' import octicon without context %}
+<h2>Roles</h2>
+
+<form action="{{ url_for('admin.role_create') }}" method="POST">
+    <div class="row">
+        <div class="form-group col-md-8">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name">
+        </div>
+        <div class="col-md-4 btns-fullwidth">
+            <label>&nbsp;</label>
+            <button type="submit" class="btn btn-success">
+                {{ octicon('pencil') }} Create
+            </button>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="name">Description:</label>
+        <textarea class="form-control" id="name" name="description"></textarea>
+    </div>
+</form>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Users</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for role in roles %}
+        <tr>
+            <td>{{ role.name }}</td>
+            <td>{{ role.description }}</td>
+            <td>{{ role.accounts|length }}</td>
+            <td>
+                <a href="{{ url_for('admin.role_detail', name=role.name) }}" class="btn btn-primary btn-small">
+                    {{ octicon('tools') }}
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
