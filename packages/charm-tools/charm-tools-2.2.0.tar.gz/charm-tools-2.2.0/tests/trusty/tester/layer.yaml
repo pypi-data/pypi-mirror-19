@@ -1,0 +1,14 @@
+includes: ["trusty/mysql"]
+config:
+    deletes:
+        - vip
+        - vip_iface
+        - vip_cidr
+tactics:
+    - layer.custom.READMETactic
+    - layer.custom.OldTactic
+options:
+  mysql:
+    qux: 'one'
+ignore:
+  - tests
