@@ -1,0 +1,3 @@
+    [console_scripts]
+    cnx-db = cnxdb.cli.main:main
+    
