@@ -1,0 +1,14 @@
+panflute>=1.8.2, !=1.9.7, !=1.10
+
+[dev]
+check-manifest
+
+[test]
+shutilwhich
+pep8
+pylint
+pytest
+pytest-cov
+coverage
+coveralls
+future
