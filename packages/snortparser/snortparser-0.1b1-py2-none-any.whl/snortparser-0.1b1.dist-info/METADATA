@@ -1,0 +1,19 @@
+Metadata-Version: 2.0
+Name: snortparser
+Version: 0.1b1
+Summary: Parser for Snort rules
+Home-page: https://github.com/jtschichold/snortparser
+Author: Luigi Mori
+Author-email: l@isidora.org
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Security
+Classifier: Topic :: Internet
+
+# snortparser
+Python package for parsing Snort rules
+
+
