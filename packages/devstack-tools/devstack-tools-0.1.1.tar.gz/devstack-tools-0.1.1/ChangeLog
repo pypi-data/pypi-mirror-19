@@ -1,0 +1,26 @@
+CHANGES
+=======
+
+0.1.1
+-----
+
+* fix dsconf for setting localrc name=value
+
+0.1.0
+-----
+
+* Fix merge of local.conf add tests
+* initial take at merging local.conf code
+* add more cli support
+* start adding parser, only support python3
+* fix pep8
+* support localconf set
+* add functions to set items in local.conf
+* add localrc extraction
+* tests for merging with existing ini files
+* make iniset work with files that do not yet exist
+* fix pep8 issue
+* add uncomment function
+* Add comment, set, has methods
+* add inifile add/remove code
+* Initial Cookiecutter Commit
