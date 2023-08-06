@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: git-autosemver
+Version: 1.0.0
+Summary: Parse your git history to determine the next version number of your project
+Home-page: https://github.com/Varkal/git-autosemver
+Author: Romain Moreau
+Author-email: moreau.romain83@gmail.comm
+License: MIT
+Description: UNKNOWN
+Keywords: development git semver ci
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
