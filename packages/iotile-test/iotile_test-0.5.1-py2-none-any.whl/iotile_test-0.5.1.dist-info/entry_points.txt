@@ -1,0 +1,7 @@
+[iotile.proxy]
+simple = iotile.mock.devices.simple_virtual_proxy
+
+[iotile.virtual_device]
+report_test = iotile.mock.devices.report_test_device:ReportTestDevice
+simple = iotile.mock.devices.simple_virtual_device:SimpleVirtualDevice
+
