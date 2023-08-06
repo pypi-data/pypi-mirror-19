@@ -1,0 +1,50 @@
+Metadata-Version: 1.1
+Name: crispy-forms-foundation
+Version: 0.5.5
+Summary: Django application to add 'django-crispy-forms' layout objects for 'Foundation for sites'
+Home-page: http://pypi.python.org/pypi/crispy-forms-foundation
+Author: David Thenon
+Author-email: sveetch@gmail.com
+License: MIT
+Description: .. _docutils: http://docutils.sourceforge.net/
+        .. _Django: https://www.djangoproject.com/
+        .. _django-crispy-forms: https://github.com/maraujop/django-crispy-forms
+        .. _Foundation for sites: http://github.com/zurb/foundation
+        
+        Introduction
+        ============
+        
+        This is a `Django`_ application to add `django-crispy-forms`_ layout objects for `Foundation for sites`_.
+        
+        This app does not include a `Foundation for sites`_ release, you will have to install it yourself in your projects.
+        
+        Links
+        *****
+        
+        * Read the documentation on `Read the docs <http://crispy-forms-foundation.readthedocs.io/>`_;
+        * Download his `PyPi package <http://pypi.python.org/pypi/crispy-forms-foundation>`_;
+        * Clone it on his `Github repository <https://github.com/sveetch/crispy-forms-foundation>`_;
+        
+        Requires
+        ========
+        
+        * `Django`_ >=1.8, <=1.10;
+        * `django-crispy-forms`_ >= 1.4.x;
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.8
+Classifier: Framework :: Django :: 1.9
+Classifier: Framework :: Django :: 1.10
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
