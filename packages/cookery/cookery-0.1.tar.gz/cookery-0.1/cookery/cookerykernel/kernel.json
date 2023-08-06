@@ -1,0 +1,11 @@
+{
+    "language": "cookery",
+    "display_name": "Cookery",
+    "argv": ["python",
+             "-m",
+             "cookerykernel",
+             "-f",
+             "{connection_file}",
+             "--debug"
+            ]
+}
