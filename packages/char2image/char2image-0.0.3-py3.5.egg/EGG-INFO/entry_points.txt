@@ -1,0 +1,4 @@
+[console_scripts]
+char2image = char2image.__main__:main
+chars2images = char2image.chars2images_main:main
+
