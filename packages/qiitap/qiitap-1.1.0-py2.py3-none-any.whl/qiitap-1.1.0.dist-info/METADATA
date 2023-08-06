@@ -1,0 +1,98 @@
+Metadata-Version: 2.0
+Name: qiitap
+Version: 1.1.0
+Summary: Add include function to Qiita Markdown
+Home-page: https://github.com/TakesxiSximada/qiitap
+Author: TakesxiSximada
+Author-email: sximada@gmail.com
+License: Apache License 2.0
+Keywords: Qiita CLI Tool
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development
+Requires-Dist: PyYAML
+Requires-Dist: jumon
+Requires-Dist: mako
+Requires-Dist: requests
+Requires-Dist: six
+Provides-Extra: testing
+Requires-Dist: PyYAML; extra == 'testing'
+Requires-Dist: jumon; extra == 'testing'
+Requires-Dist: mako; extra == 'testing'
+Requires-Dist: pytest; extra == 'testing'
+Requires-Dist: requests; extra == 'testing'
+Requires-Dist: six; extra == 'testing'
+
+Add include function to Qiita Markdown
+======================================
+
+Why
+---
+
+By adding a positionable specifying feature to Markdown, you can test code snippets in Markdown.
+
+
+Install
+-------
+
+::
+
+   $ pip install qiitap
+
+
+How to use it
+-------------
+
+Create Authentication files.
+
+::
+
+   $ qiitap auth
+
+Create an article on Qiita.
+
+::
+
+   $ qiitap create qiita.md --no-body
+
+It create qiita.md file.
+
+Update the article on Qiita
+
+::
+
+   $ qiitap update qiita.md
+
+It update the article.
+
+Include other file content in your markdown file.
+
+qiita.md::
+
+    <!---
+    <%namespace name="qiitap" module="qiitap"/>
+    <%doc>
+    title: "This article's title"
+    item_id: 6fa704dffd25dce635e2
+    tags:
+        - name: Qiita
+        - name: Python
+    private: True
+    </%doc>
+    --->
+
+    ```text:AllContent
+    ${qiitap.qinclude('./fish.md')}
+    ```
+
+    ```text:SubContent
+    ${qiitap.qinclude('./fish.md', start_at='START', end_at='END')}
+    ```
+
+

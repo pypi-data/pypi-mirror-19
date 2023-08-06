@@ -1,0 +1,3 @@
+    [console_scripts]
+    qiitap = qiitap.commands:main
+    
