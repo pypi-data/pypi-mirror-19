@@ -1,0 +1,7 @@
+# Files to be included in the distribution
+include MANIFEST.in
+include requirements.txt
+include bgtemplates/*.template
+recursive-include bgtemplates/templates *
+# exclude python compiled files
+global-exclude *.pyc *.pyo *.pyd
