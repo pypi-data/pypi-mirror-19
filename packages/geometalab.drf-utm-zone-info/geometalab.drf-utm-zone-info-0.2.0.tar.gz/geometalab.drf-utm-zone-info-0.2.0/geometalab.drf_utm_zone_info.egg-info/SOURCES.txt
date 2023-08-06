@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+geometalab.drf_utm_zone_info.egg-info/PKG-INFO
+geometalab.drf_utm_zone_info.egg-info/SOURCES.txt
+geometalab.drf_utm_zone_info.egg-info/dependency_links.txt
+geometalab.drf_utm_zone_info.egg-info/requires.txt
+geometalab.drf_utm_zone_info.egg-info/top_level.txt
+utm_zone_info/__init__.py
+utm_zone_info/coordinate_reference_system.py
+utm_zone_info/serializers.py
+utm_zone_info/urls.py
+utm_zone_info/views.py
