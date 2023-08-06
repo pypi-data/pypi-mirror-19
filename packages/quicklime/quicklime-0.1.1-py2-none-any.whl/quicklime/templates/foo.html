@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Quicklime</title>
+    <meta charset='UTF-8'>
+
+    <link rel="stylesheet" href="static/quicklime/bootstrap-3.2.0/css/bootstrap.css"/>
+    <link rel="stylesheet" href="static/quicklime/bootstrap-3.2.0/css/bootstrap-theme.css"/>
+
+    <script src="static/quicklime/jquery-1.11.1.min.js"></script>
+    <script src="static/quicklime/bootstrap-3.2.0/js/bootstrap.js"></script>
+
+    <script src="static/quicklime/thrift.js"></script>
+    <script src="static/quicklime/concrete.js"></script>
+    <script src="static/quicklime/QuicklimeServer.js"></script>
+
+
+    <style>
+    body {
+       padding-top: 50px;
+    }
+    .ner_token {
+        background-color: yellow;
+        color: blue;
+    }
+    </style>
+
+    <script>
+    $(document).ready(function() {
+        var transport = new Thrift.Transport("/quicklime/thrift_endpoint/");
+        var protocol = new Thrift.TJSONProtocol(transport);
+        var client = new QuicklimeServerClient(protocol);
+        var comm = client.readComm();
+        comm.addInternalReferences();
+
+        $('#communication_one').communicationWidget(comm);
+
+        var tokenization = comm.getFirstTokenization();
+        var nerTokenTagging = tokenization.getTokenTaggingsOfType("NER")[0];
+        var posTokenTagging = tokenization.getTokenTaggingsOfType("POS")[0];
+
+        if (!nerTokenTagging) {
+
+        }
+
+        var allTokenElements = $('#communication_one').getTokenElements(tokenization);
+
+        // Add a Bootstrap tooltip with POS tag to each Token element
+        if (posTokenTagging) {
+            allTokenElements.each(function() {
+                // communicationWidget() uses jQuery's data() function to store the
+                // tokenization and tokenIndex associated with each Token element
+                var tokenization = $(this).data('tokenization');
+                var tokenIndex = $(this).data('tokenIndex');
+
+                // posTokenTagging is defined in enclosing scope
+                var tokenTagging = posTokenTagging;
+
+                var taggedToken = tokenTagging.getTaggedTokenWithTokenIndex(tokenIndex);
+
+                if (taggedToken) {
+                    // By default, the tooltip is only shown when mousing over the token text.
+                    //   http://getbootstrap.com/javascript/#tooltips
+                    $(this).attr('data-placement', 'auto top')
+                           .attr('title', taggedToken.tag)
+                           .tooltip();
+                }
+            });
+        }
+
+        allTokenElements.click(
+            // Object containing data to be passed to event handler
+            {
+                'tokenTagging': nerTokenTagging
+            },
+
+            // Event handler for when user clicks on a Token element
+            function(event) {
+                var tokenization = $(this).data('tokenization');
+                var tokenIndex = $(this).data('tokenIndex');
+
+                // The TokenTagging is passed in as event data
+                var tokenTagging = event.data.tokenTagging;
+
+                if ($(this).hasClass('ner_token')) {
+                    $(this).removeClass('ner_token');
+                    tokenTagging.setTaggedTokenTag('');
+                }
+                else {
+                    $(this).addClass('ner_token');
+                    tokenTagging.setTaggedTokenTag('PERSON');
+                }
+                var taggedToken = tokenTagging.getTaggedTokenWithTokenIndex(tokenIndex);
+            }
+        );
+
+        var matchingTokenElements = $('#communication_one').getTokenElementsWithMatchingTag(
+            tokenization,
+            nerTokenTagging,
+
+            // Filter function returns a boolean if a TaggedToken.tag string "matches"
+            function(tagText) {
+                return tagText === "PERSON";
+//                return tagText.substring(0,1) === "V";
+            }
+        );
+        matchingTokenElements.addClass('ner_token');
+    });
+    </script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div id="communication_one"></div>
+    </div>
+
+</body>
+</html>
