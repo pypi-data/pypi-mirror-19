@@ -1,0 +1,18 @@
+# Specify a path to the image directory here
+[path_to_images]
+path = /
+
+#Put devices you wish to ignore from storage device scan here
+#OS disks will automatically be ignored
+# EX: "TOSHIBA MQ01ABD1 = True"
+[dev_to_ignore]
+
+
+#leeway in usb size, a positive number will add that amount to the iso size as leeway
+#mount - the mount location for block size testing
+#dd_prog_location - the output file for lluv dd status
+[configuration]
+leeway = 200
+mount: /mnt/test_blk
+dd_prog_location: /tmp/lluv_dd.log
+kiosk = False
