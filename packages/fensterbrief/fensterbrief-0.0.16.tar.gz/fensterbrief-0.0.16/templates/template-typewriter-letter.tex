@@ -1,0 +1,56 @@
+\documentclass[12pt,english]{scrlttr2}
+
+\usepackage{typewriter}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[]{babel}
+
+
+\date{} %we do that manually!
+
+\newkomavar{fromplace} % a few koma vars
+\setkomavar{fromname}{Some other Dude}
+\setkomavar{fromaddress}{Fairytail-Lane 1}
+\setkomavar{fromplace}{12345 Cologne}
+
+\KOMAoptions{foldmarks=off,fromrule=false}
+\setkomavar{backaddress}{}
+
+
+\makeatletter % indention of the address fields
+\@setplength{toaddrhpos}{27mm}
+\@setplength{toaddrwidth}{92mm}
+\@setplength{sigindent}{0mm}
+\makeatother
+
+
+\renewcommand*{\raggedsignature}{\raggedright}
+
+% Define new letter header
+\firsthead{
+  \null\hfill
+  \parbox[t][\headheight][t]{4cm}{%
+    \vspace*{7cm}
+
+    \usekomavar{fromname} \newline
+    \usekomavar{fromaddress}  \newline
+    \usekomavar{fromplace} \vspace*{1cm}
+
+    \today
+  }
+}%
+
+
+\begin{document}\raggedright
+
+\begin{letter}{Some Address \\ Far, far away}
+  \opening{Hello Dude,}
+
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis, felis vel eleifend elementum, lectus eros faucibus nisl, pellentesque eleifend nunc nibh sit amet nisi. Vivamus dictum, eros eu tincidunt mollis, ante odio scelerisque leo, vel pharetra risus justo id nibh. Nam mollis elementum sem, vel porttitor erat fringilla vitae. Suspendisse potenti. Cras quis orci vel elit faucibus consectetur non ut felis. In lacinia dictum congue. Vivamus vel sapien nec velit pharetra semper non nec eros. Donec laoreet mi at odio molestie varius. Nullam et ornare velit. Ut laoreet pulvinar orci, ac lobortis nisi fermentum vel.
+
+
+  \closing{Best wishes,}
+\end{letter}
+
+\end{document}

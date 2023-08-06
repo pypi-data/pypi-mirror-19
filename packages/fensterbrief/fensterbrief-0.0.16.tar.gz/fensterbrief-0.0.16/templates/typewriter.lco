@@ -1,0 +1,41 @@
+\ProvidesFile{typewriter.lco}
+
+\RequirePackage{typewriter}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[ngerman]{babel}
+
+\date{}
+
+\newkomavar{fromplace}
+\setkomavar{fromname}{Foo Bar}
+\setkomavar{fromaddress}{Milchstr. 42}
+\setkomavar{fromplace}{12345 Weltall}
+
+\KOMAoptions{foldmarks=off,fromrule=false}
+\setkomavar{backaddress}{}
+
+
+\makeatletter
+\@setplength{toaddrhpos}{27mm}
+\@setplength{toaddrwidth}{92mm}
+\@setplength{sigindent}{0mm}
+\makeatother
+
+
+\renewcommand*{\raggedsignature}{\raggedright}
+
+% Define new letter header
+\firsthead{
+  \null\hfill
+  \parbox[t][\headheight][t]{4cm}{%
+    \vspace*{7cm}
+
+    \usekomavar{fromname} \newline
+    \usekomavar{fromaddress}  \newline
+    \usekomavar{fromplace} \vspace*{1cm}
+
+    \today
+  }
+}%
+
