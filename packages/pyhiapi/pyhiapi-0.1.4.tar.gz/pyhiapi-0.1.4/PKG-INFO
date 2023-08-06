@@ -1,0 +1,43 @@
+Metadata-Version: 1.0
+Name: pyhiapi
+Version: 0.1.4
+Summary: PyHiAPI - Simple test API
+Home-page: https://github.com/GradysGhost/pyhiapi
+Author: Ryan Jung
+Author-email: gradysghost@gmail.com
+License: LICENCE
+Description: # pyhiapi
+        A very simple API endpoint, easily deployable for testing purposes
+        
+        ## Installation
+        
+            sudo pip install pyhiapi
+        
+        ## Usage
+        
+            usage: hi.py [-h] [-b BIND] [-p PORT] [-c CODE]
+            
+            optional arguments:
+              -h, --help            show this help message and exit
+              -b BIND, --bind-address BIND
+              -p PORT, --port PORT
+              -c CODE, --response_code CODE
+        
+        hiapi defaults to `localhost:4000`, and responds with 200s.
+        
+        ## Testing
+        
+        You can just curl the service, perhaps like this:
+        
+            $ curl -i http://localhost:4000/
+        
+            HTTP/1.0 200 OK
+            Content-Type: text/html; charset=utf-8
+            Content-Length: 4
+            Server: Werkzeug/0.9.6 Python/2.7.8
+            Date: Fri, 23 Jan 2015 03:38:14 GMT
+        
+            Hi!
+        
+        
+Platform: UNKNOWN
