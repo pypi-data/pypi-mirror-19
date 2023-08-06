@@ -1,0 +1,15 @@
+setup.cfg
+setup.py
+openedoo.egg-info/PKG-INFO
+openedoo.egg-info/SOURCES.txt
+openedoo.egg-info/dependency_links.txt
+openedoo.egg-info/entry_points.txt
+openedoo.egg-info/not-zip-safe
+openedoo.egg-info/requires.txt
+openedoo.egg-info/top_level.txt
+openedoo_core/__init__.py
+openedoo_core/command.py
+openedoo_core/manage.py
+openedoo_core/utils.py
+openedoo_core/bin/__init__.py
+openedoo_core/bin/untar.py
