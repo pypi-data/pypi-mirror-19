@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+<script type='text/javascript'>
+$(document).ready(
+function(){
+    load_window("/show-{{item_type}}/{{pk}}/");
+});
+</script>
+{% endblock %}
