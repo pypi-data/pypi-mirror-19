@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: pydisque-dwq
+Version: 0.1.2
+Summary: disque client (fork used by dwq)
+Home-page: http://github.com/kaspar030/pydisque
+Author: ybrs
+Author-email: kaspar@schleiser.de
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Database
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: redis
+Requires-Dist: six
+
+UNKNOWN
+
+
