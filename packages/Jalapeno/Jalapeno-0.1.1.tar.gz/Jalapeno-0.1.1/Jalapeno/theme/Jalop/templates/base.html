@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <title>Jalapeno</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <link rel='stylesheet' href='{{asset.css.fontawesome}}'>
+        <link rel='stylesheet' href='{{asset.css.bootstrap}}'>
+    	<link rel='stylesheet' href='{{asset.css.main}}'>
+    	<script src = "{{asset.js.jquery}}"></script>
+    	<script src = "{{asset.js.bootstrap}}"></script>
+    	{% block css %}{% endblock %}
+  	
+	</head>
+	
+	<body>
+		<nav class="navbar navbar-default navbar-inverse" role = "navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type='button' class="navbar-toggle collapsed" data-toggle= 'collapse' data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						
+					</button>
+					<a href="{{ url_for('page.welcome') }}" class="navbar-brand"><img class = 'logo' src='{{image.theme.Logo}}'</a>
+				</div>
+				<div class="navcont collapse navbar-collapse" id ="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						
+						<li><a href="{{ url_for('docs.page', path='test') }}">Docs</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+
+		<div class="main-page">
+			{% block content %}{% endblock %}
+
+		<footer>
+			<div class="container-fluid footer">
+				<div class="footer-info">
+					<p>Copyright &copy Chenghao Qian 2016-2017</p>
+					<p>Powered By Jalapeno</p>
+				</div>
+				<div class="icon-group">
+					<br>
+					<ul>
+						<li><a href="#">
+							<i class="fa fa-github fa-3x" aria-hidden="true"></i>
+						</a></li>
+					</ul>
+
+				</div>
+				</div>
+
+			</div>
+
+		</footer>
+		</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+.first
+{
+	color:#fff;
+	text-align: center;
+	min-height:500px;
+	background-color:#e78653;
+
+}
+.first-title
+{
+	margin:100px auto 20px auto;
+	width:100%;
+	text-align: center;
+	font-size: 50px;
+	
+}
+.first-title small
+{
+	font-size:15px;
+	color:#fff;
+}
+.buttons button
+{	
+	margin:20px auto;
+	background:inherit;
+	border:1px #fff solid;
+	
+}
+.second
+{
+	min-height:600px;
+	background-color:#fff;
+}

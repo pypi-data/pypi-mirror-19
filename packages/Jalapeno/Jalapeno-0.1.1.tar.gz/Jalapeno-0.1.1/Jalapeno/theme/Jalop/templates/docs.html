@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block css %}
+<link rel='stylesheet' href='{{asset.css.docs}}'>
+{% endblock %}
+
+{% block content %} 
+ 			<div class="container">
+				<div class="content">
+					<article>
+						<h2>{{page.meta.title}}</h2>
+						{{page.body | excerpt}}
+						{{page.body | content}}
+				</article>
+			</div>
+				
+				<div class="aside">
+				<div class="inner-aside">
+					<ul>
+							<li class="li-title">Content</li>
+						{% for tle in doctag %}
+							<li><a href="{{ url_for('docs.page', path=tle[1]) }}">{{tle[0]}}</a></li>
+						{% endfor %}
+					
+					</ul>
+				</div>
+			
+			
+			
+			</div>
+			
+
+<!--		<div class="sidebar">-->
+			
+			
+		</div>
+
+{% endblock %}
