@@ -1,0 +1,18 @@
+Metadata-Version: 2.0
+Name: gmail-yaml-filters
+Version: 0.4
+Summary: A quick tool for generating Gmail filters from YAML rules.
+Home-page: https://github.com/mesozoic/gmail-yaml-filters
+Author: Alex Levy
+Author-email: mesozoic@users.noreply.github.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: PyYAML
+Requires-Dist: google-api-python-client
+Requires-Dist: lxml
+
+UNKNOWN
+
+
