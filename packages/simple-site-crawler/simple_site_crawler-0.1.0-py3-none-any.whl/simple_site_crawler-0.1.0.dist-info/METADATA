@@ -1,0 +1,152 @@
+Metadata-Version: 2.0
+Name: simple-site-crawler
+Version: 0.1.0
+Summary: Simple website crawler that asynchronously crawls a website and all subpages that it can find, along with static content that they rely on.
+Home-page: https://github.com/pawelad/simple-site-crawler
+Author: Paweł Adamczak
+Author-email: pawel.ad@gmail.com
+License: MIT License
+Download-URL: https://github.com/pawelad/simple-site-crawler/releases/latest
+Keywords: website crawler sitemap
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Utilities
+Requires-Dist: aiodns (>=1.1.1)
+Requires-Dist: aiohttp (>=1.2.0)
+Requires-Dist: beautifulsoup4 (>=4.5.3)
+Requires-Dist: cchardet (>=1.1.2)
+Requires-Dist: click (>=6.7)
+Requires-Dist: html5lib (>=1.0b10)
+Provides-Extra: testing
+Requires-Dist: pytest; extra == 'testing'
+
+simple-site-crawler
+===================
+
+|Build status| |Test coverage| |PyPI version| |Python versions|
+|License|
+
+Simple website crawler that asynchronously crawls a website and all
+subpages that it can find, along with static content that they rely on.
+You can either use it as a library, inside your Python project or check
+out the provided CLI that can currently show you the crawled data
+(links, images, CSS and Javascript files) for each found site amd create
+a ``sitemap.xml`` file.
+
+Created primarily to play with ``asyncio``, ``aiohttp`` and the new
+``async/await`` syntax, so:
+
+-  it requires Python 3.5 or higher
+-  new features are not planned at the moment; feel free to suggest them
+   though, as I'm happy to implement them if someone will actually use
+   them ; -)
+
+Full disclosure - halfway through the project I found
+`this <http://aosabook.org/en/500L/a-web-crawler-with-asyncio-coroutines.html>`__
+article (and code) which does pretty much exactly what I wanted and is
+co-written by the BDFL himself. Oh well. I still finished the project
+and didn't copy anything explicitly but it did influence some of my
+choices. After all, if it's good enough for the creator of the language
+I'm using, it's probably good enough for me.
+
+Installation
+------------
+
+>From PyPI:
+
+::
+
+    $ pip3 install simple-site-crawler
+
+With git clone:
+
+::
+
+    $ git clone https://github.com/pawelad/simple-site-crawler
+    $ pip3 install -r simple-site-crawler/requirements.txt
+    $ cd simple-site-crawler/bin
+
+Usage
+-----
+
+::
+
+    $ simple-site-crawler --help                      
+    Usage: simple-site-crawler [OPTIONS] URL
+
+      Simple website crawler that generates its sitemap and can either print it
+      (and its static content) or export it to standard XML format.
+
+      See https://github.com/pawelad/simple-site-crawler for more info.
+
+    Options:
+      -t, --max-tasks INTEGER  Maximum allowed number of async tasks.
+      -e, --export-to-xml      Export sitemap to XML file.
+      -s, --suppress           Suppress printing output to stdout.
+      --help                   Show this message and exit.
+
+API
+---
+
+There's no proper documentation as of now, but the code is commented and
+*should* be pretty straightforward to use.
+
+That said - feel free to ask me either via
+`email <mailto:pawel.ad@gmail.com>`__ or `GitHub
+issues <https://github.com/pawelad/simple-site-crawler/issues/new>`__ if
+anything is unclear.
+
+Tests
+-----
+
+Package was tested with the help of ``py.test`` and ``tox`` on Python
+3.5 and 3.6 (see ``tox.ini``).
+
+Code coverage is available at
+`Coveralls <https://coveralls.io/github/pawelad/simple-site-crawler>`__.
+
+To run tests yourself you need to run ``tox`` inside the repository:
+
+.. code:: shell
+
+    $ pip install -r requirements/dev.txt
+    $ tox
+
+Contributions
+-------------
+
+Package source code is available at
+`GitHub <https://github.com/pawelad/simple-site-crawler>`__.
+
+Feel free to use, ask, fork, star, report bugs, fix them, suggest
+enhancements, add functionality and point out any mistakes. Thanks!
+
+Authors
+-------
+
+Developed and maintained by `Paweł
+Adamczak <https://github.com/pawelad>`__.
+
+Released under `MIT
+License <https://github.com/pawelad/simple-site-crawler/blob/master/LICENSE>`__.
+
+.. |Build status| image:: https://img.shields.io/travis/pawelad/simple-site-crawler.svg
+   :target: https://travis-ci.org/pawelad/simple-site-crawler
+.. |Test coverage| image:: https://img.shields.io/coveralls/pawelad/simple-site-crawler.svg
+   :target: https://coveralls.io/github/pawelad/simple-site-crawler
+.. |PyPI version| image:: https://img.shields.io/pypi/v/simple-site-crawler.svg
+   :target: https://pypi.python.org/pypi/simple-site-crawler
+.. |Python versions| image:: https://img.shields.io/pypi/pyversions/simple-site-crawler.svg
+   :target: https://pypi.python.org/pypi/simple-site-crawler
+.. |License| image:: https://img.shields.io/github/license/pawelad/simple-site-crawler.svg
+   :target: https://github.com/pawelad/simple-site-crawler/blob/master/LICENSE
+
+
