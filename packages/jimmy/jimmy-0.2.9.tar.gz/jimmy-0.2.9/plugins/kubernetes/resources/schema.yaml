@@ -1,0 +1,378 @@
+title: Schema for Jenkins Kubernetes plugin configuration
+type: object
+additionalProperties: false
+
+properties:
+  clouds:
+    type: array
+    additionalItems: false
+    items:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          description: |
+            Uniquely identifies this Cloud instance among other instances in Jenkins Clouds.
+            This is expected to be short ID-like string that does not contain any character
+            unsafe as variable name or URL path token.
+          type: string
+
+        server_url:
+          description: |
+            The URL of the Kubernetes API server.
+          type: string
+
+        server_certificate:
+          description: |
+              X509 PEM encoded certificate.
+          type: string
+
+        namespace:
+          description: |
+            Kubernetes Namespace.
+          type: string
+
+        credentials_id:
+          description: |
+            Jenkins Credentials ID to use for Kubernetes Cloud connection.
+          type: string
+
+        jenkins_url:
+          description: |
+            The URL of the Jenkins Master server.
+          type: string
+
+        jenkins_tunnel:
+          description: |
+            Connect to the specified host and port, instead of connecting directly to Jenkins.
+            Useful when connection to Hudson needs to be tunneled. Can be also HOST: or :PORT,
+            in which case the missing portion will be auto-configured like the default behavior.
+          type: string
+
+        disable_certificate_check:
+          description: |
+            With this option enabled, communication with kubernetes API master will rely on https
+            but will fully ignore ssl certificate verification.
+          type: boolean
+          default: false
+
+        connection_timeout:
+          description: |
+            Currently unused in Jenkins Kubernetes plugin.
+          type: integer
+          default: 5
+
+        read_timeout:
+          description: |
+            Currently unused in Jenkins Kubernetes plugin.
+          type: integer
+          default: 15
+
+        container_cleanup_timeout:
+          description: |
+            Time in minutes after which the Kubernetes cloud plugin will clean up an idle worker that
+            has not already terminated. This cleanup is only necessary in exceptional conditions;
+            typically workers will terminate upon completion of the invoking task.
+          type: integer
+          default: 5
+
+        container_cap:
+          description: |
+            The maximum number of concurrently running slave containers that Kubernetes is allowed to run.
+          type: integer
+          default: 10
+
+        pod_templates:
+          type: array
+          additionalItems: false
+          items:
+            type: object
+            additionalProperties: false
+            properties:
+              name:
+                description: |
+                  Name for a Kubernetes Pod Template.
+                type: string
+
+              labels:
+                description: |
+                  Labels describing a Kubernetes Pod Template.
+                type: string
+
+              inherit_from:
+                description: |
+                  A Pod Template may or may not inherit from an existing template. This means that the
+                  Pod Template will inherit node selector, service account, image pull secrets,
+                  Container Templates and volumes from the template it inherits from.
+                type: string
+
+              service_account:
+                description: |
+                  The service account to use.
+                type: string
+
+              node_selector:
+                description: |
+                  Specify which nodes the pod should operate on by providing a comma separated list of
+                  node labels: `label1=value1,label2=value2`.
+                type: string
+
+              instance_cap:
+                description: |
+                  Max number of instances.
+                type: integer
+
+              idle_minutes:
+                description: |
+                  Time in minutes to retain slave when idle.
+                type: integer
+
+              volumes:
+                type: object
+                additionalProperties: false
+                properties:
+
+                  config_map:
+                    type: array
+                    additionalItems: false
+                    items:
+                      type: object
+                      additionalProperties: false
+                      properties:
+                        name:
+                          type: string
+                        mount_path:
+                          type: string
+                      required:
+                      - name
+                      - mount_path
+
+                  empty_dir:
+                    type: array
+                    additionalItems: false
+                    items:
+                      type: object
+                      additionalProperties: false
+                      properties:
+                        in_memory:
+                          type: boolean
+                          default: false
+                        mount_path:
+                          type: string
+                      required:
+                      - mount_path
+
+                  host_path:
+                    type: array
+                    additionalItems: false
+                    items:
+                      type: object
+                      additionalProperties: false
+                      properties:
+                        host_path:
+                          type: string
+                        mount_path:
+                          type: string
+                      required:
+                      - host_path
+                      - mount_path
+
+                  nfs:
+                    type: array
+                    additionalItems: false
+                    items:
+                      type: object
+                      additionalProperties: false
+                      properties:
+                        server_adress:
+                          type: string
+                        server_path:
+                          type: string
+                        read_only:
+                          type: boolean
+                        mount_path:
+                          type: string
+                      required:
+                      - server_adress
+                      - server_path
+                      - read_only
+                      - mount_path
+
+                  persistent_claim:
+                    type: array
+                    additionalItems: false
+                    items:
+                      type: object
+                      additionalProperties: false
+                      properties:
+                        claim_name:
+                          type: string
+                        read_only:
+                          type: boolean
+                          default: false
+                        mount_path:
+                          type: string
+                      required:
+                      - claim_name
+                      - mount_path
+
+                  secret:
+                    type: array
+                    additionalItems: false
+                    items:
+                      type: object
+                      additionalProperties: false
+                      properties:
+                        secret_name:
+                          type: string
+                        mount_path:
+                          type: string
+                      required:
+                      - secret_name
+                      - mount_path
+
+                anyOf:
+                - required:
+                  - config_map
+                - required:
+                  - empty_dir
+                - required:
+                  - host_path
+                - required:
+                  - nfs
+                - required:
+                  - persistent_claim
+                - required:
+                  - secret
+
+              annotations:
+                type: array
+                additionalItems: false
+                items:
+                  type: object
+                  additionalProperties: false
+                  properties:
+                    key:
+                      type: string
+                    value:
+                      type: string
+                  required:
+                  - key
+                  - value
+
+              env_vars:
+                type: array
+                additionalItems: false
+                items:
+                  type: object
+                  additionalProperties: false
+                  properties:
+                    key:
+                      type: string
+                    value:
+                      type: string
+                  required:
+                  - key
+                  - value
+
+              image_pull_secrets:
+                type: array
+                items:
+                  type: string
+
+              containers:
+                type: array
+                additionalItems: false
+                items:
+                  type: object
+                  additionalProperties: false
+                  properties:
+                    name:
+                      type: string
+
+                    image:
+                      description: Docker image ID for a jenkins JNLP slave.
+                      type: string
+
+                    command:
+                      description: Command to run slave agent. Override the image entrypoint with a different one.
+                      type: string
+
+                    arguments:
+                      description: |
+                        Arguments to pass to the command. ${computer.jnlpmac} and ${computer.name} are replaced
+                        with the slave secret and name respectively.
+                      type: string
+
+                    working_dir:
+                      description: Workspace path.
+                      type: string
+
+                    enable_tty:
+                      description: Allocate pseudo-TTY.
+                      type: boolean
+                      default: true
+
+                    always_pull_image:
+                      type: boolean
+                      default: false
+
+                    privileged:
+                      description: Run in privileged mode.
+                      type: boolean
+                      default: false
+
+                    limit_cpu:
+                      description: |
+                        Kubernetes Resources Limit of CPU. This value can be set to control the CPU resource
+                        limit passed when creating the jenkins slave docker container in Kubernetes.
+                        Unlike a resource request, this is the upper limit of resources used by your Jenkins Slave container.
+                      type: string
+
+                    limit_memory:
+                      description: |
+                        Kubernetes Resources Limit of Memory. This value can be set to control the memory resource
+                        limit passed when creating the jenkins slave docker container in Kubernetes.
+                        Unlike a resource request, this is the upper limit of resources used by your Jenkins Slave container.
+                      type: string
+
+                    request_cpu:
+                      description: |
+                        Kubernetes Resources Request of CPU. This value can be set to control the CPU resources
+                        requested when creating the jenkins slave docker container in Kubernetes.
+                      type: string
+
+                    request_memory:
+                      description: |
+                        Kubernetes Resources Request of Memory. This value can be set to control the memory
+                        resources requested when creating the jenkins slave docker container in Kubernetes.
+                      type: string
+
+                    env_vars:
+                      type: array
+                      additionalItems: false
+                      items:
+                        type: object
+                        additionalProperties: false
+                        properties:
+                          key:
+                            type: string
+                          value:
+                            type: string
+                        required:
+                        - key
+                        - value
+
+                  required:
+                  - name
+                  - image
+
+            required:
+            - name
+
+      required:
+      - id
+      - server_url
+
+required:
+- clouds
