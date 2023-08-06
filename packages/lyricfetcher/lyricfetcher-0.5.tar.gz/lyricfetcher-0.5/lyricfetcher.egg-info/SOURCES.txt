@@ -1,0 +1,15 @@
+setup.py
+lyricfetcher/__init__.py
+lyricfetcher/main.py
+lyricfetcher.egg-info/PKG-INFO
+lyricfetcher.egg-info/SOURCES.txt
+lyricfetcher.egg-info/dependency_links.txt
+lyricfetcher.egg-info/entry_points.txt
+lyricfetcher.egg-info/not-zip-safe
+lyricfetcher.egg-info/requires.txt
+lyricfetcher.egg-info/top_level.txt
+lyricfetcher/sources/AZlyrics.py
+lyricfetcher/sources/__init__.py
+lyricfetcher/sources/genius.py
+lyricfetcher/sources/lyricswikia.py
+lyricfetcher/sources/metrolyrics.py
