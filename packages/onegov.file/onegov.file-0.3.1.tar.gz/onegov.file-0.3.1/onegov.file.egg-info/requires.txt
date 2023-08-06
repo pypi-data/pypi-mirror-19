@@ -1,0 +1,14 @@
+onegov.core>=0.4.0
+filedepot
+lxml
+more.transaction
+pillow
+python-magic
+sqlalchemy
+sqlalchemy-utils
+webob
+
+[test]
+coverage
+onegov.testing
+pytest
