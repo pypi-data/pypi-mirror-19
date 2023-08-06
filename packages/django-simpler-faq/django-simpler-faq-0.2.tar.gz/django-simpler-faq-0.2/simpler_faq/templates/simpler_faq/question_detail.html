@@ -1,0 +1,7 @@
+<a id="question-anchor-{{ question.id }}" class="question">{{ question.text }}</a>
+<div id="question-answer-{{ question.id }}" class="question_answer">
+    {% autoescape off %}
+        {{ question.answer_text }}
+    {% endautoescape %}
+</div>
+
