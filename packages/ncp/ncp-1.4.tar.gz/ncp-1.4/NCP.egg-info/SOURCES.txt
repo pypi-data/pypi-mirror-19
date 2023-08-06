@@ -1,0 +1,15 @@
+MANIFEST.in
+setup.py
+NCP.egg-info/PKG-INFO
+NCP.egg-info/SOURCES.txt
+NCP.egg-info/dependency_links.txt
+NCP.egg-info/entry_points.txt
+NCP.egg-info/not-zip-safe
+NCP.egg-info/requires.txt
+NCP.egg-info/top_level.txt
+ncg/__init__.py
+ncg/__main__.py
+ncg/app.py
+ncg/templates/base.j2
+ncg/templates/template.j2
+ncp.egg-info/SOURCES.txt
