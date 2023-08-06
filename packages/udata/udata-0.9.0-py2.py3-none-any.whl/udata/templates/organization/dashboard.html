@@ -1,0 +1,54 @@
+{% extends theme("organization/display_base.html") %}
+
+{% set meta = {
+    'title': _('Dashboard'),
+    'description': _('Site metrics and activity'),
+    'image': org.logo(external=True),
+    'keywords': [_('metrics'), _('activity')],
+} %}
+
+{% block extra_js %}
+<script src="{{ static('vue-common.js') }}"></script>
+<script src="{{ static('dashboard.js') }}"></script>
+{% endblock %}
+
+{% block extra_css %}
+<link href="{{ static('vue-common.js.css') }}" rel="stylesheet">
+<link href="{{ static('dashboard.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ super() }}
+    <li><a href="{{ url_for('organizations.list') }}">{{ org.name }}</a></li>
+    <li class="active">{{ _('Dashboard') }}</li>
+{% endblock %}
+
+{% block main_content %}
+<section>
+    <div class="container">
+        <div class="col-sm-9" id="graphs" object-id="{{ org.id }}">
+            <div class="text-center"><span class="fa fa-4x fa-cog fa-spin"></span></div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block after_content %}
+<section class="community">
+    <header>
+        <div class="container">
+            <div class="cover-communaute"></div>
+            <div class="page-header">
+                <h2>{{ _('Community activity') }}</h2>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12" id="activities" organization-id="{{ org.id }}">
+                <div class="text-center"><span class="fa fa-4x fa-cog fa-spin"></span></div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
