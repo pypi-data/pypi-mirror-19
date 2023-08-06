@@ -1,0 +1,14 @@
+v0.1.0, 2017-01-15
+    b8a69af add dict support
+    d21c067 0 is falsy in py...guard against mistakes.  add index support
+    e2aada0 more tests
+    a2c83d0 rearrange tests and wire them up
+    09641b2 reorder to avoid using function as attr
+    89cc5d2 add testing
+    242a6e8 add testing
+    887699e reorg.  catch corner cases with exception
+    f6579d3 remove debugging code
+    451a943 cleanup afterwards
+v0.0.1, 2017-01-15
+    
+
