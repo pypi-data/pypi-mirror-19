@@ -1,0 +1,3 @@
+[console_scripts]
+xdocs = xdocs.__main__:cli
+
