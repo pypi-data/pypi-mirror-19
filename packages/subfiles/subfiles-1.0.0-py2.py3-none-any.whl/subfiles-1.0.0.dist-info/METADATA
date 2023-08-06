@@ -1,0 +1,54 @@
+Metadata-Version: 2.0
+Name: subfiles
+Version: 1.0.0
+Summary: A command line program to generate list of file subextensions.
+Home-page: https://github.com/mindey/subfiles
+Author: Mindey
+Author-email: mindey@qq.com
+License: UNLICENSE
+Keywords: cli
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Utilities
+Classifier: License :: Public Domain
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: docopt
+Provides-Extra: test
+Requires-Dist: coverage; extra == 'test'
+Requires-Dist: pytest; extra == 'test'
+Requires-Dist: pytest-cov; extra == 'test'
+
+subtypes-cli
+============
+
+*A command line program to generate subtypes.txt*
+
+
+Purpose
+-------
+
+Extracts file subtypes to create or append all found subtypes in a project
+to a single file, e.g., subtypes.txt
+
+Usage
+-----
+
+Set up::
+
+    $ pip install subtypes-cli
+
+In any project, or directory, run::
+
+    $ subtypes .
+
+This will output a list of all different subtypes in the project.
+
+
