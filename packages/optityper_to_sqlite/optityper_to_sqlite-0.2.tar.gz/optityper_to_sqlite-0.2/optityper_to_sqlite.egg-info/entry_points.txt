@@ -1,0 +1,3 @@
+[console_scripts]
+optityper_to_sqlite = optityper_to_sqlite.__main__:main
+
