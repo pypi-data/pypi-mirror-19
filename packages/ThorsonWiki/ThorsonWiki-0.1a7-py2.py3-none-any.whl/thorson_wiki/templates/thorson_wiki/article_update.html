@@ -1,0 +1,32 @@
+{% extends 'thorson_wiki/base.html' %}
+
+{% load i18n staticfiles %}
+
+{% block content %}
+
+<h1>
+  {% blocktrans with title=article.title %}
+  Editing '{{ title }}'
+  {% endblocktrans %}
+</h1>
+
+<form action="{% url namespace_|add:":article_update" article.slug %}"
+      method="post">
+  {% csrf_token %}
+  {% include "thorson_wiki/_update_form.html" %}
+</form>
+
+{% endblock %}
+
+{% block jsfooter %}
+<script type="text/javascript">
+$(function() {
+  $('.form-tooltip').tooltip();
+});
+
+$('.form-tabs').click(function (e) {
+  e.preventDefault();
+  $(this).tab('show');
+});
+</script>
+{% endblock %}
