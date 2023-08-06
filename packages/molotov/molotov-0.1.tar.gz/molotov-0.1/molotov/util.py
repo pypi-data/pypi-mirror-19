@@ -1,0 +1,85 @@
+import socket
+import os
+import sys
+from contextlib import contextmanager
+from urllib.parse import urlparse, urlunparse
+from socket import gethostbyname
+
+
+@contextmanager
+def stream_log(msg, pid=True):
+    if pid:
+        msg = '[%d] %s...' % (os.getpid(), msg)
+    sys.stdout.write(msg)
+    sys.stdout.flush()
+
+    yield
+
+    sys.stdout.write('OK\n')
+    sys.stdout.flush()
+
+
+def log(msg, pid=True):
+    if pid:
+        print('[%d] %s' % (os.getpid(), msg))
+    else:
+        print(msg)
+
+
+_DNS_CACHE = {}
+
+
+def resolve(url):
+    parts = urlparse(url)
+
+    if '@' in parts.netloc:
+        username, password = parts.username, parts.password
+        netloc = parts.netloc.split('@', 1)[1]
+    else:
+        username, password = None, None
+        netloc = parts.netloc
+
+    if ':' in netloc:
+        host = netloc.split(':')[0]
+    else:
+        host = netloc
+
+    port_provided = False
+    if not parts.port and parts.scheme == 'https':
+        port = 443
+    elif not parts.port and parts.scheme == 'http':
+        port = 80
+    else:
+        port = parts.port
+        port_provided = True
+
+    original = host
+    resolved = None
+    if host in _DNS_CACHE:
+        resolved = _DNS_CACHE[host]
+    else:
+        try:
+            resolved = gethostbyname(host)
+            _DNS_CACHE[host] = resolved
+        except socket.gaierror:
+            return url, original, host
+
+    # Don't use a resolved hostname for SSL requests otherwise the
+    # certificate will not match the IP address (resolved)
+    host = resolved if parts.scheme != 'https' else host
+    netloc = host
+    if port_provided:
+        netloc += ':%d' % port
+    if username is not None:
+        if password is not None:
+            netloc = '%s:%s@%s' % (username, password, netloc)
+        else:
+            netloc = '%s@%s' % (username, netloc)
+
+    if port not in (443, 80):
+        host += ':%d' % port
+        original += ':%d' % port
+
+    new = urlunparse((parts.scheme, netloc, parts.path or '', '',
+                      parts.query or '', parts.fragment or ''))
+    return new, original, host
