@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+pyacd/__init__.py
+pyacd/acd.py
+pyacd/parser.py
+pyacd/qa.py
+pyacd/qaparser.py
+pyacd.egg-info/PKG-INFO
+pyacd.egg-info/SOURCES.txt
+pyacd.egg-info/dependency_links.txt
+pyacd.egg-info/entry_points.txt
+pyacd.egg-info/not-zip-safe
+pyacd.egg-info/requires.txt
+pyacd.egg-info/top_level.txt
+pyacd/data/datatypes.yml
