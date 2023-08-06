@@ -1,0 +1,10 @@
+setup.cfg
+setup.py
+iot_message/__init__.py
+iot_message/message.py
+iot_message.egg-info/PKG-INFO
+iot_message.egg-info/SOURCES.txt
+iot_message.egg-info/dependency_links.txt
+iot_message.egg-info/top_level.txt
+iot_message/abstract/__init__.py
+iot_message/abstract/message_interface.py
