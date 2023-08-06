@@ -1,0 +1,5 @@
+[console_scripts]
+pynd = pynd.__main__:main
+pynd3 = pynd.__main__:main
+pynd3.5 = pynd.__main__:main
+
