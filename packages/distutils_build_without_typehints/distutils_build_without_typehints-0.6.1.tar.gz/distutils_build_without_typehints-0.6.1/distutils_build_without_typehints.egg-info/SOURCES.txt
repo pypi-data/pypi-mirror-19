@@ -1,0 +1,14 @@
+.gitignore
+LICENSE
+README.rst
+setup.cfg
+setup.py
+distutils_build_without_typehints/__init__.py
+distutils_build_without_typehints/build_without_typehints.py
+distutils_build_without_typehints/strip_type_hints.py
+distutils_build_without_typehints.egg-info/PKG-INFO
+distutils_build_without_typehints.egg-info/SOURCES.txt
+distutils_build_without_typehints.egg-info/dependency_links.txt
+distutils_build_without_typehints.egg-info/entry_points.txt
+distutils_build_without_typehints.egg-info/top_level.txt
+distutils_build_without_typehints.egg-info/zip-safe
