@@ -1,0 +1,17 @@
+setup.py
+gripit_capture.egg-info/PKG-INFO
+gripit_capture.egg-info/SOURCES.txt
+gripit_capture.egg-info/dependency_links.txt
+gripit_capture.egg-info/not-zip-safe
+gripit_capture.egg-info/top_level.txt
+webcam/__init__.py
+webcam/camera.py
+webcam/config.py
+webcam/main.py
+webcam/data/__init__.py
+webcam/data/file.py
+webcam/jobs/__init__.py
+webcam/jobs/converting_job.py
+webcam/services/__init__.py
+webcam/services/cmd.py
+webcam/services/opencv.py
