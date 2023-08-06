@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+ludolph_vcs/__init__.py
+ludolph_vcs/github.py
+ludolph_vcs/gitlab.py
+ludolph_vcs.egg-info/PKG-INFO
+ludolph_vcs.egg-info/SOURCES.txt
+ludolph_vcs.egg-info/dependency_links.txt
+ludolph_vcs.egg-info/requires.txt
+ludolph_vcs.egg-info/top_level.txt
