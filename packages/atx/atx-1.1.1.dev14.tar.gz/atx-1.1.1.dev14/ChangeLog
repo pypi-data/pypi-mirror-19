@@ -1,0 +1,61 @@
+CHANGES
+=======
+
+* make cli support py3, close #95
+* remove all image_path relative code
+* update facebook-wda requirements
+* update report.info close #93
+* add testerhome ios api link
+* update doc
+* fix all the python3 needed
+* make it support python3
+* add attach and activity params to chromedriver
+* fix command line pipe error
+* add chromedriver extension
+* fix install command bad name
+* update api doc
+* fix report
+
+1.1.0
+-----
+
+* remove watcher, add keep_screen to doc
+* update facebook wda deps
+* add adb shell input method back to atx
+* update requirements
+* update wiki with encoding, prepare for python3
+* support auto find files with pattern: fight@auto.png
+* update assert_ui_exists code, fix ios display()
+* add ios support for assert_ui_exists
+* fix session error
+* do not add session when start
+* add type for iOS support
+* fix python -matx minicap install failed, because of minicap binary link gone
+* update readme, close #82
+* remove duplicate code
+* add webdriver screenshot support
+* quick horiable fix for android UIAutomator json rpc error
+* sync wda code, close #79
+* add assert_ui_exists api
+* comment record(cmd) because of unstable
+* change type error
+* try to take screenshot again, when the first screenshot failed
+* add screenshot flag
+* finish assert support
+* add assert_equal into report
+* update atx-assistant url
+
+1.0.14
+------
+
+* test push
+* remove useless file
+* fix quick start link
+* also add imageio
+* try to fix multi test file name conflict, ref #69
+* add swipe to ios, close #68
+* fix doc link
+* add demo.gif
+* update doc, .
+* Update discuss group
+* add qq group
