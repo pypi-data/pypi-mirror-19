@@ -1,0 +1,13 @@
+Metadata-Version: 1.1
+Name: tinamit
+Version: 1.2.2
+Summary: Conexión de modelos socioeconómicos (dinámicas de los sistemas) con modelos biofísicos.
+Home-page: https://github.com/julienmalard/Tinamit
+Author: Julien Jean Malard
+Author-email: julien.malard@mail.mcgill.ca
+License: GNU GPL 3
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires: numpy
+Requires: matplotlib
+Requires: scipy
