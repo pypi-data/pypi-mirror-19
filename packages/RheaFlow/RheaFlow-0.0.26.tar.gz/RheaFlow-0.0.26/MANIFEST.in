@@ -1,0 +1,9 @@
+include *.rst
+
+include *.txt
+
+include LICENSE
+
+recursive-include etc *.conf *.service *.yaml
+
+graft docs
