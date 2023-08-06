@@ -1,0 +1,17 @@
+LICENSE
+README.rst
+requirements.txt
+setup.py
+test.py
+ComicThief/__init__.py
+ComicThief/cache.py
+ComicThief/config.py
+ComicThief/creator.py
+ComicThief/default.ini
+ComicThief/extractor.py
+ComicThief/fetcher.py
+ComicThief/main.py
+ComicThief.egg-info/PKG-INFO
+ComicThief.egg-info/SOURCES.txt
+ComicThief.egg-info/dependency_links.txt
+ComicThief.egg-info/top_level.txt
