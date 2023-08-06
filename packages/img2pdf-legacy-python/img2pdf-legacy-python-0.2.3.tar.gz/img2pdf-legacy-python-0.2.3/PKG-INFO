@@ -1,0 +1,34 @@
+Metadata-Version: 1.1
+Name: img2pdf-legacy-python
+Version: 0.2.3
+Summary: Python 2-compatible fork of img2pdf
+Home-page: https://github.com/lucaswiman/img2pdf-legacy-python
+Author: Lucas Wiman (fork); Johannes 'josch' Schauer (original author)
+Author-email: lucas.wiman@gmail.com
+License: LGPL
+Description: img2pdf-legacy-python: Fork of img2pdf
+        ======================================
+        
+        This is a fork of the [img2pdf library](https://pypi.python.org/pypi/img2pdf/)
+        maintained by Johannes Schauer, intended for use in legacy python (Python 2)
+        installations. It is distributed under the LGPL3 license. It is recommended
+        that you use the upstream version if possible, since it runs on modern
+        versions of Python.
+        
+        No pull requests will be accepted, other than:
+        - Compatibility fixes with Python 2.
+        - Merges from the upstream img2pdf library.
+        
+Keywords: jpeg pdf converter
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Other Audience
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
