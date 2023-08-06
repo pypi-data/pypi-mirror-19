@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        dockeranalyser=cli.dockeranalyser:cli
+    
