@@ -1,0 +1,17 @@
+setup.cfg
+setup.py
+scripts/weightanalyser
+test/test_cli.py
+test/test_dataanalyser.py
+test/test_datahandeling.py
+test/test_visualisation.py
+weightanalyser/__init__.py
+weightanalyser/cli.py
+weightanalyser/dataanalyser.py
+weightanalyser/datahandeling.py
+weightanalyser/main.py
+weightanalyser/visualisation.py
+weightanalyser.egg-info/PKG-INFO
+weightanalyser.egg-info/SOURCES.txt
+weightanalyser.egg-info/dependency_links.txt
+weightanalyser.egg-info/top_level.txt
