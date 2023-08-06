@@ -1,0 +1,27 @@
+Metadata-Version: 1.0
+Name: httpdec
+Version: 0.0.4
+Summary: a tool can decode http headers/cookies/...
+Home-page: https://github.com/alingse/httpdec
+Author: alingse
+Author-email: alingse@foxmail.com
+License: Apache 2.0
+Description: 
+        httpdec  
+        ========
+        
+        a tool can decode http headers | cookies | query | body from clipboard or file
+        
+        
+        httpdec -d h input output
+        
+        httpdec -d c input output
+        
+        httpdec -d h -p
+        
+        httpdec -d c -p
+        
+        
+        clippaste|httpdec -d h|jq -r '.Cookie'|httpdec -d c|clipcopy
+        
+Platform: UNKNOWN
