@@ -1,0 +1,24 @@
+Metadata-Version: 2.0
+Name: zops.requirements-directory
+Version: 0.1.0
+Summary: Handles Python requirements in a directory using pip-tools.
+Home-page: https://github.com/zerotk/zops.requirements_directory
+Author: Alexandre Andrade
+Author-email: kaniabi@gmail.com
+License: MIT license
+Keywords: development environment,shell,operations
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: pip-tools
+Requires-Dist: zerotk.zops
+
+Handles Python requirements in a directory using pip-tools.
+
+
