@@ -1,0 +1,31 @@
+Metadata-Version: 2.0
+Name: mdtohtml
+Version: 0.0.3
+Summary: Duplicates folder and converts markdown files to html files
+Home-page: https://github.com/oscarvazquez/mdtohtml
+Author: Oscar Vazquez
+Author-email: oscar.vazquez2012@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: markdown
+
+Markdown to html converter. Duplicates folder and converts markdown files to html files
+
+To install 
+``` pip install mdtohtml ```
+
+To use run:
+``` mdtohtml sourceFolder destinationFolder ```
+
+If destinationFolder has not been created it will create a new folder, if it exists it will rewrite all
+files with the same name and location as files within the source folder. 
+
+and you're done :)
+
