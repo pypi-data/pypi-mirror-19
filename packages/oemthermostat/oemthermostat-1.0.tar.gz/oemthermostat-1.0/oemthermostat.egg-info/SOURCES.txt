@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+oemthermostat/__init__.py
+oemthermostat/client.py
+oemthermostat.egg-info/PKG-INFO
+oemthermostat.egg-info/SOURCES.txt
+oemthermostat.egg-info/dependency_links.txt
+oemthermostat.egg-info/requires.txt
+oemthermostat.egg-info/top_level.txt
