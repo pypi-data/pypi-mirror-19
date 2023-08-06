@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: pyactors-ng
+Version: 0.4
+Summary: Next generation python actors with gevent, async, process and zeromq implementations
+Home-page: https://github.com/likema/pyactors-ng
+Author: Like Ma
+Author-email: likemartinma@gmail.com
+License: GPLv3
+Description: UNKNOWN
+Platform: any
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
