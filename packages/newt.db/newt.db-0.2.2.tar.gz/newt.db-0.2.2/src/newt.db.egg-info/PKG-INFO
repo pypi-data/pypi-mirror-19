@@ -1,0 +1,77 @@
+Metadata-Version: 1.1
+Name: newt.db
+Version: 0.2.2
+Summary: Newt DB, the amphibious database
+Home-page: http://www.newtdb.org/
+Author: Jim Fulton
+Author-email: jim@jimfulton.info
+License: MIT
+Description: ================================
+        Newt DB, the amphibious database
+        ================================
+        
+        Python objects above, PostgreSQL JSONB below.
+        
+        See http://www.newtdb.org
+        
+        Changes
+        =======
+        
+        0.2.2 (2017-02-08)
+        ==================
+        
+        - Fixed a packaging bug.
+        
+        
+        0.2.1 (2017-02-06)
+        ==================
+        
+        - Fixed: Packing wasn't handled correctly. Objects removed during
+          packing weren't removed from the ``newt`` table.
+        
+        
+        0.2.0 (2017-01-30)
+        ==================
+        
+        - Added PyPy support
+        
+        - Fixed: ``datetime`` values with time zones weren't handled correctly.
+        
+        0.1.2 (2017-01-26)
+        ==================
+        
+        - Fixed a number of documentation errors.
+        
+          (Documentation wasn't tested, but now is, thankd to `manuel
+          <http://pythonhosted.org/manuel/>`_.)
+        
+        - Added some missing names to ``newt.db``.
+        
+        0.1.1 (2017-01-24)
+        ==================
+        
+        Fixed a small Python 2 bug that prevented import.
+        
+        0.1.0 (2017-01-24)
+        ==================
+        
+        Initial release
+        
+Keywords: database nosql python postgresql postgres
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Database
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: Unix
+Classifier: Framework :: ZODB
