@@ -1,0 +1,144 @@
+{
+    "task": "msutils", 
+    "base": "stimela/msutils", 
+    "tag": "0.2.5", 
+    "description": "Tools for manipulating measurement sets (MSs)", 
+    "prefix": " ", 
+    "binary": "msutils", 
+    "msdir": true, 
+    "parameters": [
+        {
+            "info": "MSUtils command to execute", 
+            "name": "command", 
+            "default": null, 
+            "dtype": "str", 
+            "required": true, 
+            "choices": [
+                "addcol", 
+                "sumcols", 
+                "copycol", 
+                "compute_vis_noise", 
+                "verify_antpos", 
+                "prep", 
+                "addnoise"
+            ]
+        }, 
+        {
+            "info": "MS name", 
+            "dtype": "file", 
+            "required": true, 
+            "name": "msname", 
+            "io": "msfile"
+        }, 
+        {
+            "info": "Column name", 
+            "dtype": "str", 
+            "default": null, 
+            "name": "column", 
+            "mapping": "colname"
+        }, 
+        {
+            "info": "Shape of column to add to MS", 
+            "dtype": "str", 
+            "default": null, 
+            "name": "shape"
+        }, 
+        {
+            "info": "Column data type", 
+            "dtype": "str", 
+            "default": null, 
+            "name": "valuetype"
+        }, 
+        {
+            "info": "Data description type for data in column to be added", 
+            "dtype": "str", 
+            "default": "array", 
+            "name": "data_desc_type", 
+            "choices": [
+                "array", 
+                "scalar"
+            ]
+        }, 
+        {
+            "info": "Value to initialize new data column with", 
+            "dtype": "float", 
+            "default": true, 
+            "name": "init_with"
+        }, 
+        {
+            "info": "First column to add/subtract", 
+            "dtype": "str", 
+            "default": null, 
+            "name": "col1"
+        }, 
+        {
+            "info": "Second column to add/subtract", 
+            "dtype": "str", 
+            "default": null, 
+            "name": "col2"
+        }, 
+        {
+            "info": "Columns to sum", 
+            "dtype": "list:str", 
+            "delimiter": ",", 
+            "name": "cols", 
+            "default": null
+        }, 
+        {
+            "info": "Subtract 'col2' from 'col1' ", 
+            "dtype": "bool", 
+            "default": false, 
+            "name": "subtract"
+        }, 
+        {
+            "info": "Column to copy data from", 
+            "dtype": "str", 
+            "default": null, 
+            "name": "fromcol"
+        }, 
+        {
+            "info": "Column to copy data to", 
+            "dtype": "str", 
+            "default": null, 
+            "name": "tocol"
+        }, 
+        {
+            "info": "Add noise to MS. Will add to 'column/colname'", 
+            "dtype": "bool", 
+            "default": false, 
+            "name": "addnoise"
+        }, 
+        {
+            "info": "System Equivalent Flux Density, in Jy. The noise will be calculated using this value", 
+            "dtype": "float", 
+            "default": 0, 
+            "name": "sefd"
+        }, 
+        {
+            "info": "Add noise to data in this column", 
+            "dtype": "str", 
+            "default": null, 
+            "name": "addToCol"
+        }, 
+        {
+            "info": "Noise in Jy to 'column/colname' data in Jy", 
+            "dtype": "float", 
+            "default": 0, 
+            "name": "noise"
+        }, 
+        {
+            "info": "SPW ID", 
+            "dtype": "int", 
+            "default": 0, 
+            "name": "spw-id", 
+            "mapping": "spw_id"
+        }, 
+        {
+            "info": "Verifies antenna Y positions in MS. If Y coordinate convention is wrong, either fixes the positions (fix=True) or raises an error. hemisphere=-1 makes it assume that the observatory is in the Western hemisphere, hemisphere=1 in the Eastern, or else tries to find observatory name using MS and pyrap.measure", 
+            "dtype": "bool", 
+            "default": true, 
+            "name": "verify-antpos", 
+            "mapping": "verify"
+        }
+    ]
+}
