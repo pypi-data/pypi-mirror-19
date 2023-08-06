@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: hgx
+Version: 0.0.1
+Summary: Lightweight integration library for Hypergolix.
+Home-page: https://github.com/Muterra/py_hypergolix
+Author: Muterra, Inc
+Author-email: badg@muterra.io
+License: LGPL
+Description: Hypergolix is "programmable Dropbox". Run it as a daemonized background
+            process, and use hgx to integrate it with apps.
+Keywords: hypergolix,IoT,internet of things,golix,encryption,security,privacy,private,identity,sharing
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)
+Classifier: Programming Language :: Python :: 3.5
