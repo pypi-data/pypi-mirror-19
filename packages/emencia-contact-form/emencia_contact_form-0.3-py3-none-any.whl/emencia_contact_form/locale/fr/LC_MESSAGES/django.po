@@ -1,0 +1,149 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-28 11:27+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: contact_form/admin.py:31 contact_form/models.py:37
+#: contact_form/templates/contact_form/contact_form.html:7
+msgid "Contact"
+msgstr "Contact"
+
+#: contact_form/admin.py:33
+msgid "Address"
+msgstr "Adresse"
+
+#: contact_form/choices.py:13
+msgid "Mrs"
+msgstr "Mme"
+
+#: contact_form/choices.py:14
+msgid "Mr"
+msgstr "M"
+
+#: contact_form/forms.py:40 contact_form/models.py:68
+msgid "Send mail to"
+msgstr "Destinaires de l'email"
+
+#: contact_form/forms.py:42
+msgid "You can specify multiple mail addresses: Separate them with a comma."
+msgstr "Vous pouvez spécifier plusieurs emails: séparez les avec une virgule."
+
+#: contact_form/forms_utils.py:36
+msgid "Submit"
+msgstr "Envoyer"
+
+#: contact_form/models.py:18
+msgid "Creation Date"
+msgstr "Date de création"
+
+#: contact_form/models.py:20
+msgid "Civility"
+msgstr "Civilité"
+
+#: contact_form/models.py:24
+msgid "First Name"
+msgstr "Prénom"
+
+#: contact_form/models.py:25
+msgid "Last Name"
+msgstr "Nom de famille"
+
+#: contact_form/models.py:26
+msgid "phone"
+msgstr "Téléphone"
+
+#: contact_form/models.py:27
+msgid "company"
+msgstr "Société"
+
+#: contact_form/models.py:28
+msgid "city"
+msgstr "Ville"
+
+#: contact_form/models.py:29
+msgid "state/province"
+msgstr "Région"
+
+#: contact_form/models.py:30
+msgid "Country"
+msgstr "Pays"
+
+#: contact_form/models.py:31
+#: contact_form/templates/contact_form/contact_form_message.txt:3
+msgid "Email"
+msgstr "Email"
+
+#: contact_form/models.py:32
+msgid "Message"
+msgstr "Message"
+
+#: contact_form/models.py:34
+msgid "Do you wish to receive the newsletter?"
+msgstr "Voulez-vous recevoir la newsletter ?"
+
+#: contact_form/models.py:38
+msgid "Contacts"
+msgstr "Contacts"
+
+#: contact_form/models.py:63
+msgid "Subject"
+msgstr "Objet"
+
+#: contact_form/models.py:66
+msgid "Email subject for the contact form."
+msgstr "Objet de l'email pour le formulaire de contact"
+
+#: contact_form/models.py:70
+msgid "You can specify multiple mail address."
+msgstr "Vous pouvez spécifier plusieurs adresses email."
+
+#: contact_form/models.py:72
+msgid "Send contact email as"
+msgstr "Envoyer l'email en tant que"
+
+#: contact_form/models.py:75
+msgid "Success Message (in html)"
+msgstr "Message de succès (en html)"
+
+#: contact_form/models.py:81 contact_form/models.py:82
+#: contact_form/models.py:85
+msgid "Contact Form Settings"
+msgstr "Réglage du formulaire de contact (mail)"
+
+#: contact_form/templates/contact_form/base.html:4
+msgid "Contact Form"
+msgstr "Formulaire de contact"
+
+#: contact_form/templates/contact_form/contact_form_message.txt:1
+msgid "Identity"
+msgstr "Identité"
+
+#: contact_form/templates/contact_form/contact_form_message.txt:2
+msgid "Phone"
+msgstr "Téléphone"
+
+#: contact_form/templates/contact_form/contact_form_message.txt:4
+msgid "Company"
+msgstr "Société"
+
+#: contact_form/templates/contact_form/contact_form_message.txt:6
+msgid "Comments"
+msgstr "Commentaires"
+
+#~ msgid "Contact form"
+#~ msgstr "Formulaire de contact"
