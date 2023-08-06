@@ -1,0 +1,39 @@
+Metadata-Version: 1.1
+Name: beeng
+Version: 0.0.1
+Summary: A python wrapper for Be10/Be15 calculation engines
+Home-page: https://github.com/sbi-aau/beeng-py
+Author: Christian Sørensen
+Author-email: cgs@sbi.aau.dk
+License: BSD
+Description: Be10/Be15 calculation engine wrapper for Python
+        ===============================================
+        
+        This Python library is designed to allow easy usage of the Be10 and Be15 calculation engines from Python.
+        Notice that the python interpreter must be 32 bit!
+        
+        Example
+        -------
+        
+        .. code:: python
+        
+            import beeng
+            eng = beeng.Engine()
+            model = eng.load_model(path)
+            res_success, res_xml = eng.get_res_xml(model)
+            key_success, key_xml = eng.get_key_xml(model)
+            assert res_success == True
+            assert key_success == True
+        
+Keywords: be10 be15 beeng development
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
