@@ -1,0 +1,18 @@
+Metadata-Version: 2.0
+Name: fdep
+Version: 0.2.0
+Summary: Fdep is a simple, easy-to-use, production-ready tool/library written in Python to download datasets, misc. files for your machine learning projects.
+Home-page: http://github.com/checkr/fdep
+Author: Checkr
+Author-email: eng@checkr.com
+License: MIT LICENSE
+Platform: UNKNOWN
+Requires-Dist: PyYAML (==3.12)
+Requires-Dist: boto3 (==1.4.0)
+Requires-Dist: colorama (==0.3.7)
+Requires-Dist: requests (==2.11.1)
+Requires-Dist: tqdm (==4.8.4)
+
+For more details, go to http://github.com/checkr/fdep
+
+
