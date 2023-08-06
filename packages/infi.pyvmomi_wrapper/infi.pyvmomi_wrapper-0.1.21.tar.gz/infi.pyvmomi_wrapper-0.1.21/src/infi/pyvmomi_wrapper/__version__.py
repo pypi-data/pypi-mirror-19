@@ -1,0 +1,11 @@
+__version__ = "0.1.21"
+__git_commiter_name__ = "Guy Rozendorn"
+__git_commiter_email__ = "guy@rzn.co.il"
+__git_branch__ = u'develop'
+__git_remote_tracking_branch__ = u'origin/develop'
+__git_remote_url__ = u'git@git.infinidat.com:host-opensource/infi.pyvmomi_wrapper.git'
+__git_head_hash__ = '9dcceff54fc5eb9826153b8b614c32c7c162893c'
+__git_head_subject__ = u'Finished Release v0.1.21'
+__git_head_message__ = u'* develop:\n  HPTVM-1116 fixing solutionManagerInfo\n  HPTVM-1116 fix possible AttributeError in _workaround_vcenter_restart'
+__git_dirty_diff__ = u''
+__git_commit_date__ = '2017-01-09 15:49:06'
