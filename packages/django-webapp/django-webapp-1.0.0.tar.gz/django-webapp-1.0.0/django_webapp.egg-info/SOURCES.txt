@@ -1,0 +1,12 @@
+README.rst
+setup.py
+django_webapp.egg-info/PKG-INFO
+django_webapp.egg-info/SOURCES.txt
+django_webapp.egg-info/dependency_links.txt
+django_webapp.egg-info/requires.txt
+django_webapp.egg-info/top_level.txt
+webapp/__init__.py
+webapp/views.py
+webapp/management/__init__.py
+webapp/management/commands/__init__.py
+webapp/management/commands/runwebapp.py
