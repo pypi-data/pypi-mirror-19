@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>by_get package &mdash; by_get 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="by_get 0.1.0 documentation" href="index.html" />
+    <link rel="up" title="by_get API documentation" href="api.html" />
+    <link rel="prev" title="by_get API documentation" href="api.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="api.html" title="by_get API documentation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">by_get 0.1.0 documentation</a> &raquo;</li>
+          <li><a href="api.html" accesskey="U">by_get API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-by_get">
+<span id="by-get-package"></span><h1>by_get package<a class="headerlink" href="#module-by_get" title="Permalink to this headline">¶</a></h1>
+<p>Blue Yonder coding task.</p>
+<div class="section" id="module-by_get.by_get">
+<span id="by-get-module"></span><h2>by_get module<a class="headerlink" href="#module-by_get.by_get" title="Permalink to this headline">¶</a></h2>
+<p>Blue Yonder coding task for Python Developer position.</p>
+<p>Given a plaintext file containing URLs, one per line, e.g.:</p>
+<p><a class="reference external" href="http://mywebserver.com/images/271947.jpg">http://mywebserver.com/images/271947.jpg</a>
+<a class="reference external" href="http://mywebserver.com/images/24174.jpg">http://mywebserver.com/images/24174.jpg</a>
+<a class="reference external" href="http://somewebsrv.com/img/992147.jpg">http://somewebsrv.com/img/992147.jpg</a></p>
+<p>Write a script that takes this plaintext file as an argument and downloads all
+images, storing them on the local hard disk. Approach the problem as you would
+any task in a normal day’s work. Imagine this code will be used in important
+live systems, modified later on by other developers, and so on.</p>
+<p>Please use the Python programming language for your solution. We prefer to
+receive your code in GitHub or a similar repository.</p>
+<dl class="function">
+<dt id="by_get.by_get.get_url">
+<tt class="descname">get_url</tt><big>(</big><em>url</em>, <em>session=None</em>, <em>filter_html=True</em>, <em>**requests_kwargs</em><big>)</big><a class="reference internal" href="_modules/by_get/by_get.html#get_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#by_get.by_get.get_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve server response from given URL as byte stream.</p>
+<p>Attempts to filter out non-image responses like HTML pages by default.
+Subsequent requests to the same server will re-use a connection of the
+given session if possible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>url</strong> (<em>str, required</em>) &#8211; A valid URL for an image resource.</li>
+<li><strong>filter_html</strong> (<em>bool, optional</em>) &#8211; Should HTML and other text-based responses be filtered out?</li>
+<li><strong>requests_kwargs</strong> (<em>optional</em>) &#8211; Additional keyword arguments to be passed on to the requests module.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">A Response object of the requests module.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt> &#8211;
+Response is not an image.</li>
+<li><tt class="xref py py-exc docutils literal"><span class="pre">HTTPError</span></tt> &#8211;
+Server responds with HTML status code indicating an error.</li>
+<li><tt class="xref py py-exc docutils literal"><span class="pre">InvalidSchema</span></tt> &#8211;
+The URL is invalid and can not be requested.</li>
+<li><tt class="xref py py-exc docutils literal"><span class="pre">MissingSchema</span></tt> &#8211;
+A valid protocol schema, eg. &#8216;<a class="reference external" href="http://">http://</a>&#8216;, is missing from the URL.</li>
+<li><tt class="xref py py-exc docutils literal"><span class="pre">ReadTimeout</span></tt> &#8211;
+Server did not respond within 10 seconds.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="by_get.by_get.hash_string">
+<tt class="descname">hash_string</tt><big>(</big><em>some_string</em><big>)</big><a class="reference internal" href="_modules/by_get/by_get.html#hash_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#by_get.by_get.hash_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the human-readable SHA256 hash of a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>some_string</strong> (<em>str, required</em>) &#8211; String to be hashed.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">String of 64 hexadecimal characters.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="by_get.by_get.main">
+<tt class="descname">main</tt><big>(</big><em>argv</em><big>)</big><a class="reference internal" href="_modules/by_get/by_get.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#by_get.by_get.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download images from a given plaintext file of URLs.</p>
+<p>Good URLs and the resulting image file names are written to STDOUT. Bad
+URLs and their error codes are written to STDERR. Images are saved to the
+working directory and named with the SHA256 hash of the (clean) source URL
+to avoid overwriting homonymous files from other URLs.</p>
+<p>Redirects are handled transparently and non-image responses (e.g. HTML from
+domain parking servers) are filtered out. Existing connections are re-used
+where possible to reduce the overhead of connection negotiation when
+repeatedly requesting images from the same server.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="by_get.by_get.sanitize_urls">
+<tt class="descname">sanitize_urls</tt><big>(</big><em>file_object</em><big>)</big><a class="reference internal" href="_modules/by_get/by_get.html#sanitize_urls"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#by_get.by_get.sanitize_urls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basic input sanitation filtering out whitespace, empty lines, and unsafe
+characters.</p>
+<p>Invalid URLs, missing and wrong schemata are handled by Requests module!</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_object</strong> (<em>file, required</em>) &#8211; An opened file object for a text file with one line per URL.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Yields:</th><td class="field-body"><em>Lazy iterator over sanitized URLs.</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-by_get.version">
+<span id="version-module"></span><h2>version module<a class="headerlink" href="#module-by_get.version" title="Permalink to this headline">¶</a></h2>
+<p>Program version.</p>
+<p>Follows the semantic versioning style as described at <a class="reference external" href="http://semver.org/">http://semver.org/</a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">by_get package</a><ul>
+<li><a class="reference internal" href="#module-by_get.by_get">by_get module</a></li>
+<li><a class="reference internal" href="#module-by_get.version">version module</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="api.html"
+                        title="previous chapter">by_get API documentation</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/by_get.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="api.html" title="by_get API documentation"
+             >previous</a> |</li>
+        <li><a href="index.html">by_get 0.1.0 documentation</a> &raquo;</li>
+          <li><a href="api.html" >by_get API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2017, Florian Aldehoff.
+      Last updated on Jan 09, 2017.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>
