@@ -1,0 +1,8 @@
+*~
+*.pyc
+*.bak
+/cache
+/.cache
+/.coverage
+/testrig/_version.py
+/*.egg-info
