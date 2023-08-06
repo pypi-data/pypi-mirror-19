@@ -1,0 +1,14 @@
+prettyexc>=0.6.0
+
+[tests]
+pytest>=3.0.2
+pytest-cov
+mock
+patch
+pymemcache
+pylibmc
+redis
+python3-memcached
+pytest-asyncio
+aiomcache
+aioredis
