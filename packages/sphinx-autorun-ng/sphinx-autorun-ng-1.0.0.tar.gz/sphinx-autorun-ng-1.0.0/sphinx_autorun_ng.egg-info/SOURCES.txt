@@ -1,0 +1,16 @@
+.gitignore
+MANIFEST.in
+README.rst
+setup.py
+doc/Makefile
+doc/conf.py
+doc/index.rst
+sphinx_autorun/__init__.py
+sphinx_autorun/pycon.py
+sphinx_autorun/version.py
+sphinx_autorun_ng.egg-info/PKG-INFO
+sphinx_autorun_ng.egg-info/SOURCES.txt
+sphinx_autorun_ng.egg-info/dependency_links.txt
+sphinx_autorun_ng.egg-info/requires.txt
+sphinx_autorun_ng.egg-info/top_level.txt
+sphinxcontrib/pycon.py
