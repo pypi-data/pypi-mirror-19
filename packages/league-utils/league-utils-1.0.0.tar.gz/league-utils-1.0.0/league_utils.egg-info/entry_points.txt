@@ -1,0 +1,4 @@
+[console_scripts]
+league-utils-api = league_utils.entrypoint:api
+league-utils-isg = league_utils.entrypoint:isg
+
