@@ -1,0 +1,103 @@
+CHANGES
+=======
+
+1.6.0
+-----
+
+* [REF] README: Auto-update Using the following script: 'PYTHONPATH=~/odoo/pylint-odoo python -c "import pylint_odoo;print pylint_odoo.messages2rst()"'
+* [REF] .travis.yml: Renamed flake8 error from F999 to F601 (#115)
+* [FIX] Check file-not-used: Skip tests folders (#114)
+* [FIX] incoherent-interpreter-exec-perm: Skip check for windows (#113)
+* [ADD] except-pass: Emit message If a except:pass is used (#107)
+* [FIX] attribute-string-redundant: Add "isinstance" validation for nodes
+* [ADD] attribute-string-redundant: Check if "string" parameter is equal to variable name (#100)
+* [ADD] renamed-field-parameter: Detect deprecated field values (digits_compute, select) (#99)
+* [REF] javascript-lint: Use eslint instead of jshint (#97)
+* [ADD] xml-attribute-translatable: Check XML attribute without translation parameter (#105)
+* [REF] incoherent-interpreter-exec-perm: Better message (#106)
+* [IMP] pylint-odoo: Adding support for parameters --ignore and --ignore-patterns (#103)
+* [ADD] eval-referenced: Detects if a "eval" is referenced (without call it) (#101)
+* [FIX] duplicate-xml-fields: False red using 2 tree sub-views *2M fields (#96)
+* [FIX] method-NAME: Fix if value is not a string
+* [REF] misc: Remove deprecated method
+* [FIX] test: Never use global into test
+
+1.5.0
+-----
+
+* [REF] duplicate-xml-record-id: Get xml section from manifest to skip different origin (#89)
+* [FIX] method-NAME: Fix case compute=None Fix OCA/pylint-odoo#88
+
+1.4.0
+-----
+
+* [REF] attribute-deprecated: Deprecate length class attribute (#86)
+* [ADD] missing-return If you use call a `super` method then you will need return the original value. If you want overwrite a original method then you need add documentation of why and add a `pylint: disable=missing-return`
+* [FIX] Whitelist `anybox.testing.openerp` * Add `anybox.testing.openerp` - Fixes #81
+* [FIX] manifest-version-format: Fix regex to use explicit dot instead of any char
+* [FIX] manifest-version-format: Support -e manifest-version-format only
+* [FIX] missing-import-error: Updating libraries used from requirements.txt but not imported or nested imported from odoo
+* [IMP] manifest-version-format: Add valid_odoo_versions parameter to force a valid version of odoo in the manifest version
+* [REF] missing-import-error: Skip test file since these files are loaded only when running tests and in such a case your module and their external dependencies are installed
+* [ADD] Support for 10.0 manifest name
+* [REF] requirements: Update developer version of pylint and astroid
+
+1.3.5
+-----
+
+* Adding isort dependency (#70)
+
+1.3.4
+-----
+
+* [REF] README: Update messages list
+
+1.3.3
+-----
+
+* [ADD] missing-import-error, missing-manifest-dependency
+* [FIX] rst-syntax-error: Skip unknown roles
+* [FIX] rst-syntax-error: Skip unknown directives
+* [REF] global refactoring: better message output and use real file and line number in non-py files (#62)
+* [REF] README: Add examples special folder
+* [REF] checkers: Skip example folder to check lints
+
+1.3.2
+-----
+
+* [REF] README: Update messages list
+
+1.3.1
+-----
+
+* [ADD] file-not-used: Emit message if there are xml, yml, sql or csv files but It isn't referenced from manifest (#53)
+* [ADD] dangerous-view-replace-wo-priority: Check dangerous view with replace but defined with low priority (#55)
+* [ADD] old-api7-method-defined: Emit message if the method defined have (self, cr, uid) (#52)
+* [ADD] odoo-addons-relative-import (#56)
+* [REF] tox: Freeze stable sha pylint20
+* [FIX] consider-merging-classes-inherited: Skip check if has '_name' and fix when you use '_inherit' name out of class attribute . Add more tests
+* [REF] missing-newline-extrafiles: Skip lib folder
+* [FIX] consider-merging-classes-inherited: Fix leaving module isn't a good idea. Better close method
+* [IMP] consider-merging-classes-inherited: Support disable comment
+* [REF] consider-merging-classes-inherited: Use assign node and better message
+* [ADD] consider-merging-classes-inherited
+* [REF] Increase performance
+* [IMP] pylint_odoo: Enable cProfile print stats
+* [IMP] deprecated-module: Add exception for the case of valid openerp.osv.expression (#40)
+* [IMP] sql-injection: Add compatibility with .format (#44)
+* [REF] translation-required: 100% coverage
+* [IMP] translation-required: Support % strings
+* [IMP] translation-required: Support .format
+* [FIX] translation-required: Fix AttributeError 'Getattr' object has no attribute 'name'
+* [IMP] translation-required: Just check odoo exceptions
+* [FIX] odoolint: Remove unsafe eval and reduce mccabe rate
+
+1.3.0
+-----
+
+* [REF] README: Add new checks (#36)
+* [FIX] duplicate-xml-fields: Support security xml style (#35)
+* [ADD] sql-injection: Add new check to avoid sql injection (#29)
+* [FIX] missing-newline-extrafiles: Fix 'IOError: [Errno 22] Invalid argument' by files of size 2 (#37)
+* [REF] README: Add new checks
+* [ADD] method-param: Check param method starts with "_param_" (#33)
