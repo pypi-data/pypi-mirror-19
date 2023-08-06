@@ -1,0 +1,39 @@
+# Version 0.2.3
+
+* FIX: allow installation via `python setup.py install`
+* MAINT: drop python2.7 support, add python3.6 support
+* MAINT: improve performance of `add_configuration_space`
+* FIX: a bug in `add_configuration_space` which changed the names of the
+  hyperparameters of a child configuration space
+* MAINT: new helper functions `add_hyperparameters` and `add_conditions`.
+
+# Version 0.2.2
+
+* ADD: two convenience functions to improve working with HPOlib2
+* MAINT: default seed of ConfigurationSpace is now None instead of 1. This makes
+  the package behave like other scientific programming packages.
+* FIX: improve bounds checking for log-space hyperparameters
+* FIX: version information is now in a separate file.
+* MAINT: improve sampling speed by breaking the sampling loop earlier when
+  possible
+
+# Version 0.2.1
+
+* FIX: bug which changed order of hyperparameters when adding new 
+  hyperparameter. This was non-deterministic due to the use of dict instead 
+  of OrderedDict.
+* FIX: compare configurations with == instead of numpy.allclose.
+* FIX: issue 2, syntax error no longer present during installation
+* FIX: json serialization of configurations and their hyperparameters can now
+       be deserialized by json and still compare equal 
+
+# Version 0.2
+
+* FIX: bug which made integer values have different float values in the 
+  underlying vector representation.
+* FIX: bug which could make two configuration spaces compare unequal due to 
+  the use of defaultdict
+* FEATURE: new feature add_configuration_space, which allows to add a whole 
+  configuration space into an existing configuration space
+* FEATURE: python3.5 support
+* FIX: add function get_parent() to Conjunctions (issue #1)
