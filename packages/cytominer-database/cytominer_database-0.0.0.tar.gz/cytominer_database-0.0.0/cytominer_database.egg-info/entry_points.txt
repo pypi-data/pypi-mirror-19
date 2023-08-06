@@ -1,0 +1,3 @@
+[console_scripts]
+ingest = cytominer_database.ingest:__main__
+
