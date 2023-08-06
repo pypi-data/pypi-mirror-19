@@ -1,0 +1,235 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="jalon.content">
+
+<body>
+
+<metal:main fill-slot="content"
+            tal:define="mode_etudiant_request request/mode_etudiant | nothing;
+                        my_view python:view.getCourseView(user, mode_etudiant_request);
+                        mode_etudiant my_view/mode_etudiant">
+
+    <tal:define define="no_return python:context.checkCourseAuthorized(user, request)"/>
+    <tal:define define="no_return python:context.insererConsultation(user, 'Cours', '')"/>
+
+    <tal:define define="breadcrumbs view/getBreadcrumbs">
+    <metal:macro use-macro="context/breadcrumbs_macro/macros/breadcrumbs">
+        Page d'affichage du fil d'ariane
+    </metal:macro>
+    </tal:define>
+
+    <div id="reveal-main" class="reveal-modal medium"
+         data-reveal="data-reveal" data-options="close_on_background_click: true;"></div>
+    <div id="reveal-main_second" class="reveal-modal medium"
+         data-reveal="data-reveal" data-options="close_on_background_click: true;"></div>
+    <div id="reveal-main-large" class="reveal-modal large"
+         data-reveal="data-reveal" data-options="close_on_background_click: true;"></div>
+
+    <main id="mes_cours-plan" class="row" role="main" aria-labelledby="page_title">
+
+        <tal:condition condition="request/message | nothing">
+        <metal:macro use-macro="context/macro_messages/macros/messages">
+            encart d'affichage des messages de feedback WIMS
+        </metal:macro>
+        </tal:condition>
+        <metal:macro use-macro="here/global_statusmessage_macro/macros/portal_message">Message de session</metal:macro>
+
+        <section id="course_plan" class="medium-9 small-12 columns">
+            <metal:macro use-macro="here/course_informations_macro/macros/course_informations">
+                Block au dessus du plan
+            </metal:macro>
+
+            <div class="row">
+                <span class="right" tal:condition="my_view/is_personnel">
+                    <a class="dropdown"
+                       data-options="align:bottom" data-dropdown="course-options">
+                        <i class="fa fa-cog fa-lg"></i>
+                    </a>
+                    <ul id="course-options" class="f-dropdown" data-dropdown-content>
+                        <li tal:repeat="course_map_action my_view/course_map_action_list">
+                            <a data-reveal-id="reveal-main" data-reveal-ajax="true"
+                               tal:attributes="href course_map_action/action_link">
+                                <i tal:attributes="class course_map_action/action_icon"></i>
+                                <tal:replace replace="course_map_action/action_name"
+                                     i18n:translate=""/>
+                            </a>
+                        </li>
+                    </ul>
+                </span>
+                <h2 id="js-update_title">
+                    <i class="fa fa-sitemap no-pad"></i>
+                    <tal:block i18n:translate="">Plan du cours</tal:block>
+                </h2>
+            </div>
+
+            <div class="row panel callout radius"
+                 tal:condition="not:my_view/has_course_map">
+                <tal:condition condition="my_view/is_personnel">
+                <metal:macro use-macro="context/course_map_macro/macros/course_map_item_adder">
+                    Affichage de la barre d'ajout
+                </metal:macro>
+                </tal:condition>
+                <ol id="course_plan-plan" class="sortable ui-sortable">
+                    <li>
+                        <div class="panel radius">
+                            <h4>
+                                <i class="fa fa-info-circle"></i>
+                                <tal:block i18n:translate="">Aucune ressource n'est accessible dans ce cours.</tal:block>
+                            </h4>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <div class="row panel callout radius"
+                 tal:condition="my_view/has_course_map">
+
+                <ul class="button-group radius even-3 legend_bar">
+                    <li>
+                        <a class="button tiny disabled" href="#">
+                            <i class="fa fa-arrow-circle-down"></i>Tout déplier
+                        </a>
+                    </li>
+                    <li>
+                        <a class="button tiny"
+                           data-reveal-id="reveal-main" data-reveal-ajax="true"
+                           tal:attributes="href string:${context/absolute_url}/display_map_legend_page?mode_etudiant=${mode_etudiant}">
+                            <i class="fa fa-info-circle"></i>
+                            <tal:block i18n:translate="legende">Afficher la légende</tal:block>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="button tiny" href="#">
+                            <i class="fa fa-arrow-circle-right"></i>Tout replier
+                        </a>
+                    </li>
+                </ul>
+
+                <tal:condition condition="my_view/is_personnel">
+                <metal:macro use-macro="context/course_map_macro/macros/course_map_item_adder">
+                    Affichage de la barre d'ajout
+                </metal:macro>
+                </tal:condition>
+
+                <div class="panel radius show-for-medium-up"
+                     tal:condition="my_view/is_personnel">
+                    <i class="fa fa-info-circle no-pad"></i>
+                    <tal:block i18n:translate="aide_plan">
+                        Pour organiser votre plan, faites glisser les éléments et déposez-les à l'emplacement souhaité.
+                    </tal:block>
+                </div>
+
+                <tal:define define="course_map my_view/course_map;
+                                    course_link context/absolute_url;">
+                    <ol tal:attributes="id course_map/ol_css_id;
+                                        class course_map/ol_css_class">
+                    <metal:macro use-macro="context/course_map_macro/macros/display_course_map">
+                        Affichage du plan du cours
+                    </metal:macro>
+                    </ol>
+                </tal:define>
+
+                <div class="panel radius show-for-medium-up"
+                      tal:condition="my_view/is_personnel">
+                    <i class="fa fa-info-circle no-pad"></i>
+                    <tal:block i18n:translate="aide_plan">
+                        Pour organiser votre plan, faites glisser les éléments et déposez-les à l'emplacement souhaité.
+                    </tal:block>
+                </div>
+
+                <ul class="button-group expand radius even-3 legend_bar">
+                    <li>
+                        <a class="button tiny disabled" href="#">
+                            <i class="fa fa-arrow-circle-down"></i>Tout déplier
+                        </a>
+                    </li>
+                    <li>
+                        <a class="button tiny"
+                           data-reveal-id="reveal-main" data-reveal-ajax="true"
+                           tal:attributes="href string:${context/absolute_url}/display_map_legend_page?mode_etudiant=${mode_etudiant}">
+                            <i class="fa fa-info-circle"></i>
+                            <tal:block i18n:translate="legende">Afficher la légende</tal:block>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="button tiny" href="#">
+                            <i class="fa fa-arrow-circle-right"></i>Tout replier
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="row">
+                <metal:macro use-macro="context/course_bibliography_macro/macros/display_bibliography">
+                    Affichage de la bibliographie
+                </metal:macro>
+            </div>
+
+            <div class="row">
+                <metal:macro use-macro="context/course_glossary_macro/macros/display_glossary">
+                    Affichage du glossarie
+                </metal:macro>
+            </div>
+        </section>
+
+        <aside id="course_life" class="medium-3 small-12 columns">
+
+            <tal:condition condition="my_view/is_course_author">
+            <metal:macro use-macro="context/course_life_macro/macros/display_mod">
+                Mode Enseignant / Etudiant
+            </metal:macro>
+
+            <metal:macro use-macro="context/course_life_macro/macros/display_statistics">
+                Statistics
+            </metal:macro>
+            </tal:condition>
+
+            <metal:macro use-macro="context/course_life_macro/macros/display_students">
+                Affichage des participants au cours
+            </metal:macro>
+
+            <metal:macro use-macro="context/course_life_macro/macros/course_life">
+                Affichage de la vie du cours
+            </metal:macro>
+
+        </aside>
+
+    </main>
+
+    <tal:comments replace="nothing">
+    <!--
+            Une fois la position dépliée / repliée mémorisée cote srv,
+            l'appel à app/setPlanChapterDisclosure( ) devra être supprimé
+            et remplacé par app/setLegendBarButtonsActivation( ).
+    -->
+    </tal:comments>
+
+    <tal:block tal:condition="not:my_view/is_personnel"
+               define="script1 string:setPlanChapterDisclosure(true);
+                       script2 string:setPlanBehaviors();
+                       script3 string:setPlanChapterDiscloseCommand();
+                       script4 string:readSwitcher()">
+        <tal:jsBuffer define="addJsContent python:jsBuffer.addJS(script1)" />
+        <tal:jsBuffer define="addJsContent python:jsBuffer.addJS(script2)" />
+        <tal:jsBuffer define="addJsContent python:jsBuffer.addJS(script3)" />
+        <tal:jsBuffer define="addJsContent python:jsBuffer.addJS(script4)" />
+    </tal:block>
+
+    <tal:block tal:condition="my_view/is_personnel"
+               define="script string:setSortablePlan()">
+        <tal:jsBuffer define="addJsContent python:jsBuffer.addJS(script)" />
+        <tal:jsBuffer define="addExtraFile python:jsBuffer.addExtraFile('ckeditor/ckeditor')" />
+        <script charset="UTF-8"
+                tal:define="tmp python:jsTranslate.addJsTranslate([('MSG_TOKEN_HINT_TEXT','Commencez à taper…'),('MSG_TOKEN_SEARCH_TEXT','Recherche…'),('MSG_TOKEN_EMPTY_TEXT','Aucun résultat')])"
+                tal:content="jsTranslate/getJsTranslate"></script>
+    </tal:block>
+
+</metal:main>
+
+</body>
+
+</html>
