@@ -1,0 +1,23 @@
+Metadata-Version: 2.0
+Name: pbtc
+Version: 0.0.1
+Summary: grpc_tools wrapper building protobufs
+Home-page: https://github.com/dillonhicks/pbtc
+Author: Dillon Hicks
+Author-email: dillon@dillonhicks.io
+License: Apache License Version 2.0
+Platform: any
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: Cython
+Requires-Dist: grpcio-tools
+
+GRPC Tools Wrapper for building protobufs in setup.py
+
+
