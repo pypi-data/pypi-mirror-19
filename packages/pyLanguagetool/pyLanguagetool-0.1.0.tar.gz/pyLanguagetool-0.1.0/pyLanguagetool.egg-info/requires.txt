@@ -1,0 +1,8 @@
+colorama
+configargparse
+requests
+
+[dev]
+pytest
+docutils
+pygments
