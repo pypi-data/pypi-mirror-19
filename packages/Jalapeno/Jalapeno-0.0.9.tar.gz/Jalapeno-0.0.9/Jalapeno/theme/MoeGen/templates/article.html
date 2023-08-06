@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{asset.css.article}}">
+
+{% endblock %}
+
+
+{% block content %}
+
+ <section>
+        <div class="container-fluid">
+            <br><br><br><br><br>
+            <div class="row">
+                <h2><b>{{ page.meta.title }}</b></h2>
+                <div class='header' style="text-align: center; font-family: /" Avenir Light "/;">{{ page.meta.lang }} | {{ page.meta.purpose }} </div>
+            </div>
+            <div class="row" style="text-align: center;">
+                <img  src="{{ page.meta.initimg }}" alt="lik">
+                <p>INITIAL IMAGE   <hr style="width: 50%;"></p>
+            </div>
+
+            <div class="row quoteBox">
+                <h3 class="quoteFont">{{ page.meta.quote }} </h3>
+            </div>
+
+            <article>
+                {{ page.meta.excerpt }}
+                {{ page }}
+            </article>
+    </section>
+{% endblock %}
