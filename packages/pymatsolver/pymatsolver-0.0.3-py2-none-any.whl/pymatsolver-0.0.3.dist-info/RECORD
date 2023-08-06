@@ -1,0 +1,17 @@
+pymatsolver/__init__.py,sha256=3721ae-xzS7XYMkXKpIxnpuUkuMd7R5SqVX4KJBCO3I,882
+pymatsolver/direct.py,sha256=RepxPeNlgqMeyIlK6J0eLzCFvRDqKg1EbyMPmxQR0MU,2065
+pymatsolver/iterative.py,sha256=0J2p08guv_fjlDoSZ2BknMl0NRNqbtW4HzsEP9PVRZk,1468
+pymatsolver/solvers.py,sha256=vl5XZ2lnWHeAFvjTIICE0klng1k1K3HOo0eTXip4ZO8,4535
+pymatsolver/wrappers.py,sha256=16aiIgPrlh-lc87Y5Z6Q-HQlKWaGclj4cqMRqI7j5VE,3086
+pymatsolver-0.0.3.dist-info/DESCRIPTION.rst,sha256=phR1NIyntwpHP5JwQ1gFOwpuihTSgH0WP-Z2p9UhPgE,1342
+pymatsolver-0.0.3.dist-info/METADATA,sha256=9wOqiTJSoJpAct8vYmRLPkAWlFvnDnVMswcLO0cxW5s,2390
+pymatsolver-0.0.3.dist-info/RECORD,,
+pymatsolver-0.0.3.dist-info/WHEEL,sha256=bee59qcPjkyXfMaxNWjl2CGotqfumWx9pC1hlVLr2mM,92
+pymatsolver-0.0.3.dist-info/metadata.json,sha256=EihKu1IYpAubnqpN6OXlnlwC46Dsut8V9m0gmf4VmpQ,1116
+pymatsolver-0.0.3.dist-info/top_level.txt,sha256=MSeMYTQWk02QTWOj6DDWP5xnxqH8wo9s2usdn6Rgplg,18
+tests/__init__.py,sha256=iOWppVt_kjS1-ZtNjoWzDoZqa_DO3E3fs_hMDLMt5HY,378
+tests/test_Basic.py,sha256=q6L9H6YqkzFeFe9uIzWyOV0gw_wKhNwrG-L55e6kZNQ,536
+tests/test_BicgJacobi.py,sha256=x41bYfoUoxqoCpTIOJCv7K9TEpuzGb8zmeLZcD1eY9I,2425
+tests/test_Pardiso.py,sha256=5LNYKI7WkdZbqf_6BO4zYShi0jz3EdaXDfyep_BLmTM,3846
+tests/test_Scipy.py,sha256=OsR3HlGiqIXWRcprAUWxELoSsWr266vM_v2bOb4MRkA,1839
+tests/test_Triangle.py,sha256=AkV1c6QrylkuR2Q5gc6vbTaNw7EFe_YYH3Ed_8uBfOw,1001
