@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: totp
+Version: 0.2.0
+Summary: A cli based TOTP app.
+Home-page: https://gitlab.com/hobarrera/totp
+Author: Hugo Osvaldo Barrera
+Author-email: hugo@barrera.io
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Environment :: Console :: Curses
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Classifier: Topic :: Utilities
