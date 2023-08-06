@@ -1,0 +1,26 @@
+Metadata-Version: 2.0
+Name: pyscales
+Version: 1.0.0
+Summary: Simple arithmetic on musical notes
+Home-page: https://bitbucket.org/talljosh/pyscales
+Author: J. D. Bartlett
+Author-email: josh@bartletts.id.au
+License: MIT
+Keywords: music scales notes midi
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+
+Pyscales
+========
+
+This module provides representations for musical notes and intervals in the
+basic 12-note even tempered system that is typically used in western music. It
+provides basic arithmetic and conversion to and from midi numbers.
+
+
