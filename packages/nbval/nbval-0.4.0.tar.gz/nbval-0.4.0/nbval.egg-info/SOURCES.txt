@@ -1,0 +1,11 @@
+setup.cfg
+setup.py
+nbval/__init__.py
+nbval/kernel.py
+nbval/plugin.py
+nbval.egg-info/PKG-INFO
+nbval.egg-info/SOURCES.txt
+nbval.egg-info/dependency_links.txt
+nbval.egg-info/entry_points.txt
+nbval.egg-info/requires.txt
+nbval.egg-info/top_level.txt
