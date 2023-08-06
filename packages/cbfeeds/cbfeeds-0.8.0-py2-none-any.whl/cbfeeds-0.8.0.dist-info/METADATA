@@ -1,0 +1,19 @@
+Metadata-Version: 2.0
+Name: cbfeeds
+Version: 0.8.0
+Summary: Carbon Black Alliance Feeds
+Home-page: http://github.com/carbonblack/cbfeeds
+Author: Carbon Black
+Author-email: dev-support@carbonblack.com
+License: MIT
+Platform: any
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires: requests
+
+python-cbfeeds
+
+
