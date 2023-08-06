@@ -1,0 +1,12 @@
+thrift==0.9.3
+tornado==4.3
+requests
+redis
+pymysql
+pymongo
+termcolor
+pyyaml
+configparser
+tornado_mysql
+celery
+tornadis

@@ -1,0 +1,47 @@
+---
+version: 1
+disable_existing_loggers: False
+formatters:
+    request_formatter:
+        format: "[%(requestid)s] [%(levelname)s] [%(asctime)s] [%(process)d:%(thread)d]\n%(message)s"
+    norequest_formatter:
+        format: "[%(levelname)s] [%(asctime)s] [%(process)d:%(thread)d]\n%(message)s"
+
+handlers:
+    console_handler:
+        class: logging.StreamHandler
+        formatter: norequest_formatter
+        stream: ext://sys.stdout
+    request_file_time_handler:
+        class: logging.handlers.TimedRotatingFileHandler
+        formatter: request_formatter
+        filename: info.log
+        when: D 
+        interval: 1
+        backupCount: 20
+        encoding: utf8
+    request_file_size_handler:
+        class: logging.handlers.RotatingFileHandler
+        formatter: request_formatter
+        filename: info.log
+        maxBytes: 10485760 # 10MB
+        backupCount: 20
+        encoding: utf8
+    norequest_file_size_handler:
+        class: logging.handlers.RotatingFileHandler
+        formatter: norequest_formatter
+        filename: error.log
+        maxBytes: 10485760 # 10MB
+        backupCount: 20
+        encoding: utf8
+
+loggers:
+    request_logger: 
+        level: INFO
+        handlers: [request_file_time_handler]
+        propagate: no
+    system_logger:
+        level: DEBUG
+        handlers: [console_handler, norequest_file_size_handler]
+        propagate: no
+...
