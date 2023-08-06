@@ -1,0 +1,16 @@
+MANIFEST.in
+setup.cfg
+setup.py
+mixtract/__init__.py
+mixtract/argparser.py
+mixtract/cli.py
+mixtract/export.py
+mixtract/extract.py
+mixtract/parse.py
+mixtract.egg-info/PKG-INFO
+mixtract.egg-info/SOURCES.txt
+mixtract.egg-info/dependency_links.txt
+mixtract.egg-info/entry_points.txt
+mixtract.egg-info/requires.txt
+mixtract.egg-info/top_level.txt
+mixtract.egg-info/zip-safe
