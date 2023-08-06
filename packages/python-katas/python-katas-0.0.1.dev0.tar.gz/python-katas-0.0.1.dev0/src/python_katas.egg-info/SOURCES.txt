@@ -1,0 +1,12 @@
+setup.cfg
+setup.py
+src/katas/__init__.py
+src/katas/__main__.py
+src/katas/console.py
+src/katas/kata.py
+src/katas/list_comprehensions.py
+src/katas/suite.py
+src/python_katas.egg-info/PKG-INFO
+src/python_katas.egg-info/SOURCES.txt
+src/python_katas.egg-info/dependency_links.txt
+src/python_katas.egg-info/top_level.txt

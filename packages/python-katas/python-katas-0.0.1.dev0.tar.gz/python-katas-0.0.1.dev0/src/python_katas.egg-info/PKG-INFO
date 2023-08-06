@@ -1,0 +1,18 @@
+Metadata-Version: 1.0
+Name: python-katas
+Version: 0.0.1.dev0
+Summary: Katas for learning Python
+Home-page: http://github.com/inglesp/python-katas
+Author: Peter Inglesby
+Author-email: peter.inglesby@gmail.com
+License: License :: OSI Approved :: MIT License
+Description: # Python Katas
+        
+        
+        ``
+        $ python -m katas list_comprehensions
+        $ python -m katas list_comprehensions::MapInts1
+        $ python -m katas list_comprehensions::MapInts1::42
+        ``
+        
+Platform: UNKNOWN
