@@ -1,0 +1,26 @@
+Metadata-Version: 1.1
+Name: pcapng
+Version: 0.1.12
+Summary: Tool for reading/writing PCAPNG network packet capture files.
+Home-page: https://gitlab.com/netdev-americas/pcapng
+Author: Alan Thompson
+Author-email: athomps@brocade.com
+License: Apache
+Description: Tool for reading/writing PCAPNG network packet capture files
+        ============================================================
+        
+        Alan Thompson, Brocade
+        athomps@brocade.com
+        
+        Please see the IETF document `PCAP Next Generation (pcapng) Capture File Format <https://pcapng.github.io/pcapng/>`_
+        
+        Please also see the project `home page on GitLab <https://gitlab.com/netdev-americas/pcapng/>`_
+        
+        
+Keywords: pcapng pcap networking monitoring
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: System :: Networking
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2.7
