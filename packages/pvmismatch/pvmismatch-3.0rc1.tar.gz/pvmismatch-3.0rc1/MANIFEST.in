@@ -1,0 +1,12 @@
+include pvmismatch/pvmismatch_json/*.json
+include pvmismatch/res/*.png
+include AUTHORS.md
+include CHANGES.md
+include README.rst
+include LICENSE
+recursive-include pvmismatch/res *.png
+recursive-include pvmismatch/docs *.rst
+include pvmismatch/docs/conf.py
+include pvmismatch/docs/make.bat
+include pvmismatch/docs/Makefile
+recursive-include pvmismatch/tests *.py
