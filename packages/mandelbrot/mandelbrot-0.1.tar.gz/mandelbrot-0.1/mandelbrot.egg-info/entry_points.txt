@@ -1,0 +1,4 @@
+[console_scripts]
+mandelbrot = mandelbrot.simple.mandelbrot:main
+mandelbrot_mp = mandelbrot.mp.mandelbrot:main
+

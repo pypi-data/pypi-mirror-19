@@ -1,0 +1,13 @@
+README
+setup.py
+mandelbrot/__init__.py
+mandelbrot.egg-info/PKG-INFO
+mandelbrot.egg-info/SOURCES.txt
+mandelbrot.egg-info/dependency_links.txt
+mandelbrot.egg-info/entry_points.txt
+mandelbrot.egg-info/requires.txt
+mandelbrot.egg-info/top_level.txt
+mandelbrot/mp/__init__.py
+mandelbrot/mp/mandelbrot.py
+mandelbrot/simple/__init__.py
+mandelbrot/simple/mandelbrot.py
