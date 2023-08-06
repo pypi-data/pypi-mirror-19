@@ -1,0 +1,4 @@
+An alternative to the standard python traceback module which allows
+you to show a traceback in a customized way.
+
+It is also possible to monkey_patch the standard python traceback module.
