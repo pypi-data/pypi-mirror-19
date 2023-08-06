@@ -1,0 +1,9 @@
+include AUTHORS.rst
+include CONTRIBUTING.rst
+include CHANGELOG.rst
+include LICENSE
+include README.rst
+recursive-exclude exercise_perseus_renderer/* *pyc
+recursive-include exercise_perseus_renderer/static *.*
+recursive-include exercise_perseus_renderer/build *.json
+recursive-exclude exercise_perseus_renderer/assets *
