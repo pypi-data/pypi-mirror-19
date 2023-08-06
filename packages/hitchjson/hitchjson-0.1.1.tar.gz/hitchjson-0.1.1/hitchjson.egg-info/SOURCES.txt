@@ -1,0 +1,11 @@
+MANIFEST.in
+README.rst
+VERSION
+setup.py
+hitchjson/__init__.py
+hitchjson/utils.py
+hitchjson.egg-info/PKG-INFO
+hitchjson.egg-info/SOURCES.txt
+hitchjson.egg-info/dependency_links.txt
+hitchjson.egg-info/not-zip-safe
+hitchjson.egg-info/top_level.txt
