@@ -1,0 +1,29 @@
+Metadata-Version: 2.0
+Name: jacquard-split
+Version: 0.1.3
+Summary: Split testing server
+Home-page: https://github.com/prophile/jacquard
+Author: Alistair Lynn
+Author-email: alistair@alynn.co.uk
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Office/Business
+Requires-Dist: python-dateutil
+Requires-Dist: redis
+Requires-Dist: werkzeug
+
+jacquard
+========
+
+Split-testing server.
+
+
