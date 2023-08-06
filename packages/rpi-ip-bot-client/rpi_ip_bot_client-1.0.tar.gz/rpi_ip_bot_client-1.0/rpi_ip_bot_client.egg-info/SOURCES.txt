@@ -1,0 +1,12 @@
+MANIFEST.in
+README.rst
+setup.py
+rpi_ip_bot_client/__init__.py
+rpi_ip_bot_client/command_line.py
+rpi_ip_bot_client.egg-info/PKG-INFO
+rpi_ip_bot_client.egg-info/SOURCES.txt
+rpi_ip_bot_client.egg-info/dependency_links.txt
+rpi_ip_bot_client.egg-info/entry_points.txt
+rpi_ip_bot_client.egg-info/not-zip-safe
+rpi_ip_bot_client.egg-info/requires.txt
+rpi_ip_bot_client.egg-info/top_level.txt

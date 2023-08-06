@@ -1,0 +1,3 @@
+[console_scripts]
+rpiipbot = rpi_ip_bot_client.command_line:main
+
