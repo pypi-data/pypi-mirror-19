@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+periskop/__init__.py
+periskop/cli.py
+periskop/cli_printer.py
+periskop/slack_adapter.py
+periskop.egg-info/PKG-INFO
+periskop.egg-info/SOURCES.txt
+periskop.egg-info/dependency_links.txt
+periskop.egg-info/entry_points.txt
+periskop.egg-info/not-zip-safe
+periskop.egg-info/requires.txt
+periskop.egg-info/top_level.txt
