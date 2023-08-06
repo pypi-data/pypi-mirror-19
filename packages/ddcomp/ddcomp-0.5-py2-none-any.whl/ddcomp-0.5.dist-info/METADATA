@@ -1,0 +1,18 @@
+Metadata-Version: 2.0
+Name: ddcomp
+Version: 0.5
+Summary: Delay discounting calculator
+Home-page: https://github.com/nanodan/ddcomp
+Author: Daniel J. Lewis
+Author-email: daniel.jacob.lewis@gmail.com
+License: GNU General Public License v3.0
+Platform: UNKNOWN
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scikit-learn
+Requires-Dist: scipy
+
+UNKNOWN
+
+
