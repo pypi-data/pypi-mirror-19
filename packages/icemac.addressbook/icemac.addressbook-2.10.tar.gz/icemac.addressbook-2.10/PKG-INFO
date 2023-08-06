@@ -1,0 +1,164 @@
+Metadata-Version: 1.1
+Name: icemac.addressbook
+Version: 2.10
+Summary: Multi user address book application
+Home-page: https://bitbucket.org/icemac/icemac.addressbook
+Author: Michael Howitz
+Author-email: icemac@gmx.net
+License: ZPL 2.1
+Download-URL: https://pypi.org/project/icemac.addressbook
+Description: ==================
+        icemac.addressbook
+        ==================
+        
+        Purpose:
+            Store, search and export addresses and phone numbers using a web application.
+        Status:
+            stable version, used in production; some features will be added in future
+        
+        Copyright (c) 2008-2017 Michael Howitz
+        
+        All Rights Reserved.
+        
+        This software is subject to the provisions of the Zope Public License,
+        Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
+        THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
+        WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+        WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
+        FOR A PARTICULAR PURPOSE.
+        
+        * Features_
+        * Screenshots_
+        * Download_
+        * Installation_
+        * Update_
+        * `Run the tests`_
+        * `Run the application`_
+        * `User management`_
+        * `To do`_
+        
+        .. _Features : https://bitbucket.org/icemac/icemac.addressbook/wiki/Features
+        .. _Screenshots : https://bitbucket.org/icemac/icemac.addressbook/wiki/Screenshots
+        .. _Download : https://pypi.org/project/icemac.addressbook#download
+        .. _Installation : https://bitbucket.org/icemac/icemac.addressbook/wiki/Installation
+        .. _`User management` : https://bitbucket.org/icemac/icemac.addressbook/wiki/User%20management
+        .. _`Update` : https://bitbucket.org/icemac/icemac.addressbook/wiki/Update
+        .. _`Run the tests`: https://bitbucket.org/icemac/icemac.addressbook/wiki/Run_the_tests
+        .. _`Run the application` : https://bitbucket.org/icemac/icemac.addressbook/wiki/Run_the_application
+        .. _`To do` : https://bitbucket.org/icemac/icemac.addressbook/wiki/To%20do
+        
+        
+        =======
+        Hacking
+        =======
+        
+        Fork me on: https://bitbucket.org/icemac/icemac.addressbook
+        
+        See `Source installation`_, too.
+        
+        .. _`Source installation` : https://bitbucket.org/icemac/icemac.addressbook/wiki/Source%20installation
+        
+        
+        ==========
+        Change log
+        ==========
+        
+        
+        2.10 (2017-01-20)
+        =================
+        
+        Features
+        --------
+        
+        - Add a search result handler which renders a list of the selected persons with
+          a check-box in front.
+        
+        - Style text input fields better.
+        
+        - Style the print output properly.
+        
+        Other
+        -----
+        
+        - Update most libraries needed for the address book to their newest versions.
+        
+        - Pack the ZODB during update to a newer address book version.
+        
+        
+        2.9 (2017-01-06)
+        ================
+        
+        Features
+        --------
+        
+        - Add view `@@inspector` to see internals of the rendered view or object. This
+          view can only be accessed as global administrator (the one who is able to
+          create new address books).
+        
+        Bugs
+        ----
+        
+        - Fix configuration error which might prevent the start-up in 2.8.
+        
+        Other
+        -----
+        
+        - Rework roles management for administrators to allow in future permissions
+          which administrators do not get by default.
+        
+        - Bring test coverage including branches to 100 %.
+        
+        
+        2.8 (2016-08-28)
+        ================
+        
+        Features
+        --------
+        
+        - Store timestamp of last log-in and render it in the principals list.
+        
+        
+        Previous Versions
+        =================
+        
+        See `OLD_CHANGES.rst`_.
+        
+        .. _`OLD_CHANGES.rst` : https://bitbucket.org/icemac/icemac.addressbook/src/tip/OLD_CHANGES.rst
+        
+        ==========
+         Download
+        ==========
+        
+Keywords: python address book addressbook zope3 zope application web phone number e-mail email home page homepage wsgi
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Paste
+Classifier: Framework :: Zope3
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Other Audience
+Classifier: Intended Audience :: Religion
+Classifier: Intended Audience :: Telecommunications Industry
+Classifier: License :: OSI Approved
+Classifier: License :: OSI Approved :: Zope Public License
+Classifier: Natural Language :: English
+Classifier: Natural Language :: German
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2 :: Only
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: Implementation
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Communications
+Classifier: Topic :: Communications :: Email
+Classifier: Topic :: Communications :: Email :: Address Book
+Classifier: Topic :: Communications :: Telephony
+Classifier: Topic :: Internet
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Application
+Classifier: Topic :: Office/Business
+Classifier: Topic :: Office/Business :: Groupware
+Classifier: Topic :: Religion
