@@ -1,0 +1,1 @@
+import wdb.ext; wdb.ext.patch_werkzeug()
