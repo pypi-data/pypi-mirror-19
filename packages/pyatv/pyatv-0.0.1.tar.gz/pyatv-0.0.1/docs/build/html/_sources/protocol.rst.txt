@@ -1,0 +1,156 @@
+.. _aiohttp-protocol:
+
+Protocol
+========
+
+The Apple TV uses the proprietary DAAP protocol, initially created by Apple for
+sharing music with iTunes. It is built on top of the DMAP protocol, which uses
+HTTP for transport on TCP port 3689. There are already a bunch of sites and
+libraries describing and implementing these protocol, please see the reference
+list below. This page will concentrate on the technical aspects used to
+implement DAAP and DMAP in pyatv.
+
+DAAP and DMAP
+-------------
+DMAP is basically a HTTP server that responds to specific commands and streams
+events back to the client. Data is requested using GET and POST with special
+URLs. Data in the responses is usually in a specic binary format, but depending on
+the request it can also be something else (like a PNG file for artwork). Both the
+URLs and binary format are described below.
+
+NOTE: Pairing has not been implemented yet and current implementation requires
+home sharing to be enabled on the device. Descriptions here only cover current
+implementation.
+
+Request URLs
+^^^^^^^^^^^^
+Since DAAP is sent over HTTP, requests can be made with any HTTP client. However,
+some special headers must be included. These have been extracted with Wireshark
+when using the Remote app on an iPhone:
+
++-------------------------------+----------------------------------------------+
+| Header                        | Value                                        |
++===============================+==============================================+
+| Accept                        | */*                                          |
++-------------------------------+----------------------------------------------+
+| Accept-Encoding               | gzip                                         |
++-------------------------------+----------------------------------------------+
+| Client-DAAP-Version           | 3.12                                         |
++-------------------------------+----------------------------------------------+
+| Client-ATV-Sharing-Version    | 1.2                                          |
++-------------------------------+----------------------------------------------+
+| Client-iTunes-Sharing-Version | 3.10                                         |
++-------------------------------+----------------------------------------------+
+| User-Agent                    | TVRemote/186 CFNetwork/808.1.4 Darwin/16.1.0 |
++-------------------------------+----------------------------------------------+
+| Viewer-Only-Client            | 1                                            |
++-------------------------------+----------------------------------------------+
+
+
+
+Authentication
+^^^^^^^^^^^^^^
+Some commands can be queried freely by anyone on the same network as the Apple TV,
+like the server-info command. But most commands require an identifier called HSGID
+and a "session id". The session id is obtained by doing login and extracting the
+'mlid' key. Both HSGID and session id are then included in all requests, e.g.
+
+  ctrl-int/1/playstatusupdate?session-id=<session id>&hsgid=<hsgid>&revision-number=0
+
+The device will respond with an error (503?) if the authentication fails.
+
+DMAP Binary Format
+^^^^^^^^^^^^^^^^^^
+The binary format is basically TLV data where the tag is a 4 byte ASCII-string,
+the length is four a byte unsigned integer and the data is, well, data. Type
+and meaning of a specific TLV is derived from the tag. So we must know which
+tags are used, how large they are and what they mean. Please note that Length
+is length of the data, so key and length are not included in this size.
+
+A TLV looks like this:
+
+  +---------------+------------------+--------------------+
+  | Key (4 bytes) | Length (4 bytes) | Data (Length bytes |
+  +---------------+------------------+--------------------+
+
+Multiple TLVs are usually embedded in one DMAP data stream and TLVs may also
+be nested, to form a tree:
+
+.. code::
+
+  TLV1
+  |
+  +---TLV2
+  |   |
+  |   + TLV3
+  |
+  +---TLV4
+      |
+      + TLV5
+
+As stated earlier, we must already know if a tag is a "container" (that
+contains other TLVs) or not. It cannot easily be seen on the data itself.
+A container usually has more resemblance to an array than a dictionary
+since multiple TLVs with the same key often occurs.
+
+Decoding Example
+^^^^^^^^^^^^^^^^
+
+Lets assume that we know the following three keys:
+
++------+-----------+---------------------+
+| Key  | Type      | Meaning             |
++======+===========+=====================+
+| cmst | Container | dmcp.playstatus     |
++------+-----------+---------------------+
+| mstt | uint32    | dmcp.playstatus     |
++------+-----------+---------------------+
+| cmsr | uint32    | dmcp.serverrevision |
++------+-----------+---------------------+
+
+Now, let us try to decode the following binary data with the table above:
+
+  636d7374000000186d73747400000004000000c8636d73720000000400000019
+
+We know that key and length fields are always four bytes, so lets split the
+TLV so we more easily can see what is happening
+
+  636d7374 00000018 6d73747400000004000000c8636d73720000000400000019
+
+How nice, 0x636d7374 corresponds to 'cmst' in ASCII and we happen to know
+what that is. We can also see that the data is 0x18=24 bytes long which so
+happens to be the remaining data. All the following TLVs are thus children
+to cmst. Lets continue and split the remaining data:
+
+  6d737474 00000004 000000c8636d73720000000400000019
+
+Again, we can see that the key 0x6d737474 is 'mstt' in ASCII. This is a uint32
+which means that the size is four bytes and the we should interpret the four
+following bytes a uint32:
+
+  000000c8 = 200
+
+Since we have data remaining, that should be another TLV and we have to
+continue decoding that one as well. Same procedure:
+
+  636d7372 00000004 00000019
+
+The tag is 0x636d7372='cmsr', size is four bytes (uint32) and the decoded
+value is 25. The final decoding looks like this:
+
+.. code::
+
+  + cmst:
+    |
+    +- mstt: 200
+    |
+    +- cmsr: 25
+
+Note that mstt and cmsr are part of the cmst container. This is a typical
+response that the Apple TV responds with when doing a "playstatus" request
+and nothing is currently playing. Other keys and values are included when
+you for instance are playing video or music.
+
+References
+----------
+Https://en.wikipedia.org/wiki/Digital_Media_Access_Protocol

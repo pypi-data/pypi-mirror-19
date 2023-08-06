@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Protocol &#8212; pyatv 0.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Finding Devices" href="finding_devices.html" />
+    <link rel="prev" title="pyatv: Apple TV Remote Control Library" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="protocol">
+<span id="aiohttp-protocol"></span><h1>Protocol<a class="headerlink" href="#protocol" title="Permalink to this headline">¶</a></h1>
+<p>The Apple TV uses the proprietary DAAP protocol, initially created by Apple for
+sharing music with iTunes. It is built on top of the DMAP protocol, which uses
+HTTP for transport on TCP port 3689. There are already a bunch of sites and
+libraries describing and implementing these protocol, please see the reference
+list below. This page will concentrate on the technical aspects used to
+implement DAAP and DMAP in pyatv.</p>
+<div class="section" id="daap-and-dmap">
+<h2>DAAP and DMAP<a class="headerlink" href="#daap-and-dmap" title="Permalink to this headline">¶</a></h2>
+<p>DMAP is basically a HTTP server that responds to specific commands and streams
+events back to the client. Data is requested using GET and POST with special
+URLs. Data in the responses is usually in a specic binary format, but depending on
+the request it can also be something else (like a PNG file for artwork). Both the
+URLs and binary format are described below.</p>
+<p>NOTE: Pairing has not been implemented yet and current implementation requires
+home sharing to be enabled on the device. Descriptions here only cover current
+implementation.</p>
+<div class="section" id="request-urls">
+<h3>Request URLs<a class="headerlink" href="#request-urls" title="Permalink to this headline">¶</a></h3>
+<p>Since DAAP is sent over HTTP, requests can be made with any HTTP client. However,
+some special headers must be included. These have been extracted with Wireshark
+when using the Remote app on an iPhone:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Header</th>
+<th class="head">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Accept</td>
+<td><em>/</em></td>
+</tr>
+<tr class="row-odd"><td>Accept-Encoding</td>
+<td>gzip</td>
+</tr>
+<tr class="row-even"><td>Client-DAAP-Version</td>
+<td>3.12</td>
+</tr>
+<tr class="row-odd"><td>Client-ATV-Sharing-Version</td>
+<td>1.2</td>
+</tr>
+<tr class="row-even"><td>Client-iTunes-Sharing-Version</td>
+<td>3.10</td>
+</tr>
+<tr class="row-odd"><td>User-Agent</td>
+<td>TVRemote/186 CFNetwork/808.1.4 Darwin/16.1.0</td>
+</tr>
+<tr class="row-even"><td>Viewer-Only-Client</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="authentication">
+<h3>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h3>
+<p>Some commands can be queried freely by anyone on the same network as the Apple TV,
+like the server-info command. But most commands require an identifier called HSGID
+and a &#8220;session id&#8221;. The session id is obtained by doing login and extracting the
+&#8216;mlid&#8217; key. Both HSGID and session id are then included in all requests, e.g.</p>
+<blockquote>
+<div>ctrl-int/1/playstatusupdate?session-id=&lt;session id&gt;&amp;hsgid=&lt;hsgid&gt;&amp;revision-number=0</div></blockquote>
+<p>The device will respond with an error (503?) if the authentication fails.</p>
+</div>
+<div class="section" id="dmap-binary-format">
+<h3>DMAP Binary Format<a class="headerlink" href="#dmap-binary-format" title="Permalink to this headline">¶</a></h3>
+<p>The binary format is basically TLV data where the tag is a 4 byte ASCII-string,
+the length is four a byte unsigned integer and the data is, well, data. Type
+and meaning of a specific TLV is derived from the tag. So we must know which
+tags are used, how large they are and what they mean. Please note that Length
+is length of the data, so key and length are not included in this size.</p>
+<p>A TLV looks like this:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="34%" />
+<col width="38%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Key (4 bytes)</td>
+<td>Length (4 bytes)</td>
+<td>Data (Length bytes</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Multiple TLVs are usually embedded in one DMAP data stream and TLVs may also
+be nested, to form a tree:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">TLV1</span>
+<span class="o">|</span>
+<span class="o">+---</span><span class="n">TLV2</span>
+<span class="o">|</span>   <span class="o">|</span>
+<span class="o">|</span>   <span class="o">+</span> <span class="n">TLV3</span>
+<span class="o">|</span>
+<span class="o">+---</span><span class="n">TLV4</span>
+    <span class="o">|</span>
+    <span class="o">+</span> <span class="n">TLV5</span>
+</pre></div>
+</div>
+<p>As stated earlier, we must already know if a tag is a &#8220;container&#8221; (that
+contains other TLVs) or not. It cannot easily be seen on the data itself.
+A container usually has more resemblance to an array than a dictionary
+since multiple TLVs with the same key often occurs.</p>
+</div>
+<div class="section" id="decoding-example">
+<h3>Decoding Example<a class="headerlink" href="#decoding-example" title="Permalink to this headline">¶</a></h3>
+<p>Lets assume that we know the following three keys:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="29%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Key</th>
+<th class="head">Type</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>cmst</td>
+<td>Container</td>
+<td>dmcp.playstatus</td>
+</tr>
+<tr class="row-odd"><td>mstt</td>
+<td>uint32</td>
+<td>dmcp.playstatus</td>
+</tr>
+<tr class="row-even"><td>cmsr</td>
+<td>uint32</td>
+<td>dmcp.serverrevision</td>
+</tr>
+</tbody>
+</table>
+<p>Now, let us try to decode the following binary data with the table above:</p>
+<blockquote>
+<div>636d7374000000186d73747400000004000000c8636d73720000000400000019</div></blockquote>
+<p>We know that key and length fields are always four bytes, so lets split the
+TLV so we more easily can see what is happening</p>
+<blockquote>
+<div>636d7374 00000018 6d73747400000004000000c8636d73720000000400000019</div></blockquote>
+<p>How nice, 0x636d7374 corresponds to &#8216;cmst&#8217; in ASCII and we happen to know
+what that is. We can also see that the data is 0x18=24 bytes long which so
+happens to be the remaining data. All the following TLVs are thus children
+to cmst. Lets continue and split the remaining data:</p>
+<blockquote>
+<div>6d737474 00000004 000000c8636d73720000000400000019</div></blockquote>
+<p>Again, we can see that the key 0x6d737474 is &#8216;mstt&#8217; in ASCII. This is a uint32
+which means that the size is four bytes and the we should interpret the four
+following bytes a uint32:</p>
+<blockquote>
+<div>000000c8 = 200</div></blockquote>
+<p>Since we have data remaining, that should be another TLV and we have to
+continue decoding that one as well. Same procedure:</p>
+<blockquote>
+<div>636d7372 00000004 00000019</div></blockquote>
+<p>The tag is 0x636d7372=&#8217;cmsr&#8217;, size is four bytes (uint32) and the decoded
+value is 25. The final decoding looks like this:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="o">+</span> <span class="n">cmst</span><span class="p">:</span>
+  <span class="o">|</span>
+  <span class="o">+-</span> <span class="n">mstt</span><span class="p">:</span> <span class="mi">200</span>
+  <span class="o">|</span>
+  <span class="o">+-</span> <span class="n">cmsr</span><span class="p">:</span> <span class="mi">25</span>
+</pre></div>
+</div>
+<p>Note that mstt and cmsr are part of the cmst container. This is a typical
+response that the Apple TV responds with when doing a &#8220;playstatus&#8221; request
+and nothing is currently playing. Other keys and values are included when
+you for instance are playing video or music.</p>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="Https://en.wikipedia.org/wiki/Digital_Media_Access_Protocol">Https://en.wikipedia.org/wiki/Digital_Media_Access_Protocol</a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Protocol</a><ul>
+<li><a class="reference internal" href="#daap-and-dmap">DAAP and DMAP</a><ul>
+<li><a class="reference internal" href="#request-urls">Request URLs</a></li>
+<li><a class="reference internal" href="#authentication">Authentication</a></li>
+<li><a class="reference internal" href="#dmap-binary-format">DMAP Binary Format</a></li>
+<li><a class="reference internal" href="#decoding-example">Decoding Example</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">pyatv: Apple TV Remote Control Library</a></li>
+      <li>Next: <a href="finding_devices.html" title="next chapter">Finding Devices</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/protocol.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Pierre Ståhl.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/protocol.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
