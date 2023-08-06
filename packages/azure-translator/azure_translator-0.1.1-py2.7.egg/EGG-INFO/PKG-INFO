@@ -1,0 +1,35 @@
+Metadata-Version: 1.1
+Name: azure-translator
+Version: 0.1.1
+Summary: Python SDK for Azure Translator API.
+Home-page: https://github.com/Work4Labs/azure-translator-python-sdk
+Author: mvdb
+Author-email: mvdb@work4labs.com
+License: Apache
+Description: # azure-translator-python-sdk
+        
+        For more information on Azure translator API, follow
+        [their documentation](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Translate).
+        
+        Usage:
+        ```python
+        >>> from azure_translator import Translator
+        
+        >>> t = Translator('your_api_key')
+        >>> t.translate('Je suis fatigué')
+        'I am tired'
+        
+        >>> t.translate("Hello", to='fr')
+        'Bonjour'
+        
+        >>> t.translate("Aujourd'hui", source_language='fr')
+        'Today'
+        ```
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
