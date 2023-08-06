@@ -1,0 +1,15 @@
+MANIFEST.in
+setup.py
+version.txt
+doc/description.txt
+fsc.iohelper.egg-info/PKG-INFO
+fsc.iohelper.egg-info/SOURCES.txt
+fsc.iohelper.egg-info/dependency_links.txt
+fsc.iohelper.egg-info/requires.txt
+fsc.iohelper.egg-info/top_level.txt
+fsc/iohelper/__init__.py
+fsc/iohelper/_iohelper.py
+fsc/iohelper/_version.py
+fsc/iohelper/version.txt
+fsc/iohelper/encoding/__init__.py
+fsc/iohelper/encoding/default.py
