@@ -1,0 +1,4 @@
+
+        [zops.plugins]
+        req=zops.requirements_directory.cli:req
+    
