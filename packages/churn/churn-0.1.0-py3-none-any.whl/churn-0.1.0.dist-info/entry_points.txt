@@ -1,0 +1,3 @@
+[console_scripts]
+churn = src.cli:main
+

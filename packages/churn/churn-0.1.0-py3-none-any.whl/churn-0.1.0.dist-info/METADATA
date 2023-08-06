@@ -1,0 +1,26 @@
+Metadata-Version: 2.0
+Name: churn
+Version: 0.1.0
+Summary: CLI for credit card payments and rewards
+Home-page: https://github.com/dguo/churn
+Author: Danny Guo
+Author-email: dannyguo91@gmail.com
+License: MIT
+Keywords: credit card churning rewards
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Topic :: Office/Business :: Financial :: Accounting
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: click (<7,>=6)
+Requires-Dist: pick (==0.6.1)
+Requires-Dist: tabulate (==0.7.7)
+
+UNKNOWN
+
+
