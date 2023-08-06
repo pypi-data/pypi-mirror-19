@@ -1,0 +1,12 @@
+dateutils
+requests
+
+[cli]
+click
+
+[develop]
+tox
+pytest
+pytest-runner
+responses
+click

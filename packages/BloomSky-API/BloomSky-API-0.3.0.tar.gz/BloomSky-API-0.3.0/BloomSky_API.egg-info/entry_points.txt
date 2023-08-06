@@ -1,0 +1,3 @@
+[console_scripts]
+bloomsky-api = bloomsky_api.cli:cli
+
