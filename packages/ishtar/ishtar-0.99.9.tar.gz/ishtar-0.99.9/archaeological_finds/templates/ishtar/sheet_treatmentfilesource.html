@@ -1,0 +1,12 @@
+{% extends "ishtar/sheet_source.html" %}
+{% load i18n window_field window_header link_to_window %}
+
+{% block head_title %}{% trans "Treatment request source" %}{% endblock %}
+
+{% block window_nav %}
+{% window_nav item window_id 'show-treatmentfilesource' 'treatmentfile_source_modify' %}
+{% endblock %}
+
+{% block related %}
+{% field "Related treatment request" item.owner '' item.owner|link_to_window %}
+{% endblock %}

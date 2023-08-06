@@ -1,0 +1,1280 @@
+# Ishtar po translation.
+# Copyright (C) 2010-2015
+# This file is distributed under the same license as the Ishtar package.
+# Étienne Loks <etienne.loks at peacefrogs net>, 2010-2015.
+# Valérie-Emma Leroux <emma@iggdrasil.net>, 2016. #zanata
+# Valérie-Emma Leroux <emma@iggdrasil.net>, 2017. #zanata
+# Étienne Loks <etienne.loks@iggdrasil.net>, 2017. #zanata
+msgid ""
+msgstr ""
+
+#: forms.py:90 forms.py:94 wizards.py:64
+msgid "Context record"
+msgstr ""
+
+#: forms.py:123 ishtar_menu.py:32 models_finds.py:484 models_finds.py:819
+#: models_finds.py:828 models_treatments.py:279
+#: templates/ishtar/sheet_find.html:5
+msgid "Find"
+msgstr ""
+
+#: forms.py:137 forms.py:330 forms.py:559 models_finds.py:130
+#: models_finds.py:415
+msgid "Free ID"
+msgstr ""
+
+#: forms.py:139 models_finds.py:467
+msgid "Previous ID"
+msgstr ""
+
+#: forms.py:140 forms.py:362 forms_treatments.py:134 models_finds.py:134
+#: models_finds.py:416 models_treatments.py:125
+msgid "Description"
+msgstr ""
+
+#: forms.py:143 forms.py:364 models_finds.py:143
+msgid "Batch/object"
+msgstr ""
+
+#: forms.py:145 models_finds.py:444
+msgid "Is complete?"
+msgstr ""
+
+#: forms.py:148 forms.py:352 forms.py:563 models_finds.py:50
+msgid "Material type"
+msgstr ""
+
+#: forms.py:149 forms.py:356 models_finds.py:62 models_finds.py:420
+msgid "Conservatory state"
+msgstr ""
+
+#: forms.py:152 models_finds.py:422
+msgid "Conservatory comment"
+msgstr ""
+
+#: forms.py:155 models_finds.py:112 models_finds.py:447
+msgid "Object types"
+msgstr ""
+
+#: forms.py:157 forms.py:355 models_finds.py:71
+msgid "Preservation type"
+msgstr ""
+
+#: forms.py:160 forms.py:358 models_finds.py:449
+msgid "Integrity / interest"
+msgstr ""
+
+#: forms.py:163 forms.py:360 models_finds.py:452
+msgid "Remarkability"
+msgstr ""
+
+#: forms.py:166 models_finds.py:148
+msgid "Point of topographic reference"
+msgstr ""
+
+#: forms.py:169 models_finds.py:150
+msgid "X"
+msgstr ""
+
+#: forms.py:170 models_finds.py:151
+msgid "Y"
+msgstr ""
+
+#: forms.py:171 models_finds.py:152
+msgid "Z"
+msgstr ""
+
+#: forms.py:173 models_finds.py:160
+msgid "Spatial Reference System"
+msgstr ""
+
+#: forms.py:176 models_finds.py:153
+msgid "Estimated error for X"
+msgstr ""
+
+#: forms.py:178 models_finds.py:155
+msgid "Estimated error for Y"
+msgstr ""
+
+#: forms.py:180 models_finds.py:157
+msgid "Estimated error for Z"
+msgstr ""
+
+#: forms.py:181 models_finds.py:456
+msgid "Length (cm)"
+msgstr ""
+
+#: forms.py:182 models_finds.py:457
+msgid "Width (cm)"
+msgstr ""
+
+#: forms.py:183 models_finds.py:458
+msgid "Height (cm)"
+msgstr ""
+
+#: forms.py:184 models_finds.py:459
+msgid "Diameter (cm)"
+msgstr ""
+
+#: forms.py:185 models_finds.py:460
+msgid "Thickness (cm)"
+msgstr ""
+
+#: forms.py:186 forms.py:564 models_finds.py:427
+msgid "Volume (l)"
+msgstr ""
+
+#: forms.py:187 forms.py:565 models_finds.py:428
+msgid "Weight (g)"
+msgstr ""
+
+#: forms.py:189 models_finds.py:461
+msgid "Dimensions comment"
+msgstr ""
+
+#: forms.py:190 forms.py:566 models_finds.py:431
+msgid "Find number"
+msgstr ""
+
+#: forms.py:192 models_finds.py:455
+msgid "Minimum number of individuals (MNI)"
+msgstr ""
+
+#: forms.py:193 models_finds.py:463
+msgid "Mark"
+msgstr ""
+
+#: forms.py:194 forms.py:365 models_finds.py:469
+msgid "Check"
+msgstr ""
+
+#: forms.py:196 models_finds.py:471
+msgid "Check date"
+msgstr ""
+
+#: forms.py:197 forms_treatments.py:132 forms_treatments.py:434
+#: models_finds.py:135 models_finds.py:464 models_treatments.py:124
+#: models_treatments.py:492
+msgid "Comment"
+msgstr ""
+
+#: forms.py:200 models_finds.py:465
+msgid "Comment on dating"
+msgstr ""
+
+#: forms.py:201 models_finds.py:473
+msgid "Estimated value"
+msgstr ""
+
+#: forms.py:203 forms_treatments.py:151
+msgid "Image"
+msgstr ""
+
+#: forms.py:204 forms_treatments.py:152
+#, python-format
+msgid ""
+"<p>Heavy images are resized to: %(width)dx%(height)d (ratio is preserved).</"
+"p>"
+msgstr ""
+
+#: forms.py:278
+msgid "You should at least provide X, Y and the spatial reference system used."
+msgstr ""
+
+#: forms.py:287
+msgid "Coordinates are not relevant for the spatial reference system used: {}."
+msgstr ""
+
+#: forms.py:293 forms.py:324 models_finds.py:439
+msgid "Dating"
+msgstr ""
+
+#: forms.py:298 forms.py:350
+msgid "Period"
+msgstr ""
+
+#: forms.py:299 forms_treatments.py:138 forms_treatments.py:436
+#: models_finds.py:833 models_treatments.py:127 models_treatments.py:290
+#: templates/ishtar/sheet_find.html:101 templates/ishtar/sheet_find.html:141
+msgid "Start date"
+msgstr ""
+
+#: forms.py:301 models_finds.py:834 models_treatments.py:291
+#: templates/ishtar/sheet_find.html:102 templates/ishtar/sheet_find.html:142
+msgid "End date"
+msgstr ""
+
+#: forms.py:302
+msgid "Quality"
+msgstr ""
+
+#: forms.py:304
+msgid "Dating type"
+msgstr ""
+
+#: forms.py:306
+msgid "Precise dating"
+msgstr ""
+
+#: forms.py:328 models_finds.py:167
+msgid "Short ID"
+msgstr ""
+
+#: forms.py:329 models_finds.py:170
+msgid "Complete ID"
+msgstr ""
+
+#: forms.py:333 forms_treatments.py:54 forms_treatments.py:96
+#: forms_treatments.py:284 forms_treatments.py:356 forms_treatments.py:406
+#: forms_treatments.py:489 models_treatments.py:100 models_treatments.py:464
+msgid "Year"
+msgstr ""
+
+#: forms.py:335
+msgid "Operation's number (index by year)"
+msgstr ""
+
+#: forms.py:338
+msgid "Code PATRIARCHE"
+msgstr ""
+
+#: forms.py:342
+msgid "Archaeological site"
+msgstr ""
+
+#: forms.py:348
+msgid "Search within related operations"
+msgstr ""
+
+#: forms.py:353 models_finds.py:111
+msgid "Object type"
+msgstr ""
+
+#: forms.py:366 forms_treatments.py:57
+msgid "Has an image?"
+msgstr ""
+
+#: forms.py:414 forms.py:427 views.py:130
+msgid "Find search"
+msgstr ""
+
+#: forms.py:441 templates/ishtar/sheet_treatment.html:46
+msgid "Upstream finds"
+msgstr ""
+
+#: forms.py:443 models_finds.py:485
+msgid "Finds"
+msgstr ""
+
+#: forms.py:453
+msgid "You should at least select one archaeological find."
+msgstr ""
+
+#: forms.py:556
+msgid "Resulting find"
+msgstr ""
+
+#: forms.py:561
+msgid "Precise description"
+msgstr ""
+
+#: forms.py:576
+msgid "Resulting finds"
+msgstr ""
+
+#: forms.py:581
+msgid "Would you like to delete this find?"
+msgstr ""
+
+#: forms.py:585 models_treatments.py:90
+msgid "Upstream find"
+msgstr ""
+
+#: forms.py:598
+msgid "Archaeological find search"
+msgstr ""
+
+#: forms.py:600
+msgid "You should select an archaeological find."
+msgstr ""
+
+#: forms.py:605
+msgid "Year of the operation"
+msgstr ""
+
+#: forms.py:607
+msgid "Numeric reference"
+msgstr ""
+
+#: forms.py:614
+msgid "Period of the archaeological find"
+msgstr ""
+
+#: forms.py:616
+msgid "Material type of the archaeological find"
+msgstr ""
+
+#: forms.py:618
+msgid "Description of the archaeological find"
+msgstr ""
+
+#: forms.py:630 forms_treatments.py:590 forms_treatments.py:616
+msgid "Documentation search"
+msgstr ""
+
+#: forms.py:632 forms_treatments.py:592 forms_treatments.py:618
+msgid "You should select a document."
+msgstr ""
+
+#: forms.py:649
+msgid "Another basket already exists with this name."
+msgstr ""
+
+#: forms.py:659 forms.py:663 forms_treatments.py:175 ishtar_menu.py:57
+msgid "Basket"
+msgstr ""
+
+#: forms_treatments.py:52 forms_treatments.py:92 models_treatments.py:96
+#: templates/ishtar/sheet_find.html:96 templates/ishtar/sheet_find.html:136
+msgid "Label"
+msgstr ""
+
+#: forms_treatments.py:53 forms_treatments.py:95 models_treatments.py:98
+msgid "Other ref."
+msgstr ""
+
+#: forms_treatments.py:55 forms_treatments.py:237 forms_treatments.py:285
+#: forms_treatments.py:348 forms_treatments.py:357 forms_treatments.py:459
+#: forms_treatments.py:490 forms_treatments.py:557 models_treatments.py:102
+#: models_treatments.py:466
+msgid "Index"
+msgstr ""
+
+#: forms_treatments.py:56 forms_treatments.py:101 forms_treatments.py:301
+#: forms_treatments.py:578 models_treatments.py:56 models_treatments.py:107
+#: models_treatments.py:289
+msgid "Treatment type"
+msgstr ""
+
+#: forms_treatments.py:68 forms_treatments.py:560 views.py:360
+msgid "Treatment search"
+msgstr ""
+
+#: forms_treatments.py:80
+msgid "Base treatment"
+msgstr ""
+
+#: forms_treatments.py:103 models_treatments.py:109
+msgid "State"
+msgstr ""
+
+#: forms_treatments.py:105
+msgid "Target"
+msgstr ""
+
+#: forms_treatments.py:107 forms_treatments.py:417 models_treatments.py:117
+msgid "Responsible"
+msgstr ""
+
+#: forms_treatments.py:113 models_treatments.py:120
+msgid "Organization"
+msgstr ""
+
+#: forms_treatments.py:119 models_treatments.py:112 models_treatments.py:292
+msgid "Location"
+msgstr ""
+
+#: forms_treatments.py:125
+msgid "Container (relevant for packaging)"
+msgstr ""
+
+#: forms_treatments.py:131 forms_treatments.py:413
+msgid "External ref."
+msgstr ""
+
+#: forms_treatments.py:136 models_treatments.py:126
+msgid "Goal"
+msgstr ""
+
+#: forms_treatments.py:140 forms_treatments.py:442 models_treatments.py:128
+#: models_treatments.py:486
+msgid "Closing date"
+msgstr ""
+
+#: forms_treatments.py:142
+#, python-brace-format
+msgid "Estimated cost ({currency})"
+msgstr ""
+
+#: forms_treatments.py:144
+#, python-brace-format
+msgid "Quoted cost ({currency})"
+msgstr ""
+
+#: forms_treatments.py:146
+#, python-brace-format
+msgid "Realized cost ({currency})"
+msgstr ""
+
+#: forms_treatments.py:148
+#, python-brace-format
+msgid "Insurance cost ({currency})"
+msgstr ""
+
+#: forms_treatments.py:175
+msgid "Single find"
+msgstr ""
+
+#: forms_treatments.py:209
+msgid ""
+"The container field is attached to the treatment. If no packaging treatment "
+"is done it is not relevant."
+msgstr ""
+
+#: forms_treatments.py:214
+msgid "If a packaging treatment is done, the container field must be filled."
+msgstr ""
+
+#: forms_treatments.py:218
+msgid "A responsible or an organization must be defined."
+msgstr ""
+
+#: forms_treatments.py:256
+msgid "Another treatment with this index exists for {}."
+msgstr ""
+
+#: forms_treatments.py:262 models_treatments.py:105
+msgid "Associated request"
+msgstr ""
+
+#: forms_treatments.py:266 forms_treatments.py:397 ishtar_menu.py:108
+#: models_treatments.py:497 models_treatments.py:519 models_treatments.py:581
+#: wizards.py:183 templates/ishtar/sheet_treatmentfile.html:5
+msgid "Treatment request"
+msgstr ""
+
+#: forms_treatments.py:275
+msgid ""
+"Are you sure you want to delete this treatment? All changes made to the "
+"associated finds since this treatment record will be lost!"
+msgstr ""
+
+#: forms_treatments.py:278
+msgid "Would you like to delete this treatment?"
+msgstr ""
+
+#: forms_treatments.py:286 forms_treatments.py:334 forms_treatments.py:491
+#: forms_treatments.py:542
+msgid "Act type"
+msgstr ""
+
+#: forms_treatments.py:287 forms_treatments.py:492
+msgid "Indexed?"
+msgstr ""
+
+#: forms_treatments.py:288 forms_treatments.py:493
+msgid "Object"
+msgstr ""
+
+#: forms_treatments.py:292 forms_treatments.py:497
+msgid "Signature date after"
+msgstr ""
+
+#: forms_treatments.py:294 forms_treatments.py:499
+msgid "Signature date before"
+msgstr ""
+
+#: forms_treatments.py:296 forms_treatments.py:573
+msgid "Treatment name"
+msgstr ""
+
+#: forms_treatments.py:297 forms_treatments.py:574
+msgid "Treatment year"
+msgstr ""
+
+#: forms_treatments.py:298 forms_treatments.py:575
+msgid "Treatment index"
+msgstr ""
+
+#: forms_treatments.py:300 forms_treatments.py:577
+msgid "Treatment internal reference"
+msgstr ""
+
+#: forms_treatments.py:304 forms_treatments.py:511
+msgid "Modified by"
+msgstr ""
+
+#: forms_treatments.py:354 forms_treatments.py:404 models_treatments.py:471
+msgid "Name"
+msgstr ""
+
+#: forms_treatments.py:355 forms_treatments.py:411
+msgid "Internal ref."
+msgstr ""
+
+#: forms_treatments.py:358 forms_treatments.py:415
+#: templates/ishtar/sheet_find.html:97 templates/ishtar/sheet_find.html:137
+#: templates/ishtar/sheet_find.html:227
+msgid "Type"
+msgstr ""
+
+#: forms_treatments.py:360
+msgid "In charge"
+msgstr ""
+
+#: forms_treatments.py:366 forms_treatments.py:423 models_treatments.py:480
+#: templates/ishtar/sheet_treatmentfile.html:31
+msgid "Applicant"
+msgstr ""
+
+#: forms_treatments.py:372 forms_treatments.py:429 models_treatments.py:484
+#: templates/ishtar/sheet_treatmentfile.html:38
+msgid "Applicant organisation"
+msgstr ""
+
+#: forms_treatments.py:385 forms_treatments.py:565 views.py:464
+msgid "Treatment request search"
+msgstr ""
+
+#: forms_treatments.py:439 models_treatments.py:490
+msgid "Reception date"
+msgstr ""
+
+#: forms_treatments.py:478
+msgid "Another treatment request with this index exists for {}."
+msgstr ""
+
+#: forms_treatments.py:484
+msgid "Are you sure you want to delete this treatment request?"
+msgstr ""
+
+#: forms_treatments.py:485
+msgid "Would you like to delete this treatment request?"
+msgstr ""
+
+#: forms_treatments.py:501 forms_treatments.py:597
+msgid "Treatment request name"
+msgstr ""
+
+#: forms_treatments.py:503 forms_treatments.py:599
+msgid "Treatment request year"
+msgstr ""
+
+#: forms_treatments.py:505 forms_treatments.py:601
+msgid "Treatment request index"
+msgstr ""
+
+#: forms_treatments.py:507 forms_treatments.py:603
+msgid "Treatment request internal reference"
+msgstr ""
+
+#: forms_treatments.py:508 forms_treatments.py:604 models_treatments.py:449
+#: models_treatments.py:473
+msgid "Treatment request type"
+msgstr ""
+
+#: forms_treatments.py:562
+msgid "You should select a treatment."
+msgstr ""
+
+#: forms_treatments.py:568
+msgid "You should select a treatment request."
+msgstr ""
+
+#: ishtar_menu.py:37 ishtar_menu.py:80 ishtar_menu.py:113 ishtar_menu.py:136
+#: ishtar_menu.py:160 ishtar_menu.py:193 ishtar_menu.py:217 ishtar_menu.py:241
+msgid "Search"
+msgstr ""
+
+#: ishtar_menu.py:42 ishtar_menu.py:60 ishtar_menu.py:85 ishtar_menu.py:118
+#: ishtar_menu.py:140 ishtar_menu.py:165 ishtar_menu.py:198 ishtar_menu.py:221
+#: ishtar_menu.py:246
+msgid "Creation"
+msgstr ""
+
+#: ishtar_menu.py:47 ishtar_menu.py:90 ishtar_menu.py:123 ishtar_menu.py:144
+#: ishtar_menu.py:170 ishtar_menu.py:203 ishtar_menu.py:226 ishtar_menu.py:251
+msgid "Modification"
+msgstr ""
+
+#: ishtar_menu.py:52 ishtar_menu.py:71 ishtar_menu.py:95 ishtar_menu.py:128
+#: ishtar_menu.py:147 ishtar_menu.py:175 ishtar_menu.py:208 ishtar_menu.py:229
+#: ishtar_menu.py:256
+msgid "Deletion"
+msgstr ""
+
+#: ishtar_menu.py:65
+msgid "Manage items"
+msgstr ""
+
+#: ishtar_menu.py:77
+msgid "Documentation"
+msgstr ""
+
+#: ishtar_menu.py:133 ishtar_menu.py:214 models_finds.py:830
+msgid "Administrative act"
+msgstr ""
+
+#: ishtar_menu.py:151 ishtar_menu.py:233 templates/ishtar/sheet_find.html:222
+#: templates/ishtar/sheet_find.html:224
+msgid "Documents"
+msgstr ""
+
+#: ishtar_menu.py:157 ishtar_menu.py:238
+msgid "Source"
+msgstr ""
+
+#: ishtar_menu.py:185 models_treatments.py:145 models_treatments.py:281
+#: models_treatments.py:565 templates/ishtar/sheet_treatment.html:5
+msgid "Treatment"
+msgstr ""
+
+#: ishtar_menu.py:190
+msgid "Simple treatments"
+msgstr ""
+
+#: models_finds.py:43
+msgid "Code"
+msgstr ""
+
+#: models_finds.py:44
+msgid "Recommendation"
+msgstr ""
+
+#: models_finds.py:47
+msgid "Parent material"
+msgstr ""
+
+#: models_finds.py:51 models_finds.py:418
+msgid "Material types"
+msgstr ""
+
+#: models_finds.py:59
+msgid "Parent conservatory state"
+msgstr ""
+
+#: models_finds.py:63
+msgid "Conservatory states"
+msgstr ""
+
+#: models_finds.py:72
+msgid "Preservation types"
+msgstr ""
+
+#: models_finds.py:80
+msgid "Integrity / interest type"
+msgstr ""
+
+#: models_finds.py:81
+msgid "Integrity / interest types"
+msgstr ""
+
+#: models_finds.py:89
+msgid "Remarkability type"
+msgstr ""
+
+#: models_finds.py:90
+msgid "Remarkability types"
+msgstr ""
+
+#: models_finds.py:97 models_finds.py:414 models_treatments.py:40
+#: models_treatments.py:285
+msgid "Order"
+msgstr ""
+
+#: models_finds.py:99
+msgid "Batch type"
+msgstr ""
+
+#: models_finds.py:100
+msgid "Batch types"
+msgstr ""
+
+#: models_finds.py:108
+msgid "Parent"
+msgstr ""
+
+#: models_finds.py:131 models_finds.py:411 models_treatments.py:122
+#: models_treatments.py:469
+msgid "External ID"
+msgstr ""
+
+#: models_finds.py:133 models_finds.py:413
+msgid "External ID is set automatically"
+msgstr ""
+
+#: models_finds.py:136
+msgid "Special interest"
+msgstr ""
+
+#: models_finds.py:140
+msgid "Context Record"
+msgstr ""
+
+#: models_finds.py:141
+msgid "Discovery date"
+msgstr ""
+
+#: models_finds.py:146
+msgid "Material index"
+msgstr ""
+
+#: models_finds.py:162
+msgid "Point (2D)"
+msgstr ""
+
+#: models_finds.py:163
+msgid "Point"
+msgstr ""
+
+#: models_finds.py:164
+msgid "Line"
+msgstr ""
+
+#: models_finds.py:165
+msgid "Polygon"
+msgstr ""
+
+#: models_finds.py:168 models_finds.py:171
+msgid "Cached value - do not edit"
+msgstr ""
+
+#: models_finds.py:176 models_finds.py:409
+msgid "Base find"
+msgstr ""
+
+#: models_finds.py:177
+msgid "Base finds"
+msgstr ""
+
+#: models_finds.py:179
+msgid "Can view all Base finds"
+msgstr ""
+
+#: models_finds.py:180
+msgid "Can view own Base find"
+msgstr ""
+
+#: models_finds.py:181
+msgid "Can add own Base find"
+msgstr ""
+
+#: models_finds.py:182
+msgid "Can change own Base find"
+msgstr ""
+
+#: models_finds.py:183
+msgid "Can delete own Base find"
+msgstr ""
+
+#: models_finds.py:296
+msgid "g"
+msgstr ""
+
+#: models_finds.py:297
+msgid "kg"
+msgstr ""
+
+#: models_finds.py:299
+msgid "Not checked"
+msgstr ""
+
+#: models_finds.py:300
+msgid "Checked but incorrect"
+msgstr ""
+
+#: models_finds.py:301
+msgid "Checked and correct"
+msgstr ""
+
+#: models_finds.py:335
+msgid "Periods"
+msgstr ""
+
+#: models_finds.py:336 models_finds.py:442 models_treatments.py:129
+#: models_treatments.py:293 templates/ishtar/sheet_find.html:100
+#: templates/ishtar/sheet_find.html:140
+msgid "Container"
+msgstr ""
+
+#: models_finds.py:346
+msgid "Base find - Short ID"
+msgstr ""
+
+#: models_finds.py:347
+msgid "Base find - Complete ID"
+msgstr ""
+
+#: models_finds.py:348
+msgid "Base find - Comment"
+msgstr ""
+
+#: models_finds.py:349
+msgid "Base find - Description"
+msgstr ""
+
+#: models_finds.py:350
+msgid "Base find - Topographic localisation"
+msgstr ""
+
+#: models_finds.py:352
+msgid "Base find - Special interest"
+msgstr ""
+
+#: models_finds.py:353
+msgid "Base find - Discovery date"
+msgstr ""
+
+#: models_finds.py:425
+msgid "Type of preservation to consider"
+msgstr ""
+
+#: models_finds.py:429
+msgid "Weight unit"
+msgstr ""
+
+#: models_finds.py:435 templates/ishtar/sheet_find.html:89
+msgid "Upstream treatment"
+msgstr ""
+
+#: models_finds.py:438 templates/ishtar/sheet_find.html:129
+msgid "Downstream treatment"
+msgstr ""
+
+#: models_finds.py:476
+msgid "Collection"
+msgstr ""
+
+#: models_finds.py:478 models_treatments.py:141 models_treatments.py:493
+msgid "Cached name"
+msgstr ""
+
+#: models_finds.py:487
+msgid "Can view all Finds"
+msgstr ""
+
+#: models_finds.py:488
+msgid "Can view own Find"
+msgstr ""
+
+#: models_finds.py:489
+msgid "Can add own Find"
+msgstr ""
+
+#: models_finds.py:490
+msgid "Can change own Find"
+msgstr ""
+
+#: models_finds.py:491
+msgid "Can delete own Find"
+msgstr ""
+
+#: models_finds.py:497
+msgid "FIND"
+msgstr ""
+
+#: models_finds.py:817
+msgid "Find documentation"
+msgstr ""
+
+#: models_finds.py:818
+msgid "Find documentations"
+msgstr ""
+
+#: models_finds.py:831
+msgid "Person"
+msgstr ""
+
+#: models_finds.py:837
+msgid "Property"
+msgstr ""
+
+#: models_finds.py:838
+msgid "Properties"
+msgstr ""
+
+#: models_treatments.py:41
+msgid "Parent type"
+msgstr ""
+
+#: models_treatments.py:43
+msgid "Virtual"
+msgstr ""
+
+#: models_treatments.py:45
+msgid "Upstream is many"
+msgstr ""
+
+#: models_treatments.py:47
+msgid "Check this if for this treatment from many finds you'll get one."
+msgstr ""
+
+#: models_treatments.py:50
+msgid "Downstream is many"
+msgstr ""
+
+#: models_treatments.py:52
+msgid "Check this if for this treatment from one find you'll get many."
+msgstr ""
+
+#: models_treatments.py:57
+msgid "Treatment types"
+msgstr ""
+
+#: models_treatments.py:65
+msgid "Treatment state type"
+msgstr ""
+
+#: models_treatments.py:66
+msgid "Treatment state types"
+msgstr ""
+
+#: models_treatments.py:89
+msgid "Downstream find"
+msgstr ""
+
+#: models_treatments.py:114
+msgid "Location where the treatment is done. Target warehouse for a move."
+msgstr ""
+
+#: models_treatments.py:131
+msgid "Estimated cost"
+msgstr ""
+
+#: models_treatments.py:133
+msgid "Quoted cost"
+msgstr ""
+
+#: models_treatments.py:135
+msgid "Realized cost"
+msgstr ""
+
+#: models_treatments.py:137
+msgid "Insurance cost"
+msgstr ""
+
+#: models_treatments.py:139
+msgid "Target a basket"
+msgstr ""
+
+#: models_treatments.py:146 templates/ishtar/sheet_find.html:86
+#: templates/ishtar/sheet_treatmentfile.html:45
+msgid "Treatments"
+msgstr ""
+
+#: models_treatments.py:149
+msgid "Can view all Treatments"
+msgstr ""
+
+#: models_treatments.py:150
+msgid "Can view own Treatment"
+msgstr ""
+
+#: models_treatments.py:151
+msgid "Can add own Treatment"
+msgstr ""
+
+#: models_treatments.py:152
+msgid "Can change own Treatment"
+msgstr ""
+
+#: models_treatments.py:153
+msgid "Can delete own Treatment"
+msgstr ""
+
+#: models_treatments.py:165
+msgid "TREATMENT"
+msgstr ""
+
+#: models_treatments.py:294 templates/ishtar/sheet_find.html:99
+#: templates/ishtar/sheet_find.html:139
+msgid "Doer"
+msgstr ""
+
+#: models_treatments.py:295 models_treatments.py:296
+msgid "Related finds"
+msgstr ""
+
+#: models_treatments.py:438
+msgid "Is upstream"
+msgstr ""
+
+#: models_treatments.py:450
+msgid "Treatment request types"
+msgstr ""
+
+#: models_treatments.py:467
+msgid "Internal reference"
+msgstr ""
+
+#: models_treatments.py:476
+msgid "Person in charge"
+msgstr ""
+
+#: models_treatments.py:488
+msgid "Creation date"
+msgstr ""
+
+#: models_treatments.py:498
+msgid "Treatment requests"
+msgstr ""
+
+#: models_treatments.py:502
+msgid "Can view all Treatment requests"
+msgstr ""
+
+#: models_treatments.py:504
+msgid "Can view own Treatment request"
+msgstr ""
+
+#: models_treatments.py:506
+msgid "Can add own Treatment request"
+msgstr ""
+
+#: models_treatments.py:508
+msgid "Can change own Treatment request"
+msgstr ""
+
+#: models_treatments.py:510
+msgid "Can delete own Treatment request"
+msgstr ""
+
+#: models_treatments.py:571
+msgid "Treatment documentation"
+msgstr ""
+
+#: models_treatments.py:572
+msgid "Treament documentations"
+msgstr ""
+
+#: models_treatments.py:588
+msgid "Treatment request documentation"
+msgstr ""
+
+#: models_treatments.py:589
+msgid "Treatment request documentations"
+msgstr ""
+
+#: views.py:125
+msgid "New find"
+msgstr ""
+
+#: views.py:139
+msgid "Find modification"
+msgstr ""
+
+#: views.py:154
+msgid "Find deletion"
+msgstr ""
+
+#: views.py:159
+msgid "Find: source search"
+msgstr ""
+
+#: views.py:167
+msgid "Find: new source"
+msgstr ""
+
+#: views.py:175
+msgid "Find: source modification"
+msgstr ""
+
+#: views.py:190
+msgid "Find: source deletion"
+msgstr ""
+
+#: views.py:204
+msgid "New basket"
+msgstr ""
+
+#: views.py:223
+msgid "Manage items in basket"
+msgstr ""
+
+#: views.py:243
+msgid "Manage basket"
+msgstr ""
+
+#: views.py:331
+msgid "Delete basket"
+msgstr ""
+
+#: views.py:381
+msgid "New treatment"
+msgstr ""
+
+#: views.py:389 views.py:481
+msgid "Modify"
+msgstr ""
+
+#: views.py:406
+msgid "Treatment deletion"
+msgstr ""
+
+#: views.py:413
+msgid "Treatment: search administrative act"
+msgstr ""
+
+#: views.py:422
+msgid "Treatment: new administrative act"
+msgstr ""
+
+#: views.py:432
+msgid "Treatment: administrative act modification"
+msgstr ""
+
+#: views.py:441
+msgid "Treatment: administrative act deletion"
+msgstr ""
+
+#: views.py:474
+msgid "New treatment request"
+msgstr ""
+
+#: views.py:497
+msgid "Treatment request deletion"
+msgstr ""
+
+#: views.py:504
+msgid "Treatment request: search administrative act"
+msgstr ""
+
+#: views.py:514
+msgid "Treatment request: new administrative act"
+msgstr ""
+
+#: views.py:524
+msgid "Treatment request: administrative act modification"
+msgstr ""
+
+#: views.py:533
+msgid "Treatment request: administrative act deletion"
+msgstr ""
+
+#: views.py:559
+msgid "Treatment: source search"
+msgstr ""
+
+#: views.py:574
+msgid "Treatment: source modification"
+msgstr ""
+
+#: views.py:589
+msgid "Treatment: source deletion"
+msgstr ""
+
+#: views.py:602
+msgid "Treatment request: source search"
+msgstr ""
+
+#: views.py:618
+msgid "Treatment request: source modification"
+msgstr ""
+
+#: views.py:636
+msgid "Treatment request: source deletion"
+msgstr ""
+
+#: wizards.py:63 wizards.py:195
+msgid "Operation"
+msgstr ""
+
+#: templates/ishtar/sheet_find.html:78
+msgid "Warehouse"
+msgstr ""
+
+#: templates/ishtar/sheet_find.html:95 templates/ishtar/sheet_find.html:135
+msgid "Year - index"
+msgstr ""
+
+#: templates/ishtar/sheet_find.html:98 templates/ishtar/sheet_find.html:138
+msgid "Related finds (max. 15 displayed)"
+msgstr ""
+
+#: templates/ishtar/sheet_find.html:125
+msgid "Export as CSV"
+msgstr ""
+
+#: templates/ishtar/sheet_find.html:125 templates/ishtar/sheet_find.html:166
+msgid "CSV"
+msgstr ""
+
+#: templates/ishtar/sheet_find.html:171
+msgid "Associated base finds"
+msgstr ""
+
+#: templates/ishtar/sheet_find.html:203
+msgid "Coordinates:"
+msgstr ""
+
+#: templates/ishtar/sheet_find.html:205
+msgid "X:"
+msgstr ""
+
+#: templates/ishtar/sheet_find.html:206
+msgid "Y:"
+msgstr ""
+
+#: templates/ishtar/sheet_find.html:207
+msgid "Z:"
+msgstr ""
+
+#: templates/ishtar/sheet_find.html:210
+msgid "SRID:"
+msgstr ""
+
+#: templates/ishtar/sheet_find.html:226
+msgid "Title"
+msgstr ""
+
+#: templates/ishtar/sheet_find.html:228
+msgid "Authors"
+msgstr ""
+
+#: templates/ishtar/sheet_find.html:229
+msgid "Link"
+msgstr ""
+
+#: templates/ishtar/sheet_findbasket.html:4
+msgid "Find basket"
+msgstr ""
+
+#: templates/ishtar/sheet_findsource.html:4
+msgid "Find source"
+msgstr ""
+
+#: templates/ishtar/sheet_treatment.html:20
+msgctxt "Treatment"
+msgid "Closed"
+msgstr ""
+
+#: templates/ishtar/sheet_treatment.html:22
+msgctxt "Treatment"
+msgid "Active"
+msgstr ""
+
+#: templates/ishtar/sheet_treatment.html:51
+msgid "Downstream finds"
+msgstr ""
+
+#: templates/ishtar/sheet_treatment.html:56
+msgid "Related operations"
+msgstr ""
+
+#: templates/ishtar/sheet_treatmentfile.html:16
+msgctxt "Treatment request"
+msgid "Closed"
+msgstr ""
+
+#: templates/ishtar/sheet_treatmentfile.html:18
+msgctxt "Treatment request"
+msgid "Active"
+msgstr ""
+
+#: templates/ishtar/sheet_treatmentfilesource.html:4
+msgid "Treatment request source"
+msgstr ""
+
+#: templates/ishtar/sheet_treatmentsource.html:4
+msgid "Treatment source"
+msgstr ""
