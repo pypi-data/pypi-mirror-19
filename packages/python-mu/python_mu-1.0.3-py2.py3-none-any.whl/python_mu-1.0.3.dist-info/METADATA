@@ -1,0 +1,103 @@
+Metadata-Version: 2.0
+Name: python-mu
+Version: 1.0.3
+Summary: Python module and CLI to package and upload python lambda functions to AWS Lambda.
+Home-page: https://github.com/sivel/mu
+Author: Matt Martz
+Author-email: matt@sivel.net
+License: Apache License, Version 2.0
+Keywords: aws amazon lambda
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Environment :: Console
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Dist: boto3 (==1.2.1)
+Requires-Dist: botocore (==1.3.1)
+Requires-Dist: py (==1.4.30)
+Requires-Dist: setuptools (==18.4)
+Requires-Dist: tox (==2.1.1)
+Requires-Dist: virtualenv (==13.1.2)
+
+mu
+==
+
+Python module and CLI to package and upload python lambda functions to
+AWS Lambda
+
+Installation
+------------
+
+::
+
+    pip install python-mu
+
+Configuration
+-------------
+
+You will need to have a boto profile created. This can be done using
+``awscli``:
+
+::
+
+    pip install awscli
+    aws configure
+
+Usage
+-----
+
+::
+
+    usage: mu [-h] [--with-pyc] [--zip-file ZIP_FILE] [--profile PROFILE]
+              [--zip-only]
+              [config]
+
+    positional arguments:
+      config               JSON file describing this lambda function. Default
+                           lambda.json
+
+    optional arguments:
+      -h, --help           show this help message and exit
+      --with-pyc           Package pyc/pyo files
+      --zip-file ZIP_FILE  Name to give ZIP file. Default lambda.zip
+      --profile PROFILE    boto/awscli profile name. Default default
+      --zip-only           Only create the ZIP file, do not upload
+
+lambda.json
+-----------
+
+::
+
+    {
+        "name": "helloworld",
+        "description": "Hello, World!",
+        "region": "us-east-1",
+        "role": "arn:aws:iam::000000000000:role/lambda_basic_execution",
+        "handler": "helloworld.lambda_handler",
+        "memory_size": 128,
+        "timeout": 3,
+        "py_modules": [
+            "helloworld"
+        ],
+        "packages": {
+            "exclude": [
+                "tests",
+                "tests.*"
+            ]
+        },
+        "deps": [
+            "requests",
+            "-rrequirements.txt"
+        ],
+        "publish": true
+    }
+
+
+
