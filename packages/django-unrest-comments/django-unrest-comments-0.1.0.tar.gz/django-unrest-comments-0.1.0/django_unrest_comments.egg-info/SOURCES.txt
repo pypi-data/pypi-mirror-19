@@ -1,0 +1,15 @@
+setup.cfg
+setup.py
+django_unrest_comments.egg-info/PKG-INFO
+django_unrest_comments.egg-info/SOURCES.txt
+django_unrest_comments.egg-info/dependency_links.txt
+django_unrest_comments.egg-info/top_level.txt
+unrest_comments/__init__.py
+unrest_comments/admin.py
+unrest_comments/management.py
+unrest_comments/models.py
+unrest_comments/tests.py
+unrest_comments/urls.py
+unrest_comments/views.py
+unrest_comments/migrations/0001_initial.py
+unrest_comments/migrations/__init__.py
