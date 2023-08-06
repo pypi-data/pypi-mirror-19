@@ -1,0 +1,7 @@
+click>=6.7
+click-default-group>=1.2
+ivona_api>=0.2.0
+
+[testing]
+pytest
+flaky
