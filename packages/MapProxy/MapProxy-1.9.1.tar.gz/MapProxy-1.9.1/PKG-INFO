@@ -1,0 +1,193 @@
+Metadata-Version: 1.1
+Name: MapProxy
+Version: 1.9.1
+Summary: An accelerating proxy for web map services
+Home-page: http://mapproxy.org
+Author: Oliver Tonnhofer
+Author-email: olt@omniscale.de
+License: Apache Software License 2.0
+Description: MapProxy is an open source proxy for geospatial data. It caches, accelerates and transforms data from existing map services and serves any desktop or web GIS client.
+        
+        .. image:: http://mapproxy.org/mapproxy.png
+        
+        MapProxy is a tile cache, but also offers many new and innovative features like full support for WMS clients.
+        
+        MapProxy is actively developed and supported by `Omniscale <http://omniscale.com>`_, it is released under the Apache Software License 2.0, runs on Unix/Linux and Windows and is easy to install and to configure.
+        
+        Go to http://mapproxy.org/ for more information.
+        
+        The documentation is available at: http://mapproxy.org/docs/latest/
+        
+        Changes
+        -------
+        1.9.1 2017-01-18
+        ~~~~~~~~~~~~~~~~
+        
+        Fixes:
+        
+        - serve-develop: fixed reloader for Windows installations made
+          with recent pip version (#279)
+        
+        1.9.0 2016-07-22
+        ~~~~~~~~~~~~~~~~
+        
+        Improvements:
+        
+        - New band merge feature. Allows to create false-color or grayscale
+          images on the fly.
+        - Support for ArcGIS REST sources.
+        - Support multiple tilesets for each WMTS layer with the new
+          tile_sources option.
+        - Allow to build WMS images from SQLite cache with more then 330 tiles.
+        - New `arcgis` cache layout. Compatible to ArcGIS exploded caches.
+        - New `mp` cache layout. Reduces number of nested directories.
+        - Prevent unneeded quantizing/re-encoding of images.
+        - Demo client: Support custom tile_size.
+        
+        Fixes:
+        
+        - Fix quantization error for some image modes
+          (e.g. grayscale image with transparency)
+        - Support custom Proj4/EPSG files in mapproxy-util grid.
+        - Convert paletted images to RGB(A) to avoid NEAREST resampling.
+        - Fix quantizing with FASTOCTREE for paletted images with alpha channel.
+        - Keep configured layer order in WMTS capabilities.
+        - Fix coverage loading with Python 3.
+        
+        Other:
+        
+        - Make the output of various utils more clear.
+        - wms.md.title is no longer required, default to "MapProxy WMS".
+        
+        1.8.2 2016-01-22
+        ~~~~~~~~~~~~~~~~
+        
+        Fixes:
+        
+        - serve-develop: fixed reloader for Windows installations made
+          with recent pip version
+        
+        1.8.1 2015-09-22
+        ~~~~~~~~~~~~~~~~
+        
+        Improvements:
+        
+        - WMS 1.3.0: support for metadata required by INSPIRE View Services
+        - WMS: OnlineResource defaults to service URL
+        
+        Fixes:
+        
+        - mapproxy-seed: fix race-condition which prevented termination at the
+          end of the seeding process
+        - autoconfig: parse capabilities without ContactInformation
+        - SQLite cache: close files after seeding
+        - sqlite/mbtiles: fix tile lock location
+        - WMS 1.0.0: fix image format for source requests
+        - WMS: allow floats for X/Y in GetFeatureInfo requests
+        - CouchDB: fix for Python 3
+        
+        Other:
+        
+        - mapproxy-seed: seeding a cache with disable_storage: true returns
+          an error
+        - all changes are now tested against Python 2.7, 3.3, 3.4 and 3.5
+        
+        1.8.0 2015-05-18
+        ~~~~~~~~~~~~~~~~
+        
+        Features:
+        
+        - Support for Python 3.3 or newer
+        
+        Improvements:
+        
+        - WMS is now available at /service, /ows and /wms
+        - WMTS KVP is now available at /service and /ows, RESTful service at /wmts
+        - allow tiled access to layers with multiple map:false sources
+        - add Access-control-allow-origin header to HTTP responses
+        - list KVP and RESTful capabilities on demo page
+        - disable verbose seed output if stdout is not a tty
+        - add globals.cache.link_single_color_images option
+        - support scale_factor for Mapnik sources
+        
+        Fixes:
+        
+        - handle EPSG axis order in WMTS capabilities
+        - pass through legends/featureinfo for recursive caches
+        - accept PNG/JPEG style image_format for WMS 1.0.0
+        - fix TMS capabilities in demo for TMS with use_grid_names
+        - fix ctrl+c behaviour in mapproxy-seed
+        - fix BBOX parsing in autoconf for WMS 1.3.0 services
+        
+        Other:
+        
+        - 1.8.0 is expected to work with Python 2.6, but it is no longer officially supported
+        - MapProxy will now issue warnings about configurations that will change with 2.0.
+          doc/mapproxy_2.rst lists some of the planed incompatible changes
+        
+        1.7.1 2014-07-08
+        ~~~~~~~~~~~~~~~~
+        
+        Fixes:
+        
+        - fix startup of mapproxy-util when libgdal/geos is missing
+        
+        
+        1.7.0 2014-07-07
+        ~~~~~~~~~~~~~~~~
+        
+        Features:
+        
+        - new `mapproxy-util autoconf` tool
+        - new versions option to limit supported WMS versions
+        - set different max extents for each SRS with bbox_srs
+        
+        Improvements:
+        
+        - display list of MultiMapProxy projects sorted by name
+        - check included files (base) for changes in reloader and serve-develop
+        - improve combining of multiple cascaded sources
+        - respect order of --seed/--cleanup tasks
+        - catch and log sqlite3.OperationalError when storing tiles
+        - do not open cascaded responses when image format matches
+        - mapproxy-seed: retry longer if source fails (100 instead of 10)
+        - mapproxy-seed: give more details if source request fails
+        - mapproxy-seed: do not hang nor print traceback if seed ends
+          after permanent source errors
+        - mapproxy-seed: skip seeds/cleanups with empty coverages
+        - keep order of image_formats in WMS capabilities
+        
+        
+        Fixes:
+        
+        - handle errors when loading to many tiles from mbtile/sqlite in
+          one batch
+        - reduce memory when handling large images
+        - allow remove_all for mbtiles cleanups
+        - use extent from layer metadata in WMTS capabilities
+        - handle threshold_res higher than first resolution
+        - fix exception handling in Mapnik source
+        - only init libproj when requested
+        
+        Other:
+        
+        - 1.7.x is the last release with support for Python 2.5
+        - depend on Pillow if PIL is not installed
+        
+        
+        Older changes
+        -------------
+        See https://raw.github.com/mapproxy/mapproxy/master/CHANGES.txt
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Internet :: Proxy Servers
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: Topic :: Scientific/Engineering :: GIS
