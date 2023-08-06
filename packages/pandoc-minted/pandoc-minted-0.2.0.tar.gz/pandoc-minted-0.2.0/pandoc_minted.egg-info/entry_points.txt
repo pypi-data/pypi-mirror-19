@@ -1,0 +1,3 @@
+[console_scripts]
+pandoc-minted = pandoc_minted.cli:main
+
