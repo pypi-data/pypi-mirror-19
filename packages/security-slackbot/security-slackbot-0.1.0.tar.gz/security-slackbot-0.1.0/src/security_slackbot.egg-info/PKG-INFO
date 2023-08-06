@@ -1,0 +1,61 @@
+Metadata-Version: 1.1
+Name: security-slackbot
+Version: 0.1.0
+Summary: Security SlackBot
+Home-page: https://github.com/brifordwylie/security_slackbot
+Author: SuperCowPowers
+Author-email: briford@supercowpowers.com
+License: BSD
+Description: ========
+        Overview
+        ========
+        
+        Security SlackBot is the most awesome slackbot in the entire universe.
+        
+        
+        
+        
+        
+        Installation
+        ============
+        
+        ::
+        
+            pip install security-slackbot
+        
+        Documentation
+        =============
+        
+        https://security_slackbot.readthedocs.io/
+        
+        Development
+        ===========
+        
+        To run the all tests run::
+        
+            tox
+        
+        
+        
+        Changelog
+        =========
+        
+        0.1.0 (2017-02-04)
+        -----------------------------------------
+        
+        * First release on PyPI.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Utilities

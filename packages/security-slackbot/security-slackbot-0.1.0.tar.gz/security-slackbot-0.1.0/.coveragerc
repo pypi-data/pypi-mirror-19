@@ -1,0 +1,16 @@
+[paths]
+source =
+   src/security_slackbot
+   */site-packages/security_slackbot
+
+[run]
+branch = true
+source =
+    security_slackbot
+    tests
+parallel = true
+
+[report]
+show_missing = true
+precision = 2
+omit = *migrations*
