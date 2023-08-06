@@ -1,0 +1,7 @@
+add_command(command="backplane", env={}, identifier="back_plane")
+add_command(command="tick_generator", env={}, identifier="tick_generator")
+add_command(command="tick_counter", env={}, identifier="tick_counter")
+add_command(command="clock_gui", env={}, identifier="clock_gui")
+
+
+
