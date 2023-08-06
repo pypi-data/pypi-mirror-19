@@ -1,0 +1,76 @@
+Metadata-Version: 1.1
+Name: majesticseo
+Version: 0.0.2
+Summary: Python Wrapper around the MajesticSEO API
+Home-page: https://github.com/philippe2803/majesticseo
+Author: Philippe Oger
+Author-email: phil.oger@gmail.com
+License: MIT license
+Description: ===============================
+        majesticseo
+        ===============================
+        
+        
+        .. image:: https://img.shields.io/pypi/v/majesticseo.svg
+                :target: https://pypi.python.org/pypi/majesticseo
+        
+        .. image:: https://img.shields.io/travis/philippe2803/majesticseo.svg
+                :target: https://travis-ci.org/philippe2803/majesticseo
+        
+        .. image:: https://readthedocs.org/projects/majesticseo/badge/?version=latest
+                :target: https://majesticseo.readthedocs.io/en/latest/?badge=latest
+                :alt: Documentation Status
+        
+        .. image:: https://pyup.io/repos/github/philippe2803/majesticseo/shield.svg
+             :target: https://pyup.io/repos/github/philippe2803/majesticseo/
+             :alt: Updates
+        
+        
+        Python Wrapper around the MajesticSEO API
+        
+        
+        * Free software: MIT license
+        * Documentation: https://majesticseo.readthedocs.io.
+        
+        
+        Features
+        --------
+        
+        * TODO
+        
+        Credits
+        ---------
+        
+        This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+        
+        
+        =======
+        History
+        =======
+        
+        0.0.2 (2017-01-16)
+        ------------------
+        
+        * Pypi release fix
+        
+        
+        0.0.1 (2017-01-16)
+        ------------------
+        
+        * First release on PyPI.
+Keywords: majesticseo
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
