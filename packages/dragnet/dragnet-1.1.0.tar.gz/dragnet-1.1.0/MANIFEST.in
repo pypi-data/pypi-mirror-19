@@ -1,0 +1,9 @@
+
+include Makefile
+include requirements.txt
+
+include dragnet/pickled_models/*
+include dragnet/*.cc
+include dragnet/*.cpp
+include dragnet/*.pyx
+
