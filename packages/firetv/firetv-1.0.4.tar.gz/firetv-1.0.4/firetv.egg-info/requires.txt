@@ -1,0 +1,5 @@
+adb>=1.1.1
+
+[firetv-server]
+Flask>=0.10.1
+PyYAML>=3.12
