@@ -1,0 +1,16 @@
+Metadata-Version: 2.0
+Name: nvmdeploy
+Version: 0.3
+Summary: fast release pod tool
+Home-page: https://git.elenet.me/zhilong.wang/nvmdeploy
+Author: stephenw
+Author-email: zhilong.wang@ele.me
+License: MIT
+Keywords: pod release
+Platform: UNKNOWN
+Requires-Dist: PyYAML
+Requires-Dist: python-jenkins
+
+fast release pod tool
+
+
