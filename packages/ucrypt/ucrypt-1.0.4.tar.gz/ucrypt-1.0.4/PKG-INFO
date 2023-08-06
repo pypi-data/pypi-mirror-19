@@ -1,0 +1,25 @@
+Metadata-Version: 1.1
+Name: ucrypt
+Version: 1.0.4
+Summary: An encryption/compression utility for data files.
+Home-page: https://github.com/userify/ucrypt
+Author: Userify Corporation
+Author-email: dev@userify.com
+License: MIT
+Download-URL: https://github.com/userify/ucrypt/tarball/0.1
+Description: ucrypt is a command-line tool and Python library to compress and decrypt/encrypt files with NaCl and gzip.
+            
+        # This utility can be used in your own scripts to securely encrypt or decrypt files. It can be also used to manipulate data files stored within your Userify server and includes some demonstration scripts.
+Keywords: cryptography encrypt decrypt userify
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Text Processing :: General
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
