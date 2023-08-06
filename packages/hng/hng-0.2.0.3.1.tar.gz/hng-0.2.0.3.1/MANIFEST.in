@@ -1,0 +1,5 @@
+include README.rst
+include docs/*.txt
+include hng/data.json
+include *.py
+include hng/*
