@@ -1,0 +1,51 @@
+* https://github.com/lepture/editor
+https://github.com/bergquis/mdance
+
+---------------
+
+1. bisa support embed video
+2. resize editor melalui div.base-editor dengan jquery
+3. views.py: .filter(is_active=True)
+
+@login_required
+def markdown_search_user(request):
+    """
+    Json usernames of the users registered & actived.
+
+    url(method=get):
+        /draceditor/search-user/?username={username}
+
+    Response:
+        error:
+            - `status` is status code (204)
+            - `error` is error message.
+        success:
+            - `status` is status code (204)
+            - `data` is list dict of usernames.
+                { 'status': 200,
+                  'data': [
+                    {'usernane': 'john'},
+                    {'usernane': 'albert'}]
+                }
+    """
+    data = {}
+    username = request.GET.get('username')
+    if username is not None \
+            and username != '' \
+            and ' ' not in username:
+        queryset = User.objects.filter(
+            Q(username__icontains=username)
+        ).filter(is_active=True)
+-------------------
+
+# CHANGELOG v1.1.6
+
+1. Added icons emoji.
+2. Support translation.
+3. Support Fullscreen mode.
+4. Fixed filter users only if user `is_active=True`
+5. Support Keyboard commands for:
+  - <ins>Underscores</ins>, Windows/Linux: `Shift+U`, Mac: `Option+U`
+  - <del>Strikethrough</del>, Windows/Linux: `Shift+S`, Mac: `Option+S`
+6. Removed tooltip/popup of toolbar buttons, because can't handle the positions.
+7. Fixed json error encoding using `LazyEncoder`.
