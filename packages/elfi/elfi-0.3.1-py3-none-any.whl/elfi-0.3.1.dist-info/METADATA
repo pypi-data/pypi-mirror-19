@@ -1,0 +1,66 @@
+Metadata-Version: 2.0
+Name: elfi
+Version: 0.3.1
+Summary: Modular ABC inference framework for python
+Home-page: http://elfi.readthedocs.io
+Author: HIIT
+Author-email: elfi-support@hiit.fi
+License: BSD
+Keywords: abc likelihood-free statistics
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Requires-Dist: GPy (>=1.0.9)
+Requires-Dist: dask (>=0.11.1)
+Requires-Dist: distributed (==1.14.3)
+Requires-Dist: matplotlib (>=1.1)
+Requires-Dist: numpy (>=1.8)
+Requires-Dist: scipy (>=0.16.1)
+Provides-Extra: doc
+Requires-Dist: Sphinx; extra == 'doc'
+Provides-Extra: graphviz
+Requires-Dist: graphviz (>=0.5); extra == 'graphviz'
+Provides-Extra: nosql
+Requires-Dist: unqlite (>=0.6.0); extra == 'nosql'
+
+ELFI - Engine for Likelihood-Free Inference
+===========================================
+
+ELFI is a statistical software package written in Python for Approximative Bayesian Computation (ABC_), also known e.g. as likelihood-free inference, simulator-based inference, approximative Bayesian inference etc. This is useful, when the likelihood function is unknown or difficult to evaluate, but a generative simulator model exists.
+
+.. _ABC: https://en.wikipedia.org/wiki/Approximate_Bayesian_computation
+
+The probabilistic inference model is defined as a directed acyclic graph, which allows for an intuitive means to describe inherent dependencies in the model. The inference pipeline is automatically parallelized with Dask_, which scales well from a desktop up to a cluster environment. The package includes functionality for input/output operations and visualization.
+
+.. _Dask: https://dask.pydata.org
+
+Currently implemented ABC methods:
+
+- rejection sampler
+- Sequential Monte Carlo sampler
+- Bayesian Optimization for Likelihood-Free Inference (BOLFI_) framework
+
+.. _BOLFI: http://jmlr.csail.mit.edu/papers/v17/15-017.html
+
+GitHub page: https://github.com/HIIT/elfi
+
+See examples under the notebooks_ directory to get started. Limited user-support may be asked from elfi-support.at.hiit.fi, but the `Gitter chat`_ is preferable.
+
+.. _notebooks: https://github.com/HIIT/elfi/tree/master/notebooks
+.. _Gitter chat: https://gitter.im/HIIT/elfi?utm_source=share-link&utm_medium=link&utm_campaign=share-link
+
+Licenses:
+
+- Code: BSD3_
+- Documentation: `CC-BY 4.0`_
+
+.. _BSD3: https://opensource.org/licenses/BSD-3-Clause
+.. _CC-BY 4.0: https://creativecommons.org/licenses/by/4.0
+
+
+
