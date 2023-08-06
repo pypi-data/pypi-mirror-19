@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Welcome to pygenome’s documentation! &mdash; pygenome 0.5.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.5.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="pygenome 0.5.0 documentation" href="#" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="#">pygenome 0.5.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="welcome-to-pygenome-s-documentation">
+<h1>Welcome to pygenome&#8217;s documentation!<a class="headerlink" href="#welcome-to-pygenome-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-pygenome.saccharomyces_cerevisiae">
+<span id="pygenome-saccharomyces-cerevisiae-module"></span><h2>pygenome.saccharomyces_cerevisiae module<a class="headerlink" href="#module-pygenome.saccharomyces_cerevisiae" title="Permalink to this headline">¶</a></h2>
+<p>This module provides access to the Saccharomyces cerevisiae genome from Python.
+Sequences can be accessed as Bio.SeqRecord objects provided by Biopython.</p>
+<dl class="class">
+<dt id="pygenome.saccharomyces_cerevisiae.pretty_str">
+<em class="property">class </em><tt class="descclassname">pygenome.saccharomyces_cerevisiae.</tt><tt class="descname">pretty_str</tt><a class="headerlink" href="#pygenome.saccharomyces_cerevisiae.pretty_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">str</span></tt></p>
+<p>This function provide nicer output of strings in the IPython shell</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome">
+<em class="property">class </em><tt class="descclassname">pygenome.saccharomyces_cerevisiae.</tt><tt class="descname">saccharomyces_cerevisiae_genome</tt><a class="headerlink" href="#pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.bidirectional">
+<tt class="descname">bidirectional</tt><big>(</big><em>gene</em><big>)</big><a class="headerlink" href="#pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.bidirectional" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if a gene is not expressed in the same direction on the chromosome as
+the gene immediatelly upstream.</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd><p class="first">Tandem genes:</p>
+<p>Gene1 Gene2
+&#8212;-&gt; &#8212;-&gt;</p>
+<p>bidirectional genes:</p>
+<p>Gene1 Gene2
+&#8212;-&gt; &lt;&#8212;-</p>
+<p class="last">Gene1 Gene2
+&lt;&#8212;- &#8212;-&gt;</p>
+</dd>
+</dl>
+<dl class="docutils">
+<dt>gene <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd>standard name (eg. CYC1 or TDH3)</dd>
+</dl>
+<dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd>Boolean; True or False</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.cache">
+<tt class="descname">cache</tt><em class="property"> = &lt;percache.Cache object at 0x7f43329daed0&gt;</em><a class="headerlink" href="#pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.cds">
+<tt class="descname">cds</tt><big>(</big><em>gene</em><big>)</big><a class="headerlink" href="#pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.cds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the coding sequence assciated with a standard name
+(eg. CYC1) or a systematic name (eg. YJR048W).</p>
+<dl class="docutils">
+<dt>gene <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd>standard name (eg. CYC1) or a systematic name (eg. YJR048W)</dd>
+</dl>
+<dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">Bio.SeqRecord</span></dt>
+<dd>Bio.SeqRecord object</dd>
+</dl>
+<p>cds_genbank_accession
+cds_pydna_code</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygenome</span> <span class="kn">import</span> <span class="n">sg</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sg</span><span class="o">.</span><span class="n">cds</span><span class="p">(</span><span class="s">&quot;TDH3&quot;</span><span class="p">)</span>
+<span class="go">SeqRecord(seq=Seq(&#39;ATGGTTAGAGTTGCTATTAACGGTTTCGGTAGAATCGGTAGATTGGTCATGAGA...TAA&#39;, IUPACAmbiguousDNA()), id=&#39;&lt;unknown id&gt;&#39;, name=&#39;&lt;unknown name&gt;&#39;, description=&#39;&lt;unknown description&gt;&#39;, dbxrefs=[])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">sg</span><span class="o">.</span><span class="n">cds</span><span class="p">(</span><span class="s">&quot;TDH3&quot;</span><span class="p">))</span>
+<span class="go">999</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sg</span><span class="o">.</span><span class="n">cds</span><span class="p">(</span><span class="s">&quot;YJR048W&quot;</span><span class="p">)</span>
+<span class="go">SeqRecord(seq=Seq(&#39;ATGACTGAATTCAAGGCCGGTTCTGCTAAGAAAGGTGCTACACTTTTCAAGACT...TAA&#39;, IUPACAmbiguousDNA()), id=&#39;BK006943.2&#39;, name=&#39;BK006943&#39;, description=&#39;TPA: Saccharomyces cerevisiae S288c chromosome X.&#39;, dbxrefs=[])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">sg</span><span class="o">.</span><span class="n">cds</span><span class="p">(</span><span class="s">&quot;YJR048W&quot;</span><span class="p">))</span>
+<span class="go">330</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.cds_genbank_accession">
+<tt class="descname">cds_genbank_accession</tt><big>(</big><em>gene</em><big>)</big><a class="headerlink" href="#pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.cds_genbank_accession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Same as the cds method, but returns a string representing
+a portion of a Genbank file.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygenome</span> <span class="kn">import</span> <span class="n">sg</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sg</span><span class="o">.</span><span class="n">cds_genbank_accession</span><span class="p">(</span><span class="s">&quot;TDH3&quot;</span><span class="p">)</span>
+<span class="go">&#39;BK006941.2 REGION: complement(882812..883810)&#39;</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.cds_pydna_code">
+<tt class="descname">cds_pydna_code</tt><big>(</big><em>gene</em><big>)</big><a class="headerlink" href="#pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.cds_pydna_code" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.chromosome">
+<tt class="descname">chromosome</tt><big>(</big><em>id</em><big>)</big><a class="headerlink" href="#pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.chromosome" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the chromosome associated with the number id</p>
+<dl class="docutils">
+<dt>id <span class="classifier-delimiter">:</span> <span class="classifier">int or str</span></dt>
+<dd>chromosome number (1-16) or (&#8220;A&#8221;-&#8220;P&#8221;)</dd>
+</dl>
+<dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">Bio.SeqRecord</span></dt>
+<dd>Bio.SeqRecord object</dd>
+</dl>
+<p>chromosomes</p>
+<p>Some of the yeast chromosomes
+return large sequences:</p>
+<dl class="docutils">
+<dt>&#8212;&#8212;- &#8212;&#8212;&#8211;</dt>
+<dd>chr    size(bp)</dd>
+</dl>
+<p>&#8212;&#8212;- &#8212;&#8212;&#8211;
+chr A   230218
+chr B   316620
+chr C   813184
+chr D   576874
+chr E   1531933
+chr F   1090940
+chr G   270161
+chr H   439888
+chr I   562643
+chr J   666816
+chr K   745751
+chr L   924431
+chr M   1078177
+chr N   1091291
+chr O   784333
+&#8212;&#8212;- &#8212;&#8212;-</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygenome</span> <span class="kn">import</span> <span class="n">sg</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">sg</span><span class="o">.</span><span class="n">chromosome</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="go">230218</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sg</span><span class="o">.</span><span class="n">chromosome</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">SeqRecord(seq=Seq(&#39;CCACACCACACCCACACACCCACACACCACACCACACACCACACCACACCCACA...GGG&#39;, IUPACAmbiguousDNA()), id=&#39;BK006935.2&#39;, name=&#39;BK006935&#39;, description=&#39;TPA: Saccharomyces cerevisiae S288c chromosome I.&#39;, dbxrefs=[])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">sg</span><span class="o">.</span><span class="n">chromosome</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span>
+<span class="go">948066</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">sg</span><span class="o">.</span><span class="n">chromosome</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">))</span>
+<span class="go">230218</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.chromosomes">
+<tt class="descname">chromosomes</tt><big>(</big><big>)</big><a class="headerlink" href="#pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.chromosomes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a generator containing all yeast chromosomes in the form of Bio.SeqRecord objects</p>
+<dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">Generator</span></dt>
+<dd>Generator of Bio.SeqRecord object</dd>
+</dl>
+<p>chromosome</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygenome</span> <span class="kn">import</span> <span class="n">sg</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sg</span><span class="o">.</span><span class="n">chromosomes</span><span class="p">()</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<span class="go">SeqRecord(seq=Seq(&#39;CCACACCACACCCACACACCCACACACCACACCACACACCACACCACACCCACA...GGG&#39;, IUPACAmbiguousDNA()), id=&#39;BK006935.2&#39;, name=&#39;BK006935&#39;, description=&#39;TPA: Saccharomyces cerevisiae S288c chromosome I.&#39;, dbxrefs=[])</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.data_dir">
+<tt class="descname">data_dir</tt><em class="property"> = '/home/bjorn/.local/share/sgd_genome_data_files'</em><a class="headerlink" href="#pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.data_dir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.download">
+<tt class="descname">download</tt><big>(</big><em>missing_files=None</em><big>)</big><a class="headerlink" href="#pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.download" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download the sequence files from Saccharomyces Genome Database (www.sgd.org)
+This is typically only done once.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.downstream_gene">
+<tt class="descname">downstream_gene</tt><big>(</big><em>gene</em><big>)</big><a class="headerlink" href="#pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.downstream_gene" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the coding sequence (cds) assciated with the gene downstream
+of gene. This is defined as the gene on the chromosome located
+3&#8217; of the transcription stop point of gene.
+The gene can be given as a standard name
+(eg. CYC1) or a systematic name (eg. YJR048W).</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygenome</span> <span class="kn">import</span> <span class="n">sg</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sg</span><span class="o">.</span><span class="n">downstream_gene</span><span class="p">(</span><span class="s">&quot;RFA1&quot;</span><span class="p">)</span>
+<span class="go">&#39;YAR003W&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sg</span><span class="o">.</span><span class="n">systematic_name</span><span class="p">(</span><span class="s">&quot;RFA1&quot;</span><span class="p">)</span>
+<span class="go">&#39;YAR007C&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sg</span><span class="o">.</span><span class="n">downstream_gene</span><span class="p">(</span><span class="s">&quot;CYC3&quot;</span><span class="p">)</span>
+<span class="go">&#39;YAL040C&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sg</span><span class="o">.</span><span class="n">systematic_name</span><span class="p">(</span><span class="s">&quot;CYC3&quot;</span><span class="p">)</span>
+<span class="go">&#39;YAL039C&#39;</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.intergenic_sequence">
+<tt class="descname">intergenic_sequence</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.intergenic_sequence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function wrapping the decorated function.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.intergenic_sequence_genbank_accession">
+<tt class="descname">intergenic_sequence_genbank_accession</tt><big>(</big><em>upgene</em>, <em>dngene</em><big>)</big><a class="headerlink" href="#pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.intergenic_sequence_genbank_accession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Same as the cds method, but returns a string representing
+a portion of a Genbank file.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygenome</span> <span class="kn">import</span> <span class="n">sg</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sg</span><span class="o">.</span><span class="n">intergenic_sequence_genbank_accession</span><span class="p">(</span><span class="s">&quot;YGR192C&quot;</span><span class="p">,</span> <span class="s">&quot;YGR193C&quot;</span><span class="p">)</span>
+<span class="go">&#39;BK006941.2 REGION: 883811..884508&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.intergenic_sequence_pydna_code">
+<tt class="descname">intergenic_sequence_pydna_code</tt><big>(</big><em>upgene</em>, <em>dngene</em><big>)</big><a class="headerlink" href="#pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.intergenic_sequence_pydna_code" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.locus">
+<tt class="descname">locus</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.locus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function wrapping the decorated function.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.promoter">
+<tt class="descname">promoter</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.promoter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function wrapping the decorated function.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.promoter_genbank_accession">
+<tt class="descname">promoter_genbank_accession</tt><big>(</big><em>gene</em><big>)</big><a class="headerlink" href="#pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.promoter_genbank_accession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Same as the promoter_genbank method, but returns a string representing
+a portion of a Genbank file.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygenome</span> <span class="kn">import</span> <span class="n">sg</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sg</span><span class="o">.</span><span class="n">promoter_genbank_accession</span><span class="p">(</span><span class="s">&quot;TDH3&quot;</span><span class="p">)</span>
+<span class="go">&#39;BK006941.2 REGION: complement(883811..884508)&#39;</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.promoter_pydna_code">
+<tt class="descname">promoter_pydna_code</tt><big>(</big><em>gene</em><big>)</big><a class="headerlink" href="#pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.promoter_pydna_code" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.systematic_name">
+<tt class="descname">systematic_name</tt><big>(</big><em>gene</em><big>)</big><a class="headerlink" href="#pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.systematic_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the systematic name associated with a standard name.</p>
+<dl class="docutils">
+<dt>gene <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd>standard name (eg. CYC1 or TDH3)</dd>
+</dl>
+<dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd>String</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygenome</span> <span class="kn">import</span> <span class="n">sg</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sg</span><span class="o">.</span><span class="n">systematic_name</span><span class="p">(</span><span class="s">&quot;GAL1&quot;</span><span class="p">)</span>
+<span class="go">&#39;YBR020W&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sg</span><span class="o">.</span><span class="n">systematic_name</span><span class="p">(</span><span class="s">&quot;CYC1&quot;</span><span class="p">)</span>
+<span class="go">&#39;YJR048W&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sg</span><span class="o">.</span><span class="n">systematic_name</span><span class="p">(</span><span class="s">&quot;TDH3&quot;</span><span class="p">)</span>
+<span class="go">&#39;YGR192C&#39;</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.tandem">
+<tt class="descname">tandem</tt><big>(</big><em>gene</em><big>)</big><a class="headerlink" href="#pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.tandem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if a gene is expressed in the same direction on the chromosome as
+the gene immediatelly upstream.</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd><p class="first">Tandem genes:</p>
+<p>Gene1 Gene2
+&#8212;-&gt; &#8212;-&gt;</p>
+<p>bidirectional genes:</p>
+<p class="last">Gene1 Gene2
+&#8212;-&gt; &lt;&#8212;-</p>
+</dd>
+</dl>
+<dl class="docutils">
+<dt>gene <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd>standard name (eg. CYC1 or TDH3)</dd>
+</dl>
+<dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd>Boolean; True or False</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.terminator">
+<tt class="descname">terminator</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.terminator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function wrapping the decorated function.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.upstream_gene">
+<tt class="descname">upstream_gene</tt><big>(</big><em>gene</em><big>)</big><a class="headerlink" href="#pygenome.saccharomyces_cerevisiae.saccharomyces_cerevisiae_genome.upstream_gene" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the coding sequence (cds) assciated with the gene upstream
+of gene. This is defined as the gene on the chromosome located
+5&#8217; of the transcription start point of gene.
+The gene can be given as a standard name
+(eg. CYC1) or a systematic name (eg. YJR048W).</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygenome</span> <span class="kn">import</span> <span class="n">sg</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sg</span><span class="o">.</span><span class="n">systematic_name</span><span class="p">(</span><span class="s">&quot;RFA1&quot;</span><span class="p">)</span>
+<span class="go">&#39;YAR007C&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sg</span><span class="o">.</span><span class="n">upstream_gene</span><span class="p">(</span><span class="s">&quot;RFA1&quot;</span><span class="p">)</span>
+<span class="go">&#39;YAR008W&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sg</span><span class="o">.</span><span class="n">systematic_name</span><span class="p">(</span><span class="s">&quot;CYC3&quot;</span><span class="p">)</span>
+<span class="go">&#39;YAL039C&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sg</span><span class="o">.</span><span class="n">systematic_name</span><span class="p">(</span><span class="s">&quot;CYC3&quot;</span><span class="p">)</span>
+<span class="go">&#39;YAL039C&#39;</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Welcome to pygenome&#8217;s documentation!</a><ul>
+<li><a class="reference internal" href="#module-pygenome.saccharomyces_cerevisiae">pygenome.saccharomyces_cerevisiae module</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="#">pygenome 0.5.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Björn Johansson.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>
