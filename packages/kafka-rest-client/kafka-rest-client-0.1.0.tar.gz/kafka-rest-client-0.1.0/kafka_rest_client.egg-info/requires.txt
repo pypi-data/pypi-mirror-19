@@ -1,0 +1,11 @@
+peppercorn
+unittest2
+requests
+oauthlib
+validators
+
+[dev]
+check-manifest
+
+[test]
+coverage

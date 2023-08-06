@@ -1,0 +1,17 @@
+LICENSE.txt
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+kafka_rest_client.egg-info/PKG-INFO
+kafka_rest_client.egg-info/SOURCES.txt
+kafka_rest_client.egg-info/dependency_links.txt
+kafka_rest_client.egg-info/not-zip-safe
+kafka_rest_client.egg-info/requires.txt
+kafka_rest_client.egg-info/top_level.txt
+proofpoint/__init__.py
+proofpoint/kafka/ConsumerFactory.py
+proofpoint/kafka/InfobusConsumer.py
+proofpoint/kafka/KafkaRestConsumer.py
+proofpoint/kafka/__init__.py
+proofpoint/kafka/errors.py
