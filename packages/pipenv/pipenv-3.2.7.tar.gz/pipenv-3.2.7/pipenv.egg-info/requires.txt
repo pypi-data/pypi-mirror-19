@@ -1,0 +1,12 @@
+crayons
+toml
+click>=6.7
+click-completion
+pip
+parse
+virtualenv
+delegator.py>=0.0.6
+requirements-parser
+pexpect
+pipfile==0.0.1
+requests>=2.4.0
