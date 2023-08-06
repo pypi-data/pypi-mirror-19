@@ -1,0 +1,16 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.py
+django_fileman.egg-info/PKG-INFO
+django_fileman.egg-info/SOURCES.txt
+django_fileman.egg-info/dependency_links.txt
+django_fileman.egg-info/not-zip-safe
+django_fileman.egg-info/requires.txt
+django_fileman.egg-info/top_level.txt
+fileman/__init__.py
+fileman/_version.py
+fileman/admin.py
+fileman/apps.py
+fileman/forms.py
+fileman/views.py
