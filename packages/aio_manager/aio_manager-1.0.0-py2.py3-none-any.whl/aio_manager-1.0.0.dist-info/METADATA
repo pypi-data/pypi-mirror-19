@@ -1,0 +1,32 @@
+Metadata-Version: 2.0
+Name: aio-manager
+Version: 1.0.0
+Summary: Script manager for aiohttp.
+Home-page: https://github.com/rrader/aio_manager
+Author: Roman Rader
+Author-email: antigluk@gmail.com
+License: BSD
+Platform: POSIX
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Environment :: Web Environment
+Classifier: Development Status :: 4 - Beta
+Provides: aio_manager
+Requires-Dist: aiohttp
+Requires-Dist: colorama
+Provides-Extra: mysql
+Requires-Dist: aiomysql; extra == 'mysql'
+Requires-Dist: sqlalchemy (>=0.9); extra == 'mysql'
+Provides-Extra: postgres
+Requires-Dist: aiopg; extra == 'postgres'
+Requires-Dist: sqlalchemy (>=0.9); extra == 'postgres'
+Provides-Extra: sa
+Requires-Dist: sqlalchemy (>=0.9); extra == 'sa'
+
+Script manager for aiohttp.
+Inspired by Flask-script. Allows to write external scripts. 
+
