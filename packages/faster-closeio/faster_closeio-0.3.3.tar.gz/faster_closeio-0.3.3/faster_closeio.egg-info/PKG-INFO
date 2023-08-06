@@ -1,0 +1,58 @@
+Metadata-Version: 1.1
+Name: faster-closeio
+Version: 0.3.3
+Summary: Slim API wrapper to access close.io CRM
+Home-page: https://github.com/Thermondo/closeio
+Author: Denis Cornehl
+Author-email: denis.cornehl@gmail.com
+License: BSD
+Download-URL: https://github.com/Thermondo/closeio
+Description: =======
+        closeio
+        =======
+        
+        .. image:: https://img.shields.io/pypi/v/faster_closeio.svg
+            :target: https://pypi.python.org/pypi/faster_closeio/
+            :alt: PyPi Version
+        
+        .. image:: https://travis-ci.org/Thermondo/closeio.svg?branch=master
+            :target: https://travis-ci.org/Thermondo/closeio
+        
+        .. image:: https://coveralls.io/repos/Thermondo/closeio/badge.svg?branch=master
+            :target: https://coveralls.io/r/Thermondo/closeio
+        
+        .. image:: https://img.shields.io/badge/license-BSD-blue.svg
+            :target: https://pypi.python.org/pypi/faster_closeio/
+            :alt: BSD License
+        
+        Slim API wrapper to access close.io CRM
+        
+        * Free software: BSD license
+        * Documentation: http://closeio.rtfd.org.
+        
+        Features
+        --------
+        
+        * TODO
+        
+        
+        
+        
+        History
+        -------
+        
+        0.1.0 (2014-04-01)
+        ++++++++++++++++++
+        
+        * First release on PyPI.
+Keywords: closeio
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
