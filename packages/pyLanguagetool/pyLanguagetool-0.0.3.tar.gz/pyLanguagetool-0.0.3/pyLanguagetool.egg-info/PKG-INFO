@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: pyLanguagetool
+Version: 0.0.3
+Summary: A python library and CLI for the LanguageTool JSON API
+Home-page: https://github.com/Findus23/pylanguagetool
+Author: Lukas Winkler
+Author-email: l.winkler23@mailbox.org
+License: MIT
+Description: UNKNOWN
+Keywords: languagetool spell grammar checker
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Text Processing :: Linguistic
