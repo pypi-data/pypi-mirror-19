@@ -1,0 +1,4 @@
+[console_scripts]
+github-close-inactive-issues = github_bot_close_inactive_issues.close_inactive_issues:main
+github-rate-limit = github_bot_close_inactive_issues.rate_limit:main
+
