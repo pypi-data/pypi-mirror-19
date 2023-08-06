@@ -1,0 +1,10 @@
+gevent
+iso8601
+munch
+retrying
+simplejson
+requests
+python-magic
+
+[test]
+bottle
