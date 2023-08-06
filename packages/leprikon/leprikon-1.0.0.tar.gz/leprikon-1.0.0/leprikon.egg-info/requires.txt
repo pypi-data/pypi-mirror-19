@@ -1,0 +1,11 @@
+PyPDF2
+cmsplugin-filer
+django>=1.9
+django-cms>=3.4
+django-countries
+django-filer
+django-ganalytics
+django-haystack
+django-localflavor
+djangocms_text_ckeditor
+trml2pdf
