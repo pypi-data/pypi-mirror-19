@@ -1,0 +1,15 @@
+setup.cfg
+setup.py
+ksx1026/__init__.py
+ksx1026/constants.py
+ksx1026/normalization.py
+ksx1026/sorting.py
+ksx1026/uchar.py
+ksx1026.egg-info/PKG-INFO
+ksx1026.egg-info/SOURCES.txt
+ksx1026.egg-info/dependency_links.txt
+ksx1026.egg-info/top_level.txt
+tests/__init__.py
+tests/test_enclosed.py
+tests/test_modern_jamo.py
+tests/test_syllable.py
