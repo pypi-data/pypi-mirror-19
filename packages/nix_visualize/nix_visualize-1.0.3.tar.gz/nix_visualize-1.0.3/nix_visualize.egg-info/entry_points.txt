@@ -1,0 +1,3 @@
+[console_scripts]
+nix-visualize = nix_visualize.visualize_tree:main
+
