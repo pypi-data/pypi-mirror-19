@@ -1,0 +1,10 @@
+grokcore.component
+setuptools
+zope.component
+zope.configuration
+zope.error
+zope.interface
+zope.publisher
+
+[test]
+zope.testing
