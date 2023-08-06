@@ -1,0 +1,49 @@
+# This file exists so you can easily regenerate your project.
+#
+# `cookiepatcher` is a convenient shim around `cookiecutter`
+# for regenerating projects (it will generate a .cookiecutterrc 
+# automatically for any template). To use it:
+#
+#    pip install cookiepatcher
+#    cookiepatcher gh:ionelmc/cookiecutter-pylibrary project-path
+#
+# See:
+#    https://pypi.python.org/pypi/cookiecutter
+#
+# Alternatively, you can run:
+#
+#    cookiecutter --overwrite-if-exists --config-file=project-path/.cookiecutterrc gh:ionelmc/cookiecutter-pylibrary
+
+default_context:
+
+    appveyor:                  'yes'
+    c_extension_cython:        'yes'
+    c_extension_optional:      'yes'
+    c_extension_support:       'yes'
+    codacy:                    'yes'
+    codeclimate:               'yes'
+    codecov:                   'yes'
+    command_line_interface:    'click'
+    command_line_interface_bin_name: 'omniglot'
+    coveralls:                 'yes'
+    distribution_name:         'omniglot'
+    email:                     'jerome.bergmann@rwth-aachen.de'
+    full_name:                 'Jerome Bergmann'
+    github_username:           'j340m3'
+    landscape:                 'yes'
+    package_name:              'omniglot'
+    project_name:              'Omniglot'
+    project_short_description: 'A programming language with mutable syntax and semantics.'
+    release_date:              'today'
+    repo_name:                 'omniglot'
+    requiresio:                'yes'
+    scrutinizer:               'yes'
+    sphinx_doctest:            'yes'
+    sphinx_theme:              'sphinx-py3doc-enhanced-theme'
+    test_matrix_configurator:  'no'
+    test_matrix_separate_coverage: 'no'
+    test_runner:               'pytest'
+    travis:                    'yes'
+    version:                   '0.1.0'
+    website:                   'none'
+    year:                      'now'

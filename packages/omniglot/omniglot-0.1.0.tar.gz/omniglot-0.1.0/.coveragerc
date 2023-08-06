@@ -1,0 +1,16 @@
+[paths]
+source =
+   src/omniglot
+   */site-packages/omniglot
+
+[run]
+branch = true
+source =
+    omniglot
+    tests
+parallel = true
+
+[report]
+show_missing = true
+precision = 2
+omit = *migrations*
