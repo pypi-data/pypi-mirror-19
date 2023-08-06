@@ -1,0 +1,40 @@
+Metadata-Version: 1.1
+Name: term2image
+Version: 0.1
+Summary: Convert terminal command output to an image
+Home-page: https://github.com/ajdavis/term2image
+Author: A. Jesse Jiryu Davis
+Author-email: jesse@emptysquare.net
+License: GNU Lesser General Public License v3 (LGPLv3)
+Description: ==========
+        term2image
+        ==========
+        
+        Read the output of a terminal command like "man" or "ls" and write a PNG.
+        
+        .. code-block:: none
+        
+          usage: term2image [-h] [-i INFILE] [-o OUTFILE]
+        
+          Convert terminal command output to an image
+        
+          optional arguments:
+            -h, --help            show this help message and exit
+            -i INFILE, --infile INFILE
+            -o OUTFILE, --outfile OUTFILE
+        
+        Example
+        =======
+        
+        Output of ``man which | term2image -o which.png``:
+        
+        .. image:: which.png
+        
+Keywords: terminal image
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
