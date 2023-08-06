@@ -1,0 +1,10 @@
+MANIFEST.in
+setup.py
+ricotta/IPython_support.py
+ricotta/__init__.py
+ricotta.egg-info/PKG-INFO
+ricotta.egg-info/SOURCES.txt
+ricotta.egg-info/dependency_links.txt
+ricotta.egg-info/not-zip-safe
+ricotta.egg-info/top_level.txt
+ricotta/package_data/ricotta-bundle.js
