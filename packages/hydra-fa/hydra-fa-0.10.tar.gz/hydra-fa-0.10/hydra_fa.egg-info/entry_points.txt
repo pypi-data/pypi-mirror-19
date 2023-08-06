@@ -1,0 +1,4 @@
+[console_scripts]
+fa-automationserver = automationserver.main:main
+fa-cli-query = cli.main:main
+
