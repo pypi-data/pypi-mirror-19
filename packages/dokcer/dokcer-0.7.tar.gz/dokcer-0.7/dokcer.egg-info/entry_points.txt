@@ -1,0 +1,4 @@
+
+            [console_scripts]
+            dokcer=dokcer.cli:cli
+      
