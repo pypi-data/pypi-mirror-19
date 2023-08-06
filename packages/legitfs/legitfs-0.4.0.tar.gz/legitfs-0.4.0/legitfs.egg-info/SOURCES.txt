@@ -1,0 +1,13 @@
+MANIFEST.in
+README.rst
+setup.py
+legitfs/__init__.py
+legitfs/cli.py
+legitfs/fs.py
+legitfs/util.py
+legitfs.egg-info/PKG-INFO
+legitfs.egg-info/SOURCES.txt
+legitfs.egg-info/dependency_links.txt
+legitfs.egg-info/entry_points.txt
+legitfs.egg-info/requires.txt
+legitfs.egg-info/top_level.txt
