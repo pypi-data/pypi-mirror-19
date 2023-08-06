@@ -1,0 +1,10 @@
+MANIFEST.in
+setup.py
+ezflix/__init__.py
+ezflix/__main__.py
+ezflix/ezflix.py
+ezflix.egg-info/PKG-INFO
+ezflix.egg-info/SOURCES.txt
+ezflix.egg-info/dependency_links.txt
+ezflix.egg-info/entry_points.txt
+ezflix.egg-info/top_level.txt
