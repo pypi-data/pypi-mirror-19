@@ -1,0 +1,72 @@
+Metadata-Version: 1.1
+Name: vivialconnect
+Version: 0.1.10
+Summary: Vivial Connect API Client Library for Python
+Home-page: https://www.vivialconnect.net/
+Author: Vivial Connect
+Author-email: support@support.vivialconnect.net
+License: MIT
+Description: Vivial Connect
+        --------------
+        
+        Vivial Connect is a solution set specifically for developers looking for a simple,
+        affordable and scalable messaging solution. Vivial Connect supports rapid development
+        and deployment. Our API platform supports various mobile messaging needs, enabling
+        developers to easily and affordably send and receive communications for any application.
+        
+        Our API is Fun
+        ``````````````
+        
+        Save code to ``example.py`` file:
+        
+        .. code:: python
+        
+            from vivialconnect import Resource, Message
+        
+            Resource.api_key = "my-api-key"
+            Resource.api_secret = "my-api-secret"
+            Resource.api_account_id = "123456"
+        
+            def send_message(to_number=None, from_number=None, body=None):
+                message = Message()
+                message.from_number = from_number
+                message.to_number = to_number
+                message.body = body
+                message.send()
+        
+            send_message(to_number='+11234567890',
+                         from_number='+19132597591',
+                         body='Howdy, from Vivial Connect!')
+        
+        And Easy to Setup
+        `````````````````
+        
+        Update your credentials, and run it:
+        
+        .. code:: bash
+        
+            $ pip install vivialconnect
+            $ python example.py
+        
+        Links
+        `````
+        
+        * `website <https://www.vivialconnect.net/>`_
+        * `documentation <https://www.vivialconnect.net/docs/>`_
+        * `development version
+          <https://github.com/vivialconnect/vivialconnect-python>`_
+        
+Keywords: vivial,vivialconnect
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Communications :: Telephony
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
