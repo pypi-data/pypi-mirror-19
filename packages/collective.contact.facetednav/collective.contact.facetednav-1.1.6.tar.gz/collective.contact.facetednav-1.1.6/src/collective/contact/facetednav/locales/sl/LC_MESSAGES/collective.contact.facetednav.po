@@ -1,0 +1,96 @@
+# Harald Friessnegger <harald@webmeisterei.com>, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2016-09-29 10:38+0000\n"
+"PO-Revision-Date: 2016-12-14 10:55+0100\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
+"Language-Code: sl\n"
+"Language-Name: Slovenian\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+"Last-Translator: Harald Friessnegger <harald@webmeisterei.com>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
+"Language: sl\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: ../vocabularies.py:20
+msgid "Contacts"
+msgstr "Kontakti"
+
+#: ../browser/subtyper.py:83
+msgid "Contacts actions disabled"
+msgstr "Dejanja povezana s kontakti onemogočena"
+
+#: ../browser/subtyper.py:77
+msgid "Contacts actions enabled"
+msgstr "Dejana povezana s kontakti omogočena"
+
+#: ../browser/actions/delete.py:15
+msgid "Delete selected contacts"
+msgstr "Izbriši izbrane kontakte"
+
+#: ../browser/actions/delete.py:75
+msgid "Delete this contact"
+msgstr "Izbriši ta kontakt"
+
+#: ../profiles/default/actions.xml
+msgid "Disable actions"
+msgstr "Onemogoči dejanje"
+
+#: ../profiles/default/actions.xml
+msgid "Enable actions"
+msgstr "Omogoči dejanje"
+
+#: ../browser/actions/excelexport.py:7
+msgid "Excel export"
+msgstr "Excel poročilo"
+
+#: ../vocabularies.py:19
+msgid "Organizations"
+msgstr "Organizacije"
+
+#: ../vocabularies.py:21
+msgid "Persons"
+msgstr "Osebe"
+
+#: ../browser/actions/batchactions.pt:15
+msgid "Select all"
+msgstr "Izberi vse"
+
+#: ../browser/actions/delete.py:46
+msgid "Unauthorized: ${path}"
+msgstr "Neavtorizirano: ${path}"
+
+#: ../browser/actions/batchactions.pt:15
+msgid "Unselect all"
+msgstr "Odpravi izbiro za vse"
+
+#. Default: "Are you sure you want to remove $num selected content(s) ?"
+#: ../browser/actions/delete.py:23
+msgid "confirm_delete_selection"
+msgstr "Ali ste prepričani,da želite izbrisati ${num} izbranih predmetov?"
+
+#. Default: "There is no contact matching your criteria."
+#: ../browser/preview-items.pt:42
+msgid "help_no_result"
+msgstr "Ni kontakta, ki bi ustrezal vašim kriterijem."
+
+#. Default: "${num} object(s) were not deleted : ${fails}"
+#: ../browser/actions/delete.py:60
+msgid "msg_objects_delete_failed"
+msgstr "${num} izbranih predmetov ni bilo mogoče izbrisati: ${fails}"
+
+#. Default: "${num} object(s) deleted"
+#: ../browser/actions/delete.py:54
+msgid "msg_objects_deleted"
+msgstr "${num} izbranih predmetov je bilo izbrisanih"
+
+#. Default: "Selected contacts: ${num}"
+#: ../browser/actions/batchactions.pt:28
+msgid "selected_contacts_num"
+msgstr "Izbrani kontakti: ${num}"
+
