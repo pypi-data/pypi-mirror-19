@@ -1,0 +1,3 @@
+[console_scripts]
+flyenv = flyenv.flyenv:command_line_runner
+
