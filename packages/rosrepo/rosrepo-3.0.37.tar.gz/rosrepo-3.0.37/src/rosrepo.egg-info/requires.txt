@@ -1,0 +1,9 @@
+catkin_pkg
+catkin_tools
+python-dateutil
+requests
+rosdep
+pyyaml
+
+[:python_version<'3']
+futures
