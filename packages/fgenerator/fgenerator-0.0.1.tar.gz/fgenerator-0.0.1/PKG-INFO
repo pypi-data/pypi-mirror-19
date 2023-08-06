@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: fgenerator
+Version: 0.0.1
+Summary: The fgenerator Project
+Home-page: https://github.com/stfc/fgenerator
+Author: Rupert Ford
+Author-email: rupert.ford@stfc.ac.uk
+License: OSI Approved :: BSD 3-Clause License
+Description: This project contains Fortran code generation and modification software written in python
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Fortran
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development
+Classifier: Topic :: Utilities
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
