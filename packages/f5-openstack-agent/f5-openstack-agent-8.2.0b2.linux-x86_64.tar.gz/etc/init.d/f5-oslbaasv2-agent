@@ -1,0 +1,207 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides:             f5-openstack-agent
+# Required-Start:       $remote_fs $syslog
+# Required-Stope:       $remote_fs $syslog
+# Should-Start:         keystone neutron-server
+# Should-Stop:          keystone neutron-server
+# Default-Start:        2 3 4 5
+# Default-Stop:         0 1 6
+# Short-Description:    f5-openstack-agent
+# Description:          Provides the F5® OpenStack agent to configure BIG-IP®
+### END INIT INFO
+
+PROJECT_NAME=neutron
+NAME=f5-oslbaasv2-agent
+SERVICE=f5-oslbaasv2-agent
+SCRIPTNAME="/etc/init.d/${NAME}"
+NEUTRON_CONF="/etc/neutron/neutron.conf"
+F5_AGENT_CONF="/etc/neutron/services/f5/f5-openstack-agent.ini"
+STARTDAEMON_ARGS=""
+
+[ -r "${F5_AGENT_CONF}" ] && DAEMON_ARGS="${DAEMON_ARGS} --config-file ${F5_AGENT_CONF}"
+[ -r "${NEUTRON_CONF}" ] && DAEMON_ARGS="${DAEMON_ARGS} --config-file ${NEUTRON_CONF}"
+
+PATH=/sbin:/user/sbin:/bin:/usr/bin
+
+if [ -x "/usr/local/bin/${NAME}" ]; then
+	DAEMON="/usr/local/bin/${NAME}"
+else
+	DAEMON="/usr/bin/${NAME}"
+fi
+
+if [ -z "${SYSTEM_USER}" ]; then
+    id ${PROJECT_NAME} >/dev/null 2>&1
+    if [[ $? == 0 ]]; then
+	SYSTEM_USER=${PROJECT_NAME}
+	STARTDAEMON_ARGS=" --USER ${SYSTEM_USER}"
+    else
+	SYSTEM_USER=$(whoami)
+    fi
+    if [ "${SYSTEM_USER}" != "root" ]; then
+	SYSTEM_GROUP=${SYSTEM_USER}
+	STARTDAEMON_CHUID="--chuid ${SYSTEM_USER}"
+    fi
+fi
+
+PIDFILE="/var/run/${PROJECT_NAME}/${NAME}.pid"
+STARTDAEMON_ARGS=" --start  $STARTDAEMON_CHUID --background --make-pidfile --pidfile ${PIDFILE}"
+[ -x $DAEMON ] || exit 4
+
+# If ran as root, create /var/lock/X, /var/run/X, /var/lib/X and /var/log/X as needed
+for i in lock run log lib ; do
+    mkdir -p /var/$i/${PROJECT_NAME}
+    chown ${SYSTEM_USER} /var/$i/${PROJECT_NAME}
+done
+
+STARTDAEMON_ARGS=${STARTDAEMON_ARGS}" --chdir /var/lib/${PROJECT_NAME}"
+. /lib/lsb/init-functions
+
+LOCKFILE=/var/lock/neutron/${NAME}
+
+# Manage log options: logfile and/or syslog, depending on user's choosing
+LOGFILE="/var/log/${PROJECT_NAME}/${NAME}.log"
+[ -r /etc/default/openstack ] && . /etc/default/openstack
+[ -r /etc/default/$NAME ] && . /etc/default/$NAME
+[ "x$USE_SYSLOG" = "xyes" ] && DAEMON_ARGS="$DAEMON_ARGS --use-syslog"
+[ "x$USE_LOGFILE" != "xno" ] && DAEMON_ARGS="$DAEMON_ARGS --log-file=$LOGFILE"
+
+agent_start() {
+    start_cmd="start-stop-daemon ${STARTDAEMON_ARGS} --exec ${DAEMON}  -- ${DAEMON_ARGS}"
+    eval $start_cmd
+    retval=$?
+
+    [ $retval -eq 0 ] && touch $LOCKFILE
+
+    return $retval
+}
+
+agent_stop() {
+    start-stop-daemon --stop --quiet -p $PIDFILE --retry=TERM/30/KILL/5
+    retval=$?
+
+    [ $retval -eq 0 ] && rm -f $lockfile
+    rm -rf $PIDFILE
+    return $retval
+}
+
+agent_restart() {
+    agent_stop
+    agent_start
+}
+
+reload() {
+    agent_restart
+}
+
+force_reload() {
+    agent_restart
+}
+
+rh_status() {
+    if [ ! -f $PIDFILE ]; then
+	return 3
+    fi
+
+    pid=$(cat $PIDFILE)
+    if ! ps --no-headers p "$pid" | grep ${NAME} > /dev/null; then
+	return 1
+    fi
+
+    start-stop-daemon --status -p $PIDFILE
+    retval=$?
+
+    return $retval
+}
+
+rh_status_q() {
+    rh_status >/dev/null 2>&1
+}
+
+
+case "$1" in
+    start)
+	log_daemon_msg "Starting f5-oslbaasv2-agent" "f5-oslbaasv2-agent"
+	agent_start
+	ret=$?
+	case $ret in
+	0)
+		log_end_msg 0
+		;;
+	1)
+		log_end_msg 1
+		echo "pid file '$PIDFILE' found, f5-oslbaasv2-agent not started"
+		;;
+	*)
+		log_end_msg 1
+		;;
+	esac
+	exit $ret
+        ;;
+    stop)
+	log_daemon_msg "Stopping f5-oslbaasv2-agent" "fa-oslbaasv2-agent"
+	agent_stop
+	ret=$?
+	case $ret in
+	0)
+		log_end_msg 0
+		;;
+	1)
+		log_end_msg 1
+		echo "pid file '$PIDFILE' found, f5-oslbaasv2-agent not started"
+		;;
+	*)
+		log_end_msg 1
+		;;
+	esac
+	exit $ret
+        ;;
+    restart)
+	log_daemon_msg "Restarting f5-oslbaasv2-agent" "fa-oslbaasv2-agent"
+        agent_restart
+	ret=$?
+	case $ret in
+	    0)
+		log_end_msg 0
+		;;
+	    *)
+		log_end_msg 1
+		;;
+	esac
+	exit $ret
+        ;;
+    reload)
+        rh_status_q || exit 7
+        $1
+        ;;
+    force-reload)
+        force_reload
+        ;;
+    status)
+	rh_status
+	ret=$?
+	case $ret in
+	0)
+		log_daemon_msg "f5-oslbaasv2-agent running"
+		;;
+	1)
+		log_daemon_msg "pid file '$PIDFILE' found, f5-oslbaasv2-agent not started"
+		;;
+	3)
+		log_daemon_msg "f5-oslbaasv2-agent is not running"
+		;;
+	4)
+		log_daemon_msg "f5-oslbaasv2-agent status unknown"
+		;;
+	esac
+	exit $ret
+        ;;
+    condrestart|try-restart)
+        rh_status_q || exit 0
+        restart
+        ;;
+    *)
+        log_daemon_msg $"Usage: $0 {start|stop|status|restart|condrestart|try-restart|reload|force-reload}"
+        exit 2
+esac
+exit $?
