@@ -1,0 +1,14 @@
+MANIFEST.in
+requirements.txt
+setup.py
+falcon_sqlalchemy/__init__.py
+falcon_sqlalchemy/hooks.py
+falcon_sqlalchemy/jsonencoder.py
+falcon_sqlalchemy/resource.py
+falcon_sqlalchemy/types.py
+falcon_sqlalchemy/util.py
+falcon_sqlalchemy.egg-info/PKG-INFO
+falcon_sqlalchemy.egg-info/SOURCES.txt
+falcon_sqlalchemy.egg-info/dependency_links.txt
+falcon_sqlalchemy.egg-info/requires.txt
+falcon_sqlalchemy.egg-info/top_level.txt

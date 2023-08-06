@@ -1,0 +1,14 @@
+Metadata-Version: 1.1
+Name: falcon_sqlalchemy
+Version: 0.2.2
+Summary: Falcon extension to easily use SQLAlchemy
+Home-page: https://github.com/vixcess/falcon-sqlalchemy
+Author: Shiqiao Du
+Author-email: lucidfrontier.45@gmail.com
+License: Apache License version 2
+Description: # falcon-sqlalchemy
+        Falcon extension to easily use SQLAlchemy
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
