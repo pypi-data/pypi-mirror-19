@@ -1,0 +1,39 @@
+<div id="macros">
+{% macro make_link(view, label) -%}
+<a href="{{ url_for(view, **kwargs) }}">{{label}}</a>
+{%- endmacro %}
+
+
+{% macro statslink(stats, stat, playbook, host) %}
+<td>
+{% if stats[stat] and stats[stat] >= 1 -%}
+{{ make_link('playbook.playbook_results', stats[stat],
+   playbook=playbook.id, host=host.name, status=stat) }}
+{% else -%}
+0
+{% endif %}
+</td>
+{% endmacro %}
+
+{% macro render_status(status) %}
+{% if status == 'success' %}
+    <span class="pficon pficon-ok list-view-pf-icon-md list-view-pf-icon-success" title="Playbook finished successfully"></span>
+{% elif status == 'failed' %}
+    <span class="pficon pficon-error-circle-o list-view-pf-icon-md list-view-pf-icon-danger" title="Playbook finished with errors"></span>
+{% elif status == 'incomplete' %}
+    <span class="pficon pficon-info list-view-pf-icon-md list-view-pf-icon-info" title="Playbook was interrupted: data will be incomplete."></span>
+{% else %}
+    <span class="fa fa-question-circle" title="The status of this playbook is unknown."></span>
+{% endif %}
+{% endmacro %}
+
+{% macro render_value_type(value, type) %}
+{% if type == 'json' %}
+    <pre>{{ value |to_nice_json |safe }}</pre>
+{% elif type == 'url' %}
+    <a href="{{ value }}" target="_blank">{{ value }}</a>
+{% else %}
+    <pre>{{ value }}</pre>
+{% endif %}
+{% endmacro %}
+</div>
