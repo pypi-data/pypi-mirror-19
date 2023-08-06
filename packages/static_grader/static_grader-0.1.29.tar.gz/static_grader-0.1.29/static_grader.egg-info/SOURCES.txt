@@ -1,0 +1,13 @@
+setup.py
+static_grader/__init__.py
+static_grader/grader_server.py
+static_grader/scorers.py
+static_grader/serializable.py
+static_grader.egg-info/PKG-INFO
+static_grader.egg-info/SOURCES.txt
+static_grader.egg-info/dependency_links.txt
+static_grader.egg-info/requires.txt
+static_grader.egg-info/top_level.txt
+test/test_flask_grader.py
+test/test_grader.py
+test/test_parsing.py
