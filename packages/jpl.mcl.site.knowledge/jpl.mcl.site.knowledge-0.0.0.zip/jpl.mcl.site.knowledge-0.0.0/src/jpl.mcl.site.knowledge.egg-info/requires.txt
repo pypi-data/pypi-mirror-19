@@ -1,0 +1,13 @@
+setuptools
+Products.CMFPlone
+plone.api
+Products.CMFPlacefulWorkflow
+plone.app.dexterity [grok, relations]
+z3c.relationfield
+plone.app.registry
+plone.app.relationfield
+plone.behavior
+rdflib
+
+[test]
+plone.app.testing
