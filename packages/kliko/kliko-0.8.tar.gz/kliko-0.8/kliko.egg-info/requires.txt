@@ -1,0 +1,12 @@
+pykwalify
+future
+docopt
+docker-py
+repoze.lru
+
+[django]
+django
+django-form-utils
+
+[luigi]
+luigi
