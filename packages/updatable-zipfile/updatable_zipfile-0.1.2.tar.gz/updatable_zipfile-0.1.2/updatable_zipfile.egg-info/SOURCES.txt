@@ -1,0 +1,10 @@
+MANIFEST.in
+setup.cfg
+setup.py
+versioneer.py
+updatable_zipfile/__init__.py
+updatable_zipfile/_version.py
+updatable_zipfile.egg-info/PKG-INFO
+updatable_zipfile.egg-info/SOURCES.txt
+updatable_zipfile.egg-info/dependency_links.txt
+updatable_zipfile.egg-info/top_level.txt
