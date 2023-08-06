@@ -1,0 +1,1105 @@
+[2017-01-16 05:39:48,243] - alignak_webui - INFO - --------------------------------------------------------------------------------
+[2017-01-16 05:39:48,244] - alignak_webui - INFO - Alignak-WebUI, version 0.6.7
+[2017-01-16 05:39:48,244] - alignak_webui - INFO - Copyright (c) 2015-2017 - Frédéric Mohier
+[2017-01-16 05:39:48,245] - alignak_webui - INFO - License: GNU Affero General Public License, version 3
+[2017-01-16 05:39:48,245] - alignak_webui - INFO - --------------------------------------------------------------------------------
+[2017-01-16 05:39:48,245] - alignak_webui - INFO - --------------------------------------------------------------------------------
+[2017-01-16 05:39:48,246] - alignak_webui - INFO - Alignak-WebUI, listening on 0.0.0.0:5001 (debug mode: False)
+[2017-01-16 05:39:48,246] - alignak_webui - INFO - Alignak-WebUI, using Alignak Backend on http://94.76.229.155:6000
+[2017-01-16 05:39:48,246] - alignak_webui - INFO - Alignak-WebUI, using Alignak Web Services on http://demo.alignak.net:8888
+[2017-01-16 05:39:48,247] - alignak_webui - INFO - --------------------------------------------------------------------------------
+[2017-01-16 05:39:48,247] - alignak_webui.application - INFO - Initializing application...
+[2017-01-16 05:39:48,248] - alignak_webui.application - INFO - load plugins from: /home/alignak/alignak-webui/alignak_webui/plugins
+[2017-01-16 05:39:48,248] - alignak_webui.application - INFO - trying to load plugin 'services' ...
+[2017-01-16 05:39:48,262] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.services.services.PluginServices'>]
+[2017-01-16 05:39:48,283] - alignak_webui.utils.plugin - INFO - Found widget 'information' for service
+[2017-01-16 05:39:48,284] - alignak_webui.utils.plugin - INFO - Found widget 'configuration' for service
+[2017-01-16 05:39:48,284] - alignak_webui.utils.plugin - INFO - Found widget 'metrics' for service
+[2017-01-16 05:39:48,284] - alignak_webui.utils.plugin - INFO - Found widget 'grafana' for service
+[2017-01-16 05:39:48,287] - alignak_webui.utils.plugin - INFO - Found widget 'services_table' for external
+[2017-01-16 05:39:48,287] - alignak_webui.utils.plugin - INFO - Found widget 'services_table' for dashboard
+[2017-01-16 05:39:48,288] - alignak_webui.utils.plugin - INFO - Found widget 'services_chart' for external
+[2017-01-16 05:39:48,288] - alignak_webui.utils.plugin - INFO - Found widget 'services_chart' for dashboard
+[2017-01-16 05:39:48,288] - alignak_webui.utils.plugin - INFO - Found table 'services_table' for external
+[2017-01-16 05:39:48,289] - alignak_webui.utils.plugin - INFO - Found list '/services/list' for service
+[2017-01-16 05:39:48,289] - alignak_webui.utils.plugin - INFO - Plugin Services is installed and enabled.
+[2017-01-16 05:39:48,289] - alignak_webui.application - INFO - registered plugin 'services'
+[2017-01-16 05:39:48,290] - alignak_webui.application - INFO - trying to load plugin 'hostgroups' ...
+[2017-01-16 05:39:48,306] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.hostgroups.hostgroups.PluginHostsGroups'>]
+[2017-01-16 05:39:48,331] - alignak_webui.utils.plugin - INFO - Found table 'hostgroups_table' for external
+[2017-01-16 05:39:48,331] - alignak_webui.utils.plugin - INFO - Found list '/hostgroups/list' for hostgroup
+[2017-01-16 05:39:48,333] - alignak_webui.utils.plugin - INFO - Plugin Hosts groups is installed and enabled.
+[2017-01-16 05:39:48,334] - alignak_webui.application - INFO - registered plugin 'hostgroups'
+[2017-01-16 05:39:48,334] - alignak_webui.application - INFO - trying to load plugin 'usergroups' ...
+[2017-01-16 05:39:48,359] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.usergroups.usergroups.PluginServicesGroups'>]
+[2017-01-16 05:39:48,380] - alignak_webui.utils.plugin - INFO - Found list '/usergroups/list' for usergroup
+[2017-01-16 05:39:48,381] - alignak_webui.utils.plugin - INFO - Found table 'usergroups_table' for external
+[2017-01-16 05:39:48,382] - alignak_webui.utils.plugin - INFO - Plugin Users groups is installed and enabled.
+[2017-01-16 05:39:48,382] - alignak_webui.application - INFO - registered plugin 'usergroups'
+[2017-01-16 05:39:48,383] - alignak_webui.application - INFO - trying to load plugin 'realms' ...
+[2017-01-16 05:39:48,394] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.realms.realms.PluginRealms'>]
+[2017-01-16 05:39:48,416] - alignak_webui.utils.plugin - INFO - Found list '/realms/list' for realm
+[2017-01-16 05:39:48,417] - alignak_webui.utils.plugin - INFO - Found table 'realms_table' for external
+[2017-01-16 05:39:48,420] - alignak_webui.utils.plugin - INFO - Plugin Realms is installed and enabled.
+[2017-01-16 05:39:48,421] - alignak_webui.application - INFO - registered plugin 'realms'
+[2017-01-16 05:39:48,421] - alignak_webui.application - INFO - trying to load plugin 'minemap' ...
+[2017-01-16 05:39:48,438] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.minemap.minemap.PluginMinemap'>]
+[2017-01-16 05:39:48,439] - alignak_webui.utils.plugin - INFO - Plugin Minemap is installed and enabled.
+[2017-01-16 05:39:48,440] - alignak_webui.application - INFO - registered plugin 'minemap'
+[2017-01-16 05:39:48,440] - alignak_webui.application - INFO - trying to load plugin 'hostdependencies' ...
+[2017-01-16 05:39:48,454] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.hostdependencies.hostdependencies.PluginHostsDependencies'>]
+[2017-01-16 05:39:48,469] - alignak_webui.utils.plugin - INFO - Found table 'hostdependencys_table' for external
+[2017-01-16 05:39:48,472] - alignak_webui.utils.plugin - INFO - Found list '/hostdependencys/list' for hostdependency
+[2017-01-16 05:39:48,474] - alignak_webui.utils.plugin - INFO - Plugin Hosts dependencies is installed and enabled.
+[2017-01-16 05:39:48,475] - alignak_webui.application - INFO - registered plugin 'hostdependencies'
+[2017-01-16 05:39:48,475] - alignak_webui.application - INFO - trying to load plugin 'timeperiods' ...
+[2017-01-16 05:39:48,476] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.timeperiods.timeperiods.PluginTimeperiods'>]
+[2017-01-16 05:39:48,488] - alignak_webui.utils.plugin - INFO - Found table 'timeperiods_table' for external
+[2017-01-16 05:39:48,492] - alignak_webui.utils.plugin - INFO - Found list '/timeperiods/list' for timeperiod
+[2017-01-16 05:39:48,493] - alignak_webui.utils.plugin - INFO - Plugin Timeperiods is installed and enabled.
+[2017-01-16 05:39:48,493] - alignak_webui.application - INFO - registered plugin 'timeperiods'
+[2017-01-16 05:39:48,493] - alignak_webui.application - INFO - trying to load plugin 'worldmap' ...
+[2017-01-16 05:39:48,505] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.worldmap.worldmap.PluginWorldmap'>]
+[2017-01-16 05:39:48,506] - alignak_webui.utils.plugin - INFO - Found widget 'worldmap' for external
+[2017-01-16 05:39:48,506] - alignak_webui.utils.plugin - INFO - Found widget 'worldmap' for dashboard
+[2017-01-16 05:39:48,506] - alignak_webui.utils.plugin - INFO - Plugin Worldmap is installed and enabled.
+[2017-01-16 05:39:48,507] - alignak_webui.application - INFO - registered plugin 'worldmap'
+[2017-01-16 05:39:48,507] - alignak_webui.application - INFO - trying to load plugin 'commands' ...
+[2017-01-16 05:39:48,509] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.commands.commands.PluginCommands'>]
+[2017-01-16 05:39:48,525] - alignak_webui.utils.plugin - INFO - Found table 'commands_table' for external
+[2017-01-16 05:39:48,528] - alignak_webui.utils.plugin - INFO - Found list '/commands/list' for command
+[2017-01-16 05:39:48,530] - alignak_webui.utils.plugin - INFO - Plugin Commands is installed and enabled.
+[2017-01-16 05:39:48,530] - alignak_webui.application - INFO - registered plugin 'commands'
+[2017-01-16 05:39:48,530] - alignak_webui.application - INFO - trying to load plugin 'users' ...
+[2017-01-16 05:39:48,543] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.users.users.PluginUsers'>]
+[2017-01-16 05:39:48,562] - alignak_webui.utils.plugin - ERROR - Callable method: show_user_delete does not exist!
+[2017-01-16 05:39:48,568] - alignak_webui.utils.plugin - ERROR - Callable method: delete_user does not exist!
+[2017-01-16 05:39:48,570] - alignak_webui.utils.plugin - ERROR - Callable method: add_user does not exist!
+[2017-01-16 05:39:48,576] - alignak_webui.utils.plugin - INFO - Found widget 'information' for user
+[2017-01-16 05:39:48,577] - alignak_webui.utils.plugin - INFO - Found table 'users_table' for external
+[2017-01-16 05:39:48,577] - alignak_webui.utils.plugin - INFO - Found list '/users/list' for user
+[2017-01-16 05:39:48,578] - alignak_webui.utils.plugin - INFO - Plugin Users is installed and enabled.
+[2017-01-16 05:39:48,578] - alignak_webui.application - INFO - registered plugin 'users'
+[2017-01-16 05:39:48,578] - alignak_webui.application - INFO - trying to load plugin 'logcheckresults' ...
+[2017-01-16 05:39:48,580] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.logcheckresults.logcheckresults.PluginLogCheckResults'>]
+[2017-01-16 05:39:48,597] - alignak_webui.utils.plugin - INFO - Found table 'logcheckresults_table' for external
+[2017-01-16 05:39:48,601] - alignak_webui.utils.plugin - INFO - Found list '/logcheckresults/list' for logcheckresult
+[2017-01-16 05:39:48,603] - alignak_webui.utils.plugin - INFO - Plugin Log check results is installed and enabled.
+[2017-01-16 05:39:48,603] - alignak_webui.application - INFO - registered plugin 'logcheckresults'
+[2017-01-16 05:39:48,603] - alignak_webui.application - INFO - trying to load plugin 'actions' ...
+[2017-01-16 05:39:48,618] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.actions.actions.PluginActions'>]
+[2017-01-16 05:39:48,620] - alignak_webui.utils.plugin - INFO - Plugin Actions is installed and enabled.
+[2017-01-16 05:39:48,620] - alignak_webui.application - INFO - registered plugin 'actions'
+[2017-01-16 05:39:48,620] - alignak_webui.application - INFO - trying to load plugin 'histories' ...
+[2017-01-16 05:39:48,622] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.histories.histories.PluginHistorys'>]
+[2017-01-16 05:39:48,636] - alignak_webui.utils.plugin - INFO - Found table 'historys_table' for external
+[2017-01-16 05:39:48,640] - alignak_webui.utils.plugin - INFO - Found list '/historys/list' for history
+[2017-01-16 05:39:48,642] - alignak_webui.utils.plugin - INFO - Plugin Histories is installed and enabled.
+[2017-01-16 05:39:48,645] - alignak_webui.application - INFO - registered plugin 'histories'
+[2017-01-16 05:39:48,645] - alignak_webui.application - INFO - trying to load plugin 'userrestrictroles' ...
+[2017-01-16 05:39:48,646] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.userrestrictroles.userrestrictroles.PluginUserRestrictRoles'>]
+[2017-01-16 05:39:48,660] - alignak_webui.utils.plugin - INFO - Found table 'userrestrictroles_table' for external
+[2017-01-16 05:39:48,664] - alignak_webui.utils.plugin - INFO - Found list '/userrestrictroles/list' for userrestrictrole
+[2017-01-16 05:39:48,666] - alignak_webui.utils.plugin - INFO - Plugin User restrict roles is installed and enabled.
+[2017-01-16 05:39:48,666] - alignak_webui.application - INFO - registered plugin 'userrestrictroles'
+[2017-01-16 05:39:48,667] - alignak_webui.application - INFO - trying to load plugin 'servicegroups' ...
+[2017-01-16 05:39:48,677] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.servicegroups.servicegroups.PluginServicesGroups'>]
+[2017-01-16 05:39:48,697] - alignak_webui.utils.plugin - INFO - Found list '/servicegroups/list' for servicegroup
+[2017-01-16 05:39:48,702] - alignak_webui.utils.plugin - INFO - Found table 'servicegroups_table' for external
+[2017-01-16 05:39:48,704] - alignak_webui.utils.plugin - INFO - Plugin Services groups is installed and enabled.
+[2017-01-16 05:39:48,704] - alignak_webui.application - INFO - registered plugin 'servicegroups'
+[2017-01-16 05:39:48,704] - alignak_webui.application - INFO - trying to load plugin 'hosts' ...
+[2017-01-16 05:39:48,711] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.hosts.hosts.PluginHosts'>]
+[2017-01-16 05:39:48,774] - alignak_webui.utils.plugin - INFO - Found list '/hosts/list' for host
+[2017-01-16 05:39:48,795] - alignak_webui.utils.plugin - INFO - Found widget 'information' for host
+[2017-01-16 05:39:48,796] - alignak_webui.utils.plugin - INFO - Found widget 'configuration' for host
+[2017-01-16 05:39:48,796] - alignak_webui.utils.plugin - INFO - Found widget 'location' for host
+[2017-01-16 05:39:48,796] - alignak_webui.utils.plugin - INFO - Found widget 'services' for host
+[2017-01-16 05:39:48,796] - alignak_webui.utils.plugin - INFO - Found widget 'metrics' for host
+[2017-01-16 05:39:48,796] - alignak_webui.utils.plugin - INFO - Found widget 'timeline' for host
+[2017-01-16 05:39:48,796] - alignak_webui.utils.plugin - INFO - Found widget 'history' for host
+[2017-01-16 05:39:48,797] - alignak_webui.utils.plugin - INFO - Found widget 'events' for host
+[2017-01-16 05:39:48,797] - alignak_webui.utils.plugin - INFO - Found widget 'grafana' for host
+[2017-01-16 05:39:48,797] - alignak_webui.utils.plugin - INFO - Found table 'hosts_table' for external
+[2017-01-16 05:39:48,797] - alignak_webui.utils.plugin - INFO - Found widget 'hosts_table' for external
+[2017-01-16 05:39:48,797] - alignak_webui.utils.plugin - INFO - Found widget 'hosts_table' for dashboard
+[2017-01-16 05:39:48,798] - alignak_webui.utils.plugin - INFO - Found widget 'hosts_chart' for external
+[2017-01-16 05:39:48,798] - alignak_webui.utils.plugin - INFO - Found widget 'hosts_chart' for dashboard
+[2017-01-16 05:39:48,798] - alignak_webui.utils.plugin - INFO - Plugin Hosts is installed and enabled.
+[2017-01-16 05:39:48,798] - alignak_webui.application - INFO - registered plugin 'hosts'
+[2017-01-16 05:39:48,799] - alignak_webui.application - INFO - trying to load plugin 'dashboard' ...
+[2017-01-16 05:39:48,819] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.dashboard.dashboard.PluginDashboard'>]
+[2017-01-16 05:39:48,820] - alignak_webui.utils.plugin - INFO - Plugin Dashboard is installed and enabled.
+[2017-01-16 05:39:48,820] - alignak_webui.application - INFO - registered plugin 'dashboard'
+[2017-01-16 05:39:48,820] - alignak_webui.application - INFO - trying to load plugin 'alignak' ...
+[2017-01-16 05:39:48,856] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.alignak.alignak.PluginAlignak'>]
+[2017-01-16 05:39:48,857] - alignak_webui.utils.plugin - INFO - Found widget 'alignak_table_widget' for external
+[2017-01-16 05:39:48,857] - alignak_webui.utils.plugin - INFO - Found widget 'alignak_table_widget' for dashboard
+[2017-01-16 05:39:48,857] - alignak_webui.utils.plugin - INFO - Plugin Alignak is installed and enabled.
+[2017-01-16 05:39:48,857] - alignak_webui.application - INFO - registered plugin 'alignak'
+[2017-01-16 05:39:48,857] - alignak_webui.application - INFO - trying to load plugin 'servicedependencies' ...
+[2017-01-16 05:39:48,859] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.servicedependencies.servicedependencies.PluginServicesDependencies'>]
+[2017-01-16 05:39:48,872] - alignak_webui.utils.plugin - INFO - Found table 'servicedependencys_table' for external
+[2017-01-16 05:39:48,877] - alignak_webui.utils.plugin - INFO - Found list '/servicedependencys/list' for servicedependency
+[2017-01-16 05:39:48,880] - alignak_webui.utils.plugin - INFO - Plugin Services dependencies is installed and enabled.
+[2017-01-16 05:39:48,880] - alignak_webui.application - INFO - registered plugin 'servicedependencies'
+[2017-01-16 05:39:48,880] - alignak_webui.application - INFO - trying to load plugin 'lookup' ...
+[2017-01-16 05:39:48,881] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.lookup.lookup.PluginLookup'>]
+[2017-01-16 05:39:48,882] - alignak_webui.utils.plugin - INFO - Plugin Dashboard is installed and enabled.
+[2017-01-16 05:39:48,882] - alignak_webui.application - INFO - registered plugin 'lookup'
+[2017-01-16 05:39:48,882] - alignak_webui.application - INFO - trying to load plugin 'common' ...
+[2017-01-16 05:39:48,894] - alignak_webui.application - INFO - registered plugin 'common'
+[2017-01-16 05:39:48,894] - alignak_webui.application - INFO - loaded 20 plugins from: /home/alignak/alignak-webui/alignak_webui/plugins
+[2017-01-16 05:40:17,291] - alignak_webui.application - WARNING - The session expired or there is no user in the session. Redirecting to the login page...
+[2017-01-16 05:40:22,115] - alignak_webui.application - INFO - login, user 'admin' is signing in ...
+[2017-01-16 05:40:25,533] - alignak_webui.objects.datamanager - INFO - Objects cache reset
+[2017-01-16 05:40:25,907] - alignak_webui.objects.datamanager - INFO - user's default higher level realm: All
+[2017-01-16 05:40:26,036] - alignak_webui.objects.datamanager - INFO - user's concatenated live synthesis: 587273e4a03284269ebb3935
+[2017-01-16 05:40:26,036] - alignak_webui.objects.datamanager - INFO - Data manager load (False), new objects: 4,  duration: 0.503366947174
+[2017-01-16 05:40:26,037] - alignak_webui.application - INFO - user 'admin' (admin) signed in
+[2017-01-16 05:40:35,916] - alignak_webui.backend.alignak_ws_client - INFO - login, connection requested, login: no_login
+[2017-01-16 05:40:35,918] - alignak_webui.backend.alignak_ws_client - INFO - get, endpoint: http://demo.alignak.net:8888/alignak_map, parameters: None
+[2017-01-16 05:40:36,044] - alignak_webui.backend.alignak_ws_client - ERROR - Backend connection error, error: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f63e05e37d0>: Failed to establish a new connection: [Errno 111] Connection refused',))
+Traceback (most recent call last):
+  File "/home/alignak/alignak-webui/alignak_webui/backend/alignak_ws_client.py", line 171, in get
+    params=params
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 70, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 56, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/adapters.py", line 487, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f63e05e37d0>: Failed to establish a new connection: [Errno 111] Connection refused',))
+[2017-01-16 05:40:36,096] - alignak_webui.utils.plugin - INFO - Widget found, template: alignak_table_widget, options: {}
+[2017-01-16 05:40:36,096] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'picture': u'/static/plugins/alignak/htdocs/img/alignak_widget.png', u'name': u'Alignak state widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/alignak/widget', u'maxHeight': u'64', u'height': 6, u'minWidth': u'3', u'width': 6, u'template': u'alignak_table_widget', u'y': 14, u'x': 0, u'id': u'alignak_table_widget_1483498618816', u'icon': u'table'}
+[2017-01-16 05:40:36,096] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:40:36,096] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:40:36,097] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:40:36,941] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_table_widget, options: {'count': {'type': 'int', 'value': -1, 'label': 'Number of elements'}, 'filter': {'type': 'hst_srv', 'value': '', 'label': 'Host name search'}, 'search': {'type': 'text', 'value': '', 'label': 'Filter (ex. status:up)'}}
+[2017-01-16 05:40:36,941] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts table widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget?count=-1&filter=&search=', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_table_widget', u'y': 0, u'x': 6, u'id': u'hosts_table_1481981705680', u'icon': u'table'}
+[2017-01-16 05:40:36,942] - alignak_webui.utils.plugin - INFO - Saved widget options: count=-1|filter=|search=
+[2017-01-16 05:40:36,942] - alignak_webui.utils.plugin - INFO - Saved widget option: ['count', '-1']
+[2017-01-16 05:40:36,942] - alignak_webui.utils.plugin - INFO - Saved widget option: ['filter', '']
+[2017-01-16 05:40:36,942] - alignak_webui.utils.plugin - INFO - Saved widget option: ['search', '']
+[2017-01-16 05:40:36,942] - alignak_webui.utils.plugin - INFO - Widget new options: count=-1|filter=|search=
+[2017-01-16 05:40:36,949] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_chart_widget, options: {}
+[2017-01-16 05:40:36,950] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts chart widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_chart_widget', u'y': 0, u'x': 0, u'id': u'hosts_chart_1483439691503', u'icon': u'pie-chart'}
+[2017-01-16 05:40:36,950] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:40:36,950] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:40:36,951] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:41:40,172] - alignak_webui.backend.alignak_ws_client - INFO - get, endpoint: http://demo.alignak.net:8888/alignak_map, parameters: None
+[2017-01-16 05:41:40,282] - alignak_webui.backend.alignak_ws_client - ERROR - Backend connection error, error: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f63e04d3bd0>: Failed to establish a new connection: [Errno 111] Connection refused',))
+Traceback (most recent call last):
+  File "/home/alignak/alignak-webui/alignak_webui/backend/alignak_ws_client.py", line 171, in get
+    params=params
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 70, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 56, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/adapters.py", line 487, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f63e04d3bd0>: Failed to establish a new connection: [Errno 111] Connection refused',))
+[2017-01-16 05:41:40,283] - alignak_webui.utils.plugin - INFO - Widget found, template: alignak_table_widget, options: {}
+[2017-01-16 05:41:40,283] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'picture': u'/static/plugins/alignak/htdocs/img/alignak_widget.png', u'name': u'Alignak state widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/alignak/widget', u'maxHeight': u'64', u'height': 6, u'minWidth': u'3', u'width': 6, u'template': u'alignak_table_widget', u'y': 14, u'x': 0, u'id': u'alignak_table_widget_1483498618816', u'icon': u'table'}
+[2017-01-16 05:41:40,283] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:41:40,283] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:41:40,284] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:41:40,484] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_chart_widget, options: {}
+[2017-01-16 05:41:40,484] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts chart widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_chart_widget', u'y': 0, u'x': 0, u'id': u'hosts_chart_1483439691503', u'icon': u'pie-chart'}
+[2017-01-16 05:41:40,485] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:41:40,485] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:41:40,486] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:41:40,566] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_table_widget, options: {'count': {'type': 'int', 'value': '-1', 'label': 'Number of elements'}, 'filter': {'type': 'hst_srv', 'value': '', 'label': 'Host name search'}, 'search': {'type': 'text', 'value': '', 'label': 'Filter (ex. status:up)'}}
+[2017-01-16 05:41:40,566] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts table widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget?count=-1&filter=&search=', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_table_widget', u'y': 0, u'x': 6, u'id': u'hosts_table_1481981705680', u'icon': u'table'}
+[2017-01-16 05:41:40,567] - alignak_webui.utils.plugin - INFO - Saved widget options: count=-1|filter=|search=
+[2017-01-16 05:41:40,567] - alignak_webui.utils.plugin - INFO - Saved widget option: ['count', '-1']
+[2017-01-16 05:41:40,567] - alignak_webui.utils.plugin - INFO - Saved widget option: ['filter', '']
+[2017-01-16 05:41:40,567] - alignak_webui.utils.plugin - INFO - Saved widget option: ['search', '']
+[2017-01-16 05:41:40,568] - alignak_webui.utils.plugin - INFO - Widget new options: count=-1|filter=|search=
+[2017-01-16 05:42:41,288] - alignak_webui.backend.alignak_ws_client - INFO - get, endpoint: http://demo.alignak.net:8888/alignak_map, parameters: None
+[2017-01-16 05:42:41,391] - alignak_webui.backend.alignak_ws_client - ERROR - Backend connection error, error: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f63e0066ed0>: Failed to establish a new connection: [Errno 111] Connection refused',))
+Traceback (most recent call last):
+  File "/home/alignak/alignak-webui/alignak_webui/backend/alignak_ws_client.py", line 171, in get
+    params=params
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 70, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 56, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/adapters.py", line 487, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f63e0066ed0>: Failed to establish a new connection: [Errno 111] Connection refused',))
+[2017-01-16 05:42:41,391] - alignak_webui.utils.plugin - INFO - Widget found, template: alignak_table_widget, options: {}
+[2017-01-16 05:42:41,392] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'picture': u'/static/plugins/alignak/htdocs/img/alignak_widget.png', u'name': u'Alignak state widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/alignak/widget', u'maxHeight': u'64', u'height': 6, u'minWidth': u'3', u'width': 6, u'template': u'alignak_table_widget', u'y': 14, u'x': 0, u'id': u'alignak_table_widget_1483498618816', u'icon': u'table'}
+[2017-01-16 05:42:41,392] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:42:41,392] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:42:41,392] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:42:41,500] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_chart_widget, options: {}
+[2017-01-16 05:42:41,501] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts chart widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_chart_widget', u'y': 0, u'x': 0, u'id': u'hosts_chart_1483439691503', u'icon': u'pie-chart'}
+[2017-01-16 05:42:41,502] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:42:41,507] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:42:41,508] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:42:41,674] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_table_widget, options: {'count': {'type': 'int', 'value': '-1', 'label': 'Number of elements'}, 'filter': {'type': 'hst_srv', 'value': '', 'label': 'Host name search'}, 'search': {'type': 'text', 'value': '', 'label': 'Filter (ex. status:up)'}}
+[2017-01-16 05:42:41,674] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts table widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget?count=-1&filter=&search=', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_table_widget', u'y': 0, u'x': 6, u'id': u'hosts_table_1481981705680', u'icon': u'table'}
+[2017-01-16 05:42:41,675] - alignak_webui.utils.plugin - INFO - Saved widget options: count=-1|filter=|search=
+[2017-01-16 05:42:41,675] - alignak_webui.utils.plugin - INFO - Saved widget option: ['count', '-1']
+[2017-01-16 05:42:41,675] - alignak_webui.utils.plugin - INFO - Saved widget option: ['filter', '']
+[2017-01-16 05:42:41,676] - alignak_webui.utils.plugin - INFO - Saved widget option: ['search', '']
+[2017-01-16 05:42:41,676] - alignak_webui.utils.plugin - INFO - Widget new options: count=-1|filter=|search=
+[2017-01-16 05:43:42,136] - alignak_webui.backend.alignak_ws_client - INFO - get, endpoint: http://demo.alignak.net:8888/alignak_map, parameters: None
+[2017-01-16 05:43:42,219] - alignak_webui.backend.alignak_ws_client - ERROR - Backend connection error, error: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f63e0066450>: Failed to establish a new connection: [Errno 111] Connection refused',))
+Traceback (most recent call last):
+  File "/home/alignak/alignak-webui/alignak_webui/backend/alignak_ws_client.py", line 171, in get
+    params=params
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 70, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 56, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/adapters.py", line 487, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f63e0066450>: Failed to establish a new connection: [Errno 111] Connection refused',))
+[2017-01-16 05:43:42,221] - alignak_webui.utils.plugin - INFO - Widget found, template: alignak_table_widget, options: {}
+[2017-01-16 05:43:42,222] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'picture': u'/static/plugins/alignak/htdocs/img/alignak_widget.png', u'name': u'Alignak state widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/alignak/widget', u'maxHeight': u'64', u'height': 6, u'minWidth': u'3', u'width': 6, u'template': u'alignak_table_widget', u'y': 14, u'x': 0, u'id': u'alignak_table_widget_1483498618816', u'icon': u'table'}
+[2017-01-16 05:43:42,222] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:43:42,222] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:43:42,222] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:43:42,299] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_table_widget, options: {'count': {'type': 'int', 'value': '-1', 'label': 'Number of elements'}, 'filter': {'type': 'hst_srv', 'value': '', 'label': 'Host name search'}, 'search': {'type': 'text', 'value': '', 'label': 'Filter (ex. status:up)'}}
+[2017-01-16 05:43:42,300] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts table widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget?count=-1&filter=&search=', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_table_widget', u'y': 0, u'x': 6, u'id': u'hosts_table_1481981705680', u'icon': u'table'}
+[2017-01-16 05:43:42,300] - alignak_webui.utils.plugin - INFO - Saved widget options: count=-1|filter=|search=
+[2017-01-16 05:43:42,300] - alignak_webui.utils.plugin - INFO - Saved widget option: ['count', '-1']
+[2017-01-16 05:43:42,300] - alignak_webui.utils.plugin - INFO - Saved widget option: ['filter', '']
+[2017-01-16 05:43:42,300] - alignak_webui.utils.plugin - INFO - Saved widget option: ['search', '']
+[2017-01-16 05:43:42,301] - alignak_webui.utils.plugin - INFO - Widget new options: count=-1|filter=|search=
+[2017-01-16 05:43:42,460] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_chart_widget, options: {}
+[2017-01-16 05:43:42,461] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts chart widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_chart_widget', u'y': 0, u'x': 0, u'id': u'hosts_chart_1483439691503', u'icon': u'pie-chart'}
+[2017-01-16 05:43:42,461] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:43:42,461] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:43:42,461] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:44:43,605] - alignak_webui.backend.alignak_ws_client - INFO - get, endpoint: http://demo.alignak.net:8888/alignak_map, parameters: None
+[2017-01-16 05:44:43,696] - alignak_webui.backend.alignak_ws_client - ERROR - Backend connection error, error: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f63e07f36d0>: Failed to establish a new connection: [Errno 111] Connection refused',))
+Traceback (most recent call last):
+  File "/home/alignak/alignak-webui/alignak_webui/backend/alignak_ws_client.py", line 171, in get
+    params=params
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 70, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 56, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/adapters.py", line 487, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f63e07f36d0>: Failed to establish a new connection: [Errno 111] Connection refused',))
+[2017-01-16 05:44:43,697] - alignak_webui.utils.plugin - INFO - Widget found, template: alignak_table_widget, options: {}
+[2017-01-16 05:44:43,697] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'picture': u'/static/plugins/alignak/htdocs/img/alignak_widget.png', u'name': u'Alignak state widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/alignak/widget', u'maxHeight': u'64', u'height': 6, u'minWidth': u'3', u'width': 6, u'template': u'alignak_table_widget', u'y': 14, u'x': 0, u'id': u'alignak_table_widget_1483498618816', u'icon': u'table'}
+[2017-01-16 05:44:43,697] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:44:43,697] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:44:43,697] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:44:43,881] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_chart_widget, options: {}
+[2017-01-16 05:44:43,883] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts chart widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_chart_widget', u'y': 0, u'x': 0, u'id': u'hosts_chart_1483439691503', u'icon': u'pie-chart'}
+[2017-01-16 05:44:43,883] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:44:43,883] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:44:43,883] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:44:43,906] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_table_widget, options: {'count': {'type': 'int', 'value': '-1', 'label': 'Number of elements'}, 'filter': {'type': 'hst_srv', 'value': '', 'label': 'Host name search'}, 'search': {'type': 'text', 'value': '', 'label': 'Filter (ex. status:up)'}}
+[2017-01-16 05:44:43,906] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts table widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget?count=-1&filter=&search=', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_table_widget', u'y': 0, u'x': 6, u'id': u'hosts_table_1481981705680', u'icon': u'table'}
+[2017-01-16 05:44:43,907] - alignak_webui.utils.plugin - INFO - Saved widget options: count=-1|filter=|search=
+[2017-01-16 05:44:43,907] - alignak_webui.utils.plugin - INFO - Saved widget option: ['count', '-1']
+[2017-01-16 05:44:43,907] - alignak_webui.utils.plugin - INFO - Saved widget option: ['filter', '']
+[2017-01-16 05:44:43,907] - alignak_webui.utils.plugin - INFO - Saved widget option: ['search', '']
+[2017-01-16 05:44:43,907] - alignak_webui.utils.plugin - INFO - Widget new options: count=-1|filter=|search=
+[2017-01-16 05:45:46,225] - alignak_webui.backend.alignak_ws_client - INFO - get, endpoint: http://demo.alignak.net:8888/alignak_map, parameters: None
+[2017-01-16 05:45:46,415] - alignak_webui.backend.alignak_ws_client - ERROR - Backend connection error, error: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f63e006dad0>: Failed to establish a new connection: [Errno 111] Connection refused',))
+Traceback (most recent call last):
+  File "/home/alignak/alignak-webui/alignak_webui/backend/alignak_ws_client.py", line 171, in get
+    params=params
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 70, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 56, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/adapters.py", line 487, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f63e006dad0>: Failed to establish a new connection: [Errno 111] Connection refused',))
+[2017-01-16 05:45:46,416] - alignak_webui.utils.plugin - INFO - Widget found, template: alignak_table_widget, options: {}
+[2017-01-16 05:45:46,416] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'picture': u'/static/plugins/alignak/htdocs/img/alignak_widget.png', u'name': u'Alignak state widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/alignak/widget', u'maxHeight': u'64', u'height': 6, u'minWidth': u'3', u'width': 6, u'template': u'alignak_table_widget', u'y': 14, u'x': 0, u'id': u'alignak_table_widget_1483498618816', u'icon': u'table'}
+[2017-01-16 05:45:46,416] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:45:46,417] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:45:46,417] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:45:49,698] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_table_widget, options: {'count': {'type': 'int', 'value': '-1', 'label': 'Number of elements'}, 'filter': {'type': 'hst_srv', 'value': '', 'label': 'Host name search'}, 'search': {'type': 'text', 'value': '', 'label': 'Filter (ex. status:up)'}}
+[2017-01-16 05:45:49,698] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts table widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget?count=-1&filter=&search=', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_table_widget', u'y': 0, u'x': 6, u'id': u'hosts_table_1481981705680', u'icon': u'table'}
+[2017-01-16 05:45:49,698] - alignak_webui.utils.plugin - INFO - Saved widget options: count=-1|filter=|search=
+[2017-01-16 05:45:49,699] - alignak_webui.utils.plugin - INFO - Saved widget option: ['count', '-1']
+[2017-01-16 05:45:49,699] - alignak_webui.utils.plugin - INFO - Saved widget option: ['filter', '']
+[2017-01-16 05:45:49,699] - alignak_webui.utils.plugin - INFO - Saved widget option: ['search', '']
+[2017-01-16 05:45:49,699] - alignak_webui.utils.plugin - INFO - Widget new options: count=-1|filter=|search=
+[2017-01-16 05:45:50,011] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_chart_widget, options: {}
+[2017-01-16 05:45:50,012] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts chart widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_chart_widget', u'y': 0, u'x': 0, u'id': u'hosts_chart_1483439691503', u'icon': u'pie-chart'}
+[2017-01-16 05:45:50,012] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:45:50,012] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:45:50,013] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:46:44,877] - alignak_webui.backend.alignak_ws_client - INFO - get, endpoint: http://demo.alignak.net:8888/alignak_map, parameters: None
+[2017-01-16 05:46:44,964] - alignak_webui.backend.alignak_ws_client - ERROR - Backend connection error, error: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f63c3a3e710>: Failed to establish a new connection: [Errno 111] Connection refused',))
+Traceback (most recent call last):
+  File "/home/alignak/alignak-webui/alignak_webui/backend/alignak_ws_client.py", line 171, in get
+    params=params
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 70, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 56, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/adapters.py", line 487, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f63c3a3e710>: Failed to establish a new connection: [Errno 111] Connection refused',))
+[2017-01-16 05:46:44,966] - alignak_webui.utils.plugin - INFO - Widget found, template: alignak_table_widget, options: {}
+[2017-01-16 05:46:44,966] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'picture': u'/static/plugins/alignak/htdocs/img/alignak_widget.png', u'name': u'Alignak state widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/alignak/widget', u'maxHeight': u'64', u'height': 6, u'minWidth': u'3', u'width': 6, u'template': u'alignak_table_widget', u'y': 14, u'x': 0, u'id': u'alignak_table_widget_1483498618816', u'icon': u'table'}
+[2017-01-16 05:46:44,967] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:46:44,967] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:46:44,967] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:46:45,176] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_chart_widget, options: {}
+[2017-01-16 05:46:45,177] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts chart widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_chart_widget', u'y': 0, u'x': 0, u'id': u'hosts_chart_1483439691503', u'icon': u'pie-chart'}
+[2017-01-16 05:46:45,177] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:46:45,177] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:46:45,177] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:46:45,262] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_table_widget, options: {'count': {'type': 'int', 'value': '-1', 'label': 'Number of elements'}, 'filter': {'type': 'hst_srv', 'value': '', 'label': 'Host name search'}, 'search': {'type': 'text', 'value': '', 'label': 'Filter (ex. status:up)'}}
+[2017-01-16 05:46:45,262] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts table widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget?count=-1&filter=&search=', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_table_widget', u'y': 0, u'x': 6, u'id': u'hosts_table_1481981705680', u'icon': u'table'}
+[2017-01-16 05:46:45,263] - alignak_webui.utils.plugin - INFO - Saved widget options: count=-1|filter=|search=
+[2017-01-16 05:46:45,263] - alignak_webui.utils.plugin - INFO - Saved widget option: ['count', '-1']
+[2017-01-16 05:46:45,263] - alignak_webui.utils.plugin - INFO - Saved widget option: ['filter', '']
+[2017-01-16 05:46:45,263] - alignak_webui.utils.plugin - INFO - Saved widget option: ['search', '']
+[2017-01-16 05:46:45,264] - alignak_webui.utils.plugin - INFO - Widget new options: count=-1|filter=|search=
+[2017-01-16 05:47:46,824] - alignak_webui.backend.alignak_ws_client - INFO - get, endpoint: http://demo.alignak.net:8888/alignak_map, parameters: None
+[2017-01-16 05:47:46,909] - alignak_webui.backend.alignak_ws_client - ERROR - Backend connection error, error: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f63e0645250>: Failed to establish a new connection: [Errno 111] Connection refused',))
+Traceback (most recent call last):
+  File "/home/alignak/alignak-webui/alignak_webui/backend/alignak_ws_client.py", line 171, in get
+    params=params
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 70, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 56, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/adapters.py", line 487, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f63e0645250>: Failed to establish a new connection: [Errno 111] Connection refused',))
+[2017-01-16 05:47:46,910] - alignak_webui.utils.plugin - INFO - Widget found, template: alignak_table_widget, options: {}
+[2017-01-16 05:47:46,910] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'picture': u'/static/plugins/alignak/htdocs/img/alignak_widget.png', u'name': u'Alignak state widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/alignak/widget', u'maxHeight': u'64', u'height': 6, u'minWidth': u'3', u'width': 6, u'template': u'alignak_table_widget', u'y': 14, u'x': 0, u'id': u'alignak_table_widget_1483498618816', u'icon': u'table'}
+[2017-01-16 05:47:46,910] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:47:46,910] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:47:46,910] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:47:47,154] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_chart_widget, options: {}
+[2017-01-16 05:47:47,154] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts chart widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_chart_widget', u'y': 0, u'x': 0, u'id': u'hosts_chart_1483439691503', u'icon': u'pie-chart'}
+[2017-01-16 05:47:47,155] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:47:47,155] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:47:47,155] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:47:47,257] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_table_widget, options: {'count': {'type': 'int', 'value': '-1', 'label': 'Number of elements'}, 'filter': {'type': 'hst_srv', 'value': '', 'label': 'Host name search'}, 'search': {'type': 'text', 'value': '', 'label': 'Filter (ex. status:up)'}}
+[2017-01-16 05:47:47,258] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts table widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget?count=-1&filter=&search=', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_table_widget', u'y': 0, u'x': 6, u'id': u'hosts_table_1481981705680', u'icon': u'table'}
+[2017-01-16 05:47:47,258] - alignak_webui.utils.plugin - INFO - Saved widget options: count=-1|filter=|search=
+[2017-01-16 05:47:47,258] - alignak_webui.utils.plugin - INFO - Saved widget option: ['count', '-1']
+[2017-01-16 05:47:47,259] - alignak_webui.utils.plugin - INFO - Saved widget option: ['filter', '']
+[2017-01-16 05:47:47,259] - alignak_webui.utils.plugin - INFO - Saved widget option: ['search', '']
+[2017-01-16 05:47:47,259] - alignak_webui.utils.plugin - INFO - Widget new options: count=-1|filter=|search=
+[2017-01-16 05:48:47,011] - alignak_webui.backend.alignak_ws_client - INFO - get, endpoint: http://demo.alignak.net:8888/alignak_map, parameters: None
+[2017-01-16 05:48:47,093] - alignak_webui.backend.alignak_ws_client - ERROR - Backend connection error, error: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f63c34eb550>: Failed to establish a new connection: [Errno 111] Connection refused',))
+Traceback (most recent call last):
+  File "/home/alignak/alignak-webui/alignak_webui/backend/alignak_ws_client.py", line 171, in get
+    params=params
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 70, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 56, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/adapters.py", line 487, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f63c34eb550>: Failed to establish a new connection: [Errno 111] Connection refused',))
+[2017-01-16 05:48:47,095] - alignak_webui.utils.plugin - INFO - Widget found, template: alignak_table_widget, options: {}
+[2017-01-16 05:48:47,095] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'picture': u'/static/plugins/alignak/htdocs/img/alignak_widget.png', u'name': u'Alignak state widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/alignak/widget', u'maxHeight': u'64', u'height': 6, u'minWidth': u'3', u'width': 6, u'template': u'alignak_table_widget', u'y': 14, u'x': 0, u'id': u'alignak_table_widget_1483498618816', u'icon': u'table'}
+[2017-01-16 05:48:47,096] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:48:47,096] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:48:47,096] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:48:47,347] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_table_widget, options: {'count': {'type': 'int', 'value': '-1', 'label': 'Number of elements'}, 'filter': {'type': 'hst_srv', 'value': '', 'label': 'Host name search'}, 'search': {'type': 'text', 'value': '', 'label': 'Filter (ex. status:up)'}}
+[2017-01-16 05:48:47,347] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts table widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget?count=-1&filter=&search=', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_table_widget', u'y': 0, u'x': 6, u'id': u'hosts_table_1481981705680', u'icon': u'table'}
+[2017-01-16 05:48:47,348] - alignak_webui.utils.plugin - INFO - Saved widget options: count=-1|filter=|search=
+[2017-01-16 05:48:47,349] - alignak_webui.utils.plugin - INFO - Saved widget option: ['count', '-1']
+[2017-01-16 05:48:47,349] - alignak_webui.utils.plugin - INFO - Saved widget option: ['filter', '']
+[2017-01-16 05:48:47,349] - alignak_webui.utils.plugin - INFO - Saved widget option: ['search', '']
+[2017-01-16 05:48:47,349] - alignak_webui.utils.plugin - INFO - Widget new options: count=-1|filter=|search=
+[2017-01-16 05:48:47,413] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_chart_widget, options: {}
+[2017-01-16 05:48:47,413] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts chart widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_chart_widget', u'y': 0, u'x': 0, u'id': u'hosts_chart_1483439691503', u'icon': u'pie-chart'}
+[2017-01-16 05:48:47,414] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:48:47,414] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:48:47,414] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:49:47,990] - alignak_webui.backend.alignak_ws_client - INFO - get, endpoint: http://demo.alignak.net:8888/alignak_map, parameters: None
+[2017-01-16 05:49:48,070] - alignak_webui.backend.alignak_ws_client - ERROR - Backend connection error, error: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f63c3936090>: Failed to establish a new connection: [Errno 111] Connection refused',))
+Traceback (most recent call last):
+  File "/home/alignak/alignak-webui/alignak_webui/backend/alignak_ws_client.py", line 171, in get
+    params=params
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 70, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 56, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/adapters.py", line 487, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f63c3936090>: Failed to establish a new connection: [Errno 111] Connection refused',))
+[2017-01-16 05:49:48,070] - alignak_webui.utils.plugin - INFO - Widget found, template: alignak_table_widget, options: {}
+[2017-01-16 05:49:48,070] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'picture': u'/static/plugins/alignak/htdocs/img/alignak_widget.png', u'name': u'Alignak state widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/alignak/widget', u'maxHeight': u'64', u'height': 6, u'minWidth': u'3', u'width': 6, u'template': u'alignak_table_widget', u'y': 14, u'x': 0, u'id': u'alignak_table_widget_1483498618816', u'icon': u'table'}
+[2017-01-16 05:49:48,070] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:49:48,071] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:49:48,071] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:49:48,276] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_table_widget, options: {'count': {'type': 'int', 'value': '-1', 'label': 'Number of elements'}, 'filter': {'type': 'hst_srv', 'value': '', 'label': 'Host name search'}, 'search': {'type': 'text', 'value': '', 'label': 'Filter (ex. status:up)'}}
+[2017-01-16 05:49:48,277] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts table widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget?count=-1&filter=&search=', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_table_widget', u'y': 0, u'x': 6, u'id': u'hosts_table_1481981705680', u'icon': u'table'}
+[2017-01-16 05:49:48,277] - alignak_webui.utils.plugin - INFO - Saved widget options: count=-1|filter=|search=
+[2017-01-16 05:49:48,277] - alignak_webui.utils.plugin - INFO - Saved widget option: ['count', '-1']
+[2017-01-16 05:49:48,277] - alignak_webui.utils.plugin - INFO - Saved widget option: ['filter', '']
+[2017-01-16 05:49:48,278] - alignak_webui.utils.plugin - INFO - Saved widget option: ['search', '']
+[2017-01-16 05:49:48,278] - alignak_webui.utils.plugin - INFO - Widget new options: count=-1|filter=|search=
+[2017-01-16 05:49:48,327] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_chart_widget, options: {}
+[2017-01-16 05:49:48,327] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts chart widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_chart_widget', u'y': 0, u'x': 0, u'id': u'hosts_chart_1483439691503', u'icon': u'pie-chart'}
+[2017-01-16 05:49:48,328] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:49:48,328] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:49:48,328] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:50:48,994] - alignak_webui.backend.alignak_ws_client - INFO - get, endpoint: http://demo.alignak.net:8888/alignak_map, parameters: None
+[2017-01-16 05:50:49,083] - alignak_webui.backend.alignak_ws_client - ERROR - Backend connection error, error: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f63c3b74090>: Failed to establish a new connection: [Errno 111] Connection refused',))
+Traceback (most recent call last):
+  File "/home/alignak/alignak-webui/alignak_webui/backend/alignak_ws_client.py", line 171, in get
+    params=params
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 70, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 56, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/adapters.py", line 487, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f63c3b74090>: Failed to establish a new connection: [Errno 111] Connection refused',))
+[2017-01-16 05:50:49,084] - alignak_webui.utils.plugin - INFO - Widget found, template: alignak_table_widget, options: {}
+[2017-01-16 05:50:49,084] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'picture': u'/static/plugins/alignak/htdocs/img/alignak_widget.png', u'name': u'Alignak state widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/alignak/widget', u'maxHeight': u'64', u'height': 6, u'minWidth': u'3', u'width': 6, u'template': u'alignak_table_widget', u'y': 14, u'x': 0, u'id': u'alignak_table_widget_1483498618816', u'icon': u'table'}
+[2017-01-16 05:50:49,084] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:50:49,084] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:50:49,084] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:50:49,360] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_table_widget, options: {'count': {'type': 'int', 'value': '-1', 'label': 'Number of elements'}, 'filter': {'type': 'hst_srv', 'value': '', 'label': 'Host name search'}, 'search': {'type': 'text', 'value': '', 'label': 'Filter (ex. status:up)'}}
+[2017-01-16 05:50:49,361] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts table widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget?count=-1&filter=&search=', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_table_widget', u'y': 0, u'x': 6, u'id': u'hosts_table_1481981705680', u'icon': u'table'}
+[2017-01-16 05:50:49,361] - alignak_webui.utils.plugin - INFO - Saved widget options: count=-1|filter=|search=
+[2017-01-16 05:50:49,361] - alignak_webui.utils.plugin - INFO - Saved widget option: ['count', '-1']
+[2017-01-16 05:50:49,361] - alignak_webui.utils.plugin - INFO - Saved widget option: ['filter', '']
+[2017-01-16 05:50:49,362] - alignak_webui.utils.plugin - INFO - Saved widget option: ['search', '']
+[2017-01-16 05:50:49,362] - alignak_webui.utils.plugin - INFO - Widget new options: count=-1|filter=|search=
+[2017-01-16 05:50:49,401] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_chart_widget, options: {}
+[2017-01-16 05:50:49,402] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts chart widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_chart_widget', u'y': 0, u'x': 0, u'id': u'hosts_chart_1483439691503', u'icon': u'pie-chart'}
+[2017-01-16 05:50:49,402] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:50:49,402] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:50:49,403] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:51:49,686] - alignak_webui.utils.datatable - INFO - request data for table: host
+[2017-01-16 05:51:49,686] - alignak_webui.utils.datatable - WARNING - table_data, model: _is_template: {'searchable': True, 'format': '', 'hint': '', 'editable': True, 'defaultContent': False, u'visible': False, 'content_type': u'boolean', 'allowed': '', 'unique': False, 'data': u'_is_template', 'regex': True, u'title': u'Template', u'default': False, 'format_parameters': '', 'required': False, 'orderable': True, u'hidden': False, u'type': u'boolean', 'empty': False}
+[2017-01-16 05:51:49,687] - alignak_webui.utils.datatable - INFO - backend order request parameters: {'sort': u'ls_state', 'max_results': 25, 'page': 1}
+[2017-01-16 05:51:49,687] - alignak_webui.utils.datatable - INFO - backend search individual columns parameters: []
+[2017-01-16 05:51:49,687] - alignak_webui.utils.datatable - INFO - backend search global parameters: []
+[2017-01-16 05:51:49,971] - alignak_webui.utils.datatable - INFO - table data get parameters: {'sort': u'ls_state', 'max_results': 25, 'where': {'_is_template': False}, 'page': 1, 'embedded': {u'check_period': 1, u'notification_period': 1}}
+[2017-01-16 05:51:50,312] - alignak_webui.utils.datatable - INFO - table data got 12 items
+[2017-01-16 05:51:50,313] - alignak_webui.objects.element - WARNING - __init__, cannot update an object (<class 'alignak_webui.objects.item_host.Host'>) with no parameters. 
+[2017-01-16 05:51:50,705] - alignak_webui.utils.datatable - INFO - filtered records: 12 out of total: 12
+[2017-01-16 05:51:59,345] - alignak_webui.objects.backend - ERROR - update, backend exception: Backend error code 400: The browser (or proxy) sent a request that this server could not understand.
+[2017-01-16 05:53:01,058] - alignak_webui.utils.datatable - INFO - request data for table: host
+[2017-01-16 05:53:01,059] - alignak_webui.utils.datatable - WARNING - table_data, model: _is_template: {'searchable': True, 'format': '', 'hint': '', 'editable': True, 'defaultContent': False, u'visible': False, 'content_type': u'boolean', 'allowed': '', 'unique': False, 'data': u'_is_template', 'regex': True, u'title': u'Template', u'default': False, 'format_parameters': '', 'required': False, 'orderable': True, u'hidden': False, u'type': u'boolean', 'empty': False}
+[2017-01-16 05:53:01,062] - alignak_webui.utils.datatable - INFO - backend order request parameters: {'sort': u'ls_state', 'max_results': 25, 'page': 1}
+[2017-01-16 05:53:01,063] - alignak_webui.utils.datatable - INFO - backend search individual columns parameters: []
+[2017-01-16 05:53:01,063] - alignak_webui.utils.datatable - INFO - backend search global parameters: []
+[2017-01-16 05:53:01,367] - alignak_webui.utils.datatable - INFO - table data get parameters: {'sort': u'ls_state', 'max_results': 25, 'where': {'_is_template': False}, 'page': 1, 'embedded': {u'check_period': 1, u'notification_period': 1}}
+[2017-01-16 05:53:01,699] - alignak_webui.utils.datatable - INFO - table data got 12 items
+[2017-01-16 05:53:01,699] - alignak_webui.objects.element - WARNING - __init__, cannot update an object (<class 'alignak_webui.objects.item_host.Host'>) with no parameters. 
+[2017-01-16 05:53:01,733] - alignak_webui.utils.datatable - INFO - filtered records: 12 out of total: 12
+[2017-01-16 05:53:10,271] - alignak_webui.objects.backend - ERROR - update, backend exception: Backend error code 400: The browser (or proxy) sent a request that this server could not understand.
+[2017-01-16 05:54:09,538] - alignak_webui.utils.datatable - INFO - request data for table: host
+[2017-01-16 05:54:09,538] - alignak_webui.utils.datatable - WARNING - table_data, model: _is_template: {'searchable': True, 'format': '', 'hint': '', 'editable': True, 'defaultContent': False, u'visible': False, 'content_type': u'boolean', 'allowed': '', 'unique': False, 'data': u'_is_template', 'regex': True, u'title': u'Template', u'default': False, 'format_parameters': '', 'required': False, 'orderable': True, u'hidden': False, u'type': u'boolean', 'empty': False}
+[2017-01-16 05:54:09,539] - alignak_webui.utils.datatable - INFO - backend order request parameters: {'sort': u'ls_state', 'max_results': 25, 'page': 1}
+[2017-01-16 05:54:09,539] - alignak_webui.utils.datatable - INFO - backend search individual columns parameters: []
+[2017-01-16 05:54:09,539] - alignak_webui.utils.datatable - INFO - backend search global parameters: []
+[2017-01-16 05:54:09,829] - alignak_webui.utils.datatable - INFO - table data get parameters: {'sort': u'ls_state', 'max_results': 25, 'where': {'_is_template': False}, 'page': 1, 'embedded': {u'check_period': 1, u'notification_period': 1}}
+[2017-01-16 05:54:10,167] - alignak_webui.utils.datatable - INFO - table data got 12 items
+[2017-01-16 05:54:10,168] - alignak_webui.objects.element - WARNING - __init__, cannot update an object (<class 'alignak_webui.objects.item_host.Host'>) with no parameters. 
+[2017-01-16 05:54:10,208] - alignak_webui.utils.datatable - INFO - filtered records: 12 out of total: 12
+[2017-01-16 05:54:18,806] - alignak_webui.objects.backend - ERROR - update, backend exception: Backend error code 400: The browser (or proxy) sent a request that this server could not understand.
+[2017-01-16 05:54:50,785] - alignak_webui - INFO - --------------------------------------------------------------------------------
+[2017-01-16 05:54:50,786] - alignak_webui - INFO - Alignak-WebUI, version 0.6.7
+[2017-01-16 05:54:50,786] - alignak_webui - INFO - Copyright (c) 2015-2017 - Frédéric Mohier
+[2017-01-16 05:54:50,786] - alignak_webui - INFO - License: GNU Affero General Public License, version 3
+[2017-01-16 05:54:50,786] - alignak_webui - INFO - --------------------------------------------------------------------------------
+[2017-01-16 05:54:50,786] - alignak_webui - INFO - --------------------------------------------------------------------------------
+[2017-01-16 05:54:50,787] - alignak_webui - INFO - Alignak-WebUI, listening on 0.0.0.0:5001 (debug mode: False)
+[2017-01-16 05:54:50,787] - alignak_webui - INFO - Alignak-WebUI, using Alignak Backend on http://94.76.229.155:6000
+[2017-01-16 05:54:50,787] - alignak_webui - INFO - Alignak-WebUI, using Alignak Web Services on http://demo.alignak.net:8888
+[2017-01-16 05:54:50,787] - alignak_webui - INFO - --------------------------------------------------------------------------------
+[2017-01-16 05:54:50,788] - alignak_webui.application - INFO - Initializing application...
+[2017-01-16 05:54:50,788] - alignak_webui.application - INFO - load plugins from: /home/alignak/alignak-webui/alignak_webui/plugins
+[2017-01-16 05:54:50,789] - alignak_webui.application - INFO - trying to load plugin 'services' ...
+[2017-01-16 05:54:50,790] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.services.services.PluginServices'>]
+[2017-01-16 05:54:50,810] - alignak_webui.utils.plugin - INFO - Found widget 'information' for service
+[2017-01-16 05:54:50,811] - alignak_webui.utils.plugin - INFO - Found widget 'configuration' for service
+[2017-01-16 05:54:50,811] - alignak_webui.utils.plugin - INFO - Found widget 'metrics' for service
+[2017-01-16 05:54:50,811] - alignak_webui.utils.plugin - INFO - Found widget 'grafana' for service
+[2017-01-16 05:54:50,814] - alignak_webui.utils.plugin - INFO - Found widget 'services_table' for external
+[2017-01-16 05:54:50,814] - alignak_webui.utils.plugin - INFO - Found widget 'services_table' for dashboard
+[2017-01-16 05:54:50,815] - alignak_webui.utils.plugin - INFO - Found widget 'services_chart' for external
+[2017-01-16 05:54:50,815] - alignak_webui.utils.plugin - INFO - Found widget 'services_chart' for dashboard
+[2017-01-16 05:54:50,815] - alignak_webui.utils.plugin - INFO - Found table 'services_table' for external
+[2017-01-16 05:54:50,816] - alignak_webui.utils.plugin - INFO - Found list '/services/list' for service
+[2017-01-16 05:54:50,816] - alignak_webui.utils.plugin - INFO - Plugin Services is installed and enabled.
+[2017-01-16 05:54:50,816] - alignak_webui.application - INFO - registered plugin 'services'
+[2017-01-16 05:54:50,816] - alignak_webui.application - INFO - trying to load plugin 'hostgroups' ...
+[2017-01-16 05:54:50,817] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.hostgroups.hostgroups.PluginHostsGroups'>]
+[2017-01-16 05:54:50,830] - alignak_webui.utils.plugin - INFO - Found table 'hostgroups_table' for external
+[2017-01-16 05:54:50,830] - alignak_webui.utils.plugin - INFO - Found list '/hostgroups/list' for hostgroup
+[2017-01-16 05:54:50,832] - alignak_webui.utils.plugin - INFO - Plugin Hosts groups is installed and enabled.
+[2017-01-16 05:54:50,833] - alignak_webui.application - INFO - registered plugin 'hostgroups'
+[2017-01-16 05:54:50,833] - alignak_webui.application - INFO - trying to load plugin 'usergroups' ...
+[2017-01-16 05:54:50,834] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.usergroups.usergroups.PluginServicesGroups'>]
+[2017-01-16 05:54:50,843] - alignak_webui.utils.plugin - INFO - Found list '/usergroups/list' for usergroup
+[2017-01-16 05:54:50,843] - alignak_webui.utils.plugin - INFO - Found table 'usergroups_table' for external
+[2017-01-16 05:54:50,844] - alignak_webui.utils.plugin - INFO - Plugin Users groups is installed and enabled.
+[2017-01-16 05:54:50,845] - alignak_webui.application - INFO - registered plugin 'usergroups'
+[2017-01-16 05:54:50,845] - alignak_webui.application - INFO - trying to load plugin 'realms' ...
+[2017-01-16 05:54:50,845] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.realms.realms.PluginRealms'>]
+[2017-01-16 05:54:50,857] - alignak_webui.utils.plugin - INFO - Found list '/realms/list' for realm
+[2017-01-16 05:54:50,857] - alignak_webui.utils.plugin - INFO - Found table 'realms_table' for external
+[2017-01-16 05:54:50,861] - alignak_webui.utils.plugin - INFO - Plugin Realms is installed and enabled.
+[2017-01-16 05:54:50,862] - alignak_webui.application - INFO - registered plugin 'realms'
+[2017-01-16 05:54:50,862] - alignak_webui.application - INFO - trying to load plugin 'minemap' ...
+[2017-01-16 05:54:50,863] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.minemap.minemap.PluginMinemap'>]
+[2017-01-16 05:54:50,864] - alignak_webui.utils.plugin - INFO - Plugin Minemap is installed and enabled.
+[2017-01-16 05:54:50,864] - alignak_webui.application - INFO - registered plugin 'minemap'
+[2017-01-16 05:54:50,864] - alignak_webui.application - INFO - trying to load plugin 'hostdependencies' ...
+[2017-01-16 05:54:50,865] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.hostdependencies.hostdependencies.PluginHostsDependencies'>]
+[2017-01-16 05:54:50,873] - alignak_webui.utils.plugin - INFO - Found table 'hostdependencys_table' for external
+[2017-01-16 05:54:50,876] - alignak_webui.utils.plugin - INFO - Found list '/hostdependencys/list' for hostdependency
+[2017-01-16 05:54:50,877] - alignak_webui.utils.plugin - INFO - Plugin Hosts dependencies is installed and enabled.
+[2017-01-16 05:54:50,877] - alignak_webui.application - INFO - registered plugin 'hostdependencies'
+[2017-01-16 05:54:50,878] - alignak_webui.application - INFO - trying to load plugin 'timeperiods' ...
+[2017-01-16 05:54:50,878] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.timeperiods.timeperiods.PluginTimeperiods'>]
+[2017-01-16 05:54:50,884] - alignak_webui.utils.plugin - INFO - Found table 'timeperiods_table' for external
+[2017-01-16 05:54:50,888] - alignak_webui.utils.plugin - INFO - Found list '/timeperiods/list' for timeperiod
+[2017-01-16 05:54:50,889] - alignak_webui.utils.plugin - INFO - Plugin Timeperiods is installed and enabled.
+[2017-01-16 05:54:50,892] - alignak_webui.application - INFO - registered plugin 'timeperiods'
+[2017-01-16 05:54:50,892] - alignak_webui.application - INFO - trying to load plugin 'worldmap' ...
+[2017-01-16 05:54:50,893] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.worldmap.worldmap.PluginWorldmap'>]
+[2017-01-16 05:54:50,893] - alignak_webui.utils.plugin - INFO - Found widget 'worldmap' for external
+[2017-01-16 05:54:50,894] - alignak_webui.utils.plugin - INFO - Found widget 'worldmap' for dashboard
+[2017-01-16 05:54:50,894] - alignak_webui.utils.plugin - INFO - Plugin Worldmap is installed and enabled.
+[2017-01-16 05:54:50,894] - alignak_webui.application - INFO - registered plugin 'worldmap'
+[2017-01-16 05:54:50,894] - alignak_webui.application - INFO - trying to load plugin 'commands' ...
+[2017-01-16 05:54:50,895] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.commands.commands.PluginCommands'>]
+[2017-01-16 05:54:50,902] - alignak_webui.utils.plugin - INFO - Found table 'commands_table' for external
+[2017-01-16 05:54:50,907] - alignak_webui.utils.plugin - INFO - Found list '/commands/list' for command
+[2017-01-16 05:54:50,908] - alignak_webui.utils.plugin - INFO - Plugin Commands is installed and enabled.
+[2017-01-16 05:54:50,909] - alignak_webui.application - INFO - registered plugin 'commands'
+[2017-01-16 05:54:50,909] - alignak_webui.application - INFO - trying to load plugin 'users' ...
+[2017-01-16 05:54:50,909] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.users.users.PluginUsers'>]
+[2017-01-16 05:54:50,919] - alignak_webui.utils.plugin - ERROR - Callable method: show_user_delete does not exist!
+[2017-01-16 05:54:50,931] - alignak_webui.utils.plugin - ERROR - Callable method: delete_user does not exist!
+[2017-01-16 05:54:50,933] - alignak_webui.utils.plugin - ERROR - Callable method: add_user does not exist!
+[2017-01-16 05:54:50,938] - alignak_webui.utils.plugin - INFO - Found widget 'information' for user
+[2017-01-16 05:54:50,938] - alignak_webui.utils.plugin - INFO - Found table 'users_table' for external
+[2017-01-16 05:54:50,939] - alignak_webui.utils.plugin - INFO - Found list '/users/list' for user
+[2017-01-16 05:54:50,939] - alignak_webui.utils.plugin - INFO - Plugin Users is installed and enabled.
+[2017-01-16 05:54:50,939] - alignak_webui.application - INFO - registered plugin 'users'
+[2017-01-16 05:54:50,940] - alignak_webui.application - INFO - trying to load plugin 'logcheckresults' ...
+[2017-01-16 05:54:50,940] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.logcheckresults.logcheckresults.PluginLogCheckResults'>]
+[2017-01-16 05:54:50,948] - alignak_webui.utils.plugin - INFO - Found table 'logcheckresults_table' for external
+[2017-01-16 05:54:50,952] - alignak_webui.utils.plugin - INFO - Found list '/logcheckresults/list' for logcheckresult
+[2017-01-16 05:54:50,954] - alignak_webui.utils.plugin - INFO - Plugin Log check results is installed and enabled.
+[2017-01-16 05:54:50,954] - alignak_webui.application - INFO - registered plugin 'logcheckresults'
+[2017-01-16 05:54:50,955] - alignak_webui.application - INFO - trying to load plugin 'actions' ...
+[2017-01-16 05:54:50,955] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.actions.actions.PluginActions'>]
+[2017-01-16 05:54:50,956] - alignak_webui.utils.plugin - INFO - Plugin Actions is installed and enabled.
+[2017-01-16 05:54:50,956] - alignak_webui.application - INFO - registered plugin 'actions'
+[2017-01-16 05:54:50,957] - alignak_webui.application - INFO - trying to load plugin 'histories' ...
+[2017-01-16 05:54:50,957] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.histories.histories.PluginHistorys'>]
+[2017-01-16 05:54:50,967] - alignak_webui.utils.plugin - INFO - Found table 'historys_table' for external
+[2017-01-16 05:54:50,972] - alignak_webui.utils.plugin - INFO - Found list '/historys/list' for history
+[2017-01-16 05:54:50,974] - alignak_webui.utils.plugin - INFO - Plugin Histories is installed and enabled.
+[2017-01-16 05:54:50,975] - alignak_webui.application - INFO - registered plugin 'histories'
+[2017-01-16 05:54:50,975] - alignak_webui.application - INFO - trying to load plugin 'userrestrictroles' ...
+[2017-01-16 05:54:50,975] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.userrestrictroles.userrestrictroles.PluginUserRestrictRoles'>]
+[2017-01-16 05:54:50,982] - alignak_webui.utils.plugin - INFO - Found table 'userrestrictroles_table' for external
+[2017-01-16 05:54:50,986] - alignak_webui.utils.plugin - INFO - Found list '/userrestrictroles/list' for userrestrictrole
+[2017-01-16 05:54:50,988] - alignak_webui.utils.plugin - INFO - Plugin User restrict roles is installed and enabled.
+[2017-01-16 05:54:50,988] - alignak_webui.application - INFO - registered plugin 'userrestrictroles'
+[2017-01-16 05:54:50,988] - alignak_webui.application - INFO - trying to load plugin 'servicegroups' ...
+[2017-01-16 05:54:50,989] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.servicegroups.servicegroups.PluginServicesGroups'>]
+[2017-01-16 05:54:51,003] - alignak_webui.utils.plugin - INFO - Found list '/servicegroups/list' for servicegroup
+[2017-01-16 05:54:51,009] - alignak_webui.utils.plugin - INFO - Found table 'servicegroups_table' for external
+[2017-01-16 05:54:51,013] - alignak_webui.utils.plugin - INFO - Plugin Services groups is installed and enabled.
+[2017-01-16 05:54:51,013] - alignak_webui.application - INFO - registered plugin 'servicegroups'
+[2017-01-16 05:54:51,013] - alignak_webui.application - INFO - trying to load plugin 'hosts' ...
+[2017-01-16 05:54:51,014] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.hosts.hosts.PluginHosts'>]
+[2017-01-16 05:54:51,059] - alignak_webui.utils.plugin - INFO - Found list '/hosts/list' for host
+[2017-01-16 05:54:51,080] - alignak_webui.utils.plugin - INFO - Found widget 'information' for host
+[2017-01-16 05:54:51,080] - alignak_webui.utils.plugin - INFO - Found widget 'configuration' for host
+[2017-01-16 05:54:51,080] - alignak_webui.utils.plugin - INFO - Found widget 'location' for host
+[2017-01-16 05:54:51,081] - alignak_webui.utils.plugin - INFO - Found widget 'services' for host
+[2017-01-16 05:54:51,081] - alignak_webui.utils.plugin - INFO - Found widget 'metrics' for host
+[2017-01-16 05:54:51,081] - alignak_webui.utils.plugin - INFO - Found widget 'timeline' for host
+[2017-01-16 05:54:51,081] - alignak_webui.utils.plugin - INFO - Found widget 'history' for host
+[2017-01-16 05:54:51,081] - alignak_webui.utils.plugin - INFO - Found widget 'events' for host
+[2017-01-16 05:54:51,081] - alignak_webui.utils.plugin - INFO - Found widget 'grafana' for host
+[2017-01-16 05:54:51,082] - alignak_webui.utils.plugin - INFO - Found table 'hosts_table' for external
+[2017-01-16 05:54:51,082] - alignak_webui.utils.plugin - INFO - Found widget 'hosts_table' for external
+[2017-01-16 05:54:51,082] - alignak_webui.utils.plugin - INFO - Found widget 'hosts_table' for dashboard
+[2017-01-16 05:54:51,082] - alignak_webui.utils.plugin - INFO - Found widget 'hosts_chart' for external
+[2017-01-16 05:54:51,082] - alignak_webui.utils.plugin - INFO - Found widget 'hosts_chart' for dashboard
+[2017-01-16 05:54:51,082] - alignak_webui.utils.plugin - INFO - Plugin Hosts is installed and enabled.
+[2017-01-16 05:54:51,083] - alignak_webui.application - INFO - registered plugin 'hosts'
+[2017-01-16 05:54:51,083] - alignak_webui.application - INFO - trying to load plugin 'dashboard' ...
+[2017-01-16 05:54:51,083] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.dashboard.dashboard.PluginDashboard'>]
+[2017-01-16 05:54:51,084] - alignak_webui.utils.plugin - INFO - Plugin Dashboard is installed and enabled.
+[2017-01-16 05:54:51,084] - alignak_webui.application - INFO - registered plugin 'dashboard'
+[2017-01-16 05:54:51,084] - alignak_webui.application - INFO - trying to load plugin 'alignak' ...
+[2017-01-16 05:54:51,085] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.alignak.alignak.PluginAlignak'>]
+[2017-01-16 05:54:51,085] - alignak_webui.utils.plugin - INFO - Found widget 'alignak_table_widget' for external
+[2017-01-16 05:54:51,085] - alignak_webui.utils.plugin - INFO - Found widget 'alignak_table_widget' for dashboard
+[2017-01-16 05:54:51,086] - alignak_webui.utils.plugin - INFO - Plugin Alignak is installed and enabled.
+[2017-01-16 05:54:51,086] - alignak_webui.application - INFO - registered plugin 'alignak'
+[2017-01-16 05:54:51,086] - alignak_webui.application - INFO - trying to load plugin 'servicedependencies' ...
+[2017-01-16 05:54:51,087] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.servicedependencies.servicedependencies.PluginServicesDependencies'>]
+[2017-01-16 05:54:51,097] - alignak_webui.utils.plugin - INFO - Found table 'servicedependencys_table' for external
+[2017-01-16 05:54:51,103] - alignak_webui.utils.plugin - INFO - Found list '/servicedependencys/list' for servicedependency
+[2017-01-16 05:54:51,106] - alignak_webui.utils.plugin - INFO - Plugin Services dependencies is installed and enabled.
+[2017-01-16 05:54:51,106] - alignak_webui.application - INFO - registered plugin 'servicedependencies'
+[2017-01-16 05:54:51,106] - alignak_webui.application - INFO - trying to load plugin 'lookup' ...
+[2017-01-16 05:54:51,107] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.lookup.lookup.PluginLookup'>]
+[2017-01-16 05:54:51,107] - alignak_webui.utils.plugin - INFO - Plugin Dashboard is installed and enabled.
+[2017-01-16 05:54:51,107] - alignak_webui.application - INFO - registered plugin 'lookup'
+[2017-01-16 05:54:51,108] - alignak_webui.application - INFO - trying to load plugin 'common' ...
+[2017-01-16 05:54:51,108] - alignak_webui.application - INFO - registered plugin 'common'
+[2017-01-16 05:54:51,108] - alignak_webui.application - INFO - loaded 20 plugins from: /home/alignak/alignak-webui/alignak_webui/plugins
+[2017-01-16 05:54:55,713] - alignak_webui.application - INFO - Logout for current user
+[2017-01-16 05:54:58,086] - alignak_webui.application - INFO - login, user 'admin' is signing in ...
+[2017-01-16 05:55:01,481] - alignak_webui.objects.datamanager - INFO - Objects cache reset
+[2017-01-16 05:55:01,863] - alignak_webui.objects.datamanager - INFO - user's default higher level realm: All
+[2017-01-16 05:55:01,995] - alignak_webui.objects.datamanager - INFO - user's concatenated live synthesis: 587273e4a03284269ebb3935
+[2017-01-16 05:55:01,996] - alignak_webui.objects.datamanager - INFO - Data manager load (False), new objects: 4,  duration: 0.514867067337
+[2017-01-16 05:55:01,996] - alignak_webui.application - INFO - user 'admin' (admin) signed in
+[2017-01-16 05:55:14,384] - alignak_webui.backend.alignak_ws_client - INFO - login, connection requested, login: no_login
+[2017-01-16 05:55:14,385] - alignak_webui.backend.alignak_ws_client - INFO - get, endpoint: http://demo.alignak.net:8888/alignak_map, parameters: None
+[2017-01-16 05:55:14,476] - alignak_webui.backend.alignak_ws_client - ERROR - Backend connection error, error: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7fe58c075ed0>: Failed to establish a new connection: [Errno 111] Connection refused',))
+Traceback (most recent call last):
+  File "/home/alignak/alignak-webui/alignak_webui/backend/alignak_ws_client.py", line 171, in get
+    params=params
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 70, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 56, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/adapters.py", line 487, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7fe58c075ed0>: Failed to establish a new connection: [Errno 111] Connection refused',))
+[2017-01-16 05:55:14,479] - alignak_webui.utils.plugin - INFO - Widget found, template: alignak_table_widget, options: {}
+[2017-01-16 05:55:14,480] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'picture': u'/static/plugins/alignak/htdocs/img/alignak_widget.png', u'name': u'Alignak state widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/alignak/widget', u'maxHeight': u'64', u'height': 6, u'minWidth': u'3', u'width': 6, u'template': u'alignak_table_widget', u'y': 14, u'x': 0, u'id': u'alignak_table_widget_1483498618816', u'icon': u'table'}
+[2017-01-16 05:55:14,480] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:55:14,480] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:55:14,480] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:55:15,371] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_table_widget, options: {'count': {'type': 'int', 'value': -1, 'label': 'Number of elements'}, 'filter': {'type': 'hst_srv', 'value': '', 'label': 'Host name search'}, 'search': {'type': 'text', 'value': '', 'label': 'Filter (ex. status:up)'}}
+[2017-01-16 05:55:15,371] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts table widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget?count=-1&filter=&search=', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_table_widget', u'y': 0, u'x': 6, u'id': u'hosts_table_1481981705680', u'icon': u'table'}
+[2017-01-16 05:55:15,371] - alignak_webui.utils.plugin - INFO - Saved widget options: count=-1|filter=|search=
+[2017-01-16 05:55:15,372] - alignak_webui.utils.plugin - INFO - Saved widget option: ['count', '-1']
+[2017-01-16 05:55:15,372] - alignak_webui.utils.plugin - INFO - Saved widget option: ['filter', '']
+[2017-01-16 05:55:15,372] - alignak_webui.utils.plugin - INFO - Saved widget option: ['search', '']
+[2017-01-16 05:55:15,372] - alignak_webui.utils.plugin - INFO - Widget new options: count=-1|filter=|search=
+[2017-01-16 05:55:15,404] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_chart_widget, options: {}
+[2017-01-16 05:55:15,405] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts chart widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_chart_widget', u'y': 0, u'x': 0, u'id': u'hosts_chart_1483439691503', u'icon': u'pie-chart'}
+[2017-01-16 05:55:15,405] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:55:15,406] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:55:15,406] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:56:21,284] - alignak_webui.backend.alignak_ws_client - INFO - get, endpoint: http://demo.alignak.net:8888/alignak_map, parameters: None
+[2017-01-16 05:56:21,367] - alignak_webui.backend.alignak_ws_client - ERROR - Backend connection error, error: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7fe58c18a690>: Failed to establish a new connection: [Errno 111] Connection refused',))
+Traceback (most recent call last):
+  File "/home/alignak/alignak-webui/alignak_webui/backend/alignak_ws_client.py", line 171, in get
+    params=params
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 70, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 56, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/adapters.py", line 487, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7fe58c18a690>: Failed to establish a new connection: [Errno 111] Connection refused',))
+[2017-01-16 05:56:21,367] - alignak_webui.utils.plugin - INFO - Widget found, template: alignak_table_widget, options: {}
+[2017-01-16 05:56:21,367] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'picture': u'/static/plugins/alignak/htdocs/img/alignak_widget.png', u'name': u'Alignak state widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/alignak/widget', u'maxHeight': u'64', u'height': 6, u'minWidth': u'3', u'width': 6, u'template': u'alignak_table_widget', u'y': 14, u'x': 0, u'id': u'alignak_table_widget_1483498618816', u'icon': u'table'}
+[2017-01-16 05:56:21,368] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:56:21,368] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:56:21,368] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:56:21,589] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_chart_widget, options: {}
+[2017-01-16 05:56:21,589] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts chart widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_chart_widget', u'y': 0, u'x': 0, u'id': u'hosts_chart_1483439691503', u'icon': u'pie-chart'}
+[2017-01-16 05:56:21,589] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:56:21,589] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:56:21,590] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:56:21,620] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_table_widget, options: {'count': {'type': 'int', 'value': '-1', 'label': 'Number of elements'}, 'filter': {'type': 'hst_srv', 'value': '', 'label': 'Host name search'}, 'search': {'type': 'text', 'value': '', 'label': 'Filter (ex. status:up)'}}
+[2017-01-16 05:56:21,621] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts table widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget?count=-1&filter=&search=', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_table_widget', u'y': 0, u'x': 6, u'id': u'hosts_table_1481981705680', u'icon': u'table'}
+[2017-01-16 05:56:21,621] - alignak_webui.utils.plugin - INFO - Saved widget options: count=-1|filter=|search=
+[2017-01-16 05:56:21,621] - alignak_webui.utils.plugin - INFO - Saved widget option: ['count', '-1']
+[2017-01-16 05:56:21,621] - alignak_webui.utils.plugin - INFO - Saved widget option: ['filter', '']
+[2017-01-16 05:56:21,622] - alignak_webui.utils.plugin - INFO - Saved widget option: ['search', '']
+[2017-01-16 05:56:21,622] - alignak_webui.utils.plugin - INFO - Widget new options: count=-1|filter=|search=
+[2017-01-16 05:57:19,585] - alignak_webui.backend.alignak_ws_client - INFO - get, endpoint: http://demo.alignak.net:8888/alignak_map, parameters: None
+[2017-01-16 05:57:19,681] - alignak_webui.backend.alignak_ws_client - ERROR - Backend connection error, error: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7fe56efab990>: Failed to establish a new connection: [Errno 111] Connection refused',))
+Traceback (most recent call last):
+  File "/home/alignak/alignak-webui/alignak_webui/backend/alignak_ws_client.py", line 171, in get
+    params=params
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 70, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 56, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/adapters.py", line 487, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7fe56efab990>: Failed to establish a new connection: [Errno 111] Connection refused',))
+[2017-01-16 05:57:19,682] - alignak_webui.utils.plugin - INFO - Widget found, template: alignak_table_widget, options: {}
+[2017-01-16 05:57:19,682] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'picture': u'/static/plugins/alignak/htdocs/img/alignak_widget.png', u'name': u'Alignak state widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/alignak/widget', u'maxHeight': u'64', u'height': 6, u'minWidth': u'3', u'width': 6, u'template': u'alignak_table_widget', u'y': 14, u'x': 0, u'id': u'alignak_table_widget_1483498618816', u'icon': u'table'}
+[2017-01-16 05:57:19,682] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:57:19,682] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:57:19,683] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:57:19,844] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_chart_widget, options: {}
+[2017-01-16 05:57:19,844] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts chart widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_chart_widget', u'y': 0, u'x': 0, u'id': u'hosts_chart_1483439691503', u'icon': u'pie-chart'}
+[2017-01-16 05:57:19,844] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:57:19,845] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:57:19,848] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:57:19,870] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_table_widget, options: {'count': {'type': 'int', 'value': '-1', 'label': 'Number of elements'}, 'filter': {'type': 'hst_srv', 'value': '', 'label': 'Host name search'}, 'search': {'type': 'text', 'value': '', 'label': 'Filter (ex. status:up)'}}
+[2017-01-16 05:57:19,879] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts table widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget?count=-1&filter=&search=', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_table_widget', u'y': 0, u'x': 6, u'id': u'hosts_table_1481981705680', u'icon': u'table'}
+[2017-01-16 05:57:19,879] - alignak_webui.utils.plugin - INFO - Saved widget options: count=-1|filter=|search=
+[2017-01-16 05:57:19,880] - alignak_webui.utils.plugin - INFO - Saved widget option: ['count', '-1']
+[2017-01-16 05:57:19,880] - alignak_webui.utils.plugin - INFO - Saved widget option: ['filter', '']
+[2017-01-16 05:57:19,880] - alignak_webui.utils.plugin - INFO - Saved widget option: ['search', '']
+[2017-01-16 05:57:19,880] - alignak_webui.utils.plugin - INFO - Widget new options: count=-1|filter=|search=
+[2017-01-16 05:58:20,536] - alignak_webui.backend.alignak_ws_client - INFO - get, endpoint: http://demo.alignak.net:8888/alignak_map, parameters: None
+[2017-01-16 05:58:20,640] - alignak_webui.backend.alignak_ws_client - ERROR - Backend connection error, error: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7fe58c414310>: Failed to establish a new connection: [Errno 111] Connection refused',))
+Traceback (most recent call last):
+  File "/home/alignak/alignak-webui/alignak_webui/backend/alignak_ws_client.py", line 171, in get
+    params=params
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 70, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 56, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/adapters.py", line 487, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7fe58c414310>: Failed to establish a new connection: [Errno 111] Connection refused',))
+[2017-01-16 05:58:20,641] - alignak_webui.utils.plugin - INFO - Widget found, template: alignak_table_widget, options: {}
+[2017-01-16 05:58:20,641] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'picture': u'/static/plugins/alignak/htdocs/img/alignak_widget.png', u'name': u'Alignak state widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/alignak/widget', u'maxHeight': u'64', u'height': 6, u'minWidth': u'3', u'width': 6, u'template': u'alignak_table_widget', u'y': 14, u'x': 0, u'id': u'alignak_table_widget_1483498618816', u'icon': u'table'}
+[2017-01-16 05:58:20,641] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:58:20,641] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:58:20,641] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:58:20,807] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_table_widget, options: {'count': {'type': 'int', 'value': '-1', 'label': 'Number of elements'}, 'filter': {'type': 'hst_srv', 'value': '', 'label': 'Host name search'}, 'search': {'type': 'text', 'value': '', 'label': 'Filter (ex. status:up)'}}
+[2017-01-16 05:58:20,807] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts table widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget?count=-1&filter=&search=', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_table_widget', u'y': 0, u'x': 6, u'id': u'hosts_table_1481981705680', u'icon': u'table'}
+[2017-01-16 05:58:20,808] - alignak_webui.utils.plugin - INFO - Saved widget options: count=-1|filter=|search=
+[2017-01-16 05:58:20,808] - alignak_webui.utils.plugin - INFO - Saved widget option: ['count', '-1']
+[2017-01-16 05:58:20,808] - alignak_webui.utils.plugin - INFO - Saved widget option: ['filter', '']
+[2017-01-16 05:58:20,808] - alignak_webui.utils.plugin - INFO - Saved widget option: ['search', '']
+[2017-01-16 05:58:20,808] - alignak_webui.utils.plugin - INFO - Widget new options: count=-1|filter=|search=
+[2017-01-16 05:58:20,852] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_chart_widget, options: {}
+[2017-01-16 05:58:20,853] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts chart widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_chart_widget', u'y': 0, u'x': 0, u'id': u'hosts_chart_1483439691503', u'icon': u'pie-chart'}
+[2017-01-16 05:58:20,855] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:58:20,855] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:58:20,856] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:59:00,272] - alignak_webui - INFO - --------------------------------------------------------------------------------
+[2017-01-16 05:59:00,273] - alignak_webui - INFO - Alignak-WebUI, version 0.6.7
+[2017-01-16 05:59:00,273] - alignak_webui - INFO - Copyright (c) 2015-2017 - Frédéric Mohier
+[2017-01-16 05:59:00,273] - alignak_webui - INFO - License: GNU Affero General Public License, version 3
+[2017-01-16 05:59:00,273] - alignak_webui - INFO - --------------------------------------------------------------------------------
+[2017-01-16 05:59:00,273] - alignak_webui - INFO - --------------------------------------------------------------------------------
+[2017-01-16 05:59:00,274] - alignak_webui - INFO - Alignak-WebUI, listening on 0.0.0.0:5001 (debug mode: False)
+[2017-01-16 05:59:00,274] - alignak_webui - INFO - Alignak-WebUI, using Alignak Backend on http://94.76.229.155:6000
+[2017-01-16 05:59:00,274] - alignak_webui - INFO - Alignak-WebUI, using Alignak Web Services on http://demo.alignak.net:8888
+[2017-01-16 05:59:00,274] - alignak_webui - INFO - --------------------------------------------------------------------------------
+[2017-01-16 05:59:00,275] - alignak_webui.application - INFO - Initializing application...
+[2017-01-16 05:59:00,275] - alignak_webui.application - INFO - load plugins from: /home/alignak/alignak-webui/alignak_webui/plugins
+[2017-01-16 05:59:00,275] - alignak_webui.application - INFO - trying to load plugin 'services' ...
+[2017-01-16 05:59:00,276] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.services.services.PluginServices'>]
+[2017-01-16 05:59:00,297] - alignak_webui.utils.plugin - INFO - Found widget 'information' for service
+[2017-01-16 05:59:00,297] - alignak_webui.utils.plugin - INFO - Found widget 'configuration' for service
+[2017-01-16 05:59:00,297] - alignak_webui.utils.plugin - INFO - Found widget 'metrics' for service
+[2017-01-16 05:59:00,297] - alignak_webui.utils.plugin - INFO - Found widget 'grafana' for service
+[2017-01-16 05:59:00,300] - alignak_webui.utils.plugin - INFO - Found widget 'services_table' for external
+[2017-01-16 05:59:00,300] - alignak_webui.utils.plugin - INFO - Found widget 'services_table' for dashboard
+[2017-01-16 05:59:00,301] - alignak_webui.utils.plugin - INFO - Found widget 'services_chart' for external
+[2017-01-16 05:59:00,301] - alignak_webui.utils.plugin - INFO - Found widget 'services_chart' for dashboard
+[2017-01-16 05:59:00,301] - alignak_webui.utils.plugin - INFO - Found table 'services_table' for external
+[2017-01-16 05:59:00,301] - alignak_webui.utils.plugin - INFO - Found list '/services/list' for service
+[2017-01-16 05:59:00,301] - alignak_webui.utils.plugin - INFO - Plugin Services is installed and enabled.
+[2017-01-16 05:59:00,302] - alignak_webui.application - INFO - registered plugin 'services'
+[2017-01-16 05:59:00,302] - alignak_webui.application - INFO - trying to load plugin 'hostgroups' ...
+[2017-01-16 05:59:00,302] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.hostgroups.hostgroups.PluginHostsGroups'>]
+[2017-01-16 05:59:00,312] - alignak_webui.utils.plugin - INFO - Found table 'hostgroups_table' for external
+[2017-01-16 05:59:00,312] - alignak_webui.utils.plugin - INFO - Found list '/hostgroups/list' for hostgroup
+[2017-01-16 05:59:00,314] - alignak_webui.utils.plugin - INFO - Plugin Hosts groups is installed and enabled.
+[2017-01-16 05:59:00,314] - alignak_webui.application - INFO - registered plugin 'hostgroups'
+[2017-01-16 05:59:00,315] - alignak_webui.application - INFO - trying to load plugin 'usergroups' ...
+[2017-01-16 05:59:00,315] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.usergroups.usergroups.PluginServicesGroups'>]
+[2017-01-16 05:59:00,325] - alignak_webui.utils.plugin - INFO - Found list '/usergroups/list' for usergroup
+[2017-01-16 05:59:00,325] - alignak_webui.utils.plugin - INFO - Found table 'usergroups_table' for external
+[2017-01-16 05:59:00,326] - alignak_webui.utils.plugin - INFO - Plugin Users groups is installed and enabled.
+[2017-01-16 05:59:00,327] - alignak_webui.application - INFO - registered plugin 'usergroups'
+[2017-01-16 05:59:00,327] - alignak_webui.application - INFO - trying to load plugin 'realms' ...
+[2017-01-16 05:59:00,327] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.realms.realms.PluginRealms'>]
+[2017-01-16 05:59:00,336] - alignak_webui.utils.plugin - INFO - Found list '/realms/list' for realm
+[2017-01-16 05:59:00,337] - alignak_webui.utils.plugin - INFO - Found table 'realms_table' for external
+[2017-01-16 05:59:00,340] - alignak_webui.utils.plugin - INFO - Plugin Realms is installed and enabled.
+[2017-01-16 05:59:00,340] - alignak_webui.application - INFO - registered plugin 'realms'
+[2017-01-16 05:59:00,341] - alignak_webui.application - INFO - trying to load plugin 'minemap' ...
+[2017-01-16 05:59:00,341] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.minemap.minemap.PluginMinemap'>]
+[2017-01-16 05:59:00,342] - alignak_webui.utils.plugin - INFO - Plugin Minemap is installed and enabled.
+[2017-01-16 05:59:00,342] - alignak_webui.application - INFO - registered plugin 'minemap'
+[2017-01-16 05:59:00,342] - alignak_webui.application - INFO - trying to load plugin 'hostdependencies' ...
+[2017-01-16 05:59:00,342] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.hostdependencies.hostdependencies.PluginHostsDependencies'>]
+[2017-01-16 05:59:00,350] - alignak_webui.utils.plugin - INFO - Found table 'hostdependencys_table' for external
+[2017-01-16 05:59:00,354] - alignak_webui.utils.plugin - INFO - Found list '/hostdependencys/list' for hostdependency
+[2017-01-16 05:59:00,355] - alignak_webui.utils.plugin - INFO - Plugin Hosts dependencies is installed and enabled.
+[2017-01-16 05:59:00,356] - alignak_webui.application - INFO - registered plugin 'hostdependencies'
+[2017-01-16 05:59:00,356] - alignak_webui.application - INFO - trying to load plugin 'timeperiods' ...
+[2017-01-16 05:59:00,357] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.timeperiods.timeperiods.PluginTimeperiods'>]
+[2017-01-16 05:59:00,363] - alignak_webui.utils.plugin - INFO - Found table 'timeperiods_table' for external
+[2017-01-16 05:59:00,367] - alignak_webui.utils.plugin - INFO - Found list '/timeperiods/list' for timeperiod
+[2017-01-16 05:59:00,368] - alignak_webui.utils.plugin - INFO - Plugin Timeperiods is installed and enabled.
+[2017-01-16 05:59:00,368] - alignak_webui.application - INFO - registered plugin 'timeperiods'
+[2017-01-16 05:59:00,368] - alignak_webui.application - INFO - trying to load plugin 'worldmap' ...
+[2017-01-16 05:59:00,369] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.worldmap.worldmap.PluginWorldmap'>]
+[2017-01-16 05:59:00,369] - alignak_webui.utils.plugin - INFO - Found widget 'worldmap' for external
+[2017-01-16 05:59:00,370] - alignak_webui.utils.plugin - INFO - Found widget 'worldmap' for dashboard
+[2017-01-16 05:59:00,370] - alignak_webui.utils.plugin - INFO - Plugin Worldmap is installed and enabled.
+[2017-01-16 05:59:00,370] - alignak_webui.application - INFO - registered plugin 'worldmap'
+[2017-01-16 05:59:00,370] - alignak_webui.application - INFO - trying to load plugin 'commands' ...
+[2017-01-16 05:59:00,370] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.commands.commands.PluginCommands'>]
+[2017-01-16 05:59:00,377] - alignak_webui.utils.plugin - INFO - Found table 'commands_table' for external
+[2017-01-16 05:59:00,380] - alignak_webui.utils.plugin - INFO - Found list '/commands/list' for command
+[2017-01-16 05:59:00,382] - alignak_webui.utils.plugin - INFO - Plugin Commands is installed and enabled.
+[2017-01-16 05:59:00,382] - alignak_webui.application - INFO - registered plugin 'commands'
+[2017-01-16 05:59:00,382] - alignak_webui.application - INFO - trying to load plugin 'users' ...
+[2017-01-16 05:59:00,383] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.users.users.PluginUsers'>]
+[2017-01-16 05:59:00,392] - alignak_webui.utils.plugin - ERROR - Callable method: show_user_delete does not exist!
+[2017-01-16 05:59:00,399] - alignak_webui.utils.plugin - ERROR - Callable method: delete_user does not exist!
+[2017-01-16 05:59:00,401] - alignak_webui.utils.plugin - ERROR - Callable method: add_user does not exist!
+[2017-01-16 05:59:00,404] - alignak_webui.utils.plugin - INFO - Found widget 'information' for user
+[2017-01-16 05:59:00,404] - alignak_webui.utils.plugin - INFO - Found table 'users_table' for external
+[2017-01-16 05:59:00,404] - alignak_webui.utils.plugin - INFO - Found list '/users/list' for user
+[2017-01-16 05:59:00,405] - alignak_webui.utils.plugin - INFO - Plugin Users is installed and enabled.
+[2017-01-16 05:59:00,405] - alignak_webui.application - INFO - registered plugin 'users'
+[2017-01-16 05:59:00,405] - alignak_webui.application - INFO - trying to load plugin 'logcheckresults' ...
+[2017-01-16 05:59:00,405] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.logcheckresults.logcheckresults.PluginLogCheckResults'>]
+[2017-01-16 05:59:00,413] - alignak_webui.utils.plugin - INFO - Found table 'logcheckresults_table' for external
+[2017-01-16 05:59:00,417] - alignak_webui.utils.plugin - INFO - Found list '/logcheckresults/list' for logcheckresult
+[2017-01-16 05:59:00,419] - alignak_webui.utils.plugin - INFO - Plugin Log check results is installed and enabled.
+[2017-01-16 05:59:00,419] - alignak_webui.application - INFO - registered plugin 'logcheckresults'
+[2017-01-16 05:59:00,419] - alignak_webui.application - INFO - trying to load plugin 'actions' ...
+[2017-01-16 05:59:00,420] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.actions.actions.PluginActions'>]
+[2017-01-16 05:59:00,422] - alignak_webui.utils.plugin - INFO - Plugin Actions is installed and enabled.
+[2017-01-16 05:59:00,422] - alignak_webui.application - INFO - registered plugin 'actions'
+[2017-01-16 05:59:00,422] - alignak_webui.application - INFO - trying to load plugin 'histories' ...
+[2017-01-16 05:59:00,423] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.histories.histories.PluginHistorys'>]
+[2017-01-16 05:59:00,430] - alignak_webui.utils.plugin - INFO - Found table 'historys_table' for external
+[2017-01-16 05:59:00,434] - alignak_webui.utils.plugin - INFO - Found list '/historys/list' for history
+[2017-01-16 05:59:00,436] - alignak_webui.utils.plugin - INFO - Plugin Histories is installed and enabled.
+[2017-01-16 05:59:00,437] - alignak_webui.application - INFO - registered plugin 'histories'
+[2017-01-16 05:59:00,437] - alignak_webui.application - INFO - trying to load plugin 'userrestrictroles' ...
+[2017-01-16 05:59:00,437] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.userrestrictroles.userrestrictroles.PluginUserRestrictRoles'>]
+[2017-01-16 05:59:00,443] - alignak_webui.utils.plugin - INFO - Found table 'userrestrictroles_table' for external
+[2017-01-16 05:59:00,448] - alignak_webui.utils.plugin - INFO - Found list '/userrestrictroles/list' for userrestrictrole
+[2017-01-16 05:59:00,449] - alignak_webui.utils.plugin - INFO - Plugin User restrict roles is installed and enabled.
+[2017-01-16 05:59:00,450] - alignak_webui.application - INFO - registered plugin 'userrestrictroles'
+[2017-01-16 05:59:00,450] - alignak_webui.application - INFO - trying to load plugin 'servicegroups' ...
+[2017-01-16 05:59:00,450] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.servicegroups.servicegroups.PluginServicesGroups'>]
+[2017-01-16 05:59:00,465] - alignak_webui.utils.plugin - INFO - Found list '/servicegroups/list' for servicegroup
+[2017-01-16 05:59:00,469] - alignak_webui.utils.plugin - INFO - Found table 'servicegroups_table' for external
+[2017-01-16 05:59:00,472] - alignak_webui.utils.plugin - INFO - Plugin Services groups is installed and enabled.
+[2017-01-16 05:59:00,472] - alignak_webui.application - INFO - registered plugin 'servicegroups'
+[2017-01-16 05:59:00,472] - alignak_webui.application - INFO - trying to load plugin 'hosts' ...
+[2017-01-16 05:59:00,473] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.hosts.hosts.PluginHosts'>]
+[2017-01-16 05:59:00,515] - alignak_webui.utils.plugin - INFO - Found list '/hosts/list' for host
+[2017-01-16 05:59:00,533] - alignak_webui.utils.plugin - INFO - Found widget 'information' for host
+[2017-01-16 05:59:00,533] - alignak_webui.utils.plugin - INFO - Found widget 'configuration' for host
+[2017-01-16 05:59:00,533] - alignak_webui.utils.plugin - INFO - Found widget 'location' for host
+[2017-01-16 05:59:00,534] - alignak_webui.utils.plugin - INFO - Found widget 'services' for host
+[2017-01-16 05:59:00,534] - alignak_webui.utils.plugin - INFO - Found widget 'metrics' for host
+[2017-01-16 05:59:00,534] - alignak_webui.utils.plugin - INFO - Found widget 'timeline' for host
+[2017-01-16 05:59:00,534] - alignak_webui.utils.plugin - INFO - Found widget 'history' for host
+[2017-01-16 05:59:00,534] - alignak_webui.utils.plugin - INFO - Found widget 'events' for host
+[2017-01-16 05:59:00,534] - alignak_webui.utils.plugin - INFO - Found widget 'grafana' for host
+[2017-01-16 05:59:00,535] - alignak_webui.utils.plugin - INFO - Found table 'hosts_table' for external
+[2017-01-16 05:59:00,535] - alignak_webui.utils.plugin - INFO - Found widget 'hosts_table' for external
+[2017-01-16 05:59:00,535] - alignak_webui.utils.plugin - INFO - Found widget 'hosts_table' for dashboard
+[2017-01-16 05:59:00,535] - alignak_webui.utils.plugin - INFO - Found widget 'hosts_chart' for external
+[2017-01-16 05:59:00,535] - alignak_webui.utils.plugin - INFO - Found widget 'hosts_chart' for dashboard
+[2017-01-16 05:59:00,536] - alignak_webui.utils.plugin - INFO - Plugin Hosts is installed and enabled.
+[2017-01-16 05:59:00,536] - alignak_webui.application - INFO - registered plugin 'hosts'
+[2017-01-16 05:59:00,536] - alignak_webui.application - INFO - trying to load plugin 'dashboard' ...
+[2017-01-16 05:59:00,536] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.dashboard.dashboard.PluginDashboard'>]
+[2017-01-16 05:59:00,537] - alignak_webui.utils.plugin - INFO - Plugin Dashboard is installed and enabled.
+[2017-01-16 05:59:00,537] - alignak_webui.application - INFO - registered plugin 'dashboard'
+[2017-01-16 05:59:00,537] - alignak_webui.application - INFO - trying to load plugin 'alignak' ...
+[2017-01-16 05:59:00,538] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.alignak.alignak.PluginAlignak'>]
+[2017-01-16 05:59:00,538] - alignak_webui.utils.plugin - INFO - Found widget 'alignak_table_widget' for external
+[2017-01-16 05:59:00,538] - alignak_webui.utils.plugin - INFO - Found widget 'alignak_table_widget' for dashboard
+[2017-01-16 05:59:00,539] - alignak_webui.utils.plugin - INFO - Plugin Alignak is installed and enabled.
+[2017-01-16 05:59:00,539] - alignak_webui.application - INFO - registered plugin 'alignak'
+[2017-01-16 05:59:00,539] - alignak_webui.application - INFO - trying to load plugin 'servicedependencies' ...
+[2017-01-16 05:59:00,539] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.servicedependencies.servicedependencies.PluginServicesDependencies'>]
+[2017-01-16 05:59:00,550] - alignak_webui.utils.plugin - INFO - Found table 'servicedependencys_table' for external
+[2017-01-16 05:59:00,556] - alignak_webui.utils.plugin - INFO - Found list '/servicedependencys/list' for servicedependency
+[2017-01-16 05:59:00,558] - alignak_webui.utils.plugin - INFO - Plugin Services dependencies is installed and enabled.
+[2017-01-16 05:59:00,559] - alignak_webui.application - INFO - registered plugin 'servicedependencies'
+[2017-01-16 05:59:00,559] - alignak_webui.application - INFO - trying to load plugin 'lookup' ...
+[2017-01-16 05:59:00,559] - alignak_webui.application - INFO - Found plugins classes: [<class 'alignak_webui.plugins.lookup.lookup.PluginLookup'>]
+[2017-01-16 05:59:00,560] - alignak_webui.utils.plugin - INFO - Plugin Dashboard is installed and enabled.
+[2017-01-16 05:59:00,561] - alignak_webui.application - INFO - registered plugin 'lookup'
+[2017-01-16 05:59:00,561] - alignak_webui.application - INFO - trying to load plugin 'common' ...
+[2017-01-16 05:59:00,561] - alignak_webui.application - INFO - registered plugin 'common'
+[2017-01-16 05:59:00,562] - alignak_webui.application - INFO - loaded 20 plugins from: /home/alignak/alignak-webui/alignak_webui/plugins
+[2017-01-16 05:59:03,695] - alignak_webui.application - INFO - Logout for current user
+[2017-01-16 05:59:05,624] - alignak_webui.application - INFO - login, user 'admin' is signing in ...
+[2017-01-16 05:59:08,925] - alignak_webui.objects.datamanager - INFO - Objects cache reset
+[2017-01-16 05:59:09,265] - alignak_webui.objects.datamanager - INFO - user's default higher level realm: All
+[2017-01-16 05:59:09,266] - alignak_webui.objects.datamanager - WARNING - get_livesynthesis, search: {'where': {'_realm': u'57f36cbba03284cee69ca560'}, 'concatenation': '1'}
+[2017-01-16 05:59:09,385] - alignak_webui.objects.datamanager - INFO - user's concatenated live synthesis: 587273e4a03284269ebb3935
+[2017-01-16 05:59:09,386] - alignak_webui.objects.datamanager - INFO - Data manager load (False), new objects: 4,  duration: 0.461318969727
+[2017-01-16 05:59:09,386] - alignak_webui.application - INFO - user 'admin' (admin) signed in
+[2017-01-16 05:59:19,150] - alignak_webui.backend.alignak_ws_client - INFO - login, connection requested, login: no_login
+[2017-01-16 05:59:19,150] - alignak_webui.backend.alignak_ws_client - INFO - get, endpoint: http://demo.alignak.net:8888/alignak_map, parameters: None
+[2017-01-16 05:59:19,270] - alignak_webui.backend.alignak_ws_client - ERROR - Backend connection error, error: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7ff78af22210>: Failed to establish a new connection: [Errno 111] Connection refused',))
+Traceback (most recent call last):
+  File "/home/alignak/alignak-webui/alignak_webui/backend/alignak_ws_client.py", line 171, in get
+    params=params
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 70, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 56, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/adapters.py", line 487, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7ff78af22210>: Failed to establish a new connection: [Errno 111] Connection refused',))
+[2017-01-16 05:59:19,273] - alignak_webui.utils.plugin - INFO - Widget found, template: alignak_table_widget, options: {}
+[2017-01-16 05:59:19,273] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'picture': u'/static/plugins/alignak/htdocs/img/alignak_widget.png', u'name': u'Alignak state widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/alignak/widget', u'maxHeight': u'64', u'height': 6, u'minWidth': u'3', u'width': 6, u'template': u'alignak_table_widget', u'y': 14, u'x': 0, u'id': u'alignak_table_widget_1483498618816', u'icon': u'table'}
+[2017-01-16 05:59:19,273] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:59:19,273] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:59:19,274] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:59:20,016] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_chart_widget, options: {}
+[2017-01-16 05:59:20,016] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts chart widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_chart_widget', u'y': 0, u'x': 0, u'id': u'hosts_chart_1483439691503', u'icon': u'pie-chart'}
+[2017-01-16 05:59:20,016] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 05:59:20,017] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 05:59:20,017] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 05:59:20,031] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_table_widget, options: {'count': {'type': 'int', 'value': -1, 'label': 'Number of elements'}, 'filter': {'type': 'hst_srv', 'value': '', 'label': 'Host name search'}, 'search': {'type': 'text', 'value': '', 'label': 'Filter (ex. status:up)'}}
+[2017-01-16 05:59:20,035] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts table widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget?count=-1&filter=&search=', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_table_widget', u'y': 0, u'x': 6, u'id': u'hosts_table_1481981705680', u'icon': u'table'}
+[2017-01-16 05:59:20,035] - alignak_webui.utils.plugin - INFO - Saved widget options: count=-1|filter=|search=
+[2017-01-16 05:59:20,035] - alignak_webui.utils.plugin - INFO - Saved widget option: ['count', '-1']
+[2017-01-16 05:59:20,035] - alignak_webui.utils.plugin - INFO - Saved widget option: ['filter', '']
+[2017-01-16 05:59:20,035] - alignak_webui.utils.plugin - INFO - Saved widget option: ['search', '']
+[2017-01-16 05:59:20,036] - alignak_webui.utils.plugin - INFO - Widget new options: count=-1|filter=|search=
+[2017-01-16 06:00:23,484] - alignak_webui.backend.alignak_ws_client - INFO - get, endpoint: http://demo.alignak.net:8888/alignak_map, parameters: None
+[2017-01-16 06:00:23,565] - alignak_webui.backend.alignak_ws_client - ERROR - Backend connection error, error: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7ff78ad995d0>: Failed to establish a new connection: [Errno 111] Connection refused',))
+Traceback (most recent call last):
+  File "/home/alignak/alignak-webui/alignak_webui/backend/alignak_ws_client.py", line 171, in get
+    params=params
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 70, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 56, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/adapters.py", line 487, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7ff78ad995d0>: Failed to establish a new connection: [Errno 111] Connection refused',))
+[2017-01-16 06:00:23,566] - alignak_webui.utils.plugin - INFO - Widget found, template: alignak_table_widget, options: {}
+[2017-01-16 06:00:23,566] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'picture': u'/static/plugins/alignak/htdocs/img/alignak_widget.png', u'name': u'Alignak state widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/alignak/widget', u'maxHeight': u'64', u'height': 6, u'minWidth': u'3', u'width': 6, u'template': u'alignak_table_widget', u'y': 14, u'x': 0, u'id': u'alignak_table_widget_1483498618816', u'icon': u'table'}
+[2017-01-16 06:00:23,566] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 06:00:23,566] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 06:00:23,566] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 06:00:23,619] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_table_widget, options: {'count': {'type': 'int', 'value': '-1', 'label': 'Number of elements'}, 'filter': {'type': 'hst_srv', 'value': '', 'label': 'Host name search'}, 'search': {'type': 'text', 'value': '', 'label': 'Filter (ex. status:up)'}}
+[2017-01-16 06:00:23,620] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts table widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget?count=-1&filter=&search=', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_table_widget', u'y': 0, u'x': 6, u'id': u'hosts_table_1481981705680', u'icon': u'table'}
+[2017-01-16 06:00:23,620] - alignak_webui.utils.plugin - INFO - Saved widget options: count=-1|filter=|search=
+[2017-01-16 06:00:23,620] - alignak_webui.utils.plugin - INFO - Saved widget option: ['count', '-1']
+[2017-01-16 06:00:23,620] - alignak_webui.utils.plugin - INFO - Saved widget option: ['filter', '']
+[2017-01-16 06:00:23,621] - alignak_webui.utils.plugin - INFO - Saved widget option: ['search', '']
+[2017-01-16 06:00:23,621] - alignak_webui.utils.plugin - INFO - Widget new options: count=-1|filter=|search=
+[2017-01-16 06:00:23,780] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_chart_widget, options: {}
+[2017-01-16 06:00:23,780] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts chart widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_chart_widget', u'y': 0, u'x': 0, u'id': u'hosts_chart_1483439691503', u'icon': u'pie-chart'}
+[2017-01-16 06:00:23,781] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 06:00:23,781] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 06:00:23,781] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 06:01:24,200] - alignak_webui.backend.alignak_ws_client - INFO - get, endpoint: http://demo.alignak.net:8888/alignak_map, parameters: None
+[2017-01-16 06:01:24,285] - alignak_webui.backend.alignak_ws_client - ERROR - Backend connection error, error: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7ff78a4f3dd0>: Failed to establish a new connection: [Errno 111] Connection refused',))
+Traceback (most recent call last):
+  File "/home/alignak/alignak-webui/alignak_webui/backend/alignak_ws_client.py", line 171, in get
+    params=params
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 70, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/api.py", line 56, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/requests/adapters.py", line 487, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='demo.alignak.net', port=8888): Max retries exceeded with url: /alignak_map (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7ff78a4f3dd0>: Failed to establish a new connection: [Errno 111] Connection refused',))
+[2017-01-16 06:01:24,285] - alignak_webui.utils.plugin - INFO - Widget found, template: alignak_table_widget, options: {}
+[2017-01-16 06:01:24,286] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'picture': u'/static/plugins/alignak/htdocs/img/alignak_widget.png', u'name': u'Alignak state widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/alignak/widget', u'maxHeight': u'64', u'height': 6, u'minWidth': u'3', u'width': 6, u'template': u'alignak_table_widget', u'y': 14, u'x': 0, u'id': u'alignak_table_widget_1483498618816', u'icon': u'table'}
+[2017-01-16 06:01:24,286] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 06:01:24,286] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 06:01:24,286] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 06:01:24,440] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_chart_widget, options: {}
+[2017-01-16 06:01:24,441] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts chart widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_chart_widget', u'y': 0, u'x': 0, u'id': u'hosts_chart_1483439691503', u'icon': u'pie-chart'}
+[2017-01-16 06:01:24,441] - alignak_webui.utils.plugin - INFO - Saved widget options: 
+[2017-01-16 06:01:24,441] - alignak_webui.utils.plugin - INFO - Saved widget option: ['']
+[2017-01-16 06:01:24,442] - alignak_webui.utils.plugin - INFO - Widget new options: 
+[2017-01-16 06:01:24,465] - alignak_webui.utils.plugin - INFO - Widget found, template: hosts_table_widget, options: {'count': {'type': 'int', 'value': '-1', 'label': 'Number of elements'}, 'filter': {'type': 'hst_srv', 'value': '', 'label': 'Host name search'}, 'search': {'type': 'text', 'value': '', 'label': 'Filter (ex. status:up)'}}
+[2017-01-16 06:01:24,466] - alignak_webui.utils.plugin - INFO - Saved widget found: {u'name': u'Hosts table widget', u'maxWidth': u'12', u'minHeight': u'2', u'uri': u'/hosts/widget?count=-1&filter=&search=', u'maxHeight': u'64', u'height': 14, u'minWidth': u'3', u'width': 6, u'template': u'hosts_table_widget', u'y': 0, u'x': 6, u'id': u'hosts_table_1481981705680', u'icon': u'table'}
+[2017-01-16 06:01:24,466] - alignak_webui.utils.plugin - INFO - Saved widget options: count=-1|filter=|search=
+[2017-01-16 06:01:24,467] - alignak_webui.utils.plugin - INFO - Saved widget option: ['count', '-1']
+[2017-01-16 06:01:24,467] - alignak_webui.utils.plugin - INFO - Saved widget option: ['filter', '']
+[2017-01-16 06:01:24,467] - alignak_webui.utils.plugin - INFO - Saved widget option: ['search', '']
+[2017-01-16 06:01:24,467] - alignak_webui.utils.plugin - INFO - Widget new options: count=-1|filter=|search=
