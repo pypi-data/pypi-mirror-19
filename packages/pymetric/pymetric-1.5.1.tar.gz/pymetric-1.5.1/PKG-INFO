@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: pymetric
+Version: 1.5.1
+Summary: Simple abstraction layer for pushing metrics to influx periodically. Includes a wsgi middleware for compute metrics for web apps
+Home-page: https://github.com/cliixtech/pymetric
+Author: Cliix Inc
+Author-email: dq@cliix.io
+License: GPLv3
+Description: UNKNOWN
+Keywords: pymetric metrics influx uwsgi flask
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Programming Language :: Python
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
