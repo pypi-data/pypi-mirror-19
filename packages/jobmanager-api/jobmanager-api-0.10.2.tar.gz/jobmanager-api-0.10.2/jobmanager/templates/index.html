@@ -1,0 +1,25 @@
+{% extends "common/base.html" %}
+{% block head %}
+    <link href="/static/css/index.css" rel="stylesheet" type="text/css" media="all">
+{% endblock %}
+{% block body %}
+<div id="container">
+    <div class="menu">
+        <div class="column general">
+            <div class="row header">
+                <h1>Job Manager - Live Views</h1>
+            </div>
+            <div class="row header">
+                <a href="/client/live/"><div class="emboss button clients" title="Clients"><i class="fa fa-fw fa-server"></i>&nbsp;<label>Clients</label></div></a>
+            </div>
+            <div class="row header">
+                <a href="/job/live/"><div class="emboss button jobs" title="Jobs"><i class="fa fa-fw fa-cog"></i>&nbsp;<label>Jobs</label></div></a>
+            </div>
+            <div class="row header">
+                <a href="/logs/live/"><div class="emboss button logs" title="Logs"><i class="fa fa-fw fa-align-left"></i>&nbsp;<label>Logs</label></div></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

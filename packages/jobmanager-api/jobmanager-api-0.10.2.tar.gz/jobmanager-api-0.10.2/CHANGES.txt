@@ -1,0 +1,52 @@
+2015-04-12	--	v0.0.1	-- Initial release.
+2015-04-12	--	v0.1.0	-- First code push
+2015-04-12	--	v0.1.1	-- Added script
+2015-04-12	--	v0.2.0	-- Misc
+2015-04-12	--	v0.2.1	-- Install script
+2015-04-12	--	v0.2.2	-- Updated install
+2015-04-13	--	v0.2.3	-- Misc
+2015-04-15	--	v0.2.4	-- Misc changes
+2015-07-15	--	v0.3.0	-- Added python packages to config file in order to import the right jobs classes and be able to list/create it.
+2015-11-12	--	v0.3.1-stable	-- minor changes
+2015-11-12	--	v0.3.1a-stable	-- build tools update
+2015-11-13	--	v0.3.2-stable	-- small fixes for packaging
+2015-11-13	--	v0.3.3-stable	-- Updated setup.py to avoid __init__.py while packaging.
+2015-11-14	--	v0.4.0-stable	-- Debian packaging and startup script.
+2015-11-14	--	v0.4.0a-stable	-- removed useless file
+2015-11-16	--	v0.4.1-stable	-- init script update
+2015-11-16	--	v0.4.2-stable	-- Misc fixes
+2015-11-16	--	v0.4.3-stable	-- fix
+2015-11-16	--	v0.4.4-stable	-- fix
+2015-11-16	--	v0.4.4a-stable	-- config fix
+2015-11-17	--	v0.4.5-stable	-- Debcong tests
+2015-11-17	--	v0.5.0-stable	-- Debconf now setup for deb installation
+2015-11-19	--	v0.5.0a-stable	-- fix
+2015-11-19	--	v0.5.1-stable	-- version bump
+2015-11-19	--	v0.5.1-stable	-- version bump
+2015-11-25	--	v0.5.2-stable	-- fix
+2015-11-25	--	v0.5.3-stable	-- Exception catcher
+2016-02-12	--	v0.6.0	-- Added Client and Client Status support
+2016-02-17	--	v0.6.1	-- Fix exiting app with ctrl+c. Fixed error logging.
+2016-02-23	--	v0.6.2	-- fix
+2016-02-25	--	v0.6.3	-- fix
+2016-02-25	--	v0.6.4	-- small fix on prerm
+2016-03-10	--	v0.6.6	-- Version bump
+2016-03-10	--	v0.6.7	-- Corrected packages
+2016-03-10	--	v0.6.9	-- Version bump
+2016-03-10	--	v0.6.9	-- Version bump
+2016-05-02	--	v0.6.10	-- requirements update
+2016-05-02	--	v0.6.11	-- fix
+2016-05-03	--	v0.6.12	-- fix:wq
+2016-05-03	--	v0.6.13	-- fix on alive method
+2016-12-22	--	v0.7.0	-- New Deb debian build system based on docker rather than vagrant. Much lighter.
+2016-12-22	--	v0.8.0	-- Major update with brand new UI to get an overview of the jobs.
+2016-12-22	--	v0.8.1	-- Small fix on debian packaging
+2016-12-22	--	v0.8.2	-- Fix on deb packaging
+2016-12-22	--	v0.8.3	-- fix on debian packaging
+2016-12-22	--	v0.8.4	-- Fix on deb packaging
+2016-12-22	--	v0.8.5	-- Fix on packaging
+2016-12-23	--	v0.9.0	-- Misc fixes - logs working with other version of pymongo, favicon, debian packaging, etc.
+2016-12-29	--	v0.9.1	-- Misc fixes and impovments over tooltips, and data updates
+2017-01-03	--	v0.10.0	-- Misc fixes and enhancements. Better log live page with formatting options. BIndex page. Better job small view. Misc corrections.
+2017-01-09	--	v0.10.1	-- Index page + many fixes + Enhanced logging (format and filters)
+2017-01-09	--	v0.10.2	-- Fix on requirements
