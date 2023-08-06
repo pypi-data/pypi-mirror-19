@@ -1,0 +1,9 @@
+setuptools
+RelStorage[postgresql]
+six
+
+[test]
+manuel
+mock
+zope.testing
+zc.zlibstorage
