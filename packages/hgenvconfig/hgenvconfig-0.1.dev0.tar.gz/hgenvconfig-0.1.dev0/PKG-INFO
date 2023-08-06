@@ -1,0 +1,30 @@
+Metadata-Version: 1.1
+Name: hgenvconfig
+Version: 0.1.dev0
+Summary: A Mercurial enxtension to pass config options via an environment variable.
+Home-page: http://bitbucket.org/seanfarley/hgenvconfig/
+Author: Sean Farley
+Author-email: sean@farley.io
+License: GPLv2+
+Description: # environment config
+        
+        This extension is a utility to pass `--config` options via the `HGCONFIG`
+        environment variable. The use-case is for servers that need to set this once
+        then pass it around to child processes (e.g. hooks) and other helpers that
+        don't necessarily invoke `hg` via the command-line.
+        
+        # install
+        
+        Enable envconfig like any mercurial extension: download the source code to a
+        local directory, and add that directory to your `.hgrc`:
+        
+            [extensions]
+            envconfig=path/to/hgenvconfig/hgext3rd
+        
+Keywords: hg mercurial
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
