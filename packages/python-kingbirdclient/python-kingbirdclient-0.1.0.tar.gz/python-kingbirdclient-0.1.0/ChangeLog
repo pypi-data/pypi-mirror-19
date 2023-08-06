@@ -1,0 +1,27 @@
+CHANGES
+=======
+
+0.1.0
+-----
+
+* Remove "--resources" option for "quota delete"
+* Implement quota-management commands for KB
+* Implement quota-class management commands for KB
+* Implement quota show command for KB
+* Updated from global requirements
+* Implement quota defaults command for KB
+* Updated from global requirements
+* Add entry points for kb client
+* Set the initial value to None
+* Updated from global requirements
+* Enable release notes translation
+* Updated from global requirements
+* Add common layer for the client
+* Updated from global requirements
+* Cleanup tox.ini, enable constraints
+* Updated from global requirements
+* Updated from global requirements
+* Update client test configuration
+* Updated from global requirements
+* Initial kingbirdclient commit
+* Added .gitreview
