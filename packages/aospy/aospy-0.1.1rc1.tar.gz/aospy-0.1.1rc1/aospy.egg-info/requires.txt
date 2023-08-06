@@ -1,0 +1,5 @@
+xarray >= 0.8
+dask >= 0.12
+netCDF4 >= 1.2
+numpy >= 1.7
+pandas >= 0.15.0
