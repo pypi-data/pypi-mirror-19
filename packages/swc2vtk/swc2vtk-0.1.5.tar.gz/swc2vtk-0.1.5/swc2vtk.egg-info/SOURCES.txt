@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+swc2vtk/__init__.py
+swc2vtk/genprimitives.py
+swc2vtk/swc.py
+swc2vtk/vtkgenerator.py
+swc2vtk.egg-info/PKG-INFO
+swc2vtk.egg-info/SOURCES.txt
+swc2vtk.egg-info/dependency_links.txt
+swc2vtk.egg-info/requires.txt
+swc2vtk.egg-info/top_level.txt

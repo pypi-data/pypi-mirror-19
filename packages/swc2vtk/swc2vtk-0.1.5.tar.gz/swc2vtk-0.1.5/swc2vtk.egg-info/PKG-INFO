@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: swc2vtk
+Version: 0.1.5
+Summary: SWC to VTK converter for visualize multi-compartment neurons and neural circuit simulations
+Home-page: https://github.com/DaisukeMiyamoto/swc2vtk
+Author: nebula
+Author-email: miyamoto@brain.imi.i.u-tokyo.ac.jp
+License: UNKNOWN
+Description: SWC to VTK converter for visualize multi-compartment neurons and neural circuit simulations
+Keywords: neuron,simulation,visualization,paraview,vtk
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
