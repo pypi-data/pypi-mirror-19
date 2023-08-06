@@ -1,0 +1,8 @@
+numpy>=1.7
+matplotlib<2
+scipy
+netCDF4
+
+[test]
+coverage
+pep8
