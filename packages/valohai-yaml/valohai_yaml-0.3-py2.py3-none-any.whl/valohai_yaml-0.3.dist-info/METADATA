@@ -1,0 +1,21 @@
+Metadata-Version: 2.0
+Name: valohai-yaml
+Version: 0.3
+Summary: Valohai.yaml validation and parsing
+Home-page: https://github.com/valohai/valohai-yaml
+Author: Aarni Koskela
+Author-email: akx@iki.fi
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: PyYAML
+Requires-Dist: jsonschema
+Requires-Dist: six
+Provides-Extra: dev
+Requires-Dist: flake8; extra == 'dev'
+Requires-Dist: isort; extra == 'dev'
+Requires-Dist: pydocstyle; extra == 'dev'
+Requires-Dist: pytest-cov; extra == 'dev'
+
+UNKNOWN
+
+
