@@ -1,0 +1,3 @@
+[mistral.actions]
+ansible.playbook = mistral_ansible_actions:AnsiblePlaybookAction
+
