@@ -1,0 +1,30 @@
+\indexentry{corrfitter (module)|hyperpage}{3}
+\indexentry{Corr2 (class in corrfitter)|hyperpage}{16}
+\indexentry{builddata() (corrfitter.Corr2 method)|hyperpage}{18}
+\indexentry{builddataset() (corrfitter.Corr2 method)|hyperpage}{18}
+\indexentry{buildprior() (corrfitter.Corr2 method)|hyperpage}{18}
+\indexentry{fitfcn() (corrfitter.Corr2 method)|hyperpage}{18}
+\indexentry{Corr3 (class in corrfitter)|hyperpage}{18}
+\indexentry{CorrFitter (class in corrfitter)|hyperpage}{21}
+\indexentry{bootstrap\_fit\_iter() (corrfitter.CorrFitter method)|hyperpage}{21}
+\indexentry{bootstrap\_iter() (corrfitter.CorrFitter method)|hyperpage}{22}
+\indexentry{read\_dataset() (corrfitter.CorrFitter static method)|hyperpage}{22}
+\indexentry{simulated\_pdata\_iter() (corrfitter.CorrFitter method)|hyperpage}{23}
+\indexentry{EigenBasis (class in corrfitter)|hyperpage}{24}
+\indexentry{E (corrfitter.EigenBasis attribute)|hyperpage}{26}
+\indexentry{eig\_srcs (corrfitter.EigenBasis attribute)|hyperpage}{26}
+\indexentry{svdcorrection (corrfitter.EigenBasis attribute)|hyperpage}{26}
+\indexentry{svdn (corrfitter.EigenBasis attribute)|hyperpage}{26}
+\indexentry{v (corrfitter.EigenBasis attribute)|hyperpage}{26}
+\indexentry{v\_inv (corrfitter.EigenBasis attribute)|hyperpage}{26}
+\indexentry{apply() (corrfitter.EigenBasis method)|hyperpage}{26}
+\indexentry{make\_prior() (corrfitter.EigenBasis method)|hyperpage}{27}
+\indexentry{svd() (corrfitter.EigenBasis method)|hyperpage}{27}
+\indexentry{tabulate() (corrfitter.EigenBasis method)|hyperpage}{27}
+\indexentry{unapply() (corrfitter.EigenBasis method)|hyperpage}{28}
+\indexentry{fastfit (class in corrfitter)|hyperpage}{28}
+\indexentry{E (corrfitter.fastfit attribute)|hyperpage}{30}
+\indexentry{ampl (corrfitter.fastfit attribute)|hyperpage}{30}
+\indexentry{chi2 (corrfitter.fastfit attribute)|hyperpage}{30}
+\indexentry{dof (corrfitter.fastfit attribute)|hyperpage}{30}
+\indexentry{Q (corrfitter.fastfit attribute)|hyperpage}{30}
