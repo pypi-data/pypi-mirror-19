@@ -1,0 +1,11 @@
+Metadata-Version: 1.1
+Name: fuzzy_dempster_shafer
+Version: 0.121
+Summary: Prediction algorithm based in Dempster-Shafer Fuzzy Logic and Bayesian principles
+Home-page: https://github.com/phystistics/fuzzy_dempster_shafer
+Author: Austin Powell
+Author-email: powellaus10@gmail.com
+License: MIT
+Description: This is an ongoing project to creating a machine learning classification package.     The highlight of this package will be the utilization of Dempster-Shafer theory to improve on classifications     from other methods such as logistic regression.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.5
