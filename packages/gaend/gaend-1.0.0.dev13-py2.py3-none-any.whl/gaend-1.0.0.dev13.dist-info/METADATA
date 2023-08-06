@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: gaend
+Version: 1.0.0.dev13
+Summary: Converts `google.appengine.ext.ndb.Model` into HTTP endpoints
+Home-page: https://github.com/samedhi/gaend
+Author: Stephen Cagle
+Author-email: samedhi@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: Flask (>=0.11)
+Requires-Dist: elasticsearch (>=5.0.0)
+Requires-Dist: python-dateutil (>=2.6)
+
+This project converts a `google.appengine.ext.ndb.Model`
+into a HTTP endpoints. It provides validation, routing, documentation, and
+CRUD server endpoints. Its purpose is to act as a "DSL" for Google App Engine,
+allowing you to quickly write CRUD servers with just a `ndb.Model`.
+
