@@ -1,0 +1,4 @@
+six
+
+[:python_version == "2.6" or python_version == "2.5" or python_version == "2.4" or python_version == "2.3"]
+ordereddict >= 1.1
