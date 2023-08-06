@@ -1,0 +1,9 @@
+MANIFEST.in
+README.rst
+setup.py
+source/starling/flask/__init__.py
+source/starling/flask/template_filter.py
+source/starling/starling.egg-info/PKG-INFO
+source/starling/starling.egg-info/SOURCES.txt
+source/starling/starling.egg-info/dependency_links.txt
+source/starling/starling.egg-info/top_level.txt
