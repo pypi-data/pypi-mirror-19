@@ -1,0 +1,26 @@
+Metadata-Version: 1.0
+Name: showimg
+Version: 0.1.1
+Summary: Show image on 256-coloured terminal.
+Home-page: https://github.com/kjwon15/showimg
+Author: Kjwon15
+Author-email: UNKNOWN
+License: MIT
+Description: Showimg
+        =======
+        
+        Show image on 256-coloured terminal.
+        
+        
+        Installation and Usage
+        ----------------------
+        
+        .. code-block:: console
+        
+           $ pip install --user showimg
+           $ showimg <Image url>
+        
+           # Or get random cat image.
+           $ showimg --cat
+        
+Platform: UNKNOWN
