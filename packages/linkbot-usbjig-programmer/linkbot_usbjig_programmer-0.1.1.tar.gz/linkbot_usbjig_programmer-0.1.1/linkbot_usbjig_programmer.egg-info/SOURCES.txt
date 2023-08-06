@@ -1,0 +1,16 @@
+MANIFEST.in
+setup.py
+linkbot_usbjig_programmer/__init__.py
+linkbot_usbjig_programmer/linkbot_usbjig_programmer.py
+linkbot_usbjig_programmer/mainwindow.py
+linkbot_usbjig_programmer.egg-info/PKG-INFO
+linkbot_usbjig_programmer.egg-info/SOURCES.txt
+linkbot_usbjig_programmer.egg-info/dependency_links.txt
+linkbot_usbjig_programmer.egg-info/entry_points.txt
+linkbot_usbjig_programmer.egg-info/not-zip-safe
+linkbot_usbjig_programmer.egg-info/requires.txt
+linkbot_usbjig_programmer.egg-info/top_level.txt
+linkbot_usbjig_programmer/hexfiles/usb.hex
+linkbot_usbjig_programmer/hexfiles/z-link_USBtoSerial_32u2.hex
+linkbot_usbjig_programmer/hexfiles/z-link_USBtoSerial_32u4.hex
+linkbot_usbjig_programmer/hexfiles/z-link_USBtoSerial_8u2.hex
