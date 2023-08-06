@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: xml2py
+Version: 0.1.0
+Summary: 
+This package contains classes and functions which convert
+an XML object into a dict or DotDict.  The DotDict is
+convenient for exploring the XML object interactively with
+the Python interpreter.
+
+Home-page: https://github.com/pwexler/xml2py
+Author: Paul Wexler
+Author-email: paul.e.wexler@gmail.com
+License: MIT
+Download-URL: https://pypi.python.org/pypi/xml2py
+Description: xml2py is hosted at https://github.com/pwexler/xml2py
+Keywords: dict,DotDict,JavaScript,dot-notation,convert
+Platform: Any
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
