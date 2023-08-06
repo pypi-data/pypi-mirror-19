@@ -1,0 +1,5 @@
+[console_scripts]
+fanpy = fanpy.cli:main
+fanpy-archiver = fanpy.archiver:main
+fanpy-log = fanpy.logger:main
+
