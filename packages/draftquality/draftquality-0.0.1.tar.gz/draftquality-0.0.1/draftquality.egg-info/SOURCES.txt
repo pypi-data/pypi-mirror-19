@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+draftquality/__init__.py
+draftquality/about.py
+draftquality.egg-info/PKG-INFO
+draftquality.egg-info/SOURCES.txt
+draftquality.egg-info/dependency_links.txt
+draftquality.egg-info/entry_points.txt
+draftquality.egg-info/top_level.txt
+draftquality/feature_lists/__init__.py
+draftquality/feature_lists/enwiki.py
