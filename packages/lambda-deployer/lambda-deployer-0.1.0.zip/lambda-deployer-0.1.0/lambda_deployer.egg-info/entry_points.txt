@@ -1,0 +1,3 @@
+[console_scripts]
+lambda-deployer = deployer.cli:main
+
