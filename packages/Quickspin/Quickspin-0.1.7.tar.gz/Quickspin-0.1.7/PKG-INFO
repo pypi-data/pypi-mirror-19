@@ -1,0 +1,36 @@
+Metadata-Version: 1.0
+Name: Quickspin
+Version: 0.1.7
+Summary: Quickspin CLI tool for managing AWS resources
+Home-page: https://github.com/V3ckt0r/Quickspin
+Author: V3ckt0r
+Author-email: UNKNOWN
+License: LICENSE.txt
+Description: Quickspin
+        ===================
+        
+        Quickspin is a simple CLI tool for spinning up a series of EC2 instances.
+        
+        How to install
+        --------------
+        
+        You can install Quickspin using **pip**
+        
+        ::
+        
+            pip install Quickspin
+        
+        or via source files with:
+        
+        ::
+        
+            python setup.py install
+        
+        Quick start
+        --------------
+        Once installed use you can get help on use Quickspin as follows:
+        
+        ::
+            quickspin -h
+        
+Platform: UNKNOWN
