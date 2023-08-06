@@ -1,0 +1,17 @@
+MANIFEST.in
+README.txt
+requirements.txt
+setup.py
+test_requirements.txt
+version.txt
+cloudshell/__init__.py
+cloudshell/networking/__init__.py
+cloudshell/networking/juniper/__init__.py
+cloudshell/networking/juniper/junos/__init__.py
+cloudshell/tests/__init__.py
+cloudshell/tests/tests.py
+cloudshell_networking_juniper_junos.egg-info/PKG-INFO
+cloudshell_networking_juniper_junos.egg-info/SOURCES.txt
+cloudshell_networking_juniper_junos.egg-info/dependency_links.txt
+cloudshell_networking_juniper_junos.egg-info/requires.txt
+cloudshell_networking_juniper_junos.egg-info/top_level.txt
