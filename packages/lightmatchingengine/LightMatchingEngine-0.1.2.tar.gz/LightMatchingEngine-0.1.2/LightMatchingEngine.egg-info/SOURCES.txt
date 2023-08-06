@@ -1,0 +1,9 @@
+MANIFEST.in
+setup.cfg
+setup.py
+LightMatchingEngine.egg-info/PKG-INFO
+LightMatchingEngine.egg-info/SOURCES.txt
+LightMatchingEngine.egg-info/dependency_links.txt
+LightMatchingEngine.egg-info/top_level.txt
+lightmatchingengine/__init__.py
+lightmatchingengine/lightmatchingengine.py
