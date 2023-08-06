@@ -1,0 +1,26 @@
+.grp-autocomplete-wrapper-m2m a.grp-m2m-remove {
+	display: inline-block;
+	padding: 5px;
+	margin-bottom: 2px;
+	margin-right: 10px;
+}
+.grp-autocomplete-wrapper-m2m a.grp-m2m-remove:after {
+	content: "x" !important;
+	padding: 0 4px 1px;
+	background-color: #fdfdfd;
+	border: 1px solid #ddd;
+	color:#ccc;
+	border-radius: 2px;
+	z-index: 10;
+	margin-left:5px;
+}
+.grp-autocomplete-wrapper-m2m a.grp-m2m-remove:hover:after {
+	border-color: #bf3030;
+	background-color: #bf3030;
+	color:#fff;
+}
+
+.grp-custom-extra-display{
+	margin-top:10px;
+}
+
