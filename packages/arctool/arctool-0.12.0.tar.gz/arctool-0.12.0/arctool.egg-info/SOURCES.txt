@@ -1,0 +1,15 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+arctool/__init__.py
+arctool/archive.py
+arctool/cli.py
+arctool/slurm.py
+arctool/utils.py
+arctool.egg-info/PKG-INFO
+arctool.egg-info/SOURCES.txt
+arctool.egg-info/dependency_links.txt
+arctool.egg-info/entry_points.txt
+arctool.egg-info/requires.txt
+arctool.egg-info/top_level.txt
