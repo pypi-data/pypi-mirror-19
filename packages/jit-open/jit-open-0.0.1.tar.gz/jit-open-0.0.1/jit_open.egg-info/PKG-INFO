@@ -1,0 +1,51 @@
+Metadata-Version: 1.1
+Name: jit-open
+Version: 0.0.1
+Summary: jit-open: Just in time open files..
+Home-page: https://git.lumc.nl/j.f.j.laros/jit-open
+Author: LUMC, Jeroen F.J. Laros
+Author-email: J.F.J.Laros@lumc.nl
+License: MIT License
+Description: # Just in time open files.
+        This package provides ...
+        
+        ## Installation
+        Via [pypi](https://pypi.python.org/pypi/jit-open):
+        
+            pip install jit_open
+        
+        From source:
+        
+            git clone https://git.lumc.nl/j.f.j.laros/jit-open.git
+            cd jit_open
+            pip install .
+        
+        ## Command line interface
+        Use the command `jit_open -h` for a full list of options.
+        
+        ## Library
+        The library implements an interface to ...
+        Full documentation can be found [here](https://git.lumc.nl/j.f.j.laros/jit-open).
+        
+        ### Usage
+        To use the interface, ...
+        
+        ```python
+        >>> from jit_open.jit_open import ...
+        >>>
+        >>> # ...
+        ```
+        
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
