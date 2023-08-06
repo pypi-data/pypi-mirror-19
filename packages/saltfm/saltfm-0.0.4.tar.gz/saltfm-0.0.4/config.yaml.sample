@@ -1,0 +1,15 @@
+root_dir: /
+
+repos:
+- repo: https://github.com/saltstack-formulas/node-formula
+  version: master
+  formulas:
+  - node
+- repo: https://github.com/saltstack-formulas/jenkins-formula
+  version: master
+
+- repo: https://github.com/hvnsweeting/states
+  version: master
+  formulas:
+  - apt
+  - vim
