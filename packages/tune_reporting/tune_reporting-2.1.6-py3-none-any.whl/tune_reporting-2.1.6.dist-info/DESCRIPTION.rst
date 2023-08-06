@@ -1,0 +1,104 @@
+.. -*- mode: rst -*-
+
+========
+Overview
+========
+
+.. start-badges
+
+.. list-table::
+    :stub-columns: 1
+
+    * - package
+      - |version| |supported-versions|
+
+.. |docs| image:: https://readthedocs.org/projects/tune-reporting-python/badge/?style=flat
+    :alt: Documentation Status
+    :target: https://readthedocs.org/projects/tune-reporting-python
+
+.. |license| image:: https://img.shields.io/badge/License-MIT-yellow.svg
+    :alt: License Status
+    :target: https://opensource.org/licenses/MIT
+
+.. |travis| image:: https://travis-ci.org/TuneLab/tune-reporting-python.svg?branch=master
+    :alt: Travis-CI Build Status
+    :target: https://travis-ci.org/TuneLab/tune-reporting-python
+
+.. |coveralls| image:: https://coveralls.io/repos/TuneLab/tune-reporting-python/badge.svg?branch=master&service=github
+    :alt: Code Coverage Status
+    :target: https://coveralls.io/r/TuneLab/tune-reporting-python
+
+.. |requires| image:: https://requires.io/github/TuneLab/tune-reporting-python/requirements.svg?branch=master
+    :alt: Requirements Status
+    :target: https://requires.io/github/TuneLab/tune-reporting-python/requirements/?branch=master
+
+.. |version| image:: https://img.shields.io/pypi/v/tune_reporting.svg?style=flat
+    :alt: PyPI Package latest release
+    :target: https://pypi.python.org/pypi/tune_reporting
+
+.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/tune_reporting.svg?style=flat
+    :alt: Supported versions
+    :target: https://pypi.python.org/pypi/tune_reporting
+
+.. end-badges
+
+tune-reporting-python
+========================
+
+``tune-reporting-python`` is a Python helper library for TUNE Reporting API services.
+
+
+Installation
+============
+
+
+Usage
+=====
+
+
+Reporting Issues
+================
+
+
+.. :changelog:
+
+Release History
+===============
+
+2.1.6 (2017-02-07)
+------------------
+- Requirements
+
+2.1.5 (2017-02-03)
+------------------
+- Python 3.6 Upgrade
+
+2.1.2 (2017-01-27)
+------------------
+- Cleanup
+- Requirements
+
+2.1.0 (2017-01-14)
+------------------
+- README.rst
+- HISTORY.rst
+- setup.py
+
+2.0.0 (2016-11-20)
+------------------
+- TUNE Reporting API v3
+
+1.1.1 (2016-01-25)
+------------------
+- TUNE Reporting API v2
+- Changes in Handling Exports and Logs
+
+1.0.0 (2015-04-01)
+------------------
+- TUNE Reporting API v2
+- Initial PyPi release
+
+0.0.1 (2014-10-15)
+------------------
+ - First Commit
+
