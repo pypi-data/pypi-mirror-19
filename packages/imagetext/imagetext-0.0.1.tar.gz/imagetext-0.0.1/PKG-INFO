@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: imagetext
+Version: 0.0.1
+Summary: Save text into images and read text from images created by imagetext
+Home-page: https://github.com/d0c-s4vage/imagetext
+Author: James 'd0c_s4vage' Johnson
+Author-email: d0c.s4vage@gmail.com
+License: MIT
+Download-URL: https://github.com/d0c-s4vage/imagetext/tarball/v0.0.1
+Description: 
+        imagetext is a project that allows one to save data
+        visually into an image, and to read that data back out.
+        
+        Raw bytes from the input text are shown visually in the
+        resulting image.
+        
+Platform: Cross Platform
+Classifier: Programming Language :: Python :: 2

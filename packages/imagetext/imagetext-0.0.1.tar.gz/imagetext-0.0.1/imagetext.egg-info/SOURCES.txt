@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+bin/imagetext
+imagetext/__init__.py
+imagetext/chars.py
+imagetext.egg-info/PKG-INFO
+imagetext.egg-info/SOURCES.txt
+imagetext.egg-info/dependency_links.txt
+imagetext.egg-info/requires.txt
+imagetext.egg-info/top_level.txt
+tests/__init__.py
+tests/test_basic.py
