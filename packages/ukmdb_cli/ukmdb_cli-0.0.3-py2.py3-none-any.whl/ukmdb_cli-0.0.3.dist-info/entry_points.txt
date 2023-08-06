@@ -1,0 +1,3 @@
+[console_scripts]
+ukm_cli = ukmdb_cli.cli:main
+
