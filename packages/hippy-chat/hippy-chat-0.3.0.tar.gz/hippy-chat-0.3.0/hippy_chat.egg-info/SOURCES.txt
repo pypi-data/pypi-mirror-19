@@ -1,0 +1,17 @@
+.hipchat.json
+.project_metadata.json
+MANIFEST.in
+README.rst
+setup.py
+hippy_chat/__init__.py
+hippy_chat/handler.py
+hippy_chat.egg-info/PKG-INFO
+hippy_chat.egg-info/SOURCES.txt
+hippy_chat.egg-info/dependency_links.txt
+hippy_chat.egg-info/entry_points.txt
+hippy_chat.egg-info/requires.txt
+hippy_chat.egg-info/top_level.txt
+hippy_chat/exec/__init__.py
+hippy_chat/exec/demo.py
+tests/__init__.py
+tests/test_handler.py

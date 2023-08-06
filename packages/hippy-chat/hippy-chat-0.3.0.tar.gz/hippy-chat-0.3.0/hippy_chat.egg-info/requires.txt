@@ -1,0 +1,10 @@
+arrow
+click
+py-buzz
+requests
+
+[dev]
+flake8
+pytest
+pytest-capturelog
+sphinx
