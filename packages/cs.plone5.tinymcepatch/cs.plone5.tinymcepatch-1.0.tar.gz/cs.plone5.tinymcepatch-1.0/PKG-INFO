@@ -1,0 +1,43 @@
+Metadata-Version: 1.1
+Name: cs.plone5.tinymcepatch
+Version: 1.0
+Summary: Patch to make TinyMCE Upload work in Plone <= 5.0.6 with p.a.multilingual
+Home-page: http://svn.plone.org/svn/collective/
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: GPL
+Description: Introduction
+        ============
+        
+        This product patches TinyMCE in Plone 5 to make the Upload action of
+        TinyMCE work when used when plone.app.multilingual is used.
+        
+        This patch fixes https://github.com/plone/Products.CMFPlone/issues/1513 and
+        will be included in Plone 5.0.7.
+        
+        Changelog
+        =========
+        
+        1.0 (2017-02-09)
+        ----------------
+        
+        - manifest [Mikel Larreategi <mlarreategi@codesyntax.com>]
+        
+        - delete md file [Mikel Larreategi <mlarreategi@codesyntax.com>]
+        
+        - Merge remote-tracking branch 'origin/master' [Mikel Larreategi <mlarreategi@codesyntax.com>]
+        
+        - Initial commit [Mikel Larreategi <mlarreategi@codesyntax.com>]
+        
+        - add MANIFEST [Mikel Larreategi <mlarreategi@codesyntax.com>]
+        
+        - Docs [Mikel Larreategi <mlarreategi@codesyntax.com>]
+        
+        - add the patch [Mikel Larreategi <mlarreategi@codesyntax.com>]
+        
+        - initial import [Mikel Larreategi <mlarreategi@codesyntax.com>]
+        
+        
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Programming Language :: Python
