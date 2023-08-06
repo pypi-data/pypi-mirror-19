@@ -1,0 +1,19 @@
+Metadata-Version: 2.0
+Name: MusicRaft
+Version: 0.3.4
+Summary: GUI for abcplus music notation.
+Home-page: http://pypi.python.org/pypi/MusicRaft/
+Author: Larry Myerscough
+Author-email: hippostech@gmail.com
+License: LICENSE.txt
+Platform: UNKNOWN
+Requires-Dist: mido (>=1.1.1)
+Requires-Dist: numpy (>=1.1.1)
+
+=========
+MusicRaft
+=========
+
+'MusicRaft' is a (yes, yet another) wysiwyg GUI for the abcplus music notation.
+
+
