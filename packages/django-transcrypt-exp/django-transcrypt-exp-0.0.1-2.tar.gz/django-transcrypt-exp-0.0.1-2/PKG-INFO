@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: django-transcrypt-exp
+Version: 0.0.1-2
+Summary: Adds livereload facility together with transcrypt python to javascript transpiling
+Home-page: https://bitbucket.org/cruise/django_transcrypt
+Author: Morten B. Rasmussen
+Author-email: mbr@mr-systems.dk
+License: MIT, see LICENSE.txt
+Description: Django app that includes convience commands for watching frontend code transpiled to js with Transcrypt, based on livereload
+        
+Platform: UNKNOWN
