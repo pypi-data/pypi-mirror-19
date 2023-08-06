@@ -1,0 +1,36 @@
+Metadata-Version: 2.0
+Name: kojistatus
+Version: 0.1
+Summary: Fetches the last statuses of Fedora Koji builds
+Home-page: https://github.com/hroncok/kojistatus
+Author: Miro Hrončok
+Author-email: miro@hroncok.cz
+License: MIT
+Keywords: koji fedora status
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Flask
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: Flask
+Requires-Dist: requests
+
+kojistatus
+==========
+
+A little Python tool to fetch the last statuses of Fedora Koji builds of
+a given user. Created mostly to provide simple text API for MicroPython.
+
+Licensed under the MIT license, see LICENSE.
+
+
