@@ -1,0 +1,15 @@
+MANIFEST.in
+README.rst
+setup.py
+jekkish/__init__.py
+jekkish/default.tex
+jekkish/jekkish.py
+jekkish/tests.py
+jekkish/texhelpers.py
+jekkish.egg-info/.DS_Store
+jekkish.egg-info/PKG-INFO
+jekkish.egg-info/SOURCES.txt
+jekkish.egg-info/dependency_links.txt
+jekkish.egg-info/entry_points.txt
+jekkish.egg-info/requires.txt
+jekkish.egg-info/top_level.txt
