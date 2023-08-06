@@ -1,0 +1,12 @@
+setup.py
+bin/specpie
+specpie/__init__.py
+specpie/descriptors.py
+specpie/printer.py
+specpie/spec.py
+specpie.egg-info/PKG-INFO
+specpie.egg-info/SOURCES.txt
+specpie.egg-info/dependency_links.txt
+specpie.egg-info/not-zip-safe
+specpie.egg-info/requires.txt
+specpie.egg-info/top_level.txt
