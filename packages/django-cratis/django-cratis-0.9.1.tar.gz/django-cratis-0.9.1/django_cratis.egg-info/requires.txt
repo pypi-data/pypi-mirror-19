@@ -1,0 +1,10 @@
+
+[django]
+django>1.8.0,<1.10
+pip>8.0.0
+
+[mysql]
+mysqlclient
+
+[postgres]
+psycopg2
