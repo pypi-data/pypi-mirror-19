@@ -1,0 +1,5 @@
+[console_scripts]
+cci = cumulusci.newcli.cli:cli
+cumulusci = cumulusci.cli.cli:cli
+cumulusci2 = cumulusci.newcli.cli:cli
+
