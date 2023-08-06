@@ -1,0 +1,4 @@
+Flask>=0.11
+Flask-CeleryExt>=0.2.0
+msgpack-python>=0.4.6
+redis>=2.10.0
