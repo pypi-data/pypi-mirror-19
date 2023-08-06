@@ -1,0 +1,101 @@
+[DbStudentAddApp | INFO] Creating/updating student with ID 'reasoner': {'last_name': 'Reasoner', 'email': None, 'first_name': 'Louis'}
+[DbAssignmentAddApp | INFO] Creating/updating assignment with ID 'ps2': {'duedate': None}
+[AssignApp | INFO] Copying /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/source/./ps1/jupyter.png -> /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/release/./ps1/jupyter.png
+[AssignApp | INFO] Updating/creating assignment 'ps1': {'duedate': '2015-02-02 17:00:00 UTC'}
+[AssignApp | INFO] Converting notebook /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/source/./ps1/problem1.ipynb to notebook
+[AssignApp | INFO] Writing 8034 bytes to /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/release/./ps1/problem1.ipynb
+[AssignApp | INFO] Converting notebook /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/source/./ps1/problem2.ipynb to notebook
+[AssignApp | INFO] Writing 2187 bytes to /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/release/./ps1/problem2.ipynb
+[AssignApp | INFO] Setting destination file permissions to 644
+[AutogradeApp | INFO] Copying /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/submitted/bitdiddle/ps1/jupyter.png -> /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/bitdiddle/ps1/jupyter.png
+[AutogradeApp | INFO] Copying /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/submitted/bitdiddle/ps1/timestamp.txt -> /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/bitdiddle/ps1/timestamp.txt
+[AutogradeApp | INFO] Creating/updating student with ID 'bitdiddle': {'first_name': 'Ben', 'last_name': 'Bitdiddle'}
+[AutogradeApp | INFO] SubmittedAssignment<ps1 for bitdiddle> submitted at 2015-02-02 22:58:23.948203
+[AutogradeApp | WARNING] SubmittedAssignment<ps1 for bitdiddle> is 21503.948203 seconds late
+[AutogradeApp | INFO] Overwriting files with master versions from the source directory
+[AutogradeApp | INFO] Copying /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/source/./ps1/jupyter.png -> /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/bitdiddle/ps1/jupyter.png
+[AutogradeApp | INFO] Sanitizing /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/submitted/bitdiddle/ps1/problem1.ipynb
+[AutogradeApp | INFO] Converting notebook /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/submitted/bitdiddle/ps1/problem1.ipynb to notebook
+[AutogradeApp | WARNING] Attribute 'checksum' for cell correct_squares has changed! (should be: 8f41dd0f9c8fd2da8e8708d73e506b3a, got: 845d4666cabb30b6c75fc534f7375bf5)
+[AutogradeApp | WARNING] Attribute 'checksum' for cell squares_invalid_input has changed! (should be: 23c2b667d3b60eff3be46eb3290a6b4a, got: 123394e73f33a622ec057e2eae51a54a)
+[AutogradeApp | INFO] Writing 8093 bytes to /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/bitdiddle/ps1/problem1.ipynb
+[AutogradeApp | INFO] Autograding /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/bitdiddle/ps1/problem1.ipynb
+[AutogradeApp | INFO] Converting notebook /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/bitdiddle/ps1/problem1.ipynb to notebook
+[AutogradeApp | INFO] Executing notebook with kernel: python
+[AutogradeApp | WARNING] SubmittedAssignment<ps1 for bitdiddle> is 21503.948203 seconds late
+[AutogradeApp | INFO] Using late submission penalty method: none
+[AutogradeApp | WARNING] Late submission penalty: None
+[AutogradeApp | INFO] Writing 13509 bytes to /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/bitdiddle/ps1/problem1.ipynb
+[AutogradeApp | INFO] Sanitizing /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/submitted/bitdiddle/ps1/problem2.ipynb
+[AutogradeApp | INFO] Converting notebook /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/submitted/bitdiddle/ps1/problem2.ipynb to notebook
+[AutogradeApp | INFO] Writing 2228 bytes to /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/bitdiddle/ps1/problem2.ipynb
+[AutogradeApp | INFO] Autograding /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/bitdiddle/ps1/problem2.ipynb
+[AutogradeApp | INFO] Converting notebook /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/bitdiddle/ps1/problem2.ipynb to notebook
+[AutogradeApp | INFO] Executing notebook with kernel: python
+[AutogradeApp | WARNING] SubmittedAssignment<ps1 for bitdiddle> is 21503.948203 seconds late
+[AutogradeApp | INFO] Using late submission penalty method: none
+[AutogradeApp | WARNING] Late submission penalty: None
+[AutogradeApp | INFO] Writing 2225 bytes to /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/bitdiddle/ps1/problem2.ipynb
+[AutogradeApp | INFO] Setting destination file permissions to 444
+[AutogradeApp | INFO] Copying /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/submitted/hacker/ps1/jupyter.png -> /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/hacker/ps1/jupyter.png
+[AutogradeApp | INFO] Copying /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/submitted/hacker/ps1/timestamp.txt -> /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/hacker/ps1/timestamp.txt
+[AutogradeApp | INFO] Creating/updating student with ID 'hacker': {'first_name': 'Alyssa', 'last_name': 'Hacker'}
+[AutogradeApp | INFO] SubmittedAssignment<ps1 for hacker> submitted at 2015-02-01 17:28:58.749302
+[AutogradeApp | INFO] Overwriting files with master versions from the source directory
+[AutogradeApp | INFO] Copying /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/source/./ps1/jupyter.png -> /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/hacker/ps1/jupyter.png
+[AutogradeApp | INFO] Sanitizing /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/submitted/hacker/ps1/problem1.ipynb
+[AutogradeApp | INFO] Converting notebook /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/submitted/hacker/ps1/problem1.ipynb to notebook
+[AutogradeApp | INFO] Writing 8830 bytes to /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/hacker/ps1/problem1.ipynb
+[AutogradeApp | INFO] Autograding /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/hacker/ps1/problem1.ipynb
+[AutogradeApp | INFO] Converting notebook /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/hacker/ps1/problem1.ipynb to notebook
+[AutogradeApp | INFO] Executing notebook with kernel: python
+[AutogradeApp | INFO] Writing 9460 bytes to /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/hacker/ps1/problem1.ipynb
+[AutogradeApp | INFO] Sanitizing /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/submitted/hacker/ps1/problem2.ipynb
+[AutogradeApp | INFO] Converting notebook /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/submitted/hacker/ps1/problem2.ipynb to notebook
+[AutogradeApp | INFO] Writing 2358 bytes to /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/hacker/ps1/problem2.ipynb
+[AutogradeApp | INFO] Autograding /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/hacker/ps1/problem2.ipynb
+[AutogradeApp | INFO] Converting notebook /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/hacker/ps1/problem2.ipynb to notebook
+[AutogradeApp | INFO] Executing notebook with kernel: python
+[AutogradeApp | INFO] Writing 2355 bytes to /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/hacker/ps1/problem2.ipynb
+[AutogradeApp | INFO] Setting destination file permissions to 444
+[FeedbackApp | WARNING] Config option `display_data_priority` not recognized by `GetGrades`.
+[FeedbackApp | INFO] Copying /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/bitdiddle/ps1/jupyter.png -> /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/feedback/bitdiddle/ps1/jupyter.png
+[FeedbackApp | INFO] Copying /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/bitdiddle/ps1/timestamp.txt -> /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/feedback/bitdiddle/ps1/timestamp.txt
+[FeedbackApp | WARNING] Config option `display_data_priority` not recognized by `GetGrades`.
+[FeedbackApp | INFO] Converting notebook /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/bitdiddle/ps1/problem1.ipynb to html
+[FeedbackApp | INFO] Writing 274746 bytes to /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/feedback/bitdiddle/ps1/problem1.html
+[FeedbackApp | INFO] Converting notebook /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/bitdiddle/ps1/problem2.ipynb to html
+[FeedbackApp | INFO] Writing 253697 bytes to /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/feedback/bitdiddle/ps1/problem2.html
+[FeedbackApp | INFO] Setting destination file permissions to 444
+[FeedbackApp | WARNING] Config option `display_data_priority` not recognized by `GetGrades`.
+[FeedbackApp | INFO] Copying /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/hacker/ps1/jupyter.png -> /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/feedback/hacker/ps1/jupyter.png
+[FeedbackApp | INFO] Copying /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/hacker/ps1/timestamp.txt -> /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/feedback/hacker/ps1/timestamp.txt
+[FeedbackApp | WARNING] Config option `display_data_priority` not recognized by `GetGrades`.
+[FeedbackApp | INFO] Converting notebook /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/hacker/ps1/problem1.ipynb to html
+[FeedbackApp | INFO] Writing 271053 bytes to /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/feedback/hacker/ps1/problem1.html
+[FeedbackApp | INFO] Converting notebook /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/autograded/hacker/ps1/problem2.ipynb to html
+[FeedbackApp | INFO] Writing 253827 bytes to /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/feedback/hacker/ps1/problem2.html
+[FeedbackApp | INFO] Setting destination file permissions to 444
+[ExportApp | INFO] Using exporter: CsvExportPlugin
+[ExportApp | INFO] Exporting grades to grades.csv
+[ReleaseApp | INFO] Source: /Users/jhamrick/project/tools/nbgrader/nbgrader/docs/source/user_guide/release/./ps1
+[ReleaseApp | INFO] Destination: /tmp/exchange/example_course/outbound/ps1
+[ReleaseApp | INFO] Released as: example_course ps1
+[ListApp | INFO] Released assignments:
+[ListApp | INFO] example_course ps1
+[ListApp | INFO] Submitted assignments:
+[ListApp | INFO] example_course jhamrick ps1 2017-01-15 00:37:46 UTC
+[ListApp | INFO] example_course jhamrick ps1 2017-01-15 00:37:49 UTC
+[ListApp | INFO] example_course jhamrick ps1 2017-01-15 00:37:51 UTC
+[CollectApp | INFO] Collecting submission: jhamrick ps1
+[DbAssignmentAddApp | INFO] Creating/updating assignment with ID 'ps1': {'duedate': '2015-02-02 17:00:00 UTC'}
+[DbAssignmentImportApp | INFO] Importing assignments from: 'assignments.csv'
+[DbAssignmentImportApp | INFO] Creating/updating assignment with name 'ps1': {'duedate': '2015-02-02 17:00:00 UTC'}
+[DbAssignmentImportApp | INFO] Creating/updating assignment with name 'ps2': {'duedate': '2015-02-09 17:00:00 UTC'}
+[DbAssignmentRemoveApp | INFO] Removing assignment with ID 'ps1'
+[DbStudentAddApp | INFO] Creating/updating student with ID 'bitdiddle': {'email': None, 'first_name': 'Ben', 'last_name': 'Bitdiddle'}
+[DbStudentAddApp | INFO] Creating/updating student with ID 'hacker': {'email': None, 'last_name': 'Hacker', 'first_name': 'Alyssa'}
+[DbStudentImportApp | INFO] Importing students from: 'students.csv'
+[DbStudentImportApp | INFO] Creating/updating student with ID 'bitdiddle': {'email': None, 'first_name': 'Ben', 'last_name': 'Bitdiddle'}
+[DbStudentImportApp | INFO] Creating/updating student with ID 'hacker': {'email': None, 'first_name': 'Alyssa', 'last_name': 'Hacker'}
+[DbStudentRemoveApp | INFO] Removing student with ID 'bitdiddle'
