@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: django-fluentd-requests-logging
+Version: 0.5.1
+Summary: A little JSON-over-HTTP Django request log export for fluentd
+Home-page: https://github.com/elafarge/django-fluentd-requests-logging
+Author: Etienne Lafarge
+Author-email: etienne@rythm.co
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Classifier: Framework :: Django
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Middleware
+Classifier: Topic :: System :: Logging
