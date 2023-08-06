@@ -1,0 +1,30 @@
+Metadata-Version: 2.0
+Name: hydropy
+Version: 0.1
+Summary: Analysis of hydrological oriented time series
+Home-page: https://stijnvanhoey.github.io/hydropy/
+Author: Stijn Van Hoey
+Author-email: stijnvanhoey@gmail.com
+License: BSD
+Keywords: hydrology time series hydroTSM
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Utilities
+Requires-Dist: IPython
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: requests
+Requires-Dist: scipy
+Requires-Dist: seaborn
+
+UNKNOWN
+
+
