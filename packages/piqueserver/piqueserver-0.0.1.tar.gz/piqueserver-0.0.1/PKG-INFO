@@ -1,0 +1,118 @@
+Metadata-Version: 1.1
+Name: piqueserver
+Version: 0.0.1
+Summary: Open-Source server implementation for Ace of Spades
+Home-page: https://github.com/piqueserver/piqueserver
+Author: noway421
+Author-email: noway@2ch.hk
+License: GNU General Public License v3
+Download-URL: https://github.com/piqueserver/piqueserver/archive/master.tar.gz
+Description: piqueserver |Build Status| |Join the chat at https://gitter.im/piqueserver/piqueserver|
+        =======================================================================================
+        
+        An Ace of Spades 0.75 server based on
+        `PySnip <https://github.com/NateShoffner/PySnip>`__.
+        
+        Installation
+        ------------
+        
+        Clone the repo:
+        
+        .. code:: bash
+        
+            git clone https://github.com/piqueserver/piqueserver
+        
+        Install using pip:
+        
+        .. code:: bash
+        
+            pip install piqueserver
+        
+        And lift off!
+        
+        .. code:: bash
+        
+            piqueserver -d piqueserver/configs
+        
+        FAQ
+        ---
+        
+        What's the purpose?
+        ^^^^^^^^^^^^^^^^^^^
+        
+        The purpose of this repo is to be a continuation of PySnip.
+        
+        What if PySnip development returns?
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        
+        | Then they would merge our changes and development would be continued
+        | there, I guess. The important thing is to keep AoS servers alive.
+        
+        How long will it take for the first release?
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        
+        March 2017 probably.
+        
+        Why should I use piqueserver instead of PySnip/PySpades?
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        
+        -  Multi config installation
+        -  Docker support
+        -  Bug fixes
+        -  Improvements
+        -  Better anti-hacking
+        -  New scripts
+        
+        What about 0.76 support
+        ^^^^^^^^^^^^^^^^^^^^^^^
+        
+        | Working with multiple versions is a pain. 0.76 will be suported in the
+        | future only.
+        
+        Is that everything?
+        ^^^^^^^^^^^^^^^^^^^
+        
+        | Please see also the `original
+          README <https://github.com/piqueserver/piqueserver/blob/master/OLD_README.md>`__
+          from PySnip and
+        | the `Wiki <https://github.com/piqueserver/piqueserver/wiki>`__ for
+          more information.
+        
+        Contribute
+        ----------
+        
+        Don't be shy and submit us a PR or an issue! Help is always appreciated
+        
+        Development
+        -----------
+        
+        Use virtualenv to install it
+        
+        .. code:: bash
+        
+            virtualenv -p python2 venv && . venv/bin/activate && pip install -r requirements.txt
+            ./setup.py install
+        
+        --------------
+        
+        Brought to you with by the `piqueserver
+        team <https://github.com/orgs/piqueserver/people>`__.
+        
+        .. |Build Status| image:: https://travis-ci.org/piqueserver/piqueserver.svg?branch=master
+           :target: https://travis-ci.org/piqueserver/piqueserver
+        .. |Join the chat at https://gitter.im/piqueserver/piqueserver| image:: https://badges.gitter.im/piqueserver/piqueserver.svg
+           :target: https://gitter.im/piqueserver/piqueserver?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+        
+Keywords: ace of spades,aos,server,pyspades,pysnip,piqueserver
+Platform: Darwin
+Platform: Unix
+Classifier: Intended Audience :: System Administrators
+Classifier: Development Status :: 3 - Alpha
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Unix
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Cython
+Classifier: Programming Language :: Python :: 2 :: Only
+Classifier: Framework :: Twisted

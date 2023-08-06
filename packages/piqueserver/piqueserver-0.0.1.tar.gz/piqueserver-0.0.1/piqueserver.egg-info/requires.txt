@@ -1,0 +1,11 @@
+Cython>=0.25.2,<0.26
+Twisted>=16.6.0,<16.7
+Jinja2>=2.8,<2.9
+Pillow>=3.4.2,<=4.0
+
+[from]
+pygeoip>=0.3.2,<0.4
+
+[ssh]
+pycrypto>=2.6.1,<2.7
+pyasn1>=0.1.9,<0.2
