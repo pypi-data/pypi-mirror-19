@@ -1,0 +1,5 @@
+msgpack-python>=0.4.0
+greenlet
+
+[pyuv]
+pyuv>=1.0.0
