@@ -1,0 +1,11 @@
+MANIFEST.in
+README.rst
+setup.py
+bounce_email/__init__.py
+bounce_email/bounce_email.py
+bounce_email.egg-info/PKG-INFO
+bounce_email.egg-info/SOURCES.txt
+bounce_email.egg-info/dependency_links.txt
+bounce_email.egg-info/not-zip-safe
+bounce_email.egg-info/pbr.json
+bounce_email.egg-info/top_level.txt
