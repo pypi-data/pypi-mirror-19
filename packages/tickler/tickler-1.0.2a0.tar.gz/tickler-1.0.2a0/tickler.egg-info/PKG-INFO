@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: tickler
+Version: 1.0.2a0
+Summary: A scriptable CLI utility and support library for 'tickler' style file trees
+Home-page: https://github.com/wkmanire/tickler
+Author: William Kevin Manire
+Author-email: williamkmanire@gmail.com
+License: MIT
+Description: Tickler can be used to create a tickler directory structure automatically on the filesystem. It provides a utility function for building tickler compatible file paths from a standard datetime object. This function can also be accessed for scripting purposes by using the --get-path argument and passing a dateutil compatible date string.
+Keywords: tickle tickler cli filesystem week number iso date
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Information Technology
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
