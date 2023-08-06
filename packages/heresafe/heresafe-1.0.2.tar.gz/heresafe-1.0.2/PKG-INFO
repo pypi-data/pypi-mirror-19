@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: heresafe
+Version: 1.0.2
+Summary: heresafe is a Python utility that will send an arbitrary text message to a configured number when a script runs and detects you are connected to a certain SSID.
+Home-page: https://github.com/kris-nova/heresafe
+Author: Kris Nova
+Author-email: kris@nivenly.com
+License: APACHE
+Description: heresafe is a Python utility that will send an arbitrary text message to a configured number when a script runs and detects you are connected to a certain SSID.
+Keywords: heresafe,text,message,ssid,network,wifi,arrive
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development
+Classifier: Environment :: MacOS X
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
