@@ -1,0 +1,154 @@
+CHANGES
+=======
+
+1.80.0
+------
+
+* version 1.80.0
+* Adds leading slash to posix path of `etc` based config files
+* Port markdown formatted README to reStructuredText
+* Fix bad merge in 9b87516d
+* MPLS OVS IPVPN dataplane driver: use a fixed gateway MAC
+* devstack: add knob to avoid defining BGP peers
+* Use the use of --mac with --detach --port netns
+* Fix RTC route encoding
+* Avoid useless bagpipe-rest-attach warnings
+* rest-attach: cleanup interface from OVS before recreating
+* Fallback: remove leftover deadcode, unbreak unit test
+* devstack: have IPVPN proxy ARP default to False
+* Support for newer iproute
+* VRF fallback feature
+* OVS VPN dataplane: clean error on unresolved nexthop
+* Fix looking glass client
+* Looking glass improvements
+* Skip bottom-of-stack bit check on PMSI Tunnel MPLS label
+* Add a sample config for GoBGP
+* devstack plugin: fix xtrace state restoration
+* Fix log message
+* devstack plugin: only log to console
+* Avoid "ifconfig|grep HWaddr" to find the MAC of a device
+* E-VPN VXLAN: avoid fdb issues at unplug
+* EVPN/VXLAN: add static fdb entry for local ports
+* IPVPN OVS: use VXLAN resubmit if VXLAN is enabled
+* Correct bug when unplugging local port which has been plugged with multiple MAC (and IP) addresses
+* looking glass: improve error logging
+* looking glass: fix inconsistency between worker list and worker lookup
+* looking glass fix: do not use '/' in BGP worker name
+* properly unquote looking-glass path elements
+* Adding a SERVICE_HOST as a default for BAGPIPE_BGP_PEER
+* devstack plugin: do not override BAGPIPE_DIR if already set
+* Fix regression from commit c732ecbc
+* Log message fix for advertised encapsulation issues
+* Accept routes with no encap specified in bare MPLS mode
+* Correctly handle plug/unplug of one MAC with multiples IPs
+* Don't error if E-VPN route has no IP
+* Fix len returned for RTC parsing
+* RTC route decoding: if too short, indicate len in Exception
+* allow config file to ommit API parameters
+* README update on RR options
+* OSV MPLS: avoid broadcast with secure mode
+* in devstack, bind to 0.0.0.0 by default
+* control api_host from devstack local.conf
+* update openstack projects URLs
+* version 1.70
+* API server: do not bind to 0.0.0.0
+* update info on OVS version dependency for MPLS dataplane driver
+* devstack plugin fix
+* remove leftover backward compat devstack code
+* devstack: don't init OVS MPLS bridge unless IP VPN driver is OVS MPLS
+* E-VPN/VXLAN: fix for proper cleanup of VXLAN interfaces
+* E-VPN/VXLAN: make kernel version check a warning
+* E-VPN VXLAN: add the ability to specify local address
+* fix parsing of vxlan_dstport config parameter
+* correct wrong comment formatting in bgp.conf.template
+* update requirements
+* convert vxlan port to int at init time
+* Added Gitter badge
+* devstack plugin: do not default to enabling real dataplanes
+* devstack plugin: do not default to enabling MPLS OVS dataplane
+* IPVPN OVS dataplane: more robust code to find port numbers
+* update reference to grempls ovs patch
+* allow to specify VXLAN dstport through config file
+* better document OVS IPVPN driver vxlan_encap option
+* OVS IPVPN driver fix: only cleanup VXLAN state if VXLAN encap enabled
+* Script to test traffic between 2 E-VPNs through an IP-VPN
+* Create devstack plugin
+* VRF: bugfix wrong re-advertised route on vifPlugged/vifUnplugged
+* OVS driver: expose VXLAN tunnel in looking glass
+* IP VPN OVS dataplane driver: support VXLAN encap for testing
+* increase version
+* examples: test number of routes after cleanup
+* use IANA port for VXLAN
+* safeguards reception of RTC routes, make RT extcom high bits zero
+* revert change on RT encodings
+* update requirements: nothing against python-daemon > 2.0, 2.0.5 actually works
+* RouteTarget is a transitive ext com
+* revert a bogus change in antepenultimate commit
+* add --recurse/-r to bagpipe-looking-glass
+* IPVPN: bugfix on re-advertised routes
+* untypo'ed
+* New script to test destination-based chaining
+* MPLS OVS dataplane: Fix bug due to default route reception
+* IPVPN: fix readvertise behavior
+* remove spurious unicode non-breakable spaces
+* unittest to cover the case fixed by commit 0aae28a71229ef7a3a7f04e528bbdd536554a9f1
+* RouteTableManager should not break if a route has no RT
+* fix updateRouteTargets export comparison
+* EVPN overlay IETF specs compliance fix
+* install_bagpipe_bgp.sh should not fail if log dir already exists
+* pep8 long line fix
+* E-VPN dataplane driver: document setGatewayPort and gatewayPortDown
+* README updates
+* update README, correct wrong pointer
+* adjust required Twisted version (used for fake-rr only)
+* install script will now install a working config file if none exists
+* update README with pointers to Openstack Neutron plugins/drivers
+* better .gitignore
+* BGP worker: use clean exception for shutdown
+* VPNInstance: raise API Exceptions when relevant
+* Avoid misleading logs at startup/shutdown
+* examples: stop bagpipe-bgp after each example to exercice unplugs and shutdown
+* documentation for examples
+* fix ommission of readvertise parameter at unplug time
+* README update: one caveat less (now has the ability to advertise subnets, not only /32)
+* example directory with ready-to-run examples, including service-chaining
+* rest_attach cli tool: support for 'advertise_subnet'
+* Support for 'advertise_subnet' API option
+* MPLS OVS dataplane: fix to allow plugging a same port multiple times
+* logging improvements
+* readvertisement support: IPVPN support
+* readvertisement support: REST attach cli tool
+* routeTableManager: warning, not exception, on a duplicate advertisement
+* readvertisement support: API, VPNManager and VPNInstance changes
+* minor logging changes
+* cosmetic pep8 and code layout changes
+* correct 2 typos
+* bagpipe-looking-glass CLI: new options to specify port and URL prefix
+* update ref to E-VPN specs, base specs are now an RFC and overlay specs and IETF WG document
+* E-VPN, no reason anymore to have a knob to turn BUM support off
+* minor: remove useless subscription from BGP peer for IPv4/RTC:<specific-RT>
+* remove unicode no-break spaces present in a few places
+* bagpipe-rest-attach: workaround a case where perl breaks due to wrong locale setup
+* E-VPN: remove obsolete code for RRs without proper E-VPN support
+* corrected method signature in Dummy dataplane driver
+* BGP sessions: improved state machine and error handling
+* move getBoolean to common.utils
+* EVPN Inclusive Multiast NLRI encoding: IP field len is in bits not bytes
+* EVPN PMSI Tunnel Attribute encoding: set Transitive flag
+* MPLS OVS dataplane: fix bridge name config file parsing regression
+* Cleanup
+* Code drop
+* Code drop
+* code drop, mostly bugfixes
+* IP VPN: fix logging bug on route removal
+* Code drop: improvements, major cleanups and some fixes
+* fix daemon startup regression in a recent commit
+* fixes to bagpipe-rest-attach and dataplane cleanup code
+* etc/init.d/bagpipe-bgp: indent fixes
+* README.md: fix IP used in examples
+* really move exabgp/lib/exabgp away (mis-merge)
+* Add unit test basis, project directory relayout, code and doc cleanups, minor bugfixes
+* Add E-VPN ExaBGP code and EVI implementation, plus one engine regression fix
+* Cleanup MPLS OVS driver
+* initial github commit
+* Initial commit
