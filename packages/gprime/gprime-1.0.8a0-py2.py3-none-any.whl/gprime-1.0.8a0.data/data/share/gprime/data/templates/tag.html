@@ -1,0 +1,87 @@
+{% autoescape None %}
+{% extends "gramps-base.html" %}
+
+{% block title %}{{sitename}}: {{opts.database}}, {{_(tview)}} {% end %}
+{% block heading %}{{sitename}}: {{opts.database}}, {{_(tview)}} {% end %}
+
+{% block content %} 
+   <script type="text/javascript">
+   $(function(){
+     $('#tabs').tabs({
+	'select': function(event, ui){
+			document.location.hash = ui.panel.id;
+		}
+     });
+   });
+   </script>
+
+<div class="content" id="IndividualDetail">
+
+{% include "detail_breadcrumb.html" %}
+
+<div id="summaryarea">
+  <table class="infolist" style="width:100%;">
+    <col width="10%">
+    <col width="80%">
+<tbody>
+<form method="post">{% module xsrf_form_html() %}
+<tr>
+ <td class="ColumnAttribute">{{ form.get_label("name") }}:</td>
+ <td class="ColumnValue" id="data">{{ form.render("name", user, action) }}</td>
+</tr>
+<tr><td id="rowspace"></td></tr>
+<tr>
+ <td class="ColumnAttribute">{{ form.get_label("color") }}:</td>
+ <td class="ColumnValue" id="data">{{ form.render("color", user, action) }}</td>
+</tr>
+<tr><td id="rowspace"></td></tr>
+ <td class="ColumnAttribute">{{ form.get_label("priority") }}:</td>
+ <td class="ColumnValue" id="data">{{ form.render("priority", user, action) }}</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+{% if user %}
+  {% if action == "edit" %}
+    {% if form.instance.handle %}
+       {{make_button(_("Cancel"), "/tag/" + form.instance.handle)}}
+    {% else %}
+       {{make_button(_("Cancel"), "/tag")}}
+    {% end %}
+    <input type="hidden" name="action" value="save"/>
+    <input type="hidden" name="search" value="{# search #}"/>
+    <input type="hidden" name="page" value="{# page #}"/>
+    <input type="submit" value="Save"/>
+  {% else %}
+    {% if action == "add" %}
+      {{ make_button(_("Cancel"), "/tag/") }}
+      <input type="hidden" name="action" value="create"/>
+      <input type="hidden" name="search" value="{# search #}"/>
+      <input type="hidden" name="page" value="{# page #}"/>
+      <input type="submit" value="Create"/>
+    {% else %}
+      <div style="background-color: lightgray; padding: 2px 0px 0px 2px; clear: both;">
+      {{ make_icon_button(_("Add Tag"), "/tag/add", icon="+") }}
+      {{ make_icon_button(_("Edit Tag"), "/tag/%(handle)s/edit", icon="?", handle=form.get("handle")) }}
+      {{ make_icon_button(_("Delete Tag"), "/tag/%(handle)s/delete", icon="-", handle=form.get("handle")) }}
+      </div>
+    {% end %}
+  {% end %}
+{% else %}
+{% end %}
+
+<!-- Tabs -->
+
+<div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs" style="border: none;">
+  <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+    <li class="ui-corner-top ui-state-default"><a class="tab-references" href="#tab-references">{{_("References")}}</a></li>
+  </ul>
+  <div class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" id="tab-references" style="background-color: #f4f0ec;"> 
+    {{ reference_table(form, user, action) }}
+  </div>
+</div>
+
+</form>
+{% end %}
+
