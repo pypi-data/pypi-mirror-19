@@ -1,0 +1,429 @@
+#!python
+
+"""
+ Concatenates storm tracks from w2segmotionll, probSevere, and post-processed .data (Ryan) files.
+
+ This package is approximately equivalent to w2besttrack with the 
+ potential for additional features and greater flexibility.
+ This python version was converted from Ryan Lagerquist's MATLAB code
+ ryan_best_tracks.m and associated files.
+
+ Author :	David Harrison
+ Date   :	July 2016
+
+"""
+
+from besttrack import btengine
+from besttrack import readCells
+import argparse
+import socket
+import sys
+import os
+import datetime
+from datetime import timedelta
+import time
+import numpy as np
+from collections import defaultdict
+import multiprocessing
+import traceback
+import inspect
+
+# Best-track constants 
+MAX_BUFFER_DIST = 20  	# Buffer distance [km].  0.1 deg in w2besttrack.
+MAX_BUFFER_TIME = 21  	# Buffer time [min].  10 min in w2besttrack.
+MAX_JOIN_TIME = 21  	# Buffer time for joining Theil-Sen trajectories [min].  15 min in w2besttrack.
+MAX_JOIN_DIST = 70  	# Buffer distance for joining Theil-Sen trajectories [km].
+MIN_MIN_CELLS = 2  		# Min min number storm cells per track.
+MAX_MIN_CELLS = 12  	# Max min number storm cells per track.
+MIN_ITERS = 3  			# Number of outside iterations.
+MAX_ITERS = 25  		# Number of outside iterations.
+MIN_BREAKUP_ITERS = 1  	# Number of break-up iterations.
+MAX_BREAKUP_ITERS = 5  	# Number of break-up iterations.
+
+# Mapping constants
+MIN_LAT = 20
+MAX_LAT = 51
+MIN_LON = -119
+MAX_LON = -62
+
+# Other constants
+TOLERANCE = 1e-9
+MAX_MISSING = 10
+DASHES = '\n' + '-' * 80 + '\n\n'
+STARS = '\n' + '*' * 80 + '\n\n'
+
+
+#==================================================================================================================#
+#                                                                                                                  #
+#  User arguments                                                                                                  #
+#                                                                                                                  #
+#==================================================================================================================#
+
+def getOptions():
+	"""
+	Retrieve the user-speficified command line arguments
+	
+	Returns
+	--------
+	Namespace
+		Namespace of parsed arguments returned by ArgumentParser.parse_args()
+			
+	"""
+
+	# Load default values from config file
+	try:
+		filepath = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+		f = open(filepath + '/besttrack.config')
+		lines = f.readlines()
+		f.close()
+
+		inDir = lines[10].split('=')[1].strip()
+		suf = lines[12].split(' =')[1].strip()
+		ftype = lines[14].split('=')[1].strip()
+		bd = float(lines[16].split('=')[1])
+		bt = float(lines[18].split('=')[1])
+		jt = float(lines[20].split('=')[1])
+		jd = float(lines[22].split('=')[1])
+		mc = int(lines[24].split('=')[1])
+		mi = int(lines[26].split('=')[1])
+		bi = int(lines[28].split('=')[1])
+		bg = int(lines[30].split('=')[1])
+		outDir = lines[32].split('=')[1].strip()
+		ts = bool(int(lines[34].split('=')[1]))
+		m = bool(int(lines[36].split('=')[1]))
+
+	except IOError:
+		print 'Unable to find besttrack.config.  Please make sure the file is in the same directory as best_track.py\n\n'
+		sys.exit(2)
+	
+	except IndexError:
+		print 'A value is missing in besttrack.config or the file has become corrupted.  See the README file for more info.\n\n'
+		sys.exit(2)
+
+	# Define legal command arguments
+	parser = argparse.ArgumentParser()
+	parser.add_argument('start_time', type=str, metavar='start_time',
+		                help='Start time in yyyy-mm-dd-hhmmss, or yyyy-mm-dd, etc')
+	parser.add_argument('end_time', type=str, metavar='end_time',
+		                help='End time in yyyy-mm-dd-hhmmss, or yyyy-mm-dd, etc')
+	parser.add_argument('-i', '--input_dir', type=str, metavar='', default=inDir, help='Location of source files')
+	parser.add_argument('-s', '--dir_suffix', type=str, metavar='', default=suf,
+		                help='Name of last subdirectory for source files')
+	parser.add_argument('-t', '--type', type=str, metavar='', default=ftype,
+		                help='Type of input data: segmotion (.xml), probsevere (.ascii), or ryan (.data)')
+	parser.add_argument('-bd', '--buffer_dist', type=float, metavar='', default=bd,
+		                help='Buffer distance between storm cell and Theil-Sen trajectory (km)')
+	parser.add_argument('-bt', '--buffer_time', type=float, metavar='', default=bt,
+		                help='Buffer time for joining two Theil-Sen trajectories (min)')
+	parser.add_argument('-jt', '--join_time', type=float, metavar='', default=jt,
+		                help='Time threshold to join two or more storm tracks (min)')
+	parser.add_argument('-jd', '--join_dist', type=float, metavar='', default=jd,
+		                help='Distance threshold to join two or more storm tracks (km)')
+	parser.add_argument('-mc', '--min_cells', type=int, metavar='', default=mc,
+		                help='Minimum number of storm cells per track')
+	parser.add_argument('-mi', '--main_iters', type=int, metavar='', default=mi, help='Number of main iterations')
+	parser.add_argument('-bi', '--breakup_iters', type=int, metavar='', default=bi, help='Number of breakup iterations')
+	parser.add_argument('-bg', '--big_thresh', type=int, metavar='', default=bg,
+		                help='Number of cells threshold to activate big data mode')
+	parser.add_argument('-o', '--out_dir', type=str, metavar='', default=outDir,
+		                help='Name of output directory for new tracking files')
+	parser.add_argument('-ts', '--time_step', action='store_true', default=ts,
+		                help='Toggle file creation for each time step. Default is to combine all times into one file.')
+	parser.add_argument('-m', '--map', action='store_true', default=m, help='Toggle map creation')
+
+	args = parser.parse_args()
+	return args
+
+
+def checkArgs(args):
+	"""
+	Check the user-specified command line arguments for errors not handled by argparse.
+	
+	Errors will print to console before terminating the script.
+	
+	Parameters
+	----------
+	args: Namespace
+		Namespace of user-specified arguments returned from getOptions()
+				
+	"""
+
+	startTime = args['start_time']
+	endTime = args['end_time']
+	inSuffix = args['dir_suffix']
+	fType = args['type']
+	bufferDist = args['buffer_dist']
+	bufferTime = args['buffer_time']
+	joinTime = args['join_time']
+	joinDist = args['join_dist']
+	minCells = args['min_cells']
+	mainIters = args['main_iters']
+	breakIters = args['breakup_iters']
+	outDir = args['out_dir']
+	mapResults = args['map']
+	bigThreshold = args['big_thresh']
+
+	# Time Checks
+	stimeDetail = len(startTime.split('-'))
+	try:
+		if stimeDetail == 1:
+			datetime.datetime.strptime(startTime, '%Y')
+		elif stimeDetail == 2:
+			datetime.datetime.strptime(startTime, '%Y-%m')
+		elif stimeDetail == 3:
+			datetime.datetime.strptime(startTime, '%Y-%m-%d')
+		elif stimeDetail == 4:
+			datetime.datetime.strptime(startTime, '%Y-%m-%d-%H%M%S')
+		else:
+			raise ValueError
+	except ValueError:
+		print '\nERROR: Invalid start time! Times must be formatted as YYYY-MM-DD-HHMMSS, YYYY-MM-DD, YYYY-MM, or YYYY\n'
+		sys.exit(2)
+
+	etimeDetail = len(endTime.split('-'))
+	try:
+		if etimeDetail == 1:
+		    datetime.datetime.strptime(endTime, '%Y')
+		elif etimeDetail == 2:
+		    datetime.datetime.strptime(endTime, '%Y-%m')
+		elif etimeDetail == 3:
+		    datetime.datetime.strptime(endTime, '%Y-%m-%d')
+		elif etimeDetail == 4:
+		    datetime.datetime.strptime(endTime, '%Y-%m-%d-%H%M%S')
+		else:
+		    raise ValueError
+	except ValueError:
+		print '\nERROR: Invalid end time! Times must be formatted as YYYY-MM-DD-hhmmss, YYYY-MM-DD, YYYY-MM, or YYYY\n'
+		sys.exit(2)
+
+	# Everything else
+	if '\\' in inSuffix or '/' in inSuffix:
+		print '\nERROR: Input directory suffix must not contain / or \\.  Instead got: ' + inSuffix + '\n'
+		sys.exit(2)
+	else:
+		print 'Name of last subdirectory for original tracking files:  ' + inSuffix
+
+	types = ['segmotion', 'probsevere', 'ryan']
+	if fType.lower() not in types:
+		print 'ERROR: Invalid file type specified. Expected segmotion, probsevere, or ryan.  Instead got: ' + fType + '\n'
+	else:
+		print 'Data file type: ' + fType
+
+	if bufferDist <= 0 or bufferDist > MAX_BUFFER_DIST:
+		print '\nERROR: Buffer distance must be in range (0, ' + str(MAX_BUFFER_DIST) + '].  Instead got: ' + str(
+		    bufferDist) + '\n'
+		sys.exit(2)
+	else:
+		print 'Buffer distance between storm cell and Theil-Sen trajectory:  ' + str(bufferDist) + ' km'
+
+	if bufferTime <= 0 or bufferTime > MAX_BUFFER_TIME:
+		print '\nERROR: Buffer time must be in range (0, ' + str(MAX_BUFFER_TIME) + '].  Instead got: ' + str(
+		    bufferTime) + '\n'
+		sys.exit(2)
+	else:
+		print 'Buffer time for joining two Theil-Sen trajectories:  ' + str(bufferTime) + ' min'
+
+	if joinTime < bufferTime or joinTime > MAX_JOIN_TIME:
+		print '\nERROR: Join time must be in range [' + str(bufferTime) + ', ' + str(
+		    MAX_JOIN_TIME) + '].  Instead got: ' + str(joinTime) + '\n'
+		sys.exit(2)
+	else:
+		print 'Join time:  ' + str(joinTime) + ' min'
+
+	if joinDist < bufferDist or joinDist > MAX_JOIN_DIST:
+		print '\nERROR: Join distance must be in range [' + str(bufferDist) + ', ' + str(
+		    MAX_JOIN_DIST) + '].  Instead got: ' + str(joinDist) + '\n'
+		sys.exit(2)
+	else:
+		print 'Join Distance:  ' + str(joinDist) + ' km'
+
+	if minCells < MIN_MIN_CELLS or minCells > MAX_MIN_CELLS:
+		print '\nERROR: Min Cells must be in range [' + str(MIN_MIN_CELLS) + ', ' + str(
+		    MAX_MIN_CELLS) + '].  Instead got: ' + str(minCells) + '\n'
+		sys.exit(2)
+	else:
+		print 'Minimum number of cells per track:  ' + str(minCells)
+
+	if mainIters < MIN_ITERS or mainIters > MAX_ITERS:
+		print '\nERROR: Number of main iterations must be in range [' + str(MIN_ITERS) + ', ' + str(
+		    MAX_ITERS) + '].  Instead got: ' + str(mainIters) + '\n'
+		sys.exit(2)
+	else:
+		print 'Number of main iterations:  ' + str(mainIters)
+
+	if breakIters < MIN_BREAKUP_ITERS or breakIters > MAX_BREAKUP_ITERS:
+		print '\nERROR: Number of breakup iterations must be in range [' + str(MIN_BREAKUP_ITERS) + ', ' + str(
+		    MAX_BREAKUP_ITERS) + '].  Instead got: ' + str(breakIters) + '\n'
+		sys.exit(2)
+	else:
+		print 'Number of breakup iterations:  ' + str(breakIters)
+
+	print 'Big Data Threshold: ' + str(bigThreshold)
+
+	if not os.path.isdir(outDir):
+		print 'Unable to locate output directory. The specified location will be created.'
+		os.makedirs(outDir)
+
+    # TODO Automatic saving of maps is disabled for now.
+
+
+#	# Handle map creation variables
+#	if mapResults:
+#		
+#		# Latitude ranges
+#		if lats == None or lats == []:
+#			lats = [MIN_LAT, MAX_LAT]
+#		elif len(lats) % 2 != 0:
+#			print '\nInvalid number of latitudes.  There must be an even number of latitudes. Instead ' + str(len(lats)) + ' were given.\n'
+#			sys.exit(2)
+#		for lat in lats:
+#			if lat < MIN_LAT or lat > MAX_LAT:
+#				print '\nERROR: Latitude must be in range [' + str(MIN_LAT) + ', ' + str(MAX_LAT) + '].  Instead got: ' + lat + '\n'
+#				sys.exit(2)
+#			elif lats.index(lat) % 2 == 0 and abs(lat - lats[lats.index(lat) + 1]) <= TOLERANCE:
+#				print '\nERROR: Each set of ranges must contain different values.  One row contains the same value twice.\n'
+#				sys.exit(2)
+#				
+#		print '\nThis will create maps for the following latitude ranges: '
+#		for i in range (0, len(lats), 2):
+#			print str(lats[i]) + '\t' + str(lats[i+1])
+#		
+#		
+#		# Longitude ranges
+#		if lons == None or lons == []:
+#			lons = [MIN_LON, MAX_LON]
+#		elif len(lons) % 2 != 0:
+#			print '\nERROR: Invalid number of longitudes.  There must be an even number of longitudes. Instead ' + str(len(lons)) + ' were given.\n'
+#			sys.exit(2)
+#		elif len(lons) != len(lats):
+#			print '\nERROR: The number of longitudes must match the number of latitudes.\n'
+#			sys.exit(2)
+#		for lon in lons:
+#			if lon < MIN_LON or lon > MAX_LON:
+#				print '\nERROR: Longitude must be in range [' + str(MIN_LON) + ', ' + str(MAX_LON) + '].  Instead got: ' + lon + '\n'
+#				sys.exit(2)
+#			elif lons.index(lon) % 2 == 0 and abs(lon - lons[lons.index(lon) + 1]) <= TOLERANCE:
+#				print '\nERROR: Each set of ranges must contain different values.  One row contains the same value twice.\n'
+#				sys.exit(2)
+#				
+#		print '\nThis will create maps for the following longitude ranges: '
+#		for i in range (0, len(lons), 2):
+#			print str(lons[i]) + '\t' + str(lons[i+1])
+#			
+#		
+#		# Map output directory
+#		if not os.path.isdir(mapDir):
+#			print '\nERROR: ' + mapDir + ' does not exist or is not a directory.'
+#			sys.exit(2)
+#		else: print '\nMaps will be saved in ' + mapDir
+#		
+#	else: print 'Mapping disabled'
+
+
+
+#====================================================================================================================#
+#                                                                                                                    #
+#  Main Method															                                             #
+#                                                                                                                    #
+#====================================================================================================================#
+
+def main():
+	"""Main Method - Handle user input, read in files, then run calculations"""
+	
+	args = vars(getOptions())
+	# print args
+
+	# Set Hostname
+	hostname = socket.gethostname().split('.')[0]
+	print '\n\nSetting hostname to ' + hostname
+	print 'Current working directory: ' + os.getcwd()
+	print 'Number of processing cores: ' + str(multiprocessing.cpu_count()) + '\n'
+
+	# Check user input.  Type casting is handled by argparse.
+	checkArgs(args)
+
+	# If the args check out, save their values here
+	startTime = args['start_time']
+	endTime = args['end_time']
+	inDir = args['input_dir']
+	inSuffix = args['dir_suffix']
+	fType = args['type'].lower()
+	bufferDist = args['buffer_dist']
+	bufferTime = timedelta(minutes=int(args['buffer_time']))
+	joinTime = timedelta(minutes=int(args['join_time']))
+	joinDist = args['join_dist']
+	minCells = args['min_cells']
+	mainIters = args['main_iters']
+	breakIters = args['breakup_iters']
+	outDir = args['out_dir']
+	outType = args['time_step']
+	mapResults = args['map']
+	bigThreshold = args['big_thresh']
+	bigData = False
+	output = True
+
+	# If the times check out, convert to datetime objects
+	stimeDetail = len(startTime.split('-'))
+	if stimeDetail == 1:
+		startTime = datetime.datetime.strptime(startTime, '%Y')
+	elif stimeDetail == 2:
+		startTime = datetime.datetime.strptime(startTime, '%Y-%m')
+	elif stimeDetail == 3:
+		startTime = datetime.datetime.strptime(startTime, '%Y-%m-%d')
+	elif stimeDetail == 4:
+		startTime = datetime.datetime.strptime(startTime, '%Y-%m-%d-%H%M%S')
+
+	etimeDetail = len(endTime.split('-'))
+	if etimeDetail == 1:
+		endTime = datetime.datetime.strptime(endTime, '%Y')
+	elif etimeDetail == 2:
+		endTime = datetime.datetime.strptime(endTime, '%Y-%m')
+	elif etimeDetail == 3:
+		endTime = datetime.datetime.strptime(endTime, '%Y-%m-%d')
+	elif etimeDetail == 4:
+		endTime = datetime.datetime.strptime(endTime, '%Y-%m-%d-%H%M%S')
+
+	print '\nRunning for times ' + str(startTime) + ' through ' + str(endTime)
+
+	print STARS
+
+    
+    # Read in the files and process data
+	# Check for root directory:
+	print 'Reading files:'
+	if not os.path.isdir(inDir):
+		print '\nERROR: Unable to find source directory "' + inDir + '". \nIf using a relative path, please check your working directory.\n'
+		sys.exit(2)
+
+	data = readCells.read(fType, inDir, inSuffix, startTime, endTime)
+	stormCells = data[0]
+	totNumCells = data[1]
+	numTrackTimes = data[2]
+	dates = sorted(data[3])
+
+	print '\nNumber of files: ' + str(numTrackTimes)
+	print 'Total number of storm cells: ' + str(totNumCells)
+
+	if numTrackTimes == 0:
+		print 'No valid files found for this time period.  Please check the source directory and specified dates.\n'
+		sys.exit(0)
+
+	# Activate bigData mode above a certain threshold (50000 cells)
+	if totNumCells >= bigThreshold:
+		bigData = True
+		print 'Files will be processed in big data mode...'
+		if not outType: print 'An output file will be created for each day in the data...'
+	
+	# Run it!
+	bt = btengine(stormCells, mainIters, breakIters, bufferDist, bufferTime, joinTime,
+				   joinDist, minCells, dates, startTime, endTime, mapResults, bigData, 
+				   output, fType, outDir, outType)
+	
+	bt.calculateBestTrack()
+	
+	print '\n\nBest Track has completed succesfully!\n\n\n\n'
+
+
+# Run Main
+if __name__ == '__main__':
+	main()
