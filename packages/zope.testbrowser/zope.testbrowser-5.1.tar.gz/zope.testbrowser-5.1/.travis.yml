@@ -1,0 +1,19 @@
+# Configuration script to Travis-CI
+language: python
+python:
+    - 2.7
+    - 3.3
+    - 3.4
+    - 3.5
+install:
+    - pip install tox
+script:
+    - tox -e py${TRAVIS_PYTHON_VERSION//[.]/}
+# Alternative: use buildout instead of tox
+#install:
+#    - python bootstrap.py
+#    - bin/buildout
+#script:
+#    - bin/test -v1
+notifications:
+    email: false
