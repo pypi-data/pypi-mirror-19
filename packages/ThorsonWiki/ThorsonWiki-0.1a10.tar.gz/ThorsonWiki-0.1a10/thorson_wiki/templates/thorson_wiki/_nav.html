@@ -1,0 +1,107 @@
+{% load i18n staticfiles %}
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+                            data-toggle="collapse"
+                            data-target="#navbar"
+                            aria-expanded="false"
+                            aria-controls="navbar">
+        <span class="sr-only">{% trans "Toggle navigation" %}</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url namespace_|add:":main" %}">
+        {{ namespace.title }}
+      </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <form class="navbar-form navbar-right"
+            role="search"
+            method="get"
+            action="{% url namespace_|add:":search" %}">
+        <input type="hidden"
+               name="namespace"
+               value="{{ namespace_ }}"
+               id="namespace-search-field">
+        <div class="input-group">
+          <div class="input-group-btn">
+            <button class="btn btn-default dropdown-toggle" 
+                    type="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    id="namespace-search-dropdown">
+              <span id="namespace-search-dropdown-label">
+                {{ namespace.title }}
+              </span>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#"
+                   class="namespace-select"
+                   data-namespace="ALL"
+                   data-namespace-title="{% trans "All namespaces" %}">
+                  {% trans "All namespaces" %}
+                </a>
+              </li>
+              <li role="separator" class="divider"></li>
+              {% for searchspace_, searchspace in namespaces.items %}
+                <li>
+                  <a href="#"
+                     class="namespace-select"
+                     data-namespace="{{ searchspace_ }}"
+                     data-namespace-title="{{ searchspace.title }}">
+                    {{ searchspace.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <input type="text" 
+                 class="form-control" 
+                 name="q"
+                 placeholder="{% trans "Search" %}">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit">
+              {% trans "Go!" %}
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <ul class="nav navbar-nav navbar-right">
+        {% with path=request.path %}
+          {% if user.is_authenticated %}
+            <li>
+              <a href="{% url namespace_|add:":user_update" %}">
+                {% blocktrans with name=user %}
+                Profile ({{ name }})
+                {% endblocktrans %}
+              </a>
+            </li>
+            <li>
+              <a href="{% url namespace_|add:":logout" %}?next={{ path }}">
+                {% trans "Log out" %}
+              </a>
+            </li>
+          {% else %}
+            <li>
+              <a href="{% url namespace_|add:":login" %}?next={{ path }}">
+                {% trans "Log in" %}
+              </a>
+            </li>
+            <li>
+              <a href="{% url namespace_|add:":user_create" %}?next={{path }}">
+                {% trans "Create an account" %}
+              </a>
+            </li>
+          {% endif %}
+        {% endwith %}
+      </ul>
+    </div>
+  </div>
+</nav>

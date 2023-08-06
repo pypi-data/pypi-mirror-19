@@ -1,0 +1,43 @@
+{% extends 'thorson_wiki/base.html' %}
+
+{% load highlight i18n staticfiles wikitags %}
+
+{% block addstyles %}
+<link href="{% static "thorson_wiki/css/article.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<h1>{% trans "Search Results" %}</h1>
+
+<hr/>
+
+{% if query %}
+
+{% blocktrans count counter=page_obj.object_list|length %}
+You searched for '{{ query }}'. {{ counter }} result found.
+{% plural  %}
+You searched for '{{ query}}'. {{ counter }} results found.
+{% endblocktrans %}
+
+{% for result in page_obj.object_list %}
+
+  {% with article=result.object %}
+    <a href="{{ article.get_absolute_url }}" class="article-link">
+      <h2>{{ article.title }}</h2>
+    </a>
+
+    <div class="article-view">
+      {% with content=article.content|markdown:article.namespace %}
+        {% highlight content with query max_length 300 %}
+      {% endwith %}
+    </div>
+  {% endwith %}
+
+{% endfor %}
+
+{% else %}
+{% trans "You did not submit a query." %}
+{% endif %}
+
+{% endblock %}

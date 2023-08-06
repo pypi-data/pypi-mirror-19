@@ -1,0 +1,33 @@
+{% extends 'thorson_wiki/base.html' %}
+
+{% load i18n %}
+
+{% block content %}
+
+<h1>{% trans "Create a new user" %}</h1>
+
+<hr/>
+
+<form action="{% url namespace_|add:":user_create" %}"
+      method="post">
+  {% csrf_token %}
+
+  <input type="hidden" name="next" value="{{ next }}">
+
+  {% include "thorson_wiki/_user_form.html" %}
+</form>
+
+{% endblock %}
+
+{% block jsfooter %}
+<script type="text/javascript">
+$(function() {
+  $('.form-tooltip').tooltip();
+});
+
+$('.form-tabs').click(function (e) {
+  e.preventDefault();
+  $(this).tab('show');
+});
+</script>
+{% endblock %}
