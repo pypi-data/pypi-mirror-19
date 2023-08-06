@@ -1,0 +1,48 @@
+Metadata-Version: 1.1
+Name: wildfly-py
+Version: 0.0.7
+Summary: WildFly Management Python API
+Home-page: https://github.org/cenx-cf/wildfly-py
+Author: CENX
+Author-email: devops@cenx.com
+License: Apache License 2.0
+Description: wildfly-py
+        =========
+        
+        This package provides Python binding for the WildFly Management API.
+        
+        Installation
+        ------------
+        
+        You can install stable version wildfly-py from PyPi.
+        ```bash
+        pip install wildfly-py
+        ```
+        
+        You can install development version from GitHub.
+        
+        ```bash
+        pip install  git+git://github.com/cenx-cf/wildfly-py
+        ```
+        
+        Documentation
+        ------------
+        
+        Full documentation is hosted on [ReadTheDocs](http://wildfly-py.readthedocs.io/).
+        Sources are available in the [docs](docs/) directory.
+        
+        
+        License
+        -------
+        
+        The project is licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+        
+        
+Keywords: cenx wildfly
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Topic :: Utilities
