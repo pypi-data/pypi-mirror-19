@@ -1,0 +1,21 @@
+language: python
+sudo: false
+python:
+    - "2.6"
+    - "2.7"
+
+notifications:
+  email:
+    - tseaver@palladion.com
+
+install:
+    - python bootstrap.py
+    - bin/buildout
+
+script:
+    - bin/alltests
+
+cache:
+  pip: true
+  directories:
+    - eggs/
