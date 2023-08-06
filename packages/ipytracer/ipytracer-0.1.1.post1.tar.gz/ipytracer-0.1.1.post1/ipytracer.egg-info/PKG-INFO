@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: ipytracer
+Version: 0.1.1.post1
+Summary: Algorithm Visualizer for Jupyter/IPython Notebook
+Home-page: https://github.com/sn0wle0pard/ipytracer
+Author: Han Lee
+Author-email: dev.sn0wle0pard@gmail.com
+License: UNKNOWN
+Description: Algorithm Visualizer for Jupyter/IPython Notebook
+Keywords: algorithm visualizer,ipython,jupyter,widgets
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: IPython
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Utilities
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: JavaScript

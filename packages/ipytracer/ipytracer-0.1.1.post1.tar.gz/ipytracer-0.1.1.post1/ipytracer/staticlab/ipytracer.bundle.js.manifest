@@ -1,0 +1,1095 @@
+{
+	"entry": "ipytracer@0.1.1/src/labplugin.js",
+	"hash": "56c4397c2b6db0434e5f5022a3b4eac8",
+	"id": 0,
+	"name": "ipytracer",
+	"files": [
+		"ipytracer.bundle.js"
+	],
+	"modules": {
+		"ipytracer@0.1.1/src/labplugin.js": [
+			"ipytracer@0.1.1/src/index.js",
+			"@jupyterlab/nbwidgets@^0.6.0/lib/index.js"
+		],
+		"ipytracer@0.1.1/src/index.js": [
+			"ipytracer@0.1.1/src/ChartTracer.js",
+			"ipytracer@0.1.1/src/Tracer.js",
+			"ipytracer@0.1.1/src/List1DTracer.js",
+			"ipytracer@0.1.1/package.json"
+		],
+		"ipytracer@0.1.1/src/ChartTracer.js": [
+			"ipytracer@0.1.1/src/Tracer.js",
+			"underscore@^1.8.3/underscore.js",
+			"ipytracer@0.1.1/src/chart.js"
+		],
+		"ipytracer@0.1.1/src/Tracer.js": [
+			"jupyter-js-widgets@^1.1.1/src/index.js",
+			"underscore@^1.8.3/underscore.js"
+		],
+		"jupyter-js-widgets@1.2.0/src/index.js": [
+			"jupyter-js-widgets@1.2.0/src/jquery.js",
+			"jupyter-js-widgets@1.2.0/src/services-shim.js",
+			"jupyter-js-widgets@1.2.0/src/manager-base.js",
+			"jupyter-js-widgets@1.2.0/src/embed-helper.js",
+			"jupyter-js-widgets@1.2.0/src/embed-manager.js",
+			"jupyter-js-widgets@1.2.0/src/utils.js",
+			"jupyter-js-widgets@1.2.0/src/widget.js",
+			"jupyter-js-widgets@1.2.0/src/widget_layout.js",
+			"jupyter-js-widgets@1.2.0/src/widget_link.js",
+			"jupyter-js-widgets@1.2.0/src/widget_bool.js",
+			"jupyter-js-widgets@1.2.0/src/widget_button.js",
+			"jupyter-js-widgets@1.2.0/src/widget_box.js",
+			"jupyter-js-widgets@1.2.0/src/widget_float.js",
+			"jupyter-js-widgets@1.2.0/src/widget_image.js",
+			"jupyter-js-widgets@1.2.0/src/widget_int.js",
+			"jupyter-js-widgets@1.2.0/src/widget_color.js",
+			"jupyter-js-widgets@1.2.0/src/widget_selection.js",
+			"jupyter-js-widgets@1.2.0/src/widget_selectioncontainer.js",
+			"jupyter-js-widgets@1.2.0/src/widget_string.js",
+			"jupyter-js-widgets@1.2.0/src/widget_controller.js",
+			"jupyter-js-widgets@1.2.0/package.json"
+		],
+		"jupyter-js-widgets@1.2.0/src/jquery.js": [
+			"jquery@^2.1.4/dist/jquery.js",
+			"jquery-ui@~1.10.5/jquery-ui.js",
+			"bootstrap@^3.3.5/dist/js/npm.js"
+		],
+		"jquery@2.2.4/dist/jquery.js": [],
+		"jquery-ui@1.10.5/jquery-ui.js": [
+			"jquery@2.2.4/dist/jquery.js"
+		],
+		"bootstrap@3.3.7/dist/js/npm.js": [
+			"bootstrap@3.3.7/js/transition.js",
+			"bootstrap@3.3.7/js/alert.js",
+			"bootstrap@3.3.7/js/button.js",
+			"bootstrap@3.3.7/js/carousel.js",
+			"bootstrap@3.3.7/js/collapse.js",
+			"bootstrap@3.3.7/js/dropdown.js",
+			"bootstrap@3.3.7/js/modal.js",
+			"bootstrap@3.3.7/js/tooltip.js",
+			"bootstrap@3.3.7/js/popover.js",
+			"bootstrap@3.3.7/js/scrollspy.js",
+			"bootstrap@3.3.7/js/tab.js",
+			"bootstrap@3.3.7/js/affix.js"
+		],
+		"bootstrap@3.3.7/js/transition.js": [],
+		"bootstrap@3.3.7/js/alert.js": [],
+		"bootstrap@3.3.7/js/button.js": [],
+		"bootstrap@3.3.7/js/carousel.js": [],
+		"bootstrap@3.3.7/js/collapse.js": [],
+		"bootstrap@3.3.7/js/dropdown.js": [],
+		"bootstrap@3.3.7/js/modal.js": [],
+		"bootstrap@3.3.7/js/tooltip.js": [],
+		"bootstrap@3.3.7/js/popover.js": [],
+		"bootstrap@3.3.7/js/scrollspy.js": [],
+		"bootstrap@3.3.7/js/tab.js": [],
+		"bootstrap@3.3.7/js/affix.js": [],
+		"jupyter-js-widgets@1.2.0/src/services-shim.js": [
+			"jupyter-js-widgets@1.2.0/src/jquery.js",
+			"jupyter-js-widgets@1.2.0/src/utils.js",
+			"underscore@^1.8.3/underscore.js"
+		],
+		"jupyter-js-widgets@1.2.0/src/utils.js": [
+			"jupyter-js-widgets@1.2.0/src/jquery.js",
+			"jupyter-js-widgets@1.2.0/src/index.js",
+			"jupyter-js-widgets@1.2.0/src/index.js"
+		],
+		"underscore@1.8.3/underscore.js": [],
+		"jupyter-js-widgets@1.2.0/src/manager-base.js": [
+			"underscore@^1.8.3/underscore.js",
+			"backbone@1.2.0/backbone.js",
+			"jupyter-js-widgets@1.2.0/src/utils.js",
+			"semver@^5.1.0/semver.js",
+			"jupyter-js-widgets@1.2.0/package.json"
+		],
+		"backbone@1.2.0/backbone.js": [
+			"underscore@>=1.7.0/underscore.js",
+			"jquery@3.1.1/dist/jquery.js"
+		],
+		"jquery@3.1.1/dist/jquery.js": [],
+		"semver@5.3.0/semver.js": [],
+		"process@0.11.9/browser.js": [],
+		"jupyter-js-widgets@1.2.0/package.json": [],
+		"jupyter-js-widgets@1.2.0/src/embed-helper.js": [],
+		"jupyter-js-widgets@1.2.0/src/embed-manager.js": [
+			"jupyter-js-widgets@1.2.0/src/manager-base.js"
+		],
+		"jupyter-js-widgets@1.2.0/src/widget.js": [
+			"jupyter-js-widgets@1.2.0/src/utils.js",
+			"jupyter-js-widgets@1.2.0/src/manager-base.js",
+			"underscore@^1.8.3/underscore.js",
+			"backbone@1.2.0/backbone.js",
+			"jupyter-js-widgets@1.2.0/src/jquery.js"
+		],
+		"jupyter-js-widgets@1.2.0/src/widget_layout.js": [
+			"jupyter-js-widgets@1.2.0/src/widget.js",
+			"underscore@^1.8.3/underscore.js",
+			"backbone@1.2.0/backbone.js",
+			"jupyter-js-widgets@1.2.0/src/jquery.js"
+		],
+		"jupyter-js-widgets@1.2.0/src/widget_link.js": [
+			"jupyter-js-widgets@1.2.0/src/widget.js",
+			"jupyter-js-widgets@1.2.0/src/jquery.js",
+			"underscore@^1.8.3/underscore.js"
+		],
+		"jupyter-js-widgets@1.2.0/src/widget_bool.js": [
+			"jupyter-js-widgets@1.2.0/src/widget.js",
+			"jupyter-js-widgets@1.2.0/src/jquery.js",
+			"underscore@^1.8.3/underscore.js"
+		],
+		"jupyter-js-widgets@1.2.0/src/widget_button.js": [
+			"jupyter-js-widgets@1.2.0/src/widget.js",
+			"jupyter-js-widgets@1.2.0/src/jquery.js",
+			"underscore@^1.8.3/underscore.js"
+		],
+		"jupyter-js-widgets@1.2.0/src/widget_box.js": [
+			"jupyter-js-widgets@1.2.0/src/widget.js",
+			"jupyter-js-widgets@1.2.0/src/utils.js",
+			"jupyter-js-widgets@1.2.0/src/jquery.js",
+			"underscore@^1.8.3/underscore.js"
+		],
+		"jupyter-js-widgets@1.2.0/src/widget_float.js": [
+			"underscore@^1.8.3/underscore.js",
+			"jupyter-js-widgets@1.2.0/src/widget.js",
+			"jupyter-js-widgets@1.2.0/src/widget_int.js",
+			"d3-format@^0.5.1/build/d3-format.js"
+		],
+		"jupyter-js-widgets@1.2.0/src/widget_int.js": [
+			"jupyter-js-widgets@1.2.0/src/widget.js",
+			"underscore@^1.8.3/underscore.js",
+			"jupyter-js-widgets@1.2.0/src/jquery.js",
+			"d3-format@^0.5.1/build/d3-format.js"
+		],
+		"d3-format@0.5.1/build/d3-format.js": [],
+		"jupyter-js-widgets@1.2.0/src/widget_image.js": [
+			"jupyter-js-widgets@1.2.0/src/widget.js",
+			"jupyter-js-widgets@1.2.0/src/jquery.js",
+			"underscore@^1.8.3/underscore.js"
+		],
+		"jupyter-js-widgets@1.2.0/src/widget_color.js": [
+			"jupyter-js-widgets@1.2.0/src/widget.js",
+			"underscore@^1.8.3/underscore.js",
+			"jupyter-js-widgets@1.2.0/src/jquery.js"
+		],
+		"jupyter-js-widgets@1.2.0/src/widget_selection.js": [
+			"jupyter-js-widgets@1.2.0/src/widget.js",
+			"jupyter-js-widgets@1.2.0/src/utils.js",
+			"jupyter-js-widgets@1.2.0/src/jquery.js",
+			"underscore@^1.8.3/underscore.js"
+		],
+		"jupyter-js-widgets@1.2.0/src/widget_selectioncontainer.js": [
+			"jupyter-js-widgets@1.2.0/src/widget.js",
+			"jupyter-js-widgets@1.2.0/src/utils.js",
+			"jupyter-js-widgets@1.2.0/src/widget_box.js",
+			"jupyter-js-widgets@1.2.0/src/jquery.js",
+			"underscore@^1.8.3/underscore.js"
+		],
+		"jupyter-js-widgets@1.2.0/src/widget_string.js": [
+			"jupyter-js-widgets@1.2.0/src/widget.js",
+			"jupyter-js-widgets@1.2.0/src/jquery.js",
+			"underscore@^1.8.3/underscore.js"
+		],
+		"jupyter-js-widgets@1.2.0/src/widget_controller.js": [
+			"jupyter-js-widgets@1.2.0/src/widget.js",
+			"jupyter-js-widgets@1.2.0/src/utils.js",
+			"jupyter-js-widgets@1.2.0/src/jquery.js",
+			"underscore@^1.8.3/underscore.js"
+		],
+		"ipytracer@0.1.1/src/chart.js": [
+			"ipytracer@0.1.1/src/core/core.js",
+			"ipytracer@0.1.1/src/core/core.helpers.js",
+			"ipytracer@0.1.1/src/core/core.canvasHelpers.js",
+			"ipytracer@0.1.1/src/core/core.element.js",
+			"ipytracer@0.1.1/src/core/core.animation.js",
+			"ipytracer@0.1.1/src/core/core.controller.js",
+			"ipytracer@0.1.1/src/core/core.datasetController.js",
+			"ipytracer@0.1.1/src/core/core.layoutService.js",
+			"ipytracer@0.1.1/src/core/core.scaleService.js",
+			"ipytracer@0.1.1/src/core/core.plugin.js",
+			"ipytracer@0.1.1/src/core/core.ticks.js",
+			"ipytracer@0.1.1/src/core/core.scale.js",
+			"ipytracer@0.1.1/src/core/core.title.js",
+			"ipytracer@0.1.1/src/core/core.legend.js",
+			"ipytracer@0.1.1/src/core/core.interaction.js",
+			"ipytracer@0.1.1/src/core/core.tooltip.js",
+			"ipytracer@0.1.1/src/elements/element.arc.js",
+			"ipytracer@0.1.1/src/elements/element.line.js",
+			"ipytracer@0.1.1/src/elements/element.point.js",
+			"ipytracer@0.1.1/src/elements/element.rectangle.js",
+			"ipytracer@0.1.1/src/scales/scale.linearbase.js",
+			"ipytracer@0.1.1/src/scales/scale.category.js",
+			"ipytracer@0.1.1/src/scales/scale.linear.js",
+			"ipytracer@0.1.1/src/scales/scale.logarithmic.js",
+			"ipytracer@0.1.1/src/scales/scale.radialLinear.js",
+			"ipytracer@0.1.1/src/scales/scale.time.js",
+			"ipytracer@0.1.1/src/controllers/controller.bar.js",
+			"ipytracer@0.1.1/src/controllers/controller.bubble.js",
+			"ipytracer@0.1.1/src/controllers/controller.doughnut.js",
+			"ipytracer@0.1.1/src/controllers/controller.line.js",
+			"ipytracer@0.1.1/src/controllers/controller.polarArea.js",
+			"ipytracer@0.1.1/src/controllers/controller.radar.js",
+			"ipytracer@0.1.1/src/charts/Chart.Bar.js",
+			"ipytracer@0.1.1/src/charts/Chart.Bubble.js",
+			"ipytracer@0.1.1/src/charts/Chart.Doughnut.js",
+			"ipytracer@0.1.1/src/charts/Chart.Line.js",
+			"ipytracer@0.1.1/src/charts/Chart.PolarArea.js",
+			"ipytracer@0.1.1/src/charts/Chart.Radar.js",
+			"ipytracer@0.1.1/src/charts/Chart.Scatter.js"
+		],
+		"ipytracer@0.1.1/src/core/core.js": [],
+		"ipytracer@0.1.1/src/core/core.helpers.js": [
+			"chartjs-color@^2.0.0/index.js"
+		],
+		"chartjs-color@2.0.0/index.js": [
+			"color-convert@^0.5.3/index.js",
+			"chartjs-color-string@^0.4.0/color-string.js"
+		],
+		"color-convert@0.5.3/index.js": [
+			"color-convert@0.5.3/conversions.js"
+		],
+		"color-convert@0.5.3/conversions.js": [],
+		"chartjs-color-string@0.4.0/color-string.js": [
+			"color-name@^1.0.0/index.js"
+		],
+		"color-name@1.1.1/index.js": [],
+		"ipytracer@0.1.1/src/core/core.canvasHelpers.js": [],
+		"ipytracer@0.1.1/src/core/core.element.js": [],
+		"ipytracer@0.1.1/src/core/core.animation.js": [],
+		"ipytracer@0.1.1/src/core/core.controller.js": [],
+		"ipytracer@0.1.1/src/core/core.datasetController.js": [],
+		"ipytracer@0.1.1/src/core/core.layoutService.js": [],
+		"ipytracer@0.1.1/src/core/core.scaleService.js": [],
+		"ipytracer@0.1.1/src/core/core.plugin.js": [],
+		"ipytracer@0.1.1/src/core/core.ticks.js": [],
+		"ipytracer@0.1.1/src/core/core.scale.js": [],
+		"ipytracer@0.1.1/src/core/core.title.js": [],
+		"ipytracer@0.1.1/src/core/core.legend.js": [],
+		"ipytracer@0.1.1/src/core/core.interaction.js": [],
+		"ipytracer@0.1.1/src/core/core.tooltip.js": [],
+		"ipytracer@0.1.1/src/elements/element.arc.js": [],
+		"ipytracer@0.1.1/src/elements/element.line.js": [],
+		"ipytracer@0.1.1/src/elements/element.point.js": [],
+		"ipytracer@0.1.1/src/elements/element.rectangle.js": [],
+		"ipytracer@0.1.1/src/scales/scale.linearbase.js": [],
+		"ipytracer@0.1.1/src/scales/scale.category.js": [],
+		"ipytracer@0.1.1/src/scales/scale.linear.js": [],
+		"ipytracer@0.1.1/src/scales/scale.logarithmic.js": [],
+		"ipytracer@0.1.1/src/scales/scale.radialLinear.js": [],
+		"ipytracer@0.1.1/src/scales/scale.time.js": [
+			"moment@^2.10.6/moment.js"
+		],
+		"moment@2.17.1/moment.js": [
+			"moment@2.17.1/locale"
+		],
+		"webpack@1.14.0/buildin/module.js": [],
+		"moment@2.17.1/locale": [
+			"moment@2.17.1/locale/af.js",
+			"moment@2.17.1/locale/af.js",
+			"moment@2.17.1/locale/ar.js",
+			"moment@2.17.1/locale/ar-dz.js",
+			"moment@2.17.1/locale/ar-dz.js",
+			"moment@2.17.1/locale/ar-ly.js",
+			"moment@2.17.1/locale/ar-ly.js",
+			"moment@2.17.1/locale/ar-ma.js",
+			"moment@2.17.1/locale/ar-ma.js",
+			"moment@2.17.1/locale/ar-sa.js",
+			"moment@2.17.1/locale/ar-sa.js",
+			"moment@2.17.1/locale/ar-tn.js",
+			"moment@2.17.1/locale/ar-tn.js",
+			"moment@2.17.1/locale/ar.js",
+			"moment@2.17.1/locale/az.js",
+			"moment@2.17.1/locale/az.js",
+			"moment@2.17.1/locale/be.js",
+			"moment@2.17.1/locale/be.js",
+			"moment@2.17.1/locale/bg.js",
+			"moment@2.17.1/locale/bg.js",
+			"moment@2.17.1/locale/bn.js",
+			"moment@2.17.1/locale/bn.js",
+			"moment@2.17.1/locale/bo.js",
+			"moment@2.17.1/locale/bo.js",
+			"moment@2.17.1/locale/br.js",
+			"moment@2.17.1/locale/br.js",
+			"moment@2.17.1/locale/bs.js",
+			"moment@2.17.1/locale/bs.js",
+			"moment@2.17.1/locale/ca.js",
+			"moment@2.17.1/locale/ca.js",
+			"moment@2.17.1/locale/cs.js",
+			"moment@2.17.1/locale/cs.js",
+			"moment@2.17.1/locale/cv.js",
+			"moment@2.17.1/locale/cv.js",
+			"moment@2.17.1/locale/cy.js",
+			"moment@2.17.1/locale/cy.js",
+			"moment@2.17.1/locale/da.js",
+			"moment@2.17.1/locale/da.js",
+			"moment@2.17.1/locale/de.js",
+			"moment@2.17.1/locale/de-at.js",
+			"moment@2.17.1/locale/de-at.js",
+			"moment@2.17.1/locale/de.js",
+			"moment@2.17.1/locale/dv.js",
+			"moment@2.17.1/locale/dv.js",
+			"moment@2.17.1/locale/el.js",
+			"moment@2.17.1/locale/el.js",
+			"moment@2.17.1/locale/en-au.js",
+			"moment@2.17.1/locale/en-au.js",
+			"moment@2.17.1/locale/en-ca.js",
+			"moment@2.17.1/locale/en-ca.js",
+			"moment@2.17.1/locale/en-gb.js",
+			"moment@2.17.1/locale/en-gb.js",
+			"moment@2.17.1/locale/en-ie.js",
+			"moment@2.17.1/locale/en-ie.js",
+			"moment@2.17.1/locale/en-nz.js",
+			"moment@2.17.1/locale/en-nz.js",
+			"moment@2.17.1/locale/eo.js",
+			"moment@2.17.1/locale/eo.js",
+			"moment@2.17.1/locale/es.js",
+			"moment@2.17.1/locale/es-do.js",
+			"moment@2.17.1/locale/es-do.js",
+			"moment@2.17.1/locale/es.js",
+			"moment@2.17.1/locale/et.js",
+			"moment@2.17.1/locale/et.js",
+			"moment@2.17.1/locale/eu.js",
+			"moment@2.17.1/locale/eu.js",
+			"moment@2.17.1/locale/fa.js",
+			"moment@2.17.1/locale/fa.js",
+			"moment@2.17.1/locale/fi.js",
+			"moment@2.17.1/locale/fi.js",
+			"moment@2.17.1/locale/fo.js",
+			"moment@2.17.1/locale/fo.js",
+			"moment@2.17.1/locale/fr.js",
+			"moment@2.17.1/locale/fr-ca.js",
+			"moment@2.17.1/locale/fr-ca.js",
+			"moment@2.17.1/locale/fr-ch.js",
+			"moment@2.17.1/locale/fr-ch.js",
+			"moment@2.17.1/locale/fr.js",
+			"moment@2.17.1/locale/fy.js",
+			"moment@2.17.1/locale/fy.js",
+			"moment@2.17.1/locale/gd.js",
+			"moment@2.17.1/locale/gd.js",
+			"moment@2.17.1/locale/gl.js",
+			"moment@2.17.1/locale/gl.js",
+			"moment@2.17.1/locale/he.js",
+			"moment@2.17.1/locale/he.js",
+			"moment@2.17.1/locale/hi.js",
+			"moment@2.17.1/locale/hi.js",
+			"moment@2.17.1/locale/hr.js",
+			"moment@2.17.1/locale/hr.js",
+			"moment@2.17.1/locale/hu.js",
+			"moment@2.17.1/locale/hu.js",
+			"moment@2.17.1/locale/hy-am.js",
+			"moment@2.17.1/locale/hy-am.js",
+			"moment@2.17.1/locale/id.js",
+			"moment@2.17.1/locale/id.js",
+			"moment@2.17.1/locale/is.js",
+			"moment@2.17.1/locale/is.js",
+			"moment@2.17.1/locale/it.js",
+			"moment@2.17.1/locale/it.js",
+			"moment@2.17.1/locale/ja.js",
+			"moment@2.17.1/locale/ja.js",
+			"moment@2.17.1/locale/jv.js",
+			"moment@2.17.1/locale/jv.js",
+			"moment@2.17.1/locale/ka.js",
+			"moment@2.17.1/locale/ka.js",
+			"moment@2.17.1/locale/kk.js",
+			"moment@2.17.1/locale/kk.js",
+			"moment@2.17.1/locale/km.js",
+			"moment@2.17.1/locale/km.js",
+			"moment@2.17.1/locale/ko.js",
+			"moment@2.17.1/locale/ko.js",
+			"moment@2.17.1/locale/ky.js",
+			"moment@2.17.1/locale/ky.js",
+			"moment@2.17.1/locale/lb.js",
+			"moment@2.17.1/locale/lb.js",
+			"moment@2.17.1/locale/lo.js",
+			"moment@2.17.1/locale/lo.js",
+			"moment@2.17.1/locale/lt.js",
+			"moment@2.17.1/locale/lt.js",
+			"moment@2.17.1/locale/lv.js",
+			"moment@2.17.1/locale/lv.js",
+			"moment@2.17.1/locale/me.js",
+			"moment@2.17.1/locale/me.js",
+			"moment@2.17.1/locale/mi.js",
+			"moment@2.17.1/locale/mi.js",
+			"moment@2.17.1/locale/mk.js",
+			"moment@2.17.1/locale/mk.js",
+			"moment@2.17.1/locale/ml.js",
+			"moment@2.17.1/locale/ml.js",
+			"moment@2.17.1/locale/mr.js",
+			"moment@2.17.1/locale/mr.js",
+			"moment@2.17.1/locale/ms.js",
+			"moment@2.17.1/locale/ms-my.js",
+			"moment@2.17.1/locale/ms-my.js",
+			"moment@2.17.1/locale/ms.js",
+			"moment@2.17.1/locale/my.js",
+			"moment@2.17.1/locale/my.js",
+			"moment@2.17.1/locale/nb.js",
+			"moment@2.17.1/locale/nb.js",
+			"moment@2.17.1/locale/ne.js",
+			"moment@2.17.1/locale/ne.js",
+			"moment@2.17.1/locale/nl.js",
+			"moment@2.17.1/locale/nl-be.js",
+			"moment@2.17.1/locale/nl-be.js",
+			"moment@2.17.1/locale/nl.js",
+			"moment@2.17.1/locale/nn.js",
+			"moment@2.17.1/locale/nn.js",
+			"moment@2.17.1/locale/pa-in.js",
+			"moment@2.17.1/locale/pa-in.js",
+			"moment@2.17.1/locale/pl.js",
+			"moment@2.17.1/locale/pl.js",
+			"moment@2.17.1/locale/pt.js",
+			"moment@2.17.1/locale/pt-br.js",
+			"moment@2.17.1/locale/pt-br.js",
+			"moment@2.17.1/locale/pt.js",
+			"moment@2.17.1/locale/ro.js",
+			"moment@2.17.1/locale/ro.js",
+			"moment@2.17.1/locale/ru.js",
+			"moment@2.17.1/locale/ru.js",
+			"moment@2.17.1/locale/se.js",
+			"moment@2.17.1/locale/se.js",
+			"moment@2.17.1/locale/si.js",
+			"moment@2.17.1/locale/si.js",
+			"moment@2.17.1/locale/sk.js",
+			"moment@2.17.1/locale/sk.js",
+			"moment@2.17.1/locale/sl.js",
+			"moment@2.17.1/locale/sl.js",
+			"moment@2.17.1/locale/sq.js",
+			"moment@2.17.1/locale/sq.js",
+			"moment@2.17.1/locale/sr.js",
+			"moment@2.17.1/locale/sr-cyrl.js",
+			"moment@2.17.1/locale/sr-cyrl.js",
+			"moment@2.17.1/locale/sr.js",
+			"moment@2.17.1/locale/ss.js",
+			"moment@2.17.1/locale/ss.js",
+			"moment@2.17.1/locale/sv.js",
+			"moment@2.17.1/locale/sv.js",
+			"moment@2.17.1/locale/sw.js",
+			"moment@2.17.1/locale/sw.js",
+			"moment@2.17.1/locale/ta.js",
+			"moment@2.17.1/locale/ta.js",
+			"moment@2.17.1/locale/te.js",
+			"moment@2.17.1/locale/te.js",
+			"moment@2.17.1/locale/tet.js",
+			"moment@2.17.1/locale/tet.js",
+			"moment@2.17.1/locale/th.js",
+			"moment@2.17.1/locale/th.js",
+			"moment@2.17.1/locale/tl-ph.js",
+			"moment@2.17.1/locale/tl-ph.js",
+			"moment@2.17.1/locale/tlh.js",
+			"moment@2.17.1/locale/tlh.js",
+			"moment@2.17.1/locale/tr.js",
+			"moment@2.17.1/locale/tr.js",
+			"moment@2.17.1/locale/tzl.js",
+			"moment@2.17.1/locale/tzl.js",
+			"moment@2.17.1/locale/tzm.js",
+			"moment@2.17.1/locale/tzm-latn.js",
+			"moment@2.17.1/locale/tzm-latn.js",
+			"moment@2.17.1/locale/tzm.js",
+			"moment@2.17.1/locale/uk.js",
+			"moment@2.17.1/locale/uk.js",
+			"moment@2.17.1/locale/uz.js",
+			"moment@2.17.1/locale/uz.js",
+			"moment@2.17.1/locale/vi.js",
+			"moment@2.17.1/locale/vi.js",
+			"moment@2.17.1/locale/x-pseudo.js",
+			"moment@2.17.1/locale/x-pseudo.js",
+			"moment@2.17.1/locale/yo.js",
+			"moment@2.17.1/locale/yo.js",
+			"moment@2.17.1/locale/zh-cn.js",
+			"moment@2.17.1/locale/zh-cn.js",
+			"moment@2.17.1/locale/zh-hk.js",
+			"moment@2.17.1/locale/zh-hk.js",
+			"moment@2.17.1/locale/zh-tw.js",
+			"moment@2.17.1/locale/zh-tw.js"
+		],
+		"moment@2.17.1/locale/af.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/ar.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/ar-dz.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/ar-ly.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/ar-ma.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/ar-sa.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/ar-tn.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/az.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/be.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/bg.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/bn.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/bo.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/br.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/bs.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/ca.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/cs.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/cv.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/cy.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/da.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/de.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/de-at.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/dv.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/el.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/en-au.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/en-ca.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/en-gb.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/en-ie.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/en-nz.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/eo.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/es.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/es-do.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/et.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/eu.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/fa.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/fi.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/fo.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/fr.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/fr-ca.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/fr-ch.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/fy.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/gd.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/gl.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/he.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/hi.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/hr.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/hu.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/hy-am.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/id.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/is.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/it.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/ja.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/jv.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/ka.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/kk.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/km.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/ko.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/ky.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/lb.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/lo.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/lt.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/lv.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/me.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/mi.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/mk.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/ml.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/mr.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/ms.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/ms-my.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/my.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/nb.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/ne.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/nl.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/nl-be.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/nn.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/pa-in.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/pl.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/pt.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/pt-br.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/ro.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/ru.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/se.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/si.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/sk.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/sl.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/sq.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/sr.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/sr-cyrl.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/ss.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/sv.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/sw.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/ta.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/te.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/tet.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/th.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/tl-ph.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/tlh.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/tr.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/tzl.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/tzm.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/tzm-latn.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/uk.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/uz.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/vi.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/x-pseudo.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/yo.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/zh-cn.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/zh-hk.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"moment@2.17.1/locale/zh-tw.js": [
+			"moment@2.17.1/moment.js"
+		],
+		"ipytracer@0.1.1/src/controllers/controller.bar.js": [],
+		"ipytracer@0.1.1/src/controllers/controller.bubble.js": [],
+		"ipytracer@0.1.1/src/controllers/controller.doughnut.js": [],
+		"ipytracer@0.1.1/src/controllers/controller.line.js": [],
+		"ipytracer@0.1.1/src/controllers/controller.polarArea.js": [],
+		"ipytracer@0.1.1/src/controllers/controller.radar.js": [],
+		"ipytracer@0.1.1/src/charts/Chart.Bar.js": [],
+		"ipytracer@0.1.1/src/charts/Chart.Bubble.js": [],
+		"ipytracer@0.1.1/src/charts/Chart.Doughnut.js": [],
+		"ipytracer@0.1.1/src/charts/Chart.Line.js": [],
+		"ipytracer@0.1.1/src/charts/Chart.PolarArea.js": [],
+		"ipytracer@0.1.1/src/charts/Chart.Radar.js": [],
+		"ipytracer@0.1.1/src/charts/Chart.Scatter.js": [],
+		"ipytracer@0.1.1/src/List1DTracer.js": [
+			"ipytracer@0.1.1/src/Tracer.js",
+			"underscore@^1.8.3/underscore.js"
+		],
+		"ipytracer@0.1.1/package.json": [],
+		"@jupyterlab/nbwidgets@0.6.6/lib/index.js": [
+			"jupyter-js-widgets@~2.0.23/lib/index.js",
+			"phosphor@^0.7.0/lib/ui/panel.js",
+			"phosphor@^0.7.0/lib/core/token.js",
+			"phosphor@^0.7.0/lib/ui/widget.js",
+			"@jupyterlab/nbwidgets@0.6.6/lib/semvercache.js"
+		],
+		"jupyter-js-widgets@2.0.23/lib/index.js": [
+			"jupyter-js-widgets@2.0.23/lib/manager-base.js",
+			"jupyter-js-widgets@2.0.23/lib/utils.js",
+			"jupyter-js-widgets@2.0.23/lib/widget.js",
+			"jupyter-js-widgets@2.0.23/lib/widget_layout.js",
+			"jupyter-js-widgets@2.0.23/lib/widget_link.js",
+			"jupyter-js-widgets@2.0.23/lib/widget_bool.js",
+			"jupyter-js-widgets@2.0.23/lib/widget_button.js",
+			"jupyter-js-widgets@2.0.23/lib/widget_box.js",
+			"jupyter-js-widgets@2.0.23/lib/widget_image.js",
+			"jupyter-js-widgets@2.0.23/lib/widget_color.js",
+			"jupyter-js-widgets@2.0.23/lib/widget_date.js",
+			"jupyter-js-widgets@2.0.23/lib/services-shim.js",
+			"jupyter-js-widgets@2.0.23/lib/widget_int.js",
+			"jupyter-js-widgets@2.0.23/lib/widget_float.js",
+			"jupyter-js-widgets@2.0.23/lib/widget_controller.js",
+			"jupyter-js-widgets@2.0.23/lib/widget_selection.js",
+			"jupyter-js-widgets@2.0.23/lib/widget_selectioncontainer.js",
+			"jupyter-js-widgets@2.0.23/lib/widget_string.js",
+			"jupyter-js-widgets@2.0.23/package.json"
+		],
+		"jupyter-js-widgets@2.0.23/lib/manager-base.js": [
+			"underscore@^1.8.3/underscore.js",
+			"jupyter-js-widgets@2.0.23/lib/utils.js",
+			"semver@^5.1.0/semver.js",
+			"jupyter-js-widgets@2.0.23/package.json"
+		],
+		"jupyter-js-widgets@2.0.23/lib/utils.js": [
+			"jupyter-js-widgets@2.0.23/lib/index.js",
+			"jupyter-js-widgets@2.0.23/lib/index.js"
+		],
+		"jupyter-js-widgets@2.0.23/package.json": [],
+		"jupyter-js-widgets@2.0.23/lib/widget.js": [
+			"backbone@1.2.0/backbone.js",
+			"underscore@^1.8.3/underscore.js",
+			"jupyter-js-widgets@2.0.23/lib/utils.js",
+			"jquery@^3.1.1/dist/jquery.js",
+			"jupyter-js-widgets@2.0.23/lib/nativeview.js",
+			"phosphor@^0.7.0/lib/ui/widget.js",
+			"phosphor@^0.7.0/lib/core/messaging.js",
+			"phosphor@^0.7.0/lib/ui/widget.js"
+		],
+		"jupyter-js-widgets@2.0.23/lib/nativeview.js": [
+			"backbone@1.2.0/backbone.js"
+		],
+		"phosphor@0.7.0/lib/ui/widget.js": [
+			"phosphor@0.7.0/lib/algorithm/iteration.js",
+			"phosphor@0.7.0/lib/core/messaging.js",
+			"phosphor@0.7.0/lib/core/properties.js",
+			"phosphor@0.7.0/lib/core/signaling.js",
+			"phosphor@0.7.0/lib/ui/title.js"
+		],
+		"phosphor@0.7.0/lib/algorithm/iteration.js": [],
+		"phosphor@0.7.0/lib/core/messaging.js": [
+			"phosphor@0.7.0/lib/algorithm/iteration.js",
+			"phosphor@0.7.0/lib/collections/queue.js"
+		],
+		"timers-browserify@2.0.2/main.js": [
+			"setimmediate@^1.0.4/setImmediate.js"
+		],
+		"setimmediate@1.0.5/setImmediate.js": [],
+		"phosphor@0.7.0/lib/collections/queue.js": [
+			"phosphor@0.7.0/lib/algorithm/iteration.js"
+		],
+		"phosphor@0.7.0/lib/core/properties.js": [],
+		"phosphor@0.7.0/lib/core/signaling.js": [],
+		"phosphor@0.7.0/lib/ui/title.js": [
+			"phosphor@0.7.0/lib/core/signaling.js"
+		],
+		"jupyter-js-widgets@2.0.23/lib/widget_layout.js": [
+			"jupyter-js-widgets@2.0.23/lib/widget.js",
+			"underscore@^1.8.3/underscore.js"
+		],
+		"jupyter-js-widgets@2.0.23/lib/widget_link.js": [
+			"jupyter-js-widgets@2.0.23/lib/widget.js",
+			"underscore@^1.8.3/underscore.js"
+		],
+		"jupyter-js-widgets@2.0.23/lib/widget_bool.js": [
+			"jupyter-js-widgets@2.0.23/lib/widget.js",
+			"underscore@^1.8.3/underscore.js"
+		],
+		"jupyter-js-widgets@2.0.23/lib/widget_button.js": [
+			"jupyter-js-widgets@2.0.23/lib/widget.js",
+			"underscore@^1.8.3/underscore.js"
+		],
+		"jupyter-js-widgets@2.0.23/lib/widget_box.js": [
+			"jupyter-js-widgets@2.0.23/lib/widget.js",
+			"jupyter-js-widgets@2.0.23/lib/utils.js",
+			"phosphor@^0.7.0/lib/algorithm/searching.js",
+			"phosphor@^0.7.0/lib/ui/panel.js",
+			"phosphor@^0.7.0/lib/ui/widget.js",
+			"underscore@^1.8.3/underscore.js",
+			"jquery@^3.1.1/dist/jquery.js"
+		],
+		"phosphor@0.7.0/lib/algorithm/searching.js": [
+			"phosphor@0.7.0/lib/algorithm/iteration.js",
+			"phosphor@0.7.0/lib/algorithm/sequence.js"
+		],
+		"phosphor@0.7.0/lib/algorithm/sequence.js": [
+			"phosphor@0.7.0/lib/algorithm/iteration.js"
+		],
+		"phosphor@0.7.0/lib/ui/panel.js": [
+			"phosphor@0.7.0/lib/algorithm/iteration.js",
+			"phosphor@0.7.0/lib/algorithm/mutation.js",
+			"phosphor@0.7.0/lib/algorithm/searching.js",
+			"phosphor@0.7.0/lib/collections/vector.js",
+			"phosphor@0.7.0/lib/core/messaging.js",
+			"phosphor@0.7.0/lib/ui/widget.js"
+		],
+		"phosphor@0.7.0/lib/algorithm/mutation.js": [
+			"phosphor@0.7.0/lib/algorithm/sequence.js"
+		],
+		"phosphor@0.7.0/lib/collections/vector.js": [
+			"phosphor@0.7.0/lib/algorithm/iteration.js"
+		],
+		"jupyter-js-widgets@2.0.23/lib/widget_image.js": [
+			"jupyter-js-widgets@2.0.23/lib/widget.js",
+			"underscore@^1.8.3/underscore.js"
+		],
+		"jupyter-js-widgets@2.0.23/lib/widget_color.js": [
+			"jupyter-js-widgets@2.0.23/lib/widget.js",
+			"underscore@^1.8.3/underscore.js"
+		],
+		"jupyter-js-widgets@2.0.23/lib/widget_date.js": [
+			"jupyter-js-widgets@2.0.23/lib/widget.js",
+			"underscore@^1.8.3/underscore.js"
+		],
+		"jupyter-js-widgets@2.0.23/lib/services-shim.js": [
+			"jupyter-js-widgets@2.0.23/lib/utils.js"
+		],
+		"jupyter-js-widgets@2.0.23/lib/widget_int.js": [
+			"jupyter-js-widgets@2.0.23/lib/widget.js",
+			"underscore@^1.8.3/underscore.js",
+			"jquery@^3.1.1/dist/jquery.js",
+			"jquery-ui@^1.12.1/ui/widgets/slider.js",
+			"d3-format@^0.5.1/build/d3-format.js"
+		],
+		"jquery-ui@1.12.1/ui/widgets/slider.js": [
+			"jquery@3.1.1/dist/jquery.js",
+			"jquery-ui@1.12.1/ui/widgets/mouse.js",
+			"jquery-ui@1.12.1/ui/keycode.js",
+			"jquery-ui@1.12.1/ui/version.js",
+			"jquery-ui@1.12.1/ui/widget.js"
+		],
+		"jquery-ui@1.12.1/ui/widgets/mouse.js": [
+			"jquery@3.1.1/dist/jquery.js",
+			"jquery-ui@1.12.1/ui/ie.js",
+			"jquery-ui@1.12.1/ui/version.js",
+			"jquery-ui@1.12.1/ui/widget.js"
+		],
+		"jquery-ui@1.12.1/ui/ie.js": [
+			"jquery@3.1.1/dist/jquery.js",
+			"jquery-ui@1.12.1/ui/version.js"
+		],
+		"jquery-ui@1.12.1/ui/version.js": [
+			"jquery@3.1.1/dist/jquery.js"
+		],
+		"jquery-ui@1.12.1/ui/widget.js": [
+			"jquery@3.1.1/dist/jquery.js",
+			"jquery-ui@1.12.1/ui/version.js"
+		],
+		"jquery-ui@1.12.1/ui/keycode.js": [
+			"jquery@3.1.1/dist/jquery.js",
+			"jquery-ui@1.12.1/ui/version.js"
+		],
+		"jupyter-js-widgets@2.0.23/lib/widget_float.js": [
+			"jupyter-js-widgets@2.0.23/lib/widget.js",
+			"underscore@^1.8.3/underscore.js",
+			"jupyter-js-widgets@2.0.23/lib/widget_int.js",
+			"d3-format@^0.5.1/build/d3-format.js"
+		],
+		"jupyter-js-widgets@2.0.23/lib/widget_controller.js": [
+			"jupyter-js-widgets@2.0.23/lib/widget.js",
+			"underscore@^1.8.3/underscore.js",
+			"jupyter-js-widgets@2.0.23/lib/utils.js"
+		],
+		"jupyter-js-widgets@2.0.23/lib/widget_selection.js": [
+			"jupyter-js-widgets@2.0.23/lib/widget.js",
+			"underscore@^1.8.3/underscore.js",
+			"jupyter-js-widgets@2.0.23/lib/utils.js",
+			"jquery@^3.1.1/dist/jquery.js"
+		],
+		"jupyter-js-widgets@2.0.23/lib/widget_selectioncontainer.js": [
+			"jupyter-js-widgets@2.0.23/lib/widget.js",
+			"jupyter-js-widgets@2.0.23/lib/widget_box.js",
+			"jupyter-js-widgets@2.0.23/lib/phosphor/tabpanel.js",
+			"jupyter-js-widgets@2.0.23/lib/phosphor/accordion.js",
+			"phosphor@^0.7.0/lib/ui/widget.js",
+			"phosphor@^0.7.0/lib/algorithm/iteration.js",
+			"phosphor@^0.7.0/lib/algorithm/mutation.js",
+			"phosphor@^0.7.0/lib/algorithm/searching.js",
+			"phosphor@^0.7.0/lib/core/messaging.js",
+			"underscore@^1.8.3/underscore.js",
+			"jupyter-js-widgets@2.0.23/lib/utils.js",
+			"jquery@^3.1.1/dist/jquery.js"
+		],
+		"jupyter-js-widgets@2.0.23/lib/phosphor/tabpanel.js": [
+			"phosphor@^0.7.0/lib/core/signaling.js",
+			"phosphor@^0.7.0/lib/ui/panel.js",
+			"phosphor@^0.7.0/lib/ui/tabbar.js",
+			"phosphor@^0.7.0/lib/ui/widget.js"
+		],
+		"phosphor@0.7.0/lib/ui/tabbar.js": [
+			"phosphor@0.7.0/lib/algorithm/iteration.js",
+			"phosphor@0.7.0/lib/algorithm/mutation.js",
+			"phosphor@0.7.0/lib/algorithm/searching.js",
+			"phosphor@0.7.0/lib/collections/vector.js",
+			"phosphor@0.7.0/lib/core/messaging.js",
+			"phosphor@0.7.0/lib/core/signaling.js",
+			"phosphor@0.7.0/lib/dom/cursor.js",
+			"phosphor@0.7.0/lib/dom/query.js",
+			"phosphor@0.7.0/lib/ui/title.js",
+			"phosphor@0.7.0/lib/ui/vdom.js",
+			"phosphor@0.7.0/lib/ui/widget.js"
+		],
+		"phosphor@0.7.0/lib/dom/cursor.js": [
+			"phosphor@0.7.0/lib/core/disposable.js"
+		],
+		"phosphor@0.7.0/lib/core/disposable.js": [
+			"phosphor@0.7.0/lib/algorithm/iteration.js"
+		],
+		"phosphor@0.7.0/lib/dom/query.js": [],
+		"phosphor@0.7.0/lib/ui/vdom.js": [],
+		"jupyter-js-widgets@2.0.23/lib/phosphor/accordion.js": [
+			"phosphor@^0.7.0/lib/core/signaling.js",
+			"phosphor@^0.7.0/lib/ui/panel.js",
+			"phosphor@^0.7.0/lib/ui/widget.js",
+			"jupyter-js-widgets@2.0.23/lib/phosphor/currentselection.js",
+			"phosphor@^0.7.0/lib/algorithm/searching.js"
+		],
+		"jupyter-js-widgets@2.0.23/lib/phosphor/currentselection.js": [
+			"phosphor@^0.7.0/lib/algorithm/searching.js",
+			"phosphor@^0.7.0/lib/core/signaling.js"
+		],
+		"jupyter-js-widgets@2.0.23/lib/widget_string.js": [
+			"jupyter-js-widgets@2.0.23/lib/widget.js",
+			"underscore@^1.8.3/underscore.js"
+		],
+		"phosphor@0.7.0/lib/core/token.js": [],
+		"@jupyterlab/nbwidgets@0.6.6/lib/semvercache.js": [
+			"semver@5.3.0/semver.js"
+		]
+	}
+}
