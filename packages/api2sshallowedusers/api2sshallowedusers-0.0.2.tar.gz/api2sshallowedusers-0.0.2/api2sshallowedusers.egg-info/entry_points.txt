@@ -1,0 +1,3 @@
+[console_scripts]
+ssh_allowed_users_server = api2sshallowedusers.server:main
+
