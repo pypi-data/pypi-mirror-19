@@ -1,0 +1,73 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="collective.blueline">
+
+  <browser:resourceDirectory
+      name="collective.blueline"
+      directory="static"
+      layer="collective.blueline.interfaces.IBrowserLayer"
+      />
+
+  <browser:page
+      name="blueline-settings"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class="collective.blueline.controlpanel.BluelineSettingsControlPanel"
+      permission="cmf.ManagePortal"
+      />
+
+  <browser:viewlet
+      name="blueline.htmlhead"
+      class=".viewlets.HtmlHeadViewlet"
+      manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
+      template="templates/htmlhead.pt"
+      layer="collective.blueline.interfaces.IBrowserLayer"
+      permission="zope2.View"
+      />
+
+  <browser:viewlet
+      name="blueline.header"
+      class=".viewlets.HeaderViewlet"
+      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+      template="templates/header.pt"
+      layer="collective.blueline.interfaces.IBrowserLayer"
+      permission="zope2.View"
+      />
+
+  <browser:viewlet
+      name="blueline.abovecontent"
+      class=".viewlets.AboveContentViewlet"
+      manager="plone.app.layout.viewlets.interfaces.IAboveContent"
+      template="templates/abovecontent.pt"
+      layer="collective.blueline.interfaces.IBrowserLayer"
+      permission="zope2.View"
+      />
+
+  <browser:viewlet
+      name="blueline.belowcontentbody"
+      class=".viewlets.BelowContentBodyViewlet"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+      template="templates/belowcontentbody.pt"
+      layer="collective.blueline.interfaces.IBrowserLayer"
+      permission="zope2.View"
+      />
+
+  <browser:viewlet
+      name="blueline.belowcontent"
+      class=".viewlets.BelowContentViewlet"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContent"
+      template="templates/belowcontent.pt"
+      layer="collective.blueline.interfaces.IBrowserLayer"
+      permission="zope2.View"
+      />
+
+  <browser:viewlet
+      name="blueline.footer"
+      class=".viewlets.FooterViewlet"
+      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+      template="templates/footer.pt"
+      layer="collective.blueline.interfaces.IBrowserLayer"
+      permission="zope2.View"
+      />
+
+</configure>

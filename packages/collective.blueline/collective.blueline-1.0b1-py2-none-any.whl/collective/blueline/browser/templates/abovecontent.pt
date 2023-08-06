@@ -1,0 +1,12 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      tal:omit-tag="">
+
+<body tal:omit-tag="">
+  <div id="blueline-abovecontent"
+      tal:condition="view/show"
+      tal:content="structure view/code"
+      />
+</body>
+
+</html>

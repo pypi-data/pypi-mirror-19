@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<object name="portal_controlpanel"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="collective.blueline"
+    purge="False">
+    <configlet title="Blueline"
+        action_id="blueline"
+        appId="collective.blueline"
+        category="Products"
+        condition_expr=""
+        url_expr="string:${portal_url}/@@blueline-settings"
+        icon_expr="string:${portal_url}/++resource++collective.blueline/icon.png"
+        visible="True"
+        i18n:attributes="title">
+      <permission>Manage portal</permission>
+    </configlet>
+</object>
