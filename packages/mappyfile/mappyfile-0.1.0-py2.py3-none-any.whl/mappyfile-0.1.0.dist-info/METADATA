@@ -1,0 +1,30 @@
+Metadata-Version: 2.0
+Name: mappyfile
+Version: 0.1.0
+Summary: A pure Python MapFile parser for working with MapServer
+Home-page: http://github.com/geographika/mappyfile
+Author: Seth Girvin
+Author-email: sethg@geographika.co.uk
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Text Processing :: Linguistic
+Classifier: Topic :: Software Development :: Build Tools
+Requires-Dist: plyplus
+
+mappyfile
+
+A pure Python MapFile parser for working with MapServer
+
+Documentation at http://mappyfile.readthedocs.io/en/latest/
+
+Currently an unfinished prototype
+
+Requirements
+------------
+
+* Python >=2.7
+
