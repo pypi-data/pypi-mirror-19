@@ -1,0 +1,11 @@
+setup.py
+gulpy/__init__.py
+gulpy/log.py
+gulpy/stream.py
+gulpy/task.py
+gulpy.egg-info/PKG-INFO
+gulpy.egg-info/SOURCES.txt
+gulpy.egg-info/dependency_links.txt
+gulpy.egg-info/top_level.txt
+gulpy/pipes/__init__.py
+gulpy/pipes/concat.py
