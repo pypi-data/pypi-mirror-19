@@ -1,0 +1,13 @@
+repoze.lru
+pysha3
+ethereum
+ipython<5.0.0
+miniupnpc
+secp256k1==0.12.1
+ethereum-serpent
+networkx
+pyethapp
+cachetools>=2.0.0,<3.0.0
+rlp>=0.4.3,<=0.4.6
+gevent-websocket==0.9.4
+pycryptodome>=3.4.3
