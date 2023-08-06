@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: goat
+Version: 0.3.1
+Summary: Goat implements a behave matcher which uses python3 function annotations for step definitiions
+Home-page: https://github.com/cuescience/goat
+Author: Ilja Bauer
+Author-email: i.bauer@cuescience.de
+License: MIT
+Description: UNKNOWN
+Keywords: goat
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
