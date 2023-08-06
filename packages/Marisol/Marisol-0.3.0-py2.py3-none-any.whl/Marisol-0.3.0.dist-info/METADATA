@@ -1,0 +1,29 @@
+Metadata-Version: 2.0
+Name: Marisol
+Version: 0.3.0
+Summary: Add bates numbers, text stamps, and redactions to existing PDF files
+Home-page: http://github.com/wikkiewikkie/Marisol
+Author: Kevin Schellenberg
+Author-email: wikkiewikkie@gmail.com
+License: MIT
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Legal Industry
+Classifier: License :: OSI Approved
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Office/Business
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: pypdf2 (==1.26.0)
+Requires-Dist: reportlab (==3.3.0)
+
+UNKNOWN
+
+
