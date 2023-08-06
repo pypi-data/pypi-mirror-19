@@ -1,0 +1,42 @@
+/*---[ p01.dashboard/xerror.less ]-------------------------------------------------*/
+// variables
+@import "../variables.less";
+
+.graph {
+    background-color: #dc5945;
+    background-color: @widget-graph-bg;
+    position: relative;
+    svg {
+        position: absolute;
+        opacity: 0.4;
+        fill-opacity: 0.4;
+        left: 0px;
+        top: 0px;
+    }
+    .value {
+        position: relative;
+        z-index: 99;
+        font-size: @widget-graph-value-font-size;
+    }
+    .x_tick {
+        position: absolute;
+        bottom: 0;
+        .title {
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.4);
+            color: @widget-graph-tick-color;
+            opacity: 0.5;
+            padding: 5px;
+        }
+    }
+    .y_ticks {
+        font-size: 12px;
+        fill: @widget-graph-tick-color;
+        fill-opacity: 1;
+        pading: 5px;
+        left: 0px;
+    }
+    .domain {
+        display: none;
+    }
+}

@@ -1,0 +1,39 @@
+/*---[ p01.dashboard/xerror.less ]-------------------------------------------------*/
+// variables
+@import "../variables.less";
+
+.xerror {
+    background-color: @widget-xerror-bg;
+    vertical-align: top;
+    .title {
+        color: @widget-xerror-title-color;
+    }
+    ul {
+        text-align: left;
+        color: @widget-buildbot-color;
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        list-style: none;
+        list-style-type: none;
+        margin: 0 0 5px 0;
+    }
+    .label {
+        color: @widget-xerror-label-color;
+    }
+    .value {
+        float: right;
+        margin-left: 12px;
+        font-weight: 600;
+        color: @widget-xerror-value-color;
+    }
+    .success .label,
+    .success .value {
+        color: @widget-xerror-success-color;
+    }
+    .error .label,
+    .error .value {
+        color: @widget-xerror-error-color;
+    }
+}

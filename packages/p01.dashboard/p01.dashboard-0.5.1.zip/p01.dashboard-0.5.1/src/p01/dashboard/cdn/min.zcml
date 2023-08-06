@@ -1,0 +1,111 @@
+<configure
+    xmlns:zope="http://namespaces.zope.org/zope"
+    xmlns:p01="http://namespaces.zope.org/p01">
+
+  <!-- eventsource -->
+  <p01:cdnResource
+      name="eventsource.min.js"
+      file="min/eventsource-0.9.7.min.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+  <!-- jsface -->
+  <p01:cdnResource
+      name="jsface.min.js"
+      file="min/jsface-2.4.8.min.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+  <!-- transparency -->
+  <p01:cdnResource
+      name="transparency.min.js"
+      file="min/transparency-0.11.0.min.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+  <!-- lodash -->
+  <p01:cdnResource
+      name="lodash.min.js"
+      file="min/lodash-4.17.4.min.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+  <!-- jquery -->
+  <p01:cdnResource
+      name="jquery.min.js"
+      file="min/jquery-1.12.0.min.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+  <p01:cdnResource
+      name="jquery.min.map"
+      file="min/jquery-1.12.0.min.map"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+  <!-- d3  (v3 used by rickshaw) -->
+  <p01:cdnResource
+      name="d3.v3.min.js"
+      file="min/d3-3.5.17.min.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+  <p01:cdnResource
+      name="d3.layout.min.js"
+      file="min/d3.layout.min.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+  <!-- rickshaw -->
+  <p01:cdnResource
+      name="rickshaw.min.js"
+      file="min/rickshaw-1.6.0.min.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+  <!-- chartjs -->
+  <p01:cdnResource
+      name="chart.min.js"
+      file="min/chart-2.4.0.min.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+  <p01:cdnResource
+      name="chart.bundle.min.js"
+      file="min/chart.bundle-2.4.0.min.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+  <!-- raphael (used by justgauge) -->
+  <p01:cdnResource
+      name="raphael.min.js"
+      file="min/raphael-2.1.4.min.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+  <!-- justgage -->
+  <p01:cdnResource
+      name="justgauge.min.js"
+      file="min/justgauge-1.2.9.min.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+  <!-- moment -->
+  <p01:cdnResource
+      name="moment.min.js"
+      file="min/moment-2.13.0.min.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+  <!-- jquery.flot -->
+  <p01:cdnDirectory
+      name="flot"
+      directory="min/flot/0.8.3"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+  <!-- jquery.knob -->
+  <p01:cdnResource
+      name="jquery.knob.min.js"
+      file="min/jquery.knob-1.2.13.min.js"
+      layer="p01.dashboard.layer.IDashboardLayer"
+      />
+
+</configure>

@@ -1,0 +1,14 @@
+setuptools
+gevent
+p01.json
+requests
+zope.component
+zope.interface
+zope.publisher
+
+[circus]
+PasteSript
+
+[test]
+zope.testing
+p01.checker

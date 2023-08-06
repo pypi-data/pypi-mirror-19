@@ -1,0 +1,11 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope">
+
+  <include package=".samplers" />
+  <include package=".browser" />
+  <include package=".cdn" />
+
+  <include file="layer.zcml" />
+  <include file="permissions.zcml" />
+
+</configure>
