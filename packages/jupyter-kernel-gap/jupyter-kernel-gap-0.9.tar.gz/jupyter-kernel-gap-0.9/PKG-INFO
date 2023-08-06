@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: jupyter-kernel-gap
+Version: 0.9
+Summary: A Jupyter kernel for GAP
+Home-page: https://github.com/gap-packages/jupyter-gap
+Author: Markus Pfeiffer
+Author-email: markus.pfeiffer@st-andrews.ac.uk
+License: BSD
+Description: A Jupyter kernel for the GAP programming language that wraps GAP's REPL
+Keywords: jupyter gap computer algebra
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
