@@ -1,0 +1,3 @@
+[console_scripts]
+yige = examples.send_text_example_prompt:main
+
