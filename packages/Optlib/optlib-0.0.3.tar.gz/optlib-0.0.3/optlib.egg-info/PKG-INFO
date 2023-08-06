@@ -1,0 +1,71 @@
+Metadata-Version: 1.1
+Name: optlib
+Version: 0.0.3
+Summary: An Options Library
+Home-page: https://github.com/nasyxx/Optlib
+Author: Nasy
+Author-email: sy_n@me.com
+License: MIT LICENSE
+Description: ===============================
+        Optlib
+        ===============================
+        
+        
+        .. image:: https://img.shields.io/pypi/v/optlib.svg
+            :target: https://pypi.python.org/pypi/optlib
+        
+        .. .. image:: https://img.shields.io/travis/nasyxx/optlib.svg
+        ..     :target: https://travis-ci.org/nasyxx/optlib
+        ..
+        .. .. image:: https://readthedocs.org/projects/optlib/badge/?version=latest
+        ..     :target: https://optlib.readthedocs.io/en/latest/?badge=latest
+        ..     :alt: Documentation Status
+        
+        .. image:: https://pyup.io/repos/github/nasyxx/optlib/shield.svg
+             :target: https://pyup.io/repos/github/nasyxx/optlib/
+             :alt: Updates
+        
+        .. image:: https://pyup.io/repos/github/nasyxx/optlib/python-3-shield.svg
+            :target: https://pyup.io/repos/github/nasyxx/optlib/
+            :alt: Python 3
+        
+        An Options Library
+        
+        
+        * Free software: MIT license
+        * Documentation: https://optlib.readthedocs.io.
+        
+        =======
+        Credits
+        =======
+        
+        Development Lead
+        ----------------
+        
+        * Nasy <sy_n@me.com>
+        
+        Contributors
+        ------------
+        
+        * Nasy <sy_n@me.com>
+        
+        =======
+        History
+        =======
+        
+        0.0.2 (2016-12-30)
+        ------------------
+        
+        * Refactor most of codes
+        * Add Greeks
+        
+        0.0.1 (2016-12-23)
+        ------------------
+        
+        * First release on PyPI.
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
