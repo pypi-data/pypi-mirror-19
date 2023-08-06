@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>meta_package_manager.tests.test_managers &mdash; Meta Package Manager 2.4.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Meta Package Manager 2.4.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Meta Package Manager
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../falsehoods.html">Falsehoods Programmers Believe About Package Managers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bitbar.html">BitBar Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../meta_package_manager.html">meta_package_manager package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../todolist.html">Todo list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Meta Package Manager</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>meta_package_manager.tests.test_managers</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for meta_package_manager.tests.test_managers</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (c) 2016-2017 Kevin Deldycke &lt;kevin@deldycke.com&gt;</span>
+<span class="c1">#                         and contributors.</span>
+<span class="c1"># All Rights Reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is Free Software; you can redistribute it and/or</span>
+<span class="c1"># modify it under the terms of the GNU General Public License</span>
+<span class="c1"># as published by the Free Software Foundation; either version 2</span>
+<span class="c1"># of the License, or (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with this program; if not, write to the Free Software</span>
+<span class="c1"># Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="p">(</span>
+    <span class="n">absolute_import</span><span class="p">,</span>
+    <span class="n">division</span><span class="p">,</span>
+    <span class="n">print_function</span><span class="p">,</span>
+    <span class="n">unicode_literals</span>
+<span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="kn">from</span> <span class="nn">..managers</span> <span class="k">import</span> <span class="n">pool</span>
+<span class="kn">from</span> <span class="nn">..platform</span> <span class="k">import</span> <span class="n">OS_DEFINITIONS</span><span class="p">,</span> <span class="n">PY3</span>
+<span class="kn">from</span> <span class="nn">.case</span> <span class="k">import</span> <span class="n">unless_linux</span><span class="p">,</span> <span class="n">unless_macos</span><span class="p">,</span> <span class="n">unless_windows</span>
+
+<span class="k">if</span> <span class="n">PY3</span><span class="p">:</span>
+    <span class="n">basestring</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="TestManagerDefinitions"><a class="viewcode-back" href="../../../meta_package_manager.tests.test_managers.html#meta_package_manager.tests.test_managers.TestManagerDefinitions">[docs]</a><span class="k">class</span> <span class="nc">TestManagerDefinitions</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot; Test the definition of all package managers. &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TestManagerDefinitions.test_ascii_id"><a class="viewcode-back" href="../../../meta_package_manager.tests.test_managers.html#meta_package_manager.tests.test_managers.TestManagerDefinitions.test_ascii_id">[docs]</a>    <span class="k">def</span> <span class="nf">test_ascii_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; All package manager IDs should be short ASCII strings. &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">manager_id</span> <span class="ow">in</span> <span class="n">pool</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertRegexpMatches</span><span class="p">(</span><span class="n">manager_id</span><span class="p">,</span> <span class="s1">r&#39;[a-z0-9]+&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestManagerDefinitions.test_number"><a class="viewcode-back" href="../../../meta_package_manager.tests.test_managers.html#meta_package_manager.tests.test_managers.TestManagerDefinitions.test_number">[docs]</a>    <span class="k">def</span> <span class="nf">test_number</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Check all implemented package managers are accounted for. &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pool</span><span class="p">()),</span> <span class="mi">8</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestManagerDefinitions.test_platforms_type"><a class="viewcode-back" href="../../../meta_package_manager.tests.test_managers.html#meta_package_manager.tests.test_managers.TestManagerDefinitions.test_platforms_type">[docs]</a>    <span class="k">def</span> <span class="nf">test_platforms_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Check that definitions returns supported platforms as a frozenset.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">manager</span> <span class="ow">in</span> <span class="n">pool</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">manager</span><span class="o">.</span><span class="n">platforms</span><span class="p">,</span> <span class="nb">frozenset</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestManagerDefinitions.test_platforms_values"><a class="viewcode-back" href="../../../meta_package_manager.tests.test_managers.html#meta_package_manager.tests.test_managers.TestManagerDefinitions.test_platforms_values">[docs]</a>    <span class="k">def</span> <span class="nf">test_platforms_values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Check that definitions returns platforms with a registered label.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">manager</span> <span class="ow">in</span> <span class="n">pool</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">manager</span><span class="o">.</span><span class="n">platforms</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">OS_DEFINITIONS</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="TestManagerDefinitions.test_cli_path_type"><a class="viewcode-back" href="../../../meta_package_manager.tests.test_managers.html#meta_package_manager.tests.test_managers.TestManagerDefinitions.test_cli_path_type">[docs]</a>    <span class="k">def</span> <span class="nf">test_cli_path_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Check that definitions returns the CLI path as a string. &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">manager</span> <span class="ow">in</span> <span class="n">pool</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">manager</span><span class="o">.</span><span class="n">cli_path</span><span class="p">,</span> <span class="n">basestring</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestManagerDefinitions.test_cli_args_type"><a class="viewcode-back" href="../../../meta_package_manager.tests.test_managers.html#meta_package_manager.tests.test_managers.TestManagerDefinitions.test_cli_args_type">[docs]</a>    <span class="k">def</span> <span class="nf">test_cli_args_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Check that definitions returns CLI args as a list. &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">manager</span> <span class="ow">in</span> <span class="n">pool</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">manager</span><span class="o">.</span><span class="n">cli_args</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestManagerDefinitions.test_cli_type"><a class="viewcode-back" href="../../../meta_package_manager.tests.test_managers.html#meta_package_manager.tests.test_managers.TestManagerDefinitions.test_cli_type">[docs]</a>    <span class="k">def</span> <span class="nf">test_cli_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Check that all methods returning a CLI is a list. &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">manager</span> <span class="ow">in</span> <span class="n">pool</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span>
+                <span class="n">manager</span><span class="o">.</span><span class="n">upgrade_cli</span><span class="p">(</span><span class="s1">&#39;dummy_package_id&#39;</span><span class="p">),</span> <span class="nb">list</span><span class="p">)</span>
+
+            <span class="c1"># Upgrade-all CLI are allowed to raise a particular error.</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">upgrade_all_cli</span><span class="p">()</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">excpt</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">excpt</span><span class="p">,</span> <span class="ne">NotImplementedError</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestManagerDefinitions.test_outdated_type"><a class="viewcode-back" href="../../../meta_package_manager.tests.test_managers.html#meta_package_manager.tests.test_managers.TestManagerDefinitions.test_outdated_type">[docs]</a>    <span class="k">def</span> <span class="nf">test_outdated_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Check that all outdated operations returns a dict. &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">manager</span> <span class="ow">in</span> <span class="n">pool</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">manager</span><span class="o">.</span><span class="n">available</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">manager</span><span class="o">.</span><span class="n">outdated</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="TestManagerPlatform"><a class="viewcode-back" href="../../../meta_package_manager.tests.test_managers.html#meta_package_manager.tests.test_managers.TestManagerPlatform">[docs]</a><span class="k">class</span> <span class="nc">TestManagerPlatform</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="nd">@unless_macos</span><span class="p">()</span>
+<div class="viewcode-block" id="TestManagerPlatform.test_macos"><a class="viewcode-back" href="../../../meta_package_manager.tests.test_managers.html#meta_package_manager.tests.test_managers.TestManagerPlatform.test_macos">[docs]</a>    <span class="k">def</span> <span class="nf">test_macos</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">supported_managers</span> <span class="o">=</span> <span class="p">{</span><span class="n">m</span><span class="o">.</span><span class="n">id</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">pool</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">supported</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertSetEqual</span><span class="p">(</span><span class="n">supported_managers</span><span class="p">,</span> <span class="nb">set</span><span class="p">([</span>
+            <span class="s1">&#39;apm&#39;</span><span class="p">,</span> <span class="s1">&#39;brew&#39;</span><span class="p">,</span> <span class="s1">&#39;cask&#39;</span><span class="p">,</span> <span class="s1">&#39;gem&#39;</span><span class="p">,</span> <span class="s1">&#39;mas&#39;</span><span class="p">,</span> <span class="s1">&#39;npm&#39;</span><span class="p">,</span> <span class="s1">&#39;pip2&#39;</span><span class="p">,</span> <span class="s1">&#39;pip3&#39;</span><span class="p">]))</span></div>
+
+    <span class="nd">@unless_linux</span><span class="p">()</span>
+<div class="viewcode-block" id="TestManagerPlatform.test_linux"><a class="viewcode-back" href="../../../meta_package_manager.tests.test_managers.html#meta_package_manager.tests.test_managers.TestManagerPlatform.test_linux">[docs]</a>    <span class="k">def</span> <span class="nf">test_linux</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">supported_managers</span> <span class="o">=</span> <span class="p">{</span><span class="n">m</span><span class="o">.</span><span class="n">id</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">pool</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">supported</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertSetEqual</span><span class="p">(</span><span class="n">supported_managers</span><span class="p">,</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;pip2&#39;</span><span class="p">,</span> <span class="s1">&#39;pip3&#39;</span><span class="p">]))</span></div>
+
+    <span class="nd">@unless_windows</span><span class="p">()</span>
+<div class="viewcode-block" id="TestManagerPlatform.test_windows"><a class="viewcode-back" href="../../../meta_package_manager.tests.test_managers.html#meta_package_manager.tests.test_managers.TestManagerPlatform.test_windows">[docs]</a>    <span class="k">def</span> <span class="nf">test_windows</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">supported_managers</span> <span class="o">=</span> <span class="p">{</span><span class="n">m</span><span class="o">.</span><span class="n">id</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">pool</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">supported</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertSetEqual</span><span class="p">(</span><span class="n">supported_managers</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      Last updated on 2017-01-21.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <div role="contentinfo">
+        <p>
+            &copy; Copyright 2016-2017, <a href='https://kevin.deldycke.com'>Kevin Deldycke</a> and <a href='https://github.com/kdeldycke/meta-package-manager/graphs/contributors'>contributors</a>.
+        </p>
+    </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.4.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

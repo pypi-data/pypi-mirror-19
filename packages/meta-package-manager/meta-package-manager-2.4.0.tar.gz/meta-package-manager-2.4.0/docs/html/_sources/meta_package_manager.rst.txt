@@ -1,0 +1,26 @@
+meta_package_manager package
+============================
+
+.. automodule:: meta_package_manager
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    meta_package_manager.bitbar
+    meta_package_manager.managers
+    meta_package_manager.tests
+
+Submodules
+----------
+
+.. toctree::
+
+   meta_package_manager.base
+   meta_package_manager.cli
+   meta_package_manager.platform
+

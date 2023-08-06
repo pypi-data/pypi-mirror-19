@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>meta_package_manager.tests.case &mdash; Meta Package Manager 2.4.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Meta Package Manager 2.4.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Meta Package Manager
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../falsehoods.html">Falsehoods Programmers Believe About Package Managers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bitbar.html">BitBar Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../meta_package_manager.html">meta_package_manager package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../todolist.html">Todo list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Meta Package Manager</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>meta_package_manager.tests.case</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for meta_package_manager.tests.case</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (c) 2016-2017 Kevin Deldycke &lt;kevin@deldycke.com&gt;</span>
+<span class="c1">#                         and contributors.</span>
+<span class="c1"># All Rights Reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is Free Software; you can redistribute it and/or</span>
+<span class="c1"># modify it under the terms of the GNU General Public License</span>
+<span class="c1"># as published by the Free Software Foundation; either version 2</span>
+<span class="c1"># of the License, or (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with this program; if not, write to the Free Software</span>
+<span class="c1"># Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="kn">from</span> <span class="nn">boltons.tbutils</span> <span class="k">import</span> <span class="n">ExceptionInfo</span>
+<span class="kn">from</span> <span class="nn">click.testing</span> <span class="k">import</span> <span class="n">CliRunner</span>
+
+<span class="kn">from</span> <span class="nn">..bitbar</span> <span class="k">import</span> <span class="n">run</span>
+<span class="kn">from</span> <span class="nn">..cli</span> <span class="k">import</span> <span class="n">cli</span>
+<span class="kn">from</span> <span class="nn">..platform</span> <span class="k">import</span> <span class="n">is_linux</span><span class="p">,</span> <span class="n">is_macos</span><span class="p">,</span> <span class="n">is_windows</span>
+
+
+<div class="viewcode-block" id="skip_destructive"><a class="viewcode-back" href="../../../meta_package_manager.tests.case.html#meta_package_manager.tests.case.skip_destructive">[docs]</a><span class="k">def</span> <span class="nf">skip_destructive</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot; Decorator to skip a test unless destructive mode is allowed.</span>
+
+<span class="sd">    Destructive mode is activated by the presence of a ``DESTRUCTIVE_TESTS``</span>
+<span class="sd">    environment variable set to ``True``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">destructive_tests</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DESTRUCTIVE_TESTS&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">destructive_tests</span><span class="p">:</span>
+        <span class="c1"># Destructive mode is ON. Let the test run anyway.</span>
+        <span class="k">return</span> <span class="k">lambda</span> <span class="n">func</span><span class="p">:</span> <span class="n">func</span>
+    <span class="k">return</span> <span class="n">unittest</span><span class="o">.</span><span class="n">skip</span><span class="p">(</span><span class="s2">&quot;Destructive tests not allowed.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="unless_linux"><a class="viewcode-back" href="../../../meta_package_manager.tests.case.html#meta_package_manager.tests.case.unless_linux">[docs]</a><span class="k">def</span> <span class="nf">unless_linux</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot; Decorator to skip a test unless it is run on a Linux system. &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">is_linux</span><span class="p">():</span>
+        <span class="c1"># Run the test.</span>
+        <span class="k">return</span> <span class="k">lambda</span> <span class="n">func</span><span class="p">:</span> <span class="n">func</span>
+    <span class="k">return</span> <span class="n">unittest</span><span class="o">.</span><span class="n">skip</span><span class="p">(</span><span class="s2">&quot;Test requires Linux.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="unless_macos"><a class="viewcode-back" href="../../../meta_package_manager.tests.case.html#meta_package_manager.tests.case.unless_macos">[docs]</a><span class="k">def</span> <span class="nf">unless_macos</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot; Decorator to skip a test unless it is run on a macOS system. &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">is_macos</span><span class="p">():</span>
+        <span class="c1"># Run the test.</span>
+        <span class="k">return</span> <span class="k">lambda</span> <span class="n">func</span><span class="p">:</span> <span class="n">func</span>
+    <span class="k">return</span> <span class="n">unittest</span><span class="o">.</span><span class="n">skip</span><span class="p">(</span><span class="s2">&quot;Test requires macOS.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="unless_windows"><a class="viewcode-back" href="../../../meta_package_manager.tests.case.html#meta_package_manager.tests.case.unless_windows">[docs]</a><span class="k">def</span> <span class="nf">unless_windows</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot; Decorator to skip a test unless it is run on a Windows system. &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">is_windows</span><span class="p">():</span>
+        <span class="c1"># Run the test.</span>
+        <span class="k">return</span> <span class="k">lambda</span> <span class="n">func</span><span class="p">:</span> <span class="n">func</span>
+    <span class="k">return</span> <span class="n">unittest</span><span class="o">.</span><span class="n">skip</span><span class="p">(</span><span class="s2">&quot;Test requires Windows.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="CLITestCase"><a class="viewcode-back" href="../../../meta_package_manager.tests.case.html#meta_package_manager.tests.case.CLITestCase">[docs]</a><span class="k">class</span> <span class="nc">CLITestCase</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot; Utilities and helpers to easely write unit-tests. &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="CLITestCase.setUp"><a class="viewcode-back" href="../../../meta_package_manager.tests.case.html#meta_package_manager.tests.case.CLITestCase.setUp">[docs]</a>    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">runner</span> <span class="o">=</span> <span class="n">CliRunner</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="CLITestCase.print_cli_output"><a class="viewcode-back" href="../../../meta_package_manager.tests.case.html#meta_package_manager.tests.case.CLITestCase.print_cli_output">[docs]</a>    <span class="k">def</span> <span class="nf">print_cli_output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">output</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Simulate CLI output.</span>
+
+<span class="sd">        Used to print debug traces in test suites.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">70</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;$ </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cmd</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">70</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CLITestCase.run_cmd"><a class="viewcode-back" href="../../../meta_package_manager.tests.case.html#meta_package_manager.tests.case.CLITestCase.run_cmd">[docs]</a>    <span class="k">def</span> <span class="nf">run_cmd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Run a system command, print output and return results. &quot;&quot;&quot;</span>
+        <span class="n">code</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">run</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">print_cli_output</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+
+        <span class="c1"># Print some more debug info.</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Return code: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">code</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">error</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">code</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">error</span></div>
+
+<div class="viewcode-block" id="CLITestCase.invoke"><a class="viewcode-back" href="../../../meta_package_manager.tests.case.html#meta_package_manager.tests.case.CLITestCase.invoke">[docs]</a>    <span class="k">def</span> <span class="nf">invoke</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Executes Click&#39;s CLI, print output and return results. &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">runner</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">cli</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">print_cli_output</span><span class="p">([</span><span class="s1">&#39;mpm&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">args</span><span class="p">),</span> <span class="n">result</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+
+        <span class="c1"># Print some more debug info.</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">exception</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">ExceptionInfo</span><span class="o">.</span><span class="n">from_exc_info</span><span class="p">(</span>
+                <span class="o">*</span><span class="n">result</span><span class="o">.</span><span class="n">exc_info</span><span class="p">)</span><span class="o">.</span><span class="n">get_formatted</span><span class="p">())</span>
+
+        <span class="k">return</span> <span class="n">result</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      Last updated on 2017-01-21.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <div role="contentinfo">
+        <p>
+            &copy; Copyright 2016-2017, <a href='https://kevin.deldycke.com'>Kevin Deldycke</a> and <a href='https://github.com/kdeldycke/meta-package-manager/graphs/contributors'>contributors</a>.
+        </p>
+    </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.4.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

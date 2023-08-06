@@ -1,0 +1,18 @@
+meta_package_manager.tests package
+==================================
+
+.. automodule:: meta_package_manager.tests
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   meta_package_manager.tests.case
+   meta_package_manager.tests.test_bitbar_plugin
+   meta_package_manager.tests.test_cli
+   meta_package_manager.tests.test_managers
+
