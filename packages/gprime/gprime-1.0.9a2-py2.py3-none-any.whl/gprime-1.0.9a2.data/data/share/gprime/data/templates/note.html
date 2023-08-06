@@ -1,0 +1,114 @@
+{% autoescape None %}
+{% extends "gramps-base.html" %}
+
+{% block javascript_head %}
+   <script type="text/javascript" src="{{ make_url('/js/jhtmlarea/scripts/jHtmlArea-0.7.0.js') }}"></script>  
+   <link rel="Stylesheet" type="text/css" href="{{ make_url('/js/jhtmlarea/style/jHtmlArea.css') }}" />
+{% end %}
+
+
+{% block title %}{{sitename}}: {{opts.database}}, {{_(tview)}} {% end %}
+{% block heading %}{{sitename}}: {{opts.database}}, {{_(tview)}} {% end %}
+
+{% block content %} 
+   <script type="text/javascript">
+   $(function(){
+     $('#tabs').tabs({
+	'select': function(event, ui){
+			document.location.hash = ui.panel.id;
+		}
+     });
+     $('.wysiwyg').htmlarea({
+              toolbar: [
+                 "bold", "italic", "underline", 
+                 "|", "forecolor", "superscript", "p",
+                 "|", "link", "unlink", 
+                 "|", "html"
+              ]
+            });
+     // FIXME: add font, fontsize, backcolor
+     // FIXME: find easier way:
+     $('.jHtmlArea').contents().find('iframe').contents().find('body').css({"background-color": "white"});
+     {% if action == "edit" %}
+        set_has_data_to_save("Yes");
+     {% end %}
+   });
+   
+   function setnotetext() {
+        document.getElementById('notetext').value = $('.jHtmlArea').contents().find('iframe').contents().find('body').html();
+   }
+   </script>
+
+<div class="content" id="IndividualDetail">
+
+{% include "detail_breadcrumb.html" %}
+
+<div id="summaryarea">
+<table class="infolist" style="width:100%;"> 
+<tbody>
+<form method="post" onsubmit="setnotetext()">{% module xsrf_form_html() %}
+<input type="hidden" name="json_data" value="{{form.get_json()}}"/>
+<tr>
+ <td class="ColumnAttribute">{{ form.get_label("gid") }}:</td>
+ <td class="ColumnValue" id="data">{{ form.render("gid", user, action) }}</td>
+ <td class="ColumnAttribute">{{ form.get_label("type") }}:</td>
+ <td class="ColumnValue">{{ form.render("type", user, action) }}</td>
+</tr>
+<tr><td id="rowspace"></td></tr>
+<tr>
+ <td class="ColumnAttribute">{{ form.get_label("private") }}:</td>
+ <td class="ColumnValue">{{ form.render("private", user, action) }}</td>
+ <td class="ColumnAttribute">{{ form.get_label("tag_list") }}:</td>
+ <td class="ColumnValue" rowspan="3">{{ form.render("tag_list", user, action) }}</td>
+</tr>
+<tr><td id="rowspace"></td></tr>
+<tr>
+ <td class="ColumnAttribute">{{ form.get_label("format") }}:</td>
+ <td class="ColumnValue" id="data">{{ form.render("format", user, action) }}</td>
+</tr>
+<tr><td id="rowspace"></td></tr>
+<tr>
+ <td class="ColumnAttribute">{{ form.get_label("text.string") }}:</td>
+ <td class="ColumnValue" width="65%" height="100px" colspan="2">
+   <input type="hidden" id="notetext" name="notetext" value=""></input>
+   {{ form.render_note(user, action) }}
+ </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+{% if user %}
+  {% if action == "edit" %}
+    <input type="hidden" name="search" value="{{ search }}"/>
+    <input type="hidden" name="page" value="{{ page }}"/>
+    <input type="submit" value="Save" onclick="set_has_data_to_save(null)"/>
+    {% if form.instance.handle %}
+       {{form.make_button(_("Cancel"), "/note/" + form.instance.handle, onclick="set_has_data_to_save(null)")}}
+    {% else %}
+       {{form.make_button(_("Cancel"), "/note", onclick="set_has_data_to_save(null)")}}
+    {% end %}
+  {% else %}
+      <div style="background-color: lightgray; padding: 2px 0px 0px 2px; clear: both;">
+      {{ form.make_icon_button(_("Add Note"), "/note/add", icon="+") }}
+      {{ form.make_icon_button(_("Edit Note"), "/note/%(handle)s/edit", icon="?", handle=form.get("handle")) }}
+      {{ form.make_icon_button(_("Delete Note"), "/note/%(handle)s/delete", icon="-", handle=form.get("handle")) }}
+      </div>
+  {% end %}
+{% else %}
+{% end %}
+
+<!-- Tabs -->
+
+<div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs" style="border: none;">
+  <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+    <li class="ui-corner-top ui-state-default"><a class="tab-references" href="#tab-references">{{_("References")}}</a></li>
+  </ul>
+  <div class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" id="tab-references" style="background-color: #f4f0ec;"> 
+    {{ reference_table(form, user, action) }}
+  </div>
+</div>
+
+</form>
+{% end %}
+

@@ -1,0 +1,11 @@
+{% autoescape None %}
+{% extends "gramps-base.html" %}
+
+{% block title %}{{sitename}}: {{opts.database}}, {{_("404 Error")}} {% end %}
+{% block heading %}{{sitename}}: {{opts.database}}, {{_("404 Error")}} {% end %}
+
+{% block content %} 
+
+<p>{{_("This page was not found. If this error persists, please report it to at the <a href=\"https://github.com/GenealogyCollective/gprime/issues\">gPrime Issue Tracker</a>.")}}</p>
+
+{% end %}
