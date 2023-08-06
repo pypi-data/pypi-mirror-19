@@ -1,0 +1,30 @@
+{% extends "thorson_wiki/base.html" %}
+
+{% load i18n staticfiles %}
+
+{% block content %}
+
+<h1>{% trans "Edit user account" %}</h1>
+
+<hr/>
+
+<form action="{% url namespace_|add:":user_update" %}"
+      method="post">
+  {% csrf_token %}
+
+  <input type="hidden" name="next" value="{{ next }}">
+
+  {% include "thorson_wiki/_text_field.html" with field=form.username %}
+  {% include "thorson_wiki/_text_field.html" with field=form.email %}
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <button type="submit" class="btn btn-primary pull-right">
+        {% trans "Submit" %}
+      </button>
+    </div>
+  </div>
+
+</form>
+
+{% endblock %}
