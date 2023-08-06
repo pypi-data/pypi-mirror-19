@@ -1,0 +1,139 @@
+|PyPI| |PyPI| |PyPI| |license|
+
+Pyleoclim
+=========
+
+**Python Package for the Analysis of Paleoclimate Data**
+
+**Table of contents**
+
+-  `What is it? <#what>`__
+-  `Installation <#install>`__
+-  `Version Information <#version>`__
+-  `Quickstart Guide <#quickstart>`__
+-  `Requirements <#req>`__
+-  `Further information <#further_info>`__
+-  `Contact <#contact>`__
+-  `License <#license>`__
+-  `Disclaimer <#disclaimer>`__
+
+Current Version: 0.1.2
+
+What is it?
+-----------
+
+Pyleoclim is a Python package primarily geared towards the analysis and
+visualization of paleoclimate data. Such data often come in the form of
+timeseries with missing values and age uncertainties, and the package
+includes several-low level methods to deal with these issues, as well as
+high-level methods that re-use those to perform scientific workflows.
+
+The packages assumes that data are stored in the Linked Paleo Data
+(`LiPD <http://www.clim-past.net/12/1093/2016/>`__) format and makes
+extensive use of the `LiPD
+utilities <http://nickmckay.github.io/LiPD-utilities/>`__. The package
+is aware of age ensembles stored via LiPD and uses them for
+time-uncertain analyses very much like
+`GeoChronR <http://nickmckay.github.io/GeoChronR/>`__.
+
+**Current capabilities**: - binning - interpolation - plotting maps,
+timeseries, and basic age model information - paleo-aware correlation
+analysis (isopersistent, isospectral and classical t-test)
+
+**Future capabilities**: - spectral analysis (Multi-Taper Method,
+Lomb-Scargle) - weighted wavelet Z transform (WWZ) - cross-wavelet
+analysis - index reconstruction - climate reconstruction - ensemble
+methods for all of the above
+
+If you have specific requests, please contact linkedearth@gmail.com
+
+Version Information
+-------------------
+
+0.1.2: Compatible with LiPD utilities version 0.1.8.3. Uses basemap
+instead of cartopy 0.1.1: Freezes the package before to version 0.1.8.2
+of LiPD utilities 0.1.0: First release
+
+ Installation 
+--------------
+
+Python v3.5+ is required.
+
+Pyleoclim is published through PyPi and easily installed via ``pip``
+
+::
+
+    pip install pyleoclim
+
+ Quickstart guide 
+------------------
+
+1. Open your command line application (Terminal or Command Prompt).
+
+2. Install with command: ``pip install pyleoclim``
+
+3. Wait for installation to complete, then:
+
+   3a. Import the package into your favorite Python environment (we
+   recommend the use of Spyder, which comes standard with the Anaconda
+   package)
+
+   3b. Use Jupyter Notebook to go through the tutorial contained in the
+   ``PyleoclimQuickstart.ipynb`` Notebook, which can be downloaded
+   `here <https://github.com/LinkedEarth/Pyleoclim_util/tree/master/Example>`__.
+
+4. Help with functionalities can be found in the Documentation folder on
+   our `GitHub
+   repository <https://github.com/LinkedEarth/Pyleoclim_util>`__ and on
+   Pypi.
+
+Requirements
+------------
+
+-  LiPD v0.1.8.3
+-  pandas v0.19+
+-  numpy v1.12+
+-  matplotlib v2.0+
+-  Basemap v1.0.7+
+
+The installer will automatically check for the needed updates
+
+Further information
+-------------------
+
+GitHub: https://github.com/LinkedEarth/Pyleoclim\_util
+
+LinkedEarth: http://linked.earth
+
+Python and Anaconda: http://conda.pydata.org/docs/test-drive.html
+
+Jupyter Notebook: http://jupyter.org
+
+ Contact 
+---------
+
+Please report issues to linkedearth@gmail.com
+
+ License 
+---------
+
+The project is licensed under the GNU Public License. Please refer to
+the file call license.
+
+ Disclaimer 
+------------
+
+This material is based upon work supported by the National Science
+Foundation under Grant Number ICER-1541029. Any opinions, findings, and
+conclusions or recommendations expressed in this material are those of
+the investigators and do not necessarily reflect the views of the
+National Science Foundation.
+
+.. |PyPI| image:: https://img.shields.io/pypi/dm/pyleoclim.svg
+   :target: https://pypi.python.org/pypi/Pyleoclim
+.. |PyPI| image:: https://img.shields.io/pypi/v/pyleoclim.svg
+   :target: 
+.. |PyPI| image:: https://img.shields.io/badge/python-3.5-yellow.svg
+   :target: 
+.. |license| image:: https://img.shields.io/github/license/linkedearth/Pyleoclim_util.svg
+   :target:
