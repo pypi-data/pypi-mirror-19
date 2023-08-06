@@ -1,0 +1,469 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>capidup.finddups &mdash; CapiDup 1.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="CapiDup 1.1.0 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">CapiDup 1.1.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for capidup.finddups</h1><div class="highlight"><pre>
+<span></span><span class="c1"># CapiDup - quickly find duplicate files in directories</span>
+<span class="c1"># Copyright (C) 2010,2014,2016 Israel G. Lugo</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of CapiDup.</span>
+<span class="c1">#</span>
+<span class="c1"># CapiDup is free software: you can redistribute it and/or modify it</span>
+<span class="c1"># under the terms of the GNU General Public License as published by the</span>
+<span class="c1"># Free Software Foundation, either version 3 of the License, or (at your</span>
+<span class="c1"># option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># CapiDup is distributed in the hope that it will be useful, but</span>
+<span class="c1"># WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU</span>
+<span class="c1"># General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License along</span>
+<span class="c1"># with CapiDup. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="c1">#</span>
+<span class="c1"># For suggestions, feedback or bug reports: israel.lugo@lugosys.com</span>
+
+
+<span class="sd">&quot;&quot;&quot;This module implements the CapiDup public API.</span>
+
+<span class="sd">Public functions:</span>
+
+<span class="sd">    find_duplicates -- find duplicates in a list of files</span>
+<span class="sd">    find_duplicates_in_dirs -- find duplicates in a list of directories</span>
+
+<span class="sd">Public data attributes:</span>
+
+<span class="sd">    MD5_CHUNK_SIZE -- block size for reading when calculating MD5</span>
+<span class="sd">    PARTIAL_MD5_MAX_READ -- max size of partial read</span>
+<span class="sd">    PARTIAL_MD5_READ_MULT -- partial read size must be a multiple of this</span>
+<span class="sd">    PARTIAL_MD5_READ_RATIO -- how much (1/n) of a file to read in partial read</span>
+<span class="sd">    PARTIAL_MD5_THRESHOLD -- file size above which a partial read is done</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">stat</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">fnmatch</span>
+
+<span class="kn">from</span> <span class="nn">capidup</span> <span class="kn">import</span> <span class="n">py3compat</span>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;find_duplicates&quot;</span><span class="p">,</span> <span class="s2">&quot;find_duplicates_in_dirs&quot;</span><span class="p">,</span> <span class="s2">&quot;MD5_CHUNK_SIZE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;PARTIAL_MD5_READ_MULT&quot;</span><span class="p">,</span> <span class="s2">&quot;PARTIAL_MD5_THRESHOLD&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;PARTIAL_MD5_MAX_READ&quot;</span><span class="p">,</span> <span class="s2">&quot;PARTIAL_MD5_READ_RATIO&quot;</span> <span class="p">]</span>
+
+
+<span class="n">MD5_CHUNK_SIZE</span> <span class="o">=</span> <span class="mi">512</span> <span class="o">*</span> <span class="mi">1024</span>
+<span class="sd">&quot;&quot;&quot;Chunk size in bytes, when reading from file to calculate MD5.&quot;&quot;&quot;</span>
+
+<span class="n">PARTIAL_MD5_READ_MULT</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="mi">1024</span>
+<span class="sd">&quot;&quot;&quot;Divisor of the partial read size, in bytes.</span>
+
+<span class="sd">When hashing a portion of a file for comparison, the size of that portion</span>
+<span class="sd">will be a multiple of this value.</span>
+
+<span class="sd">.. tip:: A good choice on GNU/Linux would be multiples of page size</span>
+<span class="sd">         (usually 4096 bytes on x86).</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">PARTIAL_MD5_THRESHOLD</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">PARTIAL_MD5_READ_MULT</span>
+<span class="sd">&quot;&quot;&quot;Above this file size in bytes, we do a partial comparison first.&quot;&quot;&quot;</span>
+
+<span class="n">PARTIAL_MD5_MAX_READ</span> <span class="o">=</span> <span class="mi">16</span> <span class="o">*</span> <span class="n">PARTIAL_MD5_READ_MULT</span>
+<span class="sd">&quot;&quot;&quot;Maximum size of the partial read, in bytes.&quot;&quot;&quot;</span>
+
+<span class="n">PARTIAL_MD5_READ_RATIO</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="sd">&quot;&quot;&quot;Partial reads of 1/n of the file size (below `PARTIAL_MD5_MAX_READ`).&quot;&quot;&quot;</span>
+
+
+
+<span class="k">def</span> <span class="nf">round_up_to_mult</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">mult</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Round an integer up to the next multiple.&quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="p">((</span><span class="n">n</span> <span class="o">+</span> <span class="n">mult</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">mult</span><span class="p">)</span> <span class="o">*</span> <span class="n">mult</span>
+
+
+<span class="k">def</span> <span class="nf">should_be_excluded</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">exclude_patterns</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Check if a name should be excluded.</span>
+
+<span class="sd">    Returns True if name matches at least one of the exclude patterns in</span>
+<span class="sd">    the exclude_patterns list.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">pattern</span> <span class="ow">in</span> <span class="n">exclude_patterns</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">fnmatch</span><span class="o">.</span><span class="n">fnmatch</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">return</span> <span class="bp">False</span>
+
+
+<span class="k">def</span> <span class="nf">prune_names</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">exclude_patterns</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Prune subdirs or files from an index crawl.</span>
+
+<span class="sd">    This is used to control the search performed by os.walk() in</span>
+<span class="sd">    index_files_by_size().</span>
+
+<span class="sd">    names is the list of file or subdir names, to be pruned as per the</span>
+<span class="sd">    exclude_patterns list.</span>
+
+<span class="sd">    Returns a new (possibly pruned) names list.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">names</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">should_be_excluded</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">exclude_patterns</span><span class="p">)]</span>
+
+
+<span class="k">def</span> <span class="nf">index_files_by_size</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">files_by_size</span><span class="p">,</span> <span class="n">exclude_dirs</span><span class="p">,</span> <span class="n">exclude_files</span><span class="p">,</span>
+        <span class="n">follow_dirlinks</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Recursively index files under a root directory.</span>
+
+<span class="sd">    Each regular file is added *in-place* to the files_by_size dictionary,</span>
+<span class="sd">    according to the file size. This is a (possibly empty) dictionary of</span>
+<span class="sd">    lists of filenames, indexed by file size.</span>
+
+<span class="sd">    exclude_dirs is a list of glob patterns to exclude directories.</span>
+<span class="sd">    exclude_files is a list of glob patterns to exclude files.</span>
+
+<span class="sd">    follow_dirlinks controls whether to follow symbolic links to</span>
+<span class="sd">    subdirectories while crawling.</span>
+
+<span class="sd">    Returns True if there were any I/O errors while listing directories.</span>
+
+<span class="sd">    Returns a list of error messages that occurred. If empty, there were no</span>
+<span class="sd">    errors.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># encapsulate the value in a list, so we can modify it by reference</span>
+    <span class="c1"># inside the auxiliary function</span>
+    <span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">_print_error</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Print a listing error to stderr.</span>
+
+<span class="sd">        error should be an os.OSError instance.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># modify the outside errors value; must be encapsulated in a list,</span>
+        <span class="c1"># because if we assign to a variable here we just create an</span>
+        <span class="c1"># independent local copy</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;error listing &#39;</span><span class="si">%s</span><span class="s2">&#39;: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">error</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="n">error</span><span class="o">.</span><span class="n">strerror</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">msg</span><span class="p">)</span>
+        <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+
+    <span class="c1"># XXX: The actual root may be matched by the exclude pattern. Should we</span>
+    <span class="c1"># prune it as well?</span>
+
+    <span class="k">for</span> <span class="n">curr_dir</span><span class="p">,</span> <span class="n">subdirs</span><span class="p">,</span> <span class="n">filenames</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">topdown</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+            <span class="n">onerror</span><span class="o">=</span><span class="n">_print_error</span><span class="p">,</span> <span class="n">followlinks</span><span class="o">=</span><span class="n">follow_dirlinks</span><span class="p">):</span>
+
+        <span class="c1"># modify subdirs in-place to influence os.walk</span>
+        <span class="n">subdirs</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">prune_names</span><span class="p">(</span><span class="n">subdirs</span><span class="p">,</span> <span class="n">exclude_dirs</span><span class="p">)</span>
+        <span class="n">filenames</span> <span class="o">=</span> <span class="n">prune_names</span><span class="p">(</span><span class="n">filenames</span><span class="p">,</span> <span class="n">exclude_files</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">base_filename</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
+            <span class="n">full_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">curr_dir</span><span class="p">,</span> <span class="n">base_filename</span><span class="p">)</span>
+
+            <span class="c1"># avoid race condition: file can be deleted between os.walk()</span>
+            <span class="c1"># seeing it and us calling os.lstat()</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">file_info</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">lstat</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">_print_error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+                <span class="k">continue</span>
+
+            <span class="c1"># only want regular files, not symlinks</span>
+            <span class="k">if</span> <span class="n">stat</span><span class="o">.</span><span class="n">S_ISREG</span><span class="p">(</span><span class="n">file_info</span><span class="o">.</span><span class="n">st_mode</span><span class="p">):</span>
+                <span class="n">size</span> <span class="o">=</span> <span class="n">file_info</span><span class="o">.</span><span class="n">st_size</span>
+
+                <span class="k">if</span> <span class="n">size</span> <span class="ow">in</span> <span class="n">files_by_size</span><span class="p">:</span>
+                    <span class="c1"># append to the list of files with the same size</span>
+                    <span class="n">files_by_size</span><span class="p">[</span><span class="n">size</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># start a new list for this file size</span>
+                    <span class="n">files_by_size</span><span class="p">[</span><span class="n">size</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">full_path</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">errors</span>
+
+
+
+<span class="k">def</span> <span class="nf">calculate_md5</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculate the MD5 hash of a file, up to length bytes.</span>
+
+<span class="sd">    Returns the MD5 in its binary form, as an 8-byte string. Raises IOError</span>
+<span class="sd">    or OSError in case of error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">length</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+
+    <span class="c1"># shortcut: MD5 of an empty string is &#39;d41d8cd98f00b204e9800998ecf8427e&#39;,</span>
+    <span class="c1"># represented here in binary</span>
+    <span class="k">if</span> <span class="n">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\xd4\x1d\x8c\xd9\x8f\x00\xb2\x04\xe9\x80\t\x98\xec\xf8\x42\x7e</span><span class="s1">&#39;</span>
+
+    <span class="n">md5_summer</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">()</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">bytes_read</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">while</span> <span class="n">bytes_read</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">:</span>
+            <span class="n">chunk_size</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">MD5_CHUNK_SIZE</span><span class="p">,</span> <span class="n">length</span> <span class="o">-</span> <span class="n">bytes_read</span><span class="p">)</span>
+
+            <span class="n">chunk</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">chunk_size</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">chunk</span><span class="p">:</span>
+                <span class="c1"># found EOF: means length was larger than the file size, or</span>
+                <span class="c1"># file was truncated while reading -- print warning?</span>
+                <span class="k">break</span>
+
+            <span class="n">md5_summer</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+
+            <span class="n">bytes_read</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="n">md5</span> <span class="o">=</span> <span class="n">md5_summer</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">md5</span>
+
+
+
+<span class="k">def</span> <span class="nf">find_duplicates</span><span class="p">(</span><span class="n">filenames</span><span class="p">,</span> <span class="n">max_size</span><span class="p">):</span>
+<div class="viewcode-block" id="find_duplicates"><a class="viewcode-back" href="../../capidup.html#capidup.finddups.find_duplicates">[docs]</a>    <span class="sd">&quot;&quot;&quot;Find duplicates in a list of files, comparing up to `max_size` bytes.</span>
+
+<span class="sd">    Returns a 2-tuple of two values: ``(duplicate_groups, errors)``.</span>
+
+<span class="sd">    `duplicate_groups` is a (possibly empty) list of lists: the names of</span>
+<span class="sd">    files that have at least two copies, grouped together.</span>
+
+<span class="sd">    `errors` is a list of error messages that occurred. If empty, there were</span>
+<span class="sd">    no errors.</span>
+
+<span class="sd">    For example, assuming ``a1`` and ``a2`` are identical, ``c1`` and ``c2`` are</span>
+<span class="sd">    identical, and ``b`` is different from all others::</span>
+
+<span class="sd">      &gt;&gt;&gt; dups, errs = find_duplicates([&#39;a1&#39;, &#39;a2&#39;, &#39;b&#39;, &#39;c1&#39;, &#39;c2&#39;], 1024)</span>
+<span class="sd">      &gt;&gt;&gt; dups</span>
+<span class="sd">      [[&#39;a1&#39;, &#39;a2&#39;], [&#39;c1&#39;, &#39;c2&#39;]]</span>
+<span class="sd">      &gt;&gt;&gt; errs</span>
+<span class="sd">      []</span>
+
+<span class="sd">    Note that ``b`` is not included in the results, as it has no duplicates.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># shortcut: can&#39;t have duplicates if there aren&#39;t at least 2 files</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">filenames</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[],</span> <span class="n">errors</span>
+
+    <span class="c1"># shortcut: if comparing 0 bytes, they&#39;re all the same</span>
+    <span class="k">if</span> <span class="n">max_size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">filenames</span><span class="p">],</span> <span class="n">errors</span>
+
+    <span class="n">files_by_md5</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">md5</span> <span class="o">=</span> <span class="n">calculate_md5</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">max_size</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">EnvironmentError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;unable to calculate MD5 for &#39;</span><span class="si">%s</span><span class="s2">&#39;: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">strerror</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">msg</span><span class="p">)</span>
+            <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="k">if</span> <span class="n">md5</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">files_by_md5</span><span class="p">:</span>
+            <span class="c1"># unique beginning so far; index it on its own</span>
+            <span class="n">files_by_md5</span><span class="p">[</span><span class="n">md5</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">filename</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># found a potential duplicate (same beginning)</span>
+            <span class="n">files_by_md5</span><span class="p">[</span><span class="n">md5</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+    <span class="c1"># Filter out the unique files (lists of files with the same md5 that</span>
+    <span class="c1"># only contain 1 file), and create a list of the lists of duplicates.</span>
+    <span class="c1"># Don&#39;t use values() because on Python 2 this creates a list of all</span>
+    <span class="c1"># values (file lists), and that may be very large.</span>
+    <span class="n">duplicates</span> <span class="o">=</span> <span class="p">[</span><span class="n">l</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">py3compat</span><span class="o">.</span><span class="n">itervalues</span><span class="p">(</span><span class="n">files_by_md5</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">duplicates</span><span class="p">,</span> <span class="n">errors</span>
+
+
+
+
+<span class="k">def</span> <span class="nf">find_duplicates_in_dirs</span><span class="p">(</span><span class="n">directories</span><span class="p">,</span> <span class="n">exclude_dirs</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">exclude_files</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span></div>
+<div class="viewcode-block" id="find_duplicates_in_dirs"><a class="viewcode-back" href="../../capidup.html#capidup.finddups.find_duplicates_in_dirs">[docs]</a>        <span class="n">follow_dirlinks</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Recursively scan a list of directories, looking for duplicate files.</span>
+
+<span class="sd">    `exclude_dirs`, if provided, should be a list of glob patterns.</span>
+<span class="sd">    Subdirectories whose names match these patterns are excluded from the</span>
+<span class="sd">    scan.</span>
+
+<span class="sd">    `exclude_files`, if provided, should be a list of glob patterns. Files</span>
+<span class="sd">    whose names match these patterns are excluded from the scan.</span>
+
+<span class="sd">    ``follow_dirlinks`` controls whether to follow symbolic links to</span>
+<span class="sd">    subdirectories while crawling.</span>
+
+<span class="sd">    Returns a 2-tuple of two values: ``(duplicate_groups, errors)``.</span>
+
+<span class="sd">    `duplicate_groups` is a (possibly empty) list of lists: the names of files</span>
+<span class="sd">    that have at least two copies, grouped together.</span>
+
+<span class="sd">    `errors` is a list of error messages that occurred. If empty, there were no</span>
+<span class="sd">    errors.</span>
+
+<span class="sd">    For example, assuming ``./a1`` and ``/dir1/a2`` are identical,</span>
+<span class="sd">    ``/dir1/c1`` and ``/dir2/c2`` are identical, ``/dir2/b`` is different</span>
+<span class="sd">    from all others, that any subdirectories called ``tmp`` should not</span>
+<span class="sd">    be scanned, and that files ending in ``.bak`` should be ignored:</span>
+
+<span class="sd">      &gt;&gt;&gt; dups, errs = find_duplicates_in_dirs([&#39;.&#39;, &#39;/dir1&#39;, &#39;/dir2&#39;], [&#39;tmp&#39;], [&#39;*.bak&#39;])</span>
+<span class="sd">      &gt;&gt;&gt; dups</span>
+<span class="sd">      [[&#39;./a1&#39;, &#39;/dir1/a2&#39;], [&#39;/dir1/c1&#39;, &#39;/dir2/c2&#39;]]</span>
+<span class="sd">      &gt;&gt;&gt; errs</span>
+<span class="sd">      []</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">exclude_dirs</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">exclude_dirs</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="n">exclude_files</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">exclude_files</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">errors_in_total</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">files_by_size</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="c1"># First, group all files by size</span>
+    <span class="k">for</span> <span class="n">directory</span> <span class="ow">in</span> <span class="n">directories</span><span class="p">:</span>
+        <span class="n">sub_errors</span> <span class="o">=</span> <span class="n">index_files_by_size</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">files_by_size</span><span class="p">,</span> <span class="n">exclude_dirs</span><span class="p">,</span>
+                                         <span class="n">exclude_files</span><span class="p">,</span> <span class="n">follow_dirlinks</span><span class="p">)</span>
+        <span class="n">errors_in_total</span> <span class="o">+=</span> <span class="n">sub_errors</span>
+
+    <span class="n">all_duplicates</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Now, within each file size, check for duplicates.</span>
+    <span class="c1">#</span>
+    <span class="c1"># We use an iterator over the dict (which gives us the keys), instead</span>
+    <span class="c1"># of explicitly accessing dict.keys(). On Python 2, dict.keys() returns</span>
+    <span class="c1"># a list copy of the keys, which may be very large.</span>
+    <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="n">files_by_size</span><span class="p">):</span>
+        <span class="c1"># for large file sizes, divide them further into groups by matching</span>
+        <span class="c1"># initial portion; how much of the file is used to match depends on</span>
+        <span class="c1"># the file size</span>
+        <span class="k">if</span> <span class="n">size</span> <span class="o">&gt;=</span> <span class="n">PARTIAL_MD5_THRESHOLD</span><span class="p">:</span>
+            <span class="n">partial_size</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">round_up_to_mult</span><span class="p">(</span><span class="n">size</span> <span class="o">//</span> <span class="n">PARTIAL_MD5_READ_RATIO</span><span class="p">,</span>
+                                                <span class="n">PARTIAL_MD5_READ_MULT</span><span class="p">),</span>
+                               <span class="n">PARTIAL_MD5_MAX_READ</span><span class="p">)</span>
+
+            <span class="n">possible_duplicates_list</span><span class="p">,</span> <span class="n">sub_errors</span> <span class="o">=</span> <span class="n">find_duplicates</span><span class="p">(</span><span class="n">files_by_size</span><span class="p">[</span><span class="n">size</span><span class="p">],</span> <span class="n">partial_size</span><span class="p">)</span>
+            <span class="n">errors_in_total</span> <span class="o">+=</span> <span class="n">sub_errors</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># small file size, group them all together and do full MD5s</span>
+            <span class="n">possible_duplicates_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">files_by_size</span><span class="p">[</span><span class="n">size</span><span class="p">]]</span>
+
+
+        <span class="c1"># Do full MD5 scan on suspected duplicates. calculate_md5 (and</span>
+        <span class="c1"># therefore find_duplicates) needs to know how many bytes to scan.</span>
+        <span class="c1"># We&#39;re using the file&#39;s size, as per stat(); this is a problem if</span>
+        <span class="c1"># the file is growing. We&#39;ll only scan up to the size the file had</span>
+        <span class="c1"># when we indexed. Would be better to somehow tell calculate_md5 to</span>
+        <span class="c1"># scan until EOF (e.g. give it a negative size).</span>
+        <span class="k">for</span> <span class="n">possible_duplicates</span> <span class="ow">in</span> <span class="n">possible_duplicates_list</span><span class="p">:</span>
+            <span class="n">duplicates</span><span class="p">,</span> <span class="n">sub_errors</span> <span class="o">=</span> <span class="n">find_duplicates</span><span class="p">(</span><span class="n">possible_duplicates</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+            <span class="n">all_duplicates</span> <span class="o">+=</span> <span class="n">duplicates</span>
+            <span class="n">errors_in_total</span> <span class="o">+=</span> <span class="n">sub_errors</span>
+
+    <span class="k">return</span> <span class="n">all_duplicates</span><span class="p">,</span> <span class="n">errors_in_total</span>
+
+
+<span class="c1"># vim: set expandtab smarttab shiftwidth=4 softtabstop=4 tw=75 :</span>
+</pre></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">CapiDup 1.1.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010,2014,2016, Israel G. Lugo.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

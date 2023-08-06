@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>capidup package &mdash; CapiDup 1.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="CapiDup 1.1.0 documentation" href="index.html" />
+    <link rel="prev" title="Welcome to CapiDup’s documentation!" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to CapiDup’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">CapiDup 1.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="capidup-package">
+<h1>capidup package<a class="headerlink" href="#capidup-package" title="Permalink to this headline">¶</a></h1>
+<p>Quickly find duplicate files in directories.</p>
+<p>CapiDup recursively crawls through all the files in a list of directories and
+identifies duplicate files. Duplicate files are files with the exact same
+content, regardless of their name, location or timestamp.</p>
+<p>This package is designed to be quite fast. It uses a smart algorithm to detect
+and group duplicate files using a single pass on each file (that is, CapiDup
+doesn&#8217;t need to compare each file to every other).</p>
+<div class="section" id="module-capidup.finddups">
+<span id="capidup-finddups-module"></span><h2>capidup.finddups module<a class="headerlink" href="#module-capidup.finddups" title="Permalink to this headline">¶</a></h2>
+<p>This module implements the public API. The rest is just for internal use by the
+package.</p>
+<div class="section" id="public-functions">
+<h3>Public functions<a class="headerlink" href="#public-functions" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="capidup.finddups.find_duplicates">
+<code class="descclassname">capidup.finddups.</code><code class="descname">find_duplicates</code><span class="sig-paren">(</span><em>filenames</em>, <em>max_size</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/capidup/finddups.html#find_duplicates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#capidup.finddups.find_duplicates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find duplicates in a list of files, comparing up to <cite>max_size</cite> bytes.</p>
+<p>Returns a 2-tuple of two values: <code class="docutils literal"><span class="pre">(duplicate_groups,</span> <span class="pre">errors)</span></code>.</p>
+<p><cite>duplicate_groups</cite> is a (possibly empty) list of lists: the names of
+files that have at least two copies, grouped together.</p>
+<p><cite>errors</cite> is a list of error messages that occurred. If empty, there were
+no errors.</p>
+<p>For example, assuming <code class="docutils literal"><span class="pre">a1</span></code> and <code class="docutils literal"><span class="pre">a2</span></code> are identical, <code class="docutils literal"><span class="pre">c1</span></code> and <code class="docutils literal"><span class="pre">c2</span></code> are
+identical, and <code class="docutils literal"><span class="pre">b</span></code> is different from all others:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dups</span><span class="p">,</span> <span class="n">errs</span> <span class="o">=</span> <span class="n">find_duplicates</span><span class="p">([</span><span class="s1">&#39;a1&#39;</span><span class="p">,</span> <span class="s1">&#39;a2&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c1&#39;</span><span class="p">,</span> <span class="s1">&#39;c2&#39;</span><span class="p">],</span> <span class="mi">1024</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dups</span>
+<span class="go">[[&#39;a1&#39;, &#39;a2&#39;], [&#39;c1&#39;, &#39;c2&#39;]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">errs</span>
+<span class="go">[]</span>
+</pre></div>
+</div>
+<p>Note that <code class="docutils literal"><span class="pre">b</span></code> is not included in the results, as it has no duplicates.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="capidup.finddups.find_duplicates_in_dirs">
+<code class="descclassname">capidup.finddups.</code><code class="descname">find_duplicates_in_dirs</code><span class="sig-paren">(</span><em>directories</em>, <em>exclude_dirs=None</em>, <em>exclude_files=None</em>, <em>follow_dirlinks=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/capidup/finddups.html#find_duplicates_in_dirs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#capidup.finddups.find_duplicates_in_dirs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recursively scan a list of directories, looking for duplicate files.</p>
+<p><cite>exclude_dirs</cite>, if provided, should be a list of glob patterns.
+Subdirectories whose names match these patterns are excluded from the
+scan.</p>
+<p><cite>exclude_files</cite>, if provided, should be a list of glob patterns. Files
+whose names match these patterns are excluded from the scan.</p>
+<p><code class="docutils literal"><span class="pre">follow_dirlinks</span></code> controls whether to follow symbolic links to
+subdirectories while crawling.</p>
+<p>Returns a 2-tuple of two values: <code class="docutils literal"><span class="pre">(duplicate_groups,</span> <span class="pre">errors)</span></code>.</p>
+<p><cite>duplicate_groups</cite> is a (possibly empty) list of lists: the names of files
+that have at least two copies, grouped together.</p>
+<p><cite>errors</cite> is a list of error messages that occurred. If empty, there were no
+errors.</p>
+<p>For example, assuming <code class="docutils literal"><span class="pre">./a1</span></code> and <code class="docutils literal"><span class="pre">/dir1/a2</span></code> are identical,
+<code class="docutils literal"><span class="pre">/dir1/c1</span></code> and <code class="docutils literal"><span class="pre">/dir2/c2</span></code> are identical, <code class="docutils literal"><span class="pre">/dir2/b</span></code> is different
+from all others, that any subdirectories called <code class="docutils literal"><span class="pre">tmp</span></code> should not
+be scanned, and that files ending in <code class="docutils literal"><span class="pre">.bak</span></code> should be ignored:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dups</span><span class="p">,</span> <span class="n">errs</span> <span class="o">=</span> <span class="n">find_duplicates_in_dirs</span><span class="p">([</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;/dir1&#39;</span><span class="p">,</span> <span class="s1">&#39;/dir2&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;tmp&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;*.bak&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dups</span>
+<span class="go">[[&#39;./a1&#39;, &#39;/dir1/a2&#39;], [&#39;/dir1/c1&#39;, &#39;/dir2/c2&#39;]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">errs</span>
+<span class="go">[]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="public-data-members">
+<h3>Public data members<a class="headerlink" href="#public-data-members" title="Permalink to this headline">¶</a></h3>
+<dl class="data">
+<dt id="capidup.finddups.MD5_CHUNK_SIZE">
+<code class="descclassname">capidup.finddups.</code><code class="descname">MD5_CHUNK_SIZE</code><em class="property"> = 524288</em><a class="headerlink" href="#capidup.finddups.MD5_CHUNK_SIZE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk size in bytes, when reading from file to calculate MD5.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="capidup.finddups.PARTIAL_MD5_READ_MULT">
+<code class="descclassname">capidup.finddups.</code><code class="descname">PARTIAL_MD5_READ_MULT</code><em class="property"> = 4096</em><a class="headerlink" href="#capidup.finddups.PARTIAL_MD5_READ_MULT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Divisor of the partial read size, in bytes.</p>
+<p>When hashing a portion of a file for comparison, the size of that portion
+will be a multiple of this value.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">A good choice on GNU/Linux would be multiples of page size
+(usually 4096 bytes on x86).</p>
+</div>
+</dd></dl>
+
+<dl class="data">
+<dt id="capidup.finddups.PARTIAL_MD5_THRESHOLD">
+<code class="descclassname">capidup.finddups.</code><code class="descname">PARTIAL_MD5_THRESHOLD</code><em class="property"> = 8192</em><a class="headerlink" href="#capidup.finddups.PARTIAL_MD5_THRESHOLD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Above this file size in bytes, we do a partial comparison first.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="capidup.finddups.PARTIAL_MD5_MAX_READ">
+<code class="descclassname">capidup.finddups.</code><code class="descname">PARTIAL_MD5_MAX_READ</code><em class="property"> = 65536</em><a class="headerlink" href="#capidup.finddups.PARTIAL_MD5_MAX_READ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum size of the partial read, in bytes.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="capidup.finddups.PARTIAL_MD5_READ_RATIO">
+<code class="descclassname">capidup.finddups.</code><code class="descname">PARTIAL_MD5_READ_RATIO</code><em class="property"> = 4</em><a class="headerlink" href="#capidup.finddups.PARTIAL_MD5_READ_RATIO" title="Permalink to this definition">¶</a></dt>
+<dd><p>Partial reads of 1/n of the file size (below <cite>PARTIAL_MD5_MAX_READ</cite>).</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">capidup package</a><ul>
+<li><a class="reference internal" href="#module-capidup.finddups">capidup.finddups module</a><ul>
+<li><a class="reference internal" href="#public-functions">Public functions</a></li>
+<li><a class="reference internal" href="#public-data-members">Public data members</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to CapiDup&#8217;s documentation!</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/capidup.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to CapiDup’s documentation!"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">CapiDup 1.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010,2014,2016, Israel G. Lugo.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>
