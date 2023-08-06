@@ -1,0 +1,3 @@
+[console_scripts]
+security-slackbot = security_slackbot.cli:main
+
