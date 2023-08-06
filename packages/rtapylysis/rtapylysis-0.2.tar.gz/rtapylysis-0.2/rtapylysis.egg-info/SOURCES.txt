@@ -1,0 +1,15 @@
+setup.cfg
+setup.py
+rtapylysis/__init__.py
+rtapylysis/detect_peaks.py
+rtapylysis/func_rtapylysis.py
+rtapylysis/run_rtamap.py
+rtapylysis/run_rtapylysis.py
+rtapylysis.egg-info/PKG-INFO
+rtapylysis.egg-info/SOURCES.txt
+rtapylysis.egg-info/dependency_links.txt
+rtapylysis.egg-info/requires.txt
+rtapylysis.egg-info/top_level.txt
+rtapylysis/dhkl_dir/phaseA.txt
+rtapylysis/dhkl_dir/phaseB.txt
+rtapylysis/dhkl_dir/phaseC.txt
