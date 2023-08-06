@@ -1,0 +1,16 @@
+Metadata-Version: 2.0
+Name: django-webpack-helper
+Version: 0.2.2
+Summary: A django app that helps integrate webpack
+Home-page: http://github.com/chriscz/django-webpack-helper
+Author: Chris Coetzee
+Author-email: chriscz93@gmail.com
+License: Mozilla Public License 2.0 (MPL 2.0)
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.7
+Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+Requires-Dist: django-webpack-loader
+
+UNKNOWN
+
+
