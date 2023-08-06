@@ -1,0 +1,17 @@
+{
+    "name": "shuup-attrim-admin",
+    "version": "0.7.0.0",
+    "scripts": {
+        "compile": "yarn run compile-ts",
+        "compile-ts": "./node_modules/typescript/bin/tsc || true"
+    },
+    "dependencies": {
+        "systemjs": "^0.19.39"
+    },
+    "devDependencies": {
+        "@types/core-js": "^0.9.34",
+        "@types/node": "^6.0.0",
+        "node-sass": "^3.0.0",
+        "typescript": "^2.0.0"
+    }
+}
