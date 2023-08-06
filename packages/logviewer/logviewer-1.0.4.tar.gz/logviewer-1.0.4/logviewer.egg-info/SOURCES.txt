@@ -1,0 +1,14 @@
+MANIFEST.in
+README.rst
+setup.py
+logviewer/__init__.py
+logviewer/server.py
+logviewer/tail.py
+logviewer.egg-info/PKG-INFO
+logviewer.egg-info/SOURCES.txt
+logviewer.egg-info/dependency_links.txt
+logviewer.egg-info/entry_points.txt
+logviewer.egg-info/not-zip-safe
+logviewer.egg-info/requires.txt
+logviewer.egg-info/top_level.txt
+logviewer/templates/index.html
