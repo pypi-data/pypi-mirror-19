@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: rhelkick
+Version: 1.0.1
+Summary: Generate and host a pxe server for RHEL-like distros.
+Home-page: http://rbirm.us
+Author: Ryan Birmingham
+Author-email: birm@rbirm.us
+License: UNKNOWN
+Description: # RhelKick
+        [![Build Status](https://travis-ci.org/birm/RhelKick.svg?branch=master)](https://travis-ci.org/birm/RhelKick)
+        
+        Generate and host a pxe server for RHEL-like distros.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Information Technology
