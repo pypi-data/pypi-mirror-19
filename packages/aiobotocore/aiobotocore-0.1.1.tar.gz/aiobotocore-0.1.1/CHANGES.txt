@@ -1,0 +1,23 @@
+Changes
+-------
+
+0.1.1 (2017-01-16)
+^^^^^^^^^^^^^^^^^^
+* botocore updated to version 1.5.0
+
+0.1.0 (2017-01-12)
+^^^^^^^^^^^^^^^^^^
+* Pass timeout to aiohttp.request to enforce read_timeout #86 (thanks @vharitonsky)
+  (bumped up to next semantic version due to read_timeout enabling change)
+
+0.0.6 (2016-11-19)
+^^^^^^^^^^^^^^^^^^
+
+* Added enforcement of plain response #57 (thanks @rymir)
+* botocore updated to version 1.4.73 #74 (thanks @vas3k)
+
+
+0.0.5 (2016-06-01)
+^^^^^^^^^^^^^^^^^^
+
+* Initial alpha release
