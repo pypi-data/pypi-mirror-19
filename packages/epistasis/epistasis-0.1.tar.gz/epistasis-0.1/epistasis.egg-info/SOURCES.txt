@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+setup.py
+epistasis/__init__.py
+epistasis/decomposition.c
+epistasis/mapping.py
+epistasis/plots.py
+epistasis/setup.py
+epistasis/stats.py
+epistasis/utils.py
+epistasis.egg-info/PKG-INFO
+epistasis.egg-info/SOURCES.txt
+epistasis.egg-info/dependency_links.txt
+epistasis.egg-info/not-zip-safe
+epistasis.egg-info/top_level.txt
