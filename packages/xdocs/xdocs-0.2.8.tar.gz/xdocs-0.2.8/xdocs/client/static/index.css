@@ -1,0 +1,104 @@
+body {
+    font: 14px/1.5 "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    color: #333;
+    /*background-color: #fff;*/
+    background-color: #faf8f2;
+    position: relative;
+    min-width: 1080px;
+    overflow-x: auto;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+#docs {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding-left: 300px;
+}
+
+#docs>.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    padding-top: 80px;
+    padding-left: 80px;
+    overflow-y: auto;
+}
+
+
+/*#docs>.menu h2,
+#docs>.menu li {
+    cursor: pointer;
+}*/
+
+#docs>.menu ul.menu_root ul.menu_sec {
+    padding: 10px 0;
+}
+
+#docs>.menu .menu_sec>li {
+    /*height: 30px;*/
+    line-height: 30px;
+    padding-left: 20px;
+}
+
+#docs>.menu .menu_third>li {
+    /*height: 30px;*/
+    line-height: 30px;
+    padding-left: 15px;
+}
+
+#docs>.menu h2 {
+    color: #7f8c8d;
+}
+
+.menu_sec>li a {
+    line-height: 30px;
+    cursor: pointer;
+    color: #7f8c8d;
+}
+
+#docs>.detail {
+    width: 100%;
+    height: 100%;
+    padding-top: 70px;
+}
+
+#docs>.detail .detail_content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+p.method_title {
+    line-height: 40px;
+}
+
+p.method_title span {
+    line-height: 40px;
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+p.args_title {
+    line-height: 30px;
+    font-size: 16px;
+}

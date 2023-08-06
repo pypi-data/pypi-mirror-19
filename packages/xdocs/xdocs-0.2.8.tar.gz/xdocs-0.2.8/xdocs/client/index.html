@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>docs</title>
+    <!--GET /todos/-->
+    <!--GET /todos/id/-->
+    <title>Xdocs</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="description" content="Xdocs, RESTful API documents for humans">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="docs - Xdocs">
+    <meta property="og:description" content="Xdocs - RESTful API documents for humans">
+    <!--<meta property="og:image" content="https://images/logo.png">-->
+    <link rel="stylesheet" href="static/index.css">
+    <script type="text/javascript" src="static/yaml.js"></script>
+</head>
+
+<body>
+
+    <div id="docs">
+        <div class="menu">
+            <ul class="menu_root">
+                <li v-for="resource in resources">
+                    <h2>{{resource.description}}</h2>
+                    <ul class="menu_sec" v-bind:name="resource.name">
+                        <li v-for="(item, action) in resource.action">
+                            <a @click.prevent="getDetail(resource.name,action,resource)" v-bind:action="action">{{ action_description(action,resource.description) }}</a>
+                            <ul class="menu_third" v-if="is_update && action == 'update'">
+                                <li v-for="field in resource.action.update.send">
+                                    <a @click.prevent="updateDetail(field)">{{ updateDescription(field) }}</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="detail">
+
+            <div class="detail_content">
+                <p class="method_title">
+                    <span class="method">{{detail.method}}</span>
+                    <span class="link">{{detail.link}}</span>
+                </p>
+
+                <p v-show="detail.args" class="args_title args">Args:</p>
+                <ul>
+                    <li v-for="args in detail.args">{{ argsDetail(args) }}</li>
+                </ul>
+
+                <p v-show="detail.returns" class="args_title returns">Returns:</p>
+                <ul>
+                    <li v-for="returns in detail.returns">{{ argsDetail(returns) }}</li>
+                </ul>
+
+                <p v-show="detail.sends" class="args_title sends">Sends:</p>
+                <ul>
+                    <li v-for="sends in detail.sends">{{ argsDetail(sends) }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="//cdn.bootcss.com/vue/2.1.8/vue.min.js"></script>
+<!--<script type="text/javascript" src="static/vue.min.js"></script>-->
+<script type="text/javascript" src="static/xdocs.js"></script>
+
+</html>
