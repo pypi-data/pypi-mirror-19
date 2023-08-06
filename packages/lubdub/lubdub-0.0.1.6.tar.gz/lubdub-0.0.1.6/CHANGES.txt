@@ -1,0 +1,4 @@
+0.0.1, 12/30/2017, Minimum viable LubDub: PlotHRV works well enough.
+0.0.1.2, 12/30/2017, Added SDNN and NN50 calculators.
+0.0.1.4, 12/31/2017, Improvements to rr_normalization function (allow drop_values boolean argument).
+0.0.1.5, 12/31/2017, Measurement (new): rounds up all the usual analysis for RR intervals. Added convenience functions for loading RRs from files. Added pnn50 and hrv_baseline to calc.py
