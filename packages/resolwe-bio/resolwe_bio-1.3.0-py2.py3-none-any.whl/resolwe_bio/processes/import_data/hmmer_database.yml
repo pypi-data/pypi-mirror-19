@@ -1,0 +1,59 @@
+# =====================
+# Import HMMER database
+# =====================
+---
+
+- slug: upload-hmmer-db
+  name: Upload HMMER database
+  requirements:
+    expression-engine: jinja
+  data_name: '{{ src.file|default("?") }}'
+  version: 1.0.4
+  type: data:db:hmmer
+  category: upload
+  persistence: RAW
+  description: >
+    Upload hmmer database.
+  input:
+    - name: src
+      label: HMMER database
+      type: basic:file
+      description: >
+        Hmmer database. Supported extensions: .hmm (preferred), .hmm.gz, .hmm.bz2, .hmm.rar  hmm.zip
+      required: true
+      validate_regex: '\.(hmm)(|\.gz|\.bz2|\.tgz|\.tar\.gz|\.tar\.bz2|\.zip|\.rar|\.7z)$'
+  output:
+    - name: database
+      label: Database
+      type: basic:file
+    - name: hmmerdb
+      label: Database name
+      type: basic:string
+  run:
+    runtime: polyglot
+    language: bash
+    program: |
+      NAME='{{ src.file }}'; NAME="${NAME%.*}"; NAME="${NAME%.*}"
+      TEMP='{{ proc.upload_path }}/{{ src.file_temp }}'
+
+      echo "Importing and extracting sequences..."
+      shopt -s nocasematch >&2
+      if [[ '.{{ src.file }}' =~ \.(hmm)\.gz$ ]]; then
+        gzip -d -c "${TEMP}" > "${NAME}.hmm" && rm "${TEMP}" >&2
+        echo "{\"proc.progress\":0.3}"
+      elif [[ '.{{ src.file }}' =~ (\.(hmm)(\.bz2|\.zip|\.rar|\.7z))|(\.bz2)$ ]]; then
+        7z x -y -so "${TEMP}" > "${NAME}" && rm "${TEMP}.hmm" >&2
+        echo "{\"proc.progress\":0.3}"
+      elif [[ '.{{ src.file }}' =~ ^\.(hmm)(\.tgz|\.tar\.gz|\.tar\.bz2)$ ]]; then
+        7z x -y -so "${TEMP}" | tar -xO > "${NAME}.hmm" && rm "${TEMP}" >&2
+        echo "{\"proc.progress\":0.3}"
+      else
+        mv "${TEMP}" "${NAME}.hmm" >&2
+      fi
+
+      mkdir db
+      mv "${NAME}.hmm" db/
+      hmmpress ./db/"${NAME}.hmm"
+
+      echo "database representation file" > ${NAME}
+      echo "{\"proc.progress\":0.9,\"proc.rc\":$?,\"database\":{\"file\":\"${NAME}\",\"refs\":[\"db\"]}, \"hmmerdb\":\"${NAME}.hmm\"}"
