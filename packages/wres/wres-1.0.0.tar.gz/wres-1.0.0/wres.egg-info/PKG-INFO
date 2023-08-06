@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: wres
+Version: 1.0.0
+Summary: Set/Get Winsows Timer Resolution
+Home-page: https://github.com/jks-liu/wres
+Author: Meme Kagurazaka
+Author-email: github@mrliu.org
+License: Public Domain
+Description: UNKNOWN
+Keywords: timeBeginPeriod NtSetTimerResolution windows timer resolution
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: System :: Systems Administration
+Classifier: License :: Public Domain
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Operating System :: Microsoft :: Windows
