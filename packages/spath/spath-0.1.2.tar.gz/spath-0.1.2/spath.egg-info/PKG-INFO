@@ -1,0 +1,58 @@
+Metadata-Version: 1.1
+Name: spath
+Version: 0.1.2
+Summary: Extras for path.py
+Home-page: https://github.com/dimatura/spath.py
+Author: Daniel Maturana
+Author-email: dimatura@cmu.edu
+License: BSD license
+Download-URL: https://github.com/dimatura/spath.py/tarball/0.1.02.zip
+Description: ===============================
+        spath.py
+        ===============================
+        
+        
+        .. image:: https://img.shields.io/pypi/v/spath.svg
+                :target: https://pypi.python.org/pypi/spath
+        
+        
+        This package provides a ``Path`` class extending ``Path`` from
+        Jason R Coomb's `path.py`_ with some convenience methods related
+        to image and data processing.
+        
+        
+        * Free software: BSD license
+        
+        
+        Credits
+        ---------
+        
+        This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _`path.py`: https://github.com/jaraco/path.py
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+        
+        =======
+        History
+        =======
+        
+        0.1.0 (2017-02-03)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: spath
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
