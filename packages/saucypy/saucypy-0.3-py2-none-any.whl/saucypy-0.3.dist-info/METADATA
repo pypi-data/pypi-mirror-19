@@ -1,0 +1,18 @@
+Metadata-Version: 2.0
+Name: saucypy
+Version: 0.3
+Summary: SauceLabs API Python Wrapper
+Home-page: https://github.com/Neko-Design/saucypy
+Author: Ewen McCahon
+Author-email: ewen.m.mccahon@student.uts.edu.au
+License: Apache License, Version 2.0
+Download-URL: https://github.com/Neko-Design/saucypy/tarball/0.3
+Keywords: saucelabs,api,wrapper,interface,sauce
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: json
+Requires-Dist: requests
+
+Import and Run SaucyPy using instructions in README.md
+
+
