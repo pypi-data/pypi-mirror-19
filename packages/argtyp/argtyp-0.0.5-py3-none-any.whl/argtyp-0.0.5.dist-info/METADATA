@@ -1,0 +1,29 @@
+Metadata-Version: 2.0
+Name: argtyp
+Version: 0.0.5
+Summary: Argument type collection for argparse
+Home-page: https://github.com/raviqqe/argtyp/
+Author: Yota Toyama
+Author-email: raviqqe@gmail.com
+License: Public Domain
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: Public Domain
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Utilities
+
+# argtyp.py
+
+[![PyPI version](https://badge.fury.io/py/argtyp.svg)](https://badge.fury.io/py/argtyp)
+[![Build Status](https://travis-ci.org/raviqqe/argtyp.py.svg?branch=master)](https://travis-ci.org/raviqqe/argtyp.py)
+[![License](https://img.shields.io/badge/license-unlicense-lightgray.svg)](https://unlicense.org)
+
+Argument type collection for argparse
+
+
+## License
+
+[The Unlicense](https://unlicense.org)
+
+
