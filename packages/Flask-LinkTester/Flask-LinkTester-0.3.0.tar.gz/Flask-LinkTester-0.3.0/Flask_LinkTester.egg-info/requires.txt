@@ -1,0 +1,11 @@
+Flask
+requests
+
+[testing]
+Flask
+requests
+pytest
+Flask-Testing
+flake8
+pylint
+sphinx
