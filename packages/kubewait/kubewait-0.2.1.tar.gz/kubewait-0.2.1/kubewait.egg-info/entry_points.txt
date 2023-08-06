@@ -1,0 +1,3 @@
+[console_scripts]
+kubewait = kubewait.cli:main
+

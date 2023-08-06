@@ -1,0 +1,72 @@
+Metadata-Version: 1.1
+Name: kubewait
+Version: 0.2.1
+Summary: Pause container init until required kube services are ready,
+Home-page: https://github.com/joeblackwaslike/kubewait
+Author: Joe Black
+Author-email: joeblack949@gmail.com
+License: Apache 2.0
+Download-URL: https://github.com/joeblackwaslike/kubewait/tarball/0.2.1
+Description: kubewait
+        ~~~~~~~~
+        
+        Maintainer: Joe Black <joeblack949@gmail.com>
+        
+        Repository: https://www.github.com/joeblackwaslike/kubewait
+        
+        Description
+        -----------
+        
+        This project is designed to be used to pause init as an init container until
+        required Kubernetes apps/services are up and ready.
+        
+        Names passed to ``kubewait`` can be the names of ``Deployments`` or 
+        ``StatefulSets``.
+        
+        Usage
+        -------
+        
+        .. code-block:: yaml
+        
+            apiVersion: v1
+            kind: Pod
+            metadata:
+              name: kubewait
+              annotations:
+                pod.beta.kubernetes.io/init-containers: |-
+                    [
+                        {
+                            "name": "kubewait",
+                            "image": "callforamerica/kubewait",
+                            "imagePullPolicy": "IfNotPresent",
+                            "args": ["app1", "app2"],
+                            "env": [
+                                {
+                                    "name": "NAMESPACE",
+                                    "valueFrom": {
+                                        "fieldRef": {
+                                            "apiVersion": "v1",
+                                            "fieldPath": "metadata.namespace"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+            spec:
+              containers:
+              - name: nginx
+                image: nginx
+                ports:
+                - containerPort: 80
+        
+Keywords: kubernetes,clustering,init-container
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: System :: Clustering
