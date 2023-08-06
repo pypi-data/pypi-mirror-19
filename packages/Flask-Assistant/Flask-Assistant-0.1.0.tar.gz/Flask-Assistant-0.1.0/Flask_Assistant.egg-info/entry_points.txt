@@ -1,0 +1,3 @@
+[console_scripts]
+schema = flask_assistant.cli:main
+
