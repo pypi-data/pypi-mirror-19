@@ -1,0 +1,7 @@
+[console_scripts]
+bagpipe-bgp = bagpipe.bgp.bgp_daemon:daemon_main
+bagpipe-bgp-cleanup = bagpipe.bgp.bgp_daemon:cleanup_main
+bagpipe-fakerr = bagpipe.bgp.fakerr:main
+bagpipe-looking-glass = bagpipe.bgp.cli.looking_glass:main
+bagpipe-rest-attach = bagpipe.bgp.cli.rest_attach:main
+
