@@ -1,0 +1,195 @@
+Introduction
+============
+
+note0 is a command-line note taking application written for Linux. It provides
+a sync functionality for which your notes are stored in your Google Drive and 
+can be accessed and modified on other PC's where this application is installed. 
+The application consists of a client-side and server-side. The following subsections
+provide some more information depending on whether you need sync or not.
+
+I don't need sync
+-----------------
+
+If you do not wish to make use of the sync facility and are content with storing
+and accessing your notes locally, you do not need to consider the server-side. 
+In this case see the subsection *client-side* under *Installation* to install
+the client side.
+
+I need sync
+-----------
+
+If you want to make use of the sync functionality, you need to install the client-side
+(as you would if you didn't want sync). You would also need to have a server running. 
+To setup your own server, instructions are availabe under the subsection *server-side* 
+which is under *Installation*. Then, create an account with the email associated with 
+you Drive and a password for this account. You can now log in and start using the 
+application. If you need the notes on another PC install the application there and 
+log in using the email and password provided during creation of note0 account.
+
+Installation
+============
+
+Client-side
+-----------
+
+To install the client-side:
+::
+
+	$ pip install note0
+
+Now you need to set it up (one-time only, which creates a new directory in your home directory):
+::
+
+	$ note0 -s
+
+To start using the application:
+::
+
+	$ note0
+
+Use the *help* command (after application has been started) to list all possible commands:
+::
+
+	note0> help
+
+Server-side
+-----------
+
+To setup your own server, you require
+
+- MySQL
+- npm
+- Node.js version 6.9.2 (the server-side wasn't tested using other versions)
+- To use console.developers.google.com to enable the Drive API and create an
+  OAuth Client ID and download the JSON file consisting of the Client ID,
+  Client Secret etc.
+- Downloaded copy of *server.js* and *package.json* from this project. These files can be found in the *server*
+  directory of this project.
+
+Create a directory (the directory will be assumed to have the name *server_directory* 
+for reference but it is not necessary to name it so) where files required to setup 
+the server will be present.
+
+Download the *server.js* and *package.json* file to this directory. Rename the JSON file consisting of the
+Client ID etc. to *client_secrets.json* and move it to this directory if not already present here.
+Make this directory into your working directory to install dependencies of *server.js* as follows:
+
+::
+
+	$ npm install
+
+After you have installed MySQL, open the *server.js* file and locate the lines where
+a connection to the MySQL database is created. This would be near the beginning of the script
+and would look like this:
+
+.. code:: javascript
+
+	var connection = mysql.createConnection({
+		user     : 'usernamehere' ,
+		password : 'wxyz',
+		database : 'drive'
+	});
+
+Change the value of *user* (which is currently *usernamehere*) and *password* (which is currently *wxyz*) to your MySQL credentials. 
+
+Now create a database named *drive*:
+
+.. code:: sql
+
+	mysql> CREATE DATABASE drive;
+In that database create two tables *users* and *sessions*:
+
+.. code:: sql
+
+	mysql> USE drive;
+	mysql> CREATE TABLE users (email VARCHAR(256), pswd VARCHAR(256), token VARCHAR(1024), tkey VARCHAR(256), iv VARCHAR(256),tkey_key VARCHAR(256), directory_id VARCHAR(256));
+	mysql> CREATE TABLE sessions (email VARCHAR (256), skey VARCHAR (512));
+
+Now start the server:
+
+::
+
+	$ node server.js
+
+Usage example
+=============
+
+::
+
+	$ note0
+
+	Welcome to note0
+	Version 0.1.0
+
+	Type 'help' to know more
+
+	Log in status: You are not logged in
+
+	 note0>  new
+
+	Successfully created new note
+
+	 note0>  open
+
+	Note number: 0
+	----------------------------------------------------------------------------------
+	This is a sample 
+	file used in the README of
+	----------------------------------------------------------------------------------
+
+	Which note do you want to open (note number): 0
+	Note successfully saved
+
+	 note0>  delete
+
+	Note number: 0
+	----------------------------------------------------------------------------------
+	This is a sample 
+	file used in the README of
+	----------------------------------------------------------------------------------
+
+	Which note do you want to delete (note number): 0
+	Are you sure you want to delete note number 0 (y/n)?: y
+	Note successfully deleted
+
+	 note0>  open
+
+	You do not have any notes
+
+	 note0>  delete
+
+	You do not have any notes
+
+	 note0>  help
+
+	Documented commands (type help <topic>):
+	========================================
+	change_password  delete          exit  login   new   set_editor  status
+	create_account   delete_account  help  logout  open  set_url     sync  
+
+	 note0>  sync 
+
+	Sync not possible since you are not logged in
+
+	 note0>  help exit
+
+	Use this command to exit the application
+
+	 note0>  exit
+	$
+
+Notes are opened in the editor that can be set using *set_editor*.
+
+How note0 works
+===============
+
+The client-side consists of a directory *.note0* that is created in the home directory. 
+It stores the notes and a config file containing information regarding who is logged in, 
+address of the server and more. The server stores information on user accounts, 
+login sessions etc. When the server receives a request, for example to upload a note, it makes use 
+of the Google API to upload it to the user's drive.
+
+A note0 account is required to make use of the sync functionality and if an account is created
+then notes can be stored locally and on Drive. If a note0 account is not created then notes can
+only be stored locally.
+
