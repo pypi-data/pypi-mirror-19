@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.rst
+requirements.txt
+setup.cfg
+setup.py
+hambot/__init__.py
+hambot/cmd.py
+hambot/constants.py
+hambot/plugin.py
+hambot.egg-info/PKG-INFO
+hambot.egg-info/SOURCES.txt
+hambot.egg-info/dependency_links.txt
+hambot.egg-info/entry_points.txt
+hambot.egg-info/not-zip-safe
+hambot.egg-info/requires.txt
+hambot.egg-info/top_level.txt
