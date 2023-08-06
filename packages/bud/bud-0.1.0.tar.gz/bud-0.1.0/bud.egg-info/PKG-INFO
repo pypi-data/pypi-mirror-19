@@ -1,0 +1,43 @@
+Metadata-Version: 1.1
+Name: bud
+Version: 0.1.0
+Summary: bud runs stuff for you
+Home-page: https://github.com/hoffmann/bud
+Author: Peter Hoffmann
+Author-email: ph@peter-hoffmann.com
+License: BSD
+Description: bud
+        ===
+        
+        author: Peter Hoffmann
+        
+        Overview
+        --------
+        
+        bud runs stuff for you
+        
+        Installation / Usage
+        --------------------
+        
+        To install use pip:
+        
+            $ pip install bud
+        
+        
+        Or clone the repo:
+        
+            $ git clone https://github.com/hoffmann/bud.git
+            $ python setup.py install
+            
+        Contributing
+        ------------
+        
+        TBD
+        
+        Example
+        -------
+        
+        TBD
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
