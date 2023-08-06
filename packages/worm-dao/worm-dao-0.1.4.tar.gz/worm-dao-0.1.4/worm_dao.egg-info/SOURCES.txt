@@ -1,0 +1,17 @@
+setup.py
+worm/__init__.py
+worm/mapper.py
+worm/persistence.py
+worm/query.py
+worm/adapters/__init__.py
+worm/adapters/csv.py
+worm/adapters/genericsql.py
+worm/engines/__init__.py
+worm/engines/csv.py
+worm/engines/psycopg2.py
+worm/engines/sqlite3.py
+worm_dao.egg-info/PKG-INFO
+worm_dao.egg-info/SOURCES.txt
+worm_dao.egg-info/dependency_links.txt
+worm_dao.egg-info/top_level.txt
+worm_dao.egg-info/zip-safe
