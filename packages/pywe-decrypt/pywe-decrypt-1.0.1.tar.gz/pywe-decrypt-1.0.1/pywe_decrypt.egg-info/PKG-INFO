@@ -1,0 +1,50 @@
+Metadata-Version: 1.1
+Name: pywe-decrypt
+Version: 1.0.1
+Summary: Wechat Decrypt Module for Python for MiniApp.
+Home-page: https://github.com/sdkwe/pywe-decrypt
+Author: Hackathon
+Author-email: kimi.huang@brightcells.com
+License: UNKNOWN
+Description: ============
+        pywe-decrypt
+        ============
+        
+        Wechat Decrypt Module for Python for MiniApp.
+        
+        Installation
+        ============
+        
+        ::
+        
+            pip install pywe-decrypt
+        
+        
+        Usage
+        =====
+        
+        ::
+        
+            from pywe_decrypt import decrypt
+        
+        
+        Method
+        ======
+        
+        ::
+        
+            def decrypt(appId, sessionKey=None, encryptedData=None, iv=None):
+        
+        
+Keywords: Wechat Weixin Decrypt MiniApp
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
