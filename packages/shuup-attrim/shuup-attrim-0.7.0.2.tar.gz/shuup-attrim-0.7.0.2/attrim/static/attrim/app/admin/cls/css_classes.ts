@@ -1,0 +1,5 @@
+export const formset_form      = 'formset-form'
+export const field_value       = 'option-field-value'
+export const field_order       = 'option-field-order'
+export const field_delete      = 'option-field-delete'
+export const field_lang_switch = 'option-field-lang-switch'
