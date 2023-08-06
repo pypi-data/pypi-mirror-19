@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: seed-message-sender
+Version: 0.9.2
+Summary: Seed Message Sender mircoservice
+Home-page: http://github.com/praekelt/seed-message-sender
+Author: Praekelt.org
+Author-email: dev@praekelt.org
+License: BSD
+Description: ===================
+        Seed Message Sender
+        ===================
+        
+        Sends and receives messages between seed services and Vumi HTTP API
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Django
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
