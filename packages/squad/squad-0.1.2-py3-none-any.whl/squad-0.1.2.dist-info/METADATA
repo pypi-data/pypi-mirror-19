@@ -1,0 +1,18 @@
+Metadata-Version: 2.0
+Name: squad
+Version: 0.1.2
+Summary: Software Quality Dashboard
+Home-page: https://github.com/Linaro/squad
+Author: Antonio Terceiro
+Author-email: antonio.terceiro@linaro.org
+License: GPLv3+
+Platform: any
+Requires-Dist: Django (>=1.10)
+Requires-Dist: gunicorn
+Requires-Dist: python-dateutil
+Requires-Dist: sqlparse
+Requires-Dist: whitenoise
+
+Software Quality Dashboard
+
+
