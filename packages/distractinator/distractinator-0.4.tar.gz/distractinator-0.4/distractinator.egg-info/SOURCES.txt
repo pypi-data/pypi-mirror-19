@@ -1,0 +1,14 @@
+setup.py
+distractinator/Distractinator.py
+distractinator/__init__.py
+distractinator/events.py
+distractinator/hardware.py
+distractinator.egg-info/PKG-INFO
+distractinator.egg-info/SOURCES.txt
+distractinator.egg-info/dependency_links.txt
+distractinator.egg-info/entry_points.txt
+distractinator.egg-info/not-zip-safe
+distractinator.egg-info/requires.txt
+distractinator.egg-info/top_level.txt
+distractinator/examples/.distractinator.conf
+distractinator/examples/customevents.py
