@@ -1,0 +1,12 @@
+v0.2.5 - 2014-11-09
+- added workaround for redirect problems within the Picflash API
+- small Exception handling improvments
+
+v0.2.4 - 2014-09-27
+- Fixed json output
+
+v0.2.3 - 2014-09-11
+-Implemented workaround for piclfash unicode problems
+
+v0.2.1 - 2014-09-09
+-Added setup.py pypi classefiers
