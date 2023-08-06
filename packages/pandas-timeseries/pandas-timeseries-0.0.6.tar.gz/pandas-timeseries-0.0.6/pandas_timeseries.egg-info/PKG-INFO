@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: pandas-timeseries
+Version: 0.0.6
+Summary: Time series for dealing with window/point data sources, which has interpolation midful of gaps
+Home-page: https://github.com/sealevelresearch/timeseries
+Author: Peter Brooks
+Author-email: peter@sealevelresearch.com
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Scientific/Engineering
