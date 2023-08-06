@@ -1,0 +1,6 @@
+click>=6.0
+Jinja2>=2.8
+PyYAML>=3.12
+
+[:python_version < '3.0']
+chainmap>=1.0.2

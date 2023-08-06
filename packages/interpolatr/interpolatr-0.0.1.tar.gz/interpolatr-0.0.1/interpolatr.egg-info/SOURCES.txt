@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+interpolatr/__init__.py
+interpolatr/compat.py
+interpolatr/config.py
+interpolatr/sink.py
+interpolatr/util.py
+interpolatr.egg-info/PKG-INFO
+interpolatr.egg-info/SOURCES.txt
+interpolatr.egg-info/dependency_links.txt
+interpolatr.egg-info/not-zip-safe
+interpolatr.egg-info/requires.txt
+interpolatr.egg-info/top_level.txt
+scripts/interpolatr
